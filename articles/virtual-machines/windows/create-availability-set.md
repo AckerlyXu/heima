@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 02/06/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Increase VM availability by creating an Azure availability set 
@@ -27,9 +27,9 @@ Availability sets provide redundancy to your application. We recommend that you 
 > VMs must be created in the same resource group as the availability set.
 > 
 
-If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. If your VM will be using Managed Disks, the availability set must be created as a managed availability set.
+If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. Currently, in Azure China, you can not create managed availability set through Azure portal.
 
-For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about creating and using availability sets, see [Manage the availability of virtual machines](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Use the portal to create an availability set before creating your VMs
 1. In the hub menu, click **Browse** and select **Availability sets**.
@@ -40,18 +40,17 @@ For more information about creating and using availability sets, see [Manage the
 
     ![Screenshot that shows the information you need to enter to create the availability set.](./media/create-availability-set/create-availability-set.png)
 
-    * **Name** - the name should be 1-80 characters made up of numbers, letters, periods, underscores and dashes. The first character must be a letter or number. The last character must be a letter, number or underscore.
-    * **Fault domains** - fault domains define the group of virtual machines that share a common power source and network switch. By default, the VMs  are separated across up to three fault domains and can be changed to between 1 and 3.
-    * **Update domains** -  five update domains are assigned by default and this can be set to between 1 and 20. Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. For example, if we specify five update domains, when more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same update domain as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of the reboots may not be sequential, but only one update domain will be rebooted at a time.
-    * **Subscription** - select the subscription to use if you have more than one.
-    * **Resource group** - select an existing resource group by clicking the arrow and selecting a resource group from the drop down. You can also create a new resource group by typing in a name. The name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period. All of the VMs in the availability group need to be created in the same resource group as the availability set.
-    * **Location** - select a location from the drop-down.
-    * **Managed** - select *Yes* to create a managed availability set to use with VMs that use Managed Disks for storage. Select **No** if the VMs that will be in the set use unmanaged disks in a storage account.
+   * **Name** - the name should be 1-80 characters made up of numbers, letters, periods, underscores and dashes. The first character must be a letter or number. The last character must be a letter, number or underscore.
+   * **Fault domains** - fault domains define the group of virtual machines that share a common power source and network switch. By default, the VMs  are separated across up to three fault domains and can be changed to between 1 and 3.
+   * **Update domains** -  five update domains are assigned by default and this can be set to between 1 and 20. Update domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. For example, if we specify five update domains, when more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same update domain as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of the reboots may not be sequential, but only one update domain will be rebooted at a time.
+   * **Subscription** - select the subscription to use if you have more than one.
+   * **Resource group** - select an existing resource group by clicking the arrow and selecting a resource group from the drop down. You can also create a new resource group by typing in a name. The name can contain any of the following characters: letters, numbers, periods, dashes, underscores and opening or closing parenthesis. The name cannot end in a period. All of the VMs in the availability group need to be created in the same resource group as the availability set.
+   * **Location** - select a location from the drop-down.
 
 4. When you are done entering the information, click **Create**. 
 
 ## Use the portal to create a virtual machine and an availability set at the same time
-If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set. If you choose to use Managed Disks for your VM, a managed availability set will be created.
+If you are creating a new VM using the portal, you can also create a new availability set for the VM while you create the first VM in the set.
 
 ![Screenshot that shows the process for creating a new availability set while you create the VM.](./media/create-availability-set/new-vm-avail-set.png)
 
@@ -90,4 +89,4 @@ For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.co
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Add additional storage to your VM by adding an additional [data disk](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

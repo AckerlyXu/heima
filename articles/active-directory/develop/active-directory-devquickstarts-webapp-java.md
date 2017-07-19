@@ -3,7 +3,7 @@ title: Azure AD Java web app Getting Started | Azure
 description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
-author: xerners
+author: alexchen2016
 manager: mbaldwin
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
-wacn.date: ''
-ms.author: brandwe
+origin.date: 02/01/2017
+ms.date: 03/13/2017
+ms.author: v-junlch
 ---
 
 # Java web app sign-in and sign-out with Azure AD

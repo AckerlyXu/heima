@@ -3,8 +3,8 @@ title: Azure SQL Data Warehouse backups - snapshots, geo-redundant | Azure
 description: Learn about SQL Data Warehouse built-in database backups that enable you to restore an Azure SQL Data Warehouse to a restore point or a different geographical region.
 services: sql-data-warehouse
 documentationcenter: ''
-author: lakshmi1812
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.custom: backup-restore
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: lakshmir;barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
+
 ---
 # SQL Data Warehouse backups
 SQL Data Warehouse offers both local and geographical backups as part of its data warehouse backup capabilities. These include Azure Storage Blob snapshots and geo-redundant storage. Use data warehouse backups to restore your data warehouse to a restore point in the primary region, or restore to a different geographical region. This article explains the specifics of backups in SQL Data Warehouse.
@@ -43,7 +44,6 @@ To learn more about:
 
 ## Geo-redundant backups
 Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS). 
-<!-- Not Available on [paired data center](../best-practices-availability-paired-regions.md). -->
 
 This feature is on by default. If you don't want to use geo-redundant backups, you can [opt out] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 

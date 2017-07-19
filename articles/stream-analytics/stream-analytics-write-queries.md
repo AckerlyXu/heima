@@ -4,8 +4,8 @@ description: Write queries in Stream Analytics and query data | learning path se
 keywords: how to write queries, query data, write a query, writing queries
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 0e9cdadd-0ee0-4bee-b65b-4a06fb863c95
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # How to write queries in Stream Analytics
@@ -41,7 +41,7 @@ Writing queries for stream processing logic in Azure Stream Analytics is impleme
 You can test that your query behaves as expected by running it in the browser over one or more local JSON files containing test data. This will not start the job or have any billing implications.
 
 > [!NOTE]
-> Currently in-browser query testing is not supported in the Azure Portal Preview.  
+> Currently in-browser query testing is not supported in the Azure Portal.  
 > 
 > 
 

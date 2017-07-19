@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/03/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Use MapReduce in Hadoop on HDInsight
@@ -32,7 +32,7 @@ Learn how to run MapReduce jobs on HDInsight clusters. Use the following table t
 | [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 and 3.3) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="whatis"></a>What is MapReduce
 
@@ -171,7 +171,7 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="nextsteps"></a>Next steps
 

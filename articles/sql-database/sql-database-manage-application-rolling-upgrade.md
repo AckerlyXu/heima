@@ -3,40 +3,41 @@ title: Cloud disaster recovery solutions - SQL Database Active Geo-Replication |
 description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
 services: sql-database
 documentationCenter: ''
-authors: anosov1960
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: monicar
 
 ms.service: sql-database
-ms.date: 07/16/2016
-wacn.date: 05/23/2016
+ms.topic: article
+origin.date: 07/16/2016
+ms.date: 07/03/2017
+ms.author: v-johch
 ---
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
 
 > [!NOTE]
-> [Active Geo-Replication](./sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
+> [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
 
-Learn how to use [geo-replication](./sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
+Learn how to use [geo-replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end-user experience. 
 
 When evaluating the upgrade options you should consider the following factors:
 
-+ Impact on application availability during upgrades. How long the application function may be limited or degraded.
-+ Ability to roll back in case of an upgrade failure.
-+ Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
-+ Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
+* Impact on application availability during upgrades. How long the application function may be limited or degraded.
+* Ability to roll back in case of an upgrade failure.
+* Vulnerability of the application if an unrelated catastrophic failure occurs during the upgrade.
+* Total dollar cost.  This includes additional redundancy and incremental costs of the temporary components  used by the upgrade process. 
 
-## Upgrading applications that rely on database backups for disaster recovery 
+## Upgrading applications that rely on database backups for disaster recovery
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.chinacloudsites.cn</i> represents a production slot of the application that needs to be upgraded. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
 
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (WATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint <i>contoso-1.chinacloudsites.cn</i> represents a production slot of the application that needs to be upgraded. To enable the ability to rollback the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
-
-1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-3.  Create a failover profile in WATM with <i>contoso-1.chinacloudsites.cn</i> as online endpoint and <i>contoso-2.chinacloudsites.cn</i> as offline. 
+1. Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy an identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
+2. Create a failover profile in WATM with <i>contoso-1.chinacloudsites.cn</i> as online endpoint and <i>contoso-2.chinacloudsites.cn</i> as offline. 
 
 > [!NOTE]
 > Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
 
@@ -44,16 +45,16 @@ Once the preparation steps are completed the application is ready for the actual
 2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
 3. Turn the primary database to read-write mode and run the upgrade script in the stage slot  (5).     
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
-1. Switch the online endpoint in the WATM profile to <i>contoso-2.chinacloudsites.cn</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
+1. Switch the online endpoint in the WATM profile to <i>contoso-2.chinacloudsites.cn</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end-user traffic is directed to it.  
 2. If you no longer need the V1 application components so you can safely remove them (7).   
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
+If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To roll back the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
 1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
 2. Perform the root cause analysis and remove the compromised components in the stage slot (9). 
@@ -63,9 +64,9 @@ At this point the application is fully functional and the upgrade steps can be r
 > [!NOTE]
 > The rollback does not require changes in WATM profile as it already points to <i>contoso-1.chinacloudsites.cn</i> as the active endpoint.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
+The key **advantage** of this option is that you can upgrade an application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
 
 ## Upgrading applications that rely on database Geo-Replication for disaster recovery
 

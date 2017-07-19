@@ -9,8 +9,10 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-network
-ms.date: 02/11/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 02/11/2016
+ms.date: 05/30/2016
+ms.author: v-junlch
 ---
 
 # Azure Deployment Models
@@ -29,7 +31,7 @@ The documentation for each Azure resource details which service models it can be
 
 It matters for the following reasons:
 
-- The Azure platform features that you use are different across these two models.  For example, resources created using the Resource Manager deployment model (or just Resource Manager) can be created with [Azure Resource Manager templates](./azure-resource-manager/resource-group-overview.md/#template-deployment), whereas resources created with the Classic deployment model cannot.
+- The Azure platform features that you use are different across these two models.  For example, resources created using the Resource Manager deployment model (or just Resource Manager) can be created with [Azure Resource Manager templates](./azure-resource-manager/resource-group-overview.md#template-deployment), whereas resources created with the Classic deployment model cannot.
 - The individual Azure resource features or behaviors can be different across the two models, or only exist in one model or the other.  For example, load balancing traffic across virtual machines created with the Classic deployment model is *implicit* because virtual machines are members of an Azure Cloud Service, and load is automatically balanced across virtual machines within a cloud service. Virtual machines created using Resource Manager are not members of a cloud service, and a separate Azure Load Balancer resource must be *explicitly* created to load balance traffic across multiple virtual machines.  
 - How you create, configure, and manage your Azure resources is different between these two models.
 - Resources created using one deployment model can't necessarily interoperate with resources created using a different deployment model. For example, Azure Virtual Machines created using one deployment model can only be connected to Azure Virtual Networks created using the same deployment model.    
@@ -56,7 +58,7 @@ With [PowerShell](./powershell-install-configure.md) you can use a command line 
 - **PowerShell cmdlets with an Azure Resource Manager template:** You can use PowerShell to create Azure resources using an Azure Resource Manager template. Templates can be saved and versioned. Learn more by reading the [Deploy an application with Azure Resource Manager template](./azure-resource-manager/resource-group-template-deploy.md) article. Several [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) exist for common solutions that can be downloaded and modified too.
 
 ## CLI
-You can create and configure Azure resources from Windows, OS X, or Linux computers using the CLI.  Read the [Install the Azure CLI](/documentation/articles/xplat-cli-install/) article to install the CLI on your operating system of choice. Like PowerShell, there are different commands that must be used depending on whether you're creating resources using [Resource Manager](./azure-resource-manager/xplat-cli-azure-resource-manager.md) or the [Classic (Service Management)](./virtual-machines-command-line-tools.md) deployment models.
+You can create and configure Azure resources from Windows, OS X, or Linux computers using the CLI.  Read the [Install the Azure CLI](./xplat-cli-install.md) article to install the CLI on your operating system of choice. Like PowerShell, there are different commands that must be used depending on whether you're creating resources using [Resource Manager](./azure-resource-manager/xplat-cli-azure-resource-manager.md) or the [Classic (Service Management)](./virtual-machines-command-line-tools.md) deployment models.
 
 ## Next steps
 

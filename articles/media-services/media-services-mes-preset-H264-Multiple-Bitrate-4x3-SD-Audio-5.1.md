@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
-wacn.date: ''
-ms.author: juliako
+origin.date: 11/23/2016
+ms.date: 01/13/2017
+ms.author: v-johch
 ---
 
 # H264 Multiple Bitrate 4x3 SD Audio 5.1

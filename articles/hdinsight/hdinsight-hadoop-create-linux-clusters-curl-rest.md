@@ -1,6 +1,6 @@
 ---
-title: Create Azure HDInsight (Hadoop) using cURL and REST | Azure
-description: Learn how to create HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.
+title: Create Hadoop clusters using Azure REST API - Azure | Azure
+description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/17/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
-# Create HDInsight clusters using cURL and the Azure REST API
+# Create Hadoop clusters using the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -29,34 +29,16 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
-## Prerequisites
-
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-* **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-
-* **Azure CLI 2.0** (preview). The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API. For more information on the Azure CLI 2.0 preview, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-
-* **cURL**. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
-
-    > [!NOTE]
-    > If you are using PowerShell to run the commands in this document, you must first remove the `curl` alias that it creates by default. This alias uses Invoke-WebRequest instead of cURL. If you do not remove this alias, you may receive errors with some of the commands used in this document.
-    > <p>
-    > To remove this alias, use the following command from the PowerShell prompt:
-    > <p>
-    > `Remove-item alias:curl`
-    > <p>
-    > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
+> [!NOTE]
+> The steps in this document use the [curl (https://curl.haxx.se/)](https://curl.haxx.se/) utility to communicate with the Azure REST API.
 
 ## Create a template
 
 Azure Resource Manager templates are JSON documents that describe a **resource group** and all resources in it (such as HDInsight.) This template-based approach allows you to define the resources that you need for HDInsight in one template.
 
-The following is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
+The following JSON document is a merger of the template and parameters files from [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), which creates a Linux-based cluster using a password to secure the SSH user account.
 
 ```json
 {
@@ -65,14 +47,6 @@ The following is a merger of the template and parameters files from [https://git
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
             "contentVersion": "1.0.0.0",
             "parameters": {
-                "location": {
-                    "type": "string",
-                    "allowedValues": ["China North",
-                    "China East"],
-                    "metadata": {
-                           "description": "The location where all azure resources are deployed."
-                    }
-                },
                 "clusterType": {
                     "type": "string",
                     "allowedValues": ["hadoop",
@@ -134,7 +108,7 @@ The following is a merger of the template and parameters files from [https://git
             "resources": [{
                 "name": "[parameters('clusterStorageAccountName')]",
                 "type": "Microsoft.Storage/storageAccounts",
-                "location": "[parameters('location')]",
+                "location": "[resourceGroup().location]",
                 "apiVersion": "[variables('defaultApiVersion')]",
                 "dependsOn": [],
                 "tags": {
@@ -147,7 +121,7 @@ The following is a merger of the template and parameters files from [https://git
             {
                 "name": "[parameters('clusterName')]",
                 "type": "Microsoft.HDInsight/clusters",
-                "location": "[parameters('location')]",
+                "location": "[resourceGroup().location]",
                 "apiVersion": "[variables('clusterApiVersion')]",
                 "dependsOn": ["[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"],
                 "tags": {
@@ -213,9 +187,6 @@ The following is a merger of the template and parameters files from [https://git
         },
         "mode": "incremental",
         "Parameters": {
-            "location": {
-                "value": "China North"
-            },
             "clusterName": {
                 "value": "newclustername"
             },
@@ -246,14 +217,14 @@ This example is used in the steps in this document. Replace the example *values*
 
 > [!IMPORTANT]
 > The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14 GB ram.
-> <p>
+>
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
 ## Log in to your Azure subscription
 
-Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
-
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
@@ -262,84 +233,86 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
 1. From a command line, use the following command to list your Azure subscriptions.
 
-    ```bash
-    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
-    ```
+   ```bash
+   az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
+   ```
 
     In the list, select the subscription that you want to use and note the **Subscription_ID** and __Tenant_ID__ columns. Save these values.
 
 2. Use the following command to create an application in Azure Active Directory.
 
-    ```bash
-    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
-    ```
+   ```bash
+   az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
+   ```
 
     Replace the values for the `--display-name`, `--homepage`, and `--identifier-uris` with your own values. Provide a password for the new Active Directory entry.
 
-    > [!NOTE]
-    > The `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet. They must be unique URIs.
+   > [!NOTE]
+   > The `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet. They must be unique URIs.
 
-    The value returned from this command is the __App ID__ for the new application. Save this value.
+   The value returned from this command is the __App ID__ for the new application. Save this value.
 
 3. Use the following command to create a service principal using the **App ID**.
 
-    ```bash
-    az ad sp create --id <App ID> --query 'objectId'
-    ```
+   ```bash
+   az ad sp create --id <App ID> --query 'objectId'
+   ```
 
-    The value returned from this command is the __Object ID__. Save this value.
+     The value returned from this command is the __Object ID__. Save this value.
 
 4. Assign the **Owner** role to the service principal using the **Object ID** value. Use the **subscription ID** you obtained earlier.
 
-    ```bash
-    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
-    ```
+   ```bash
+   az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
+   ```
 
 ## Get an authentication token
 
 Use the following command to retrieve an authentication token:
 
-    curl -X "POST" "https://login.chinacloudapi.cn/TenantID/oauth2/token" \
-    -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    --data-urlencode "client_id=AppID" \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_secret=password" \
-    --data-urlencode "resource=https://management.chinacloudapi.cn/"
+```bash
+curl -X "POST" "https://login.chinacloudapi.cn/$TENANTID/oauth2/token" \
+-H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+--data-urlencode "client_id=$APPID" \
+--data-urlencode "grant_type=client_credentials" \
+--data-urlencode "client_secret=$PASSWORD" \
+--data-urlencode "resource=https://management.chinacloudapi.cn/"
+```
 
-Replace **TenantID**, **AppID**, and **password** with the values obtained or used previously.
+Set `$TENANTID`, `$APPID`, and `$PASSWORD` to the values obtained or used previously.
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document.
 
 The JSON document returned by this request contains an element named **access_token**. The value of **access_token** is used to authentication requests to the REST API.
 
 ```json
-    {
-        "token_type":"Bearer",
-        "expires_in":"3599",
-        "expires_on":"1463409994",
-        "not_before":"1463406094",
-        "resource":"https://management.chinacloudapi.cn/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
-    }
+{
+    "token_type":"Bearer",
+    "expires_in":"3599",
+    "expires_on":"1463409994",
+    "not_before":"1463406094",
+    "resource":"https://management.chinacloudapi.cn/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
+}
 ```
 
 ## Create a resource group
 
 Use the following to create a resource group.
 
-* Replace **SubscriptionID** with the subscription ID received while creating the service principal.
-* Replace **AccessToken** with the access token received in the previous step.
-* Replace **DataCenterLocation** with the data center you wish to create the resource group, and resources, in. For example, 'China East'.
-* Replace **ResourceGroupName** with the name you wish to use for this group:
+* Set `$SUBSCRIPTIONID` to the subscription ID received while creating the service principal.
+* Set `$ACCESSTOKEN` to the access token received in the previous step.
+* Replace `DATACENTERLOCATION` with the data center you wish to create the resource group, and resources, in. For example, 'China East'.
+* Set `$RESOURCEGROUPNAME` to the name you wish to use for this group:
 
-    ```bash
-    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
-        -H "Authorization: Bearer AccessToken" \
-        -H "Content-Type: application/json" \
-        -d $'{
-    "location": "DataCenterLocation"
-    }'
-    ```
+```bash
+curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
+    -H "Authorization: Bearer $ACCESSTOKEN" \
+    -H "Content-Type: application/json" \
+    -d $'{
+"location": "DATACENTERLOCATION"
+}'
+```
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the group. The `"provisioningState"` element contains a value of `"Succeeded"`.
 
@@ -347,41 +320,36 @@ If this request is successful, you receive a 200 series response and the respons
 
 Use the following command to deploy the template to the resource group.
 
-* Replace **SubscriptionID** and **AccessToken** with the values used previously.
-* Replace **ResourceGroupName** with the resource group name you created in the previous section.
-* Replace **DeploymentName** with the name you wish to use for this deployment.
+* Set `$DEPLOYMENTNAME` to the name you wish to use for this deployment.
 
-    ```bash
-    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json" \
-    -d "{set your body string to the template and parameters}"
-    ```
+```bash
+curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
+-H "Authorization: Bearer $ACCESSTOKEN" \
+-H "Content-Type: application/json" \
+-d "{set your body string to the template and parameters}"
+```
 
 > [!NOTE]
-> If you saved the teplate to a file, you can use the following command instead of `-d "{ template and parameters}"`:
-> <p>
+> If you saved the template to a file, you can use the following command instead of `-d "{ template and parameters}"`:
+>
 > `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.
 
 > [!IMPORTANT]
-> The deployment has been submitted, but has not completed at this time. It can take several minutes, usually around 15, for the deployment to complete.
+> The deployment has been submitted, but has not completed. It can take several minutes, usually around 15, for the deployment to complete.
 
 ## Check the status of a deployment
 
 To check the status of the deployment, use the following command:
 
-* Replace **SubscriptionID** and **AccessToken** with the values used previously.
-* Replace **ResourceGroupName** with the resource group name you created in the previous section.
+```bash
+curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
+-H "Authorization: Bearer $ACCESSTOKEN" \
+-H "Content-Type: application/json"
+```
 
-    ```bash
-    curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json"
-    ```
-
-This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
+This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this element contains a value of `"Succeeded"`, then the deployment has completed successfully.
 
 ## Troubleshoot
 

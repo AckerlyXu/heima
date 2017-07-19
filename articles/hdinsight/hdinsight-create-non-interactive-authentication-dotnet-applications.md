@@ -1,5 +1,5 @@
 ---
-title: Create non-interactive authentication .NET HDInsight applciations | Azure
+title: Create non-interactive authentication .NET HDInsight applciations - Azure | Azure
 description: Learn how to create non-interactive authentication .NET HDInsight applications.
 editor: cgronlun
 manager: jhubbard
@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Create non-interactive authentication .NET HDInsight applications
@@ -37,7 +37,7 @@ You must assign the application to a [role](../active-directory/role-based-acces
 
 **To add the Owner role to the Azure AD application**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. Click **Resource Group** from the left pane.
 3. Click the resource group that contains the HDInsight cluster where you will run your Hive query later in this tutorial. If there are too many resource groups, you can use the filter.
 4. Click **Access control (IAM)** from the resource group menu.

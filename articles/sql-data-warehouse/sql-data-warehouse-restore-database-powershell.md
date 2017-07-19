@@ -3,8 +3,8 @@ title: Restore an Azure SQL Data Warehouse  (PowerShell) | Azure
 description: PowerShell tasks for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationCenter: NA
-authors: Lakshmi1812
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: ac62f154-c8b0-4c33-9c42-f480808aa1d2
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: lakshmir;barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Restore an Azure SQL Data Warehouse (PowerShell)
@@ -73,7 +73,7 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -107,10 +107,10 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # Get the deleted database to restore
-$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupNam -ServerName $ServerName -DatabaseName $DatabaseName
+$DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
-$RestoredDatabase = Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $DeletedDatabase.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -140,7 +140,7 @@ To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDa
     $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
     # Recover database
-    $GeoRestoredDatabase = Restore-AzureRmSqlDatabase -FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" -ResourceId $GeoBackup.ResourceID
+    $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
     # Verify that the geo-restored database is online
     $GeoRestoredDatabase.status
@@ -160,7 +160,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-<!-- Not available for support ticket[Request a DTU quota change]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
+<!-- Not available for support ticket[Request a DTU quota change]: sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
@@ -170,7 +170,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt693390.aspx
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/

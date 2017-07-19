@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
-wacn.date: ''
-ms.author: radwiv;chadmat;genli
+origin.date: 04/10/2017
+ms.date: 05/22/2017
+ms.author: v-dazen
 
 ---
 # How to validate VPN throughput to a virtual network
@@ -26,7 +26,7 @@ A VPN gateway connection enables you to establish secure, cross-premises connect
 This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
 
 >[!NOTE]
->This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://www.azure.cn/support/support-azure/).
 >
 >
 
@@ -51,7 +51,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 4.	Determine your Internet Service Provider (ISP) bandwidth.
 5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
 
-If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
+If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
 
 ## Validate network throughput by using performance tools
 
@@ -136,4 +136,4 @@ From the on-premises network, run *tracert* to the VIP of the Azure Gateway or V
 For more information or help, check out the following links:
 
 - [Optimize network throughput for Azure virtual machines](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Microsoft Support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+- [Azure.cn Support](https://www.azure.cn/support/support-azure/)

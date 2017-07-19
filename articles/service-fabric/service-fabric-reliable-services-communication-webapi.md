@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/10/2017
-wacn.date: ''
-ms.author: vturecek
+origin.date: 02/10/2017
+ms.date: 03/03/2017
+ms.author: v-johch
 ---
 
 # Get started: Service Fabric Web API services with OWIN self-hosting

@@ -3,34 +3,33 @@ title: Support matrix for replication to a secondary site with Azure Site Recove
 description: Summarizes the supported operating systems and components for Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
-author: rayne-wiselman
-manager: jwhit
+author: rockboyfor
+manager: digimobile
 editor: ''
 
+ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
-wacn.date: ''
-ms.author: raynew
+origin.date: 05/24/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+
 ---
 
 # Support matrix for replication to a secondary site with Azure Site Recovery
->[!div class="op_single_selector"]
->- [Replicate to Azure](./site-recovery-support-matrix-to-azure.md)
->- [Replicate to an on-premises location](./site-recovery-support-matrix-to-sec-site.md)
 
 This article summarizes what's supported when you use Azure Site Recovery to replicate to a secondary on-premises site.
 
 ## Deployment options
 
-**Deployment** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
---- | --- | --- | ---
-**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br/><br/> Standard Hyper-V Replication only. SAN not supported.
-**Classic portal** | Maintenance mode only. New vaults can't be created. | Not supported | Maintenance mode only
-**PowerShell** | Not supported | Not supported | Supported
+**Deployment** | **VMware/physical server** | **Hyper-V (with/without SCVMM)**
+--- | --- | ---
+**Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (not available in the Azure portal). | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM  <br/><br/> Standard Hyper-V Replication only. SAN not supported.
+**Classic Management Portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only<br></br> Not supported without SCVMM
+**PowerShell** | Not supported | Supported<br></br> Not supported without SCVMM
 
 ## On-premises servers
 
@@ -41,7 +40,7 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 **VMware VM/physical server** | vSphere 6.0, 5.5, or 5.1 with latest update
 **Hyper-V (with VMM)** | VMM 2016 and VMM 2012 R2
 
-  >[!NOTE]
+  > [!NOTE]
   > VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.
 
 ### Host servers
@@ -57,7 +56,7 @@ The following table summarizes operating system support in various deployment sc
 
 **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 or 6.5 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/zh-cn/library/mt126277.aspx)
+64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 or 6.5 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 >[!NOTE]
 >Only Linux machines with the following storage can be replicated:
@@ -117,7 +116,7 @@ Disk > 1 TB | No | Yes
 Volume with striped disk > 1 TB<br/><br/> LVM | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No
-Exclude disk | No | No
+Exclude disk | No | Yes
 Multi-path (MPIO) | N/A | Yes
 
 ## Vaults
@@ -136,4 +135,4 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 
 ## Next steps
 
-Learn about [deployment prerequisites](./site-recovery-prereq.md).
+- [Replicate Hyper-V VMs in VMM clouds to a secondary site](site-recovery-vmm-to-vmm.md)

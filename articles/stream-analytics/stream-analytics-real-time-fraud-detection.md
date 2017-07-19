@@ -4,8 +4,8 @@ description: Learn how to create a real-time fraud detection solution with Strea
 keywords: anomaly detection, fraud detection, real time anomaly detection
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Get started using Azure Stream Analytics: Real-time fraud detection

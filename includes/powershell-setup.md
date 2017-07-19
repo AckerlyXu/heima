@@ -7,8 +7,8 @@ manager: timlt
 editor: tysonn
 
 ms.service: virtual-machines
-ms.date: 05/12/2015
-wacn.date: ''
+origin.date: 05/12/2015
+ms.date: 06/21/2017
 ---
 
 ## Setting up PowerShell

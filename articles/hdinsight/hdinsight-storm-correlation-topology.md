@@ -14,9 +14,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 03/01/2017
+ms.date: 03/31/2017
+ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -34,20 +34,20 @@ In this document, you learn how to create a basic C# Storm topology that tracks 
 
 * Apache Storm on HDInsight cluster (Windows-based).
 
-    > [!IMPORTANT]
-    > While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/28/2016, the HBase SDK for .NET package available as of 10/28/2016 does not work correctly on Linux.
+  > [!IMPORTANT]
+  > While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/28/2016, the HBase SDK for .NET package available as of 10/28/2016 does not work correctly on Linux.
 
 * Apache HBase on HDInsight cluster (Linux or Windows-based).
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
 
-    * The **JAVA_HOME** environment variable must point to the directory that contains Java.
-    * The **%JAVA_HOME%/bin** directory must be in the path
+  * The **JAVA_HOME** environment variable must point to the directory that contains Java.
+  * The **%JAVA_HOME%/bin** directory must be in the path
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## Architecture
 
@@ -74,6 +74,7 @@ When a session starts, a **START** event is received by the topology and logged 
 
 > [!IMPORTANT]
 > While this topology demonstrates the basic pattern, a production solution would need to take design for the following scenarios:
+>
 > * Events arriving out of order
 > * Duplicate events
 > * Dropped events
@@ -98,16 +99,16 @@ In HBase, the data is stored in a table with the following schema/settings:
 
 * Column family: the family name is 'cf'. Columns stored in this family are:
 
-    * event: START or END.
+  * event: START or END.
 
-    * time: the time in milliseconds that the event occurred.
+  * time: the time in milliseconds that the event occurred.
 
-    * duration: the length between START and END event.
+  * duration: the length between START and END event.
 
 * VERSIONS: the 'cf' family is set to retain 5 versions of each row.
 
-    > [!NOTE]
-    > Versions are a log of previous values stored for a specific row key. By default, HBase only returns the value for the most recent version of a row. In this case, the same row is used for all events (START, END.) each version of a row is identified by the timestamp value. Versions provide a historical view of events logged for a specific ID.
+  > [!NOTE]
+  > Versions are a log of previous values stored for a specific row key. By default, HBase only returns the value for the most recent version of a row. In this case, the same row is used for all events (START, END.) each version of a row is identified by the timestamp value. Versions provide a historical view of events logged for a specific ID.
 
 ## Download the project
 
@@ -129,17 +130,17 @@ This download contains the following C# projects:
 
 3. Select **Settings**, then set the following values:
 
-    * HBaseClusterURL: the URL to your HBase cluster. For example, https://myhbasecluster.azurehdinsight.cn.
+   * HBaseClusterURL: the URL to your HBase cluster. For example, https://myhbasecluster.azurehdinsight.cn.
 
-    * HBaseClusterUserName: the admin/HTTP user account for your cluster
+   * HBaseClusterUserName: the admin/HTTP user account for your cluster
 
-    * HBaseClusterPassword: the password for the admin/HTTP user account
+   * HBaseClusterPassword: the password for the admin/HTTP user account
 
-    * HBaseTableName: the name of the table to use with this example
+   * HBaseTableName: the name of the table to use with this example
 
-    * HBaseTableColumnFamily: The column family name
+   * HBaseTableColumnFamily: The column family name
 
-        ![Image of settings dialog](./media/hdinsight-storm-correlation-topology/settings.png)
+     ![Image of settings dialog](./media/hdinsight-storm-correlation-topology/settings.png)
 
 4. Run the solution. When prompted, select the 'c' key to create the table on your HBase cluster.
 
@@ -151,40 +152,41 @@ This download contains the following C# projects:
 
 3. In the properties window, select **Settings** and enter the configuration values for this project. The first 5 are the same values used by the **SessionInfo** project:
 
-    * HBaseClusterURL: the URL to your HBase cluster. For example, https://myhbasecluster.azurehdinsight.cn.
+   * HBaseClusterURL: the URL to your HBase cluster. For example, https://myhbasecluster.azurehdinsight.cn.
 
-    * HBaseClusterUserName: the admin/HTTP user account for your cluster.
+   * HBaseClusterUserName: the admin/HTTP user account for your cluster.
 
-    * HBaseClusterPassword: the password for the admin/HTTP user account.
+   * HBaseClusterPassword: the password for the admin/HTTP user account.
 
-    * HBaseTableName: the name of the table to use with this example. This value is the same table name as used in the SessionInfo project.
+   * HBaseTableName: the name of the table to use with this example. This value is the same table name as used in the SessionInfo project.
 
-    * HBaseTableColumnFamily: The column family name. This value is the same column family name as used in the SessionInfo project.
+   * HBaseTableColumnFamily: The column family name. This value is the same column family name as used in the SessionInfo project.
 
-    > [!IMPORTANT]
-    > Do not change the HBaseTableColumnNames, as the defaults are the names used by **SessionInfo** to retrieve data.
+   > [!IMPORTANT]
+   > Do not change the HBaseTableColumnNames, as the defaults are the names used by **SessionInfo** to retrieve data.
 
 4. Save the properties, then build the project.
 
 5. In **Solution Explorer**, right-click the project and select **Submit to Storm on HDInsight**. If prompted, enter the credentials for your Azure subscription.
 
-    ![Image of the submit to storm menu item](./media/hdinsight-storm-correlation-topology/submittostorm.png)
+   ![Image of the submit to storm menu item](./media/hdinsight-storm-correlation-topology/submittostorm.png)
 
 6. In the **Submit Topology** dialog, select the Storm cluster you want to deploy this topology to.
 
-    > [!NOTE]
-    > The first time you submit a topology, it may take a few seconds to retrieve the name of your HDInsight clusters.
+   > [!NOTE]
+   > The first time you submit a topology, it may take a few seconds to retrieve the name of your HDInsight clusters.
 
 7. Once the topology has been uploaded and submitted to the cluster, the **Storm Topology View** opens and displays the running topology. To refresh the data, select the **CorrelationTopology** and use the refresh button at the top right of the page.
 
-    ![Image of the topology view](./media/hdinsight-storm-correlation-topology/topologyview.png)
+   ![Image of the topology view](./media/hdinsight-storm-correlation-topology/topologyview.png)
 
-    When the topology begins generating data, the value in the **Emitted** column increments.
+   When the topology begins generating data, the value in the **Emitted** column increments.
 
-    > [!NOTE]
-    > If the **Storm Topology View** does not open automatically, use the following steps to open it:
-    > 1. In **Solution Explorer**, expand **Azure**, and then expand **HDInsight**.
-    > 2. Right-click the Storm cluster that the topology is running on, and then select **View Storm Topologies**
+   > [!NOTE]
+   > If the **Storm Topology View** does not open automatically, use the following steps to open it:
+   >
+   > 1. In **Solution Explorer**, expand **Azure**, and then expand **HDInsight**.
+   > 2. Right-click the Storm cluster that the topology is running on, and then select **View Storm Topologies**
 
 ## Query the data
 

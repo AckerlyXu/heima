@@ -15,9 +15,9 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-wacn.date: ''
-ms.author: rasquill
+origin.date: 02/02/2017
+ms.date: 03/20/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Add a disk to a Linux VM
@@ -25,6 +25,8 @@ This article shows how to attach a persistent disk to your VM so that you can pr
 
 ## Quick Commands
 The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 To use managed disks:
 
@@ -92,7 +94,7 @@ The output looks something like the following (you can use the `-o table` option
 
 ## Attach an unmanaged disk
 
-Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `azure vm disk attach-new` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
+Attaching a new disk is quick if you do not mind creating a disk in the same storage account as your VM. Type `az vm unmanaged-disk attach` to create and attach a new GB disk for your VM. If you do not explicitly identify a storage account, any disk you create is placed in the same storage account where your OS disk resides. The following example attaches a `50`GB disk to the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
@@ -101,7 +103,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## Connect to the Linux VM to mount the new disk
 > [!NOTE]
-> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 
@@ -336,5 +338,5 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 ## Next Steps
 * Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
-* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) recommendations.
-* Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.
+* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) recommendations.
+* Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.

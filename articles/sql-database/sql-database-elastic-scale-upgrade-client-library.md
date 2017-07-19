@@ -1,20 +1,21 @@
 ---
-title: Upgrade to the latest elastic database client library | Microsoft Docs
+title: Upgrade to the latest elastic database client library | Azure
 description: Upgrade apps and libraries using Nuget
 services: sql-database
 documentationcenter: ''
-manager: jhubbard
-author: ddove
+manager: digimobile
+author: Hayley244
 
 ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
-ms.author: ddove
+origin.date: 03/06/2017
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
 # Upgrade an app to use the latest elastic database client library
@@ -24,7 +25,7 @@ New versions of the [Elastic Database client library](sql-database-elastic-datab
 
 Rebuild your application with the new library, as well as change your existing Shard Map Manager metadata stored in your Azure SQL Databases to support new features.
 
-Performing these steps in order ensures that old versions of the client library are no longer present in your environment when metadata objects are updated, which means that old-version metadata objects won’t be created after upgrade.   
+Performing these steps in order ensures that old versions of the client library are no longer present in your environment when metadata objects are updated, which means that old-version metadata objects won't be created after upgrade.   
 
 ## Upgrade steps
 **1. Upgrade your applications.** In Visual Studio, download and reference the latest client library version into all of your development projects that use the library; then rebuild and deploy. 
@@ -49,7 +50,7 @@ Performing these steps in order ensures that old versions of the client library 
 3. Navigate to the subfolder containing the new client DLL version you have just downloaded, for example:
    `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Download the elastic database client upgrade scriptlet from the [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9), and save it into the same folder containing the DLL.
-5. From that folder, run “PowerShell .\upgrade.ps1” from the command prompt and follow the prompts.
+5. From that folder, run "PowerShell .\upgrade.ps1" from the command prompt and follow the prompts.
 
 ***Option 2: Upgrade metadata using C#***
 
@@ -79,4 +80,3 @@ For version history, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](htt
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-

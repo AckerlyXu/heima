@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
-ms.author: robmcm
+origin.date: 04/25/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Add a Java application to Azure App Service Web Apps
@@ -29,7 +29,9 @@ Note that you can use source control to upload your application or web pages, in
 
 Note for Tomcat web apps: Once you've uploaded your WAR file to the **webapps** folder, the Tomcat application server will detect that you've added it and will automatically load it. Note that if you copy files (other than WAR files) to the ROOT directory, the application server will need to be restarted before those files are used. The autoload functionality for the Tomcat Java web apps running on Azure is based on a new WAR file being added, or new files or directories added to the **webapps** folder. 
 
-## <a name="see-also"></a> See Also
+<a name="see-also"></a>
+
+## See Also
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->

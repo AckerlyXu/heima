@@ -34,7 +34,6 @@
 ### [Import your data](documentdb-import-data.md)
 ### [Model your data](documentdb-modeling-data.md)
 ### [Use geospatial data](documentdb-geospatial.md)
-### [Develop for multi-regions](documentdb-developing-with-multiple-regions.md)
 ### [Expire data automatically](documentdb-time-to-live.md)
 ### [Customize your indexes](documentdb-indexing-policies.md)
 ### [Secure access to data](documentdb-secure-access-to-data.md)
@@ -46,7 +45,6 @@
 #### [Add or remove regions](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
-### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
@@ -57,7 +55,7 @@
 
 ## Use DocumentDB Support for MongoDB
 ### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
-### [Create account](documentdb-create-mongodb-account.md)
+### [Create account](documentdb-create-account.md)
 ### [Connect to your account](documentdb-connect-mongodb-account.md)
 ### [Migrate your data](documentdb-mongodb-migrate.md)
 ### [Use Robomongo](documentdb-mongodb-robomongo.md)
@@ -67,7 +65,6 @@
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)
 ### [Create a collection](documentdb-create-collection.md)
-### [Add global replication](documentdb-portal-global-replication.md)
 ### [Add and edit documents](documentdb-view-json-document-explorer.md)
 ### [Query documents](documentdb-query-collections-query-explorer.md)
 ### [Manage an account](documentdb-manage-account.md)
@@ -90,8 +87,8 @@
 ## [.NET Core](documentdb-sdk-dotnet-core.md)
 ## [Node.js](documentdb-sdk-node.md)
 ## [Python](documentdb-sdk-python.md)
-## [REST](/rest/api/documentdb/)
-## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+## [REST](https://docs.microsoft.com/rest/api/documentdb/)
+## [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 
 # Related
 ## [.NET samples](documentdb-dotnet-samples.md)
@@ -101,7 +98,7 @@
 ## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
+## [Pricing](https://www.azure.cn/pricing/details/documentdb/)
 ## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)

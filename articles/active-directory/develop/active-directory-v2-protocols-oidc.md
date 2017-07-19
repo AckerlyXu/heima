@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 02/08/2017
+ms.date: 03/13/2017
+ms.author: v-junlch
 ---
 
 # Azure Active Directory v2.0 and the OpenID Connect protocol
@@ -99,7 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | tenant |Required |You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](./active-directory-v2-protocols.md#endpoints). |
-| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) assigned to your app. |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com) assigned to your app. |
 | response_type |Required |Must include `id_token` for OpenID Connect sign-in. It might also include other `response_types` values, such as `code`. |
 | redirect_uri |Recommended |The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. |
 | scope |Required |A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI. You might also include other scopes in this request for requesting consent. |

@@ -1,5 +1,5 @@
 ---
-title: Use DataFu with Pig on HDInsight
+title: Use DataFu with Pig on HDInsight - Azure | Azure
 description: DataFu is a collection of libraries for use with Hadoop. Learn how you can use DataFu with Pig on your HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/04/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/04/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Use DataFu with pig on HDInsight
@@ -29,8 +29,8 @@ Learn how to use DataFu with HDInsight. DataFu is a collection of Open Source li
 
 * An Azure HDInsight cluster (Linux or Windows based)
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
 
@@ -40,7 +40,7 @@ Learn how to use DataFu with HDInsight. DataFu is a collection of Open Source li
 
 > [!NOTE]
 > DataFu is installed on Linux-based clusters version 3.3 and higher, and on Windows-based clusters. It is not installed on Linux-based clusters earlier than 3.3.
-> <p>
+>
 > If you are using a Linux-based cluster version 3.3 or higher, or a Windows-based cluster, you can skip this section.
 
 DataFu can be downloaded and installed from the Maven repository. Use the following steps to add DataFu to your HDInsight cluster:
@@ -68,9 +68,9 @@ The steps in this section assume that you are familiar with using Pig on HDInsig
 
 > [!IMPORTANT]
 > When using DataFu from Pig on a Linux-based HDInsight cluster, you must first register the jar file.
-> <p>
+>
 > If your cluster uses Azure Storage, use a `wasb://` path. For example, `register wasb:///example/jars/datafu-1.2.0.jar`.
-> <p>
+>
 > DataFu is registered by default on Windows-based HDInsight clusters.
 
 You often define an alias for DataFu functions. For example:

@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
-wacn.date: ''
-ms.author: kgremban
+origin.date: 03/15/2017
+ms.date: 05/15/2017
+ms.author: v-junlch
 ms.custom: end-user
 ---
 # Having trouble with two-step verification

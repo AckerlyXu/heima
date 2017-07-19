@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/07/2017
+ms.date: 02/07/2017
+ms.author: v-junlch
 ---
 
 # Integrate Azure AD into a Xamarin App

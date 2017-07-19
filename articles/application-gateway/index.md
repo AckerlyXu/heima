@@ -10,9 +10,9 @@ ms.service: application-gateway
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: carolz
+origin.date: 01/23/2017
+ms.date: 06/20/2017
+ms.author: v-dazen
 ---
 # Application Gateway Documentation
 
@@ -48,7 +48,7 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Application Gateway using the Azure portal preview</h3>
+                        <h3>Get Started with Application Gateway using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -90,53 +90,5 @@ Learn how to deploy Application Gateway, an application delivery controller (ADC
             </div>
         </div>
         </a>
-    </li>
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="https://docs.microsoft.com/cli/azure/network/application-gateway">Azure CLI 2.0</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node​.js</a></p>
-                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API Reference</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Classic REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>

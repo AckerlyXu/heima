@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-wacn.date: ''
-ms.author: v-livech
+origin.date: 10/25/2016
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 # Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension with the Azure CLI 1.0
@@ -30,7 +30,7 @@ This article shows you how to use the Azure VMAcesss Extension to check or repai
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands)- our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick commands
 There are two ways to use VMAccess on your Linux VMs:
@@ -260,8 +260,8 @@ azure vm extension set \
 ## Next steps
 Updating Linux using Azure VMAccess Extensions is one method to make changes on a running Linux VM.  You can also use tools like cloud-init and Azure Templates to modify your Linux VM on boot.
 
-[About virtual machine extensions and features](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[About virtual machine extensions and features](../windows/extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Authoring Azure Resource Manager templates with Linux VM extensions](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Authoring Azure Resource Manager templates with Linux VM extensions](../windows/extensions-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

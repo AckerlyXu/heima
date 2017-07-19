@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: marsma
+ms.author: v-johch
 
 ---
 # Monitor a storage account in the Azure portal
 
-[Azure Storage Analytics](./storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal preview](https://portal.azure.cn) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
+[Azure Storage Analytics](./storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure Portal](https://portal.azure.cn) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
 
 > [!NOTE]
-> <p>There are costs associated with examining monitoring data in the Azure portal preview. For more information, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+> There are costs associated with examining monitoring data in the Azure Portal. For more information, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
 >
-> <p>Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
 >
 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Azure Storage](./storage-monitoring-diagnosing-troubleshooting.md).
@@ -32,7 +32,7 @@ ms.author: marsma
 
 ## Configure monitoring for a storage account
 
-1. In the [Azure portal preview](https://portal.azure.cn), select **Storage accounts**, then the storage account name to open the account dashboard.
+1. In the [Azure Portal](https://portal.azure.cn), select **Storage accounts**, then the storage account name to open the account dashboard.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
     ![MonitoringOptions](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
@@ -66,7 +66,7 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
 
 Use the following procedure to choose which storage metrics to view in a metrics chart. 
 
-1. Start by displaying a storage metric chart in the Azure portal preview. You can find charts on the **storage account blade** and in the **Metrics** blade for an individual service (blob, queue, table, file).
+1. Start by displaying a storage metric chart in the Azure Portal. You can find charts on the **storage account blade** and in the **Metrics** blade for an individual service (blob, queue, table, file).
 
    In this example, we work with the following chart that appears on the **storage account blade**:
 
@@ -108,7 +108,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 1. Select a **Resource** (blob, file, queue, table) from the drop-down, and enter a **Name** and **Description** for your new alert rule.
 1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
 1. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-1. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal preview.
+1. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure Portal.
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
@@ -116,7 +116,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 
 You can add Azure Storage metrics charts for any of your storage accounts to your portal dashboard.
 
-1. Select click **Edit dashboard** while viewing your dashboard in the [Azure portal preview](https://portal.azure.cn).
+1. Select click **Edit dashboard** while viewing your dashboard in the [Azure Portal](https://portal.azure.cn).
 1. In the **Tile Gallery**, select **Find tiles by** > **Type**.
 1. Select **Type** > **Storage accounts**.
 1. In **Resources**, select the storage account whose metrics you wish to add to the dashboard.

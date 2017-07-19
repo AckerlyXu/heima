@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
-ms.author: dobett
-
+origin.date: 04/06/2017
+ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 # Manage your IoT Hub device identities in bulk
 
@@ -194,13 +194,13 @@ Take care using the **ImportDevicesAsync** method because in addition to provisi
 
 The **ImportDevicesAsync** method takes two parameters:
 
-* A *string* that contains a URI of an [Azure Storage](../storage/index.md) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-*  A *string* that contains a URI of an [Azure storage](/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
+*  A *string* that contains a URI of an [Azure storage](/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
@@ -403,10 +403,10 @@ In this article, you learned how to perform bulk operations against the identity
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 
 [lnk-metrics]: ./iot-hub-metrics.md
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

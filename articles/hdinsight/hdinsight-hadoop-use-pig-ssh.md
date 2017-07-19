@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with SSH on an HDInsight cluster | Azure
+title: Use Hadoop Pig with SSH on an HDInsight cluster - Azure | Azure
 description: Learn how connect to a Linux-based Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/14/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Run Pig jobs on a Linux-based cluster with the Pig command (SSH)
@@ -27,7 +27,7 @@ ms.author: larryfr
 Learn how to interactively run Pig jobs from an SSH connection to your HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
 > [!IMPORTANT]
-> The steps in this document require a Linux-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require a Linux-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="ssh"></a>Connect with SSH
 
@@ -81,8 +81,8 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
 
         STORE RESULT into '/example/data/pigout';
 
-    > [!NOTE]
-    > The data is stored in the specified directory in files named `part-nnnnn`. If the directory already exists, you receive an error.
+   > [!NOTE]
+   > The data is stored in the specified directory in files named `part-nnnnn`. If the directory already exists, you receive an error.
 
 6. To exit the grunt prompt, enter the following statement:
 

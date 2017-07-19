@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-wacn.date: ''
-ms.author: kasing
+origin.date: 01/24/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager

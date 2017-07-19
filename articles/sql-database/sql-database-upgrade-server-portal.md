@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
-ms.date: 08/08/2016
-wacn.date: 06/02/2016
+ms.topic: article
+origin.date: 08/08/2016
+ms.date: 12/19/2016
+ms.author: v-johch
 ---
 
 # Upgrade to Azure SQL Database V12 using the Azure portal
@@ -105,7 +107,7 @@ Follow the directions in the [Create an elastic database pool](./sql-database-el
 
 After upgrading, actively monitor the database to ensure applications are running at the desired performance, and then optimize settings as required.
 
-In addition to monitoring individual databases, you can monitor elastic database pools [Monitor, manage, and size an elastic database pool with the Azure portal](./sql-database-elastic-pool-manage-portal.md) or with [PowerShell](/documentation/articles/sql-database-elastic-pool-powershell/#monitoring-elastic-databases-and-elastic-database-pools).
+In addition to monitoring individual databases, you can monitor elastic database pools [Monitor, manage, and size an elastic database pool with the Azure portal](./sql-database-elastic-pool-manage-portal.md).
 
 **Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/zh-cn/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
 

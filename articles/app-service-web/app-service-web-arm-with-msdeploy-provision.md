@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2016
-wacn.date: ''
-ms.author: jodehavi
+origin.date: 05/31/2016
+ms.date: 02/21/2017
+ms.author: v-dazen
 
 ---
 # Deploy a web app with MSDeploy, custom hostname and SSL certificate
@@ -28,7 +28,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 ### Create Sample Application
 You will be deploying an ASP.NET web application. The first step is to create a simple web application (or you could choose to use an existing one - in which case you can skip this step).
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 Open Visual Studio 2015 and choose File > New Project. On the dialog that appears choose Web > ASP.NET Web Application. Under Templates choose Web and choose the MVC template. Select *Change authentication type* to *No Authentication*. This is just to make the sample application as simple as possible.
 
@@ -126,7 +126,7 @@ Now you will notice that the MSDeploy resource takes a **packageUri** property w
 
 This **packageUri** takes the storage account uri which points to the storage account where you will upload your package zip to. The Azure Resource Manager will leverage [Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) to pull the package down locally from the storage account when you deploy the template. This process will be automated via a PowerShell script that will upload the package and call the Azure Management API to create the keys required and pass those into the template as parameters (*_artifactsLocation* and *_artifactsLocationSasToken*). You will need to define parameters for the folder and filename the package is uploaded to under the storage container.
 
-Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
+Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](app-service-web-tutorial-custom-domain.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
 
     {
         "apiVersion": "2015-08-01",

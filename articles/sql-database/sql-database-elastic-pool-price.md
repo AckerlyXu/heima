@@ -8,8 +8,10 @@ manager: jhubbard
 editor: ''
 
 ms.service: sql-database
-ms.date: 05/27/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 05/27/2016
+ms.date: 12/26/2016
+ms.author: v-johch
 ---
 
 # Elastic database pool billing and pricing information

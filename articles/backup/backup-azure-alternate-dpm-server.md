@@ -13,9 +13,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-wacn.date: ''
-ms.author: giridham;jimpark;trinadhk;markgal
+origin.date: 11/28/2016
+ms.date: 01/24/2017
+ms.author: v-junlch
 ---
 
 # Recovering data from another Azure Backup Server in the backup vault

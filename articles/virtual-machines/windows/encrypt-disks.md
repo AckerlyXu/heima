@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 04/24/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # How to encrypt virtual disks on a Windows VM
@@ -52,7 +52,7 @@ Supported scenarios and requirements for disk encryption:
 * Enabling encryption on Windows VMs that are configured using Storage Spaces.
 * Disabling encryption on OS and data drives for Windows VMs.
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-* Standard tier VMs, such as A, D, DS, G, and GS series VMs.
+* Standard tier VMs, such as A, D, and DS series VMs.
 
 Disk encryption is not currently supported in the following scenarios:
 

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
-wacn.date: ''
-ms.author: skwan;bryanla
+origin.date: 02/28/2017
+ms.date: 04/17/2017
+ms.author: v-junlch
 ---
 
 # How to get AppSource Certified for Azure Active Directory (AD)
@@ -42,6 +42,6 @@ Please use the Disqus comments section following this article to provide feedbac
 [AAD-Auth-Scenarios-Browser-To-WebApp]:./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]:./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]:./active-directory-developers-guide.md#web-application-quick-start-guides
+[AAD-QuickStart-Web-Apps]:./active-directory-developers-guide.md
 
 <!--Image references-->

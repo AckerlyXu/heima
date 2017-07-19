@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
-ms.date: 06/29/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/29/2016
+ms.date: 01/19/2017
+ms.author: v-junlch
 ---
 
 # How to use Notification Hubs from Python

@@ -14,18 +14,19 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 05/11/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
 
-If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This quick start requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Log in to Azure 
 
@@ -33,7 +34,7 @@ Log in to your Azure subscription with the [az login](https://docs.microsoft.com
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-```azurecli
+```azurecli 
 az login
 ```
 
@@ -43,7 +44,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
-```azurecli
+```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
@@ -53,13 +54,13 @@ Create a VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#crea
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-```azurecli
+```azurecli 
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
 
-```azurecli
+```azurecli 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -108,11 +109,11 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 
 ![NGINX default site](./media/quick-create-cli/nginx.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, you can use the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

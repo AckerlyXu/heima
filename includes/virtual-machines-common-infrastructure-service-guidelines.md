@@ -138,7 +138,7 @@ Operating system disks and data disks have a maximum size of 1023 gigabytes (GB)
 ### Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -169,7 +169,7 @@ Decisions:
 
 Task:
 
-* Create the set of storage accounts using your naming convention. You can use the Azure portal preview, the Azure Classic Management Portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+* Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure Classic Management Portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
 
 ## 4. Cloud services
 Cloud services are a fundamental building block in Azure service management, both for PaaS and IaaS services. For PaaS, cloud services represent an association of roles whose instances can communicate among each other. Cloud services are associated to a public virtual IP (VIP) address and a load balancer, which takes incoming traffic from the Internet and load balances it to the roles configured to receive that traffic.
@@ -257,7 +257,7 @@ Tasks:
 * Define the address space for the virtual network.
 * Define the set of subnets and the address space for each.
 * For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-* Create the virtual network using your naming convention. You can use the Azure portal preview or the Azure Classic Management Portal.
+* Create the virtual network using your naming convention. You can use the Azure portal or the Azure Classic Management Portal.
 
 ## 6. Availability sets
 In Azure PaaS, cloud services contain one or more roles that execute application code. Roles can have one or more virtual machine instances that the fabric automatically provisions. At any given time, Azure might update the instances in these roles, but because they are part of the same role, Azure knows not to update all at the same time to prevent a service outage for the role.
@@ -292,7 +292,7 @@ Decision:
 Tasks:
 
 * Define each virtual machine name using your naming convention.
-* Create your virtual machines with the Azure portal preview, the Azure Classic Management Portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+* Create your virtual machines with the Azure portal, the Azure Classic Management Portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
 
 ## Example of an IT workload: The Contoso financial analysis engine
 The Contoso Corporation has developed a next-generation financial analysis engine with leading-edge proprietary algorithms to aid in futures market trading. They want to make this engine available to its customers as a set of servers in Azure, which consist of:
@@ -336,17 +336,17 @@ Contoso determined that they needed two storage accounts:
 ### A virtual network with subnets
 Because the virtual network does not need ongoing connectivity to the Contoso on-premises network, Contoso decided on a cloud-only virtual network.
 
-They created a cloud-only virtual network with the following settings using the Azure portal preview:
+They created a cloud-only virtual network with the following settings using the Azure portal:
 
 * Name: AZFAE-USE-VN01
 * Location: China East
 * Virtual network address space: 10.0.0.0/8
 * First subnet:
-    * Name: FrontEnd
-    * Address space: 10.0.1.0/24
+  * Name: FrontEnd
+  * Address space: 10.0.1.0/24
 * Second subnet:
-    * Name: BackEnd
-    * Address space: 10.0.2.0/24
+  * Name: BackEnd
+  * Address space: 10.0.2.0/24
 
 ### Availability sets
 To maintain high availability of all four tiers of their financial analysis engine, Contoso decided on four availability sets:
@@ -388,10 +388,8 @@ This configuration incorporates:
 ## Additional resources
 [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
-
-[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)

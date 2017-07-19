@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
-ms.author: ganesr;cherylmc
+origin.date: 03/21/2017
+ms.date: ''
+ms.author: v-yiso
 ---
 # Create and modify an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
@@ -269,11 +270,9 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 
 #### Considerations
 
-- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do this, your update request will fail, and you'll be billed the premium rates.
-
-- You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and you'll be billed the premium rates.
-
-- Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop and won't be reenabled until the number of advertised prefixes goes below 4,000.
+* You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do this, your update request will fail, and you'll be billed the premium rates.
+* You must unlink all virtual networks in other geopolitical regions. If you don't do this, your update request will fail, and you'll be billed the premium rates.
+* Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session will drop and won't be reenabled until the number of advertised prefixes goes below 4,000.
 
 #### Disable the premium add-on
 You can disable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell cmdlet:

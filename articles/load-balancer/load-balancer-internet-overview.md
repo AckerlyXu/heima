@@ -3,8 +3,8 @@ title: Internet facing load balancer overview | Azure
 description: Overview for Internet facing load balancer and its features. How a load balancer works for Azure using virtual machines and cloud services.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-wacn.date: ''
-ms.author: kumud
+origin.date: 10/24/2016
+ms.date: 07/10/2017
+ms.author: v-yeche
 ---
 
 # Internet facing load balancer overview
@@ -26,7 +26,7 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The *servicedefinition.csdef* file contains the endpoint configuration and when you have multiple role instances for a web or worker role deployment, the load balancer will be setup for it. The way to add instances to your cloud deployment is changing the instance count on the service configuration file (.csfg).
 
-The following figure shows a load-balanced endpoint for encrypted web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+The following figure shows a load-balanced endpoint for web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
 
 ![public load balancer example](./media/load-balancer-internet-overview/IC727496.png)
 

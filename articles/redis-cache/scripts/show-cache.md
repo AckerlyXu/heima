@@ -9,14 +9,14 @@ editor:
 tags: azure-service-management
 
 ms.assetid: 155924e6-00d5-4a8c-ba99-5189f300464a
-ms.service: cache-redis
+ms.service: redis-cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 04/14/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 ---
 
 # Get details of an Azure Redis Cache
@@ -24,8 +24,6 @@ ms.author: sdanie
 In this scenario, you learn how to retrieve the details of an Azure Redis Cache instance, including its provisioning status.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Sample script
 

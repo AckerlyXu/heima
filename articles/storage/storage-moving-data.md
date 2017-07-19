@@ -13,9 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
-wacn.date: ''
-ms.author: jarrettr
+origin.date: 01/30/2017
+ms.date: 03/20/2017
+ms.author: v-johch
 ---
 
 # Moving data to and from Azure Storage

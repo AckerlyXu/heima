@@ -3,7 +3,7 @@ title: Manage Azure solutions with PowerShell | Azure
 description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 04/19/2017
+ms.date: 06/05/2017
+ms.author: v-yeche
 ---
 
 # Manage resources with Azure PowerShell and Resource Manager

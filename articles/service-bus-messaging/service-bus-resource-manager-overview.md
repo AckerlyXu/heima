@@ -13,8 +13,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/18/2017
-ms.author: sethm
+origin.date: 04/18/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates
@@ -147,6 +148,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
+For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) topic.
 
 ### Log in to Azure and set the Azure subscription
 From a PowerShell prompt, run the following command:

@@ -1,29 +1,29 @@
 ---
 title: 'Azure Cosmos DB: Build a web app with Xamarin and Facebook auth | Azure'
 description: Presents a .NET code sample you can use to connect to and query Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: mimig
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a web app with .NET, Xamarin, and Facebook authentication
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal preview. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), and the Azure Cosmos DB authorization engine. The todo list web app implements a per-user data pattern that enables users to login using Facebook Auth and manage their own to do items.
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), and the Azure Cosmos DB authorization engine. The todo list web app implements a per-user data pattern that enables users to login using Facebook Auth and manage their own to do items.
 
 ## Prerequisites
 
@@ -33,11 +33,11 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 
 ## Create a database account
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a collection
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Clone the sample application
 
@@ -73,11 +73,11 @@ The authentication and data flow is illustrated in the diagram below.
 
 ## Update your connection string
 
-Now go back to the Azure portal preview to get your connection string information and copy it into the app.
+Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal preview](http://portal.azure.cn/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
+1. In the [Azure portal](http://portal.azure.cn/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the Web.config file in the next step.
 
-    ![View and copy an access key in the Azure portal preview, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-xamarin-dotnet/keys.png)
 
 2. In Visual Studio 2017, open the Web.config file in the azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker folder. 
 
@@ -93,8 +93,8 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Build and deploy the web app
 
-1. In the Azure portal preview, create an App Service website to host the Resource token broker API.
-2. In the Azure portal preview, open the App Settings blade of the Resource token broker API website. Fill in the following app settings:
+1. In the Azure portal, create an App Service website to host the Resource token broker API.
+2. In the Azure portal, open the App Settings blade of the Resource token broker API website. Fill in the following app settings:
 
     * accountUrl - The Azure Cosmos DB account URL from the Keys tab of your Azure Cosmos DB account.
     * accountKey - The Azure Cosmos DB account master key from the Keys tab of your Azure Cosmos DB account.
@@ -103,18 +103,18 @@ You've now updated your app with all the info it needs to communicate with Azure
 3. Publish the ResourceTokenBroker solution to your created website.
 
 4. Open the Xamarin project, and navigate to TodoItemManager.cs. Fill in the values for accountURL, collectionId, databaseId, as well as resourceTokenBrokerURL as the base https url for the resource token broker website.
-<!-- No Available # [How to configure your App Service application to use Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) -->
+<!-- No Available [How to configure your App Service application to use Facebook login](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md) -->
     Run the Xamarin app.
 
-## Review SLAs in the Azure portal preview
+## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal preview with the following steps: 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
 
-1. From the left-hand menu in the Azure portal preview, click **Resource groups** and then click the name of the resource you just created. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you just created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
@@ -122,4 +122,4 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and build and deploy a Xamarin app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB](import-data.md)

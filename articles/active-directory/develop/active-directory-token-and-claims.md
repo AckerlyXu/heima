@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
-wacn.date: ''
-ms.author: mbaldwin
+origin.date: 02/08/2017
+ms.date: 03/13/2017
+ms.author: v-junlch
 ---
 
 # Azure AD token reference

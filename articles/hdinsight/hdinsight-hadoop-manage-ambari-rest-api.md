@@ -1,6 +1,6 @@
 ---
-title: Monitor and manage Azure HDInsight using Ambari REST API | Azure
-description: Learn how to use Ambari to monitor and manage Linux-based HDInsight clusters. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
+title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight | Azure
+description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/16/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Manage HDInsight clusters by using the Ambari REST API
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters that use the Linux operating system, and is used to monitor the cluster and make configuration changes. In this document, you learn the basics of working with the Ambari REST API.
+Learn how to use the Ambari REST API to manage and monitor Hadoop clusters in Azure HDInsight.
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters that use the Linux operating system, and is used to monitor the cluster and make configuration changes.
 
 ## <a id="whatis"></a>What is Ambari
 
@@ -53,15 +53,15 @@ The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehd
 
 > [!IMPORTANT]
 > While the cluster name in the fully qualified domain name (FQDN) part of the URI (CLUSTERNAME.azurehdinsight.cn) is case-insensitive, other occurrences in the URI are case-sensitive. For example, if your cluster is named `MyCluster`, the following are valid URIs:
-> <p> 
+> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-> <p>
+>
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/MyCluster`
-> <p> 
+> 
 > The following URIs return an error because the second occurrence of the name is not the correct case.
-> <p> 
+> 
 > `https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster`
-> <p>
+>
 > `https://MyCluster.azurehdinsight.cn/api/v1/clusters/mycluster`
 
 ### Authentication
@@ -78,6 +78,7 @@ curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/cl
 
 > [!IMPORTANT]
 > The Bash examples in this document make the following assumptions:
+>
 > * The login name for the cluster is the default value of `admin`.
 > * `$PASSWORD` contains the password for the HDInsight login command. You can set this value by using `PASSWORD='mypassword'`.
 > * `$CLUSTERNAME` contains the name of the cluster. You can set this value by using `set CLUSTERNAME='clustername'`
@@ -90,6 +91,7 @@ $resp.Content
 
 > [!IMPORTANT]
 > The PowerShell examples in this document make the following assumptions:
+>
 > * `$creds` is a credential object that contains the admin login and password for the cluster. You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.
 > * `$clusterName` is a string that contains the name of the cluster. You can set this value by using `$clusterName="clustername"`.
 
@@ -202,7 +204,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 > [!IMPORTANT]
 > The IP addresses returned by the examples in this section are not directly accessible over the internet. They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.
-> <p>
+>
 > For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 You must know the FQDN for the host before you can obtain the IP address. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.
@@ -272,23 +274,23 @@ The return value is similar to one of the following examples:
 
     This example returns a JSON document containing the current configuration (identified by the *tag* value) for the components installed on the cluster. The following example is an excerpt from the data returned from a Spark cluster type.
 
-    ```json
-    "spark-metrics-properties" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    },
-    "spark-thrift-fairscheduler" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    },
-    "spark-thrift-sparkconf" : {
-        "tag" : "INITIAL",
-        "user" : "admin",
-        "version" : 1
-    }
-    ```
+   ```json
+   "spark-metrics-properties" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-fairscheduler" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   },
+   "spark-thrift-sparkconf" : {
+       "tag" : "INITIAL",
+       "user" : "admin",
+       "version" : 1
+   }
+   ```
 
 2. Get the configuration for the component that you are interested in. In the following example, replace `INITIAL` with the tag value returned from the previous request.
 
@@ -369,7 +371,7 @@ The return value is similar to one of the following examples:
 
     Finally, the data is saved to the `newconfig.json` document. The document structure should appear similar to the following example:
 
-    ```json
+     ```json
     {
         "Clusters": {
             "desired_config": {
@@ -512,7 +514,6 @@ At this point, if you look at the Ambari web UI, the Spark service indicates tha
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
-
     The service is now using the new configuration.
 
 4. Finally, use the following to turn off maintenance mode.

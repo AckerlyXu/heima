@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
 # Scheduler High-Availability and Reliability
@@ -60,7 +60,7 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal preview](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 

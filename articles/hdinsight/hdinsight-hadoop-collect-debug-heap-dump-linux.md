@@ -1,5 +1,5 @@
 ---
-title: Enable heap dumps for Hadoop services on HDInsight | Azure
+title: Enable heap dumps for Hadoop services on HDInsight - Azure | Azure
 description: Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/14/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Enable heap dumps for Hadoop services on Linux-based HDInsight
@@ -27,7 +27,7 @@ ms.author: larryfr
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are useful for diagnosing problems that occur at run-time.
 
 > [!IMPORTANT]
-> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="whichServices"></a>Services
 
@@ -82,7 +82,7 @@ You can also trigger a script when an **OutOfMemoryError** occurs. For example, 
 
 > [!NOTE]
 > Since Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.
-> <p> 
+> 
 > The script must also be in a location that is accessible by the account the service runs as, and must provide execute permissions. For example, you may wish to store scripts in `/usr/local/bin` and use `chmod go+rx /usr/local/bin/filename.sh` to grant read and execute permissions.
 
 ## Using Ambari
@@ -93,8 +93,8 @@ To modify the configuration for a service, use the following steps:
 
     When prompted, authenticate to the site using the HTTP account name (default: admin) and password for your cluster.
 
-    > [!NOTE]
-    > You may be prompted a second time by Ambari for the user name and password. If so, enter the same account name and password
+   > [!NOTE]
+   > You may be prompted a second time by Ambari for the user name and password. If so, enter the same account name and password
 
 2. Using the list of on the left, select the service area you want to modify. For example, **HDFS**. In the center area, select the **Configs** tab.
 
@@ -108,8 +108,8 @@ To modify the configuration for a service, use the following steps:
 
     ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-    > [!NOTE]
-    > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
+   > [!NOTE]
+   > When enabling heap dumps for the map or reduce child process, look for the fields named **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
 
     Use the **Save** button to save the changes. You can enter a short note describing the changes.
 
@@ -125,7 +125,7 @@ To modify the configuration for a service, use the following steps:
 
     ![Restart All Affected entry](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [!NOTE]
-    > the entries for the **Restart** button may be different for other services.
+   > [!NOTE]
+   > the entries for the **Restart** button may be different for other services.
 
 8. Once the services have been restarted, use the **Service Actions** button to **Turn Off Maintenance Mode**. This Ambari to resume monitoring for alerts for the service.

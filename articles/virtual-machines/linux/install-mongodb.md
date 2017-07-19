@@ -13,9 +13,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/14/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 02/14/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # How to install and configure MongoDB on a Linux VM

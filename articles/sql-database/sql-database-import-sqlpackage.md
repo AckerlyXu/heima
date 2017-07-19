@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/sql-database/sql-database-import
---- 
+redirect_url: /sql-database/sql-database-import
+---

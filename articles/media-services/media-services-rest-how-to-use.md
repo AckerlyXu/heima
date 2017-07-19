@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
-wacn.date: ''
-ms.author: juliako
+origin.date: 11/29/2016
+ms.date: 01/13/2017
+ms.author: v-johch
 ---
 
 # Media Services Operations REST API overview

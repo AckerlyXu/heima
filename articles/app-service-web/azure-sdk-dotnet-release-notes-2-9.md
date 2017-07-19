@@ -12,16 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 02/24/2017
-wacn.date: ''
-ms.author: juliako;mikhegn
+origin.date: 02/24/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 # Azure SDK for .NET 2.9 release notes
 
 This topic includes release notes for versions 2.9 and 2.9.6 of Azure SDK for .NET.
 
-##Azure SDK for .NET 2.9.6 release summary
+## Azure SDK for .NET 2.9.6 release summary
 
 Release date: 11/16/2016
 

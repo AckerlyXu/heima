@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom:
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 03/28/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 
@@ -49,7 +49,7 @@ When disabling rules you can disable an entire rule group, or specific rules und
 
 ## Next steps
 
-Once you configure your disabled rules, learn how to view your WAF logs by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md#diagnostic-logging)
+Once you configure your disabled rules, learn how to view your WAF logs by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md#diagnostic-logs)
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

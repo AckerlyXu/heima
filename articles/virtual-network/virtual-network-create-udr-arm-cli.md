@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2017
-wacn.date: ''
-ms.author: jdial
+origin.date: 03/12/2017
+ms.date: 03/31/2017
+ms.author: v-dazen
 
 ---
 # Create User-Defined Routes (UDR) using the Azure CLI 2.0
@@ -47,6 +47,8 @@ The sample Azure CLI commands below expect a simple environment already created 
 
 ## Create the UDR for the front-end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. Create a route table for the front-end subnet with the [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) command:
 
@@ -100,7 +102,6 @@ To create the route table and route needed for the front end subnet based on the
     "resourceGroup": "testrg"
     }
     ```
-
     Parameters:
 
     * **--route-table-name**. Name of the route table where the route will be added. For our scenario, *UDR-FrontEnd*.
@@ -189,7 +190,7 @@ To create the route table and route needed for the back-end subnet based on the 
 
 To enable IP forwarding in the NIC used by **FW1**, complete the following steps:
 
-1. Run the [az network nic show](https://docs.microsoft.com/cli/az/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
+1. Run the [az network nic show](https://docs.microsoft.com/cli/azure/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
 
     ```azurecli
     az network nic show \

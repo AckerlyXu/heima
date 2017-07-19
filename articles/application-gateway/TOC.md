@@ -8,7 +8,7 @@
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
+## [Service limits](../azure-subscription-service-limits.md?toc=%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
 ## Create an Application Gateway
 ### Public facing
@@ -41,7 +41,7 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
-## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fapplication-gateway%2ftoc.json)
 ## Troubleshoot
 ### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
@@ -52,7 +52,6 @@
 ## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
 # Related
@@ -66,5 +65,5 @@
 ## [Pricing](https://www.azure.cn/pricing/details/application-gateway/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
-## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
+## [Service updates](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)

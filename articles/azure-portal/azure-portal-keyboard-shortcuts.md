@@ -8,8 +8,10 @@ manager: lwelicki
 editor: ''
 
 ms.service: multiple
-ms.date: 02/07/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 02/07/2016
+ms.date: 06/21/2016
+ms.author: v-yiso
 ---
 
 # Azure portal keyboard shortcuts

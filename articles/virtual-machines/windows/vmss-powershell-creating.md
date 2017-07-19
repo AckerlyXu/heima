@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
-wacn.date: ''
-ms.author: danielsollondon
+origin.date: 02/21/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # Creating Virtual Machine Scale Sets using PowerShell cmdlets

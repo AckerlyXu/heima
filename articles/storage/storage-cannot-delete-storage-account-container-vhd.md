@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment| Azure
+title: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment| Microsoft Docs
 description: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment
 services: storage
 documentationcenter: ''
-author: genlin
-manager: felixwu
+author: forester123
+manager: digimobile
 editor: tysonn
 tags: storage
 
@@ -14,17 +14,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-wacn.date: ''
-ms.author: genli
+origin.date: 06/13/2017
+ms.date: 06/26/2017
+ms.author: v-johch
 ---
-
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment
 [!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
 
 You might receive errors when you try to delete the Azure storage account, container, or VHD in the [Azure portal](https://portal.azure.cn/) or the [Azure classic portal](https://manage.windowsazure.cn/). The issues can be caused by the following circumstances:
 
-* When you delete a VM, the disk and VHD are not automatically deleted. That might be the reason for failure on storage account deletion. We don’t delete the disk so that you can use the disk to mount another VM.
+* When you delete a VM, the disk and VHD are not automatically deleted. That might be the reason for failure on storage account deletion. We don't delete the disk so that you can use the disk to mount another VM.
 * There is still a lease on a disk or the blob that's associated with the disk.
 * There is still a VM image that is using a blob, container, or storage account.
 
@@ -66,7 +65,7 @@ After you delete a VM and then try to delete the blobs for the associated VHDs, 
 
 Or
 
-*Blob ‘BlobName.vhd’ is in use as virtual machine disk ‘VirtualMachineDiskName’, so the blob cannot be deleted.*
+*Blob 'BlobName.vhd' is in use as virtual machine disk 'VirtualMachineDiskName', so the blob cannot be deleted.*
 
 ## Solution
 To resolve the most common issues, try the following method:
@@ -101,8 +100,12 @@ To resolve the most common issues, try the following method:
     5. Go to **Virtual Machines** > **Disks**, and wait for the disk to disappear.  It may take a few minutes for this to occur, and you may need to refresh the page.
     6. If the disk does not disappear, wait for the **Attached To** field to turn blank. This indicates the disk has fully detached from the VM.  Then, select the disk, and select **Delete** at the bottom of the page to delete the disk.
 
+
    > [!NOTE]
-   >If a disk is attached to a VM, you will not be able to delete it. Disks are detached from a deleted VM asynchronously. It might take a few minutes after the VM is deleted for this field to clear up.
+   > If a disk is attached to a VM, you will not be able to delete it. Disks are detached from a deleted VM asynchronously. It might take a few minutes after the VM is deleted for this field to clear up.
+   >
+   >
+
 
 ### Step 2: Delete any VM Images that are preventing deletion of the storage account or container
 1. Switch to the [Azure classic portal](https://manage.windowsazure.cn/).
@@ -116,7 +119,7 @@ To resolve the most common issues, try the following method:
 >
 
 ## About the Stopped (deallocated) status
-VMs that were created in the classic deployment model and that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.cn/) or [Azure classic portal](https://manage.windowsazure.cn/).
+VMs that were created in the classic deployment model and that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/).
 
 **Azure classic portal**:
 
@@ -126,8 +129,8 @@ VMs that were created in the classic deployment model and that have been retaine
 
 ![Stopped (deallocated) status for VMs on Azure classic portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
 
-A “Stopped (deallocated)” status releases the computer resources, such as the CPU, memory, and network. The disks, however, are still retained so that you can quickly re-create the VM if necessary. These disks are created on top of VHDs, which are backed by Azure storage. The storage account has these VHDs, and the disks have leases on those VHDs.
+A "Stopped (deallocated)" status releases the computer resources, such as the CPU, memory, and network. The disks, however, are still retained so that you can quickly re-create the VM if necessary. These disks are created on top of VHDs, which are backed by Azure storage. The storage account has these VHDs, and the disks have leases on those VHDs.
 
 ## Next steps
-- [Delete a Storage Account](./storage-create-storage-account.md#delete-a-storage-account)
-- [How to break the locked lease of blob storage in Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+* [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
+* [How to break the locked lease of blob storage in Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

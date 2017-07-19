@@ -1,6 +1,6 @@
 ---
-title: Create a Virtual Machine Scale Set using the Azure portal preview | Azure
-description: Deploy scale sets using Azure portal preview.
+title: Create a Virtual Machine Scale Set using the Azure portal | Azure
+description: Deploy scale sets using Azure portal.
 keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-wacn.date: ''
-ms.author: negat
+origin.date: 05/01/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
-# How to create a Virtual Machine Scale Set with the Azure portal preview
-This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal preview. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
+# How to create a Virtual Machine Scale Set with the Azure portal
+This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
 ## Choose the VM image from the marketplace
 From the portal, you can easily deploy a scale set with CentOS, CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server, or Windows Server images.
 
-First, navigate to the [Azure portal preview](https://portal.azure.cn) in a web browser. Click `New`, search for `scale set`, and then select the `Virtual machine scale set` entry:
+First, navigate to the [Azure portal](https://portal.azure.cn) in a web browser. Click `New`, search for `scale set`, and then select the `Virtual machine scale set` entry:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 

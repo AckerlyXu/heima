@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2016
-wacn.date: ''
-ms.author: kundanap
+origin.date: 09/13/2016
+ms.date: 11/21/2016
+ms.author: v-dazen
 
 ---
 # Linux VM extension configuration samples
 > [!div class="op_single_selector"]
-> * [PowerShell - Template](../windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> * [CLI - Template](../windows/extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [PowerShell - Template](../windows/extensions-configuration-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Template](../windows/extensions-configuration-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -33,9 +33,9 @@ ms.author: kundanap
 
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about these extensions click here : [Azure VM Extensions Overview.](../windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](../windows/extensions-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This article lists expected configuration values for some of the Linux Extensions.
 
@@ -170,6 +170,31 @@ For updated schema refer to the [OSPatching Documentation](https://github.com/Az
               "healthyTestScript": "<path_to_healthytestscript>"
           }
         }
+        }
+
+### Docker Extension
+For updated schema refer to the [Docker Extension Documentation](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema)
+
+        {
+          "publisher": "Microsoft.Azure.Extensions ",
+          "type": "DockerExtension ",
+          "typeHandlerVersion": "1.0",
+          "Settings": {
+            "docker":{
+                "port": "2376",
+                "options": ["-D", "--dns=8.8.8.8"]
+            },
+            "compose": {
+                "cache" : {
+                    "image" : "memcached",
+                    "ports" : ["11211:11211"]
+                },
+                "blog": {
+                    "image": "ghost",
+                    "ports": ["80:2368"]
+                }
+            }
+            }
         }
 
 ### Linux Diagnostics Extension

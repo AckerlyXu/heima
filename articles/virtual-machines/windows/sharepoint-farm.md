@@ -1,6 +1,6 @@
 ---
 title: Create SharePoint server farms in Azure | Azure
-description: Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure using the Azure portal preview marketplace.
+description: Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure using the Azure portal marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
 author: JoeDavies-MSFT
@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-wacn.date: ''
-ms.author: josephd
+origin.date: 09/30/2016
+ms.date: 06/21/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create SharePoint server farms using the Azure portal preview marketplace
+# Create SharePoint server farms using the Azure portal marketplace
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## SharePoint 2013 farms
-With the Azure portal preview marketplace, you can quickly create pre-configured SharePoint Server 2013 farms. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a dev/test environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
+With the Azure portal marketplace, you can quickly create pre-configured SharePoint Server 2013 farms. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a dev/test environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
 > [!NOTE]
-> The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal preview has been removed. It has been replaced with the **SharePoint 2013 non-HA Farm** and **SharePoint 2013 HA Farm** items.
+> The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal has been removed. It has been replaced with the **SharePoint 2013 non-HA Farm** and **SharePoint 2013 HA Farm** items.
 >
 >
 
@@ -63,10 +63,10 @@ To create the high-availability (nine-server) SharePoint farm:
 >
 >
 
-The Azure portal preview creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
+The Azure portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
 
 > [!NOTE]
-> When you create the basic or high-availability SharePoint farms using the Azure portal preview, you cannot specify an existing resource group. To work around this limitation, create these farms with Azure PowerShell. For more information, see [Create SharePoint 2013 dev/test farms with Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
+> When you create the basic or high-availability SharePoint farms using the Azure portal, you cannot specify an existing resource group. To work around this limitation, create these farms with Azure PowerShell. For more information, see [Create SharePoint 2013 dev/test farms with Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
 >
 >
 

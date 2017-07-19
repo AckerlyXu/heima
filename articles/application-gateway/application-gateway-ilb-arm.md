@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 01/23/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Create an application gateway with an internal load balancer (ILB) by using Azure Resource Manager

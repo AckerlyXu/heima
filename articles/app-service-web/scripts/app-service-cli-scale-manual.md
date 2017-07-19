@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: cfowler
+origin.date: 03/20/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Scale a web app manually
@@ -25,11 +26,11 @@ In this scenario you will learn to create a resource group, app service plan and
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables
@@ -43,7 +44,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name AppServiceManualScalePlan --resource-group myResourceGroup --location $location --sku B1
 
 # Add a Web App
-az appservice web create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
+az webapp create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
 
 # Scale Web App to 2 Workers
 az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan --resource-group myResourceGroup
@@ -59,7 +60,7 @@ This script uses the following commands to create a resource group, web app, and
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | Creates an Azure web app within the App Service plan. |
 | [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) | Updates properties of the App Service plan. |
 
 ## Next steps

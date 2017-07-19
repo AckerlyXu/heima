@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: v-johch
 ---
 
 # Using Azure PowerShell with Azure Storage
 ## Overview
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure portal preview](https://portal.azure.cn).
+Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](https://portal.azure.cn).
 
 In this guide, we’ll explore how to use the [Azure Storage Cmdlets](https://msdn.microsoft.com/library/azure/mt269418.aspx) to perform a variety of development and administration tasks with Azure Storage.
 
@@ -106,9 +106,9 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
            Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
         ```
 
-        b. To locate and copy your subscription name in the [Azure portal preview](https://portal.azure.cn), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+        b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.cn), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
 
-         ![Azure portal preview](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
+         ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
 
 	c. To locate and copy your subscription name in the [Azure Classic Management Portal](https://manage.windowsazure.cn/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
 
@@ -772,7 +772,7 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
     ```
 
-* [Overview of Differences When Creating an Application on China Service](https://www.azure.cn/documentation/articles/developerdifferences/)
+* [Overview of Differences When Creating an Application on China Service](/articles/developerdifferences/)
 
 ## Next Steps
 In this guide, you've learned how to manage Azure Storage with Azure PowerShell. Here are some related articles and resources for learning more about them.

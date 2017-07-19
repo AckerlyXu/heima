@@ -13,9 +13,9 @@ ms.workload: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
-ms.author: mmccrory
-
+origin.date: 04/04/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.

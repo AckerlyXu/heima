@@ -14,9 +14,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
-wacn.date: ''
-ms.author: danlep
+origin.date: 04/18/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # Azure CLI commands in Resource Manager mode
@@ -133,6 +133,19 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Sets the Azure CLI working mode to either `arm` or `asm`**
 
     config mode [options] <modename>
+
+## azure feature: commands to manage account features
+**List all features available for your subscription**
+
+    feature list [options]
+
+**Shows a feature**
+
+    feature show [options] <providerName> <featureName>
+
+**Registers a previewed feature of a resource provider**
+
+    feature register [options] <providerName> <featureName>
 
 ## azure group: Commands to manage your resource groups
 **Creates a resource group**
@@ -1751,6 +1764,10 @@ Parameter options:
 
     vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>
     vm extension get [options] <resource-group> <vm-name>
+
+**Commands to manage your Docker Virtual Machine**
+
+    vm docker create [options] <resource-group> <name> <location> <os-type>
 
 **Commands to manage VM images**
 

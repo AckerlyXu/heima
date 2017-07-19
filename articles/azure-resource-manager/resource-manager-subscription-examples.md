@@ -3,7 +3,7 @@ title: Scenarios and examples for subscription governance | Azure
 description: Provides examples of how to implement Azure subscription governance for common scenarios.
 services: azure-resource-manager
 documentationcenter: na
-author: rdendtler
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
-wacn.date: ''
-ms.author: rodend;karlku;tomfitz
+origin.date: 01/03/2017
+ms.date: 03/03/2017
+ms.author: v-yeche
 ---
 
 # Examples of implementing Azure enterprise scaffold

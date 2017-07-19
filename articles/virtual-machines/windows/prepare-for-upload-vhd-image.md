@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
-wacn.date: ''
-ms.author: glimoli;genli
+origin.date: 05/26/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
@@ -43,7 +43,6 @@ The following example shows you how to convert from a VHDX to VHD, and from a dy
 ```powershell
 Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
-
 Replace the values for -Path with the path to the virtual hard disk that you want to convert and -DestinationPath with the new path and name for the converted disk.
 
 ### Convert from VMware VMDK disk format
@@ -55,8 +54,8 @@ On the virtual machine you plan to upload to Azure, run all the following comman
 
 1. Remove any static persistent route on the routing table:
 
-    * To view the route table, run `route print` from the command prompt window.
-    * Check the **Persistence Routes** sections. If there is a persistent route, use route delete to remove it.
+   * To view the route table, run `route print` from the command prompt window.
+   * Check the **Persistence Routes** sections. If there is a persistent route, use route delete to remove it.
 2. Remove the WinHTTP proxy:
 
     ```CMD
@@ -75,7 +74,6 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     ```CMD
     REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
     ```
-
     ```CMD
     sc config w32time start= auto
     ```
@@ -140,11 +138,9 @@ sc config RemoteRegistry start= auto
     ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
     ```
-
     ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
     ```
-
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
     ```
@@ -152,12 +148,10 @@ sc config RemoteRegistry start= auto
 
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
-    ```
-
+   ```
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
-    ```
-
+   ```
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
     ```
@@ -170,85 +164,84 @@ sc config RemoteRegistry start= auto
 ## Configure Windows Firewall rules
 1. Run the following command in PowerShell to allow WinRM through the three firewall profiles (Domain, Private, and Public) and enable PowerShell Remote service:
 
-    ```powershell
-    Enable-PSRemoting -force
-    ```
+   ```powershell
+   Enable-PSRemoting -force
+   ```
 2. Run the following commands in the command prompt window to make sure that the following guest operating system firewall rules are in place:
 
-    * Inbound
+   * Inbound
 
-        ```CMD
-        netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
+   ```CMD
+   netsh advfirewall firewall set rule dir=in name="File and Printer Sharing (Echo Request - ICMPv4-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+   netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
-        ```
+   netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
+   ```
 
-    * Inbound and outbound
+   * Inbound and outbound
 
-        ```CMD
-        netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
+   ```CMD
+   netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
 
-        netsh advfirewall firewall set rule group="Core Networking" new enable=yes
-        ```
+   netsh advfirewall firewall set rule group="Core Networking" new enable=yes
+   ```
 
-    * Outbound
+   * Outbound
 
-        ```CMD
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+   ```CMD
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-        netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
-        ```
+   netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
+   ```
 
 ## Verify VM is healthy, secure, and accessible with RDP 
 1. In the command prompt window, run `winmgmt /verifyrepository` to confirm that the Windows Management Instrumentation (WMI) repository is consistent. If the repository is corrupted, see the blog post [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)
 2. Set the Boot Configuration Data (BCD) settings:
 
-    ```CMD
-    bcdedit /set {bootmgr} integrityservices enable
+   ```CMD
+   bcdedit /set {bootmgr} integrityservices enable
 
-    bcdedit /set {default} device partition=C:
+   bcdedit /set {default} device partition=C:
 
-    bcdedit /set {default} integrityservices enable
+   bcdedit /set {default} integrityservices enable
 
-    bcdedit /set {default} recoveryenabled Off
+   bcdedit /set {default} recoveryenabled Off
 
-    bcdedit /set {default} osdevice partition=C:
+   bcdedit /set {default} osdevice partition=C:
 
-    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
-    ```
-
+   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```
 3. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
 4. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command in the command prompt window. Type "Y" to schedule the check and restart the VM.
 5. Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
@@ -264,20 +257,28 @@ Install the latest updates for Windows. If that's not possible, make sure that t
 * [KB3115224](https://support.microsoft.com/kb/3115224) Reliability improvements for VMs that are running on a Windows Server 2012 R2 or Windows Server 2012 host
 * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
 * [KB3063075](https://support.microsoft.com/kb/3063075) Many ID 129 events are logged when you run a Windows Server 2012 R2 virtual machine in Azure
-* [KB3137061](https://support.microsoft.com/kb/3137061) Azure VMs don't recover from a network outage and data corruption issues occur
 * [KB3114025](https://support.microsoft.com/kb/3114025) Slow performance when you access Azure files storage from Windows 8.1 or Server 2012 R2
 * [KB3033930](https://support.microsoft.com/kb/3033930) Hotfix increases the 64K limit on RIO buffers per process for Azure service in Windows
 * [KB3004545](https://support.microsoft.com/kb/3004545) You cannot access virtual machines that are hosted on Azure hosting services through a VPN connection in Windows
 * [KB3082343](https://support.microsoft.com/kb/3082343) Cross-Premises VPN connectivity is lost when Azure site-to-site VPN tunnels use Windows Server 2012 R2 RRAS
-* [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Security update for Microsoft Windows to address elevation of privilege: March 8, 2016
 * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
 ## Run Sysprep  <a id="step23"></a>    
-If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
+If you want to create an image to deploy to multiple VMs, you need to generalize the image by running Sysprep before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. 
 
-* [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+
+Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+1. Sign in to the Windows virtual machine.
+2. Open the Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
+3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
+4. In **Shutdown Options**, select **Shutdown**.
+5. Click **OK**.
+
+    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
 
 ## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you have them configured.
@@ -303,4 +304,4 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 
 ## Next steps
-* [Upload a Windows VM image to Azure for Resource Manager deployments](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

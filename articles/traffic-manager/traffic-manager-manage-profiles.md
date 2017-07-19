@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 05/10/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 ---
 
 # Manage an Azure Traffic Manager profile
@@ -24,11 +24,11 @@ Traffic Manager profiles use traffic-routing methods to control the distribution
 
 ## Create a Traffic Manager profile
 
-You can create a Traffic Manager profile by using the Azure portal preview. After creating your profile, you can configure endpoints, monitoring, and other settings in the Azure portal preview. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
+You can create a Traffic Manager profile by using the Azure portal. After creating your profile, you can configure endpoints, monitoring, and other settings in the Azure portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
 
 ### To create a Traffic Manager profile
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://www.azure.cn/pricing/1rmb-trial/). 
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial/). 
 2. On the **Hub** menu, click **New** > **Networking** > **See all**, click **Traffic Manager** profile to open the **Create Traffic Manager profile** blade, then click **Create**.
 3. On the **Create Traffic Manager profile** blade, complete as follows:
     1. In **Name**, provide a name for your profile. This name needs to be unique within the trafficmanager.cn zone and results in the DNS name <name>, trafficmanager.cn, that is used to access your Traffic Manager profile.
@@ -41,19 +41,19 @@ You can create a Traffic Manager profile by using the Azure portal preview. Afte
 
 ## Disable, enable, or delete a profile
 
-You can disable an existing profile so that Traffic Manager does not refer user requests to the configured endpoints. When you disable a Traffic Manager profile, the profile and the information contained in the profile remain intact and can be edited in the Traffic Manager interface.  Referrals resume when you re-enable the profile. When you create a Traffic Manager profile in the Azure Classic Management Portal, it's automatically enabled. If you decide a profile is no longer necessary, you can delete it.
+You can disable an existing profile so that Traffic Manager does not refer user requests to the configured endpoints. When you disable a Traffic Manager profile, the profile and the information contained in the profile remain intact and can be edited in the Traffic Manager interface.  Referrals resume when you re-enable the profile. When you create a Traffic Manager profile in the Azure portal, it's automatically enabled. If you decide a profile is no longer necessary, you can delete it.
 
 ### To disable a profile
 
 1. If you are using a custom domain name, change the CNAME record on your Internet DNS server so that it no longer points to your Traffic Manager profile.
 2. Traffic stops being directed to the endpoints through the Traffic Manager profile settings.
-3. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn).
+3. From a browser, sign in to the [Azure portal](http://portal.azure.cn).
 2. In the portal's search bar, search for the **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
 3. In the **Traffic Manager profile** blade, click **Overview**, in the Overview blade click **Disable**, and then confirm to disable the Traffic Manager profile.
 
 ### To enable a profile
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn).
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn).
 2. In the portal's search bar, search for the **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
 3. In the **Traffic Manager profile** blade, click **Overview**, and then in the Overview blade click **Enable**.
 5. If you are using a custom domain name, create a CNAME resource record on your Internet DNS server to point to the domain name of your Traffic Manager profile.
@@ -69,5 +69,6 @@ You can disable an existing profile so that Traffic Manager does not refer user 
 
 * [Add an endpoint](traffic-manager-endpoints.md)
 * [Configure Priority routing method](traffic-manager-configure-priority-routing-method.md)
+* [Configure Geographic routing method](traffic-manager-configure-geographic-routing-method.md) 
 * [Configure Weighted routing method](traffic-manager-configure-weighted-routing-method.md)
-* [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+* [Configure Performance routing method](traffic-manager-configure-performance-routing-method.md)

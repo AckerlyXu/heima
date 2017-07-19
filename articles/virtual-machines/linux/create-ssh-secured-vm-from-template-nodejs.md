@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: v-livech
+origin.date: 05/12/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -27,7 +27,7 @@ This article shows you how to quickly deploy a Linux Virtual Machine using the A
 * the [Azure CLI 1.0](../../cli-install-nodejs.md) logged in with `azure login -e AzureChinaCloud`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
-You can also quickly deploy a Linux VM template by using the [Azure portal preview](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You can also quickly deploy a Linux VM template by using the [Azure portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
@@ -40,7 +40,7 @@ You can complete the task using one of the following CLI versions:
 azure group create \
     -n myResourceGroup \
     -l chinanorth \
-    --template-file /path/to/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 ## Detailed Walkthrough
@@ -58,7 +58,7 @@ The following code example shows how to call `azure group create` to create a re
 azure group create \
     --name myResourceGroup \
     --location chinanorth \
-    --template-file /path/to/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 The output should look like the following output block:
@@ -82,7 +82,7 @@ data:
 info:    group create command OK
 ```
 
-That example deployed a VM using the `--template-file` parameter with a path to the template file as an argument. You can also use `--template-uri` to deploy directly from the github raw file, if you are sure the template is suitable for Azure China. The Azure CLI prompts you for the parameters required by the template.
+That example deployed a VM using the `--template-uri` parameter. You can always use the `--template-uri` parameter, if you are sure the template is suitable for Azure China.  You can also download or create a template locally and pass the template using the `--template-file` parameter with a path to the template file as an argument. The Azure CLI prompts you for the parameters required by the template.
 
 ## Next steps
 Search the [templates gallery](https://github.com/Azure/azure-quickstart-templates/) to discover what app frameworks to deploy next.

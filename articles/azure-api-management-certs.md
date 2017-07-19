@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: na
-ms.date: 04/18/2016
-wa.date: ''
+ms.topic: article
+origin.date: 04/18/2016
+ms.date: 06/13/2016
+ms.author: v-junlch
 ---
 
 # Upload an Azure Management API Management Certificate

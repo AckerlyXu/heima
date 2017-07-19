@@ -3,8 +3,8 @@ title: Create a SQL Data Warehouse with TSQL | Azure
 description: Learn how to create an Azure SQL Data Warehouse with TSQL
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-sql-data-warehouse
 
@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
@@ -79,11 +79,11 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references-->
-[CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[CREATE DATABASE]: https://msdn.microsoft.com/zh-cn/library/mt204021.aspx
+[ALTER DATABASE]: https://msdn.microsoft.com/zh-cn/library/mt204042.aspx
+[SSMS]: https://msdn.microsoft.com/zh-cn/library/mt238290.aspx
 
 <!--Other Web references-->
 [SQL Data Warehouse pricing]: https://www.azure.cn/pricing/details/sql-data-warehouse/
-[Azure Free Trial]: https://www.azure.cn/pricing/1rmb-trial/
-[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Azure Trial]: https://www.azure.cn/pricing/1rmb-trial/
+<!-- Not Available [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F-->

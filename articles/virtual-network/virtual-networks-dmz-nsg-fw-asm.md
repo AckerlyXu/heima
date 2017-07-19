@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2016
-wacn.date: ''
-ms.author: jonor;sivae
+origin.date: 02/01/2016
+ms.date: 12/12/2016
+ms.author: v-dazen
 
 ---
 # Example 2 - Build a DMZ to protect applications with a Firewall and NSGs
@@ -81,7 +81,7 @@ There is a default outbound rule that allows traffic out to the internet. For th
 The above discussed NSG rules are very similar to the NSG rules in [Example 1 - Build a Simple DMZ with NSGs][Example1]. Please review the NSG Description in that document for a detailed look at each NSG rule and it's attributes.
 
 ## Firewall Rules
-A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal preview or PowerShell).
+A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal or PowerShell).
 
 Instructions for client download and connecting to the Barracuda used in this example can be found here: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
@@ -124,19 +124,19 @@ With the activation of the firewall ruleset this example environment build is co
 1. Internet user requests HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Cloud service passes traffic through open endpoint on port 80 to firewall local interface on 10.0.1.4:80
 3. Frontend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to Firewall) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to Firewall) does apply, traffic is allowed, stop rule processing
 4. Traffic hits internal IP address of the firewall (10.0.1.4)
 5. Firewall forwarding rule see this is port 80 traffic, redirects it to the web server IIS01
 6. IIS01 is listening for web traffic, receives this request and starts processing the request
 7. IIS01 asks the SQL Server on AppVM01 for information
 8. No outbound rules on Frontend subnet, traffic is allowed
 9. The Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to Firewall) doesn't apply, move to next rule
-    4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to Firewall) doesn't apply, move to next rule
+   4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
 10. AppVM01 receives the SQL Query and responds
 11. Since there are no outbound rules on the Backend subnet the response is allowed
 12. Frontend subnet begins inbound rule processing:
@@ -148,11 +148,11 @@ With the activation of the firewall ruleset this example environment build is co
 16. Since there are no outbound rules on the Frontend subnet the response is allowed, and the Internet User receives the web page requested.
 
 #### (Allowed) RDP to Backend
-1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal Preview or via PowerShell)
+1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal or via PowerShell)
 2. Since the Firewall is only listening on the FrontEnd001.CloudApp.Net address, it is not involved with this traffic flow
 3. Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) does apply, traffic is allowed, stop rule processing
 4. With no outbound rules, default rules apply and return traffic is allowed
 5. RDP session is enabled
 6. AppVM01 prompts for user name password
@@ -162,7 +162,7 @@ With the activation of the firewall ruleset this example environment build is co
 2. The network configuration for the VNet lists DNS01 (10.0.2.4 on the Backend subnet) as the primary DNS server, IIS01 sends the DNS request to DNS01
 3. No outbound rules on Frontend subnet, traffic is allowed
 4. Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) does apply, traffic is allowed, stop rule processing
 5. DNS server receives the request
 6. DNS server doesn't have the address cached and asks a root DNS server on the internet
 7. No outbound rules on Backend subnet, traffic is allowed
@@ -178,15 +178,15 @@ With the activation of the firewall ruleset this example environment build is co
 1. IIS01 asks for a file on AppVM01
 2. No outbound rules on Frontend subnet, traffic is allowed
 3. The Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 3 (Internet to Firewall) doesn't apply, move to next rule
-    4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 3 (Internet to Firewall) doesn't apply, move to next rule
+   4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
 4. AppVM01 receives the request and responds with file (assuming access is authorized)
 5. Since there are no outbound rules on the Backend subnet the response is allowed
 6. Frontend subnet begins inbound rule processing:
-    1. There is no NSG rule that applies to Inbound traffic from the Backend subnet to the Frontend subnet, so none of the NSG rules apply
-    2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
+   1. There is no NSG rule that applies to Inbound traffic from the Backend subnet to the Frontend subnet, so none of the NSG rules apply
+   2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
 7. The IIS server receives the file
 
 #### (Denied) Web direct to Web Server
@@ -206,9 +206,9 @@ Since the Web Server, IIS01, and the Firewall are in the same Cloud Service they
 1. Internet user requests SQL data from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Since there are no endpoints open for SQL, this would not pass the Cloud Service and wouldn't reach the firewall
 3. If endpoints were open for some reason, the Frontend subnet begins inbound rule processing:
-    1. NSG Rule 1 (DNS) doesn't apply, move to next rule
-    2. NSG Rule 2 (RDP) doesn't apply, move to next rule
-    3. NSG Rule 2 (Internet to Firewall) does apply, traffic is allowed, stop rule processing
+   1. NSG Rule 1 (DNS) doesn't apply, move to next rule
+   2. NSG Rule 2 (RDP) doesn't apply, move to next rule
+   3. NSG Rule 2 (Internet to Firewall) does apply, traffic is allowed, stop rule processing
 4. Traffic hits internal IP address of the firewall (10.0.1.4)
 5. Firewall has no forwarding rules for SQL and drops the traffic
 
@@ -228,9 +228,9 @@ This script will, based on the user defined variables:
 3. Create a new VNet and two subnets as defined in the Network Config file
 4. Build 4 windows server VMs
 5. Configure NSG including:
-    * Creating a NSG
-    * Populating it with rules
-    * Binding the NSG to the appropriate subnets
+   * Creating a NSG
+   * Populating it with rules
+   * Binding the NSG to the appropriate subnets
 
 This PowerShell script should be run locally on an internet connected PC or server.
 

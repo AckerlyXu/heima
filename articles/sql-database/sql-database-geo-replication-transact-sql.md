@@ -3,8 +3,8 @@ title: Configure Geo-Replication for Azure SQL Database with Transact-SQL | Azur
 description: Configure Geo-Replication for Azure SQL Database using Transact-SQL
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/14/2017
-ms.author: carlrab
+origin.date: 04/14/2017
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
 # Configure active geo-replication for Azure SQL Database with Transact-SQL
@@ -31,11 +32,13 @@ To initiate failover using Transact-SQL, see [Initiate a planned or unplanned fa
 
 To configure Active Geo-Replication using Transact-SQL, you need the following:
 
-* An Azure subscription.
-* A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate.
-* One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases.
-* A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
-* SQL Server Management Studio (SSMS)
+* An Azure subscription
+* A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate
+* One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create secondary databases
+* A login that is DBManager on the primary
+* Have db_ownership of the local database that you will geo-replicate
+* Be DBManager on the partner server(s) to which you will configure Geo-Replication
+* The newest version of SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -59,7 +62,6 @@ Use the following steps to create a readable secondary as a single database.
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-	   
 4. Click **Execute** to run the query.
 
 ### Add readable secondary (elastic pool)
@@ -72,7 +74,6 @@ Use the following steps to create a readable secondary in an elastic pool.
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
-	   
 4. Click **Execute** to run the query.
 
 ## Remove secondary database
@@ -81,14 +82,11 @@ You can use the **ALTER DATABASE** statement to permanently terminate the replic
 Use the following steps to remove geo-replicated secondary from a Geo-Replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
-
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-
 3. Use the following **ALTER DATABASE** statement to remove a geo-replicated secondary.
    
         ALTER DATABASE <MyDB>
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
-	   
 4. Click **Execute** to run the query.
 
 ## Monitor active geo-replication configuration and health
@@ -98,28 +96,22 @@ Monitoring tasks include monitoring of the Geo-Replication configuration and mon
 Use the following steps to monitor an active geo-replication partnership.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
-
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
-
 3. Use the following statement to show all databases with Geo-Replication links.
-   
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
 4. Click **Execute** to run the query.
 5. Open the Databases folder, expand the **System Databases** folder, right-click on **MyDB**, and then click **New Query**.
 6. Use the following statement to show the replication lags and last replication time of my secondary databases of MyDB.
    
         SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_geo_replication_link_status
-
 7. Click **Execute** to run the query.
 8. Use the following statement to show the most recent geo-replication operations associated with database MyDB.
    
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
-
 9. Click **Execute** to run the query.
 
 ## Next steps
 * To learn more about active geo-replication, see - [Active geo-replication](sql-database-geo-replication-overview.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-

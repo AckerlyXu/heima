@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
-wacn.date: ''
-ms.author: xshi
+origin.date: 11/08/2016
+ms.date: 05/08/2017
+ms.author: v-yiso
 ---
 
 # Get Azure tools (Ubuntu 16.04)

@@ -3,33 +3,37 @@ title: Connect to Azure SQL Database by using .NET (C#) | Azure
 description: Presents a .NET code sample you can use to connect to and query Azure SQL Database
 services: sql-database
 documentationcenter: ''
-author: ajlam
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+origin.date: 05/23/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use .NET (C#) to connect and query data
 
 This quick start demonstrates how to use [C# and ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from the Windows, Mac OS, and Ubuntu Linux platforms.
 
+## Prerequisites
+
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Install .NET
 
-The steps in this section assume that you are familiar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **C#** and then select your operating system.
+The steps in this section assume that you are familiar with developing using .NET and are new to working with Azure SQL Database. If you are new to developing with .NET, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select **C#** and then select your operating system.
 
 ### **Windows .NET framework and .NET core**
 
@@ -66,7 +70,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn/).
+1. Log in to the [Azure Portal](https://portal.azure.cn/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
@@ -79,7 +83,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 6. Review the complete**ADO.NET** connection string.
 
     ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-  
+
 ## Add System.Data.SqlClient
 When using .NET core, add System.Data.SqlClient to your project's ***csproj*** file as a dependency.
 
@@ -119,7 +123,7 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("\nQuery data example:");
                     Console.WriteLine("=========================================\n");
-                    
+
                     connection.Open();       
                     StringBuilder sb = new StringBuilder();
                     sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
@@ -308,4 +312,3 @@ namespace ConsoleApplication1
 - [.NET documentation](https://docs.microsoft.com/dotnet/).
 - [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
-

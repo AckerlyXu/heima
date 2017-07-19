@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 02/09/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # How to Create a Classic Linux VM with the Azure CLI 1.0
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For the Resource Manager version, see [here](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For the Resource Manager version, see [here](../create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 This topic describes how to create a Linux virtual machine (VM) with the Azure CLI 1.0 using the Classic deployment model. We use a Linux image from the available **IMAGES** on Azure. The Azure CLI 1.0 commands give the following configuration choices, among others:
 

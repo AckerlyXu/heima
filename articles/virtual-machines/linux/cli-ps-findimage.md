@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/15/2017
-wacn.date: ''
-ms.author: rasquill
+origin.date: 02/15/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -36,7 +36,7 @@ Offer          Publisher               Sku                 Urn                  
 WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
 WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.3-LTS         Canonical:UbuntuServer:14.04.3-LTS:latest                       UbuntuLTS            latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
 CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
 openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
 SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
@@ -73,7 +73,7 @@ You can perform similar filters on the **--publisher** and **--sku** option. You
 If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **chinanorth**:
 
 ```azurecli 
-az vm image show -l chinanorth -f debian -p credativ --skus 8 --version 8.0.201701180
+az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
 ```
 
 and the output is:
@@ -172,8 +172,8 @@ data:    canonical  ubuntuserver  14.04.0-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.1-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.2-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.3-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
+data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  chinanorth
+data:    canonical  ubuntuserver  14.04.4-LTS        chinanorth
 data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  chinanorth
 data:    canonical  ubuntuserver  14.04.5-LTS        chinanorth
 data:    canonical  ubuntuserver  14.10              chinanorth
@@ -212,4 +212,4 @@ info:    vm image list command OK
 ```
 
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
-wacn.date: ''
-ms.author: kgremban
+origin.date: 02/16/2017
+ms.date: 03/31/2017
+ms.author: v-junlch
 ---
 
 # User States in Azure Multi-Factor Authentication
@@ -59,7 +59,7 @@ Use the following steps to access the page where you can view and manage user st
 6. Notice the user's state has changed from **disabled** to **enabled**.
    ![See that user is now enabled - screenshot](./media/multi-factor-authentication-get-started-cloud/user.png)
 
-After you enable users, you should notify them via email. Include the fact that they'll be asked to register the next time they sign in, and that some non-browser apps may not work with two-step verification. You can also include a link to our [Azure MFA end-user guide](/documentation/articles/multi-factor-authentication-end-user/) to help them get started. 
+After you enable users, you should notify them via email. Include the fact that they'll be asked to register the next time they sign in, and that some non-browser apps may not work with two-step verification. You can also include a link to our [Azure MFA end-user guide](../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) to help them get started. 
 
 ### To change the state from enabled/enforced to disabled
 

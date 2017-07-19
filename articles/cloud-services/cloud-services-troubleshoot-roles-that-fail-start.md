@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/02/2016
-ms.author: v-six
-wacn.date: ''
+origin.date: 09/02/2016
+ms.author: v-yiso
+ms.date: 05/22/2017
 ---
 
 # Troubleshoot Cloud Service roles that fail to start
@@ -105,7 +105,7 @@ You can use the Azure compute emulator to diagnose and troubleshoot issues of mi
 
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment, use Windows Server 2008 R2 x64.
 
-1. Install the standalone version of the [Azure SDK](/downloads)
+1. Install the standalone version of the [Azure SDK](https://www.azure.cn/downloads)
 
 2. On the development machine, build the cloud service project.
 

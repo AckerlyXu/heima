@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
-ms.author: robmcm
+origin.date: 04/25/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Convert WordPress to Multisite in Azure App Service
@@ -24,7 +24,7 @@ ms.author: robmcm
 
 In this tutorial, you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
 
-It is assumed that you have an existing installation of WordPress. If you do not, please follow the guidance provided in [Create a WordPress web site from the gallery in Azure][website-from-gallery].
+It is assumed that you have an existing installation of WordPress.
 
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 
@@ -49,7 +49,7 @@ Log in to the *wp-admin* area of your web app and you should see a new item unde
 
 ![Network Setup Screen][wordpress-network-setup]
 
-This tutorial uses the *Sub-directories* site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial. However, it should be possible to setup a subdomain install if you map a domain through the [Azure Portal Preview](https://portal.azure.cn) and setup wildcard DNS properly.
+This tutorial uses the *Sub-directories* site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial. However, it should be possible to setup a subdomain install if you map a domain through the [Azure Portal](https://portal.azure.cn) and setup wildcard DNS properly.
 
 For more information on sub-domain vs sub-directory setups see the [Types of multisite network][wordpress-codex-types-of-networks] article on the WordPress Codex.
 
@@ -68,7 +68,7 @@ The [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] 
 ## Enable domain mapping to the web app
 The **Free** [App Service](/app-service-web/app-service-changes-existing-services) plan mode does not support adding custom domains to Web Apps. You will need to switch to **Shared** or **Standard** mode. To do this:
 
-* Log in to the Azure Portal Preview and locate your web app. 
+* Log in to the Azure Portal and locate your web app. 
 * Click on the **Scale up** tab in **Settings**.
 * Under **General**, select either *SHARED* or *STANDARD*
 * Click **Save**
@@ -87,7 +87,7 @@ Before Azure Web Apps will allow you to map a domain to the site, you first need
 It may take some time for the DNS changes to go into full effect, so if the following steps do not work immediately, go make a cup of coffee, then come back and try again.
 
 ## Add the domain to the web app
-Return to your web app through the Azure Portal Preview, click **Settings**, and then click **Custom domains and SSL**.
+Return to your web app through the Azure Portal, click **Settings**, and then click **Custom domains and SSL**.
 
 When the *SSL settings* are displayed, you will see the fields where you will input all the domains which you wish to assign to your web app. If a domain is not listed here, it will not be available for mapping inside WordPress, regardless of how the domain DNS is setup.
 
@@ -122,7 +122,6 @@ Azure Web Apps allow you to add an unlimited number of domains to a web app. To 
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
-[website-from-gallery]: /develop/php/tutorials/website-from-gallery/
 [wordpress-codex-create-a-network]: http://codex.wordpress.org/Create_A_Network
 [website-w-mysql-and-ftp-ftp-setup]: /app-service-web/web-sites-php-mysql-deploy-use-ftp
 [website-w-mysql-and-git-git-setup]: /app-service-web/web-sites-php-mysql-deploy-use-git

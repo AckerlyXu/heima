@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/06/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 03/06/2017
+ms.date: 05/15/2017
+ms.author: v-dazen
 
 ---
 # Encrypt disks on a Linux VM using the Azure CLI 1.0
@@ -26,7 +26,7 @@ For enhanced virtual machine (VM) security and compliance, virtual disks in Azur
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
@@ -62,7 +62,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
   --enabled-for-disk-encryption true
 ```
 
-Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the highest level of security, client secrets should be used instead of passwords. The Azure CLI cannot currently generate client secrets. Client secrets can only be generated in the Azure portal preview. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`. Specify your own password as follows:
+Create an endpoint using Azure Active Directory for handling the authentication and exchanging of cryptographic keys from Key Vault. The `--home-page` and `--identifier-uris` do not need to be actual routable address. For the highest level of security, client secrets should be used instead of passwords. The Azure CLI cannot currently generate client secrets. Client secrets can only be generated in the Azure portal. The following example creates an Azure Active Directory endpoint named `myAADApp` and uses a password of `myPassword`. Specify your own password as follows:
 
 ```azurecli
 azure ad app create --name myAADApp \
@@ -140,11 +140,11 @@ The process for encrypting a VM is as follows:
 Disk encryption relies on the following additional components:
 
 * **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process.
-    * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
-    * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
+  * If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks.
+  * To separate administrative boundaries and key visibility, you can create a dedicated Key Vault.
 * **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions.
-    * You can typically use an existing Azure Active Directory instance for housing your application.
-    * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
+  * You can typically use an existing Azure Active Directory instance for housing your application.
+  * The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
 ## Requirements and limitations
 Supported scenarios and requirements for disk encryption:
@@ -199,7 +199,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ## Create the Azure Active Directory application
 When virtual disks are encrypted or decrypted, you use an endpoint to handle the authentication and exchanging of cryptographic keys from Key Vault. This endpoint, an Azure Active Directory application, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
 
-As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal preview. As this time, generating keys cannot be done from the Azure CLI.
+As you are not creating a full Azure Active Directory application, the `--home-page` and `--identifier-uris` parameters in the following example do not need to be actual routable address. The following example also specifies a password-based secret rather than generating keys from within the Azure portal. As this time, generating keys cannot be done from the Azure CLI.
 
 Create your Azure Active Directory application. The following example creates an application named `myAADApp` and uses a password of `myPassword`. Specify your own password as follows:
 
@@ -307,3 +307,4 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 ## Next steps
 * For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md).
+* For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).

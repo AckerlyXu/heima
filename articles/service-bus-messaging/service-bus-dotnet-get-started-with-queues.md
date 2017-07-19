@@ -3,18 +3,19 @@ title: Write a program that uses Azure Service Bus queues | Azure
 description: How to write a C# console application for Service Bus messaging
 services: service-bus
 documentationCenter: .net
-authors: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/30/2016
-ms.author: jotaub;sethm
-wacn.date: ''
+origin.date: 03/23/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # Get started with Service Bus Queues
@@ -57,7 +58,7 @@ To send messages to the queue, we will write a C# console application using Visu
 
 ### Create a console application
 
-1. Launch Visual Studio and create a new Console application.
+- Launch Visual Studio and create a new Console application.
 
 ### Add the Service Bus NuGet package
 
@@ -185,7 +186,4 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
-wacn.date: ''
-ms.author: kyliel
+origin.date: 02/28/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 # Introduction to FreeBSD on Azure
@@ -35,10 +35,10 @@ The agent is responsible for communication between the FreeBSD VM and the Azure 
 As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are published by the FreeBSD release engineering team.
 
 ## Deploying a FreeBSD virtual machine
-Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal preview:
+Deploying a FreeBSD virtual machine is a straightforward process using an image from the Azure Marketplace from the Azure portal:
 
-- [FreeBSD 10.3 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [FreeBSD 11.0 on the Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [FreeBSD 10.3 on the Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
+- [FreeBSD 11.0 on the Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM)
 
 ### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
 First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
@@ -108,7 +108,7 @@ The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/C
 > FreeBSD VM only supports CustomScript version 1.x by now.  
 
 ## Authentication: user names, passwords, and SSH keys
-When you're creating a FreeBSD virtual machine by using the Azure portal preview, you must provide a user name, password, or SSH public key.
+When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
 User names for deploying a FreeBSD virtual machine on Azure must not match names of system accounts (UID <100) already present in the virtual machine ("root", for example).
 Currently, only the RSA SSH key is supported. A multiline SSH key must begin with `---- BEGIN SSH2 PUBLIC KEY ----` and end with `---- END SSH2 PUBLIC KEY ----`.
 

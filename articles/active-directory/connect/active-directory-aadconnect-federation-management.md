@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/4/2016
-ms.author: anandy
+ms.date: 04/04/2016
+ms.author: v-junlch
 
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect

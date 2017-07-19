@@ -12,7 +12,7 @@ There are two kinds of virtual machine configurations: multi-instance and single
 
 The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
 
-For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about configuring your virtual machines for high availability, see [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA) that requires deploying two or more virtual machines in the same availability set.
 
@@ -36,10 +36,10 @@ After a virtual machine is restored, here is an example of what your Windows Eve
 <!--Image reference-->
 ![][image2]
 
-Use the viewer to report the virtual machines that are configured in a multi-instance configuration using the Azure portal preview, Azure PowerShell, or Azure CLI. For example, using the Azure portal preview, you can add the _Availability Set_ to the **virtual machines (classic)** browse dialog. The virtual machines that report the same availability set are part of a multi-instance configuration. In the following example, the multi-instance configuration consists of virtual machines SQLContoso01 and SQLContoso02.
+Use the viewer to report the virtual machines that are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, using the Azure portal, you can add the _Availability Set_ to the **virtual machines (classic)** browse dialog. The virtual machines that report the same availability set are part of a multi-instance configuration. In the following example, the multi-instance configuration consists of virtual machines SQLContoso01 and SQLContoso02.
 
 <!--Image reference-->
-  ![Virtual machines (classic) view from the Azure portal preview][image4]
+  ![Virtual machines (classic) view from the Azure portal][image4]
 
 ## Single-instance configuration updates
 After the multi-instance configuration updates are complete, Azure performs single-instance configuration updates. These updates also cause reboots to your virtual machines that are not running in availability sets.
@@ -73,9 +73,9 @@ See the following table for current region pairs:
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/AvailabilitySetExample.png
+[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance

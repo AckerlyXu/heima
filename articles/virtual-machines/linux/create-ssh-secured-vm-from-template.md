@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 05/12/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -25,13 +25,15 @@ This article shows you how to quickly deploy a Linux virtual machine (VM) with A
 1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
 ## Templates overview
-Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](../../azure-resource-manager/resource-manager-create-first-template.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/templates/).
+Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](../../azure-resource-manager/resource-manager-create-first-template.md).
 
 ## Create resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. The following example creates a resource group named *myResourceGroupVM* in the *chinaeast* region:
 
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast

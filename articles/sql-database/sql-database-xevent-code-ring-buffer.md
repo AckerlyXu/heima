@@ -3,8 +3,8 @@ title: XEvent Ring Buffer code for SQL Database | Azure
 description: Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: MightyPen
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -15,60 +15,55 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
-wacn.date: ''
-ms.author: genemi
----
+origin.date: 02/03/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 
+---
 # Ring Buffer target code for extended events in SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/zh-cn/library/ff878182.aspx).
+You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).
 
 This topic presents a Transact-SQL code sample that:
 
 1. Creates a table with data to demonstrate with.
-
 2. Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.
-    - The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
-    - Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 
+   * The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
+   * Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 3. Starts the event session.
-
 4. Issues a couple of simple SQL UPDATE statements.
-
 5. Issues an SQL SELECT to retrieve event output from the Ring Buffer.
-    - **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 
+   * **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 6. Stops the event session.
-
 7. Drops the Ring Buffer target, to release its resources.
-
 8. Drops the event session and the demo table.
 
 ## Prerequisites
 
-- An Azure account and subscription. You can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial).
+* An Azure account and subscription. You can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
+* Any database you can create a table in.
 
-- Any database you can create a table in.
- - Optionally you can [create an **AdventureWorksLT** demonstration database](./sql-database-get-started.md) in minutes.
+  * Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
+* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
+  You can download the latest ssms.exe from:
 
-- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
-You can download the latest ssms.exe from:
- - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
- - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+  * [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## Code sample
 
 With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
 
-- sys.dm_xe**_database**_session_targets
-- sys.dm_xe_session_targets
+* sys.dm_xe**_database**_session_targets
+* sys.dm_xe_session_targets
 
 &nbsp;
 
-```
+```tsql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -310,7 +305,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -319,7 +314,7 @@ GO
 
 The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -333,15 +328,15 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 The primary topic for extended events on Azure SQL Database is:
 
-- [Extended event considerations in SQL Database](./sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.
+* [Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.
 
 Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
 
-- Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](./sql-database-xevent-code-event-file.md)
+* Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/zh-cn/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/zh-cn/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->

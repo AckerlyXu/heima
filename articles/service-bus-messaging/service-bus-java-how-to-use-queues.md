@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
-ms.author: sethm
-
+origin.date: 04/27/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 # How to use Service Bus queues
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -252,8 +252,8 @@ constant across delivery attempts.
 ## Next Steps
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
 
-For more information, see the [Java Developer Center](/develop/java/).
-  [Azure SDK for Java]: /develop/java/
+For more information, see the [Java Developer Center](https://www.azure.cn/develop/java/).
+  [Azure SDK for Java]: https://www.azure.cn/develop/java/
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
 
   [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md

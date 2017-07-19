@@ -3,7 +3,7 @@ title: Azure AD Android Getting Started | Azure
 description: How to build an Android application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: android
-author: xerners
+author: alexchen2016
 manager: mbaldwin
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: brandwe
+origin.date: 01/07/2017
+ms.date: 02/07/2017
+ms.author: v-junlch
 ---
 
 # Integrate Azure AD into an Android App

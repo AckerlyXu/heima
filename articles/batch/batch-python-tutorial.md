@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -308,8 +308,7 @@ def create_pool(batch_service_client, pool_id,
 
     # Create a new pool of Linux compute nodes using an Azure Virtual Machines
     # Marketplace image. For more information about creating pools of Linux
-    # nodes, see:
-    # /documentation/articles/batch-linux-nodes/
+    # nodes, see: /batch-linux-nodes/
 
     # Specify the commands for the pool's start task. The start task is run
     # on each node as it joins the pool, and when it's rebooted or re-imaged.
@@ -329,7 +328,7 @@ def create_pool(batch_service_client, pool_id,
     # Get the node agent SKU and image reference for the virtual machine
     # configuration.
     # For more information about the virtual machine configuration, see:
-    # /documentation/articles/batch-linux-nodes/
+    #  /batch-linux-nodes/
     sku_to_use, image_ref_to_use = \
         common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
             batch_service_client, publisher, offer, sku)
@@ -361,7 +360,7 @@ When you create a pool, you define a [PoolAddParameter][py_pooladdparam] that sp
 - **ID** of the pool (*id* - required)<p/>As with most entities in Batch, your new pool must have a unique ID within your Batch account. Your code refers to this pool using its ID, and it's how you identify the pool in the Azure [portal][azure_portal].
 - **Number of compute nodes** (*target_dedicated* - required)<p/>This property specifies how many VMs should be deployed in the pool. It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](./batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](./batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
 - **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)<p/>In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config]. The `select_latest_verified_vm_image_with_node_agent_sku` function in `common.helpers` simplifies working with [Azure Virtual Machines Marketplace][vm_marketplace] images. See [Provision Linux compute nodes in Azure Batch pools](./batch-linux-nodes.md) for more information about using Marketplace images.
-- **Size of compute nodes** (*vm_size* - required)<p/>Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Again, see [Provision Linux compute nodes in Azure Batch pools](./batch-linux-nodes.md) for more information.
+- **Size of compute nodes** (*vm_size* - required)<p/>Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). Again, see [Provision Linux compute nodes in Azure Batch pools](./batch-linux-nodes.md) for more information.
 - **Start task** (*start_task* - not required)<p/>Along with the above physical node properties, you may also specify a [StartTask][py_starttask] for the pool (it is not required). The StartTask executes on each node as that node joins the pool, and each time a node is restarted. The StartTask is especially useful for preparing compute nodes for the execution of tasks, such as installing the applications that your tasks run.<p/>In this sample application, the StartTask copies the files that it downloads from Storage (which are specified by using the StartTask's **resource_files** property) from the StartTask *working directory* to the *shared* directory that all tasks running on the node can access. Essentially, this copies `python_tutorial_task.py` to the shared directory on each node as the node joins the pool, so that any tasks that run on the node can access it.
 
 You may notice the call to the `wrap_commands_in_shell` helper function. This function takes a collection of separate commands and creates a single command line appropriate for a task's command-line property.

@@ -1,10 +1,10 @@
 ---
-title: 'Add multiple VPN gateway Site-to-Site connections to a VNet: Azure Portal Preview: Resource Manager| Azure'
+title: 'Add multiple VPN gateway Site-to-Site connections to a VNet: Azure Portal: Resource Manager| Azure'
 description: Add multi-site S2S connections to a VPN gateway that has an existing connection
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
-wacn.date: ''
-ms.author: cherylmc
+origin.date: 04/20/2017
+ms.date: 07/17/2017
+ms.author: v-dazen
 
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
+
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [Classic - PowerShell](vpn-gateway-multi-site.md)
-> 
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell (classic)](vpn-gateway-multi-site.md)
+>
 > 
 
-This article walks you through using the Azure portal preview to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
+This article walks you through using the Azure portal to add Site-to-Site (S2S) connections to a VPN gateway that has an existing connection. This type of connection is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, Point-to-Site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Before you begin](#before) section in this article to verify before you start your configuration. 
 
 This article applies to VNets created using the Resource Manager deployment model that have a RouteBased VPN gateway. These steps do not apply to ExpressRoute/Site-to-Site coexisting connection configurations. See [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) for information about coexisting connections.
 
@@ -48,7 +49,7 @@ Verify the following items:
 * You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
 ## <a name="part1"></a>Part 1 - Configure a connection
-1. From a browser, navigate to the [Azure portal preview](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure portal](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
 2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
 3. On the **Virtual network gateway** blade, click **Connections**.
 
@@ -58,10 +59,10 @@ Verify the following items:
     ![Add connection button](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
 5. On the **Add connection** blade, fill out the following fields:
 
-    * **Name:** The name you want to give to the site you are creating the connection to.
-    * **Connection type:** Select **Site-to-site (IPsec)**.
+   * **Name:** The name you want to give to the site you are creating the connection to.
+   * **Connection type:** Select **Site-to-site (IPsec)**.
 
-        ![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
 
 ## <a name="part2"></a>Part 2 - Add a local network gateway
 1. Click **Local network gateway** ***Choose a local network gateway***. This will open the **Choose local network gateway** blade.
@@ -72,9 +73,9 @@ Verify the following items:
     ![Create local network gateway blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
 3. On the **Create local network gateway** blade, fill out the following fields:
 
-    * **Name:** The name you want to give to the local network gateway resource.
-    * **IP address:** The public IP address of the VPN device on the site that you want to connect to.
-    * **Address space:** The address space that you want to be routed to the new local network site.
+   * **Name:** The name you want to give to the local network gateway resource.
+   * **IP address:** The public IP address of the VPN device on the site that you want to connect to.
+   * **Address space:** The address space that you want to be routed to the new local network site.
 4. Click **OK** on the **Create local network gateway** blade to save the changes.
 
 ## <a name="part3"></a>Part 3 - Add the shared key and create the connection
@@ -89,4 +90,4 @@ Verify the following items:
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [virtual machines documents](/virtual-machines/) for more information.

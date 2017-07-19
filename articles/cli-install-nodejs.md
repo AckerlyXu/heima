@@ -14,9 +14,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: rasquill
+origin.date: 03/20/2017
+ms.date: 04/17/2017
+ms.author: v-junlch
 ---
 
 # Install the Azure CLI 1.0

@@ -3,8 +3,8 @@ title: Load from Azure blob to Azure data warehouse | Azure
 description: Learn how to use PolyBase to load data from Azure blob storage into SQL Data Warehouse. Load a few tables from public data into the Contoso Retail Data Warehouse schema.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
-manager: barbkess
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: cakarst;barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Load data from Azure blob storage into SQL Data Warehouse (PolyBase)
@@ -23,8 +23,7 @@ ms.author: cakarst;barbkess
 > * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 > 
 > 
-<!-- Data Factory not supported on Azure.cn -->
-<!-- - [Data Factory](/documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/) -->
+<!-- Not Available [Data Factory](/documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/) -->
 
 Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse. 
 
@@ -254,7 +253,7 @@ SELECT
     s.request_id,
     r.status,
     count(distinct input_name) as nbr_files, 
-    sum(s.bytes_processed)/1024/1024 as gb_processed
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
 FROM
     sys.dm_pdw_exec_requests r
     inner join sys.dm_pdw_dms_external_work s
@@ -364,11 +363,11 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
+[REBUILD]: https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433

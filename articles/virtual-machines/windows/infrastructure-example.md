@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 03/17/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -34,8 +34,8 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 * Two Microsoft SQL Server instances with AlwaysOn availability groups (two SQL Servers and a majority node witness) for storing product data and orders in a database tier
 * Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
 * All the servers are located in two subnets:
-    * a front-end subnet for the web servers 
-    * a back-end subnet for the application servers, SQL cluster, and domain controllers
+  * a front-end subnet for the web servers 
+  * a back-end subnet for the application servers, SQL cluster, and domain controllers
 
 ![Diagram of different tiers for application infrastructure](./media/infrastructure-example/example-tiers.png)
 
@@ -70,17 +70,17 @@ Adventure Works Cycles determined that they should use Azure Managed Disks. When
 ## Virtual network and subnets
 Because the virtual network does not need ongoing connectivity to the Adventure Work Cycles on-premises network, they decided on a cloud-only virtual network.
 
-They created a cloud-only virtual network with the following settings using the Azure portal preview:
+They created a cloud-only virtual network with the following settings using the Azure portal:
 
 * Name: AZOS-CHE-VN01
 * Location: China East
 * Virtual network address space: 10.0.0.0/8
 * First subnet:
-    * Name: FrontEnd
-    * Address space: 10.0.1.0/24
+  * Name: FrontEnd
+  * Address space: 10.0.1.0/24
 * Second subnet:
-    * Name: BackEnd
-    * Address space: 10.0.2.0/24
+  * Name: BackEnd
+  * Address space: 10.0.2.0/24
 
 ## Availability sets
 To maintain high availability of all four tiers of their on-line store, Adventure Works Cycles decided on four availability sets:

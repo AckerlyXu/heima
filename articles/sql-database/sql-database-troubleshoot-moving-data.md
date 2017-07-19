@@ -14,9 +14,9 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: ''
-ms.author: v-shysun
+origin.date: 02/07/2017
+ms.date: 03/24/2017
+ms.author: v-johch
 ---
 
 # Move databases between servers, between subscriptions, and in and out of Azure

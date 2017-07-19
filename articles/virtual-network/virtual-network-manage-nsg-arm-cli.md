@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
-wacn.date: ''
-ms.author: jdial
+origin.date: 02/21/2017
+ms.date: 03/31/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -333,7 +333,7 @@ In the output, the `networkSecurityGroup` key has something similar for the valu
     "tags": null,
     "type": null
   }
-```
+  ```
 
 ## Delete an NSG
 You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.

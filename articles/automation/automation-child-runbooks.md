@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2017
-wacn.date: ''
-ms.author: magoedte;bwren
+origin.date: 02/02/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Child runbooks in Azure Automation
@@ -52,12 +52,12 @@ The following example starts a child runbook with parameters and then waits for 
 
     $doLoop = $true
     While ($doLoop) {
-       $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+       $job = Get-AzureAutomationJob -AutomationAccountName "MyAutomationAccount" -Id $job.Id
        $status = $job.Status
        $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
     }
 
-    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+    Get-AzureAutomationJobOutput -AutomationAccountName "MyAutomationAccount" -Id $job.Id -Stream Output
 
 [Start-ChildRunbook](http://gallery.technet.microsoft.com/scriptcenter/Start-Azure-Automation-1ac858a9) is a helper runbook available in the TechNet Gallery to start a runbook from a cmdlet. This provides the option of waiting until the child runbook has completed and retrieving its output. In addition to using this runbook in your own Azure Automation environment, this runbook can be used as a reference for working with runbooks and jobs using cmdlets. The helper runbook itself must be called inline because it requires a hashtable parameter to accept the parameter values for the child runbook.
 

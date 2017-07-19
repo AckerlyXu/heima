@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2016
-wacn.date: ''
-ms.author: yushwang
+origin.date: 09/24/2016
+ms.date: 11/07/2016
+ms.author: v-dazen
 
 ---
 # Highly Available Cross-Premises and VNet-to-VNet Connectivity

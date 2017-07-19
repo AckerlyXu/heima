@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date:  01/23/2017
-ms.author: carolz
+ms.author: v-yiso
 ---
 #Service Bus Documentation
 
@@ -65,7 +65,7 @@ Learn how to use Service Bus to connect across on-premises and cloud environment
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Service Bus using the Azure portal preview</h3>
+                        <h3>Get Started with Service Bus using the Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -179,65 +179,5 @@ Learn how to use Service Bus to connect across on-premises and cloud environment
             </div>
         </div>
         </a>
-    </li>
-     <li>
-        <a href="/azure/service-bus-messaging/service-bus-brokered-tutorial-rest">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/rest.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Service Bus queues using REST</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/servicebus">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Other</h3>
-                        <p><a href="/dotnet/api/">Managed Reference API</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>

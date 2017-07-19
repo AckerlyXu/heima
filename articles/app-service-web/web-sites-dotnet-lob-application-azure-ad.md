@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 09/01/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 09/01/2016
+ms.date: 03/24/2017
+ms.author: v-dazen
 
 ---
 # Create a line-of-business Azure app with Azure Active Directory authentication
@@ -30,7 +30,9 @@ to query directory data in the application.
 
 The Azure Active Directory tenant that you use can be an Azure-only directory. This article uses the default directory for your Azure account.
 
-## <a name="bkmk_build"></a> What you will build
+<a name="bkmk_build"></a>
+
+## What you will build
 You will build a simple line-of-business Create-Read-Update-Delete (CRUD) application in App Service Web Apps that tracks 
 work items with the following features:
 
@@ -40,7 +42,9 @@ work items with the following features:
 
 If you need role-based access control (RBAC) for your line-of-business app in Azure, see [Next Step](#next).
 
-## <a name="bkmk_need"></a> What you need
+<a name="bkmk_need"></a>
+
+## What you need
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 You need the following to complete this tutorial:
@@ -50,7 +54,11 @@ You need the following to complete this tutorial:
 * Visual Studio 2013 Update 4 or later
 * [Azure SDK 2.8.1 or later](/downloads/)
 
-## <a name="bkmk_deploy"></a> Create and deploy a web app to Azure
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
+
+<a name="bkmk_deploy"></a>
+
+## Create and deploy a web app to Azure
 1. From Visual Studio, click **File** > **New** > **Project**.
 2. Select **ASP.NET Web Application**, name your project, and click **OK**.
 3. Select the **MVC** template, then change the authentication to **No Authentication**. Make sure **Host in the Cloud** is selected and click **OK**.
@@ -72,8 +80,10 @@ You need the following to complete this tutorial:
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
-## <a name="bkmk_auth"></a> Configure authentication and directory access
-1. Log in to the [Azure portal preview](https://portal.azure.cn).
+<a name="bkmk_auth"></a>
+
+## Configure authentication and directory access
+1. Log in to the [Azure portal](https://portal.azure.cn).
 2. From the left menu, click **App Services** > **&lt;*appname*>** > **Authentication / Authorization**.
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
@@ -174,7 +184,9 @@ You need the following to complete this tutorial:
 
 Next, you will do something useful with directory data.
 
-## <a name="bkmk_crud"></a> Add line-of-business functionality to your app
+<a name="bkmk_crud"></a>
+
+## Add line-of-business functionality to your app
 Now, you create a simple CRUD work items tracker.  
 
 1. In the ~\Models folder, create a class file called WorkItem.cs, and replace `public class WorkItem {...}` with the following code:
@@ -206,115 +218,115 @@ Now, you create a simple CRUD work items tracker.
 4. Select **MVC 5 Controller with views, using Entity Framework** and click **Add**.
 5. Select the model that you created, then click **+** and then **Add** to add a data context, and then click **Add**.
 
-    ![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
+   ![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
 6. In ~\Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and make the following
    highlighted changes:  
 
-    <pre class="prettyprint">
-    @model WebApplication1.Models.WorkItem
+   <pre class="prettyprint">
+   @model WebApplication1.Models.WorkItem
 
-    @{
-     ViewBag.Title = &quot;Create&quot;;
-    }
+   @{
+    ViewBag.Title = &quot;Create&quot;;
+   }
 
-    &lt;h2&gt;Create&lt;/h2&gt;
+   &lt;h2&gt;Create&lt;/h2&gt;
 
-    @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
-    {
-     @Html.AntiForgeryToken()
+   @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
+   {
+    @Html.AntiForgeryToken()
 
-     &lt;div class=&quot;form-horizontal&quot;&gt;
-         &lt;h4&gt;WorkItem&lt;/h4&gt;
-         &lt;hr /&gt;
-         @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
-                 @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+    &lt;div class=&quot;form-horizontal&quot;&gt;
+        &lt;h4&gt;WorkItem&lt;/h4&gt;
+        &lt;hr /&gt;
+        @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
+                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
-                 @Html.ValidationMessageFor(model =&gt; model.AssignedToName, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
+                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
-                 @Html.ValidationMessageFor(model =&gt; model.Description, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = &quot;form-control&quot; } })
+                @Html.ValidationMessageFor(model =&gt; model.Description, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
-             &lt;div class=&quot;col-md-10&quot;&gt;
-                 @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;form-control&quot; })
-                 @Html.ValidationMessageFor(model =&gt; model.Status, &quot;&quot;, new { @class = &quot;text-danger&quot; })
-             &lt;/div&gt;
-         &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = &quot;form-control&quot; })
+                @Html.ValidationMessageFor(model =&gt; model.Status, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
+        &lt;/div&gt;
 
-         &lt;div class=&quot;form-group&quot;&gt;
-             &lt;div class=&quot;col-md-offset-2 col-md-10&quot;&gt;
-                 &lt;input type=&quot;submit&quot; value=&quot;Create&quot; class=&quot;btn btn-default&quot;<mark> id=&quot;submit-button&quot;</mark> /&gt;
-             &lt;/div&gt;
-         &lt;/div&gt;
-     &lt;/div&gt;
-    }
-
-    &lt;div&gt;
-     @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class=&quot;col-md-offset-2 col-md-10&quot;&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;Create&quot; class=&quot;btn btn-default&quot;<mark> id=&quot;submit-button&quot;</mark> /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
+   }
 
-    @section Scripts {
-     @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
-     <mark>&lt;script&gt;
-         // People/Group Picker Code
-         var maxResultsPerPage = 14;
-         var input = document.getElementById(&quot;AssignedToName&quot;);
+   &lt;div&gt;
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+   &lt;/div&gt;
 
-         // Access token from request header, and tenantID from claims identity
-         var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
-         var tenant =&quot;@(System.Security.Claims.ClaimsPrincipal.Current.Claims
-                         .Where(c => c.Type == &quot;http://schemas.microsoft.com/identity/claims/tenantid&quot;)
-                         .Select(c => c.Value).SingleOrDefault())&quot;;
+   @section Scripts {
+    @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+    <mark>&lt;script&gt;
+        // People/Group Picker Code
+        var maxResultsPerPage = 14;
+        var input = document.getElementById(&quot;AssignedToName&quot;);
 
-         var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
+        // Access token from request header, and tenantID from claims identity
+        var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
+        var tenant =&quot;@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+                        .Where(c => c.Type == &quot;http://schemas.microsoft.com/identity/claims/tenantid&quot;)
+                        .Select(c => c.Value).SingleOrDefault())&quot;;
 
-         // Submit the selected user/group to be asssigned.
-         $(&quot;#submit-button&quot;).click({ picker: picker }, function () {
-             if (!picker.Selected())
-                 return;
-             $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
-         });
-     &lt;/script&gt;</mark>
-    }
-    </pre>
+        var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 
-    Note that `token` and `tenant` are used by the `AadPicker` object to make Azure Active Directory Graph API calls. You'll 
-    add `AadPicker` later.     
+        // Submit the selected user/group to be asssigned.
+        $(&quot;#submit-button&quot;).click({ picker: picker }, function () {
+            if (!picker.Selected())
+                return;
+            $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
+        });
+    &lt;/script&gt;</mark>
+   }
+   </pre>
 
-    > [!NOTE]
-    > You can just as well get `token` and `tenant` from the client side with `~/.auth/me`, but that would be an 
-    > additional server call. For example:
-    > ``` 
-    > $.ajax({
-    > dataType: "json",
-    > url: "/.auth/me",
-    > success: function (data) {
-    > var token = data[0].access_token;
-    > var tenant = data[0].user_claims
-    > .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
-    > .val;
-    > }
-    > });
-    > ``` 
-    > 
+   Note that `token` and `tenant` are used by the `AadPicker` object to make Azure Active Directory Graph API calls. You'll 
+   add `AadPicker` later.     
+
+   > [!NOTE]
+   > You can just as well get `token` and `tenant` from the client side with `~/.auth/me`, but that would be an 
+   > additional server call. For example:
+   > ``` 
+   > $.ajax({
+   > dataType: "json",
+   > url: "/.auth/me",
+   > success: function (data) {
+   > var token = data[0].access_token;
+   > var tenant = data[0].user_claims
+   > .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+   > .val;
+   > }
+   > });
+   > ``` 
+   > 
 7. Make the same changes with ~\Views\WorkItems\Edit.cshtml.
 8. The `AadPicker` object is defined in a script that you need to add to your project. Right-click the ~\Scripts folder, point 
    to **Add**, and click **JavaScript file**. Type `AadPickerLibrary` for the filename and click **OK**.
@@ -322,9 +334,9 @@ Now, you create a simple CRUD work items tracker.
    [here](https://raw.githubusercontent.com/cephalin/active-directory-dotnet-webapp-roleclaims/master/WebApp-RoleClaims-DotNet/Scripts/AadPickerLibrary.js) 
    into ~\Scripts\AadPickerLibrary.js.
 
-    In the script, the `AadPicker` object calls 
-    [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) to search for users and 
-    groups that match the input.  
+   In the script, the `AadPicker` object calls 
+   [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) to search for users and 
+   groups that match the input.  
 10. ~\Scripts\AadPickerLibrary.js also uses the [jQuery UI Autocomplete widget](https://jqueryui.com/autocomplete/). So you need to add jQuery 
     UI to your project. Right-click your project in and click **Manage NuGet Packages**.
 11. In the NuGet Package Manager, click Browse, type **jquery-ui** in the search bar, and click **jQuery.UI.Combined**.
@@ -369,15 +381,16 @@ Now, you create a simple CRUD work items tracker.
 
     > [!NOTE]
     > You need this line of code because the default MVC template uses <code>[ValidateAntiForgeryToken]</code> decoration 
-    > on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at 
+    > on some of the actions. Due to the behavior described by Brock Allen at 
     > [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
     > anti-forgery token validation because:
+    > 
     > * Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
     >   which is required by default by the anti-forgery token.
     > * If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
     >   http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
     >   configure AD FS to send this claim.
-    > <p> 
+    > 
     > `ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure 
     > Active Directory does supply.  
     > 
@@ -397,18 +410,20 @@ Now, you create a simple CRUD work items tracker.
 Congrats, you are now running a line-of-business app in Azure with directory access! There's a lot more you can do with the Graph API. See 
 [Azure AD Graph API reference](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog).
 
-## <a name="next"></a> Next Step
+<a name="next"></a>
+
+## Next Step
 If you need role-based access control (RBAC) for your line-of-business app in azure, see 
 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) for a sample from
 the Azure Active Directory team. It shows you how to enable roles for your Azure Active Directory application, and then 
 authorize users with the `[Authorize]` decoration.
 
-## <a name="bkmk_resources"></a> Further resources
+<a name="bkmk_resources"></a>
+
+## Further resources
 * [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md)
 * [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
 * [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
-* [Azure Active Directory Supported Token and Claim Types](/active-directory/active-directory-token-and-claims/)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
+* [Azure Active Directory Supported Token and Claim Types](/active-directory/develop/active-directory-token-and-claims)

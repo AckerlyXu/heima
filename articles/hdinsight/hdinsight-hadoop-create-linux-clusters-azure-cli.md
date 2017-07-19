@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) using the command-line | Azure
+title: Create Hadoop clusters using the command-line - Azure HDInsight | Azure
 description: Learn how to create HDInsight clusters using the cross-platform Azure CLI 1.0.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/04/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Create HDInsight clusters using the Azure CLI
@@ -29,7 +29,7 @@ The steps in this document walk-through creating a HDInsight 3.5 cluster using t
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.2 and 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ The following steps should be performed from a command-prompt, shell, or termina
 
     * Replace **location** with the geographic region that you want to create the group in.
 
-        For a list of valid locations, use the `azure location list` command, and then use one of the locations from the **Name** column.
+       For a list of valid locations, use the `azure location list` command, and then use one of the locations from the **Name** column.
 
 4. Create a storage account. This storage account is used as the default storage for the HDInsight cluster.
 
@@ -90,7 +90,7 @@ The following steps should be performed from a command-prompt, shell, or termina
     * Replace **groupname** with the resource group name.
     * Replace **storagename** with the name of the storage account.
 
-    In the data that is returned, save the **key** value for **key1**.
+     In the data that is returned, save the **key** value for **key1**.
 
 6. Create an HDInsight cluster.
 
@@ -100,8 +100,8 @@ The following steps should be performed from a command-prompt, shell, or termina
 
     * Replace **Hadoop** with the cluster type that you wish to create. For example, Hadoop, HBase, Storm, or Spark.
 
-    > [!IMPORTANT]
-    > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
+     > [!IMPORTANT]
+     > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 
     * Replace **location** with the same location used in previous steps.
 
@@ -117,7 +117,7 @@ The following steps should be performed from a command-prompt, shell, or termina
 
     > [!IMPORTANT]
     > This example creates a cluster with two worker notes. If you plan on more than 32 worker nodes (during cluster creation or by scaling the cluster,) then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter.
-    > <p>
+    >
     > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
     It may take several minutes for the cluster creation process to finish. Usually around 15.

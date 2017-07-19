@@ -15,9 +15,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 07/06/2016
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 # Troubleshoot slow web app performance issues in Azure App Service
@@ -44,9 +44,11 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service Web Apps](https://www.azure.cn/home/features/app-service/web-apps/) gives you various options at each step.
 
-### <a name="observe"></a> 1. Observe and monitor application behavior
+<a name="observe" />
+
+### 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### Monitor your web app
 This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -65,7 +67,6 @@ For more information, see:
 
 * [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 
-
 #### Monitor web endpoint status
 If you are running your web app in the **Standard** pricing tier, Web Apps lets you monitor 2 endpoints from 3 geographic locations.
 
@@ -82,7 +83,9 @@ You can also monitor your application performance by leveraging *site extensions
 
 Each App Service web app provides an extensible management end point that allows you to leverage a powerful set of tools deployed as site extensions. These tools range from source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) to management tools for connected resources such as a MySQL database connected to a web app.
 
-### <a name="collect"></a> 2. Collect data
+<a name="collect" />
+
+### 2. Collect data
 #### Enable diagnostics logging for your web app
 The Web Apps environment provides diagnostic functionality for logging information from both the web server and the web application. These are logically separated into web server diagnostics and application diagnostics.
 
@@ -137,7 +140,9 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-### <a name="mitigate"></a> 3. Mitigate the issue
+<a name="mitigate" />
+
+### 3. Mitigate the issue
 #### Scale the web app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
@@ -148,12 +153,12 @@ Additionally, you can choose to run your application on more than one instance .
 You can set the scaling to be Manual or Automatic.
 
 #### Use AutoHeal
-AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal Preview, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
+AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
 For more information, see [Auto-Healing Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### Restart the web app
-This is often the simplest way to recover from one-time issues. On the [Azure Portal Preview](https://portal.azure.cn/), on your web app's blade, you have the options to stop or restart your app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.cn/), on your web app's blade, you have the options to stop or restart your app.
 
  ![restart web app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 

@@ -1,29 +1,29 @@
 ---
 title: Build an Azure Cosmos DB .NET application using the Table API | Azure
 description: Get started with Azure Cosmos DB's Tables API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: arramac
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: arramac
+origin.date: 06/07/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a .NET application using the Table API
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal preview. You'll then write code to insert, update, and delete entities, and run some queries. You can download the [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) from NuGet, that has the same classes and method signatures as the public [Azure storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). 
+This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the new [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview) package from NuGet. This library has the same classes and method signatures as the public [Windows Microsoft Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). 
 
 ## Prerequisites
 
@@ -33,11 +33,11 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 
 ## Create a database account
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Add a table
 
-[!INCLUDE [cosmosdb-create-table](../../includes/cosmosdb-create-table.md)]
+[!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
 ## Add sample data
 
@@ -46,7 +46,7 @@ You can now add data to your new table using Data Explorer.
 1. In Data Explorer, expand **sample-database**, **sample-table**, click **Entities**, and then click **Add Entity**.
 2. Now add data to the PartitionKey value box and RowKey value box, and click **Add Entity**.
 
-   ![Create new documents in Data Explorer in the Azure portal preview](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 
     You can now add more entities to your table, edit your entities, or query your data in Data Explorer. Data Explorer is also where you can scale your throughput and add stored procedures, user defined functions, and triggers to your table.
 
@@ -68,7 +68,7 @@ Now let's clone a  DocumentDB API app from github, set the connection string, an
 
 Let's make a quick review of what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized.
+* The CloudTableClient is initialized.
 
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
@@ -97,11 +97,11 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
 
 ## Update your connection string
 
-Now go back to the Azure portal preview to get your connection string information and copy it into the app.
+Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal preview](http://portal.azure.cn/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the app.config file in the next step.
+1. In the [Azure portal](http://portal.azure.cn/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the app.config file in the next step.
 
-    ![View and copy an access key in the Azure portal preview, Keys blade](./media/create-documentdb-dotnet-core/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-table-dotnet/keys.png)
 
 2. In Visual Studio, open the app.config file. 
 
@@ -128,7 +128,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 2. In the NuGet **Browse** box, type *WindowsAzure.Storage* and check the **Include prerelease** box. 
 
-3. From the results, install the **WindowsAzure.Storage** library. This installs the preview Azure Cosmos DB Table API package as well as all dependencies.
+3. From the results, install the **Windows Azure Storage Premium Table** library. This installs the preview Azure Cosmos DB Table API package as well as all dependencies. Note that this is a different NuGet package than the Windows Azure Storage package used by Azure Table storage. 
 
 4. Click CTRL + F5 to run the application.
 
@@ -136,15 +136,15 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
-## Review SLAs in the Azure portal preview
+## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal preview with the following steps: 
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
 
-1. From the left-hand menu in the Azure portal preview, click **Resource groups** and then click the name of the resource you created. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps

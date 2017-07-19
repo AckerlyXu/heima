@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
-wacn.date: ''
-ms.author: tarcher
+origin.date: 11/18/2016
+ms.date: 03/30/2017
+ms.author: v-junlch
 ---
 
 # Accessing Azure Virtual Machines from Server Explorer

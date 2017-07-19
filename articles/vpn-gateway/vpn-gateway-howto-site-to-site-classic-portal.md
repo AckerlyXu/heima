@@ -14,21 +14,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
-wacn.date: ''
-ms.author: cherylmc
+origin.date: 04/24/2017
+ms.date: 07/17/2017
+ms.author: v-dazen
 
 ---
-# Create a Site-to-Site connection using the Azure portal preview (classic)
+# Create a Site-to-Site connection using the Azure portal (classic)
 
-This article shows you how to use the Azure portal preview to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
+This article shows you how to use the Azure portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Classic - Azure portal preview](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic - Classic Management Portal](vpn-gateway-site-to-site-create.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic Management Portal (classic)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -73,7 +75,7 @@ When you create a virtual network to use for a S2S connection, you need to make 
 
 ### To create a virtual network
 
-1. From a browser, navigate to the [Azure portal preview](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure portal](http://portal.azure.cn) and, if necessary, sign in with your Azure account.
 2. Click **New**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** blade.
 
     ![Search for virtual network blade](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
@@ -161,7 +163,7 @@ You must create a gateway subnet for your VPN gateway. The gateway subnet contai
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal preview, PowerShell, or CLI.
+- The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
@@ -169,31 +171,26 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 In this step, you set the shared key and create the connection. The key you set is must be the same key that was used in your VPN device configuration.
 
 > [!NOTE]
-> Currently, this step is not available in the Azure portal preview. You must use the Service Management (SM) version of the Azure PowerShell cmdlets.
+> Currently, this step is not available in the Azure portal. You must use the Service Management (SM) version of the Azure PowerShell cmdlets.
 >
 
 ### Step 1. Connect to your Azure account
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-    ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+  ```powershell
+  Add-AzureAccount -Environment AzureChinaCloud
+  ```
 2. Check the subscriptions for the account.
 
-    ```powershell
-    Get-AzureRmSubscription
-    ```
+  ```powershell
+  Get-AzureSubscription
+  ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
-4. Add the SM version of the PowerShell cmdlets.
-
-    ```powershell
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+  ```powershell
+  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+  ```
 
 ### Step 2. Set the shared key and create the connection
 
@@ -201,17 +198,17 @@ When working with PowerShell and the classic deployment model, sometimes the nam
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 
-    ```powershell
-    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-    ```
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. Open the network configuration file with an xml editor and check the values for 'LocalNetworkSite name' and 'VirtualNetworkSite name'. Modify the example to reflect the values. When specifying a name that contains spaces, use single quotation marks around the value.
 
 3. Set the shared key and create the connection. The '-SharedKey' is a value that you generate and specify. In the example, we used 'abc123', but you can generate (and should) use something more complex. The important thing is that the value you specify here must be the same value that you specified when configuring your VPN device.
 
-    ```powershell
-    Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-    -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
-    ```
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 When the connection is created, the result is: **Status: Successful**.
 
 ## <a name="verify"></a>9. Verify your connection
@@ -219,4 +216,4 @@ When the connection is created, the result is: **Status: Successful**.
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/virtual-machines/).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).

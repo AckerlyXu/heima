@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/12/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Use C# with MapReduce streaming on Hadoop in HDInsight
@@ -33,7 +33,7 @@ Hadoop streaming is a utility that allows you to run MapReduce jobs using a scri
 
 ## .NET on HDInsight
 
-__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To use a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
+__Linux-based HDInsight__ clusters use [Mono (http://mono-project.com)](http://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To use a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
 
 For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -151,7 +151,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 ## Upload to storage
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. In Visual Studio, open **Server Explorer**.
 
@@ -179,11 +179,11 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 2. Use one of the following command to start the MapReduce job:
 
-    * If using __Azure Storage__ as default storage:
+    using __Azure Storage__ as default storage:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+    ```bash
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+    ```
 
     The following list describes what each parameter does:
 

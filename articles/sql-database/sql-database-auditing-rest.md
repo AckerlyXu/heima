@@ -14,9 +14,9 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-wacn.date: ''
-ms.author: ronitr; giladm
+origin.date: 10/05/2016
+ms.date: 03/24/2017
+ms.author: v-johch
 ---
 
 # Configure and manage SQL database auditing using the REST API

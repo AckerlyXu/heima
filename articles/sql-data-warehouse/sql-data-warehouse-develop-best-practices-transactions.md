@@ -3,7 +3,7 @@ title: Optimizing transactions for SQL Data Warehouse | Azure
 description: Best Practice guidance on writing efficient transaction updates in Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: ''
 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: jrj;barbkess
+origin.date: 10/31/2016
+ms.date: 01/17/2017
+ms.author: v-yeche
 
 ---
 

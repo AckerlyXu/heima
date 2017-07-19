@@ -3,8 +3,8 @@ title: Back up DPM workloads to Azure Classic Management Portal | Microsoft Docs
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
 documentationcenter: ''
-author: Nkolli1
-manager: shreeshd
+author: alexchen2016
+manager: digimobile
 editor: ''
 keywords: System Center Data Protection Manager, data protection manager, dpm backup
 
@@ -14,14 +14,18 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
-ms.author: nkolli;giridham;markgal
+origin.date: 06/14/2017
+ms.date: 06/29/2017
+ms.author: v-junlch
 
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]
-> * [Azure Backup Server (Classic)](./backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](./backup-azure-dpm-introduction-classic.md)
+> * [Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
+> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
+>
+>
 
 This article provides an introduction to using Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
 
@@ -56,8 +60,6 @@ Prepare Azure Backup to back up DPM data as follows:
 
 1. **Create a Backup vault**
 
-  > [!IMPORTANT]
-  > Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults. Existing Backup vaults are still supported, and it is possible to [use Azure PowerShell to create Backup vaults](./backup-client-automation-classic.md#create-a-backup-vault). However, Microsoft recommends you create Recovery Services vaults for all deployments because future enhancements apply to Recovery Services vaults, only.
 
 2. **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
 3. **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.
@@ -72,7 +74,7 @@ Prepare Azure Backup to back up DPM data as follows:
 - The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.
 - DPM can back up most workloads to Azure Backup. For a full list of what’s supported see the Azure Backup support items below.
 - Data stored in Azure Backup can’t be recovered with the “copy to tape” option.
-- You’ll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a trial account in just a couple of minutes. Read about [Azure Backup pricing](/pricing/details/backup/).
+- You’ll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a trial account in just a couple of minutes. Read about [Azure Backup pricing](https://www.azure.cn/pricing/details/backup/).
 - Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up. Each server must have at least 10% of the size of the data that is being backed up, available as local free storage. For example, backing up 100 GB of data requires a minimum of 10 GB of free space in the scratch location. While the minimum is 10%, 15% of free local storage space to be used for the cache location is recommended.
 - Data will be stored in the Azure vault storage. There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54,400 GB.
 
@@ -97,3 +99,4 @@ And these are unsupported:
 > From in System Center 2012 DPM with SP1 onwards, you can backup up workloads protected by DPM to Azure using Azure Backup.
 >
 >
+

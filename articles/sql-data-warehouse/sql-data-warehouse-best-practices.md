@@ -3,8 +3,8 @@ title: Best practices for Azure SQL Data Warehouse | Azure
 description: Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 
@@ -26,7 +26,7 @@ This article is a collection of many best practices that will help you to achiev
 If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Date Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
 
 ## Reduce cost with pause and scale
-A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure portal preview or through PowerShell commands.  Become familiar with these features as they can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
+A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure Portal or through PowerShell commands.  Become familiar with these features as they can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
 
 See also [Pause compute resources][Pause compute resources], [Resume compute resources][Resume compute resources], [Scale compute resources][Scale compute resources]
 
@@ -49,8 +49,9 @@ See also [INSERT][INSERT]
 SQL Data Warehouse supports loading and exporting data through several tools including PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse and will therefore load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.  **Using CTAS will minimize transaction logging and the fastest way to load your data.**  PolyBase supports a variety of file formats including Gzip files.  **To maximize throughput when using gzip text files, break files up into 60 or more files to maximize parallelism of your load.**  For faster total throughput, consider loading data concurrently.
 <!-- Not available [Load data with Azure Data Factory]-->
 
-See also [Load data][Load data], [Guide for using PolyBase][Guide for using PolyBase], [Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
+See also [Load data][Load data], [Guide for using PolyBase][Guide for using PolyBase], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
 <!-- Not available [Move data with Azure Data Factory]-->
+<!-- Not Available [Azure SQL Data Warehouse loading patterns and strategies]-->
 
 ## Load then query external tables
 While Polybase, also known as external tables, can be the fastest way to load data, it is not optimal for queries. SQL Data Warehouse Polybase tables currently only support Azure blob files. These files do not have any compute resources backing them.  As a result, SQL Data Warehouse cannot offload this work and therefore must read the entire file by loading it to tempdb in order to read the data.  Therefore, if you have several queries that will be querying this data, it is better to load this data once and have queries use the local table.
@@ -144,27 +145,27 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
-[OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
-[TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/zh-cn/library/ms190273.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/zh-cn/library/mt204017.aspx
+[INSERT]: https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
+[OPTION]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
+[TRUNCATE TABLE]: https://msdn.microsoft.com/zh-cn/library/ms177570.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
+[sys.dm_exec_sessions]: https://msdn.microsoft.com/zh-cn/library/ms176013.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/zh-cn/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/zh-cn/library/mt203889.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/zh-cn/library/mt203878.aspx
+[sys.dm_pdw_waits]: https://msdn.microsoft.com/zh-cn/library/mt203893.aspx
+[Columnstore indexes guide]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
 
 <!--Other Web references-->
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
 [Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
+<!-- Not Available [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies-->

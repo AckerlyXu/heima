@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 06/16/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Deploy and manage Apache Storm topologies on HDInsight
@@ -26,8 +26,8 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
-> <p>
+> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
+>
 > For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
 ## Prerequisites
@@ -40,14 +40,14 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
     One of the following versions of Visual Studio:
 
-    * Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 with Update 4
 
-    * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
-    * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
-    * Visual Studio 2015 (any edition)
+  * Visual Studio 2015 (any edition)
 
-    * Visual Studio 2017 (any edition). Data Lake Tools for Visual Studio 2017 are installed as part of the Azure Workload.
+  * Visual Studio 2017 (any edition). Data Lake Tools for Visual Studio 2017 are installed as part of the Azure Workload.
 
 ## Submit a topology: Visual Studio
 
@@ -57,7 +57,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
     > [!NOTE]
     > The Data Lake Tools for Visual Studio were formerly called the HDInsight Tools for Visual Studio.
-    > <p>
+    >
     > Data Lake Tools for Visual Studio are included in the __Azure Workload__ for Visual Studio 2017.
 
 2. Open Visual Studio, select **File** > **New** > **Project**.
@@ -152,7 +152,7 @@ Deactivating a topology pauses it until it is killed or reactivated. Use the fol
 
 Storm topologies, once started, continue running until stopped. To stop a topology, use the following command:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### Rebalance
 
@@ -186,12 +186,12 @@ Selecting a link from the **Topology summary** section displays the following in
 * **Topology summary**: Basic information about the topology.
 * **Topology actions**: Management actions that you can perform for the topology.
 
-    * **Activate**: Resumes processing of a deactivated topology.
-    * **Deactivate**: Pauses a running topology.
-    * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This operation allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
+  * **Activate**: Resumes processing of a deactivated topology.
+  * **Deactivate**: Pauses a running topology.
+  * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This operation allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
 
-        For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
-    * **Kill**: Terminates a Storm topology after the specified timeout.
+    For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
+  * **Kill**: Terminates a Storm topology after the specified timeout.
 * **Topology stats**: Statistics about the topology. To set the timeframe for the remaining entries on the page, use the links in the **Window** column.
 * **Spouts**: The spouts used by the topology. Use the links in this section to view more information about specific spouts.
 * **Bolts**: The bolts used by the topology. Use the links in this section to view more information about specific bolts.

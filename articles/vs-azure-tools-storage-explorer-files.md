@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
-ms.author: cawa
-wacn.date: ''
+origin.date: 03/09/2017
+ms.author: v-junlch
+ms.date: 05/22/2017
 ---
 
 # Using Storage Explorer (Preview) with Azure File storage
@@ -258,5 +258,5 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 - View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com/).
 
-- Learn how to [create applications using Azure blobs, tables, queues, and files](/documentation/services/storage/).
+- Learn how to [create applications using Azure blobs, tables, queues, and files](storage/index.md).
 

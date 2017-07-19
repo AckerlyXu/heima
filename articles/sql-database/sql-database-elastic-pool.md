@@ -1,19 +1,20 @@
 ---
-title: What are elastic pools? Manage multiple SQL databases - Azure | Microsoft Docs
+title: What are elastic pools? Manage multiple SQL databases - Azure | Azure
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed.
 keywords: multiple databases, database resources, database performance
 services: sql-database
 documentationcenter: ''
-author: ddove
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 05/15/2017
-ms.author: ddove
+origin.date: 05/31/2017
+ms.date: 07/10/2017
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -46,7 +47,7 @@ Within the pool, individual databases are given the flexibility to auto-scale wi
 
 You can create and manage an elastic pool using the [Azure portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API. 
 
-##<a name="elastic-database-pool-pricing-tier-recommendations"></a> When to consider a pool
+## When to consider a pool
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
 The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
@@ -79,7 +80,6 @@ This example is ideal for the following reasons:
 The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
 
 The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
-
 
 ### Minimum number of databases
 If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
@@ -122,7 +122,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 4. See the [SQL Database pricing page](https://www.azure.cn/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
 5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 
-##<a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases"></a><a name="edtu-and-storage-limits-for-elastic-pools"></a> eDTU and storage limits for elastic pools
+## eDTU and storage limits for elastic pools
 
 The following tables describe the resource limits of elastic pools.  Note that the resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier.  For example, the max concurrent workers for an S2 database is 120 workers.  So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
@@ -130,7 +130,7 @@ The following tables describe the resource limits of elastic pools.  Note that t
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
-##<a name="elastic-pool-and-elastic-database-properties"></a><a name="database-properties-for-pooled-databases"><a> Database properties for pooled databases
+## Database properties for pooled databases
 
 The following table describes the properties for pooled databases.
 
@@ -156,6 +156,6 @@ For applications that have more aggressive recovery requirements than Geo-Restor
 
 ## Next steps
 
-* You can create and manage an elastic pool using the [Azure portal preview](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API.
+* You can create and manage an elastic pool using the [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md), and the REST API.
 * For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

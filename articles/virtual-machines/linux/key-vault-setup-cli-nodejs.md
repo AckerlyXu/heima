@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
-wacn.date: ''
-ms.author: singhkay
+origin.date: 02/24/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # Set up Key Vault for virtual machines in Azure Resource Manager with the Azure CLI 1.0
@@ -26,7 +26,7 @@ In the Azure Resource Manager stack, secrets/certificates are modeled as resourc
 You can complete the task using one of the following CLI versions
 
 - Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](../windows/key-vault-setup.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Use CLI 1.0 to set up Key Vault
 To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).

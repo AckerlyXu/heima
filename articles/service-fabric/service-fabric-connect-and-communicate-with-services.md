@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/9/2017
-ms.author: vturecek
+ms.date: 05/09/2017
+ms.author: v-johch
 
 ---
 # Connect and communicate with services in Service Fabric

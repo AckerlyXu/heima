@@ -8,8 +8,10 @@ editor: mollybos
 services: ''
 
 ms.service: multiple
-ms.date: 06/30/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/30/2016
+ms.date: 08/08/2016
+ms.author: v-junlch
 ---
 
 # What is the Azure SDK for .NET?
@@ -117,11 +119,7 @@ There are a few things that you might want for Azure development that aren't inc
 
       **Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
 
-    **Project templates that include client libraries.** Only [Azure Cloud Service](./cloud-services/cloud-services-dotnet-get-started.md) and [Azure Mobile Service](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
-
-* [Azure Mobile Service project templates](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
-
-    Mobile Service templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
+    **Project templates that include client libraries.** Only [Azure Cloud Service](./cloud-services/cloud-services-dotnet-get-started.md) and Azure Mobile Service project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
 
 ##<a id="faq"></a>Frequently Asked Questions
 

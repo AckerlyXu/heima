@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 02/14/2017
+ms.date: 03/03/2017
+ms.author: v-dazen
 
 ---
 # How to administer Azure Redis Cache
@@ -95,7 +95,7 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
 > [!NOTE]
-> The default maintenance window for updates is five hours. This value is not configurable from the Azure portal preview, but you can configure it in PowerShell using the `MaintenanceWindow` parameter of the [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. For more information, see [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+> The default maintenance window for updates is five hours. This value is not configurable from the Azure portal, but you can configure it in PowerShell using the `MaintenanceWindow` parameter of the [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet. For more information, see [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 > 
 > 
 

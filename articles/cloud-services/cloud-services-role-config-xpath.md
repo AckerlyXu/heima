@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
-ms.date: 08/10/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 08/10/2016
+ms.date: 12/26/2016
+ms.author: v-yiso
 ---
 
 # Expose role configuration settings as an environment variable with XPath

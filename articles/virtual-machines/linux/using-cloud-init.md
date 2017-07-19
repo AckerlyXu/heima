@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/11/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 05/11/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Use cloud-init to customize a Linux VM during creation
@@ -39,6 +39,8 @@ users:
 ```
 
 Create a resource group to launch VMs into with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates the resource group named *myResourceGroup*:
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
@@ -70,7 +72,7 @@ To inject scripts at any time after boot:
 
 * SSH to run commands directly
 * Inject scripts using the Azure [VMAccess Extension](using-vmaccess-extension.md), either imperatively or in an Azure template
-* Configuration management tools like Ansible, Salt, Chef, and Puppet.
+* Configuration management tools like Salt, Chef, and Puppet.
 
 > [!NOTE]
 > VMAccess Extension executes a script as root in the same way using SSH can. However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
@@ -82,7 +84,7 @@ To inject scripts at any time after boot:
 | CoreOS |CoreOS |CoreOS |Stable |latest |yes |
 | Debian |credativ |Debian |8 |latest |no |
 | openSUSE |SUSE |openSUSE |13.2 |latest |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |yes |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |yes |
 
 We are working with our partners to get cloud-init included and working in the images that they provide to Azure.
 

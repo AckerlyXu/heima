@@ -3,7 +3,7 @@ title: Restore an Azure data warehouse - local and geo-redundant | Azure
 description: Overview of the database restore options for recovering a database in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
+author: rockboyfor
 manager: jhubbard
 editor: ''
 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: lakshmir;barbkess
+origin.date: 10/31/2016
+ms.date: 03/20/2017
+ms.author: v-yeche
 ---
 
 # SQL Data Warehouse restore
@@ -46,7 +46,7 @@ As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Stora
 
 SQL Data Warehouse always restores the backup to a new data warehouse. You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it.
 
-If you need to restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
+<!-- Not Available [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). -->
 
 <!-- Not Available on ### Can I restore a deleted data warehouse?
 ### Can I restore a deleted data warehouse?
@@ -55,7 +55,7 @@ Yes, you can restore the last available restore point.
 
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
-<!-- Not Available on ## Geo-redundant restore ../best-practices-availability-paired-regions.md-->
+
 ## Restore timeline
 You can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 

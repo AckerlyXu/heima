@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
-ms.author: dobett
-
+origin.date: 04/26/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 # Connect your Microsoft Azure IoT Raspberry Pi 3 Starter Kit to the remote monitoring solution
 
@@ -31,7 +31,7 @@ The tutorials in this section help you learn how to connect a Raspberry Pi 3 dev
 
 ## Next steps
 
-Visit the [Azure IoT Dev Center](/develop/iot/) for more samples and documentation on Azure IoT.
+Visit the [Azure IoT Dev Center](https://www.azure.cn/develop/iot/) for more samples and documentation on Azure IoT.
 
 [lnk-node-simulator]: ./iot-suite-raspberry-pi-kit-node-get-started-simulator.md
 [lnk-node-basic]: ./iot-suite-raspberry-pi-kit-node-get-started-basic.md

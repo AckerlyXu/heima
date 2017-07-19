@@ -12,8 +12,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/10/2017
-ms.author: chackdan;maburlik
+ms.date: 05/10/2017
+ms.author: v-johch
 
 ---
 

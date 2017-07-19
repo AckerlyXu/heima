@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: cfowler
+origin.date: 03/20/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Connect a web app to a storage account
@@ -25,11 +26,11 @@ In this scenario you will learn how to create an Azure storage account and an Az
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables
@@ -44,7 +45,7 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name WebAppWithStoragePlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az appservice web create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan WebAppWithStoragePlan --resource-group myResourceGroup 
 
 # Create a Storage Account
 az storage account create --name $storageName --resource-group myResourceGroup --location $location --sku Standard_LRS
@@ -53,7 +54,7 @@ az storage account create --name $storageName --resource-group myResourceGroup -
 connstr=$(az storage account show-connection-string --name $storageName --resource-group myResourceGroup --query connectionString --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az appservice web config appsettings update --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --settings "STORAGE_CONNSTR=$connstr" --name $appName --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -66,10 +67,10 @@ This script uses the following commands to create a resource group, web app, sto
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | Creates an Azure web app within the App Service plan. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates a storage account. This is where the static assets will be stored. |
 | [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account#show-connection-string) | |
-| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
+| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#update) | Creates or updates an app setting for an Azure web app. App settings are exposed as environment variables for your app. |
 
 ## Next steps
 

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
-ms.author: anuragm;markgal
-wacn.date: ''
+origin.date: 04/12/2017
+ms.author: v-junlch
+ms.date: 05/15/2017
 ---
 # Application consistent backup of Azure Linux VMs (Preview)
 

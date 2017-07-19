@@ -8,8 +8,10 @@ manager: douge
 editor: ''
 
 ms.service: multiple
-ms.date: 07/22/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 07/22/2016
+ms.date: 09/19/2016
+ms.author: v-junlch
 ---
 
 # Debugging apps in a local Docker container

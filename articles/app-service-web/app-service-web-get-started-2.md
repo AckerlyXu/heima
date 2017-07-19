@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 05/12/2016
+ms.date: 09/26/2016
+ms.author: v-dazen
 
 ---
 # Add functionality to your first web app
@@ -100,10 +100,10 @@ Without further ado, let's set up autoscaling.
 
     You're done scaling up.
 
-    > [!IMPORTANT]
-    > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
-    > 
-    > 
+   > [!IMPORTANT]
+   > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
+   > 
+   > 
 3. Next, let's configure autoscaling. In the portal blade of your app, click **Settings** > **Scale Out (App Service Plan)**.  
     ![Scale out - settings blade](./media/app-service-web-get-started/scale-out-settings.png)
 4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between
@@ -128,7 +128,7 @@ scaling out, see [Scale instance count manually or automatically](../monitoring-
 
 ## Receive alerts for your app
 Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)?
-You can set up an alert 
+You can set up an alert
 to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
 1. In the portal blade of your app, click **Tools** > **Alerts**.  

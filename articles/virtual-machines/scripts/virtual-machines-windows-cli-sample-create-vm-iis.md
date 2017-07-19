@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
-ms.date: 02/28/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 02/28/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 ---
 
 # Quick Create a virtual machine with the Azure CLI
@@ -27,11 +27,9 @@ This script creates an Azure Virtual Machine running Windows Server 2016, and us
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Update for your admin password
@@ -65,7 +63,7 @@ az vm extension set \
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete --name myResourceGroup --yes
 ```
 
@@ -85,4 +83,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

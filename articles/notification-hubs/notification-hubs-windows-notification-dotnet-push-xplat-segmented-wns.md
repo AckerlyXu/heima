@@ -8,25 +8,27 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
-ms.date: 06/29/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/29/2016
+ms.date: 11/11/2016
+ms.author: v-junlch
 ---
 
 # Use Notification Hubs to send breaking news
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-##Overview
+## Overview
 
 This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Store or Windows Phone 8.1 (non-Silverlight) app. If you are targeting Windows Phone 8.1 Silverlight, please refer to the [Windows Phone](./notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) version. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, and so on. 
 
 Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Routing and Tag Expressions](./notification-hubs-tags-segment-push-message.md).
 
-##Prerequisites
+## Prerequisites
 
 This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
 
-##Add category selection to the app
+## Add category selection to the app
 
 The first step is to add the UI elements to your existing main page that enable the user to select categories to register. The categories selected by a user are stored on the device. When the app starts, a device registration is created in your notification hub with the selected categories as tags.
 
@@ -159,7 +161,7 @@ The first step is to add the UI elements to your existing main page that enable 
 
 Your app is now able to store a set of categories in local storage on the device and register with the notification hub whenever the user changes the selection of categories.
 
-##Register for notifications
+## Register for notifications
 
 These steps register with the notification hub on startup using the categories that have been stored in local storage.
 
@@ -199,11 +201,11 @@ These steps register with the notification hub on startup using the categories t
 
 The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
 
-##Sending tagged notifications
+## Sending tagged notifications
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-##Run the app and generate notifications
+## Run the app and generate notifications
 
 1. In Visual Studio, press F5 to compile and start the app.
 
@@ -227,7 +229,7 @@ The app is now complete and can store a set of categories in the device local st
 
     ![][14]
 
-##Next steps
+## Next steps
 
 In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
 
@@ -252,8 +254,6 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 <!-- URLs.-->
 [get-started]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Use Notification Hubs to broadcast localized breaking news]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-[Notify users with Notification Hubs]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-[Mobile Service]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

@@ -1,31 +1,31 @@
 ---
-title: Use Azure Cosmos DB's API for MongoDB to build a web app | Microsoft Docs
-description: An Azure Cosmos DB tutorial that creates an online database web app using the API for MongoDB.
+title: Use DocumentDB's API for MongoDB to build a web app | Microsoft Docs
+description: An DocumentDB tutorial that creates an online database web app using the API for MongoDB.
 keywords: mongodb examples
-services: cosmosdb
+services: documentdb
 author: AndrewHoh
 manager: jhubbard
 editor: ''
 documentationcenter: ''
 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-wacn.date: ''
-ms.author: anhoh
+origin.date: 04/28/2017
+ms.date: 05/31/2017
+ms.author: v-junlch
 
 ---
-# Azure Cosmos DB: Connect to a MongoDB app using .NET
+# DocumentDB: Connect to a MongoDB app using .NET
 
 This example shows you how to build an API for MongoDB web app using .NET.
 
 To use this example, you must:
 
-- [Create](documentdb-create-mongodb-account.md) an Azure Cosmos DB database.
+- [Create](documentdb-create-account.md) a DocumentDB database.
 - Retrieve your MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
 
 You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
@@ -176,5 +176,5 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
 3. Use the app!
 
 ## Next steps
-- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) and [use RoboMongo](documentdb-mongodb-robomongo.md) with your Azure Cosmos DB's API for MongoDB account.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) and [use RoboMongo](documentdb-mongodb-robomongo.md) with your DocumentDB's API for MongoDB account.
 

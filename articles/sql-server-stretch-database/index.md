@@ -2,7 +2,7 @@
 title: Azure SQL Server Stretch Database Documentation - Tutorials | Azure
 description: Learn how to use SQL Server Stretch Database to migrate cold data securely to Azure without changing queries or applications. Tutorials and other documentation.
 services: sql-server-stretch-database
-author: carolz
+author: rockboyfor
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -10,9 +10,9 @@ ms.service: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
+origin.date: 01/23/2017
 ms.date: 01/23/2017
-wacn.date: ''
-ms.author: carolz
+ms.author: v-yeche
 ---
 #SQL Server Stretch Database Documentation
 
@@ -31,24 +31,6 @@ Learn how to use SQL Server Stretch Database to migrate cold data transparently 
                     </div>
                     <div class="cardText">
                         <h3>Learn about Azure SQL Server Stretch Database</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure SQL Server Stretch Database Video Library</h3>
                     </div>
                 </div>
             </div>

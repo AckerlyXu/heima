@@ -14,9 +14,9 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
-wacn.date: ''
-ms.author: xshi
+origin.date: 11/28/2016
+ms.date: 05/08/2017
+ms.author: v-yiso
 ---
 
 # Get the tools (Ubuntu 16.04)

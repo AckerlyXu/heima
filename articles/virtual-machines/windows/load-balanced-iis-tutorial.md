@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/30/2017
-wacn.date: ''
-ms.author: davidmu
+origin.date: 03/30/2017
+ms.date: 05/15/2017
+ms.author: v-dazen
 ---
 
 # Build a load balanced, highly available application on Windows virtual machines in Azure
@@ -27,7 +27,7 @@ In this tutorial, you create a highly available application that is resilient to
 
 To complete this tutorial, make sure that you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) module.
 
-First, log in to your Azure subscription with the Login-AzureRmAccount -EnvironmentName AzureChinaCloud command and follow the on-screen directions.
+First, log in to your Azure subscription with the Login-AzureRmAccount command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -276,7 +276,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP |
 
 Enter the public IP address in to a web browser. With the NSG rule in place, the default IIS website is displayed. 
 
-![IIS default site](./media/load-balanced-iis-tutorial/iis.png)
+![IIS default site](media/load-balanced-iis-tutorial/iis.png)
 
 ## Step 6 - Management tasks
 
@@ -328,4 +328,4 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Next Steps
 
-Samples - [Azure Virtual Machine PowerShell sample scripts](./../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Samples - [Azure Virtual Machine PowerShell sample scripts](./../virtual-machines-windows-powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

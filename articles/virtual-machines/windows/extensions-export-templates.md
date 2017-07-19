@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-wacn.date: ''
-ms.author: nepeters
+origin.date: 12/05/2016
+ms.date: 03/28/2017
+ms.author: v-dazen
 ---
 
 # Exporting Resource Groups that contain VM extensions
@@ -43,7 +43,7 @@ The following extensions can be exported with the automation script feature.
 
 To export a Resource Group into a reusable template, complete the following steps:
 
-1. Sign in to the Azure portal preview
+1. Sign in to the Azure portal
 2. On the Hub Menu, click Resource Groups
 3. Select the target resource group from the list
 4. In the Resource Group blade, click Automation Script

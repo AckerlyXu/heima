@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/10/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight
@@ -30,8 +30,8 @@ Learn how to use Apache Oozie with Hadoop on HDInsight. Apache Oozie is a workfl
 
 * **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Example workflow
 
@@ -196,13 +196,13 @@ Oozie workflows definitions are written in hPDL (an XML Process Definition Langu
 
     There are two actions defined in the workflow:
 
-    * **RunHiveScript**: This action is the start action, and runs the **useooziewf.hql** Hive script
+   * **RunHiveScript**: This action is the start action, and runs the **useooziewf.hql** Hive script
 
-    * **RunSqoopExport**: This action exports the data created from the Hive script to SQL Database using Sqoop. This action only runs if the **RunHiveScript** action is successful.
+   * **RunSqoopExport**: This action exports the data created from the Hive script to SQL Database using Sqoop. This action only runs if the **RunHiveScript** action is successful.
 
-        The workflow has several entries, such as `${jobTracker}`. These entries are replaced by values you use in the job definition. The job definition is created later in this document.
+     The workflow has several entries, such as `${jobTracker}`. These entries are replaced by values you use in the job definition. The job definition is created later in this document.
 
-        Also note the `<archive>sqljdbc4.jar</arcive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
+     Also note the `<archive>sqljdbc4.jar</arcive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
 
 3. Use Ctrl-X, then **Y** and **Enter** to save the file.
 
@@ -373,19 +373,19 @@ The job definition describes where to find the workflow.xml. It also describes w
     </configuration>
     ```
 
-    * Replace all instances of **wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** with the value you received earlier for default storage.
+   * Replace all instances of **wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** with the value you received earlier for default storage.
 
-        > [!WARNING]
-        > If the path is a `wasb` path, you must use the full path. Do not shorten it to just `wasb:///`.
+     > [!WARNING]
+     > If the path is a `wasb` path, you must use the full path. Do not shorten it to just `wasb:///`.
 
-    * Replace **JOBTRACKERADDRESS** with the JobTracker/ResourceManager address you received earlier.
-    * Replace **YourName** with your login name for the HDInsight cluster.
-    * Replace **serverName**, **adminLogin**, and **adminPassword** with the information for your Azure SQL Database.
+   * Replace **JOBTRACKERADDRESS** with the JobTracker/ResourceManager address you received earlier.
+   * Replace **YourName** with your login name for the HDInsight cluster.
+   * Replace **serverName**, **adminLogin**, and **adminPassword** with the information for your Azure SQL Database.
 
-        Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files (such as ${nameNode}.)
+     Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files (such as ${nameNode}.)
 
-        > [!NOTE]
-        > The **oozie.wf.application.path** entry defines where to find the workflow.xml file, which contains the workflow ran by this job.
+     > [!NOTE]
+     > The **oozie.wf.application.path** entry defines where to find the workflow.xml file, which contains the workflow ran by this job.
 
 5. Use Ctrl-X, then **Y** and **Enter** to save the file.
 
@@ -541,13 +541,13 @@ To access the Oozie Web UI, use the following steps:
 
 6. From the Job Info tab, you can see basic job information and the individual actions within the job. Using the tabs at the top you can view the Job Definition, Job Configuration, access the Job Log or view a Directed Acyclic Graph (DAG) of the job.
 
-    * **Job Log**: Select the **GetLogs** button to get all logs for the job, or use the **Enter Search Filter** field to filter logs
+   * **Job Log**: Select the **GetLogs** button to get all logs for the job, or use the **Enter Search Filter** field to filter logs
 
-        ![Job log](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![Job log](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-    * **JobDAG**: The DAG is a graphical overview of the data paths taken through the workflow
+   * **JobDAG**: The DAG is a graphical overview of the data paths taken through the workflow
 
-        ![Job DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![Job DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
 7. Selecting one of the actions from the **Job Info** tab brings up information for the action. For example, select the **RunHiveScript** action.
 
@@ -583,7 +583,7 @@ To define a schedule for the workflow, use the following steps:
     > The `${...}` variables are replaced by values in the job definition at run-time. The variables are:
     >
     > * `${coordFrequency}`: Time between running instances of the job.
-    > ** `${coordStart}`: The job start time.
+    > * `${coordStart}`: The job start time.
     > * `${coordEnd}`: The job end time.
     > * `${coordTimezone}`: Coordinator jobs are in a fixed time zone with no daylight savings time (typically represented by using UTC). This time zone is referred as the "Oozie processing timezone."
     > * `${wfPath}`: The path to the workflow.xml.
@@ -604,9 +604,9 @@ To define a schedule for the workflow, use the following steps:
 
     Make the following changes:
 
-    * Change `<name>oozie.wf.application.path</name>` to `<name>oozie.coord.application.path</name>`. This value instructs Oozie to run the coordinator file instead of the workflow file.
+   * Change `<name>oozie.wf.application.path</name>` to `<name>oozie.coord.application.path</name>`. This value instructs Oozie to run the coordinator file instead of the workflow file.
 
-    * Add the following XML. This sets a variable used in the coordinator.xml to point to the location of the workflow.xml:
+   * Add the following XML. This sets a variable used in the coordinator.xml to point to the location of the workflow.xml:
 
         ```xml
         <property>
@@ -641,7 +641,7 @@ To define a schedule for the workflow, use the following steps:
         </property>
         ```
 
-        These values set the start time to 12:00PM on May 10th, 2017, the end time to May 12th, 2017. The interval for running this job daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the timezone is set to UTC.
+       These values set the start time to 12:00PM on May 10th, 2017, the end time to May 12th, 2017. The interval for running this job daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the timezone is set to UTC.
 
 5. Use Ctrl-X, then **Y** and **Enter** to save the file.
 
@@ -765,7 +765,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: /downloads/
-[powershell-about-profiles]: https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Profiles
+[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx

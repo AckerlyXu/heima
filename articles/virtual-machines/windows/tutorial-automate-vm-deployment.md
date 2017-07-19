@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 05/02/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # How to customize a Windows virtual machine in Azure
@@ -30,9 +31,9 @@ To configure virtual machines (VMs) in a quick and consistent manner, some form 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 ## Custom script extension overview
-The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal preview at extension run time.
+The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run time.
 
-The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal preview, or the Azure Virtual Machine REST API.
+The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
 You can use the Custom Script Extension with both Windows and Linux VMs.
 

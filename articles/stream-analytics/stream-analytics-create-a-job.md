@@ -4,8 +4,8 @@ description: Create a data analytics processing job for Stream Analytics | learn
 keywords: data analytics processing
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # How to create a data analytics processing job for Stream Analytics

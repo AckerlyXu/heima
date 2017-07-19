@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 03/20/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 ---
 
 # Configure the performance traffic routing method
@@ -24,7 +24,7 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 
 ##  To configure performance routing method
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://www.azure.cn/pricing/1rmb-trial/). 
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial/). 
 2. In the portal's search bar, search for the **Traffic Manager profiles** and then click the profile name that you want to configure the routing method for.
 3. In the **Traffic Manager profile** blade, verify that both the cloud services and websites that you want to include in your configuration are present.
 4. In the **Settings** section, click **Configuration**, and in the **Configuration** blade, complete as follows:
@@ -45,6 +45,7 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 
 - Learn about [weighted traffic routing method](traffic-manager-configure-weighted-routing-method.md).
 - Learn about [priority routing method](traffic-manager-configure-priority-routing-method.md).
+- Learn about [geographic routing method](traffic-manager-configure-geographic-routing-method.md).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
 
 <!--Image references-->

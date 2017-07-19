@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 03/16/2017
+ms.date: 04/27/2017
+ms.author: v-dazen
 ---
 
 # Verify Traffic Manager settings

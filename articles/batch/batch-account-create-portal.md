@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
-ms.author: tamram
+origin.date: 03/27/2017
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-wacn.date: ''
+ms.date: 05/15/2017
 ---
 # Create a Batch account with the Azure portal
 

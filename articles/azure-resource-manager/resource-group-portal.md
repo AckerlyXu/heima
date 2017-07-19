@@ -1,9 +1,9 @@
 ---
-title: Use Azure portal preview to manage Azure resources | Azure
-description: Use Azure portal preview and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources.
+title: Use Azure Portal to manage Azure resources | Azure
+description: Use Azure Portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 12/19/2016
+ms.date: 01/25/2017
+ms.author: v-yeche
 ---
 
 # Manage Azure resources through portal
@@ -25,9 +25,9 @@ ms.author: tomfitz
 >- [Portal](./resource-group-portal.md)
 >- [REST API](./resource-manager-rest-api.md)
 
-This topic shows how to use the [Azure portal preview](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal preview](./resource-group-template-deploy-portal.md).
+This topic shows how to use the [Azure Portal](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure Portal](./resource-group-template-deploy-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [Classic Management Portal](https://manage.windowsazure.cn). For the status of each service, see [Azure portal preview availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [Classic Management Portal](https://manage.windowsazure.cn). For the status of each service, see [Azure Portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## <a name="create-resource-group-and-resources"></a> Manage resource groups
 
@@ -53,7 +53,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 6. Select the columns to add, and then select **Update**.
 
     ![add columns](./media/resource-group-portal/add-columns.png)
-7. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal preview](./resource-group-template-deploy-portal.md).
+7. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure Portal](./resource-group-template-deploy-portal.md).
 8. For quick access to a resource group, you can pin the blade to your dashboard.
 
     ![pin resource group](./media/resource-group-portal/pin-group.png)
@@ -85,7 +85,7 @@ When you select a resource, the resource blade presents default graphs and table
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-    To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal preview](../azure-portal/azure-portal-dashboards.md).
+    To learn about working with dashboards, see [Creating and sharing dashboards in the Azure Portal](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a> Manage resources
 In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.
@@ -99,8 +99,8 @@ If you need to move resources to another resource group or another subscription,
 
 ## Lock resources
 You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](./resource-group-lock-resources.md).
-
-[!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
+<!-- Not translate the [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md) -->
+<!-- [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)] -->
 
 ## View your subscription and costs
 You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
@@ -131,6 +131,6 @@ Deleting a resource group deletes all the resources contained within it. You can
 ## Next Steps
 * To view activity logs, see [Audit operations with Resource Manager](./resource-group-audit.md).
 * To view details about a deployment, see [View deployment operations](./resource-manager-deployment-operations.md).
-* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal preview](./resource-group-template-deploy-portal.md).
+* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure Portal](./resource-group-template-deploy-portal.md).
 * To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).

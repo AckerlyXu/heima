@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: adhurwit
+origin.date: 01/23/2017
+ms.date: 04/10/2017
+ms.author: v-johch
 ---
 
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault

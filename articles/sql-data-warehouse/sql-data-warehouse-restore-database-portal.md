@@ -1,10 +1,10 @@
 ---
-title: Restore Azure SQL Data Warehouse (Azure portal preview) | Azure
-description: Azure portal preview tasks for restoring Azure SQL Data Warehouse.
+title: Restore Azure SQL Data Warehouse (Azure Portal) | Azure
+description: Azure Portal tasks for restoring Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
-manager: barbkess
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 09/21/2016
-wacn.date: ''
-ms.author: lakshmir;barbkess;sonyama
+origin.date: 09/21/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
-ss
+
 # Restore Azure SQL Data Warehouse (portal)
 
 > [!div class="op_single_selector"]
@@ -28,11 +28,12 @@ ss
 > * [REST][REST]
 >
 >
-In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure portal preview.
+In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure Portal.
 
 ## Before you begin
 
-**Verify your DTU capacity.** Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.chinacloudapi.cn) which has a default data throughput unit (DTU) quota. Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring. To learn how to calculate DTU quota or to request more DTUs, see [Request a DTU quota change][Request a DTU quota change].
+<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
+**Verify your DTU capacity.** Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.chinacloudapi.cn) which has a default data throughput unit (DTU) quota. Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring.
 
 ## Restore an active or paused database
 
@@ -122,7 +123,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+<!-- Not Available [Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
 
 <!--MSDN references-->
 

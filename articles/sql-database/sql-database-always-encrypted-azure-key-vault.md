@@ -1,22 +1,23 @@
 ---
-title: 'Always Encrypted: SQL Database - Azure Key Vault | Microsoft Docs'
+title: 'Always Encrypted: SQL Database - Azure Key Vault | Azure'
 description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 documentationcenter: ''
-author: stevestein
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
-ms.author: sstein
+origin.date: 03/06/2017
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
 # Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in Azure Key Vault
@@ -38,16 +39,16 @@ Follow the steps in this article and learn how to set up Always Encrypted for an
 ## Prerequisites
 For this tutorial, you'll need:
 
-* An Azure account and subscription. If you don't have one, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial).
+* An Azure account and subscription. If you don't have one, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs), version  1.0 or later. Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), version  1.0 or later. Type **(Get-Module azure -ListAvailable).Version** to see what version of PowerShell you are running.
 
 ## Enable your client application to access the SQL Database service
 You must enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the following code.
 
-1. Open the [Azure classic manangement portal](http://manage.windowsazure.cn).
+1. Open the [Azure classic management portal](http://manage.windowsazure.cn).
 2. Select **Active Directory** and click the Active Directory instance that your application will use.
 3. Click **Applications**, and then click **ADD**.
 4. Type a name for your application (for example: *myClientApp*), select **WEB APPLICATION**, and click the arrow to continue.
@@ -78,7 +79,7 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+New-AzureRmResourceGroup -Name $resourceGroupName –Location $location
 New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
@@ -88,13 +89,13 @@ Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $reso
 
 
 ## Create a blank SQL database
-1. Sign in to the [Azure portal preview](https://portal.azure.cn/).
+1. Sign in to the [Azure Portal](https://portal.azure.cn/).
 2. Go to **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal preview, see [Your first Azure SQL database](sql-database-get-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure Portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
-You will need the connection string later in the tutorial, so after you create the database, browse to the new  Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it in the Azure portal preview.
+You will need the connection string later in the tutorial, so after you create the database, browse to the new  Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it in the Azure Portal.
 
 1. Go to **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
@@ -256,7 +257,7 @@ This sample demonstrates how to:
 * Insert data into the encrypted columns.
 * Select a record by filtering for a specific value in an encrypted column.
 
-Replace the contents of **Program.cs** with the following code. Replace the connection string for the global connectionString variable in the line that directly precedes the Main method with your valid connection string from the Azure portal preview. This is the only change you need to make to this code.
+Replace the contents of **Program.cs** with the following code. Replace the connection string for the global connectionString variable in the line that directly precedes the Main method with your valid connection string from the Azure Portal. This is the only change you need to make to this code.
 
 Run the app to see Always Encrypted in action.
 

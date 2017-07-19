@@ -10,9 +10,9 @@ ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: carolz
+origin.date: 01/23/2017
+ms.date: 06/20/2017
+ms.author: v-johch
 ---
 # Security Documentation
 
@@ -20,7 +20,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/security/azure-security-services-technologies">
+        <a href="/security/azure-security-services-technologies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -38,7 +38,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
         </a>
     </li>
     <li>
-        <a href="/azure/security/azure-security-getting-started">
+        <a href="/security/azure-security-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
         </a>
     </li>
     <li>
-        <a href="/azure/security/security-network-overview">
+        <a href="/security/security-network-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -74,7 +74,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
         </a>
     </li>
     <li>
-        <a href="/azure/security/security-storage-overview">
+        <a href="/security/security-storage-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,7 @@ Learn how to use Azure Security to protect services and data in the cloud. Tutor
         </a>
     </li>
     <li>
-        <a href="/azure/security/security-virtual-machines-overview">
+        <a href="/security/security-virtual-machines-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
-wacn.date: ''
-ms.author: cjiang
+origin.date: 09/09/2016
+ms.date: 02/20/2017
+ms.author: v-dazen
 
 ---
 # Troubleshoot Resource Manager deployment issues with creating a new Linux virtual machine in Azure
@@ -55,7 +55,7 @@ To resolve both these errors, upload the original VHD, available on-prem, with t
 
 **Resolution:**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
@@ -66,10 +66,10 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 * Retry the request using a smaller VM size.
 * If the size of the requested VM cannot be changed:
-    * Stop all the VMs in the availability set.
-      Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
-    * After all the VMs stop, create the new VM in the desired size.
-    * Start the new VM first, and then select each of the stopped VMs and click **Start**.
+  * Stop all the VMs in the availability set.
+    Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
+  * After all the VMs stop, create the new VM in the desired size.
+  * Start the new VM first, and then select each of the stopped VMs and click **Start**.
 
 **Cause 2:** The cluster does not have free resources.
 
@@ -77,8 +77,8 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 * Retry the request at a later time.
 * If the new VM can be part of a different availability set
-    * Create a new VM in a different availability set (in the same region).
-    * Add the new VM to the same virtual network.
+  * Create a new VM in a different availability set (in the same region).
+  * Add the new VM to the same virtual network.
 
 ## Next steps
-If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

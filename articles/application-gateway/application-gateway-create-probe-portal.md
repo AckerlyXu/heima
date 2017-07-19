@@ -1,5 +1,5 @@
 ---
-title: Create a custom probe - Azure Application Gateway - Azure Portal Preview | Azure
+title: Create a custom probe - Azure Application Gateway - Azure Portal | Azure
 description: Learn how to create a custom probe for Application Gateway by using the portal
 services: application-gateway
 documentationcenter: na
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 04/26/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Create a custom probe for Application Gateway by using the portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-In this article, you add a custom probe to an existing application gateway through the Azure portal preview. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
+In this article, you add a custom probe to an existing application gateway through the Azure portal. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
 ## Before you begin
 
@@ -36,9 +36,9 @@ If you do not already have an application gateway, visit [Create an Application 
 
 Probes are configured in a two-step process through the portal. The first step is to create the probe. In the second step, you add the probe to the backend http settings of the application gateway.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Log in to the [Azure portal](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 
-1. In the Azure portal preview Favorites pane, click All resources. Click the application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
+1. In the Azure portal Favorites pane, click All resources. Click the application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
 
 1. Click **Probes** and click the **Add** button to add a probe.
 
@@ -52,12 +52,12 @@ Probes are configured in a two-step process through the portal. The first step i
   |**Protocol**|HTTP or HTTPS | The protocol that the health probe uses.|
   |**Host**|i.e contoso.com|This value is the host name that is used for the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from the VM host name.|
   |**Path**|/ or another path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http://contoso.com just use '/' |
-|**Interval (secs)**|30|How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.|
-|**Timeout (secs)**|30|The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.|
-|**Unhealthy threshold**|3|Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end is determined unhealthy immediately.|
+  |**Interval (secs)**|30|How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.|
+  |**Timeout (secs)**|30|The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.|
+  |**Unhealthy threshold**|3|Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end is determined unhealthy immediately.|
 
-> [!IMPORTANT]
-> The host name is not the same as server name. This value is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
+  > [!IMPORTANT]
+  > The host name is not the same as server name. This value is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
 
 ## Add probe to the gateway
 

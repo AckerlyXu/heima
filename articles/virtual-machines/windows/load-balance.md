@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2016
-wacn.date: ''
-ms.author: kumud
+origin.date: 02/02/2016
+ms.date: 03/28/2016
+ms.author: v-dazen
 
 ---
 # Load balancing for Azure infrastructure services

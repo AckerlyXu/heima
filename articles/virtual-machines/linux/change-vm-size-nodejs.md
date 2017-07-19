@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/16/2016
-wacn.date: ''
-ms.author: mwasson
+origin.date: 05/16/2016
+ms.date: 04/24/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -35,7 +35,7 @@ This article shows how to resize a Linux VM using the [Azure CLI][azure-cli].
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#resize-a-linux-vm) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](change-vm-size.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Resize a Linux VM
 To resize a VM, perform the following steps.
@@ -66,10 +66,10 @@ To resize a VM, perform the following steps.
     azure vm start -g myResourceGroup myVM
     ```
 
-    > [!WARNING]
-    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
-    > 
-    > 
+   > [!WARNING]
+   > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
+   > 
+   > 
 
 ## Next steps
 For additional scalability, run multiple VM instances and scale out. 

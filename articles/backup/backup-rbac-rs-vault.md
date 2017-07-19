@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
-ms.author: trinadhk;markgal
+ms.date: 02/10/2017
+ms.author: v-junlch
 
 ---
 
@@ -52,7 +52,7 @@ The following table captures the Backup management actions and corresponding min
 | Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup contributor |
 
 ## Next steps
-- [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal preview.
+- [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure Portal.
 - Learn how to manage access with:
   - [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   - [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)

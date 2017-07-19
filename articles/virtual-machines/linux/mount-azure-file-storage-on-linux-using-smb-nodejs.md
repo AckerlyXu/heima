@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/07/2016
-wacn.date: ''
-ms.author: v-livech
+origin.date: 12/07/2016
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 
@@ -30,7 +30,7 @@ This article shows how to mount Azure File storage on a Linux VM by using the Se
 You can complete the task by using one of the following command-line interface (CLI) versions:
 
 - [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)- our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)- our next generation CLI for the resource management deployment model
 
 ## Quick commands
 To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](#detailed-walkthrough) section.
@@ -127,6 +127,6 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 ## Next steps
 
-- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Add a disk to a Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

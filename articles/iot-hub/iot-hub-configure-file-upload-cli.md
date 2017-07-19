@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: dobett
-
+origin.date: 05/04/2017
+ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # Configure IoT Hub file uploads using Azure CLI
@@ -142,7 +142,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
@@ -156,11 +156,11 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
 
 
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
 [lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
 [lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
@@ -168,7 +168,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: /pricing/details/iot-hub/
+[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md
 [lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create

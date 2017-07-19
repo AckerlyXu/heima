@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 03/21/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
 
 # Manage the availability of Linux virtual machines
 
-Learn ways to set up and manage multiple virtual machines to ensure high availability for your Linux application in Azure. You can also [manage the availability of Windows virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Learn ways to set up and manage multiple virtual machines to ensure high availability for your Linux application in Azure. You can also [manage the availability of Windows virtual machines](../windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 

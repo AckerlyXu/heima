@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
-ms.author: davidmu
+origin.date: 03/07/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 
@@ -288,7 +288,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
 
-In Azure, vhd files can represent [disks or images](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
 
 ### Create new virtual machines and new disks from a platform image
 
@@ -449,7 +449,7 @@ You can also get extension information by using the **Get-AzureRmVMExtension** P
 
 When you deploy a template, Azure tracks the resources that you deployed as a group and automatically assigns a name to this deployed group. The name of the deployment is the same as the name of the template.
 
-If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal preview:
+If you are curious about the status of resources in the deployment, you can use the Resource Group blade in the Azure portal:
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
 
@@ -459,4 +459,4 @@ It's not a problem to use the same template to create resources or to update exi
 
 - Create your own template using [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md).
+- Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
-wacn.date: ''
-ms.author: curtand
+origin.date: 05/08/2017
+ms.date: 06/12/2017
+ms.author: v-junlch
 
 ---
 # How Azure subscriptions are associated with Azure Active Directory

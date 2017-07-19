@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
-wacn.date: ''
-ms.author: vturecek
+origin.date: 02/10/2017
+ms.date: 06/15/2017
+ms.author: v-johch
 ---
 
 # Actor timers and reminders

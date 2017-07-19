@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2017
-wacn.date: ''
-ms.author: tarcher
+origin.date: 03/19/2017
+ms.date: 04/17/2017
+ms.author: v-junlch
 ---
 
 # Get Started with Azure Active Directory and Visual Studio connected services (WebApi projects)

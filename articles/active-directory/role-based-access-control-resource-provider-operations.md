@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-ms.author: jaboes
-wacn.date: ''
+origin.date: 04/28/2017
+ms.author: v-junlch
+ms.date: 06/12/2017
 
 ---
 # Azure Resource Manager Resource Provider operations

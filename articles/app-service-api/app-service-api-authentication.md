@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2016
-wacn.date: ''
-ms.author: alkarche
+origin.date: 05/23/2016
+ms.date: 09/26/2016
+ms.author: v-dazen
 
 ---
 # Authentication and authorization for API Apps in Azure App Service
@@ -62,7 +62,7 @@ App Service can prevent anonymous HTTP requests from reaching your API app, it c
 
     This option leaves the tasks of authentication and authorization entirely up to your application code.
 
-In the [Azure portal preview](https://portal.azure.cn/), you select the option you want on the **Authentication / Authorization** blade.
+In the [Azure portal](https://portal.azure.cn/), you select the option you want on the **Authentication / Authorization** blade.
 
 ![](./media/app-service-api-authentication/authblade.png)
 
@@ -88,8 +88,6 @@ For more information about authentication and authorization in Azure App Service
 * [Expanding App Service authentication / authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 * [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Includes links for other authentication providers at the top of the page.) 
 
-<a name="oauth"></a>
-
 For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
 
 * [Getting started with OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Getting Started with OAuth 2.0") 
@@ -100,7 +98,7 @@ For more information about Azure Active Directory, see the following resources.
 
 * [Azure AD scenarios](/active-directory/develop/active-directory-authentication-scenarios)
 * [Azure AD developers' guide](/active-directory/develop/active-directory-developers-guide)
-* [Azure AD samples](https://github.com/azure-samples?query=active-directory)
+* [Azure AD samples](/active-directory/develop/active-directory-code-samples)
 
 ## Next steps
 This article has explained authentication and authorization features of App Service that you can use for API apps. The next tutorial in the getting started series shows how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).

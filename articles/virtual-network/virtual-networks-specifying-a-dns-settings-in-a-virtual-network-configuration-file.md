@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 02/23/2016
+ms.date: 12/16/2016
+ms.author: v-dazen
 
 ---
 # Specifying DNS settings in a virtual network configuration file
@@ -33,7 +33,7 @@ The network configuration file may contain the following elements. The title of 
 > 
 > 
 
-[Dns Element](https://msdn.microsoft.com/library/azure/jj157100)
+[Dns Element](http://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -48,7 +48,7 @@ The network configuration file may contain the following elements. The title of 
 > 
 > 
 
-[Virtual Network Sites Element](https://msdn.microsoft.com/library/azure/jj157100)
+[Virtual Network Sites Element](http://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -62,6 +62,6 @@ The network configuration file may contain the following elements. The title of 
 > 
 
 ## Next steps
-* Understand the [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100).
+* Understand the [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093).
 * Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710).
 * [Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md).

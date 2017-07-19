@@ -12,9 +12,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: adigan;giridham; jimpark;markgal;trinadhk
-wacn.date: ''
+origin.date: 09/27/2016
+ms.author: v-junlch
+ms.date: 11/15/2016
 ---
 
 # Azure Backup for SQL Server workloads using DPM

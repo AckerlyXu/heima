@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 03/02/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 
@@ -171,4 +171,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
 
 ## Next Steps
-- [Learn more about disks and VHDs](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Learn more about disks and VHDs](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
-ms.author: dastrock
-wacn.date: ''
+origin.date: 09/16/2016
+ms.author: v-junlch
+ms.date: 10/25/2016
 ---
 
 # App registration reference

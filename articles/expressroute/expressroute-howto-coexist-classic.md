@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
-ms.author: charwen
+origin.date: 03/21/2017
+ms.date: ''
+ms.author: v-yiso
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections (classic)
 > [!div class="op_single_selector"]
@@ -51,13 +52,12 @@ Having the ability to configure Site-to-Site VPN and ExpressRoute has several ad
 
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
 
-You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public and Microsoft peerings. The ExpressRoute circuit is always the primary link. Data will flow through the Site-to-Site VPN path only if the ExpressRoute circuit fails. 
+You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This applies only to virtual networks linked to the Azure private peering path. There is no VPN-based failover solution for services accessible through Azure public peering. The ExpressRoute circuit is always the primary link. Data will flow through the Site-to-Site VPN path only if the ExpressRoute circuit fails. 
 
 ![Coexist](./media/expressroute-howto-coexist-classic/scenario1.jpg)
 
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
-
-You can configure your network where some sites connect directly to Azure over site-to-site VPN, and some sites connect through ExpressRoute. 
+You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 
 
 ![Coexist](./media/expressroute-howto-coexist-classic/scenario2.jpg)
 
@@ -89,86 +89,69 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
 2. Create a schema for your virtual network. For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx).
 
     When you create your schema, make sure you use the following values:
-
-    - The gateway subnet for the virtual network must be /27 or a shorter prefix (such as /26 or /25).
-    - The gateway connection type is "Dedicated".
-
-        ```
-          <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
-            <AddressSpace>
-              <AddressPrefix>10.17.159.192/26</AddressPrefix>
-            </AddressSpace>
-            <Subnets>
-              <Subnet name="Subnet-1">
-                <AddressPrefix>10.17.159.192/27</AddressPrefix>
-              </Subnet>
-              <Subnet name="GatewaySubnet">
-                <AddressPrefix>10.17.159.224/27</AddressPrefix>
-              </Subnet>
-            </Subnets>
-            <Gateway>
-              <ConnectionsToLocalNetwork>
-                <LocalNetworkSiteRef name="MyLocalNetwork">
-                  <Connection type="Dedicated" />
-                </LocalNetworkSiteRef>
-              </ConnectionsToLocalNetwork>
-            </Gateway>
-          </VirtualNetworkSite>
-        ```
-
+   
+   * The gateway subnet for the virtual network must be /27 or a shorter prefix (such as /26 or /25).
+   * The gateway connection type is "Dedicated".
+     
+             <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
+               <AddressSpace>
+                 <AddressPrefix>10.17.159.192/26</AddressPrefix>
+               </AddressSpace>
+               <Subnets>
+                 <Subnet name="Subnet-1">
+                   <AddressPrefix>10.17.159.192/27</AddressPrefix>
+                 </Subnet>
+                 <Subnet name="GatewaySubnet">
+                   <AddressPrefix>10.17.159.224/27</AddressPrefix>
+                 </Subnet>
+               </Subnets>
+               <Gateway>
+                 <ConnectionsToLocalNetwork>
+                   <LocalNetworkSiteRef name="MyLocalNetwork">
+                     <Connection type="Dedicated" />
+                   </LocalNetworkSiteRef>
+                 </ConnectionsToLocalNetwork>
+               </Gateway>
+             </VirtualNetworkSite>
 3. After creating and configuring your xml schema file, upload the file. This will create your virtual network.
-
+   
     Use the following cmdlet to upload your file, replacing the value with your own.
-
-    ```
-    Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
-    ```
-
+   
+        Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
 4. <a name="gw"></a>Create an ExpressRoute gateway. Be sure to specify the GatewaySKU as *Standard*, *HighPerformance*, or *UltraPerformance* and the GatewayType as *DynamicRouting*.
-
+   
     Use the following sample, substituting the values for your own.
-
-    ```
-    New-AzureVNetGateway -VNetName MyAzureVNET -GatewayType DynamicRouting -GatewaySKU HighPerformance
-    ```
-
+   
+        New-AzureVNetGateway -VNetName MyAzureVNET -GatewayType DynamicRouting -GatewaySKU HighPerformance
 5. Link the ExpressRoute gateway to the ExpressRoute circuit. After this step has been completed, the connection between your on-premises network and Azure, through ExpressRoute, is established.
-
-    ```
-    New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
-    ```
-
+   
+        New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 6. <a name="vpngw"></a>Next, create your Site-to-Site VPN gateway. The GatewaySKU must be *Standard*, *HighPerformance*, or *UltraPerformance* and the GatewayType must be *DynamicRouting*.
-
-    ```
-    New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
-    ```
-
+   
+        New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
+   
     To retrieve the virtual network gateway settings, including the gateway ID and the public IP, use the `Get-AzureVirtualNetworkGateway` cmdlet.
-
-    ```
-    Get-AzureVirtualNetworkGateway
-
-    GatewayId            : 348ae011-ffa9-4add-b530-7cb30010565e
-    GatewayName          : S2SVPN
-    LastEventData        :
-    GatewayType          : DynamicRouting
-    LastEventTimeStamp   : 5/29/2015 4:41:41 PM
-    LastEventMessage     : Successfully created a gateway for the following virtual network: GNSDesMoines
-    LastEventID          : 23002
-    State                : Provisioned
-    VIPAddress           : 104.43.x.y
-    DefaultSite          :
-    GatewaySKU           : HighPerformance
-    Location             :
-    VnetId               : 979aabcf-e47f-4136-ab9b-b4780c1e1bd5
-    SubnetId             :
-    EnableBgp            : False
-    OperationDescription : Get-AzureVirtualNetworkGateway
-    OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
-    OperationStatus      : Succeeded
-    ```
-
+   
+        Get-AzureVirtualNetworkGateway
+   
+        GatewayId            : 348ae011-ffa9-4add-b530-7cb30010565e
+        GatewayName          : S2SVPN
+        LastEventData        :
+        GatewayType          : DynamicRouting
+        LastEventTimeStamp   : 5/29/2015 4:41:41 PM
+        LastEventMessage     : Successfully created a gateway for the following virtual network: GNSDesMoines
+        LastEventID          : 23002
+        State                : Provisioned
+        VIPAddress           : 104.43.x.y
+        DefaultSite          :
+        GatewaySKU           : HighPerformance
+        Location             :
+        VnetId               : 979aabcf-e47f-4136-ab9b-b4780c1e1bd5
+        SubnetId             :
+        EnableBgp            : False
+        OperationDescription : Get-AzureVirtualNetworkGateway
+        OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
+        OperationStatus      : Succeeded
 7. Create a local site VPN gateway entity. This command doesn’t configure your on-premises VPN gateway. Rather, it allows you to provide the local gateway settings, such as the public IP and the on-premises address space, so that the Azure VPN gateway can connect to it.
    
    > [!IMPORTANT]

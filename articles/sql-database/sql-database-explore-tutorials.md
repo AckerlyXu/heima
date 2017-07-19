@@ -15,9 +15,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/08/2017
-wacn.date: ''
-ms.author: carlrab
+origin.date: 02/08/2017
+ms.date: 04/06/2017
+ms.author: v-johch
 ---
 
 # Explore Azure SQL Database tutorials
@@ -33,7 +33,8 @@ In the following tutorials, you create servers, databases, and server-level fire
 | [Use C# to create a SQL database with the SQL Database Library for .NET](./sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 |  | |
 
-## Backups, long-term retention, and database recovery
+<!-----
+## Backups and database recovery
 In the following tutorials, you learn about using [database backups](./sql-database-automated-backups.md), and [database recovery using backups](./sql-database-recovery-using-backups.md).
 
 | Tutorial | Description |
@@ -41,6 +42,7 @@ In the following tutorials, you learn about using [database backups](./sql-datab
 | [Back up and restore using the Azure portal](./sql-database-get-started-backup-recovery-portal.md) | In this tutorial, you learn how to use the Azure portal to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 | [Back up and restore using PowerShell](./sql-database-get-started-backup-recovery-powershell.md) | In this tutorial, you learn how to use PowerShell to view backups, recover to a point in time, configure long-term backup retention, and recover from a backup in the Azure Recovery Services vault
 |  | |
+----->
 
 ## Sharded databases
 In the following tutorials, you learn how to [Scale out databases with the shard map manager](./sql-database-elastic-scale-shard-map-management.md).
@@ -95,13 +97,6 @@ In the following tutorials, you learn about application and database development
 | [Contoso Clinic demo application](https://github.com/Microsoft/azure-sql-security-sample) | In this tutorial, you work with the Contoso Clinic demo application. |
 |  | |
 
-## Data sync
-In this tutorial, you learn about [Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
-
-| Tutorial  | Description  |
-| --- | --- | 
-| [Getting Started with Azure SQL Data Sync (Preview)](./sql-database-get-started-sql-data-sync.md)  | In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal. |
-|  | |
 
 ## Monitor and tune
 In the following tutorials, you learn about monitoring and tuning.

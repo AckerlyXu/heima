@@ -14,9 +14,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
-ms.author: corywink
-wacn.date: ''
+origin.date: 05/15/2017
+ms.author: v-yiso
+ms.date: 06/13/2017
 ---
 
 # Customize a preconfigured solution
@@ -33,7 +33,7 @@ The source code for the preconfigured solutions is provided to demonstrate the p
 
 ## Change the preconfigured rules
 
-The remote monitoring solution includes three [Azure Stream Analytics](https://www.azure.cn/home/features/stream-analytics) jobs to handle device information, telemetry, and rules logic in the solution.
+The remote monitoring solution includes three [Azure Stream Analytics](/stream-analytics/) jobs to handle device information, telemetry, and rules logic in the solution.
 
 The three stream analytics jobs and their syntax are described in depth in the [Remote monitoring preconfigured solution walkthrough](./iot-suite-remote-monitoring-sample-walkthrough.md). 
 
@@ -57,7 +57,8 @@ You can edit these jobs directly to alter the logic, or add logic specific to yo
 In addition to changing the preconfigured Azure Stream Analytics jobs, you can use the Azure portal to add new jobs or add new queries to existing jobs.
 
 ## Customize devices
-One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the IoT Device SDK to connect your physical device to the solution.
+
+One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][IoT Device SDK] to connect your physical device to the solution.
 
 For a step-by-step guide to adding devices, see the [Iot Suite Connecting Devices](./iot-suite-connecting-devices.md) article and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). This sample is designed to work with the remote monitoring preconfigured solution.
 
@@ -117,7 +118,7 @@ To notify the IoT hub that a device supports a method, the device must add detai
 
 The method signature has the following format: `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>`. For example, to specify the **InitiateFirmwareUpdate** method expects a string parameter named **FwPackageURI**, use the following method signature:
 
-```
+```json
 InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
@@ -127,8 +128,6 @@ To delete a method, set the method signature to `null` in the reported propertie
 
 > [!NOTE]
 > The solution back end only updates information about supported methods when it receives a *device information* message from the device.
-> 
-> 
 
 The following code sample from the **SampleDeviceFactory** class in the Common project shows how to add a method to the list of **SupportedMethods** in the reported properties sent by the device:
 
@@ -237,12 +236,12 @@ Members of the **ReadOnly** role can see the dashboard and the device list, but 
 7. This procedure downloads a .json file to your local machine. Open this file for editing in a text editor of your choice.
 8. On the third line of the .json file, you can see:
 
-   ```
+   ```json
    "appRoles" : [],
    ```
    Replace this line with the following code:
 
-   ```
+   ```json
    "appRoles": [
    {
    "allowedMemberTypes": [
@@ -284,8 +283,8 @@ To learn more about the options for customizing the preconfigured solutions, see
 [lnk-dynamic]: ./iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
 
-
-[lnk-permissions]: ./iot-suite-permissions.md
+[IoT Device SDK]: ../iot-hub/iot-hub-sdks-summary.md
+[lnk-permissions]: iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 

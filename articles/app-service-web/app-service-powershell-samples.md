@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
-wacn.date: ''
-ms.author: cfowler
-
+origin.date: 03/08/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 # Azure PowerShell Samples
 

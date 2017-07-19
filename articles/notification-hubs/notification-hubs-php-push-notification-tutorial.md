@@ -8,8 +8,10 @@ manager: dwrede
 editor: ''
 
 ms.service: notification-hubs
-ms.date: 06/07/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/07/2016
+ms.date: 01/09/2017
+ms.author: v-junlch
 ---
 
 # How to use Notification Hubs from PHP

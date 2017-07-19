@@ -13,9 +13,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-wacn.date: ''
-ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+origin.date: 11/28/2016
+ms.date: 04/26/2017
+ms.author: v-junlch
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell

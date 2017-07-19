@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
-ms.author: dobett
+origin.date: 04/24/2017
+ms.author: v-yiso
+ms.date: ''
 
 ---
 
@@ -154,7 +155,7 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: ./iot-suite-what-is-azure-iot.md
-[lnk-asa]: ../stream-analytics/index.md
+[lnk-asa]: /stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md

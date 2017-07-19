@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 # Create an IoT hub using the Azure CLI 2.0
 
@@ -118,6 +118,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
+[lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-portal]: ./iot-hub-create-through-portal.md

@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
-ms.author: sethm
+origin.date: 04/12/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # Create applications that use Service Bus topics and subscriptions
@@ -48,7 +49,7 @@ With this configuration, each message from the POS terminals is made available t
 
 ## Show me the code
 
-The article [Create applications that use Service Bus queues](./service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](/downloads/).
+The article [Create applications that use Service Bus queues](./service-bus-create-queues.md) describes how to sign up for an Azure account and create a service namespace. To use a Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. The easiest way to reference Service Bus dependencies is to install the Service Bus [Nuget package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). You can also find the assembly as part of the Azure SDK. The download is available at the [Azure SDK download page](https://www.azure.cn/downloads/).
 
 ### Create the topic and subscriptions
 

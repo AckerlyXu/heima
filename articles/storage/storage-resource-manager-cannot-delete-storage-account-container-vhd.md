@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment | Azure
+title: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment | Microsoft Docs
 description: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
 services: storage
 documentationcenter: ''
-author: genlin
-manager: felixwu
+author: forester123
+manager: digimobile
 editor: na
 tags: storage
 
@@ -14,20 +14,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: ''
-ms.author: genli
----
+origin.date: 06/13/2017
+ms.date: 06/26/2017
+ms.author: v-johch
 
+---
 # Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
 [!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
 
 You might receive errors when you try to delete an Azure storage account, container, or virtual hard disk (VHD) in the [Azure portal](https://portal.azure.cn). This article provides troubleshooting guidance to help resolve the problem in an Azure Resource Manager deployment.
 
 ## Symptoms
-
 ### Scenario 1
-
 When you try to delete a VHD in a storage account in a Resource Manager deployment, you receive the following error message:
 
 **Failed to delete blob 'vhds/BlobName.vhd'. Error: There is currently a lease on the blob and no lease ID was specified in the request.**
@@ -35,7 +33,6 @@ When you try to delete a VHD in a storage account in a Resource Manager deployme
 This problem can occur because a virtual machine (VM) has a lease on the VHD that you are trying to delete.
 
 ### Scenario 2
-
 When you try to delete a container in a storage account in a Resource Manager deployment, you receive the following error message:
 
 **Failed to delete storage container 'vhds'. Error: There is currently a lease on the container and no lease ID was specified in the request.**
@@ -43,7 +40,6 @@ When you try to delete a container in a storage account in a Resource Manager de
 This problem can occur because the container has a VHD that is locked in the lease state.
 
 ### Scenario 3
-
 When you try to delete a storage account in a Resource Manager deployment, you receive the following error message:
 
 **Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
@@ -89,16 +85,12 @@ To detach the VHD from the VM that is using it (for data disks):
 8. The disk should now be detached from the VM, and the VHD should no longer have a lease on it. It may take a few minutes for the lease to be released. To verify that the lease has been released, go to **All resources** > **Storage Account Name** > **Blobs** > **vhds**. In the **Blob properties** pane, the **Lease Status** value should be **Unlocked**.
 
 ## What is a lease?
-
 A lease is a lock that can be used to control access to a blob (for example, a VHD). When a blob is leased, only the owners of the lease can access the blob. A lease is important for the following reasons:
 
-- It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
-
-- It prevents the blob from being deleted if something is actively using it (for example, a VM).
-
-- It prevents the storage account from being deleted if something is actively using it (for example, a VM).
+* It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
+* It prevents the blob from being deleted if something is actively using it (for example, a VM).
+* It prevents the storage account from being deleted if something is actively using it (for example, a VM).
 
 ## Next steps
-
-- [Delete a storage account](./storage-create-storage-account.md#delete-a-storage-account)
-- [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+* [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
+* [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

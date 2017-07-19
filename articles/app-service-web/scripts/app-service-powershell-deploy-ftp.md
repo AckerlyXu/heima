@@ -13,9 +13,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: cephalin
+origin.date: 03/20/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Upload files to a web app using FTP

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
-wacn.date: ''
-ms.author: nitinme
+origin.date: 04/06/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Release notes for Hadoop components on Azure HDInsight
@@ -29,7 +29,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
 
-## 04/06/2017 - General availability of HDInsight 3.6
+## General availability of HDInsight 3.6
 
 * With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads:
 
@@ -60,30 +60,29 @@ This article provides information about the **most recent** Azure HDInsight rele
 
         HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
-## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
+## Release of Spark 2.1 on HDInsight 3.6 (Preview)
 * [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
 * Structured Streaming gets improved scalability with support for event time watermarks and Kafka 0.10 connector.
 * Spark SQL partitioning is now handled using new Scalable Partition Handling mechanism. See more details [here](http://spark.apache.org/releases/spark-release-2-1-0.html) on how to upgrade.
 * Spark 2.1 on Azure HDInsight 3.6 Preview currently does not support BI Tool connectivity using ODBC driver.
 
-## 11/18/2016 - Release of Spark 2.0.1 on HDInsight 3.5
+## Release of Spark 2.0.1 on HDInsight 3.5
 Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
 
-## 11/16/2016 - Release of R Server 9.0 on HDInsight 3.5 (Spark 2.0)
+## Release of R Server 9.0 on HDInsight 3.5 (Spark 2.0)
 *	R Server clusters now include the option for two versions: R Server 9.0 on HDI 3.5 (Spark 2.0) and R Server 8.0 on HDI 3.4 (Spark 1.6).
 *	R Server 9.0 on HDI 3.5 (Spark 2.0) is built on R 3.3.2 and includes new ScaleR data source functions called RxHiveData and RxParquetData for loading data from Hive and Parquet directly to Spark DataFrames for analysis by ScaleR. For more information see the inline help on these functions in R through use of the **?RxHiveData** and **?RxParquetData** commands.
 *	RStudio Server community edition is now installed by default (with an opt-out option) on the Cluster Configuration blade as part of the provisioning flow.
 
-## 11/09/2016 - Release of Spark 2.0 on HDInsight
+## - Release of Spark 2.0 on HDInsight
 * Spark 2.0 clusters on HDInsight 3.5 now support Livy and Jupyter services.
 
-## 10/26/2016 - Release of R Server on HDInsight
+## - Release of R Server on HDInsight
 * The URI for edge node access has changed to **clustername**-ed-ssh.azurehdinsight.cn
 * R Server on HDInsight cluster provisioning has been streamlined.
 * R Server on HDInsight is now available as regular HDInsight "R Server" cluster type and no longer installed as a separate HDInsight application. The edge node and R Server binaries are now provisioned as part of the R Server cluster deployment. This improves speed and reliability of provisioning. Pricing model for R Server is updated accordingly.
-* R Server cluster type price is now based on Standard tier price plus R Server surcharge price. Premium tier is reserved for Premium features available across different cluster types and isn't used for R Server cluster type. This change doesn't affect effective pricing of R Server; it changes only how the charges are presented in the bill. All existing R Server clusters continue to work and Resource Manager templates continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new Resource Manager template.**
 
-## 08/30/2016 - Release of R Server on HDInsight
+## Release of R Server on HDInsight
 The full version numbers for Linux-based HDInsight clusters deployed with this release:
 
 | HDI | HDI cluster version | HDP | HDP Build | Ambari Build |

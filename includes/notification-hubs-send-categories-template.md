@@ -9,7 +9,7 @@ Skip steps 1-3 if you created the console app for sending notifications when you
 
 1. In Visual Studio create a new Visual C# console application:
 
-       ![][13]
+    ![][13]
 2. In the Visual Studio main menu, click **Tools**, **Library Package Manager**, and **Package Manager Console**, then in the console window type the
     following and press **Enter**:
 

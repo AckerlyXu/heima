@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
-wacn.date: ''
-ms.author: dariagrigoriu
+origin.date: 02/09/2016
+ms.date: 09/26/2016
+ms.author: v-dazen
 
 ---
 # Azure App Service Deployment Overview

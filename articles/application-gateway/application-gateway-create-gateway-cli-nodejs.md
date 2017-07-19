@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 01/23/2017
+ms.date: 03/31/2017
+ms.author: v-dazen
 
 ---
 # Create an application gateway by using the Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
@@ -42,7 +42,7 @@ To perform the steps in this article, you need to [install the Azure Command-Lin
 
 ## Scenario
 
-In this scenario, you learn how to create an application gateway using the Azure portal preview.
+In this scenario, you learn how to create an application gateway using the Azure portal.
 
 This scenario will:
 
@@ -69,7 +69,7 @@ Open the **Azure Command Prompt**, and log in.
 azure login -e AzureChinaCloud
 ```
 
-Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
+Once you type the preceding example, a code is provided. Navigate to https://aka.ms/deviceloginchina in a browser to continue the login process.
 
 ![cmd showing device login][1]
 

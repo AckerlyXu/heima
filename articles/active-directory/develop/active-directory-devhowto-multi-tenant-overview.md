@@ -3,8 +3,8 @@ title: How to build an app that can sign in any Azure AD user| Microsoft Docs
 description: Step by step instructions for building an application that can sign in a user from any Azure Active Directory tenant, also known as a multi-tenant application.
 services: active-directory
 documentationcenter: ''
-author: skwan
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2017
-wacn.date: ''
-ms.author: skwan;bryanla
+origin.date: 04/26/2017
+ms.date: 06/26/2017
+ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern
@@ -37,7 +38,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples][AAD-Samples-MT].
 
 ## Update registration to be multi-tenant
-By default, web app/API registrations in Azure AD are single tenant.  You can make your registration multi-tenant by finding the “Multi-Tenanted” switch on the properties page of your application registration in the [Azure Classic Management  portal][AZURE-classic-portal] and setting it to “Yes”.
+By default, web app/API registrations in Azure AD are single tenant.  You can make your registration multi-tenant by finding the “Multi-Tenanted” switch on the properties page of your application registration in the [Azure classical Management portal][AZURE-classical-portal] and setting it to “Yes”.
 
 Also note, before an application can be made multi-tenant, Azure AD requires the App ID URI of the application to be globally unique. The App ID URI is one of the ways an application is identified in protocol messages.  For a single tenant application, it is sufficient for the App ID URI to be unique within that tenant.  For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants.  Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant.  For example, if the name of your tenant was contoso.partner.onmschina.cn then a valid App ID URI would be `https://contoso.partner.onmschina.cn/myapp`.  If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`.  Setting an application as multi-tenant will fail if the App ID URI doesn’t follow this pattern.
 
@@ -99,7 +100,7 @@ In the multi-tenant samples in the [Related Content](#related-content) section a
 Now let’s look at the user experience for users that are signing in to multi-tenant applications.
 
 ## Understanding user and admin consent
-For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant.  This allows the organization to do things like apply unique policies when users from their tenant sign in to the application.  For a single tenant application this registration is simple; it’s the one that happens when you register the application in the [Azure Classic Management Portal][AZURE-classic-portal].
+For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant.  This allows the organization to do things like apply unique policies when users from their tenant sign in to the application.  For a single tenant application, this registration is simple; it’s the one that happens when you register the application in the [Azure classical portal][AZURE-classical-portal].
 
 For a multi-tenant application, the initial registration for the application lives in the Azure AD tenant used by the developer.  When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application.  If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. See [Application Objects and Service Principal Objects][AAD-App-SP-Objects] for details on the application's Application and ServicePrincipal objects, and how they relate to each other.
 
@@ -123,7 +124,7 @@ The `prompt=admin_consent` parameter can also be used by applications that reque
 
 If an application requires admin consent, and an admin signs in but the `prompt=admin_consent` parameter is not sent, the admin will successfully consent to the application **only for their user account**.  Regular users will still not be able to sign in and consent to the application.  This is useful if you want to give the tenant administrator the ability to explore your application before allowing other users access.
 
-A tenant administrator can disable the ability for regular users to consent to applications.  If this capability is disabled, admin consent is always required for the application to be set up in the tenant.  If you want to test your application with regular user consent disabled, you can find the configuration switch in the Azure AD tenant configuration section of the [Azure Classic Management Portal][AZURE-classic-portal].
+A tenant administrator can disable the ability for regular users to consent to applications.  If this capability is disabled, admin consent is always required for the application to be set up in the tenant.  If you want to test your application with regular user consent disabled, you can find the configuration switch in the Azure AD tenant configuration section of the [Azure classical portal][AZURE-classical-portal].
 
 > [!NOTE]
 > Some applications want an experience where regular users are able to consent initially, and later the application can involve the administrator and request permissions that require admin consent.  There is no way to do this with a single application registration in Azure AD today.  The upcoming Azure AD v2 endpoint will allow applications to request permissions at runtime, instead of at registration time, which will enable this scenario.  For more information, see the [Azure AD App Model v2 Developer Guide][AAD-V2-Dev-Guide].
@@ -162,7 +163,7 @@ The following diagram provides an overview of consent for a multi-tier app regis
 Users and administrators can revoke consent to your application at any time:
 
 - Users revoke access to individual applications by removing them from their [Access Panel Applications][AAD-Access-Panel] list.
-- Administrators revoke access to applications by removing them from Azure AD using the Azure AD management section of the [Azure Classic Management Portal][AZURE-classic-portal].
+- Administrators revoke access to applications by removing them from Azure AD using the Azure AD management section of the [Azure classical portal][AZURE-classical-portal].
 
 If an administrator consents to an application for all users in a tenant, users cannot revoke access individually.  Only the administrator can revoke access, and only for the whole application.
 
@@ -181,8 +182,6 @@ In this article, you learned how to build an application that can sign in a user
 - [Branding Guidelines for Applications][AAD-App-Branding]
 - [Azure AD Developer's Guide][AAD-Dev-Guide]
 - [Application Objects and Service Principal Objects][AAD-App-SP-Objects]
-- [Integrating Applications with Azure Active Directory][AAD-Integrating-Apps]
-- [Overview of the Consent Framework][AAD-Consent-Overview]
 - [Microsoft Graph API Permission Scopes][MSFT-Graph-permision-scopes]
 - [Azure AD Graph API Permission Scopes][AAD-Graph-Perm-Scopes]
 
@@ -194,14 +193,11 @@ Please use the following comments section to provide feedback and help us refine
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Consent-Overview]: ./active-directory-integrating-applications.md#overview-of-the-consent-framework
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Graph-Overview]:./active-directory-graph-api.md
+[AAD-Graph-Overview]: active-directory-graph-api.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
-[AZURE-classic-portal]: https://manage.windowsazure.cn
 [MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
 [MSFT-Graph-permision-scopes]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
@@ -215,7 +211,6 @@ Please use the following comments section to provide feedback and help us refine
 [AAD-App-Manifest]: ./active-directory-application-manifest.md
 [AAD-App-SP-Objects]: ./active-directory-application-objects.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
@@ -224,8 +219,8 @@ Please use the following comments section to provide feedback and help us refine
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AAD-V2-Dev-Guide]:./active-directory-appmodel-v2-overview.md
-[AZURE-classic-portal]: https://manage.windowsazure.cn
+[AAD-V2-Dev-Guide]: ./active-directory-appmodel-v2-overview.md
+[AZURE-classical-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest

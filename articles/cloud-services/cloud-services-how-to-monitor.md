@@ -8,8 +8,10 @@ manager: timlt
 editor: ''
 
 ms.service: cloud-services
-ms.date: 12/07/2015
-wacn.date: ''
+ms.topic: article
+origin.date: 12/07/2015
+ms.date: 01/03/2017
+ms.author: v-yiso
 ---
 
 #How to Monitor Cloud Services

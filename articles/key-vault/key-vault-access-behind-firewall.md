@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: ambapat
+origin.date: 01/07/2017
+ms.date: 04/11/2017
+ms.author: v-junlch
 ---
 
 # Access Azure Key Vault behind a firewall
@@ -40,7 +40,7 @@ Key vault client applications will need to access Azure Active Directory endpoin
 | User or service principal using a work or school account with Azure AD (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
-There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../active-directory/develop/active-directory-authentication-scenarios.md), [Integrating Applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), and [Active Directory Authentication Protocols](../active-directory/develop/active-directory-developers-guide.md) for additional information.  
+There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../active-directory/develop/active-directory-authentication-scenarios.md) and [Active Directory Authentication Protocols](../active-directory/develop/active-directory-developers-guide.md) for additional information.  
 
 ## Key Vault management
 For Key Vault management (CRUD and setting access policy), the key vault client application needs to access an Azure Resource Manager endpoint.  
@@ -58,7 +58,7 @@ For all key vault object (keys and secrets) management and cryptographic operati
 | Operations including cryptographic operations on keys; creating, reading, updating, and deleting keys and secrets; setting or getting tags and other attributes on key vault objects (keys or secrets) |**Global:**<br> &lt;vault-name&gt;.vault.chinacloudapi.cn:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## IP address ranges
-The Key Vault service uses other Azure resources like PaaS infrastructure. So it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any particular time. If your firewall supports only IP address ranges, refer to the [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+The Key Vault service uses other Azure resources like PaaS infrastructure. So it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any particular time. If your firewall supports only IP address ranges, refer to the [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064) document. For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ## Next steps
 If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=AzureKeyVault).

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
-ms.author: adsolank
+ms.author: v-johch
 
 ---
 # Hyperlapse Media Files with Azure Media Hyperlapse

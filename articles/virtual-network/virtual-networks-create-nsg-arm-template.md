@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 02/02/2016
+ms.date: 01/05/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -78,7 +78,6 @@ The following section shows the definition of the front-end NSG, based on the sc
   ]
 }
 ```
-
 To associate the NSG to the front-end subnet, you have to change the subnet definition in the template, and use the reference id for the NSG.
 
 ```json
@@ -181,7 +180,7 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
         data:    
         info:    group create command OK
 
-    * **-n (or --name)**. Name of the resource group to be created.
-    * **-l (or --location)**. Azure region where the resource group will be created.
-    * **-f (or --template-file)**. Path to your ARM template file.
-    * **-e (or --parameters-file)**. Path to your ARM parameters file.
+   * **-n (or --name)**. Name of the resource group to be created.
+   * **-l (or --location)**. Azure region where the resource group will be created.
+   * **-f (or --template-file)**. Path to your ARM template file.
+   * **-e (or --parameters-file)**. Path to your ARM parameters file.

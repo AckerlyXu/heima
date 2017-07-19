@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
-ms.author: vittorib;bryanla
-wacn.date: ''
+origin.date: 11/15/2016
+ms.author: v-junlch
+ms.date: 12/09/2016
 ---
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)
@@ -64,6 +64,6 @@ If you are developing a Web application which includes a backend, and consuming 
 <!--Reference style links in use-->
 [AAD-Developers-Guide]:./active-directory-developers-guide.md
 [ACOM-How-And-Why-Apps-Added-To-AAD]:./active-directory-how-applications-are-added.md
-[ACOM-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
+[ACOM-How-To-Integrate]: active-directory-how-to-integrate.md
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

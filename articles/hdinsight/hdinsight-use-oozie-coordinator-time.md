@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
@@ -69,7 +69,7 @@ Before you begin this tutorial, you must have the following:
 
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
-    > <p>
+    >
     > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 * **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Create HDInsight clusters][hdinsight-provision], or [Get started with HDInsight][hdinsight-get-started]. You will need the following data to go through the tutorial:
@@ -92,13 +92,13 @@ Before you begin this tutorial, you must have the following:
     <tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL database to which Sqoop will export data. </td></tr>
     </table>
 
-    > [!NOTE]
-    > By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure Portal Preview. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-get-started].
+  > [!NOTE]
+  > By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure Portal. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-get-started].
 
 > [!NOTE]
 > Fill-in the values in the tables. It will be helpful for going through this tutorial.
 
-## <a id="defineworkflow"></a> Define Oozie workflow and the related HiveQL script
+## Define Oozie workflow and the related HiveQL script
 Oozie workflows definitions are written in hPDL (an XML process definition language). The default workflow file name is *workflow.xml*.  You will save the workflow file locally, and then deploy it to the HDInsight cluster by using Azure PowerShell later in this tutorial.
 
 The Hive action in the workflow calls a HiveQL script file. This script file contains three HiveQL statements:
@@ -121,11 +121,11 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
     There are three variables used in the script:
 
-    * ${hiveTableName}
-    * ${hiveDataFolder}
-    * ${hiveOutputFolder}
+   * ${hiveTableName}
+   * ${hiveDataFolder}
+   * ${hiveOutputFolder}
 
-    The workflow definition file (workflow.xml in this tutorial) will pass these values to this HiveQL script at run time.
+     The workflow definition file (workflow.xml in this tutorial) will pass these values to this HiveQL script at run time.
 2. Save the file as **C:\Tutorials\UseOozie\useooziewf.hql** by using ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.) This script file will be deployed to the HDInsight cluster later in the tutorial.
 
 **To define a workflow**
@@ -240,16 +240,16 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
     There are five variables used in the definition file:
 
-    | Variable | Description |
-    | --- | --- |
-    | ${coordFrequency} |Job pause time. Frequency is always expressed in minutes. |
-    | ${coordStart} |Job start time. |
-    | ${coordEnd} |Job end time. |
-    | ${coordTimezone} |Oozie processes coordinator jobs in a fixed time zone with no daylight saving time (typically represented by using UTC). This time zone is referred as the "Oozie processing timezone." |
-    | ${wfPath} |The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it. |
+   | Variable | Description |
+   | --- | --- |
+   | ${coordFrequency} |Job pause time. Frequency is always expressed in minutes. |
+   | ${coordStart} |Job start time. |
+   | ${coordEnd} |Job end time. |
+   | ${coordTimezone} |Oozie processes coordinator jobs in a fixed time zone with no daylight saving time (typically represented by using UTC). This time zone is referred as the "Oozie processing timezone." |
+   | ${wfPath} |The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it. |
 2. Save the file as **C:\Tutorials\UseOozie\coordinator.xml** by using the ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.)
 
-## <a id="deploy"></a> Deploy the Oozie project and prepare the tutorial
+## Deploy the Oozie project and prepare the tutorial
 You will run an Azure PowerShell script to perform the following:
 
 * Copy the HiveQL script (useoozie.hql) to Azure Blob storage, wasbs:///tutorials/useoozie/useoozie.hql.
@@ -269,7 +269,7 @@ The syntax is:
 
 > [!NOTE]
 > Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters.
-> <p>
+>
 > The wasb:// path is a virtual path. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
 A file that is stored in the default file system container can be accessed from HDInsight by using any of the following URIs (I am using workflow.xml as an example):
@@ -305,8 +305,8 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
     You will be prompted to enter your Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to run the cmdlet again.
 
-    > [!NOTE]
-    > If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select a subscription.
+   > [!NOTE]
+   > If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select a subscription.
 
 3. Copy the following script into the script pane, and then set the first six variables:
 
@@ -393,7 +393,7 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 
     ![Tutorial preparation output][img-preparation-output]
 
-## <a id="run"></a> Run the Oozie project
+## Run the Oozie project
 Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. You can use the **Invoke-RestMethod** cmdlet to invoke Oozie web services. The Oozie web services API is a HTTP REST JSON API. For more information about the Oozie web services API, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight cluster version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight cluster version 2.1).
 
 **To submit an Oozie job**
@@ -541,8 +541,8 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     "@
     ```
 
-    > [!NOTE]
-    > The major difference compared to the workflow submission payload file is the variable **oozie.coord.application.path**. When you submit a workflow job, you use **oozie.wf.application.path** instead.
+   > [!NOTE]
+   > The major difference compared to the workflow submission payload file is the variable **oozie.coord.application.path**. When you submit a workflow job, you use **oozie.wf.application.path** instead.
 
 4. Append the following to the script. This part checks the Oozie web service status:
 
@@ -584,8 +584,8 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     }
     ```
 
-    > [!NOTE]
-    > When you submit a workflow job, you must make another web service call to start the job after the job is created. In this case, the coordinator job is triggered by time. The job will start automatically.
+   > [!NOTE]
+   > When you submit a workflow job, you must make another web service call to start the job after the job is created. In this case, the coordinator job is triggered by time. The job will start automatically.
 
 6. Append the following to the script. This part checks the Oozie job status:
 
@@ -673,7 +673,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 
 **To check the job error log**
 
-To troubleshoot a workflow, the Oozie log file can be found at C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using the Azure portal preview][hdinsight-admin-portal].
+To troubleshoot a workflow, the Oozie log file can be found at C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log from the cluster headnode. For information on RDP, see [Administering HDInsight clusters using the Azure portal][hdinsight-admin-portal].
 
 **To rerun the tutorial**
 
@@ -751,10 +751,10 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: /downloads/
-[powershell-about-profiles]: https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Profiles
+[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

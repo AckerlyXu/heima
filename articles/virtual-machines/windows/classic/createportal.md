@@ -1,6 +1,6 @@
 ---
 title: Create a custom Windows virtual machine | Azure
-description: Learn how to create a custom Windows virtual machine from the Azure Classic Management Portal using the classic deployment model.
+description: Learn how to create a custom Windows virtual machine from the Azure portal using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 05/30/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Create a custom virtual machine running Windows using the classic deployment model

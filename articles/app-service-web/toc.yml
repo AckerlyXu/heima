@@ -27,8 +27,6 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: 1 - Node.js with MongoDB
     href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: 1 - PHP with MySQL
-    href: app-service-web-tutorial-php-mysql.md 
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
@@ -44,11 +42,11 @@
 - name: Concepts
   items:
   - name: How App Service works
-    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    href: ../app-service/app-service-how-works-readme.md?toc=%2fapp-service-web%2ftoc.json
   - name: App Service plans
-    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-web%2ftoc.json
   - name: Authentication and authorization
-    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    href: ../app-service/app-service-authentication-overview.md?toc=%2fapp-service-web%2ftoc.json
   - name: Authentication with on-premises AD
     href: web-sites-authentication-authorization.md
 - name: How-To guides
@@ -79,6 +77,10 @@
         href: web-sites-nodejs-debug.md
     - name: Java
       items:
+      - name: Java app with Eclipse
+        href: app-service-web-eclipse-create-hello-world-web-app.md
+      - name: Java app with IntelliJ
+        href: app-service-web-intellij-create-hello-world-web-app.md
       - name: Use Azure SDK for Java
         href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
@@ -102,8 +104,8 @@
   - name: Deploy to Azure
     href: web-sites-deploy.md
     items:
-    - name: Deploy via cloud sync
-      href: web-sites-deploy.md
+    - name: Deploy via FTP
+      href: app-service-deploy-ftp.md
     - name: Deploy continuously
       href: app-service-continuous-deployment.md
     - name: Deploy to staging
@@ -114,14 +116,10 @@
       href: app-service-deploy-complex-application-predictably.md
     - name: Agile deployment
       href: app-service-agile-software-development.md
-    - name: Beta testing
-      href: app-service-web-test-in-production-controlled-test-flight.md
     - name: Set deployment credentials
       href: app-service-deployment-credentials.md
     - name: Map custom domain
       items:
-      - name: Map 3rd-party domain
-        href: web-sites-custom-domain-name.md
       - name: Map domains with Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Migrate an active domain
@@ -132,6 +130,8 @@
       href: app-service-web-get-started-2.md
   - name: Connect to DB/resources
     items:
+    - name: Connect to Azure VNet
+      href: web-sites-integrate-with-vnet.md
     - name: Connect to Azure VNet with PowerShell
       href: app-service-vnet-integration-powershell.md
     - name: Connect to MongoDB on Azure VM
@@ -141,17 +141,13 @@
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-web%2ftoc.json
       - name: Authenticate with Microsoft account
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-web%2ftoc.json
       - name: Authenticate with on-prem AD
         href: web-sites-authentication-authorization.md
       - name: App with a multi-tenant database
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Assign custom SSL
-      items:
-      - name: Configure 3rd-party SSL cert
-        href: web-sites-configure-ssl-certificate.md
     - name: Enforce HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configure TLS mutual authentication
@@ -161,15 +157,13 @@
     - name: Scale up
       href: web-sites-scale.md
     - name: Scale out
-      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fapp-service-web%2ftoc.json
     - name: Load-balance with Traffic Manager
       href: web-sites-traffic-manager.md
-    - name: Use Azure CDN for global reach
-      href: cdn-websites-with-cdn.md
     - name: Connect to Redis Cache via Memcache
       href: web-sites-connect-to-redis-using-memcache-protocol.md
     - name: Create a Redis Cache
-      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fapp-service-web%2ftoc.json
     - name: Manage session state with Azure Redis cache
       href: web-sites-dotnet-session-state-caching.md
   - name: Monitor
@@ -203,11 +197,11 @@
 - name: Reference
   items:
   - name: CLI 2.0
-    href: /cli/azure/appservice
+    href: https://docs.microsoft.com/cli/azure/appservice
   - name: PowerShell
-    href: /powershell
+    href: https://docs.microsoft.com/powershell
   - name: REST API
-    href: /rest/api/appservice/
+    href: https://docs.microsoft.com/rest/api/appservice/
 - name: Resources
   items:
   - name: Troubleshooting
@@ -220,15 +214,23 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: FAQ
+      items:
+      - name: Availability, performance, and application FAQ
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Deployment FAQ
+        href: app-service-web-deployment-faq.md
+      - name: Open source technologies FAQ
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Configuration and management FAQ
+        href: app-service-web-configuration-and-management-faq.md
   - name: Pricing
     href: https://www.azure.cn/pricing/details/app-service/
   - name: Quota Information
     href: ../azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates & Release Notes
-    href: https://azure.microsoft.com/updates/?product=app-service
+    href: https://www.azure.cn/what-is-new/
   - name: Best practices
     href: app-service-best-practices.md
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+    href: https://www.azure.cn/video-center/

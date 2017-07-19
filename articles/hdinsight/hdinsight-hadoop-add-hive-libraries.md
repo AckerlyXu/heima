@@ -1,5 +1,5 @@
 ---
-title: Add Hive libraries during HDInsight cluster creation | Azure
+title: Add Hive libraries during HDInsight cluster creation - Azure | Azure
 description: Learn how to add Hive libraries (jar files,) to an HDInsight cluster during cluster creation.
 services: hdinsight
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/14/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -31,6 +31,7 @@ During cluster creation, the script enumerates the files, copies them to the `/u
 
 > [!NOTE]
 > Using the script actions in this article makes the libraries available in the following scenarios:
+>
 > * **Linux-based HDInsight** - when using the a Hive client, **WebHCat**, and **HiveServer2**.
 > * **Windows-based HDInsight** - when using the Hive client and **WebHCat**.
 
@@ -45,7 +46,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 **Requirements**
 
@@ -57,33 +58,33 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 * The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**.
 
-    > [!NOTE]
-    > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
-    > <p>
-    > If you have not created a storage account, you can do so through the [Azure portal preview](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
+  > [!NOTE]
+  > This document assumes that you have already create a storage account, blob container, and uploaded the files to it.
+  >
+  > If you have not created a storage account, you can do so through the [Azure portal](https://portal.azure.cn). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
 
 ## Create a cluster using the script
 
 > [!NOTE]
 > The following steps create a Linux-based HDInsight cluster. To create a Windows-based cluster, select **Windows** as the cluster OS when creating the cluster, and use the Windows (PowerShell) script instead of the bash script.
-> <p>
+>
 > You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
 
-    * **NAME**: Enter a friendly name for the script action.
+   * **NAME**: Enter a friendly name for the script action.
 
-    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
-    * **HEAD**: Check this option.
+   * **HEAD**: Check this option.
 
-    * **WORKER**: Check this option.
+   * **WORKER**: Check this option.
 
-    * **ZOOKEEPER**: Leave this blank.
+   * **ZOOKEEPER**: Leave this blank.
 
-    * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**.
+   * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasbs://libs@mystorage.blob.core.chinacloudapi.cn/**.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration.
 

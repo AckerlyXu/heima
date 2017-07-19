@@ -7,11 +7,10 @@
 
 # Get Started
 
-<!-- ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md) -->
+## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
-<!-- ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
-## [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+<!-- Not Available ## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)-->
 
 # How To
 
@@ -26,11 +25,11 @@
 ## Connect
 
 ### [Overview](sql-data-warehouse-connect-overview.md)
-### [Connection strings](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [Connection strings](sql-data-warehouse-connection-strings.md)
 
 ## Create
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
@@ -48,6 +47,7 @@
 #### [Data types](sql-data-warehouse-tables-data-types.md)
 #### [Distributed tables](sql-data-warehouse-tables-distribute.md)
 #### [Indexes](sql-data-warehouse-tables-index.md)
+#### [Identity](sql-data-warehouse-tables-identity.md)
 #### [Partitions](sql-data-warehouse-tables-partition.md)
 #### [Statistics](sql-data-warehouse-tables-statistics.md)
 #### [Temporary](sql-data-warehouse-tables-temporary.md)
@@ -102,7 +102,7 @@
 ### [Migrate data](sql-data-warehouse-migrate-data.md)
 ### [Migrate to premium storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pause and scale
+## Manage compute
 
 ### [Overview](sql-data-warehouse-manage-compute-overview.md)
 ### [Azure portal](sql-data-warehouse-manage-compute-portal.md)
@@ -114,7 +114,7 @@
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
+### [Monitor](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Security
@@ -126,6 +126,8 @@
 ### [Encryption](sql-data-warehouse-encryption-tde.md)
 ### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 <!-- Not Available ### [Threat detection](sql-data-warehouse-security-threat-detection.md)-->
+## Troubleshoot
+### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # Reference
 
@@ -136,11 +138,11 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Pricing](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+<!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 
 <!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->

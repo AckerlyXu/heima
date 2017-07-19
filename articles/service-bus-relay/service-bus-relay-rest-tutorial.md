@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
-ms.author: sethm
-
+origin.date: 06/17/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 # Azure WCF Relay REST tutorial
 This tutorial describes how to build a simple Azure Relay host application that exposes a REST-based interface. REST enables a web client, such as a web browser, to access the Service Bus APIs through HTTP requests.
 
-The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Service Bus. For more information, see [WCF REST Programming Model](https://msdn.microsoft.com/library/bb412169.aspx) and [Designing and Implementing Services](https://msdn.microsoft.com/library/ms729746.aspx) in the WCF documentation.
+The tutorial uses the Windows Communication Foundation (WCF) REST programming model to construct a REST service on Service Bus. For more information, see [WCF REST Programming Model](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) and [Designing and Implementing Services](https://docs.microsoft.com/en-us/dotnet/framework/wcf/designing-and-implementing-services) in the WCF documentation.
 
-## Step 1: Create a service namespace
+## Step 1: Create a namespace
 
 To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application. Follow the [instructions here](./relay-create-namespace-portal.md) to create a Relay namespace.
 
@@ -203,7 +203,7 @@ As with the previous steps, there is very little difference between implementing
 ### To define the configuration for running the web service on Service Bus
 1. In **Solution Explorer**, double-click **App.config** to open it in the Visual Studio editor.
    
-    The **App.config** file includes the service name, endpoint (that is, the location Azure Relay exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
+    The **App.config** file includes the service name, endpoint (that is, the location Azure Relay exposes for clients and hosts to communicate with each other), and binding (the type of protocol that is used to communicate). The main difference here is that the configured service endpoint refers to a [WebHttpRelayBinding](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding.
 2. The `<system.serviceModel>` XML element is a WCF element that defines one or more services. Here, it is used to define the service name and endpoint. At the bottom of the `<system.serviceModel>` element (but still within `<system.serviceModel>`), add a `<bindings>` element that has the following content. This defines the bindings used in the application. You can define multiple bindings, but for this tutorial you are defining only one.
    
     ```xml
@@ -217,7 +217,7 @@ As with the previous steps, there is very little difference between implementing
     </bindings>
     ```
    
-    The previous code defines a WCF Relay [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
+    The previous code defines a WCF Relay [WebHttpRelayBinding](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.webhttprelaybinding) binding with **relayClientAuthenticationType** set to **None**. This setting indicates that an endpoint using this binding does not require a client credential.
 3. After the `<bindings>` element, add a `<services>` element. Similar to the bindings, you can define multiple services in a single configuration file. However, for this tutorial, you define only one.
    
     ```xml
@@ -554,8 +554,8 @@ After building the solution, do the following to run the application:
 ## Next steps
 Now that you've built an application that uses the Service Bus relay service, see the following articles to learn more about Azure Relay:
 
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure Relay overview](./relay-what-is-it.md)
-
+* [How to use the WCF relay service with .NET](./relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.cn

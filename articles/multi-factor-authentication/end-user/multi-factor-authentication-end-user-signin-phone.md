@@ -8,8 +8,10 @@ manager: stevenpo
 editor: curtland
 
 ms.service: multi-factor-authentication
-ms.date: 08/04/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 08/04/2016
+ms.date: 06/21/2017
+ms.author: v-junlch
 ---
 
 # Signing in using a call to your office or mobile phone with Azure Multi-Factor Authentication

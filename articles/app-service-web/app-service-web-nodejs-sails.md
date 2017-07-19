@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/16/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 12/16/2016
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Deploy a Sails.js web app to Azure App Service
@@ -40,18 +40,18 @@ You should have working knowledge of Sails.js. This tutorial is not intended to 
 
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](app-service-web-nodejs-sails-cli-nodejs.md) - our CLI for the classic and resource management deployment models
+- Azure CLI 1.0 - our CLI for the classic and resource management deployment models
 - [Azure CLI 2.0](app-service-web-nodejs-sails.md) - our next generation CLI for the resource management deployment model
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Prerequisites
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2)
-* A Azure account. If you don't have an account, you can
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)
+* An Azure account. If you don't have an account, you can
   [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Step 1: Create and configure a Sails.js app locally
 First, quickly create a default Sails.js app in your development environment by following these steps:
@@ -190,10 +190,10 @@ MySQL, MongoDB, Azure (Redis) Cache, etc., and use the corresponding
 [datastore adapter](https://github.com/balderdashy/sails#compatibility) to connect to it. The steps in this section
 show you how to connect to MongoDB by using an [Azure Cosmos DB](../documentdb/documentdb-protocol-mongodb.md) database, which can support MongoDB client connections.
 
-1. [Create a Cosmos DB account with MongoDB protocol support](../documentdb/documentdb-create-mongodb-account.md).
+1. [Create a Cosmos DB account with MongoDB protocol support](../cosmos-db/create-mongodb-nodejs.md).
 2. [Create a Cosmos DB collection and database](../documentdb/documentdb-create-collection.md). The name of the collection doesn't matter,
 but you need the name of the database when you connect from Sails.js.
-3. [Find the connection information for your Cosmos DB database](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Find the connection information for your Cosmos DB database](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. From your command-line terminal, install the MongoDB adapter:
 
         npm install sails-mongo --save
@@ -211,7 +211,7 @@ but you need the name of the database when you connect from Sails.js.
         },
 
     > [!NOTE] 
-    > The `ssl: true` option is important because [Cosmos DB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > The `ssl: true` option is important because [Cosmos DB requires it](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
-wacn.date: ''
-ms.author: danlep
+origin.date: 10/14/2016
+ms.date: 12/26/2016
+ms.author: v-dazen
 
 ---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
@@ -28,7 +28,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
-  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
   to deploy the head node and cluster. You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
@@ -52,7 +52,7 @@ For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
+> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
 > you can optionally install and configure the web components as part of the deployment.
 > 
 > 
@@ -78,10 +78,10 @@ Components](http://technet.microsoft.com/library/hh314627.aspx).
     ```
 4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn. If you use the Resource Manager deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.chinacloudapp.cn.
 
-    > [!NOTE]
-    > You select this certificate later when you submit jobs to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
-    > 
-    > 
+   > [!NOTE]
+   > You select this certificate later when you submit jobs to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
+   > 
+   > 
 5. To configure the web portal for job submission, type the following command:
 
     ```powershell
@@ -141,10 +141,10 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     job list /scheduler:https://<HeadNodeDnsName>.<region>.chinacloudapp.cn /all
     ```
 
-    > [!TIP]
-    > Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, an error appears similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store."
-    > 
-    > 
+   > [!TIP]
+   > Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, an error appears similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store."
+   > 
+   > 
 3. When prompted, type the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured. You can choose to store the credentials locally for more job operations.
 
     A list of jobs appears.

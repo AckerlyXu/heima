@@ -15,9 +15,9 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "05/02/2017"
-wacn.date: ''
-ms.author: mikeray
+origin.date: "05/02/2017"
+ms.date: 03/20/2017
+ms.author: v-dazen
 
 ---
 
@@ -62,26 +62,26 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a virtual network in the new region](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
-1. [Configure a VNet-to-VNet connection using the Azure portal preview](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+1. [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
-    >[!NOTE]
-    >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal preview](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+   >[!NOTE]
+   >In some cases, you may have to use PowerShell to create the VNet-to-VNet connection. For example, if you use different Azure accounts you cannot configure the connection in the portal. In this case see, [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
 1. [Create a domain controller in the new region](../../../active-directory/active-directory-new-forest-virtual-machine.md).
 
-    This domain controller provides authentication if the domain controller in the primary site is not available.
+   This domain controller provides authentication if the domain controller in the primary site is not available.
 
 1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
 1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
-    This load balancer must:
+   This load balancer must:
 
-    - Be in the same network and subnet as the new virtual machine.
-    - Have a static IP address for the availability group listener.
-    - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
-    - Use a TCP port probe specific to the IP address.
-    - Have a load balancing rule specific to the SQL Server in the same region.  
+   - Be in the same network and subnet as the new virtual machine.
+   - Have a static IP address for the availability group listener.
+   - Include a backend pool consisting of only the virtual machines in the same region as the load balancer.
+   - Use a TCP port probe specific to the IP address.
+   - Have a load balancing rule specific to the SQL Server in the same region.  
 
 1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 
@@ -93,33 +93,33 @@ To create a replica in a remote data center, do the following steps:
 
 1. Create an IP address resource on the cluster.
 
-    You can create the IP address resource in Failover Cluster Manager. Right-click the availability group role, click **Add Resource**, **More Resources**, and click **IP Address**.
+   You can create the IP address resource in Failover Cluster Manager. Right-click the availability group role, click **Add Resource**, **More Resources**, and click **IP Address**.
 
-    ![Create IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
+   ![Create IP Address](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
-    Configure this IP address as follows:
+   Configure this IP address as follows:
 
-    - Use the network from the remote data center.
-    - Assign the IP address from the new Azure load balancer. 
+   - Use the network from the remote data center.
+   - Assign the IP address from the new Azure load balancer. 
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
-    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
+   The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 
 1. [Add a replica to the availability group on the new SQL Server](http://msdn.microsoft.com/library/hh213239.aspx).
 
-    For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
+   For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
 
 1. Add the IP address resource as a dependency for the listener client access point (network name) cluster.
 
-    The following screenshot shows a properly configured IP address cluster resource:
+   The following screenshot shows a properly configured IP address cluster resource:
 
-    ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+   ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
-    >[!IMPORTANT]
-    >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
+   >[!IMPORTANT]
+   >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
 
 1. [Set the cluster parameters in PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
@@ -128,7 +128,7 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
 ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal preview.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters

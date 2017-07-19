@@ -15,9 +15,9 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
-wacn.date: ''
-ms.author: mikeray
+origin.date: 05/09/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 
@@ -51,27 +51,29 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear - H2's appear in the right pane on the web page and are important for navigation.*-->
 
-## <a name="CreateCluster"></a> Create the cluster
+<a name="CreateCluster"></a>
+
+## Create the cluster
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
 
 1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
 
-    >[!TIP]
-    >If you followed the [prerequisites document](virtual-machines-windows-portal-sql-availability-group-prereq.md), you created an account called **CORP\Install**. Use this account.
+   >[!TIP]
+   >If you followed the [prerequisites document](virtual-machines-windows-portal-sql-availability-group-prereq.md), you created an account called **CORP\Install**. Use this account.
 
 2. In the **Server Manager** dashboard, select **Tools**, and then click **Failover Cluster Manager**.
 3. In the left pane, right-click **Failover Cluster Manager**, and then click **Create a Cluster**.
    ![Create Cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings in the following table:
 
-    | Page | Settings |
-    | --- | --- |
-    | Before You Begin |Use defaults |
-    | Select Servers |Type the first SQL Server name in **Enter server name** and click **Add**. |
-    | Validation Warning |Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue Creating the cluster**. |
-    | Access Point for Administering the Cluster |Type a cluster name, for example **SQLAGCluster1** in **Cluster Name**.|
-    | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
+   | Page | Settings |
+   | --- | --- |
+   | Before You Begin |Use defaults |
+   | Select Servers |Type the first SQL Server name in **Enter server name** and click **Add**. |
+   | Validation Warning |Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I click Next, continue Creating the cluster**. |
+   | Access Point for Administering the Cluster |Type a cluster name, for example **SQLAGCluster1** in **Cluster Name**.|
+   | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
 
 ### Set the cluster IP address
 
@@ -79,7 +81,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
 2. Right-click the failed **IP Address** resource, and then click **Properties**.
 
-    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
+   ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
 3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
@@ -98,16 +100,16 @@ Add the other SQL Server to the cluster.
 
 8. In the **Confirmation** page if you are using Storage Spaces, clear the checkbox labeled **Add all eligible storage to the cluster.**
 
-    ![Add Node Confirmation](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
+   ![Add Node Confirmation](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
 
     >[!WARNING]
-    >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/library/hh831739).
+   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/library/hh831739).
 
 1. Click **Next**.
 
 1. Click **Finish**.
 
-    Failover Cluster Manager shows that your cluster has a new node and lists it in the **Nodes** container.
+   Failover Cluster Manager shows that your cluster has a new node and lists it in the **Nodes** container.
 
 10. Log out of the remote desktop session.
 
@@ -123,9 +125,9 @@ In this example the Windows cluster uses a file share to create a cluster quorum
 
 1. Right-click **Shares**, and click **New Share...**.
 
-    ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
+   ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-    Use **Create a Shared Folder Wizard** to create a share.
+   Use **Create a Shared Folder Wizard** to create a share.
 
 1. On **Folder Path**, click **Browse** and locate or create a path for the shared folder. Click **Next**.
 
@@ -137,7 +139,7 @@ In this example the Windows cluster uses a file share to create a cluster quorum
 
 1. Make sure that the account used to create the cluster has full control.
 
-    ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
+   ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
 1. Click **OK**.
 
@@ -153,7 +155,7 @@ Next, set the cluster quorum.
 
 1. In **Failover Cluster Manager**, right-click the cluster, point to **More Actions**, and click **Configure Cluster Quorum Settings...**.
 
-    ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
+   ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
 1. In **Configure Cluster Quorum Wizard**, click **Next**.
 
@@ -161,8 +163,8 @@ Next, set the cluster quorum.
 
 1. On **Select Quorum Witness**, click **Configure a file share witness**.
 
-    >[!TIP]
-    >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
+   >[!TIP]
+   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
 
 1. On **Configure File Share Witness**, type the path for the share you created. Click **Next**.
 
@@ -188,6 +190,28 @@ Next, enable the **AlwaysOn Availability Groups** feature. Do these steps on bot
 
 Repeat these steps on the other SQL Server.
 
+<!-----------------
+## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
+
+Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
+
+On both SQL Servers, open the firewall for the TCP port for the database mirroring endpoint.
+
+1. On the first SQL Server **Start** screen, launch **Windows Firewall with Advanced Security**.
+2. In the left pane, select **Inbound Rules**. On the right pane, click **New Rule**.
+3. For **Rule Type**, choose **Port**.
+1. For the port, specify TCP and choose an unused TCP port number. For example, type *5022* and click **Next**.
+
+   >[!NOTE]
+   >For this example, we're using TCP port 5022. You can use any available port.
+
+5. In the **Action** page, keep **Allow the connection** selected and click **Next**.
+6. In the **Profile** page, accept the default settings and click **Next**.
+7. In the **Name** page, specify a rule name, such as **Default Instance Mirroring Endpoint** in the **Name** text box, then click **Finish**.
+
+Repeat these steps on the second SQL Server.
+-------------------------->
+
 ## Create a database on the first SQL Server
 
 1. Launch the RDP file to the first SQL Server with a domain account that is a member of sysadmin fixed server role.
@@ -203,9 +227,9 @@ Repeat these steps on the other SQL Server.
 
 1. Right-click **Shares**, and click **New Share...**.
 
-    ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
+   ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
-    Use **Create a Shared Folder Wizard** to create a share.
+   Use **Create a Shared Folder Wizard** to create a share.
 
 1. On **Folder Path**, click **Browse** and locate or create a path for the database backup shared folder. Click **Next**.
 
@@ -217,7 +241,7 @@ Repeat these steps on the other SQL Server.
 
 1. Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.
 
-    ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
+   ![New Share](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
 1. Click **OK**.
 
@@ -251,18 +275,18 @@ You are now ready to configure an Availability Group using the following steps:
 
 3. In the **Select Databases** page, select your database and click **Next**.
 
-    >[!NOTE]
-    >The database meets the prerequisites for an Availability Group because you have taken at least one full backup on the intended primary replica.
+   >[!NOTE]
+   >The database meets the prerequisites for an Availability Group because you have taken at least one full backup on the intended primary replica.
 
-    ![New AG Wizard, Select Databases](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
+   ![New AG Wizard, Select Databases](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/60-newagselectdatabase.png)
 4. In the **Specify Replicas** page, click **Add Replica**.
 
-    ![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
+   ![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
 5. The **Connect to Server** dialog pops up. Type the name of the second server in **Server name**. Click **Connect**.
 
-    Back in the **Specify Replicas** page, you should now see the second server listed in **Availability Replicas**. Configure the replicas as follows.
+   Back in the **Specify Replicas** page, you should now see the second server listed in **Availability Replicas**. Configure the replicas as follows.
 
-    ![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
+   ![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
 
 6. Click **Endpoints** to see the database mirroring endpoint for this Availability Group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
@@ -270,8 +294,8 @@ You are now ready to configure an Availability Group using the following steps:
 
 8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\\<First SQL Server\>\Backup\**. Click **Next**.
 
-    >[!NOTE]
-    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the Availability Group, choose **Join only**. If you want to take the backup after configuring the Availability Group, choose **Skip initial data synchronization**.
+   >[!NOTE]
+   >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the Availability Group, choose **Join only**. If you want to take the backup after configuring the Availability Group, choose **Skip initial data synchronization**.
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
 
@@ -291,69 +315,71 @@ You are now ready to configure an Availability Group using the following steps:
 
 1. In **Object Explorer**, expand **AlwaysOn High Availability**, then expand **Availability Groups**. You should now see the new Availability Group in this container. Right-click the Availability Group and click **Show Dashboard**.
 
-    ![Show AG Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
+   ![Show AG Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/76-showdashboard.png)
 
-    Your **AlwaysOn Dashboard** should look similar to this.
+   Your **AlwaysOn Dashboard** should look similar to this.
 
-    ![AG Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
+   ![AG Dashboard](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/78-agdashboard.png)
 
-    You can see the replicas, the failover mode of each replica and the synchronization state.
+   You can see the replicas, the failover mode of each replica and the synchronization state.
 
 2. In **Failover Cluster Manager**, click your cluster. Select **Roles**. The Availability Group name you used is a role on the cluster. That Availability Group does not have an IP address for client connections, because you did not configure a listener. You will configure the listener after you create an Azure load balancer.
 
-    ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
+   ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
-    > [!WARNING]
-    > Do not try to fail over the Availability Group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
+   > [!WARNING]
+   > Do not try to fail over the Availability Group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
 At this point, you have an Availability Group with replicas on two instances of SQL Server. You can move the Availability Group between instances. You cannot connect to the Availability Group yet because you do not have a listener. In Azure virtual machines, the listener requires a load balancer. The next step is to create the load balancer in Azure.
 
-## <a name="configure-internal-load-balancer"></a> Create an Azure load balancer
+<a name="configure-internal-load-balancer"></a>
 
-On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure portal preview.
+## Create an Azure load balancer
 
-1. In the Azure portal preview, go to the resource group where your SQL Servers are and click **+ Add**.
+On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure portal.
+
+1. In the Azure portal, go to the resource group where your SQL Servers are and click **+ Add**.
 2. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
 
-    ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
+   ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
 1.  Click **Create**.
 3. Configure the following parameters for the load balancer.
 
-    | Setting | Field |
-    | --- | --- |
-    | **Name** |Use a text name for the load balancer, for example **sqlLB**. |
-    | **Type** |Internal |
-    | **Virtual network** |Use the name of the Azure virtual network. |
-    | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
-    | **IP address assignment** |Static |
-    | **IP address** |Use an available address from subnet. |
-    | **Subscription** |Use the same subscription as the virtual machine. |
-    | **Location** |Use the same location as the virtual machine. |
+   | Setting | Field |
+   | --- | --- |
+   | **Name** |Use a text name for the load balancer, for example **sqlLB**. |
+   | **Type** |Internal |
+   | **Virtual network** |Use the name of the Azure virtual network. |
+   | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
+   | **IP address assignment** |Static |
+   | **IP address** |Use an available address from subnet. |
+   | **Subscription** |Use the same subscription as the virtual machine. |
+   | **Location** |Use the same location as the virtual machine. |
 
-    The Azure portal preview blade should look like this:
+   The Azure portal blade should look like this:
 
-    ![Create Load Balancer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
+   ![Create Load Balancer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/84-createloadbalancer.png)
 
 1. Click **Create**, to create the load balancer.
 
-To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal preview.
+To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal.
 
 ### Add backend pool
 
-1. In the Azure portal preview, go to your availability group. You might need to refresh the view to see the newly created load balancer.
+1. In the Azure portal, go to your availability group. You might need to refresh the view to see the newly created load balancer.
 
-    ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
+   ![Find Load Balancer in Resource Group](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
 1. Click the load balancer, click **Backend pools**, and click **+Add**. Set the backend pool as follows:
 
-    | Setting | Description | Example
-    | --- | --- |---
-    | **Name** | Type a text name | SQLLBBE
-    | **Associated to** | Pick from list | Availability set
-    | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
-    | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Type a text name | SQLLBBE
+   | **Associated to** | Pick from list | Availability set
+   | **Availability set** | Use a name of the availability set that your SQL Server VMs are in | sqlAvailabilitySet |
+   | **Virtual machines** |The two Azure SQL Server VM names | sqlserver-0, sqlserver-1
 
 1. Type the name for the back end pool.
 
@@ -371,13 +397,13 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 1. Set the health probe as follows:
 
-    | Setting | Description | Example
-    | --- | --- |---
-    | **Name** | Text | SQLAlwaysOnEndPointProbe |
-    | **Protocol** | Choose TCP | TCP |
-    | **Port** | Any unused port | 59999 |
-    | **Interval**  | The amount of time between probe attempts in seconds |5 |
-    | **Unhealthy threshold** | The number of consecutive probe failures that must occur for a virtual machine to be considered unhealthy  | 2 |
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Text | SQLAlwaysOnEndPointProbe |
+   | **Protocol** | Choose TCP | TCP |
+   | **Port** | Any unused port | 59999 |
+   | **Interval**  | The amount of time between probe attempts in seconds |5 |
+   | **Unhealthy threshold** | The number of consecutive probe failures that must occur for a virtual machine to be considered unhealthy  | 2 |
 
 1. Click **OK** to set the health probe.
 
@@ -386,21 +412,20 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 1. Click the load balancer, click **Load balancing rules**, and click **+Add**.
 
 1. Set the load balancing rules as follows.
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Text | SQLAlwaysOnEndPointListener |
+   | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
+   | **Protocol** | Choose TCP |TCP |
+   | **Port** | Use the port for the SQL Server instance | 1433 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
+   | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
+   | **Session Persistence** | Drop down list | **None** |
+   | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
+   | **Floating IP (direct server return)** | |Enabled |
 
-    | Setting | Description | Example
-    | --- | --- |---
-    | **Name** | Text | SQLAlwaysOnEndPointListener |
-    | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
-    | **Protocol** | Choose TCP |TCP |
-    | **Port** | Use the port for the SQL Server instance | 1433 |
-    | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
-    | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
-    | **Session Persistence** | Drop down list | **None** |
-    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
-    | **Floating IP (direct server return)** | |Enabled |
-
-    > [!WARNING]
-    > Direct server return is set during creation. It cannot be changed.
+   > [!WARNING]
+   > Direct server return is set during creation. It cannot be changed.
 
 1. Click **OK** to set the load balancing rules.
 
@@ -409,7 +434,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 The next thing to do is to configure an Availability Group listener on the failover cluster.
 
 > [!NOTE]
-> This tutorial shows how to create a single listener - with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create Availability Group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> This tutorial shows how to create a single listener - with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create Availability Group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

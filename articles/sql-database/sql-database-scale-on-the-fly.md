@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Azure SQL Database Scales on the fly

@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/29/2017
-wacn.date: ''
-ms.author: cephalin
+origin.date: 03/29/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Add custom domain and SSL to an Azure web app
@@ -55,18 +55,11 @@ To see what possible values you can use for `--location`, use the `az appservice
 
 Create an App Service plan with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command. 
 
-> [!NOTE] 
-> An App Service plan represents the collection of physical resources used to host your apps. All applications assigned to an App Service plan share the resources defined by it allowing you to save cost when hosting multiple apps. 
-> <br/> App Service plans define: 
-> * Region (China North, China East) 
-> * Instance Size (Small, Medium, Large) 
-> * Scale Count (one, two or three instances, etc.) 
-> * SKU (Free, Shared, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 The following example creates an App Service plan named `myAppServicePlan` using the **Basic** pricing tier.
 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
+    az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example. 
 
@@ -88,7 +81,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Create a web app
 
-Now that an App Service plan has been created, create a web app within the `myAppServicePlan` App Service plan. The web app gives your a hosting space to deploy your code as well as provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) command to create the web app. 
+Now that an App Service plan has been created, create a web app within the `myAppServicePlan` App Service plan. The web app gives your a hosting space to deploy your code as well as provides a URL for you to view the deployed application. Use the [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) command to create the web app. 
 
 In the command below, please substitute your own unique app name where you see the `<app_name>` placeholder. This unique name will be used as the part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can later map any custom DNS entry to the web app before you expose it to your users. 
 
@@ -122,7 +115,7 @@ From the JSON output, `defaultHostName` shows your web app's default domain name
 http://<app_name>.chinacloudsites.cn 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-created.png)  
 
 ## Step 2 - Configure DNS mapping
 
@@ -144,7 +137,7 @@ For the `www.contoso.com` example, you create a CNAME that maps the `www` hostna
 
 ## Step 3 - Configure the custom domain on your web app
 
-When you finish configuring the hostname mapping in your domain provider's website, you're ready to configure the custom domain on your web app. Use the [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) command to add this configuration. 
+When you finish configuring the hostname mapping in your domain provider's website, you're ready to configure the custom domain on your web app. Use the [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/webapp/config/hostname#add) command to add this configuration. 
 
 In the command below, please substitute `<app_name>` with your unique app name, and <your_custom_domain> with the fully qualified custom domain name (e.g. `www.contoso.com`). 
 
@@ -158,13 +151,13 @@ The custom domain now is fully mapped to your web app. In your browser, navigate
 http://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
 
 ## Step 4 - Bind a custom SSL certificate to your web app
 
 You now have an Azure web app, with the domain name you want in the browser's address bar. However, if you navigate to the `https://<your_custom_domain>` now, you get a certificate error. 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
 
 This error occurs because your web app doesn't yet have an SSL certificate binding that matches your custom domain name. However, you don't get an error if you navigate to `https://<app_name>.chinacloudsites.cn`. This is because your app, as well as all Azure App Service apps, is secured with the SSL certificate for the `*.chinacloudsites.cn` wildcard domain by default. 
 
@@ -172,7 +165,7 @@ In order to access your web app by your custom domain name, you need to bind the
 
 ### Upload the SSL certificate
 
-Upload the SSL certificate for your custom domain to your web app by using the [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#upload) command.
+Upload the SSL certificate for your custom domain to your web app by using the [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/webapp/config/ssl#upload) command.
 
 In the command below, please substitute `<app_name>` with your unique app name, `<path_to_ptx_file>` with the path to your .PFX file, and `<password>` with your certificate's password. 
 
@@ -220,7 +213,7 @@ From the JSON output, `thumbprint` shows your uploaded certificate's thumbprint.
 
 ### Bind the uploaded SSL certificate to the web app
 
-Your web app now has the custom domain name you want, and it also has a SSL certificate that secures that custom domain. The only thing left to do is to bind the uploaded certificate to the web app. You do this by using the [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#bind) command.
+Your web app now has the custom domain name you want, and it also has a SSL certificate that secures that custom domain. The only thing left to do is to bind the uploaded certificate to the web app. You do this by using the [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/webapp/config/ssl#bind) command.
 
 In the command below, please substitute `<app_name>` with your unique app name and `<thumbprint-from-previous-output>` with the certificate thumbprint that you get from the previous command. 
 
@@ -309,4 +302,4 @@ In your browser, navigate to HTTPS endpoint of your custom domain name. For exam
 https://www.contoso.com 
 ``` 
 
-![app-service-web-service-created](./media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)
+![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-ssl-success.png)

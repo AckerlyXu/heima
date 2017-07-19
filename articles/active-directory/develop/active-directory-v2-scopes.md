@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/07/2017
+ms.date: 02/13/2017
+ms.author: v-junlch
 ---
 
 # Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint
@@ -113,7 +113,7 @@ When an administrator grants these permissions via the admin consent endpoint, c
 If you follow these steps, your app can gather permissions for all users in a tenant, including admin-restricted scopes. To see a code sample that implements the steps, see the [admin-restricted scopes sample](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### Request the permissions in the app registration portal
-1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or [create an app](./active-directory-v2-app-registration.md) if you haven't already.
+1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com), or [create an app](./active-directory-v2-app-registration.md) if you haven't already.
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. Make sure you **Save** the app registration.
 
@@ -141,7 +141,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | tenant |Required |The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format. |
-| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) assigned to your app. |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com) assigned to your app. |
 | redirect_uri |Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | state |Recommended |A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 

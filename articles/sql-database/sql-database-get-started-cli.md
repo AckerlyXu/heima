@@ -4,19 +4,20 @@ description: Learn how to create a SQL Database logical server, server-level fir
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: hero-article
-ms.date: 04/17/2017
-ms.author: carlrab
+origin.date: 04/17/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 ---
 
 # Create a single Azure SQL database using the Azure CLI
@@ -25,22 +26,16 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 To complete this quick start, make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
+If you don't have an Azure subscription, create a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
 ## Log in to Azure
 
 Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
-az login
+az cloud set -n AzureChinaCloud
+az login 
 ```
->[!NOTE]
->Before you run `az login`, please open Azure CLI 2.0 configuration file located at C:\\Users\\<\%USERPROFILE\%\>\\.azure\\config, make sure the cloud name is set to AzureChinaCloud.
->```
->[cloud]
->name = AzureChinaCloud
->```
-
 
 ## Define variables
 
@@ -64,7 +59,7 @@ export databasename = mySampleDatabase
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `chinaeast` location.
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `China East` location.
 
 ```azurecli
 az group create --name $resourcegroupname --location $location

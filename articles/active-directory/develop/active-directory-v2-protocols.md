@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/07/2017
+ms.date: 02/13/2017
+ms.author: v-junlch
 ---
 
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
@@ -38,7 +38,7 @@ In nearly all OAuth & OpenID Connect flows, there are four parties involved in t
 - The **Resource Server** is where the resource or data resides.  It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
 
 ## App Registration
-Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
+Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com) before it can interact using OAuth or OpenID Connect.  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app

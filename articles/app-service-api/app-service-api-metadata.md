@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
-wacn.date: ''
-ms.author: alkarche
+origin.date: 08/30/2016
+ms.date: 03/17/2017
+ms.author: v-dazen
 
 ---
 # App Service API Apps metadata for API discovery and code generation
@@ -27,7 +27,7 @@ You can specify an endpoint that provides Swagger 2.0 JSON metadata for an API a
 Many downstream clients (for example, Visual Studio code generation and PowerApps "Add API" flow), the URL must be publicly accessible (not protected by user or service authentication). This means that if you're using App Service authentication and want to expose the API definition from within your app itself, you need to use authentication option that allows anonymous traffic to reach your API. For more information, see [Authentication and authorization for App Service API Apps](app-service-api-authentication.md).
 
 ### Portal blade
-In the [Azure portal preview](https://portal.azure.cn/) the endpoint URL can be seen and changed on the **API Definition** blade.
+In the [Azure portal](https://portal.azure.cn/) the endpoint URL can be seen and changed on the **API Definition** blade.
 
 ![](./media/app-service-api-metadata/apidefblade.png)
 

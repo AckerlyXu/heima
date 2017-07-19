@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/21/2016
-wacn.date: ''
-ms.author: carlrab
+origin.date: 12/21/2016
+ms.date: 06/15/2017
+ms.author: v-johch
 ---
 
 # Protecting data within your SQL Database

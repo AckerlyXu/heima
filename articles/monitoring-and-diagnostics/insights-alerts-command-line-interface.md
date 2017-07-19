@@ -13,15 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: robb
-
+origin.date: 10/24/2016
+ms.author: v-yiso
+ms.date: ''
 ---
 # Create metric alerts in Azure Monitor for Azure services - Cross-platform CLI
 > [!div class="op_single_selector"]
->- [Portal](./insights-alerts-portal.md)
->- [PowerShell](./insights-alerts-powershell.md)
->- [CLI](./insights-alerts-command-line-interface.md) 
+> * [Portal](./insights-alerts-portal.md)
+> * [PowerShell](./insights-alerts-powershell.md)
+> * [CLI](./insights-alerts-command-line-interface.md)
+>
+>
 
 ## Overview
 This article shows you how to set up Azure metric alerts using the cross-platform Command Line Interface (CLI).
@@ -34,14 +36,14 @@ This article shows you how to set up Azure metric alerts using the cross-platfor
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 - **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-- **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. 
+* **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. To learn more about activity log alerts [click here](./monitoring-activity-log-alerts.md)
 
 You can configure a metric alert to do the following when it triggers:
 
-- send email notifications to the service administrator and co-administrators
-- send email to additional emails that you specify.
-- call a webhook
-- start execution of an Azure runbook (only from the Azure portal at this time) 
+* send email notifications to the service administrator and co-administrators
+* send email to additional emails that you specify.
+* call a webhook
+* start execution of an Azure runbook (only from the Azure portal at this time)
 
 You can configure and get information about metric alert rules using
 
@@ -78,8 +80,7 @@ azure insights alerts actions email create -help
     - The **Resource ID** for the resource you want to set an alert for
     - The **metric definitions** available for that resource
 
-    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The *RESOURCE ID* is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.cn/).
-
+    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The *RESOURCE ID* is a field in the next blade. 
     An example resource id for a web app is 
 
      ```console
@@ -118,8 +119,7 @@ azure insights alerts actions email create -help
     ```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
     ```
-
-8. To delete rules, use a command of the form: 
+7. To delete rules, use a command of the form:
 
     **insights alerts rule delete** [options] &lt;resourceGroup&gt; &lt;ruleName&gt;
 
@@ -135,7 +135,7 @@ azure insights alerts actions email create -help
 
 * [Get an overview of Azure monitoring](./monitoring-overview.md) including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
-
+* Learn more about [configuring alerts on Activity log events](./monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
 
 * Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

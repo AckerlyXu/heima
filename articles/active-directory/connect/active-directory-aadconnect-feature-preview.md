@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 02/07/2017
+ms.date: 03/07/2017
+ms.author: v-junlch
 ---
 
 # More details about features in preview
@@ -47,6 +47,6 @@ An Office 365 group is represented as a distribution group in on-premises AD DS.
 >
 
 ## Next steps
-Continue your [Custom installation of Azure AD Connect](/documentation/articles/active-directory-aadconnect-get-started-custom/).
+Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

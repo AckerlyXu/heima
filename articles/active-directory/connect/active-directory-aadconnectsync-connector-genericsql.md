@@ -3,8 +3,8 @@ title: Generic SQL Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 06/02/2017
+ms.date: 06/23/2017
+ms.author: v-junlch
 
 ---
 # Generic SQL Connector technical reference
@@ -23,7 +23,7 @@ This article describes the Generic SQL Connector. The article applies to the fol
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178).
+  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2, the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -194,12 +194,9 @@ During export every date time attribute must be provided to the Connector in UTC
 The Connector provides two methods to support password synchronization:
 
 - **Stored Procedure**: This method requires two stored procedures to support Set & Change password. Type all parameters for add and change the password operation in **Set Password SP** and **Change Password SP** Parameters respectively as per below example.
-	
-	![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
-
+  ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
 - **Password Extension**: This method requires Password extension DLL (you need to provide the Extension DLL Name that is implementing the [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) interface). Password extension assembly must be placed in extension folder so that the connector can load the DLL at runtime.
-
-	![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
+  ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
 You also have to enable the Password Management on the **Configure Extension** page.
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)

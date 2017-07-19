@@ -15,9 +15,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 07/06/2016
+ms.date: 09/26/2016
+ms.author: v-dazen
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
@@ -44,9 +44,11 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service Web Apps](https://www.azure.cn/home/features/app-service/web-apps/) gives you various options at each step.
 
-### <a name="observe"></a> 1. Observe and monitor application behavior
+<a name="observe" />
+
+### 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### Monitor your web app
 This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -65,23 +67,9 @@ For more information, see:
 
 * [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 
-### <a name="collect"></a> 2. Collect data
-#### Use the Azure App Service Support Portal
-Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.chinacloudsites.cn/Support**
+<a name="collect" />
 
-The Azure App Service Support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
-
-1. Observe current behavior
-2. Analyze by collecting diagnostics information and running the built-in analyzers
-3. Mitigate
-
-If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which will collect HTTP logs, event viewer logs, memory dumps, PHP error logs and PHP process report.
-
-Once the data is collected, it will also run an analysis on the data and provide you with an HTML report.
-
-In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
-
-For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+### 2. Collect data
 
 #### Use the Kudu Debug Console
 Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This is called the *Kudu Console* or the *SCM Dashboard* for your web app.
@@ -100,7 +88,9 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-### <a name="mitigate"></a> 3. Mitigate the issue
+<a name="mitigate" />
+
+### 3. Mitigate the issue
 #### Scale the web app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
@@ -111,12 +101,12 @@ Additionally, you can choose to run your application on more than one instance .
 You can set the scaling to be Manual or Automatic.
 
 #### Use AutoHeal
-AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal Preview, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
+AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
 For more information, see [Auto-Healing Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### Restart the web app
-This is often the simplest way to recover from one-time issues. On the [Azure Portal Preview](https://portal.azure.cn/), on your web app's blade, you have the options to stop or restart your app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.cn/), on your web app's blade, you have the options to stop or restart your app.
 
  ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 

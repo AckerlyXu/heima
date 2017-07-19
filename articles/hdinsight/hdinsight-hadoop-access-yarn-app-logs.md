@@ -1,5 +1,5 @@
 ---
-title: Access Hadoop YARN application logs programmatically | Azure
+title: Access Hadoop YARN application logs programmatically - Azure | Azure
 description: Access application logs programmatically on a Hadoop cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -24,7 +24,7 @@ ROBOTS: NOINDEX
 This topic explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Windows-based Hadoop cluster in Azure HDInsight
 
 > [!IMPORTANT]
-> The information in this document applies only to Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> The information in this document applies only to Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 ### Prerequisites
@@ -47,7 +47,7 @@ On your HDInsight clusters, this information will be stored by Azure Resource Ma
 
     GET on https://<cluster-dns-name>.azurehdinsight.cn/ws/v1/applicationhistory/apps
 
-## <a name="YARNAppsAndLogs"></a> YARN applications and logs
+## YARN applications and logs
 YARN supports multiple programming models (MapReduce being one of them) by decoupling resource management from application scheduling/monitoring. This is done through a global *ResourceManager* (RM), per-worker-node *NodeManagers* (NMs), and per-application *ApplicationMasters* (AMs). The per-application AM negotiates resources (CPU, memory, disk, network) for running your application with the RM. The RM works with NMs to grant these resources, which are granted as *containers*. The AM is responsible for tracking the progress of the containers assigned to it by the RM. An application may require many containers depending on the nature of the application.
 
 Furthermore, each application may consist of multiple *application attempts* in order to finish in the presence of crashes or due to the loss of communication between an AM and an RM. Hence, containers are granted to a specific attempt of an application. In a sense, a container provides the context for basic unit of work performed by a YARN application, and all work that is done within the context of a container is performed on the single worker node on which the container was allocated. See [YARN Concepts][YARN-concepts] for further reference.
@@ -64,9 +64,9 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 ## YARN ResourceManager UI
-The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal preview dashboard:
+The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard:
 
-1. Sign in to [Azure portal preview](https://portal.azure.cn/).
+1. Sign in to [Azure portal](https://portal.azure.cn/).
 2. On the left menu, click **Browse**, click **HDInsight Clusters**, click a Windows-based cluster that you want to access the YARN application logs.
 3. On the top menu, click **Dashboard**. You will see a page opened on a new browser tab called **HDInsight Query Console**.
 4. From **HDInsight Query Console**, click **Yarn UI**.

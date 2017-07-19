@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # Add authentication to your iOS app

@@ -3,8 +3,8 @@ title: Quickstart for the Azure AD Graph API | Microsoft Docs
 description: The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.
 services: active-directory
 documentationcenter: n/a
-author: PatAltimore
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2017
-wacn.date: ''
-ms.author: patricka
+origin.date: 04/28/2017
+ms.date: 06/26/2017
+ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # Quickstart for the Azure AD Graph API
@@ -55,7 +56,7 @@ The following is the output you would see if you were to navigate to the Graph E
 
 ![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.windows.net/](https://graphexplorer.windows.net). Click **Login** and sign-in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
+**Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Click **Login** and sign-in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
 
 **Run a query**: To run a query, type your query in the request text box and click **GET** or click the **enter** key. The results are displayed in the response box. For example, `https://graph.chinacloudapi.cn/myorganization/groups?api-version=1.6` lists all group objects in the signed-in user's directory.
 

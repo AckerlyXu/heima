@@ -1,11 +1,11 @@
 ---
 title: 'Azure PowerShell: Create a SQL database | Azure'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal preview.
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure Portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 
@@ -15,21 +15,21 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 04/17/2017
-ms.author: carlrab
+origin.date: 04/17/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 ---
 
 # Create a single Azure SQL database using PowerShell
 
 PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
+If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
 To complete this tutorial, make sure you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
-
 ## Log in to Azure
 
-Log in to your Azure subscription using the [Add-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
+Log in to your Azure subscription using the [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -88,14 +88,15 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-## Create a blank database
+## Create a database in the server with sample data
 
-Create a blank SQL database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) command. The following example creates a database called `mySampleDatabase`. Replace this predefined value as desired.
+Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
+    -SampleName "AdventureWorksLT" `
     -RequestedServiceObjectiveName "S0"
 ```
 

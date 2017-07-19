@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: michaelhauss
+ms.author: v-johch
 
 ---
 # How to use Blob storage from iOS
@@ -220,7 +220,7 @@ The following example shows how to list all blobs in a container. When performin
 
 * **continuationToken** - The continuation token represents where the listing operation should start. If no token is provided, it will list blobs from the beginning. Any number of blobs can be listed, from zero up to a set maximum. Even if this method returns zero results, if `results.continuationToken` is not nil, there may be more blobs on the service that have not been listed.
 * **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
-* **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported. This feature is coming soon. For now, this value should be **YES**.
+* **useFlatBlobListing** - Although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported. This feature is coming soon. For now, this value should be **YES**.
 * **blobListingDetails** - You can specify which items to include when listing blobs
   * _AZSBlobListingDetailsNone_: List only committed blobs, and do not return blob metadata.
   * _AZSBlobListingDetailsSnapshots_: List committed blobs and blob snapshots.
@@ -389,4 +389,3 @@ Now that you've learned how to use Blob Storage from iOS, follow these links to 
 * [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage)
 
 If you have questions regarding this library feel free to post to our [MSDN Azure forum](https://social.msdn.microsoft.com/forums/azure/zh-cn/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-If you have feature suggestions for Azure Storage please post to [Azure Storage Feedback](https://www.azure.cn/product-feedback).

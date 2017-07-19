@@ -3,8 +3,8 @@ title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: yossib
 
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
-ms.author: kgremban
-wacn.date: ''
+origin.date: 06/16/2017
+ms.date: 06/27/2017
+ms.author: v-junlch
+
 ms.custom: H1Hack27Feb2017
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
-This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting. 
+This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General
 **Q: How does Azure Multi-Factor Authentication Server handle user data?**
@@ -44,7 +45,7 @@ The optional fields can be configured in Multi-Factor Authentication Server.
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
 
 ## Billing
-Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://www.azure.cn/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
 **Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
 
@@ -52,38 +53,12 @@ No, you are not charged for individual phone calls placed or text messages sent 
 
 Your users might be charged for the phone calls or text messages they receive, according to their personal phone service.
 
-**Q: Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?**
-
-Billing is based on the number of users configured to use Multi-Factor Authentication, whether or not they kicked off a verification that month. 
-
-**Q: How does Multi-Factor Authentication billing work?**
-
-When you purchase Azure Multi-Factor Authentication as a standalone service (by creating a per-user or per-authentication MFA provider) your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and websites.
-
-When you purchase a subscription for Azure Multi-Factor Authentication (as a per-user annual license, or as part of an Office 365, Azure AD Premium, or Enterprise Mobility + Security bundle), your organization only pays the annual license fee for each user.
-
-Learn more about your options in [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
-
-**Q: Is there a free version of Azure Multi-Factor Authentication?**
-
-In some instances, yes. 
-
-Multi-Factor Authentication for Azure Administrators offers a subset of Azure MFA features at no cost for access to Microsoft online services, including the Azure and Office 365 administrator portals. This offer applies to the global administrators in Azure Active Directory instances that don't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. If your admins use the free version, and then you create a Multi-Factor Authentication provider, all admins and users in the directory who are configured to use Multi-Factor Authentication get the full version of Azure Multi-Factor Authentication.
-
-Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA features at no cost for access to Office 365 services, including Exchange Online and SharePoint Online. This offer applies to users who have an Office 365 license assigned, when the corresponding instance of Azure Active Directory doesn't have the full version of Azure MFA through an MFA license, a bundle, or a standalone consumption-based provider. 
-
-
-**Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
-
-If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
-
-Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
 
 ## Manage and support user accounts
 
 **Q: What should I tell my users to do if they don’t receive a response on their phone, or don't have their phone with them?**
 
-Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page. 
+Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 
 You can point your users to the [End-user troubleshooting guide](./end-user/multi-factor-authentication-end-user-troubleshoot.md).
 
@@ -91,16 +66,6 @@ You can point your users to the [End-user troubleshooting guide](./end-user/mult
 **Q: What should I do if one of my users can't get in to their account?**
 
 You can reset the user's account by making them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
-
-**Q: What should I do if one of my users loses a phone that is using app passwords?**
-
-To prevent unauthorized access, delete all the user's app passwords. After the user has a replacement device, they can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](multi-factor-authentication-manage-users-and-devices.md).
-
-
-> [!NOTE]
-> Modern authentication for Office 2013 clients
-> 
-> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Newer Office clients automatically support modern authentication protocols. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 
@@ -112,40 +77,20 @@ If you must use text messages, we recommend using one-way SMS rather than two-wa
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 
-In some cases, yes. You can configure the timeout setting for two-way text messages in Azure MFA Server 7.0 and higher. 
+In some cases, yes. You can configure the timeout setting for two-way text messages in Azure MFA Server 7.0 and higher.
 
-Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by default. If the user enters their code after the 300 seconds have passed, their authentication is denied. You can adjust the timeout by setting a registry key. 
+Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by default. If the user enters their code after the 300 seconds have passed, their authentication is denied. You can adjust the timeout by setting a registry key.
 
 1. Go to HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
 2. Create a DWORD registry key called **pfsvc_pendingSmsTimeoutSeconds** and set the time in seconds that you want the Azure MFA Server to store one-time passcodes.
 
-For one-way text messages, MFA Server stores one-time passcodes for 300 seconds, and cloud-based MFA in Azure AD stores them for 180 seconds. This setting is not configurable. 
-
-**Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
-
-If you are using Azure Multi-Factor Authentication Server, you can import third-party Open Authentication (OATH) time-based, one-time password (TOTP) tokens, and then use them for two-step verification.
-
-You can use ActiveIdentity tokens that are OATH TOTP tokens if you put the secret key in a CSV file and import to Azure Multi-Factor Authentication Server. You can use OATH tokens with Active Directory Federation Services (ADFS), Internet Information Server (IIS) forms-based authentication, and Remote Authentication Dial-In User Service (RADIUS) when the client system can process access challenge responses.
-
-You can import third-party OATH TOTP tokens with the following formats:  
-
-- Portable Symmetric Key Container (PSKC)  
-- CSV if the file contains a serial number, a secret key in Base 32 format, and a time interval  
-
-**Q: Can I use Azure Multi-Factor Authentication Server to secure Terminal Services?**
-
-Yes, but if you are using Windows Server 2012 R2 or later you can only secure Terminal Services by using Remote Desktop Gateway (RD Gateway).
-
-Security changes in Windows Server 2012 R2 changed how Azure Multi-Factor Authentication Server connects to the Local Security Authority (LSA) security package in Windows Server 2012 and earlier versions. If you are using Windows Server 2012 R2, you need RD Gateway.
-
-**Q: I configured Caller ID in MFA Server, but my users still receive Multi-Factor Authentication calls from an anonymous caller.**
-
-When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
+For one-way text messages, MFA Server stores one-time passcodes for 300 seconds, and cloud-based MFA in Azure AD stores them for 180 seconds. This setting is not configurable.
 
 **Q: Why are my users being prompted to register their security information?**
+
 There are several reasons that users could be prompted to register their security information:
 
-- The user has been enabled for MFA by their administrator in Azure AD, but doesn't have security information registered for their account yet. 
+- The user has been enabled for MFA by their administrator in Azure AD, but doesn't have security information registered for their account yet.
 - The user has been enabled for self-service password reset in Azure AD. The security information will help them reset their password in the future if they ever forget it.
 - The user accessed an application that has a Conditional Access policy to require MFA and hasn’t previously registered for MFA.
 - The user is registering a device with Azure AD (including Azure AD Join), and your organization requires MFA for device registration, but the user has not previously registered for MFA.
@@ -166,7 +111,7 @@ Tell them to follow this procedure to remove their account from the mobile app, 
 
 **Q: What should users do if they see a 0x800434D4L error message when signing in to a non-browser application?**
 
-The 0x800434D4L error occurs when you try to sign in to a non-broswer application, installed on a local computer, that doesn't work with account that require two-step verification. 
+The 0x800434D4L error occurs when you try to sign in to a non-broswer application, installed on a local computer, that doesn't work with account that require two-step verification.
 
 A workaround for this is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](http://help.outlook.com/141/gg709759.aspx?sl=1).
 
@@ -176,6 +121,5 @@ If your question isn't answered here, please leave it in the comments at the bot
 - Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
 - Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 - If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
-- Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/zh-cn/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
-
+- Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
 

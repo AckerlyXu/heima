@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/17/2017
-wacn.date: ''
-ms.author: jroth
+origin.date: 01/17/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Automated Patching for SQL Server in Azure Virtual Machines (Classic)

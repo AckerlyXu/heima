@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-wacn.date: ''
-ms.author: cephalin
+origin.date: 01/05/2017
+ms.date: 03/17/2017
+ms.author: v-dazen
 
 ---
 # Automate deployment of your Azure app with command-line tools
@@ -38,6 +38,7 @@ For more information, see the following resources:
 * [Provision a web app with a SQL Database](app-service-web-arm-with-sql-database-provision.md)
 * [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
+* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](../vs-azure-tools-publishing-using-powershell-scripts.md). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 
 ## <a name="api"></a>Automate deployment with .NET management API
 You can write C# code to perform MSBuild or FTP functions for deployment. If you do that, you can access the Azure management REST API to perform site management functions.
@@ -51,13 +52,13 @@ You can use the command line in Windows, Mac or Linux machines to deploy by usin
 
 For more information, see the following resource:
 
-* [Azure Command line tools](https://www.azure.cn/downloads/). Portal page in Azure.com for command line tool information.
+* [Azure Command line tools](/downloads/). Portal page in Azure.com for command line tool information.
 
 ## <a name="webdeploy"></a>Deploy from Web Deploy command line
 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft Visual Studio and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.
 
 ## More resources
-Another deployment option to command-line automation is to use a cloud-based service such as [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+Another deployment option to command-line automation is to use a cloud-based service such as Octopus Deploy. For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
 For more information on command-line tools, see the following resource:
 

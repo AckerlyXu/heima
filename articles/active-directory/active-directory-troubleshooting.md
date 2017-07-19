@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
-wacn.date: ''
-ms.author: bryanla
+origin.date: 04/27/2017
+ms.date: 06/12/2017
+ms.author: v-junlch
 
 ---
 # Troubleshooting: 'Active Directory' item is missing or not available

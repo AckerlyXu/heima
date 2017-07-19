@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
-wacn.date: ''
-ms.author: kdotchko
+origin.date: 01/11/2017
+ms.date: 02/10/2017
+ms.author: v-yiso
 ---
 
 # Support additional protocols for IoT Hub

@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
-ms.author: saurse;trinadhk;markgal;
+ms.date: 02/01/2017
+ms.author: v-junlch
 
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
@@ -49,9 +49,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 3. Select the **This server (*yourmachinename*)** option to restore the backed up file on the same machine.
 
     ![Same machine](./media/backup-azure-restore-windows-server/samemachine.png)
-4. Choose to **Browse for files** or **Search for files**.
-
-    Leave the default option if you plan to restore one or more files whose path is known. If you are not sure about the folder structure but would like to search for a file, pick the **Search for files** option. For the purpose of this section, we will proceed with the default option.
+4. Choose "Volume" in "Select Recovery Mode" page. Then click "Next".
 
     ![Browse files](./media/backup-azure-restore-windows-server/browseandsearch.png)
 5. Select the volume from which you wish to restore the file.
@@ -59,17 +57,15 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
     You can restore from any point in time. Dates which appear in **bold** in the calendar control indicate the availability of a restore point. Once a date is selected, based on your backup schedule (and the success of a backup operation), you can select a point in time from the **Time** drop down.
 
     ![Volume and Date](./media/backup-azure-restore-windows-server/volanddate.png)
-6. Select the items to recover. You can multi-select folders/files you wish to restore.
 
-    ![Select files](./media/backup-azure-restore-windows-server/selectfiles.png)
-7. Specify the recovery parameters.
+6. Specify the recovery parameters.
 
     ![Recovery options](./media/backup-azure-restore-windows-server/recoveroptions.png)
 
    - You have an option of restoring to the original location (in which the file/folder would be overwritten) or to another location in the same machine.
    - If the file/folder you wish to restore exists in the target location, you can create copies (two versions of the same file), overwrite the files in the target location, or skip the recovery of the files which exist in the target.
    - It is highly recommended that you leave the default option of restoring the ACLs on the files which are being recovered.
-8. Once these inputs are provided, click **Next**. The recovery workflow, which restores the files to this machine, will begin.
+7. Once these inputs are provided, click **Next**. The recovery workflow, which restores the files to this machine, will begin.
 
 ## Use Instant Restore to recover data to the same machine
 

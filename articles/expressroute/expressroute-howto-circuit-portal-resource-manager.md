@@ -1,20 +1,22 @@
 ---
 title: 'Create and modify an ExpressRoute circuit: Azure portal | Azure'
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
-documentationCenter: na
+documentationcenter: na
 services: expressroute
-authors: cherylmc
+author: cherylmc
 manager: timlt
 editor: ''
 tags: azure-resource-manager
 
+ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2017
-ms.author: cherylmc
+origin.date: 03/07/2017
+ms.date: ''
+ms.author: v-yiso
 ---
 
 # Create and modify an ExpressRoute circuit
@@ -26,9 +28,6 @@ ms.author: cherylmc
 
 This article describes how to create an Azure ExpressRoute circuit by using the Azure portal and the Azure Resource Manager deployment model. The following steps also show you how to check the status of the circuit, update it, or delete and deprovision it.
 
-**About Azure deployment models**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Before you begin
 
@@ -46,6 +45,8 @@ From a browser, navigate to the [Azure portal](http://portal.azure.cn) and sign 
 
 >[!IMPORTANT]
 > Your ExpressRoute circuit will be billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
+> 
+> 
 
 1. You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **New** > **Networking** > **ExpressRoute**, as shown in the following image:
 
@@ -61,6 +62,8 @@ From a browser, navigate to the [Azure portal](http://portal.azure.cn) and sign 
 
 >[!IMPORTANT]
 > Please be aware that the Peering Location indicates the [physical location](./expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit. 
+> 
+> 
 
 ### 3. View the circuits and properties
 
@@ -111,6 +114,8 @@ For step-by-step instructions, refer to the [ExpressRoute circuit routing config
 
 >[!IMPORTANT]
 > These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider will configure and manage routing for you.
+> 
+> 
 
 ### 7. Link a virtual network to an ExpressRoute circuit
 
@@ -127,13 +132,10 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 
 You can do the following with no downtime:
 
-- Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-
-- Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
-
-- Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
-
--  You can enable and disable **Allow Classic Operations**.
+* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Note that downgrading the bandwidth of a circuit is not supported. 
+* Change the metering plan from Metered Data to Unlimited Data. Note that changing the metering plan from Unlimited Data to Metered Data is not supported.
+* You can enable and disable *Allow Classic Operations*.
 
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](./expressroute-faqs.md).
 

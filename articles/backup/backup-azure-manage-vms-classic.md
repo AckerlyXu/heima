@@ -12,9 +12,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
-ms.author: trinadhk; jimpark; markgal;
-wacn.date: ''
+origin.date: 08/31/2016
+ms.author: v-junlch
+ms.date: 01/19/2017
 ---
 
 # Manage and monitor Azure virtual machine backups

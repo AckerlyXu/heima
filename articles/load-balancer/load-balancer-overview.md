@@ -3,8 +3,8 @@ title: Azure Load Balancer overview | Azure
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-wacn.date: ''
-ms.author: kumud
+origin.date: 10/24/2016
+ms.date: 05/08/2017
+ms.author: v-yeche
 ---
 
 # Azure Load Balancer overview
@@ -80,7 +80,7 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     An input endpoint listens on a public port and forwards traffic to an internal port. You can map the same ports for an internal or external endpoint or use a different port for them. For example, you can have a web server configured to listen to port 81 while the public endpoint mapping is port 80. The creation of a public endpoint triggers the creation of a load balancer instance.
 
-    When created using the Azure portal preview, the portal automatically creates endpoints to the virtual machine for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. You can use these endpoints to remotely administer the virtual machine over the Internet.
+    When created using the Azure Portal, the portal automatically creates endpoints to the virtual machine for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. You can use these endpoints to remotely administer the virtual machine over the Internet.
 
 * Automatic reconfiguration
 

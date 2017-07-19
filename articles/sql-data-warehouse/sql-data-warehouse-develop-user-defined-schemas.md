@@ -3,7 +3,7 @@ title: User-defined schemas in SQL Data Warehouse | Azure
 description: Tips for using Transact-SQL schemas in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: ''
 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: jrj;barbkess
+origin.date: 10/31/2016
+ms.date: 01/17/2017
+ms.author: v-yeche
 
 ---
 

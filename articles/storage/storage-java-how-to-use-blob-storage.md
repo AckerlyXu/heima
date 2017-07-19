@@ -13,9 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 12/08/2016
-wacn.date: ''
-ms.author: marsma
+origin.date: 12/08/2016
+ms.date: 06/05/2017
+ms.author: v-johch
 ---
 
 # How to use Blob storage from Java

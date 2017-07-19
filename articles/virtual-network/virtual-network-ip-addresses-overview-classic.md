@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/11/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 02/11/2016
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # IP address types and allocation methods (classic) in Azure
@@ -44,7 +44,7 @@ A public IP address is associated with the following resource types:
 When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. In case of a cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
 
 > [!NOTE]
-> The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064).
+> The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
 > 
 > 
 
@@ -71,7 +71,7 @@ Static (reserved) public IP addresses are commonly used in the scenarios where a
 > 
 
 ### IaaS VMs and PaaS role instances
-You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
+You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-about.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
 
 > [!NOTE]
 > This is different from the VIP of the cloud service, which is a container for IaaS VMs or PaaS role instances, since a cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP.
@@ -146,7 +146,7 @@ The table below shows each resource type with the possible allocation methods (d
 | Application gateway front end |Yes |Yes |Yes |
 
 ## Limits
-The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://www.azure.cn/support/contact/) to increase the default limits up to the maximum limits based on your business needs.
+The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
 
 |  | Default limit | Maximum limit |
 | --- | --- | --- |

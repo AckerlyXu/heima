@@ -3,7 +3,7 @@ title: Leverage T-SQL loops in Azure SQL Data Warehouse | Azure
 description: Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: jhubbard
 editor: ''
 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: t-sql
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: jrj;barbkess
+origin.date: 10/31/2016
+ms.date: 03/20/2017
+ms.author: v-yeche
 ---
 # Loops in SQL Data Warehouse
 SQL Data Warehouse supports the [WHILE][WHILE] loop for repeatedly executing statement blocks. This will continue for as long as the specified conditions are true or until the code specifically terminates the loop using the `BREAK` keyword. Loops are particularly useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read only variety. Therefore [WHILE] loops are a great alternative if you find yourself having to replace one.

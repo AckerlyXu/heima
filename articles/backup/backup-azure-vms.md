@@ -1,10 +1,10 @@
 ---
-title: Back up classic-deployed Azure virtual machines to a backup vault| Azure
+title: Back up classic-deployed Azure virtual machines to a backup vault| Microsoft Docs
 description: Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup.
 services: backup
 documentationcenter: ''
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup
 
@@ -14,14 +14,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
-wacn.date: ''
-ms.author: markgal;trinadhk;
+origin.date: 06/14/2017
+ms.date: 06/30/2017
+ms.author: v-junlch
+
 ---
+# Back up Azure virtual machines (Classic Management Portal)
 
-# Back up Azure virtual machines
-
-This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](./backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
+This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
 
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](./backup-azure-vms-introduction.md) and [Azure virtual machines](../virtual-machines/index.md).
 
@@ -182,9 +182,9 @@ Once protected, the virtual machine count also increases in the **Dashboard** pa
 Values in the dashboard are refreshed once every 24 hours.
 
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, look at the [VM     troubleshooting article](./backup-azure-vms-troubleshoot.md) for help.
+If you run into issues while backing up your virtual machine, look at the [VM  troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
-
 - [Manage and monitor your virtual machines](./backup-azure-manage-vms-classic.md)
-- [Restore virtual machines](./backup-azure-restore-vms.md)
+- [Restore virtual machines](backup-azure-restore-vms.md)
+

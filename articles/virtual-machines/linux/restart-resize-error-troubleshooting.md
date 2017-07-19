@@ -14,9 +14,9 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.workload: required
-ms.date: 01/10/2017
-wacn.date: ''
-ms.author: delhan
+origin.date: 01/10/2017
+ms.date: 02/20/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -41,8 +41,8 @@ The request to start the stopped VM has to be attempted at the original cluster 
 ### Resolution
 * Stop all the VMs in the availability set, and then restart each VM.
 
-    1. Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
-    2. After all the VMs stop, select each of the stopped VMs and click Start.
+  1. Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
+  2. After all the VMs stop, select each of the stopped VMs and click Start.
 * Retry the restart request at a later time.
 
 ## Issue: Error when resizing an existing VM
@@ -55,11 +55,11 @@ The request to resize the VM has to be attempted at the original cluster that ho
 * Retry the request using a smaller VM size.
 * If the size of the requested VM cannot be changed：
 
-    1. Stop all the VMs in the availability set.
+  1. Stop all the VMs in the availability set.
 
-        * Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
-    2. After all the VMs stop, resize the desired VM to a larger size.
-    3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
+     * Click **Resource groups** > *your resource group* > **Resources** > *your availability set* > **Virtual Machines** > *your virtual machine* > **Stop**.
+  2. After all the VMs stop, resize the desired VM to a larger size.
+  3. Select the resized VM and click **Start**, and then start each of the stopped VMs.
 
 ## Next steps
-If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

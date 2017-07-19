@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 01/23/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Create an Application Gateway with an Internal Load Balancer (ILB)
@@ -100,8 +100,7 @@ Note the following:
 * The *StaticIPAddress* should be set to the desired internal IP on which the gateway receives traffic. Note that the *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
 * The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
 
-**Configuration XML sample**
-
+  **Configuration XML sample**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">

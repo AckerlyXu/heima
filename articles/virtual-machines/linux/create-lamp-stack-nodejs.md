@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: NA
 ms.topic: article
-ms.date: 2/21/2017
-wacn.date: ''
-ms.author: juluk
+origin.date: 02/21/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # Deploy LAMP stack with the Azure CLI 1.0
@@ -26,9 +26,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
-
-<br/>
+- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ```
 # One command to create a resource group holding a VM with LAMP already on it
@@ -36,8 +34,6 @@ $ azure group create -n uniqueResourceGroup -l chinanorth --template-uri https:/
 ```
 
 * Deploy LAMP on existing VM
-
-<br/>
 
 ```
 # Two commands: one updates packages, the other installs Apache, MySQL, and PHP
@@ -102,8 +98,8 @@ You should see a response prompting some more inputs:
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed](#verify-lamp-successfully-installed).
 
 ## Deploy LAMP on existing VM walkthrough
-If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). 
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh exampleUsername@exampleDNS`.
 
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.

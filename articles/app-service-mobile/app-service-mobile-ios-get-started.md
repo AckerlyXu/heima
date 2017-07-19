@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 #Create an iOS app

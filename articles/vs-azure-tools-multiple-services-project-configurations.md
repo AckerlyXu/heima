@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
-wacn.date: ''
-ms.author: tarcher
+origin.date: 11/11/2016
+ms.date: 03/30/2017
+ms.author: v-junlch
 ---
 
 # Configuring Your Azure Project Using Multiple Service Configurations

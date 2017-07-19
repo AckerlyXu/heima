@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute troubleshooting guide: Getting ARP tables | Azure'
+title: 'Getting ARP tables: Classic: Azure ExpressRoute Troubleshooting | Azure'
 description: This page provides instructions for getting the ARP tables for an ExpressRoute circuit.
 documentationCenter: na
 services: expressroute
@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
-ms.author: ganesr
+origin.date: 01/30/2017
+ms.author: v-yiso
+ms.date: ''
 ---
-
-# ExpressRoute troubleshooting guide: Getting ARP tables in the classic deployment model
-
+# Getting ARP tables in the classic deployment model
 > [!div class="op_single_selector"]
-[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-[PowerShell - Classic](./expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - Classic](./expressroute-troubleshooting-arp-classic.md)
+> 
+> 
 
 This article walks you through the steps for getting the Address Resolution Protocol (ARP) tables for your Azure ExpressRoute circuit.
 
 >[!IMPORTANT]
 > This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. If you can't solve the problem by using the following guidance, open a support request with [Azure Help+support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> 
+> 
 
 ## Address Resolution Protocol (ARP) and ARP tables
 ARP is a Layer 2 protocol that's defined in [RFC 826](https://tools.ietf.org/html/rfc826). ARP is used to map an Ethernet address (MAC address) to an IP address.
@@ -146,6 +149,8 @@ The ARP table of a peering can be used to validate Layer 2 configuration and con
 
 >[!NOTE]
 > If you experience an issue like this, open a support request with your connectivity provider to resolve it.
+> 
+> 
 
 ### ARP table when the Microsoft side has problems
 

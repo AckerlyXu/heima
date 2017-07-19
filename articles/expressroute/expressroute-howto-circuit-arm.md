@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
-ms.author: ganesr;cherylmc
+origin.date: 04/12/2017
+ms.date: ''
+ms.author: v-yiso
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@ This article describes how to create an Azure ExpressRoute circuit by using Powe
 
 
 ## Before you begin
-* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Overview of Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Overview of Azure PowerShell](../powershell-install-configure.md).
 * Review the [prerequisites](./expressroute-prerequisites.md) and [workflows](./expressroute-workflows.md) before you begin configuration.
 
 

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 04/04/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 
@@ -539,8 +539,6 @@ That's it! In this article, we've shown how it's possible to combine use of Spar
 - For more information on use of R Server on Spark see the [Getting started guide on MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - For general information on R Server see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
-
-- Other articles of interest are [R Server on Azure HDInsight](hdinsight-hadoop-r-server-get-started.md) and [R Server on Azure HDInsight overview](hdinsight-hadoop-r-server-overview.md).
 
 For more information on use of SparkR see the following:
 

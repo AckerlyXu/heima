@@ -13,9 +13,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: pullabhk
-wacn.date: ''
+origin.date: 03/24/2017
+ms.author: v-junlch
+ms.date: 05/15/2017
 ---
 # Back up a SharePoint farm to Azure
 You back up a SharePoint farm to Azure by using Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
@@ -121,7 +121,7 @@ After you have configured MABS and the SharePoint farm as explained previously, 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS provides a maximum of two daily backups to Azure from the then available latest disk backup point. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](/documentation/articles/backup-configure-vault/#enable-network-throttling/).
+    > MABS provides a maximum of two daily backups to Azure from the then available latest disk backup point. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](backup-configure-vault.md#enable-network-throttling).
     >
     >
 11. Depending on the backup schedule that you selected, on the **Specify Online Retention Policy** page, select the retention policy for daily, weekly, monthly, and yearly backup points.

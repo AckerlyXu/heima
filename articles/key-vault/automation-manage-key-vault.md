@@ -8,8 +8,10 @@ manager: jwhit
 editor: ''
 
 ms.service: key-vault
-ms.date: 07/29/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 07/29/2016
+ms.date: 02/06/2017
+ms.author: v-junlch
 ---
 
 #Managing Azure Key Vault using Azure Automation

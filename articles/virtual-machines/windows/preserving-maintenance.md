@@ -3,7 +3,7 @@ title:  VM preserving maintenance for Windows VMs in Azure | Azure
 description: In-place VM migration for memory preserving updates.
 services: virtual-machines-windows
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
-wacn.date: ''
-ms.author: 
+origin.date: 03/27/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 
@@ -43,8 +43,10 @@ to virtual machines.
 Multi-instance updates (VMs in an availability set) are applied one
 update domain at a time.
 
+Some applications may be impacted by these updates more than others. 
+Applications that perform real-time event processing, media streaming 
+or transcoding, or high throughput networking scenarios, for example,
+may not be designed to tolerate a 30 second pause. 
 Applications running in a virtual machine can learn about upcoming
-updates by calling the metadata service scheduled events. For more
-information about scheduled events, refer to [Azure Metadata Service -
-Scheduled
-Events](../virtual-machines-scheduled-events.md).
+updates by calling the [Scheduled Events](../virtual-machines-scheduled-events.md)
+API of the [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).

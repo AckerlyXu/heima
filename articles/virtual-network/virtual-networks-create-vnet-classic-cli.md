@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 03/15/2016
+ms.date: 12/12/2016
+ms.author: v-dazen
 
 ---
 # Create a virtual network (classic) by using the Azure CLI

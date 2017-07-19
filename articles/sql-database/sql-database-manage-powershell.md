@@ -14,9 +14,9 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
-wacn.date: ''
-ms.author: sstein
+origin.date: 02/09/2017
+ms.date: 03/24/2017
+ms.author: v-johch
 ---
 
 # Managing Azure SQL Database using PowerShell

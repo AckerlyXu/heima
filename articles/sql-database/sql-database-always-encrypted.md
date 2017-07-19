@@ -1,22 +1,23 @@
 ---
-title: 'Always Encrypted: Azure SQL Database - Windows certificate store | Microsoft Docs'
+title: 'Always Encrypted: Azure SQL Database - Windows certificate store | Azure'
 description: This article shows you how to secure sensitive data in a SQL database with database encryption by using the Always Encrypted Wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
 documentationcenter: ''
-author: stevestein
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: sstein
+origin.date: 03/02/2017
+ms.date: ''
+ms.author: v-johch
 
 ---
 # Always Encrypted: Protect sensitive data in SQL Database and store your encryption keys in the Windows certificate store
@@ -38,19 +39,19 @@ Follow the steps in this article to learn how to set up Always Encrypted for an 
 ## Prerequisites
 For this tutorial, you'll need:
 
-* An Azure account and subscription. If you don't have one, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial).
+* An Azure account and subscription. If you don't have one, sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## Create a blank SQL database
-1. Sign in to the [Azure portal preview](https://portal.azure.cn/).
+1. Sign in to the [Azure Portal](https://portal.azure.cn/).
 2. Click **New** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal preview, see [Your first Azure SQL database](sql-database-get-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure Portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
-You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal preview.
+You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure Portal.
 
 1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
@@ -471,7 +472,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![new console application](./media/sql-database-always-encrypted/ssms-encrypted.png)
+   ![New console application](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
 To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
 

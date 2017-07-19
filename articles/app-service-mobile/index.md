@@ -1,6 +1,18 @@
 ---
-layout: LandingPage
+title: Azure Mobile Apps Documentation - Tutorials, API Reference | Azure
 description: Learn how to use Mobile Apps in Azure App Service to build and host native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova.
+services: app-service\mobile
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service\mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+origin.date: 01/23/2017
+ms.date: 06/20/2017
+ms.author: v-yiso
 ---
 # Mobile Apps Documentation
 
@@ -8,7 +20,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-value-prop">
+        <a href="/app-service-mobile/app-service-mobile-value-prop">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -44,7 +56,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-android-get-started">
+        <a href="/app-service-mobile/app-service-mobile-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -62,7 +74,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-cordova-get-started">
+        <a href="/app-service-mobile/app-service-mobile-cordova-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -80,7 +92,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-ios-get-started">
+        <a href="/app-service-mobile/app-service-mobile-ios-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +110,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started">
+        <a href="/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,7 +128,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
      <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started">
+        <a href="/app-service-mobile/app-service-mobile-xamarin-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -134,7 +146,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
      <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started">
+        <a href="/app-service-mobile/app-service-mobile-xamarin-forms-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -152,7 +164,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
      <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started">
+        <a href="/app-service-mobile/app-service-mobile-xamarin-ios-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -168,23 +180,5 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
             </div>
         </div>
         </a>
-    </li>
-</ul>
-
----
-
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
     </li>
 </ul>

@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-wacn.date: ''
-ms.author: igalf
+origin.date: 03/23/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 
 ---
 # How to Schedule Planned Maintenance on Azure VMs
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about planned maintenance in the Resource Manager model, see [here](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about planned maintenance in the Resource Manager model, see [here](planned-maintenance.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../../includes/virtual-machines-common-planned-maintenance-schedule.md)]

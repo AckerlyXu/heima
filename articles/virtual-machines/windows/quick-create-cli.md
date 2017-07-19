@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/11/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 05/11/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a Windows virtual machine with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server and install IIS.
 
-If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+This quick start requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Log in to Azure 
 
@@ -43,7 +44,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
-```azurecli
+```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
@@ -53,7 +54,7 @@ Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create).
 
 The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. Update these values to something appropriate to your environment. These values are needed when creating a connection with the virtual machine.
 
-```azurecli
+```azurecli 
 az vm create `
   --resource-group myResourceGroup `
   --name myVM --image win2016datacenter `
@@ -63,7 +64,7 @@ az vm create `
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAaddress`. This address is used to access the VM.
 
-```azurecli
+```azurecli 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -80,7 +81,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 By default only RDP connections are allowed in to Windows virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) command to open the desired port.  
 
- ```azurecli 
+ ```azurecli  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
@@ -105,11 +106,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 With IIS installed and port 80 now open on your VM from the Internet, you can use a web browser of your choice to view the default IIS welcome page. Be sure to use the public IP address you documented above to visit the default page. 
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
-## Delete virtual machine
+
+## Clean up resources
 
 When no longer needed, you can use the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete --name myResourceGroup
 ```
 

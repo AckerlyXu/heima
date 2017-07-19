@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with .NET in HDInsight | Azure
+title: Run Apache Pig jobs with .NET SDK for Hadoop - Azure HDInsight | Azure
 description: Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight.
 services: hdinsight
 documentationcenter: .net
@@ -15,30 +15,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Run Pig jobs using the .NET SDK for Hadoop in HDInsight
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-This document provides an example of using the .NET SDK for Hadoop to submit Pig jobs to a Hadoop on HDInsight cluster.
+Learn how to use the .NET SDK for Hadoop to submit Apache Pig jobs to Hadoop on Azure HDInsight.
 
 The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. Pig allows you to create MapReduce operations by modeling a series of data transformations. In this document, you learn how to use a basic C# application to submit a Pig job to an HDInsight cluster.
 
-## <a id="prereq"></a> Prerequisites
+## Prerequisites
 
 To complete the steps in this article, you need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Visual Studio 2012, 2013, 2015 or 2017.
 
-## <a id="create"></a> Create the application
+## Create the application
 
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.
 

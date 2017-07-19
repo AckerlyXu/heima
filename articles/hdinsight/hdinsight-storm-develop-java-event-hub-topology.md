@@ -14,9 +14,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/03/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)
@@ -32,9 +32,9 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 * An Apache Storm on HDInsight cluster version 3.5. For more information, see [Get started with Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 and 3.4 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
-* An [Azure Event Hub](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
+* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 * [Oracle Java Developer Kit (JDK) version 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or equivalent, such as [OpenJDK](http://openjdk.java.net/).
 
@@ -241,6 +241,7 @@ These configuration settings prevent errors at runtime.
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads>
     </configuration>
 </plugin>
 ```
@@ -274,9 +275,9 @@ The following environment variables may be set when you install Java and the JDK
 * **JAVA_HOME** - should point to the directory where the Java runtime environment (JRE) is installed. For example, in a Unix or Linux distribution, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** - should contain the following paths:
 
-    * **JAVA_HOME** (or the equivalent path)
-    * **JAVA_HOME\bin** (or the equivalent path)
-    * The directory where Maven is installed
+  * **JAVA_HOME** (or the equivalent path)
+  * **JAVA_HOME\bin** (or the equivalent path)
+  * The directory where Maven is installed
 
 ## Download and register the EventHub components
 
@@ -300,8 +301,8 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
     ![wizard page 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-    > [!NOTE]
-    > Select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
+   > [!NOTE]
+   > Select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
 
 3. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you need this value later.
 
@@ -350,7 +351,7 @@ The jar created by this project contains two topologies; **com.microsoft.example
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
-    > <p>
+    >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`
 
 3. Use the following command to start the topologies:
@@ -372,8 +373,8 @@ The jar created by this project contains two topologies; **com.microsoft.example
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
-    > [!NOTE]
-    > Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
+   > [!NOTE]
+   > Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
 
     You can view the contents of these files by using the following command:
 
@@ -408,7 +409,7 @@ For more information on using the Storm UI, see the following topics:
 
 * If you are using a **Linux-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-* If you are using a **Windows-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+* If you are using a **Windows-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ## Next steps
 

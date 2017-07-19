@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
-wacn.date: ''
-ms.author: bhanupr
+origin.date: 04/04/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Upgrade HDInsight cluster to a newer version
@@ -24,7 +24,7 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
 
 > [!NOTE]
-> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> HDInsight clusters version 3.2 and 3.3 are nearing retirement date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 
@@ -42,11 +42,11 @@ Once you have verified that everything works as expected, schedule
 downtime for the migration. During this downtime, do the following
 actions:
 
-1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
-2. Delete the existing cluster.
-3. Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
-4. Import any transient data you backed up.
-5. Start jobs/continue processing using the new cluster.
+1.	Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
+2.	Delete the existing cluster.
+3.	Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
+4.	Import any transient data you backed up.
+5.	Start jobs/continue processing using the new cluster.
 
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

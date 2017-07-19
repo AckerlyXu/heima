@@ -63,7 +63,7 @@ For best performance, create a separate storage account to hold diagnostic logs.
 The public IP address can be dynamic or static. The default is dynamic.
 
 * Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be added to a safe list.
-* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [create a fully qualified domain name in the Azure portal preview][fqdn].
+* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [create a fully qualified domain name in the Azure portal][fqdn].
 
 All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
 
@@ -103,7 +103,7 @@ Use the following CLI command to deallocate a VM:
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-In the Azure portal preview, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
@@ -113,7 +113,7 @@ To prevent accidental deletion, use a [resource lock][resource-lock] to lock the
 
 **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
-**Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal preview.
+**Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
 **Operations.** Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
@@ -135,17 +135,17 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps:
 
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window."  
-    [![Deploy to Azure](./media/guidance-compute-single-vm-linux/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
-2. Once the link has opened in the Azure portal preview, you must enter values for some of the settings:
+    [![Deploy to Azure](./media/guidance-compute-single-vm-linux/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fsingle-vm%2Fazuredeploy.json)
+2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
 
-    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
-    * Select the region from the **Location** drop down box.
-    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-    * Select **windows** in the **Os Type** drop down box.
-    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-    * Click on the **Purchase** button.
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
+   * Select the region from the **Location** drop down box.
+   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
+   * Select **windows** in the **Os Type** drop down box.
+   * Select **Legal terms**, review the terms and conditions, then click the **Purchase** button.
+   * Click on the **Create** button.
 3. Wait for the deployment to complete.
-4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal preview. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
+4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
 For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] GitHub folder. 
 
@@ -168,7 +168,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/windows/portal-create-fqdn.md
-[github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
+[github-folder]: http://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [group-policy]: https://technet.microsoft.com/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]:../articles/virtual-machines/windows/manage-availability.md
@@ -186,7 +186,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://www.azure.cn/home/features/security-center/
 [select-vm-image]:../articles/virtual-machines/windows/cli-ps-findimage.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits

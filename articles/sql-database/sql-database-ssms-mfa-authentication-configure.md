@@ -3,8 +3,8 @@ title: Configure multi-factor authentication - Azure SQL | Azure
 description: Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
 services: sql-database
 documentationcenter: ''
-author: BYHAM
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -14,11 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: rickbyh
+origin.date: 06/08/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 ---
-
 # Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio
 
 This topic shows you how to configure Azure SQL Database multi-factor authentication for SQL Server Management Studio. 
@@ -39,7 +38,7 @@ The following steps show how to connect to SQL Database or SQL Data Warehouse by
 1. To connect using Universal Authentication, on the **Connect to Server** dialog box, select **Active Directory Universal Authentication**.
 
    ![1mfa-universal-connect][1]
-2. As usual for SQL Database and SQL Data Warehouse you must click **Options** and specify the database on the **Options** dialog box. Then click **Connect**.
+2. As usual for SQL Database and SQL Data Warehouse, you must click **Options** and specify the database on the **Options** dialog box. Then click **Connect**.
 3. When the **Sign in to your account** dialog box appears, provide the account and password of your Azure Active Directory identity.
 
    ![2mfa-sign-in][2]

@@ -3,8 +3,8 @@ title: Distributing tables in SQL Data Warehouse | Azure
 description: Getting started with distributing tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
-manager: barbkess
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: jrj;barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Distributing tables in SQL Data Warehouse
@@ -302,6 +302,6 @@ For an overview of best practices, see [SQL Data Warehouse Best Practices][SQL D
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
-[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/zh-cn/library/mt204028.aspx
 
 <!--Other Web references-->

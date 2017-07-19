@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 08/24/2016
-ms.author: carlrab
+ms.author: v-johch
 ---
 
 # Use SQL Azure Migration Wizard to Fix SQL Server database compatibility issues before migration to Azure SQL Database
 
 > [!div class="op_single_selector"]
 >- Use [SQL Azure Migration Wizard](./sql-database-cloud-migrate-fix-compatibility-issues.md)
->- Use [SSDT](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssdt/)
->- Use [SSMS](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssms/)
+>- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+>- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
 In this article, you learn to detect and fix SQL Server database compatibility issues using the SQL Azure Migration Wizard before migration to Azure SQL Database.
 

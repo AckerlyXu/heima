@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/27/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 02/27/2017
+ms.date: 06/20/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Troubleshoot a VMs operating system disk
@@ -27,11 +28,9 @@ This script mounts the operating system disk of a failed or problematic virtual 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Source virtual machine details.
@@ -42,7 +41,7 @@ resourcegroup=<Replace with resource group name>
 diskid="$(az vm show -g $resourcegroup -n $sourcevm --query [storageProfile.osDisk.managedDisk.id] -o tsv)"
 
 # Delete the source virtual machine, this will not delete the disk.
-az vm delete -g $resourcegroup -n $sourcevm --force
+az vm delete -g $resourcegroup -n $sourcevm --yes
 
 # Create a new virtual machine, this creates SSH keys if not present.
 az vm create --resource-group $resourcegroup --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -73,4 +72,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 05/02/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # How to load balance Linux virtual machines in Azure to create a highly available application
@@ -31,7 +32,9 @@ Load balancing provides a higher level of availability by spreading incoming req
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
 
 ## Azure load balancer overview
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
@@ -47,14 +50,14 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 ## Create Azure load balancer
 This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *chinaeast* location:
 
-```azurecli
+```azurecli 
 az group create --name myResourceGroupLoadBalancer --location chinaeast
 ```
 
 ### Create a public IP address
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/public-ip#create). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
 
-```azurecli
+```azurecli 
 az network public-ip create \
     --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
@@ -63,7 +66,7 @@ az network public-ip create \
 ### Create a load balancer
 Create a load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration:
 
-```azurecli
+```azurecli 
 az network lb create \
     --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
@@ -79,7 +82,7 @@ The following example creates a TCP probe. You can also create custom HTTP probe
 
 To create a TCP health probe, you use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create). The following example creates a health probe named *myHealthProbe*:
 
-```azurecli
+```azurecli 
 az network lb probe create \
     --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
@@ -93,7 +96,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRule*, uses the *myHealthProbe* health probe, and balances traffic on port *80*:
 
-```azurecli
+```azurecli 
 az network lb rule create \
     --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
@@ -110,9 +113,9 @@ az network lb rule create \
 Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
 
 ### Create network resources
-Create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/vnet#create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
+Create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
 
-```azurecli
+```azurecli 
 az network vnet create \
     --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
@@ -121,7 +124,7 @@ az network vnet create \
 
 To add a network security group, you use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). The following example creates a network security group named *myNetworkSecurityGroup*:
 
-```azurecli
+```azurecli 
 az network nsg create \
     --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
@@ -129,7 +132,7 @@ az network nsg create \
 
 Create a network security group rule with [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create). The following example creates a network security group rule named *myNetworkSecurityGroupRule*:
 
-```azurecli
+```azurecli 
 az network nsg rule create \
     --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
@@ -206,7 +209,7 @@ To improve the high availability of your app, place your VMs in an availability 
 
 Create an availability set with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set#create). The following example creates an availability set named *myAvailabilitySet*:
 
-```azurecli
+```azurecli 
 az vm availability-set create \
     --resource-group myResourceGroupLoadBalancer \
     --name myAvailabilitySet \
@@ -223,7 +226,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.3-LTS:latest \
+        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
@@ -236,7 +239,7 @@ It takes a few minutes to create and configure all three VMs. The load balancer 
 ## Test load balancer
 Obtain the public IP address of your load balancer with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#show). The following example obtains the IP address for *myPublicIP* created earlier:
 
-```azurecli
+```azurecli 
 az network public-ip show \
     --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
@@ -256,7 +259,7 @@ You may need to perform maintenance on the VMs running your app, such as install
 ### Remove a VM from the load balancer
 You can remove a VM from the backend address pool with [az network nic ip-config address-pool remove](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool#remove). The following example removes the virtual NIC for **myVM2** from *myLoadBalancer*:
 
-```azurecli
+```azurecli 
 az network nic ip-config address-pool remove \
     --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
@@ -270,7 +273,7 @@ To see the load balancer distribute traffic across the remaining two VMs running
 ### Add a VM to the load balancer
 After performing VM maintenance, or if you need to expand capacity, you can add a VM to the backend address pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool#add). The following example adds the virtual NIC for **myVM2** to *myLoadBalancer*:
 
-```azurecli
+```azurecli 
 az network nic ip-config address-pool add \
     --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \

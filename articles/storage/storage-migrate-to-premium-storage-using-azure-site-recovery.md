@@ -14,7 +14,7 @@
   ms.devlang: na
   ms.topic: article
   ms.date: 04/06/2017
-  ms.author: luywang
+  ms.author: v-johch
 
 ---
 # Migrating to Premium Storage using Azure Site Recovery
@@ -64,11 +64,11 @@ These are the Azure requirements for this migration scenario.
 
 You can use Site Recovery to migrate Azure IaaS VMs between regions or within same region. The following instructions have been tailored for this migration scenario from the article [Replicate VMware VMs or physical servers to Azure](../site-recovery/site-recovery-vmware-to-azure.md). Please follow the links for detailed steps in additional to the instructions in this article.
 
-1. **Create a Recovery Services vault**. Create and manage the Site Recovery vault through the [Azure portal preview](https://portal.azure.cn). Click **New** > **Management** > **Backup** and **Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**. VMs will be replicated to the region you specify in this step. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. Note that migration to Premium storage accounts is only supported in the [Azure portal preview](https://portal.azure.cn), not the [classic manamgement portal](https://manage.windowsazure.cn).
+1. **Create a Recovery Services vault**. Create and manage the Site Recovery vault through the [Azure Portal](https://portal.azure.cn). Click **New** > **Management** > **Backup** and **Site Recovery (OMS)**. Alternatively you can click **Browse** > **Recovery Services Vault** > **Add**. VMs will be replicated to the region you specify in this step. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. Note that migration to Premium storage accounts is only supported in the [Azure Portal](https://portal.azure.cn), not the [classic manamgement portal](https://manage.windowsazure.cn).
 
 2. The following steps help you **choose your protection goals**.
 
-    2a. On the VM where you want to install the configuration server, open the [Azure portal preview](https://portal.azure.cn). Go to **Recovery Services vaults** > **Settings**. Under **Settings**, select **Site Recovery**. Under **Site Recovery**, select **Step 1: Prepare Infrastructure**. Under **Prepare infrastructure**, select **Protection goal**.
+    2a. On the VM where you want to install the configuration server, open the [Azure Portal](https://portal.azure.cn). Go to **Recovery Services vaults** > **Settings**. Under **Settings**, select **Site Recovery**. Under **Site Recovery**, select **Step 1: Prepare Infrastructure**. Under **Prepare infrastructure**, select **Protection goal**.
 
     ![][2]
 
@@ -143,7 +143,7 @@ You can choose a post-failover deployment model according to your need. If you c
 
 8. **Run a test failover**. To check whether your replication is complete, click your Site Recovery and then click **Settings** > **Replicated Items**. You will see the status and percentage of your replication process. After initial replication is complete, run Test Failover to validate your replication strategy. For detailed steps of test failover, please refer to [Run a test failover in Site Recovery](../site-recovery/site-recovery-vmware-to-azure.md#run-a-test-failover). You can see the status of test failover in **Settings** > **Jobs** > **YOUR_FAILOVER_PLAN_NAME**. On the blade, you will see a breakdown of the steps and success/failure results. If the test failover fails at any step, click the step to check the error message. Make sure your VMs and replication strategy meet the requirements before you run a failover. Read [Test Failover to Azure in Site Recovery](../site-recovery/site-recovery-test-failover-to-azure.md) for more information and instructions of test failover.
 
-9. **Run a failover**. After the test failover is completed, run a failover to migrate your disks to Premium Storage and replicate the VM instances. Please follow the detailed steps in [Run a failover](../site-recovery/site-recovery-failover.md#run-a-failover). Make sure you select **Shut down VMs and synchronize the latest data** to specify that Site Recovery should try to shut down the protected VMs and synchronize the data so that the latest version of the data will be failed over. If you don't select this option or the attempt doesn't succeed the failover will be from the latest available recovery point for the VM. Site Recovery will create a VM instance whose type is the same as or similar to a Premium Storage–capable VM. You can check the performance and price of various VM instances by going to [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) or [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+9. **Run a failover**. After the test failover is completed, run a failover to migrate your disks to Premium Storage and replicate the VM instances. Please follow the detailed steps in [Run a failover](../site-recovery/site-recovery-failover.md#run-a-failover). Make sure you select **Shut down VMs and synchronize the latest data** to specify that Site Recovery should try to shut down the protected VMs and synchronize the data so that the latest version of the data will be failed over. If you don't select this option or the attempt doesn't succeed the failover will be from the latest available recovery point for the VM. Site Recovery will create a VM instance whose type is the same as or similar to a Premium Storage–capable VM. You can check the performance and price of various VM instances by going to [Windows Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/) or [Linux Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
 
 ## Post-migration steps
 
@@ -165,8 +165,8 @@ You can choose a post-failover deployment model according to your need. If you c
 See the following resources for specific scenarios for migrating virtual machines:
 
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Create and upload a Windows Server VHD to Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Create and upload a Windows Server VHD to Azure.](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrating Virtual Machines from Amazon AWS to Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:

@@ -15,8 +15,9 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/14/2017
-ms.author: xshi
+origin.date: 5/27/2017
+ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)
 
@@ -24,6 +25,7 @@ ms.author: xshi
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](./iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
 
+Don't have a kit yet? Try the [Raspberry Pi 3 emulator](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/). Or buy a new kit [here](https://www.azure.cn/develop/iot/iot-starter-kits).
 
 ## What you do
 
@@ -46,7 +48,7 @@ Connect Raspberry Pi to an IoT hub that you create. Then you run a sample applic
 ![What you need](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * The Raspberry Pi 2 or Raspberry Pi 3 board.
-* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 * A monitor, a USB keyboard, and mouse that connect to Pi.
 * A Mac or a PC that is running Windows or Linux.
 * An Internet connection.
@@ -90,7 +92,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
    ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**.
+1. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
 
    ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
@@ -103,6 +105,7 @@ Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as foll
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
+The BME280 sensor can collect temperature and humidity data. And the LED will blink if there is a communication between device and the cloud. 
 
 For sensor pins, use the following wiring:
 

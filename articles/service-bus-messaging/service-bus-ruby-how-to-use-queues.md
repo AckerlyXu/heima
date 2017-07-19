@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/27/2017
-ms.author: sethm
-
+origin.date: 04/27/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 # How to use Service Bus queues
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -29,44 +29,14 @@ covered include **creating queues, sending and receiving messages**, and
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-## Create a Ruby application
-Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
-
-## Configure your application to use Service Bus
-To use Azure Service Bus, download and use the Azure Ruby package, which includes a set of convenience libraries that communicate with the storage REST services.
-
-### Use RubyGems to obtain the package
-
-1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-
-2. Type "gem install azure" in the command window to install the gem and dependencies.
-
-### Import the package
-
-Using your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:
-
-```
-require "azure"
-```
-
-## Set up an Azure Service Bus connection
-
-The Azure module reads the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS_KEY**
-for information required to connect to your Service Bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
-
-```ruby
-Azure.config.sb_namespace = "<your azure service bus namespace>"
-Azure.config.sb_access_key = "<your azure service bus access key>"
-```
-
-Set the namespace value to the value you created, rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.chinacloudapi.cn". 
+[!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## How to create a queue
 
 The **Azure::ServiceBusService** object enables you to work with queues. To create a queue, use the **create_queue()** method. The following example creates a queue or prints out any errors.
 
 ```ruby
-azure_service_bus_service = Azure::ServiceBusService.new
+azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
 rescue
@@ -86,7 +56,7 @@ queue = azure_service_bus_service.create_queue(queue)
 
 ## How to send messages to a queue
 
-To send a message to a Service Bus queue, you application calls the **send\_queue\_message()** method on the **Azure::ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **Azure::ServiceBus::BrokeredMessage** objects, and have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.
+To send a message to a Service Bus queue, your application calls the **send\_queue\_message()** method on the **Azure::ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **Azure::ServiceBus::BrokeredMessage** objects, and have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.
 
 The following example demonstrates how to send a test message to the queue named "test-queue" using **send\_queue\_message()**:
 

@@ -4,8 +4,8 @@ description: Get guidance choosing a cloud analytics platform by using an Apache
 keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 01/24/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
@@ -139,7 +139,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
     </tbody>
 </table>
 
-## Authoring on each analytics platform ##
+## Authoring on each analytics platform
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -236,7 +236,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
             </td>
             <td width="204" valign="top">
                 <p>
-                    Currently there is no support for UDFs.
+                    Currently there is support for Javascript UDFs.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -265,7 +265,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
     </tbody>
 </table>
 
-## Data sources and outputs ##
+## Data sources and outputs
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -356,7 +356,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
     </tbody>
 </table>
 
-## Management and operations ##
+## Management and operations
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -520,7 +520,7 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
     </tbody>
 </table>
 
-## Advanced Features ##
+## Advanced Features
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>

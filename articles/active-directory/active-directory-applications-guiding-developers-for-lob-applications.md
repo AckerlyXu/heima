@@ -1,5 +1,5 @@
 ---
-title: Develop apps for Azure AD | Azure'
+title: Develop apps for Azure AD | Microsoft Docs'
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-wacn.date: ''
-ms.author: kgremban
+origin.date: 05/07/2017
+ms.date: 06/21/2017
+ms.author: v-junlch
+ms.custom: H1Hack27Feb2017
 ---
-
 # Develop line-of-business apps for Azure Active Directory
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
 
@@ -66,8 +66,6 @@ If you’re an Azure AD Premium or Enterprise Mobility Suite (EMS) subscriber, w
 By default, each user goes through a consent experience to sign in. The consent experience, asking users to grant permissions to an application, can be disconcerting for users who are unfamiliar with making such decisions.
 
 For applications that you trust, you can simplify the user experience by consenting to the application on behalf of your organization.
-
-For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](./develop/active-directory-integrating-applications.md).
 
 ## Related Articles
 - [Managing access to apps with Azure AD](./active-directory-managing-access-to-apps.md)

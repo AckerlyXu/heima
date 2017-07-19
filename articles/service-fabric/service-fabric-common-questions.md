@@ -3,8 +3,8 @@ title: Common questions about Azure Service Fabric | Azure
 description: Frequently asked questions about Service Fabric and their answers
 services: service-fabric
 documentationcenter: .net
-author: seanmck
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
@@ -13,10 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: seanmck
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
-
 
 # Commonly asked Service Fabric questions
 
@@ -48,8 +48,6 @@ In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azu
 
 There are other issues with Large virtual machine scale sets currently, like the lack of level-4 Load balancing support. Refer to for [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
-
-
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
 The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support three node clusters.
@@ -72,6 +70,20 @@ In general, no. Service Fabric stores state on local, ephemeral disks, meaning t
 
 If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](service-fabric-set-up-continuous-integration.md).
 
+### How do I upgrade my Operating System (for example from Windows Server 2012 to Windows Server 2016)?
+
+While we're working on an improved experience, today, you are responsible for the upgrade. You must upgrade the OS image on the virtual machines of the cluster one VM at a time. 
+
+## Container Support
+
+### Why are my containers that are deployed to SF unable to resolve DNS addresses?
+
+This issue has been reported on clusters that are on 5.6.204.9494 version 
+
+**Mitigation** :  Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
+
+**Fix** :  Upgrade to the a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
+
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?
@@ -81,7 +93,6 @@ Reliable collections are typically [partitioned](service-fabric-concepts-partiti
 - Create a service that queries all partitions of another service to pull in the required data.
 - Create a service that can receive data from all partitions of another service.
 - Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
-
 
 ### What's the best way to query data across my actors?
 
@@ -124,4 +135,4 @@ The are currently no plans to open source the Service Fabric runtime.
 
 ## Next steps
 
-- [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+- [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)

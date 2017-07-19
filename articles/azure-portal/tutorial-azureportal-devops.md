@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
-ms.author: mlearned
+ms.author: v-yiso
 ---
 
 # Tutorial: DevOps with the Azure Portal

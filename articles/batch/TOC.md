@@ -25,12 +25,12 @@
 ### [Batch diagnostic logs](./batch-diagnostics.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch)
+## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.batch)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
-## [REST](/rest/api/batchservice)
+## [REST](https://docs.microsoft.com/rest/api/batchservice)
 
 # Related
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
@@ -38,7 +38,7 @@
 ## [Big Compute in Azure: technical resources](./big-compute-resources.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/batch/)
+## [Pricing](https://www.azure.cn/pricing/details/batch/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
-wacn.date: ''
-ms.author: memccror
+origin.date: 02/28/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # How to tag a Linux virtual machine in Azure

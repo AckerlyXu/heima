@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
-wacn.date: ''
-ms.author: cynthn
+origin.date: 05/23/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Create and upload a Windows Server VHD to Azure
-This article shows you how to upload your own generalized VM image as a virtual hard disk (VHD) so you can use it to create virtual machines. For more details about disks and VHDs in Azure, see [About Disks and VHDs for Virtual Machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This article shows you how to upload your own generalized VM image as a virtual hard disk (VHD) so you can use it to create virtual machines. For more details about disks and VHDs in Azure, see [About Disks and VHDs for Virtual Machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [upload](../../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a virtual machine using the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [upload](../upload-generalized-managed.md) a virtual machine using the Resource Manager model.
 
 ## Prerequisites
 This article assumes you have:
@@ -46,7 +46,7 @@ From the virtual machine that the operating system was installed to, complete th
     ![Open a Command Prompt window](./media/createupload-vhd/sysprep_commandprompt.png)
 3. The **System Preparation Tool** dialog box appears.
 
-    ![Start Sysprep](./media/createupload-vhd/sysprepgeneral.png)
+   ![Start Sysprep](./media/createupload-vhd/sysprepgeneral.png)
 4. In the **System Preparation Tool**, select **Enter System Out of Box Experience (OOBE)** and make sure that **Generalize** is checked.
 5. In **Shutdown Options**, select **Shutdown**.
 6. Click **OK**.

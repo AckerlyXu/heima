@@ -3,7 +3,7 @@ title: Lock Azure resources to prevent changes | Azure
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 05/05/2017
+ms.date: 06/05/2017
+ms.author: v-yeche
 ---
 
 # Lock resources to prevent unexpected changes 

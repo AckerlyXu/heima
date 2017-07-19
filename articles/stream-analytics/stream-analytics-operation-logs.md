@@ -4,8 +4,8 @@ description: How-to use Stream Analytics operation logs
 keywords: service logs
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: a2ed9676-f0bd-4398-87c8-a592779ac728
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Debug Stream Analytics jobs using service and operation logs

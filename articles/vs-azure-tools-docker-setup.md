@@ -8,8 +8,10 @@ manager: douge
 editor: ''
 
 ms.service: multiple
-ms.date: 06/08/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/08/2016
+ms.date: 06/20/2016
+ms.author: v-junlch
 ---
 
 # Configure a Docker Host with VirtualBox

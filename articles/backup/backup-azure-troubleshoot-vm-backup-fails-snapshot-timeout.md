@@ -1,11 +1,12 @@
 ---
-title: 'Troubleshoot Azure Backup failure: Snapshot VM sub task timed out | Azure'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out'
+title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent'
 services: backup
 documentationcenter: ''
-author: genlin
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: ''
+keywords: Azure backup; VM agent; Network connectivity; 
 
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
@@ -13,19 +14,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: ''
-ms.author: genli;markgal;
+origin.date: 06/13/2017
+ms.date: 06/29/2017
+ms.author: v-junlch
 ---
 
-# Troubleshoot Azure Backup failure: Snapshot VM sub task timed out
+# Troubleshoot Azure Backup failure: VM Agent unable to communicate with Azure Backup
 ## Summary
-After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related to snapshot time-out errors.
+After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related to problems in communication with VM agent and extension.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Symptom
-Azure Backup for an infrastructure as a service (IaaS) VM fails, returning the following error message in the job error details in the [Azure portal](https://portal.azure.cn/): "Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out."
+Azure Backup for an infrastructure as a service (IaaS) VM fails, returning the following error message in the job error details in the [Azure portal](https://portal.azure.cn/): "VM agent is unable to communicate with the Azure Backup Service.", "Snapshot operation failed due to no network connectivity on the virtual machine."
 
 ## Cause 1: The VM has no Internet access
 Per the deployment requirement, the VM has no Internet access, or it has restrictions in place that prevent access to the Azure infrastructure.
@@ -36,7 +37,7 @@ To function correctly, the backup extension requires connectivity to the Azure p
 To resolve the issue, try one of the methods listed here.
 #### Allow access to the Azure datacenter IP ranges
 
-1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/en-us/download/details.aspx?id=41653) to allow access to.
+1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=42064) to allow access to.
 2. Unblock the IPs by running the **New-NetRoute** cmdlet in the Azure VM in an elevated PowerShell window. Run the cmdlet as an administrator.
 3. To allow access to the IPs, add rules to the network security group, if you have one.
 
@@ -45,14 +46,16 @@ To resolve the issue, try one of the methods listed here.
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](./backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+
+In case you are using Managed Disks, you may need an additional port (8443) opening up on the firewalls.
 
 ## Cause 2: The agent installed in the VM is out of date (for Linux VMs)
 
 ### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/virtual-machines-linux-update-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
  >We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent is unavailable for your distribution, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
@@ -77,7 +80,21 @@ If we require verbose logging for waagent, follow these steps:
 2. Change the **Logs.Verbose** value from *n* to *y*.
 3. Save the change, and then restart waagent by following the previous steps in this section.
 
-## Cause 3: The backup extension fails to update or load
+## Cause 3: The agent installed in the VM but unresponsive (for Windows VMs)
+
+### Solution
+The VM Agent might have been corrupted or the service might have been stopped. Re-installing the VM agent would help get the latest version and restart the communication.
+
+1. Verify whether you can view Windows Guest Agent service in services of the machine (services.msc)
+2. if it is not visible there, verify in Programs and Features whether Windows Guest agent service is installed.
+3. If you are able to view in programs and features uninstall the Windows Guest Agent.
+4. Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation.
+5. Then you should be able to view Windows Guest Agent services in services
+6. Try running an on-demand/adhoc backup by clicking "Backup Now" in the portal.
+
+Also verify if you have **.NET 4.5 installed in the system**. It is required for the VM agent to communicate with the service
+
+## Cause 4: The backup extension fails to update or load
 If extensions cannot be loaded, Backup fails because a snapshot cannot be taken.
 
 ### Solution
@@ -103,7 +120,7 @@ To uninstall the extension, do the following:
 
 This procedure causes the extension to be reinstalled during the next backup.
 
-## Cause 4: The snapshot status cannot be retrieved or a snapshot cannot be taken
+## Cause 5: The snapshot status cannot be retrieved or a snapshot cannot be taken
 The VM backup relies on issuing a snapshot command to the underlying storage account. Backup can fail either because it has no access to the storage account or because the execution of the snapshot task is delayed.
 
 ### Solution
@@ -116,3 +133,4 @@ The following conditions can cause snapshot task failure:
 | Many VMs from the same cloud service are configured to back up at the same time. | It’s a best practice to spread out the backup schedules for VMs from the same cloud service. |
 | The VM is running at high CPU or memory usage. | If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed, and it eventually times out. In this situation, try an on-demand backup. |
 | The VM cannot get the host/fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work.  If the VM cannot get the host/fabric address from DHCP response 245, it cannot download or run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |
+

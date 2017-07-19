@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/03/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Example Storm toplogies and components for Apache Storm on HDInsight

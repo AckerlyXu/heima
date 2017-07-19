@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 03/01/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # Azure Virtual Machine PowerShell samples
@@ -27,4 +27,5 @@ The following table includes links to PowerShell scripts samples that create and
 |---|---|
 |**Create virtual machines**||
 | [Create a fully configured virtual machine](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
+| [Create a VM with Docker enabled](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine, configures this VM as a Docker host, and runs an NGINX container. |
 | [Create a VM and run configuration script](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install NGINX. |

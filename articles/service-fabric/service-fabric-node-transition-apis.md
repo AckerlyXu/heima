@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2016
-wacn.date: ''
-ms.author: lemai
+origin.date: 12/19/2016
+ms.date: 02/20/2017
+ms.author: v-johch
 ---
 
 # Replacing the Start Node and Stop node APIs with the Node Transition API

@@ -1,23 +1,23 @@
 ---
 title: Azure CLI Script-Create an Azure Cosmos DB MongoDB API account, database, and collection | Azure
 description: Azure CLI Script Sample - Create an Azure Cosmos DB MongoDB API account, database, and collection
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
-author: mimig1
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
 ms.assetid:
-ms.service: cosmosdb
-ms.custom: sample
+ms.service: cosmos-db
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: mimig
+origin.date: 06/02/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Azure Cosmos DB: Create an MongoDB API account using the Azure CLI
@@ -25,6 +25,7 @@ ms.author: mimig
 This sample CLI script creates an Azure Cosmos DB MongoDB API account, database, and collection. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+<!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
 ## Sample script
 
@@ -70,7 +71,7 @@ az cosmosdb collection create \
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
@@ -80,12 +81,12 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Creates an Azure Cosmos DB account. |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/zh-cn/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb#create) | Creates an Azure Cosmos DB account. |
+| [az group delete](https://docs.microsoft.com/zh-cn/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/zh-cn/cli/azure/overview).
 
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).

@@ -14,9 +14,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-wacn.date: ''
-ms.author: yuaxu
+origin.date: 10/25/2016
+ms.date: 12/13/2016
+ms.author: v-junlch
 ---
 
 # Sending push notifications with Azure Notification Hubs and Node.js
@@ -80,7 +80,7 @@ The connection **connectionstring** value can be obtained from the [Azure Portal
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](../powershell-install-configure.md) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/documentation/articles/xplat-cli-install/).
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](../powershell-install-configure.md) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md).
 
 ## General architecture
 The **NotificationHubService** object exposes the following object instances for sending push notifications to specific devices and applications:

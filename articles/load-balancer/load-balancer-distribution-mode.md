@@ -3,8 +3,8 @@ title: Configure Load Balancer distribution mode | Azure
 description: How to configure Azure load balancer distribution mode to support source IP affinity
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
-wacn.date: ''
-ms.author: kumud
+origin.date: 10/24/2016
+ms.date: 12/05/2016
+ms.author: v-yeche
 ---
 
 # Configure the distribution mode for load balancer

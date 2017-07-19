@@ -13,15 +13,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 07/07/2016
-wacn.date: ''
-ms.author: huvalo
+origin.date: 07/07/2016
+ms.date: 03/17/2017
+ms.author: v-dazen
 
 ---
 # Bottle and Azure Table Storage on Azure with Python Tools 2.2 for Visual Studio
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates.
 
 The polls web app defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
@@ -60,7 +57,7 @@ In this section, we'll create a Visual Studio project using a sample template. W
 ## Create an Azure Storage Account
 To use storage operations, you need an Azure storage account. You can create a storage account by following these steps.
 
-1. Log into the [Azure Portal Preview](https://portal.azure.cn/).
+1. Log into the [Azure Portal](https://portal.azure.cn/).
 2. Click the **New** icon on the top left of the Portal, then click **Data + Storage** > **Storage Account**.  Click the **Create** button, then give the storage account a unique name and create a new [resource group](../azure-resource-manager/resource-group-overview.md) for it.
 
       ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
@@ -80,20 +77,20 @@ In this section, we'll configure our application to use the storage account we j
      ![Project Debug Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageProjectDebugSettings.png)
 2. Set the values of environment variables required by the application in **Debug Server Command**, **Environment**.
 
-        REPOSITORY_NAME=azuretablestorage
-        STORAGE_NAME=<storage account name>
-        STORAGE_KEY=<primary access key>
+       REPOSITORY_NAME=azuretablestorage
+       STORAGE_NAME=<storage account name>
+       STORAGE_KEY=<primary access key>
 
-    This will set the environment variables when you **Start Debugging**. If you want the variables to be set when you **Start Without Debugging**, set the same values under **Run Server Command** as well.
+   This will set the environment variables when you **Start Debugging**. If you want the variables to be set when you **Start Without Debugging**, set the same values under **Run Server Command** as well.
 
-    Alternatively, you can define environment variables using the Windows Control Panel. This is a better option if you want to avoid storing credentials in source code / project file. Note that you will need to restart Visual Studio for the new environment values to be available to the application.
+   Alternatively, you can define environment variables using the Windows Control Panel. This is a better option if you want to avoid storing credentials in source code / project file. Note that you will need to restart Visual Studio for the new environment values to be available to the application.
 3. The code that implements the Azure Table Storage repository is in **models/azuretablestorage.py**. See the [documentation] for more information on how to use Table Service from Python.
 4. Run the application with `F5`. Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in Azure Table Storage.
 
-    > [!NOTE]
-    > The Python 2.7 Virtual Environment may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project.
-    > 
-    > 
+   > [!NOTE]
+   > The Python 2.7 Virtual Environment may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project.
+   > 
+   > 
 5. Browse to the **About** page to verify that the application is using the **Azure Table Storage** repository.
 
      ![Web Browser](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
@@ -123,20 +120,20 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 3. Click on **New** to create a new web app.
 4. Fill in the following fields and click **Create**.
 
-    * **Web App name**
-    * **App Service plan**
-    * **Resource group**
-    * **Region**
-    * Leave **Database server** set to **No database**
+   * **Web App name**
+   * **App Service plan**
+   * **Resource group**
+   * **Region**
+   * Leave **Database server** set to **No database**
 5. Accept all other defaults and click **Publish**.
 6. Your web browser will open automatically to the published web app. If you browse to the about page, you'll see that it uses the **In-Memory** repository, not the **Azure Table Storage** repository.
 
-    That's because the environment variables are not set on the Web Apps instance in Azure App Service, so it uses the default values specified in **settings.py**.
+   That's because the environment variables are not set on the Web Apps instance in Azure App Service, so it uses the default values specified in **settings.py**.
 
 ## Configure the Web Apps instance
 In this section, we'll configure environment variables for the Web Apps instance.
 
-1. In [Azure Portal Preview], open the web app's blade by clicking **Browse** > **App Services** > your web app name.
+1. In [Azure Portal], open the web app's blade by clicking **Browse** > **App Services** > your web app name.
 2. In your web app's blade, click **All Settings**, then click **Application Settings**.
 3. Scroll down to the **App settings** section and set the values for **REPOSITORY\_NAME**, **STORAGE\_NAME** and **STORAGE\_KEY** as described in the **Configure the project** section above.
 
@@ -144,17 +141,17 @@ In this section, we'll configure environment variables for the Web Apps instance
 4. Click on **Save**. After you've received the notifications that the changes were applied, click on **Browse** from the Web app main blade.
 5. You should see the web app working as expected, using the **Azure Table Storage** repository.
 
-    Congratulations!
+   Congratulations!
 
-    ![Web Browser](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureBrowser.png)
+     ![Web Browser](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureBrowser.png)
 
 ## Next steps
 Follow these links to learn more about Python Tools for Visual Studio, Bottle and Azure Table Storage.
 
 * [Python Tools for Visual Studio Documentation]
-    * [Web Projects]
-    * [Cloud Service Projects]
-    * [Remote Debugging on Azure]
+  * [Web Projects]
+  * [Cloud Service Projects]
+  * [Remote Debugging on Azure]
 * [Bottle Documentation]
 * [Azure Storage]
 * [Azure SDK for Python]
@@ -170,7 +167,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [How to Use the Table Storage Service from Python]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Portal Preview]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.cn
 [Azure SDK for .NET]: /downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025

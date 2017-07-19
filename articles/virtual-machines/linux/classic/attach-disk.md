@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 02/09/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # How to Attach a Data Disk to a Linux Virtual Machine
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See how to [attach a data disk using the Resource Manager deployment model](../add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
 
@@ -111,8 +111,8 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 
     ![Create file system](./media/attach-disk/mkfsext4.png)
 
-    > [!NOTE]
-    > SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
+   > [!NOTE]
+   > SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
 
 9. Make a directory to mount the new file system, as follows:
 

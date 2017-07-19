@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
-wacn.date: ''
-ms.author: juliako
+origin.date: 10/26/2016
+ms.date: 12/12/2016
+ms.author: v-johch
 ---
 
 # Input Metadata

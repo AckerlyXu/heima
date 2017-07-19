@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
 # Scheduler Limits and Defaults
@@ -31,7 +31,7 @@ If a request is consistently failing and you have verified that the request is p
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal preview](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 

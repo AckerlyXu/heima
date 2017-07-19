@@ -1,6 +1,6 @@
 ---
 title: Reset the password or Remote Desktop configuration on a Windows VM in Azure | Azure
-description: Learn how to reset an account password or Remote Desktop services on a Windows VM created using the Classic deployment model using the Azure portal preview or Azure PowerShell.
+description: Learn how to reset an account password or Remote Desktop services on a Windows VM created using the Classic deployment model using the Azure portal or Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
@@ -14,25 +14,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 03/14/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM created using the Classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [perform these steps for VMs created with the Resource Manager deployment model](../reset-rdp.md).
 
-If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal preview or the VM Access extension in Azure PowerShell to reset the password.
+If you can't connect to a Windows virtual machine (VM), you can reset the local administrator password or reset the Remote Desktop service configuration. You can use either the Azure portal or the VM Access extension in Azure PowerShell to reset the password.
 
 ## Ways to reset configuration or credentials
 You can reset Remote Desktop services and credentials in a few different ways, depending on your needs:
 
-- [Reset using the Azure portal preview](#azure-portal)
+- [Reset using the Azure portal](#azure-portal)
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell)
 
-## <a name="azure-portal"></a> Azure portal preview
-You can use the [Azure portal preview](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
+## Azure portal
+You can use the [Azure portal](https://portal.azure.cn) to reset the Remote Desktop service. To expand the portal menu, click the three bars in the upper left corner and then click **Virtual machines (classic)**:
 
 ![Browse for your Azure VM](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
@@ -54,7 +54,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-If the **write-host** command displays **True**, the VM Agent is installed. If it displays **False**, see the instructions and a link to the download in the [VM Agent and Extensions - Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) Azure blog post.
+If the **write-host** command displays **True**, the VM Agent is installed. If it displays **False**, see the instructions and a link to the download in the [VM Agent and Extensions - Part 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog post.
 
 If you created the virtual machine by using the portal, check whether `$vm.GetInstance().ProvisionGuestAgent` returns **True**. If not, you can set it by using this command:
 
@@ -99,10 +99,10 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
 
 ## Next steps
-If the Azure VM access extension does not respond and you are unable to reset the password, you can [reset the local Windows password offline](../reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This method is a more advanced process and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and only attempt the offline password reset method as a last resort.
+If the Azure VM access extension does not respond and you are unable to reset the password, you can [reset the local Windows password offline](../reset-local-password-without-agent.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This method is a more advanced process and requires you to connect the virtual hard disk of the problematic VM to another VM. Follow the steps documented in this article first, and only attempt the offline password reset method as a last resort.
 
-[Azure VM extensions and features](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Azure VM extensions and features](../extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Connect to an Azure virtual machine with RDP or SSH](/azure/virtual-machines/virtual-machines-linux-azure-overview/)
+[Connect to an Azure virtual machine with RDP or SSH](/virtual-machines/linux/overview)
 
-[Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -3,7 +3,7 @@ title: Understand Azure Active Directory architecture | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: markvi
+author: MarkusVi
 writer: v-lorisc
 manager: femila
 
@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
-ms.author: markvi
+origin.date: 05/16/2017
+ms.date: 06/21/2017
+ms.author: v-junlch
 
 ---
 # Understand Azure Active Directory architecture
-Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](active-directory-whatis.md)
 
-With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity).
+With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](fundamentals-identity.md).
 
 ## Azure AD architecture
 Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities enable us to deliver enterprise-level availability and performance to our customers.
@@ -114,4 +115,5 @@ We employ operational controls such as multi-factor authentication (MFA) for any
 
 ## Next steps
 [Azure Active Directory developer's guide](./develop/active-directory-developers-guide.md)
+
 

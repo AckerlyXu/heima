@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
-wacn.date: ''
-ms.author: kgremban
+origin.date: 02/22/2017
+ms.date: 04/05/2017
+ms.author: v-junlch
 ---
 
 # Manage Role-Based Access Control with the Azure command-line interface
@@ -28,7 +28,7 @@ You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resou
 
 Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
 
-- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/).
+- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
 - Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../azure-resource-manager/xplat-cli-azure-resource-manager.md) for more details.
 
 ## List roles

@@ -1,18 +1,19 @@
 ---
 title: Export an Azure SQL database to a BACPAC file | Azure
-description: Export an Azure SQL database to a BACPAC file  using the Azure portal preview
+description: Export an Azure SQL database to a BACPAC file  using the Azure Portal
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
-ms.date: 04/05/2017
-ms.author: carlrab
+origin.date: 04/05/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -21,9 +22,9 @@ ms.tgt_pltfrm: NA
 # Export an Azure SQL database to a BACPAC file
 
 This article discusses exporting an Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. This article discusses using the following methods:
-- The [Azure portal preview](https://portal.azure.cn)
+- The [Azure Portal](https://portal.azure.cn)
 - the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-line utility
-- the [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet
+- the [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet
 - the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) wizard in [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 
@@ -51,9 +52,9 @@ When you need to export a database for archiving or for moving to another platfo
 > BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md) and [SQL Database backups](sql-database-automated-backups.md).  
 > 
 
-## Azure portal preview
+## Azure Portal
 
-To export a database using the Azure portal preview, open the page for your database and click **Export** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
+To export a database using the Azure Portal, open the page for your database and click **Export** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
 
    ![Database export](./media/sql-database-export/database-export.png)
 
@@ -71,7 +72,7 @@ The newest versions of SQL Server Management Studio also provide a wizard to exp
 
 ## PowerShell
 
-Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. Depending on the size of your database, the export operation may take some time to complete.
+Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. Depending on the size of your database, the export operation may take some time to complete.
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -79,7 +80,7 @@ Use the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/res
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-To check the status of the export request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the export is complete.
+To check the status of the export request, use the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Running this immediately after the request usually returns **Status: InProgress**. When you see **Status: Succeeded** the export is complete.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -97,7 +98,7 @@ $importStatus
 ### Export SQL database example
 The following example exports an existing Azure SQL database to a BACPAC and then shows how to check the status of the export operation.
 
-To run the example, there are a few variables you need to replace with the specific values for your database and storage account. In the [Azure portal preview](https://portal.azure.cn), browse to your storage account to get the storage account name, blob container name, and key value. You can find the key by clicking **Access keys** on your storage account blade.
+To run the example, there are a few variables you need to replace with the specific values for your database and storage account. In the [Azure Portal](https://portal.azure.cn), browse to your storage account to get the storage account name, blob container name, and key value. You can find the key by clicking **Access keys** on your storage account blade.
 
 Replace the following `VARIABLE-VALUES` with values for your specific Azure resources. The database name is the existing database you want to export.
 

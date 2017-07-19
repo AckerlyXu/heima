@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
-wacn.date: ''
-ms.author: rclaus
+origin.date: 02/02/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Configure Software RAID on Linux
 It's a common scenario to use software RAID on Linux virtual machines in Azure to present multiple attached data disks as a single RAID device. Typically this can be used to improve performance and allow for improved throughput compared to using just a single disk.
 
 ## Attaching data disks
-Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Azure article [attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
+Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Azure article [attach a disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 ## Install the mdadm utility
 * **Ubuntu**
@@ -140,10 +140,10 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
     ```
 
-    > [!NOTE]
-    > A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
-    > 
-    > 
+   > [!NOTE]
+   > A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
+   > 
+   > 
 
 ## Add the new file system to /etc/fstab
 > [!IMPORTANT]

@@ -3,7 +3,7 @@ title: Visual Studio Azure resource group projects | Azure
 description: Use Visual Studio to create a Azure resource group project and deploy the resources to Azure.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 03/10/2017
+ms.date: 01/25/2017
+ms.author: v-yeche
 ---
 
 # Creating and deploying Azure resource groups through Visual Studio
@@ -155,7 +155,7 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
     ... 
     18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
     ```
-7. In a browser, open the [Azure portal preview](https://portal.azure.cn/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
+7. In a browser, open the [Azure Portal](https://portal.azure.cn/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
 
     ![select group](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 8. You see all the deployed resources. Notice that the name of the storage account is not exactly what you specified when adding that resource. The storage account must be unique. The template automatically adds a string of characters to the name you provided to provide a unique name. 
@@ -219,5 +219,5 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
      ![show deployed app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Next steps
-* To learn about managing your resources through the portal, see [Using the Azure portal preview to manage your Azure resources](./resource-group-portal.md).
+* To learn about managing your resources through the portal, see [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md).
 * To learn more about templates, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).

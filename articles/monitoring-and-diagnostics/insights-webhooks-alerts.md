@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-ms.author: ashwink
-wacn.date: ''
+origin.date: 04/03/2017
+ms.author: v-yiso
+ms.date: 05/02/2017
 ---
 
 # Configure a webhook on an Azure metric alert
@@ -96,7 +96,7 @@ The POST operation contains the following JSON payload and schema for all metric
 | resourceId |Y | |Resource ID of the impacted resource. |
 | resourceRegion |Y | |Region or location of the impacted resource. |
 | portalLink |Y | |Direct link to the portal resource summary page. |
-
+| properties |N |Optional |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. The properties field is optional. In a custom UI or Logic app-based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters) |
 
 > [!NOTE]
 > The properties field can only be set using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).

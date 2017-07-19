@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: adrianha
+ms.author: v-yiso
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
@@ -197,7 +197,7 @@ An Azure Mobile Apps backend table defines five special fields, four of which ar
 * `byte[] version`: Normally represented as a string, the version is also set by the server.
 * `boolean deleted`: Indicates that the record has been deleted but not purged yet.  Do not use `deleted` as a property in your class.
 
-The `id` field is required.  The `updatedAt` field and `version` field are used for offline synchronization (for incremental sync and conflict resolution respectively).  The `createdAt` field is a reference field and is not used by the client.  The names are "across-the-wire" names of the properties and are not adjustable.  However, you can create a mapping between your object and the "across-the-wire" names using the [gson][3] library.  For example:
+The `id` field is required.  The `updatedAt` field and `version` field are used for offline synchronization (for incremental sync and conflict resolution respectively).  The `createdAt` field is a reference field and is not used by the client.  The names are "across-the-wire" names of the properties and are not adjustable.  However, you can create a mapping between your object and the "across-the-wire" names using the gson library.  For example:
 
 ```java
 package com.example.zumoappname;
@@ -720,7 +720,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 Once you have created an instance of the **MobileServiceJsonTable**, it has virtually the same API available as with the typed programming model. In some cases, the methods take an untyped parameter instead of a typed parameter.
 
 ### <a name="json_insert"></a>Insert into an untyped table
-The following code shows how to do an insert. The first step is to create a [JsonObject][1], which is part of the [gson][3] library.
+The following code shows how to do an insert. The first step is to create a JsonObject, which is part of the gson library.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1296,7 +1296,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Configure Automatic Serialization
 
-You can specify a conversion strategy that applies to every column by using the [gson][3] API. The Android client library uses [gson][3] behind the scenes to serialize Java objects to JSON data before the data is sent to Azure App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example will delete the initial character (an "m"), and then lower-case the next character, for every field name. For example, it would turn "mId" into "id."  Implement a conversion strategy to reduce the need for `SerializedName()` annotations on most fields.
+You can specify a conversion strategy that applies to every column by using the gson API. The Android client library uses gson behind the scenes to serialize Java objects to JSON data before the data is sent to Azure App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example will delete the initial character (an "m"), and then lower-case the next character, for every field name. For example, it would turn "mId" into "id."  Implement a conversion strategy to reduce the need for `SerializedName()` annotations on most fields.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1321,9 +1321,7 @@ This code must be executed before creating a mobile client reference using the *
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.cn
 [Get started with authentication]: ./app-service-mobile-android-get-started-users.md
-[1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
-[3]: http://go.microsoft.com/fwlink/p/?LinkId=290801
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: ./app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps

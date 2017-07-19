@@ -13,15 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: get-started-article
-ms.date: 07/07/2016
-wacn.date: ''
-ms.author: huvalo
+origin.date: 07/07/2016
+ms.date: 03/17/2017
+ms.author: v-dazen
 
 ---
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 In this tutorial, you'll use [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) to create a simple polls web app using one of the PTVS sample templates. You'll learn how to use a MySQL service hosted on Azure, how to configure the web app to use MySQL, and how to publish the web app to [Azure App Service Web Apps](/app-service-web/app-service-changes-existing-services).
 
@@ -36,6 +34,8 @@ See the [Python Developer Center] for more articles that cover development of Az
 * Django 1.9 or later
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## Create the Project
 In this section, you'll create a Visual Studio project using a sample template. You'll create a virtual environment and install required packages. You'll create a local database using sqlite. Then you'll run the application locally.
@@ -73,7 +73,7 @@ As an alternative, you can create your own Virtual Machine running in Azure, the
 
 You can create a database by following these steps.
 
-1. Log in to the [Azure Classic Management Portal].
+1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 1.  At the bottom of the navigation pane. 
 1.  Click **DATA SERVICE**, then **MYSQL DATABASE ON AZURE**, then **QUICK CREATE**.
 1.  Filled in with name, version, and so on, then click **CREATE**.
@@ -116,11 +116,11 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 3. Click on **New** to create a new web app.
 4. Fill in the following fields and click **Create**:
 
-    * **Web App name**
-    * **App Service plan**
-    * **Resource group**
-    * **Region**
-    * Leave **Database server** set to **No database**
+   * **Web App name**
+   * **App Service plan**
+   * **Resource group**
+   * **Region**
+   * Leave **Database server** set to **No database**
 5. Accept all other defaults and click **Publish**.
 6. Your web browser will open automatically to the published web app. You should see the web app working as expected, using the **MySQL** database hosted on Azure.
 
@@ -132,9 +132,9 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 Follow these links to learn more about Python Tools for Visual Studio, Django and MySQL.
 
 * [Python Tools for Visual Studio Documentation]
-    * [Web Projects]
-    * [Cloud Service Projects]
-    * [Remote Debugging on Azure]
+  * [Web Projects]
+  * [Cloud Service Projects]
+  * [Remote Debugging on Azure]
 * [Django Documentation]
 * [MySQL]
 
@@ -147,7 +147,7 @@ For more information, see the [Python Developer Center](/develop/python/).
 
 <!--External Link references-->
 
-[Azure Classic Management Portal]: https://manage.windowsazure.cn
+[Azure Portal]: https://portal.azure.cn
 [Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025

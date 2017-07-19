@@ -14,9 +14,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/03/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Process vehicle sensor data from Azure Event Hubs using Apache Storm on HDInsight

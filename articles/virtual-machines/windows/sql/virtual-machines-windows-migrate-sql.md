@@ -14,9 +14,9 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
-ms.author: carlasab
+origin.date: 02/22/2017
+ms.date: 04/27/2017
+ms.author: v-dazen
 
 ---
 # Migrate a SQL Server database to SQL Server in an Azure VM

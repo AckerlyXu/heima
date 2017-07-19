@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB Python API, SDK & Resources | Microsoft Docs
+title: DocumentDB Python API, SDK & Resources | Microsoft Docs
 description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK.
-services: cosmosdb
+services: documentdb
 documentationcenter: python
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: rnagpal
+origin.date: 05/10/2017
+ms.date: 05/31/2017
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -72,7 +72,7 @@ ms.custom: H1Hack27Feb2017
 
 ### <a name="1.9.0"/>1.9.0
 - Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, DocumentDB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. DocumentDB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overriden in the RetryOptions property on ConnectionPolicy object.
-- Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
+- DocumentDB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cummulative time the request waited between the retries.
 - Removed the RetryPolicy class and the corresponding property (retry_policy) exposed on the document_client class and instead introduced a RetryOptions class exposing the RetryOptions property on ConnectionPolicy class that can be used to override some of the default retry options.
 
 ### <a name="1.8.0"/>1.8.0
@@ -113,7 +113,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
 
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
 > All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** will be retired on **February 29, 2016**. 
@@ -150,6 +150,6 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) service page. 
+To learn more about DocumentDB, see [DocumentDB](https://www.azure.cn/home/features/documentdb/) service page. 
 
 

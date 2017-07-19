@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 05/03/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Configure web application firewall on a new or existing Application Gateway
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-web-application-firewall-portal.md)
+> * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
 
 Learn how to create an web application firewall enabled application gateway or add web application firewall to an existing application gateway.
@@ -74,7 +74,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 
 1. Configure the WAF settings as defined in the following example:
 
-    For **FirewallMode**, the available values are Prevention and Detection.
+   For **FirewallMode**, the available values are Prevention and Detection.
 
     ```powershell
     $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
@@ -108,9 +108,9 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 
 Create a resource group for the application gateway.
 
-    ```powershell
-    New-AzureRmResourceGroup -Name appgw-rg -Location "China North"
-    ```
+```powershell
+New-AzureRmResourceGroup -Name appgw-rg -Location "China North"
+```
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 

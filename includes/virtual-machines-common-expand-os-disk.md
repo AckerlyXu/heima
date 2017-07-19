@@ -14,21 +14,21 @@ In this article we'll accomplish the task of resizing the OS drive using resourc
 
 1. Sign-in to your Azure account in resource management mode and select your subscription as follows:
 
-    ```Powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
-    ```
+   ```Powershell
+   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
+   ```
 2. Set your resource group name and VM name as follows:
 
-    ```Powershell
-    $rgName = 'my-resource-group-name'
-    $vmName = 'my-vm-name'
-    ```
+   ```Powershell
+   $rgName = 'my-resource-group-name'
+   $vmName = 'my-vm-name'
+   ```
 3. Obtain a reference to your VM as follows:
 
-    ```Powershell
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    ```
+   ```Powershell
+   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
 4. Stop the VM before resizing the disk as follows:
 
     ```Powershell
@@ -36,20 +36,20 @@ In this article we'll accomplish the task of resizing the OS drive using resourc
     ```
 5. And here comes the moment we've been waiting for! Set the size of the OS disk to the desired value and update the VM as follows:
 
-    ```Powershell
-    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    ```
+   ```Powershell
+   $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
+   Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+   ```
 
-    > [!WARNING]
-    > The new size should be greater than the existing disk size. The maximum allowed is 1023 GB.
-    > 
-    > 
+   > [!WARNING]
+   > The new size should be greater than the existing disk size. The maximum allowed is 1023 GB.
+   > 
+   > 
 6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
 
-    ```Powershell
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    ```
+   ```Powershell
+   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
 
 And that's it! Now RDP into the VM, open Computer Management (or Disk Management) and expand the drive using the newly allocated space.
 
@@ -74,11 +74,10 @@ Though in this article, we focused primarily on expanding the OS disk of the VM,
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-
 Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/windows/attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

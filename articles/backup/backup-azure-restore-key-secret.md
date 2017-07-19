@@ -13,9 +13,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-wacn.date: ''
-ms.author: JPallavi
+origin.date: 10/18/2016
+ms.date: 12/21/2016
+ms.author: v-junlch
 ---
 
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup

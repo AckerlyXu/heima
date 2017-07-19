@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: ambapat
-wacn.date: ''
+origin.date: 05/08/2017
+ms.author: v-junlch
+ms.date: 06/12/2017
 
 ---
 # Manage Key Vault using CLI 2.0
-Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](/pricing/details/key-vault/).
+Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://www.azure.cn/pricing/details/key-vault/).
 
 ## Introduction
 Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Azure Cross-Platform Command-Line Interface to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can then use that key or password.
@@ -38,7 +38,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 ## Prerequisites
 To complete this tutorial, you must have the following:
 
-- A subscription to Azure. If you do not have one, you can sign up for a [trial](/pricing/1rmb-trial/).
+- A subscription to Azure. If you do not have one, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 - Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli/).
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 

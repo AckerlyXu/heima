@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: sethm
-
+origin.date: 05/10/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 # Best Practices for performance improvements using Service Bus Messaging
 This article describes how to use [Azure Service Bus Messaging](../service-bus-messaging/index.md) to optimize performance when exchanging brokered messages. The first part of this topic describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 06/15/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 
@@ -30,7 +30,7 @@ This section helps you to make the best decision on VM and disk types.
 
 ### Location
 
-Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services byRegion](https://azure.microsoft.com/regions/#services) for up-to-date information on available locations.
+Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to.
 
 ### VM sizes
 
@@ -41,23 +41,23 @@ Review the performance characteristics of virtual machines that work with Premiu
 
 **Premium Managed Disks**
 
-There are three types of Premium Managed disks that can be used with your VM and each has specific IOPs and throughput limits. Consider these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
+There are seven types of premium Managed disks that can be used with your VM and each has specific IOPs and throughput limits. Consider these limits when choosing the Premium disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
 
-| Premium Disks Type  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| Disk size           | 128 GB            | 512 GB            | 1024 GB (1 TB)    |
-| IOPS per disk       | 500               | 2300              | 5000              |
-| Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second |
+| Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Disk size           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
 
 **Standard Managed Disks**
 
-There are five types of Standard Managed disks that can be used with your VM. Each of them have different capacity but have same IOPS and throughput limits. Choose the type of Standard Managed disks based on the capacity needs of your application.
+There are seven types of Standard Managed disks that can be used with your VM. Each of them have different capacity but have same IOPS and throughput limits. Choose the type of Standard Managed disks based on the capacity needs of your application.
 
-| Standard Disk Type  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk size           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   |
-| IOPS per disk       | 500              | 500              | 500              | 500              | 500              |
-| Throughput per disk | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |
+| Standard Disk Type  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
+| Disk size           | 32 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| IOPS per disk       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
+| Throughput per disk | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
 
 ### Disk caching policy 
 
@@ -164,4 +164,4 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 ## Next steps
 
-- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

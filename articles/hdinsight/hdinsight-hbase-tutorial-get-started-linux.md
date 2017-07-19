@@ -1,7 +1,7 @@
 ---
-title: Get started with HBase on Azure HDInsight | Azure
-description: Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.
-keywords: apache hbase,hbase,hbase shell,hbase tutorial,beeline
+title: Get started with an HBase example on HDInsight - Azure | Azure
+description: Follow this Apache HBase example to start using on HDInsight. Create tables from the HBase shell and query them using Hive.
+keywords: hbasecommand,hbase example 
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,24 +10,24 @@ editor: cgronlun
 
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/09/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/09/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
-# HBase tutorial: Get started using Apache HBase in HDInsight
+# Get started with an Apache HBase example in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Prerequisites
-Before you begin this HBase tutorial, you must have the following items:
+Before you begin trying this HBase example, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
@@ -36,7 +36,7 @@ Before you begin this HBase tutorial, you must have the following items:
 ## Create HBase cluster
 The following procedure uses an Azure Resource Manager template to create a version 3.5 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure portal preview. The template is located in a public blob container. 
+1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -45,17 +45,17 @@ The following procedure uses an Azure Resource Manager template to create a vers
 
 2. From the **Custom deployment** blade, enter the following values:
 
-    * **Subscription**: Select your Azure subscription that is used to create the cluster.
-    * **Resource group**: Create an Azure Resource Management group or use an existing one.
-    * **Location**: Specify the location of the resource group. 
-    * **ClusterName**: Enter a name for the HBase cluster.
-    * **Cluster login name and password**: The default login name is **admin**.
-    * **SSH username and password**: The default username is **sshuser**.  You can rename it.
+   * **Subscription**: Select your Azure subscription that is used to create the cluster.
+   * **Resource group**: Create an Azure Resource Management group or use an existing one.
+   * **Location**: Specify the location of the resource group. 
+   * **ClusterName**: Enter a name for the HBase cluster.
+   * **Cluster login name and password**: The default login name is **admin**.
+   * **SSH username and password**: The default username is **sshuser**.  You can rename it.
 
-        Other parameters are optional.  
+     Other parameters are optional.  
 
-        Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
-3. Click **Legal terms**, and then click **Create**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
+     Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
+3. Click **Legal terms**, and then click **Purchase**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
 
 > [!NOTE]
 > After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
@@ -75,7 +75,7 @@ In HBase which is an implementation of BigTable, the same data looks like:
 
 **To use the HBase shell**
 
-1. From SSH, run the following command:
+1. From SSH, run the following HBase command:
 
         hbase shell
 2. Create an HBase with two-column families:
@@ -183,11 +183,11 @@ The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/
 
     You must base64 encode the values specified in the -d switch.  In the example:
 
-    * MTAwMA==: 1000
-    * UGVyc29uYWw6TmFtZQ==: Personal:Name
-    * Sm9obiBEb2xl: John Dole
+   * MTAwMA==: 1000
+   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * Sm9obiBEb2xl: John Dole
 
-        [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) allows you to insert multiple (batched) value.
+     [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) allows you to insert multiple (batched) value.
 5. Use the following command to get a row:
 
         curl -u <UserName>:<Password> \
@@ -199,16 +199,16 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 
 > [!NOTE]
 > Thrift is not supported by HBase in HDInsight.
-> <p>
+>
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
-> <p>
->```
->curl -u <UserName>:<Password> \
->-G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
->```
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
+>   
 > You should receive a response similar to the following response:
-> <p>
-> `{"status":"ok","version":"v1"}`
+>   
+>        {"status":"ok","version":"v1"}
 
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.
@@ -219,15 +219,15 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 2. Click **HBase** from the left menu.
 3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 
-    ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+  ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-    The HBase Master UI contains the following sections:
+  The HBase Master UI contains the following sections:
 
-    - region servers
-    - backup masters
-    - tables
-    - tasks
-    - software attributes
+  - region servers
+  - backup masters
+  - tables
+  - tasks
+  - software attributes
 
 ## Delete the cluster
 To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.

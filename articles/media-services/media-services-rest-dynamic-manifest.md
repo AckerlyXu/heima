@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/10/2017
-wacn.date: ''
-ms.author: juliako;cenkdin
+origin.date: 01/10/2017
+ms.date: 02/24/2017
+ms.author: v-johch
 ---
 
 #Creating Filters with Azure Media Services REST API

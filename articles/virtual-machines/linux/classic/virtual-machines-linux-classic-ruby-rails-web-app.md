@@ -14,9 +14,9 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
-ms.author: robmcm
+origin.date: 04/25/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Ruby on Rails Web application on an Azure VM
@@ -99,20 +99,20 @@ You should see output similar to the following.
     ![new endpoint dialog][new-endpoint1]
 4. In the next dialog page, enter the following information:
 
-    * **NAME**: HTTP
-    * **PROTOCOL**: TCP
-    * **PUBLIC PORT**: 80
-    * **PRIVATE PORT**: 3000
+   * **NAME**: HTTP
+   * **PROTOCOL**: TCP
+   * **PUBLIC PORT**: 80
+   * **PRIVATE PORT**: 3000
 
-    This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
+     This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
 
-    ![new endpoint dialog][new-endpoint]
+     ![new endpoint dialog][new-endpoint]
 5. Click the check mark to save the endpoint.
 6. A message should appear that states **UPDATE IN PROGRESS**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
 
     ![default rails page][default-rails-cloud]
 
-## <a id="next"></a> Next steps
+## Next steps
 In this tutorial, you did most of the steps manually. In a production environment, you would write your app on a development machine and deploy it to the Azure VM. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources. For more information, see http://rubyonrails.org/deploy/.
 
 To learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].

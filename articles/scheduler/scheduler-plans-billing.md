@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
 # Plans and Billing in Azure Scheduler
@@ -72,7 +72,7 @@ For pricing details, please see [Scheduler Pricing](https://www.azure.cn/pricing
 
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal preview](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
 
  [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 

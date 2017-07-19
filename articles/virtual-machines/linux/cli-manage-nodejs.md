@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: rclaus
+origin.date: 05/12/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Common Azure CLI 1.0 commands on Linux and Mac

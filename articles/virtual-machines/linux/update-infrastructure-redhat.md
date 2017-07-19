@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
-wacn.date: ''
-ms.author: borisb
+origin.date: 02/13/2017
+ms.date: 06/21/2017
+ms.author: v-dazen
 
 ---
 # Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure
@@ -41,7 +41,7 @@ If you are experiencing problems connecting to Azure RHUI from your Azure RHEL P
     If you are using the new configuration and still cannot connect to Azure RHUI - file a support case with Microsoft or Red Hat.
 
     > [!NOTE]
-    > Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+    > Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
     > 
 
 2. If the old Azure RHUI is still available when you do this check and you would like to automatically update the configuration, execute the following command:
@@ -207,7 +207,7 @@ sudo rpm -U azureclient.rpm
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://www.azure.cn/support/service-dashboard/) page, Azure US Government and Azure Germany regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
 
 > [!NOTE]
-> Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+> Access to Azure-hosted RHUI is limited to the VMs within [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
 > 
 > 
 
@@ -228,7 +228,7 @@ To unregister RHUI and reregister to your update infrastructure follow these ste
 > [!NOTE]
 > Access to the Azure-hosted RHUI is included in the RHEL Pay-As-You-Go (PAYG) image price. Unregistering a PAYG RHEL VM from the Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM. If you register the same VM with another source of updates you may be incurring double charges: first time for Azure RHEL software fee, and the second time for Red Hat subscription(s). 
 > 
-> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article.
+> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) article.
 > 
 
 ## Next steps

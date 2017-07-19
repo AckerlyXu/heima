@@ -12,9 +12,9 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: carlrab
+origin.date: 02/06/2017
+ms.date: 03/24/2017
+ms.author: v-johch
 ---
 
 # Create and manage Azure SQL Database servers with the Azure portal

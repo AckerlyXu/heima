@@ -1,9 +1,9 @@
 ---
-title: Use Azure portal preview to deploy Azure resources | Azure
+title: Use Azure Portal to deploy Azure resources | Azure
 description: Use Azure portal and Azure Resource Manage to deploy your resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 12/19/2016
+ms.date: 05/02/2017
+ms.author: v-yeche
 ---
 
 # Deploy resources with Resource Manager templates and Azure portal
@@ -106,4 +106,4 @@ The portal enables you to save a template to your Azure account, and redeploy it
 * To troubleshoot deployment errors, see [View deployment operations](./resource-manager-deployment-operations.md).
 * To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](./resource-manager-export-template.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
+* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.

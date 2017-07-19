@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Hadoop tutorial: Get started using Hadoop in HDInsight
 
-Learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight, and how to run Hive jobs in HDInsight. [Apache Hive](https://hive.apache.org/) is the most popular component in the Hadoop ecosystem. Currently HDInsight comes with six different cluster types: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) and [R server](hdinsight-hadoop-r-server-overview.md).  Each cluster type supports a different set of components. All six cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md)  
+Learn how to create [Hadoop](http://hadoop.apache.org/) clusters in HDInsight, and how to run Hive jobs in HDInsight. [Apache Hive](https://hive.apache.org/) is the most popular component in the Hadoop ecosystem. Currently HDInsight comes with six different cluster types: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), and [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md).  Each cluster type supports a different set of components. All six cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Prerequisites
 Before you begin this tutorial, you must have:
 
-* **Azure subscription**: To create a one-month trial account, browse to [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/).
+* **Azure subscription**: To create a one-month trial account, browse to [https://www.azure.cn/pricing/1rmb-trial](https://www.azure.cn/pricing/1rmb-trial).
 
 ## Create cluster
 
@@ -38,7 +38,7 @@ Most of Hadoop jobs are batch jobs. You create a cluster, run some jobs, and the
 
 The Resource Manager template used in this tutorial is located in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password/). 
 
-1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal preview. 
+1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Enter or select the following values:
@@ -62,7 +62,7 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 
      For more explanation of these properties, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Click **Legal terms**, and then click **Create**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group in a new blade. You can see both the cluster and the default storage listed.
+3. Click **Legal terms**, and then click **Purchase**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. You shall see a new tile titled **Deploying Template deployment** on the portal dashboard. It takes about around 20 minutes to create a cluster. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. And the portal automatically opens the resource group in a new blade. You can see both the cluster and the default storage listed.
 
     ![HDInsight Linux get started resource group](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group").
 
@@ -82,10 +82,10 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 
         SHOW TABLES;
 
-    > [!NOTE]
-    > Semi-colon is required by Hive.       
-    > 
-    > 
+   > [!NOTE]
+   > Semi-colon is required by Hive.       
+   > 
+   > 
 5. Click **Execute**. A **Query Process Results** section should appear beneath the Query Editor and display information about the job. 
 
     Once the query has finished, The **Query Process Results** section displays the results of the operation. You shall see one table called **hivesampletable**. This sample Hive table comes with all the HDInsight clusters.
@@ -95,10 +95,10 @@ The Resource Manager template used in this tutorial is located in [GitHub](https
 
         SELECT * FROM hivesampletable;
 
-    > [!TIP]
-    > Note the **Save results** dropdown in the upper left of the **Query Process Results** section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
-    > 
-    > 
+   > [!TIP]
+   > Note the **Save results** dropdown in the upper left of the **Query Process Results** section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
+   > 
+   > 
 7. Click **History** to get a list of the jobs.
 
 After you have completed a Hive job, you can [export the results to Azure SQL database or SQL Server database](hdinsight-use-sqoop-mac-linux.md), you can also [visualize the results using Excel](hdinsight-connect-excel-power-query.md). For more information about using Hive in HDInsight, see [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md).
@@ -108,7 +108,7 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 
 **To delete the cluster and/or the default storage account**
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. From the portal dashboard, click the tile with the resource group name you used when you created the cluster.
 3. Click **Delete** on the resource blade to delete the resource group, which contains the cluster and the default storage account; or click the cluster name on the **Resources** tile and then click **Delete** on the cluster blade. Note deleting the resource group deletes the storage account. If you want to keep the storage account, choose to delete the cluster only.
 
@@ -137,9 +137,9 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 * To learn more about the options you can select when creating an HDInsight cluster, see [Creating HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 * If you are familiar with Linux, and Hadoop, but want to know specifics about Hadoop on the HDInsight, see [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md). This article provides information such as:
 
-    * URLs for services hosted on the cluster, such as Ambari and WebHCat
-    * The location of Hadoop files and examples on the local file system
-    * The use of Azure Storage (WASB) instead of HDFS as the default data store
+  * URLs for services hosted on the cluster, such as Ambari and WebHCat
+  * The location of Hadoop files and examples on the local file system
+  * The use of Azure Storage (WASB) instead of HDFS as the default data store
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

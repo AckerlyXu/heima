@@ -1,5 +1,5 @@
 ---
-title: Azure solutions for Internet of Things | Azure
+title: Azure solutions for Internet of Things (IoT Suite)  | Azure
 description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions
 services: ''
 suite: iot-suite
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
-ms.author: dobett
-
+origin.date: 05/25/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]

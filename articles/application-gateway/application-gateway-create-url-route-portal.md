@@ -1,5 +1,5 @@
 ---
-title: Create a path-based rule - Azure Application Gateway - Azure Portal Preview | Azure
+title: Create a path-based rule - Azure Application Gateway - Azure Portal | Azure
 description: Learn how to create a Path-based rule for an application gateway by using the portal
 services: application-gateway
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 04/03/2017
+ms.date: 05/22/2017
+ms.author: v-dazen
 
 ---
 # Create a Path-based rule for an application gateway by using the portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-url-route-portal.md)
+> * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
 URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL listed in the Application Gateway and sends the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
@@ -42,7 +42,7 @@ A Path-based rule requires its own listener, before creating the rule be sure to
 
 ### Step 1
 
-Navigate to the [Azure portal preview](http://portal.azure.cn) and select an existing application gateway. Click **Rules**
+Navigate to the [Azure portal](http://portal.azure.cn) and select an existing application gateway. Click **Rules**
 
 ![Application Gateway overview][1]
 

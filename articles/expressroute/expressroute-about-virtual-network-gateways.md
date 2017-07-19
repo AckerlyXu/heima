@@ -2,20 +2,21 @@
 title: About ExpressRoute virtual network gateways| Azure
 description: Learn about virtual network gateways for ExpressRoute.
 services: expressroute
-documentationCenter: na
-authors: cherylmc
+documentationcenter: na
+author: cherylmc
 manager: carmonm
 editor: ''
 tags: azure-resource-manager, azure-service-management
 
+ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
-ms.author: cherylmc
-wacn.date: ''
+origin.date: 03/20/2017
+ms.author: v-yiso
+ms.date: 04/24/2017
 ---
 
 # About virtual network gateways for ExpressRoute
@@ -52,7 +53,7 @@ For additional technical resources and specific syntax requirements when using R
 |**Classic** | **Resource Manager**|
 |-----|----|
 |[PowerShell](https://msdn.microsoft.com/library/mt270335.aspx)|[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx)|
-|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)|[REST API](https://msdn.microsoft.com/zh-cn/library/mt163859.aspx)|
+|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)||
 
 ## Next steps
 

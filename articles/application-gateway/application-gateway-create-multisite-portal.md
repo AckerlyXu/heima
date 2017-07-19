@@ -1,6 +1,6 @@
 ---
 title: Host multiple sites with Azure Application Gateway | Azure
-description: This page provides instructions to configure an existing Azure application gateway for hosting multiple web applications on the same gateway with the Azure portal preview.
+description: This page provides instructions to configure an existing Azure application gateway for hosting multiple web applications on the same gateway with the Azure portal.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 01/23/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Configure an existing application gateway for hosting multiple web applications
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-multisite-portal.md)
+> * [Azure portal](application-gateway-create-multisite-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 > 
 > 
@@ -59,7 +59,7 @@ A back-end pool for each site that application gateway supports is needed, in th
 
 ### Step 1
 
-Navigate to an existing application gateway in the Azure portal preview (https://portal.azure.cn). Select **Backend pools** and click **Add**
+Navigate to an existing application gateway in the Azure portal (https://portal.azure.cn). Select **Backend pools** and click **Add**
 
 ![add backend pools][7]
 
@@ -98,7 +98,7 @@ Click **Multi-site** and create another listener as described in the previous st
 ![listener properties blade][3]
 
 > [!NOTE]
-> Creation of listeners in the Azure portal preview for application gateway is a long running task, it may take some time to create the two listeners in this scenario. When complete the listeners show in the portal as seen in the following image:
+> Creation of listeners in the Azure portal for application gateway is a long running task, it may take some time to create the two listeners in this scenario. When complete the listeners show in the portal as seen in the following image:
 
 ![listener overview][4]
 
@@ -106,7 +106,7 @@ Click **Multi-site** and create another listener as described in the previous st
 
 ### Step 1
 
-Navigate to an existing application gateway in the Azure portal preview (https://portal.azure.cn). Select **Rules** and choose the existing default rule **rule1** and click **Edit**.
+Navigate to an existing application gateway in the Azure portal (https://portal.azure.cn). Select **Rules** and choose the existing default rule **rule1** and click **Edit**.
 
 ### Step 2
 
@@ -120,7 +120,7 @@ Click **Basic rule** to create the second rule. Fill out the form with the secon
 
 ![add basic rule blade][10]
 
-This scenario completes configuring an existing application gateway with multi-site support through the Azure portal preview.
+This scenario completes configuring an existing application gateway with multi-site support through the Azure portal.
 
 ## Next steps
 

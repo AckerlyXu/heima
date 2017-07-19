@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 03/30/2017
+ms.date: 05/15/2017
+ms.author: v-dazen
 
 ---
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM
@@ -27,12 +27,10 @@ This article shows you how to install and configure Trend Micro Deep Security as
 
 The client is installed as a security extension via the VM Agent. On a new virtual machine, you install the VM Agent along with the Deep Security Agent. On an existing virtual machine that doesn't have the VM Agent, you need to download and install it first. This article covers both situations.
 
-If you have a current subscription from Trend Micro for an on-premises solution, you can use it to help protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see the Trend Micro blog post [Azure VM Agent Extension For Deep Security](http://blog.trendmicro.com/microsoft-azure-vm-agent-extension-for-deep-security/).
+If you have a current subscription from Trend Micro for an on-premises solution, you can use it to help protect your Azure virtual machines. If you're not a customer yet, you can sign up for a trial subscription. For more information about this solution, see the Trend Micro blog post [Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## Install the Deep Security Agent on a new VM
 The [Azure Classic Management Portal](http://manage.windowsazure.cn) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. If you're creating a single virtual machine, using the portal is an easy way to add protection from Trend Micro.
-
-This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure Classic Management Portal](tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). When you get to the last page of the wizard, do the following steps:
 
 1. Under **VM Agent**, check **Install VM Agent**.
 2. Under **Security Extensions**, check **Trend Micro Deep Security Agent**.
@@ -55,7 +53,7 @@ First, verify that the VM Agent is already installed. Fill in the cloud service 
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the virtual machines in your current subscription.
 
-If the **write-host** command returns **True**, the VM Agent is installed. If it returns **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+If the **write-host** command returns **True**, the VM Agent is installed. If it returns **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
 If the VM Agent is installed, run these commands.
 
@@ -66,7 +64,7 @@ If the VM Agent is installed, run these commands.
 ## Next steps
 It takes a few minutes for the agent to start running when it is installed. After that, you need to activate Deep Security on the virtual machine so it can be managed by a Deep Security Manager. See the following articles for additional instructions:
 
-* Trend's article about this solution, [Instant-On Cloud Security for Azure](https://www.trendmicro.com/azure/?cm_mmc=VURL%3Awww.trendmicro.com-_-VURL-_-%2Fazure%2Findex.html-_-1-1#how-it-works)
+* Trend's article about this solution, [Instant-On Cloud Security for Azure](http://go.microsoft.com/fwlink/?LinkId=404101)
 * A [sample Windows PowerShell script](http://go.microsoft.com/fwlink/?LinkId=404100) to configure the virtual machine
 * [Instructions](http://go.microsoft.com/fwlink/?LinkId=404099) for the sample
 

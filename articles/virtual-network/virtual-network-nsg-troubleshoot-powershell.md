@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
-wacn.date: ''
-ms.author: anithaa
+origin.date: 09/23/2016
+ms.date: 01/05/2017
+ms.author: v-dazen
 
 ---
 # Troubleshoot Network Security Groups using Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal Preview](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -47,12 +47,12 @@ Complete the following steps to troubleshoot NSGs for a VM:
 
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
 
-    > [!TIP]
-    > If you don't know the name of a NIC, enter the following command to retrieve the names of all NICs in a resource group: 
-    > <p> 
-    > `Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
-    > 
-    > 
+   > [!TIP]
+   > If you don't know the name of a NIC, enter the following command to retrieve the names of all NICs in a resource group: 
+   > 
+   > `Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name`
+   > 
+   > 
 
     The following text is a sample of the effective rules output returned for the *VM1-NIC1* NIC:
 
@@ -155,16 +155,16 @@ Complete the following steps to troubleshoot NSGs for a VM:
 
     Note the following information in the output:
 
-    * There are two **NetworkSecurityGroup** sections: One is associated with a subnet (*Subnet1*) and one is associated with a NIC (*VM1-NIC1*). In this example, an NSG has been applied to each.
-    * **Association** shows the resource (subnet or NIC) a given NSG is associated with. If the NSG resource is moved/disassociated immediately before running this command, you may need to wait a few seconds for the change to reflect in the command output. 
-    * The rule names that are prefaced with *defaultSecurityRules*: When an NSG is created, several default security rules are created within it. Default rules can't be removed, but they can be overridden with higher priority rules.
-      Read the [NSG overview](virtual-networks-nsg.md#default-rules) article to learn more about NSG default security rules.
-    * **ExpandedAddressPrefix** expands the address prefixes for NSG default tags. Tags represent multiple address prefixes. Expansion of the tags can be useful when troubleshooting VM connectivity to/from specific address prefixes. For example, with VNET peering, VIRTUAL_NETWORK tag expands to show peered VNet prefixes in the previous output.
+   * There are two **NetworkSecurityGroup** sections: One is associated with a subnet (*Subnet1*) and one is associated with a NIC (*VM1-NIC1*). In this example, an NSG has been applied to each.
+   * **Association** shows the resource (subnet or NIC) a given NSG is associated with. If the NSG resource is moved/disassociated immediately before running this command, you may need to wait a few seconds for the change to reflect in the command output. 
+   * The rule names that are prefaced with *defaultSecurityRules*: When an NSG is created, several default security rules are created within it. Default rules can't be removed, but they can be overridden with higher priority rules.
+     Read the [NSG overview](virtual-networks-nsg.md#default-rules) article to learn more about NSG default security rules.
+   * **ExpandedAddressPrefix** expands the address prefixes for NSG default tags. Tags represent multiple address prefixes. Expansion of the tags can be useful when troubleshooting VM connectivity to/from specific address prefixes. For example, with VNET peering, VIRTUAL_NETWORK tag expands to show peered VNet prefixes in the previous output.
 
-    > [!NOTE]
-    > The command only shows effective rules if an NSG is associated with either a subnet, a NIC, or both. A VM may have multiple NICs with different NSGs applied. When troubleshooting, run the command for each NIC.
-    > 
-    > 
+     > [!NOTE]
+     > The command only shows effective rules if an NSG is associated with either a subnet, a NIC, or both. A VM may have multiple NICs with different NSGs applied. When troubleshooting, run the command for each NIC.
+     > 
+     > 
 3. To ease filtering over larger number of NSG rules, enter the following commands to troubleshoot further: 
 
         $NSGs = Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -175,10 +175,10 @@ Complete the following steps to troubleshoot NSGs for a VM:
     ![Rules list](./media/virtual-network-nsg-troubleshoot-powershell/rules.png)
 4. As you can see in the grid view, there are both allow and deny rules for RDP. The output from step 2 shows that the *DenyRDP* rule is in the NSG applied to the subnet. For inbound rules, NSGs applied to the subnet are processed first. If a match is found, the NSG applied to the network interface is not processed. In this case, the *DenyRDP* rule from the subnet blocks RDP to the VM (**VM1**).
 
-    > [!NOTE]
-    > A VM may have multiple NICs attached to it. Each may be connected to a different subnet. Since the commands in the previous steps are run against a NIC, it's important to ensure that you specify the NIC you're having the connectivity failure to. If you're not sure, you can always run the commands against each NIC attached to the VM.
-    > 
-    > 
+   > [!NOTE]
+   > A VM may have multiple NICs attached to it. Each may be connected to a different subnet. Since the commands in the previous steps are run against a NIC, it's important to ensure that you specify the NIC you're having the connectivity failure to. If you're not sure, you can always run the commands against each NIC attached to the VM.
+   > 
+   > 
 5. To RDP into VM1, change the *Deny RDP (3389)* rule to *Allow RDP(3389)* in the **Subnet1-NSG** NSG. Confirm that TCP port 3389 is open by opening an RDP connection to the VM or using the PsPing tool. You can learn more about PsPing by reading the [PsPing download page](https://technet.microsoft.com/sysinternals/psping.aspx)
 
     You can or remove rules from an NSG by using the information in the output from the following command:
@@ -190,8 +190,8 @@ Consider the following points when troubleshooting connectivity problems:
 
 * Default NSG rules will block inbound access from the internet and only permit VNet inbound traffic. Rules should be explicitly added to allow inbound access from Internet, as required.
 * If there are no NSG security rules causing a VM's network connectivity to fail, the problem may be due to:
-    * Firewall software running within the VM's operating system
-    * Routes configured for virtual appliances or on-premises traffic. Internet traffic can be redirected to on-premises via forced-tunneling. An RDP/SSH connection from the Internet to your VM may not work with this setting, depending on how the on-premises network hardware handles this traffic. Read the [Troubleshooting Routes](virtual-network-routes-troubleshoot-powershell.md) article to learn how to diagnose route problems that may be impeding the flow of traffic in and out of the VM. 
+  * Firewall software running within the VM's operating system
+  * Routes configured for virtual appliances or on-premises traffic. Internet traffic can be redirected to on-premises via forced-tunneling. An RDP/SSH connection from the Internet to your VM may not work with this setting, depending on how the on-premises network hardware handles this traffic. Read the [Troubleshooting Routes](virtual-network-routes-troubleshoot-powershell.md) article to learn how to diagnose route problems that may be impeding the flow of traffic in and out of the VM. 
 * If you have peered VNets, by default, the VIRTUAL_NETWORK tag will automatically expand to include prefixes for peered VNets. You can view these prefixes in the **ExpandedAddressPrefix** list, to troubleshoot any issues related to VNet peering connectivity. 
 * Effective security rules are only shown if there is an NSG associated with the VM's NIC and or subnet. 
 * If there are no NSGs associated with the NIC or subnet and you have a public IP address assigned to your VM, all ports will be open for inbound and outbound access. If the VM has a public IP address, applying NSGs to the NIC or subnet is strongly recommended.

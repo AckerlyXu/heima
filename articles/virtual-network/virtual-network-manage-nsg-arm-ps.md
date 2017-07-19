@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 03/14/2016
+ms.date: 12/26/2016
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -209,7 +209,6 @@ To add a rule allowing **inbound** traffic to port **443** from any machine to t
     ```powershell
     Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-
     Expected output showing only the security rules:
 
         Name                 : NSG-FrontEnd
@@ -506,9 +505,9 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
     Remove-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd -Force
     ```
 
-    > [!NOTE]
-    > The `-Force` parameter ensures you don't need to confirm the deletion.
-    > 
+   > [!NOTE]
+   > The `-Force` parameter ensures you don't need to confirm the deletion.
+   > 
 
 ## Next steps
 * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.

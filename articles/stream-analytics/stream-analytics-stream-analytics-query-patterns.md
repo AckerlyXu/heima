@@ -4,8 +4,8 @@ description: Common Azure Stream Analytics Query Patterns
 keywords: query examples
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Query examples for common Stream Analytics usage patterns
@@ -178,7 +178,9 @@ For example, analyze data for a threshold-based alert and archive all events to 
 The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.
 The first query is a pass-through of the data we received to an output that we named ArchiveOutput.
 The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.
+
 *Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements - this has the added benefit of opening fewer readers to the input source.
+
 For example, 
 
     WITH AllRedCars AS (
@@ -355,6 +357,7 @@ Now let's change the problem and find first car of particular Make in every 10 m
         AND Input.Time = LastInWindow.LastEventTime
 
 **Explanation**:
+
 There are two steps in the query - the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
 
 ## Query example: Detect the absence of events
@@ -423,6 +426,7 @@ Use LAST function to retrieve last Time value when event type was 'Start'. Note 
 
 ## Query example: Detect duration of a condition
 **Description**: Find out how long a condition occurred for.
+
 For example, suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) - we want to compute the duration of the bug.
 
 **Input**:
@@ -447,22 +451,22 @@ For example, suppose that a bug that resulted in all cars having an incorrect we
 **Solution**:
 
 ```
-WITH SelectPreviousEvent AS
-(
-SELECT
-*,
-    LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
-    LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
-FROM input TIMESTAMP BY [time]
-)
+    WITH SelectPreviousEvent AS
+    (
+    SELECT
+    *,
+        LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
+        LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
+    FROM input TIMESTAMP BY [time]
+    )
 
-SELECT 
-    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
-    previousTime [EndFault]
-FROM SelectPreviousEvent
-WHERE
-    [weight] < 20000
-    AND previousWeight > 20000
+    SELECT 
+        LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
+        previousTime [EndFault]
+    FROM SelectPreviousEvent
+    WHERE
+        [weight] < 20000
+        AND previousWeight > 20000
 ```
 
 **Explanation**:

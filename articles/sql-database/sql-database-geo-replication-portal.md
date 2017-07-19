@@ -1,10 +1,10 @@
 ---
-title: 'Azure portal preview: SQL Database geo-replication | Microsoft Docs'
-description: Configure geo-replication for Azure SQL Database in the Azure portal preview and initiate failover
+title: 'Azure portal: SQL Database geo-replication | Azure'
+description: Configure geo-replication for Azure SQL Database in the Azure portal and initiate failover
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
@@ -14,26 +14,27 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/062/2016
-ms.author: carlrab
+origin.date: 03/062/2016
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
-# Configure active geo-replication for Azure SQL Database in the Azure portal preview and initiate failover
+# Configure active geo-replication for Azure SQL Database in the Azure Portal and initiate failover
 
-This article shows you how to configure active geo-replication for SQL Database in the [Azure portal preview](http://portal.azure.cn) and to initiate failover.
+This article shows you how to configure active geo-replication for SQL Database in the [Azure Portal](http://portal.azure.cn) and to initiate failover.
 
-To initiate failover with the Azure portal preview, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal preview](sql-database-geo-replication-failover-portal.md).
+To initiate failover with the Azure Portal, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
 
->[!NOTE]
-> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type will be retired, and existing non-readable databases will automatically be upgraded to readable secondaries.
+> [!NOTE]
+> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type was retired, and existing non-readable databases automatically upgraded to readable secondaries.
 > 
 > 
 
-To configure active geo-replication by using the Azure portal preview, you need the following resource:
+To configure active geo-replication by using the Azure Portal, you need the following resource:
 
 * An Azure SQL database: The primary database that you want to replicate to a different geographical region.
 
-> [!NOTE]
+> [!Note]
 Active geo-replication must be between databases in the same subscription.
 
 ## Add a secondary database
@@ -48,7 +49,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 > If the partner database already exists (for example, as a result of terminating a previous geo-replication relationship) the command fails.
 > 
 
-1. In the [Azure portal preview](http://portal.azure.cn), browse to the database that you want to set up for geo-replication.
+1. In the [Azure Portal](http://portal.azure.cn), browse to the database that you want to set up for geo-replication.
 2. On the SQL database page, select **Geo-Replication**, and then select the region to create the secondary database. 
    
     ![Configure geo-replication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -68,7 +69,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 
 The secondary database can be switched to become the primary.  
 
-1. In the [Azure portal preview](http://portal.azure.cn), browse to the primary database in the Geo-Replication partnership.
+1. In the [Azure Portal](http://portal.azure.cn), browse to the primary database in the Geo-Replication partnership.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
 3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
    
@@ -80,14 +81,14 @@ The command immediately switches the secondary database into the primary role.
 There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances. 
 
 > [!NOTE]
-> If the primary is online and committing transactions when the command is issued some data loss may occur.
+> This command is designed for quick recovery of the database in case of an outage. It triggers failover without data synchronization (forced failover).  If the primary is online and committing transactions when the command is issued some data loss may occur. 
 > 
 > 
 
 ## Remove secondary database
 This operation permanently terminates the replication to the secondary database, and changes the role of the secondary to a regular read-write database. If the connectivity to the secondary database is broken, the command succeeds but the secondary does not become read-write until after connectivity is restored.  
 
-1. In the [Azure portal preview](http://portal.azure.cn), browse to the primary database in the geo-replication partnership.
+1. In the [Azure Portal](http://portal.azure.cn), browse to the primary database in the geo-replication partnership.
 2. On the SQL database page, select **Geo-Replication**.
 3. In the **SECONDARIES** list, select the database you want to remove from the geo-replication partnership.
 4. Click **Stop Replication**.

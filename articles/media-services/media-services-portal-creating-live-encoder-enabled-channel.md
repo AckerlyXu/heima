@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
-wacn.date: ''
-ms.author: juliako
+origin.date: 01/05/2017
+ms.date: 02/24/2017
+ms.author: v-johch
 ---
 
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal

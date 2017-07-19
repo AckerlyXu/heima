@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2016
-wacn.date: ''
-ms.author: mingzhan
+origin.date: 02/01/2016
+ms.date: 03/28/2016
+ms.author: v-dazen
 
 ---
 # Install and configure PostgreSQL on Azure
@@ -29,28 +29,28 @@ In this article, you will learn how to install and configure PostgreSQL on an Az
 ## Install PostgreSQL
 > [!NOTE]
 > You must already have an Azure virtual machine running Linux in order to complete this tutorial. To create and set up a Linux VM before proceeding, see the
-> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 In this case, use port 1999 as the PostgreSQL port.  
 
-Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to learn how to use PuTTY to connect to a Linux VM.
+Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to learn how to use PuTTY to connect to a Linux VM.
 
 1. Run the following command to switch to the root (admin):
 
         # sudo su -
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
-    * Red Hat base Linux:
+   * Red Hat base Linux:
 
-            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-    * Debian base Linux:
+           # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+   * Debian base Linux:
 
             # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
-    * SUSE Linux:
+   * SUSE Linux:
 
-            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+           # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 3. Download PostgreSQL into the root directory, and then unzip the package:
 
         # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
@@ -86,10 +86,10 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 
         # su - postgres
 
-    > [!NOTE]
-    > For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
-    > 
-    > 
+   > [!NOTE]
+   > For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
+   > 
+   > 
 4. Edit the *bash_profile* file by entering the commands below. These lines will be added to the end of the *bash_profile* file:
 
         cat >> ~/.bash_profile <<EOF

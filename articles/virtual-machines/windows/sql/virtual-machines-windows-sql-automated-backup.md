@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/24/2017
-wacn.date: ''
-ms.author: jroth
+origin.date: 04/24/2017
+ms.date: 03/20/2017
+ms.author: v-dazen
 ---
 
 # Automated Backup for SQL Server 2014 Virtual Machines (Resource Manager)
-
-> [!div class="op_single_selector"]
-> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 Automated Backup automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
@@ -41,9 +37,6 @@ To use Automated Backup, consider the following prerequisites:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
-
-> [!IMPORTANT]
-> Automated Backup works with SQL Server 2014. If you are using SQL Server 2016, you can use Automated Backup v2 to back up your databases. For more information, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
 
 **Database configuration**:
 
@@ -63,7 +56,7 @@ To use Automated Backup, consider the following prerequisites:
 
 ## Settings
 
-The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal preview or Azure Windows PowerShell commands.
+The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
 
 | Setting | Range (Default) | Description |
 | --- | --- | --- |
@@ -75,15 +68,15 @@ The following table describes the options that can be configured for Automated B
 
 ## Configuration in the Portal
 
-You can use the Azure portal preview to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
+You can use the Azure portal to configure Automated Backup during provisioning or for existing SQL Server 2014 VMs.
 
 ### New VMs
 
-Use the Azure portal preview to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal preview screenshot shows the **SQL Automated Backup** blade.
+In the **SQL Server settings** blade, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** blade.
 
-![SQL Automated Backup configuration in Azure portal preview](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
+![SQL Automated Backup configuration in Azure portal](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -99,7 +92,7 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
-If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal preview might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal preview will reflect the new settings.
+If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
 
 > [!NOTE]
 > You can also configure Automated Backup using a template. For more information, see [Azure quickstart template for Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
@@ -112,7 +105,7 @@ You can use PowerShell to configure Automated Backup. Before you begin, you must
 - Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 ### Install the SQL IaaS Extension
-If you provisioned a SQL Server virtual machine from the Azure portal preview, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
+If you provisioned a SQL Server virtual machine from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
 
 ```powershell
 $vmname = "vmname"
@@ -195,7 +188,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 It could take several minutes to install and configure the SQL Server IaaS Agent.
 
 > [!NOTE]
-> There are other settings for **New-AzureRmVMSqlServerAutoBackupConfig** that apply only to SQL Server 2016 and Automated Backup v2. SQL Server 2014 does not support the following settings: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, and **LogBackupFrequencyInMinutes**. If you attempt to configure these settings on a SQL Server 2014 virtual machine, there is no error, but the settings do not get applied. If you want to use these settings on a SQL Server 2016 virtual machine, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
+> There are other settings for **New-AzureRmVMSqlServerAutoBackupConfig** that apply only to SQL Server 2016 and Automated Backup v2. SQL Server 2014 does not support the following settings: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, and **LogBackupFrequencyInMinutes**. If you attempt to configure these settings on a SQL Server 2014 virtual machine, there is no error, but the settings do not get applied.
 
 To enable encryption, modify the previous script to pass the **EnableEncryption** parameter along with a password (secure string) for the **CertificatePassword** parameter. The following script enables the Automated Backup settings in the previous example and adds encryption.
 

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
-wacn.date: ''
-ms.author: kasing
+origin.date: 04/13/2016
+ms.date: 01/05/2017
+ms.author: v-dazen
 
 ---
 # Apply security and policies to Windows VMs with Azure Resource Manager

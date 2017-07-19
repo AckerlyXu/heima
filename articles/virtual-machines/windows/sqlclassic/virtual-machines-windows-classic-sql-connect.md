@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
-wacn.date: ''
-ms.author: jroth
+origin.date: 01/31/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 
@@ -55,7 +55,7 @@ In this scenario, you can connect using the VM **Name** (also shown as **Compute
 ### Connect to SQL Server over the Internet
 If you want to connect to your SQL Server database engine from the Internet, you must create a virtual machine endpoint for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
 
-To connect over the internet, you must use the VM's DNS name and the VM endpoint port number (configured later in this article). To find the DNS Name, navigate to the Azure portal preview, and select **Virtual machines (classic)**. Then select your virtual machine. The **DNS name** is shown in the **Overview** section.
+To connect over the internet, you must use the VM's DNS name and the VM endpoint port number (configured later in this article). To find the DNS Name, navigate to the Azure portal, and select **Virtual machines (classic)**. Then select your virtual machine. The **DNS name** is shown in the **Overview** section.
 
 For example, consider a classic virtual machine named **mysqlvm** with a DNS Name of **mysqlvm7777.chinacloudapp.cn** and a VM endpoint of **57500**. Assuming properly configured connectivity, the following connection string could be used to access the virtual machine from anywhere on the internet:
 
@@ -92,7 +92,7 @@ Before you can connect to the instance of SQL Server from another VM or the inte
 
 The connection path is summarized by the following diagram:
 
-![Connecting to a SQL Server virtual machine](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+![Connecting to a SQL Server virtual machine](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
 [!INCLUDE [Connect to SQL Server in a VM Classic TCP Endpoint](../../../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
 

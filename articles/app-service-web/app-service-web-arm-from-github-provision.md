@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 04/27/2016
+ms.date: 01/03/2017
+ms.author: v-dazen
 
 ---
 # Deploy a web app linked to a GitHub repository
@@ -51,9 +51,6 @@ The URL for GitHub repository that contains the project to deploy. This paramete
         "type": "string",
         "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
     }
-
-> [!NOTE]
-> This sample GitHub Repo cannot be deployed correctly in Azure China because the Jquery package of Nuget cannot be downloaded correctly. You can create a usable project and push it to GitHub.
 
 ### branch
 The branch of the repository to use when deploying the application. The default value is master, but you can provide the name of any branch in the repository that you wish to deploy.
@@ -113,17 +110,17 @@ Instead of hard-coding the repository URL, you can add a parameter for the repos
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateFile path/to/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -ResourceGroupName ExampleDeployGroup
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json
+    azure group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 ### Azure CLI 2.0
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-    az group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json --parameters '@azuredeploy.parameters.json'
+    az group deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE] 
 > For content of the parameters JSON file, see [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).

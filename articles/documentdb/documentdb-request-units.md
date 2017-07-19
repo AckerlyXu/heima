@@ -1,32 +1,32 @@
 ---
-title: Request units & estimating throughput - Azure Cosmos DB | Microsoft Docs
-description: Learn about how to understand, specify, and estimate request unit requirements in Azure Cosmos DB.
-services: cosmosdb
+title: Request units & estimating throughput - DocumentDB | Microsoft Docs
+description: Learn about how to understand, specify, and estimate request unit requirements in DocumentDB.
+services: documentdb
 author: syamkmsft
 manager: jhubbard
 editor: mimig
 documentationcenter: ''
 
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
-ms.service: Azure Cosmos DB
+ms.service: DocumentDB
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: syamk
+origin.date: 05/10/2017
+ms.date: 05/31/2017
+ms.author: v-junlch
 
 ---
-# Request Units in Azure Cosmos DB
-Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
+# Request Units in DocumentDB
+Now available: DocumentDB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
 
 ![Throughput calculator][5]
 
 ## Introduction
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) is Microsoft's globally distributed multi-model database. With Azure Cosmos DB, you don;t have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by Microsoft top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, as [DocumentDB SQL](documentdb-sql-query.md) (document), MongoDB (document), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (key-value), and [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graph) are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RU, you do not need to reserve read, write caprcities or provision CPU, Memory and IOPS.
+[DocumentDB](https://www.azure.cn/home/features/documentdb/) is Microsoft's globally distributed multi-model database. With DocumentDB, you don;t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, as [DocumentDB SQL](documentdb-sql-query.md) (document), MongoDB (document), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (key-value), and [Gremlin](https://tinkerpop.apache.org/gremlin.html) (graph) are all natively supported. The currency of DocumentDB is the Request Unit (RU). With RU, you do not need to reserve read, write caprcities or provision CPU, Memory and IOPS.
 
-Azure Cosmos DB supports a number of APIs with different operations ranging from reads, writes to complex graph queries. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
+DocumentDB supports a number of APIs with different operations ranging from reads, writes to complex graph queries. Since not all requests are equal, they are assigned a normalized amount of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in DocumentDB via a response header. 
 
 To provide a predictable performance, you need to reserve throughput by unit of 100 RU/Second. For each block of 100 RU/second, you can attach a block of 1,000 RU/minute. Combining provisioning per second and per minute is extremely powerful as you do not need to provision for peak and can save up to 75% in cost versus any service working only with per second provisioning.
 
@@ -37,20 +37,20 @@ After reading this article, you'll be able to answer the following questions:
 - How do I estimate my application's request unit needs?
 - What happens if I exceed request unit capacity for a collection?
 
-As Azure Cosmos DB is a multi-model database, this is important to note that we will refer to a collection/document for a document API, a graph/node for a graph API and a table/entity for table API. Throughput this document we will generalize to the concepts of container/item.
+As DocumentDB is a multi-model database, this is important to note that we will refer to a collection/document for a document API, a graph/node for a graph API and a table/entity for table API. Throughput this document we will generalize to the concepts of container/item.
 
 ## Request units and request charges
-Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
+DocumentDB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, DocumentDB allows you to easily increase or decrease the amount of reserved throughput available to your application.
 
-With Azure Cosmos DB, reserved throughput is specified in terms of request units processing per second or per minute (add-on).  You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second or minute basis.  Each operation in Azure Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors which impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The query explorer is also a wonderful tool to test the core of a query.
+With DocumentDB, reserved throughput is specified in terms of request units processing per second or per minute (add-on).  You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second or minute basis.  Each operation in DocumentDB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors which impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The query explorer is also a wonderful tool to test the core of a query.
 
 ## Specifying request unit capacity
 When creating a DocumentDB collection, you specify the number of request units per second (RUs) you want reserved for the collection.  Once the collection is created, the full allocation of RUs specified is reserved for the collection's use.  Each collection is guaranteed to have dedicated and isolated throughput characteristics.  
 
-Azure Cosmos DB requires a partition key to be specified when a collection is provisioned with 2,500 request units or higher. A partition key is also required to scale your collection's throughput beyond 2,500 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a container regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values) so that your collection/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
+DocumentDB requires a partition key to be specified when a collection is provisioned with 2,500 request units or higher. A partition key is also required to scale your collection's throughput beyond 2,500 request units in the future. Therefore, it is highly recommended to configure a [partition key](documentdb-partition-data.md) when creating a container regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values) so that your collection/table/graph and requests can be scaled uniformly by DocumentDB. 
 
 > [!NOTE]
-> A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as Azure Cosmos DB has more load balancing options.
+> A partition key is a logical boundary, and not a physical one. Therefore, you do not need to limit the number of distinct partition key values. It is in fact better to have more distinct partition key values than less, as DocumentDB has more load balancing options.
 
 Here is a code snippet for creating a collection with 3,000 request units per second using the .NET SDK:
 
@@ -65,9 +65,9 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure Cosmos DB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.cn).
+DocumentDB operates on a reservation model on throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.cn).
 
-Each collection/table/graph are mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
+Each collection/table/graph are mapped to an `Offer` resource in DocumentDB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a collection to 5,000 request units per second using the .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
@@ -86,7 +86,7 @@ await client.ReplaceOfferAsync(offer);
 There is no impact to the availability of your container when you change the throughput. Typically the new reserved throughput is effective within seconds on application of the new throughput.
 
 ## Request unit considerations
-When estimating the number of request units to reserve for your Azure Cosmos DB container, it is important to take the following variables into consideration:
+When estimating the number of request units to reserve for your DocumentDB container, it is important to take the following variables into consideration:
 
 - **Item size**. As size increases the units consumed to read or write the data will also increase.
 - **Item property count**. Assuming default indexing of all properties, the units consumed to write a document/node/ntity will increase as the property count increases.
@@ -181,12 +181,12 @@ Using the tool is simple:
 > 
 > 
 
-### Use the Azure Cosmos DB request charge response header
-Every response from the Azure Cosmos DB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the Azure Cosmos DB Query Explorer in the Azure portal provides request charge information for executed queries.
+### Use the DocumentDB request charge response header
+Every response from the DocumentDB service includes a custom header (`x-ms-request-charge`) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the DocumentDB Query Explorer in the Azure portal provides request charge information for executed queries.
 
 ![Examining RU charges in the Query Explorer][1]
 
-With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item used by your application and then estimating the number of operations you anticipate performing each second.  Be sure to measure and include typical queries and Azure Cosmos DB script usage as well.
+With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item used by your application and then estimating the number of operations you anticipate performing each second.  Be sure to measure and include typical queries and DocumentDB script usage as well.
 
 > [!NOTE]
 > If you have item types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical item.
@@ -288,7 +288,7 @@ Consider the following ~1KB document:
 ```
 
 > [!NOTE]
-> Documentss are minified in Azure Cosmos DB, so the system calculated size of the document above is slightly less than 1KB.
+> Documentss are minified in DocumentDB, so the system calculated size of the document above is slightly less than 1KB.
 > 
 > 
 
@@ -326,7 +326,7 @@ With this information, we can estimate the RU requirements for this application 
 
 In this case, we expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, we would provision 1,300 RU/s for this application's collection.
 
-## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in Azure Cosmos DB
+## <a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits in DocumentDB
 Recall that request unit consumption is evaluated as a rate per second if Request Unit per Minute is disabled or the budget is empty. For applications that exceed the provisioned request unit rate for a container, requests to that collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the server will preemptively end the request with RequestRateTooLargeException (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
     HTTP Status 429
@@ -341,14 +341,14 @@ If you have more than one client cumulatively operating above the request rate, 
 Applications that exceed the provisioned request units for a collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the backend will preemptively end the request with a *16500* error code - *Too Many Requests*. By default, API for MongoDB will automatically retry up to 10 times before returning a *Too Many Requests* error code. If you are receiving many *Too Many Requests* error codes, you may consider either adding retry behavior in your application's error handling routines or [increasing the reserved throughput for the collection](documentdb-set-throughput.md).
 
 ## Next steps
-To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
+To learn more about reserved throughput with DocumentDB databases, explore these resources:
 
-- [Azure Cosmos DB pricing](https://www.azure.cn/pricing/details/documentdb/)
-- [Partitioning data in Azure Cosmos DB](documentdb-partition-data.md)
+- [DocumentDB pricing](https://www.azure.cn/pricing/details/documentdb/)
+- [Partitioning data in DocumentDB](documentdb-partition-data.md)
 
-To learn more about Azure Cosmos DB, see the Azure Cosmos DB [documentation](./index.md). 
+To learn more about DocumentDB, see the DocumentDB [documentation](./index.md). 
 
-To get started with scale and performance testing with Azure Cosmos DB, see [Performance and Scale Testing with Azure Cosmos DB](documentdb-performance-testing.md).
+To get started with scale and performance testing with DocumentDB, see [Performance and Scale Testing with DocumentDB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png

@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/02/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 03/02/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a fully configured virtual machine with PowerShell
 
 This script creates an Azure Virtual Machine running Windows Server 2016. After running the script, you can access the virtual machine over RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -105,4 +106,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
-wacn.date: ''
-ms.author: negat
+origin.date: 06/01/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Azure VM scale sets and managed disks
@@ -31,7 +31,7 @@ Azure [virtual machine scale sets](/virtual-machine-scale-sets/) now support vir
 
 ## Get started
 
-A simple way to get started with managed disk scale sets is to deploy one from the Azure portal preview. For more information, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50-GB and 100-GB data disk:
+A simple way to get started with managed disk scale sets is to deploy one from the Azure portal. For more information, see [this article](./virtual-machine-scale-sets-portal-create.md). Another simple way to get started is to use [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) to deploy a scale set. The following example shows how to create an Ubuntu based scale set with 10 VMs, each with a 50-GB and 100-GB data disk:
 
 ```azurecli
 az group create -l chinaeast -n dsktest
@@ -42,7 +42,7 @@ Alternatively, you could look in the [Azure Quickstart Templates GitHub repo](ht
 
 ## API versions
 
-The current Generally Available API version for scale sets with managed disks is `2016-04-30-preview`. Scale sets with unmanaged disks will continue to work as they currently do, even in new API versions that have support for managed disk. However, scale sets with unmanaged disks will not get the benefits of managed disks, even in these new api versions.
+Scale sets with managed disks requires a Microsoft.Compute APi version of `2016-04-30-preview` or later. Scale sets with unmanaged disks will continue to work as they currently do, even in new API versions that have support for managed disk. However, scale sets with unmanaged disks will not get the benefits of managed disks, even in these new api versions.
 
 ## Next steps
 

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/11/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 02/11/2016
+ms.date: 05/02/2017
+ms.author: v-dazen
 
 ---
 # Filter network traffic with network security groups
@@ -65,7 +65,7 @@ Default tags are system-provided identifiers to address a category of IP address
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (CIDR ranges defined in Azure), all connected on-premises address spaces, and connected Azure VNets (local networks).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to an Azure datacenter IP where Azure's health probes originate.
-* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653).
+* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by public Internet. The range includes the [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=42064).
 
 ### Default rules
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
@@ -102,15 +102,15 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 
 - **Inbound traffic**
 
-    1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet is dropped.
+  1. **NSG applied to subnet:** If a subnet NSG has a matching rule to deny traffic, the packet is dropped.
 
-    2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule that denies traffic, packets are dropped at the VM\NIC, even if a subnet NSG has a matching rule that allows traffic.
+  2. **NSG applied to NIC** (Resource Manager) or VM (classic): If VM\NIC NSG has a matching rule that denies traffic, packets are dropped at the VM\NIC, even if a subnet NSG has a matching rule that allows traffic.
 
 - **Outbound traffic**
 
-    1. **NSG applied to NIC** (Resource Manager) or VM (classic): If a VM\NIC NSG has a matching rule that denies traffic, packets are dropped.
+  1. **NSG applied to NIC** (Resource Manager) or VM (classic): If a VM\NIC NSG has a matching rule that denies traffic, packets are dropped.
 
-    2. **NSG applied to subnet:** If a subnet NSG has a matching rule that denies traffic, packets are dropped, even if a VM\NIC NSG has a matching rule that allows traffic.
+  2. **NSG applied to subnet:** If a subnet NSG has a matching rule that denies traffic, packets are dropped, even if a VM\NIC NSG has a matching rule that allows traffic.
 
 > [!NOTE]
 > Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
@@ -121,7 +121,7 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
-| Azure portal preview   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
@@ -177,7 +177,7 @@ As shown in the diagram, the *Web1* and *Web2* VMs are connected to the *FrontEn
 1. Separation of traffic between the WEB and DB servers.
 2. Load balancing rules forward traffic from the load balancer to all web servers on port 80.
 3. Load balancer NAT rules forward traffic coming into the load balancer on port 50001 to port 3389 on the WEB1 VM.
-4. No access to the front-end or back-end VMs from the Internet, except requirements 1 and 3.
+4. No access to the front-end or back-end VMs from the Internet, except requirements 2 and 3.
 5. No outbound Internet access from the WEB or DB servers.
 6. Access from the FrontEnd subnet is allowed to port 3389 of any web server.
 7. Access from the FrontEnd subnet is allowed to port 3389 of any DB server.

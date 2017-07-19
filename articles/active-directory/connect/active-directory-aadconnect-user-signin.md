@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 05/09/2017
+ms.date: 06/12/2017
+ms.author: v-junlch
 
 ---
 # Azure AD Connect user sign-in options
@@ -155,7 +155,7 @@ If you selected the user sign-in option **Federation with AD FS**, then you must
 | Not verified |In this case, Azure AD Connect prompts you with appropriate details on how you can verify your domain at a later stage. |
 | Verified |In this case, you can go ahead with the configuration without any further action. |
 
-## Changing the user sign-in method
+## Changing the user sign-in method <a name="changing-user-sign-in-method"></a>
 You can change the user sign-in method from federation, password synchronization, or pass-through authentication by using the tasks that are available in Azure AD Connect after the initial configuration of Azure AD Connect with the wizard. Run the Azure AD Connect wizard again, and you'll see a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
 ![Change user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)

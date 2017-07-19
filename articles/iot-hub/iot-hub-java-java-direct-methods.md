@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
-ms.author: dobett
-
+origin.date: 05/12/2017
+ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 # Use direct methods (Java)
 
@@ -60,7 +60,7 @@ In this section, you create a Java console app that responds to a method called 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.1.26</version>
     </dependency>
     ```
 
@@ -207,7 +207,7 @@ In this section, you create a Java console app that invokes a direct method in t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.3.19</version>
       <type>jar</type>
     </dependency>
     ```
@@ -248,10 +248,10 @@ In this section, you create a Java console app that invokes a direct method in t
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Add the following class-level variables to the **App** class. Replacing **{youriothubname}** with your IoT hub name, and **{yourhubkey}** with the device key value you generated in the *Create a device identity* section:
+1. Add the following class-level variables to the **App** class. Replace **{youriothubconnectionstring}** with your IoT hub connection string you noted in the *Create an IoT Hub* section:
 
     ```java
-    public static final String iotHubConnectionString = "HostName={youriothubname}.azure-devices.cn;SharedAccessKeyName=owner;SharedAccessKey={yourhubkey}";
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     public static final String deviceId = "myDeviceId";
 
     public static final String methodName = "writeLine";
@@ -286,11 +286,15 @@ In this section, you create a Java console app that invokes a direct method in t
     System.out.println("Shutting down sample...");
     ```
 
+1. Save and close the invoke-direct-method\src\main\java\com\mycompany\app\App.java file
+
+1. Build the **invoke-direct-method** app and correct any errors. At your command prompt, navigate to the invoke-direct-method folder and run the following command:
+
+    `mvn clean package -DskipTests`
+
 ## Run the apps
 
 You are now ready to run the console apps.
-
-You are now ready to run the apps.
 
 1. At a command prompt in the simulated-device folder, run the following command to begin listening for method calls from your IoT hub:
 
@@ -323,7 +327,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md

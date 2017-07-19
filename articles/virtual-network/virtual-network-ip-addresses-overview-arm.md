@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
-wacn.date: ''
-ms.author: jdial
+origin.date: 04/27/2016
+ms.date: 12/26/2016
+ms.author: v-dazen
 
 ---
 # IP address types and allocation methods in Azure
@@ -58,7 +58,7 @@ Static public IP addresses are commonly used in the following scenarios:
 * You use SSL certificates linked to an IP address.
 
 > [!NOTE]
-> The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064).
+> The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=42064).
 >
 
 ### DNS hostname resolution
@@ -135,12 +135,12 @@ The table below shows the specific property through which a private IP address c
 | Application gateway |Front end configuration |Yes |Yes |
 
 ## Limits
-The limits imposed on IP addressing are indicated in the full set of [limits for networking](../azure-subscription-service-limits.md#networking-limits) in Azure. These limits are per region and per subscription.
+The limits imposed on IP addressing are indicated in the full set of [limits for networking](../azure-subscription-service-limits.md#networking-limits) in Azure. These limits are per region and per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
 
 ## Pricing
 Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page.
 
 ## Next steps
-* [Deploy a VM with a static public IP using the Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+* [Deploy a VM with a static public IP using the Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
-* [Deploy a VM with a static private IP address using the Azure portal preview](virtual-networks-static-private-ip-arm-pportal.md)
+* [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)

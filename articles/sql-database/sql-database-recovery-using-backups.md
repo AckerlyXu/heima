@@ -3,8 +3,8 @@ title: Restore an Azure SQL database from a backup | Azure
 description: Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days).
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: monicar
 
 ms.assetid: fd1d334d-a035-4a55-9446-d1cf750d9cf7
@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2017
-ms.author: carlrab
+origin.date: 06/15/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 
 ---
 # Recover an Azure SQL database using automated database backups
@@ -42,12 +43,14 @@ The recovery time to restore a database using automated database backups is impa
   There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
 > [!IMPORTANT]
-> To recover using automated backups, you must be a member of the SQL Server Contributor role in the subscription or be the subscription owner. You can recover using the Azure portal preview, PowerShell, or the REST API. You cannot use Transact-SQL. 
+> To recover using automated backups, you must be a member of the SQL Server Contributor role in the subscription or be the subscription owner. You can recover using the Azure Portal, PowerShell, or the REST API. You cannot use Transact-SQL. 
 > 
 
 ## Point-In-Time Restore
 
-You can restore an existing database to an earlier point in time as a new database on the same logical server using the Azure portal preview, PowerShell, or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore an existing database to an earlier point in time as a new database on the same logical server using the Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+
+For a sample PowerShell script, see [Point-in-time database restore](scripts/sql-database-restore-database-powershell.md).
 
 > [!IMPORTANT]
 > You cannot overwrite the existing database during restore.
@@ -60,25 +63,26 @@ You generally restore a database to an earlier point for recovery purposes. When
 * ***Database replacement:*** If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. 
 * ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is canceled and you are not charged for the database that did not complete the restore. 
 
-### Azure portal preview
+### Azure Portal
 
-To recover to a point in time using the Azure portal preview, open the page for your database and click **Restore** on the toolbar.
+To recover to a point in time using the Azure Portal, open the page for your database and click **Restore** on the toolbar.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## Deleted database restore
-You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal preview, [PowerShell](scripts/sql-database-restore-database-powershell.md), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+You can restore a deleted database to the deletion time for a deleted database on the same logical server using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), or the [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+
+For a sample PowerShell script, see [Restore deleted database](scripts/sql-database-restore-database-powershell.md).
 
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
 > 
 
-### Azure portal preview
+### Azure Portal
 
-To recover a deleted database during its [retention period](sql-database-service-tiers.md) using the Azure portal preview, open the page for your server and in the Operations area, click **Deleted databases**.
+To recover a deleted database during its [retention period](sql-database-service-tiers.md) using the Azure Portal, open the page for your server and in the Operations area, click **Deleted databases**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
-
 
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
@@ -95,20 +99,20 @@ For detailed information about using Geo-Restore to recover from an outage, see 
 > Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For Basic databases with maximum size of 2 GB Geo-Restore, provides a reasonable DR solution with an ERT of 12 hours. For larger Standard or Premium databases, if shorter recovery times are desired, or to reduce the likelihood of data loss you should consider using Active Geo-Replication. Active Geo-Replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For details, see [Active Geo-Replication](sql-database-geo-replication-overview.md).
 > 
 
-### Azure portal preview
+### Azure Portal
 
-To geo-restore a database during its [retention period](sql-database-service-tiers.md) using the Azure portal preview, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
+To geo-restore a database during its [retention period](sql-database-service-tiers.md) using the Azure Portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
 
 ## Programmatically performing recovery using automated backups
-As previously discussed, in addition to the Azure portal preview, database recovery can be performed programmatically using Azure PowerShell or the REST API. The following tables describe the set of commands available.
+As previously discussed, in addition to the Azure Portal, database recovery can be performed programmatically using Azure PowerShell or the REST API. The following tables describe the set of commands available.
 
 ### PowerShell
 | Cmdlet | Description |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |Gets one or more databases. |
-| [Get-AzureRMSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387.aspx) |Gets a deleted database that you can restore. |
-| [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388.aspx) |Gets a geo-redundant backup of a database. |
-| [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx) |Restores a SQL database. |
+| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |Gets one or more databases. |
+| [Get-AzureRMSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Gets a deleted database that you can restore. |
+| [Get-AzureRmSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Gets a geo-redundant backup of a database. |
+| [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Restores a SQL database. |
 |  | |
 
 ### REST API

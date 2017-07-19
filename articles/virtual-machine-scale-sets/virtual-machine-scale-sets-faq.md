@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/09/2017
-wacn.date: ''
-ms.author: negat
+origin.date: 05/09/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 ms.custom: na
 
 ---
@@ -34,15 +34,19 @@ To securely ship a certificate to the VM, you can install a customer certificate
 Use the following JSON:
 
 ```json
-        "secrets": [ {
-	          "sourceVault": {
-		              "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-		  },
-		  "vaultCertificates": [ {
-		              "certificateUrl": "https://mykeyvault1.vault.azure.cn/secrets/{secretname}/{secret-version}",
-			      "certificateStore": "certificateStoreName"
-		  } ]
-        } ]
+"secrets": [
+    {
+        "sourceVault": {
+            "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
+            {
+                "certificateUrl": "https://mykeyvault1.vault.azure.cn/secrets/{secretname}/{secret-version}",
+                "certificateStore": "certificateStoreName"
+            }
+        ]
+    }
+]
 ```
 
 The code supports Windows and Linux.
@@ -65,7 +69,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
     This command gives you the input for the Azure Resource Manager template.
 
-    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/azure/service-fabric-cluster-security).
+    For an example of how to create a self-signed certificate in a key vault, see [Service Fabric cluster security scenarios](/service-fabric/service-fabric-cluster-security/).
 
 2.  Change the Resource Manager template.
 
@@ -73,23 +77,23 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
     ```json 
     "osProfile": {
-              "computerNamePrefix": "[variables('namingInfix')]",
-              "adminUsername": "[parameters('adminUsername')]",
-              "adminPassword": "[parameters('adminPassword')]",
-              "secrets": [
-                {
-                  "sourceVault": {
+        "computerNamePrefix": "[variables('namingInfix')]",
+        "adminUsername": "[parameters('adminUsername')]",
+        "adminPassword": "[parameters('adminPassword')]",
+        "secrets": [
+            {
+                "sourceVault": {
                     "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                  },
-                  "vaultCertificates": [
+                },
+                "vaultCertificates": [
                     {
-                      "certificateUrl": "https://mikhegnvault.vault.azure.cn:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                      "certificateStore": "My"
+                        "certificateUrl": "https://mikhegnvault.vault.azure.cn:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
+                        "certificateStore": "My"
                     }
-                  ]
-                }
-              ]
+                ]
             }
+        ]
+    }
     ```
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?  
@@ -100,20 +104,20 @@ Include **osProfile** in your template:
 
 ```json 
 "osProfile": {
-          "computerName": "[variables('vmName')]",
-          "adminUsername": "[parameters('adminUserName')]",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              "publicKeys": [
+    "computerName": "[variables('vmName')]",
+    "adminUsername": "[parameters('adminUserName')]",
+    "linuxConfiguration": {
+        "disablePasswordAuthentication": "true",
+        "ssh": {
+            "publicKeys": [
                 {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": "[parameters('sshKeyData')]"
+                    "path": "[variables('sshKeyPath')]",
+                    "keyData": "[parameters('sshKeyData')]"
                 }
-              ]
-            }
-          }
+            ]
         }
+    }
+}
 ```
 
 This JSON block is used in 
@@ -136,13 +140,15 @@ If you are providing the VMs only with a public SSH key, you don't need to put t
 You can provide SSH public keys in plain text when you create a Linux VM:
 
 ```json
-"linuxConfiguration": {  
-          "ssh": {  
-            "publicKeys": [ {  
-              "path": "path",
-              "keyData": "publickey"
-            } ]
-          }
+"linuxConfiguration": {
+    "ssh": {
+        "publicKeys": [
+            {
+                "path": "path",
+                "keyData": "publickey"
+            }
+        ]
+    }
 ```
 
 linuxConfiguration element name | Required | Type | Description
@@ -155,7 +161,7 @@ For an example, see [the 101-vm-sshkey GitHub quick start template](https://gith
 
 ### When I run `Update-AzureRmVmss` after adding more than one certificate from the same key vault, I see the following message:
 
-    Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+    >Update-AzureRmVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
 This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzureRmVmssSecret` command does not work correctly if you are adding additional secrets.
 
@@ -261,7 +267,7 @@ Virtual machine scale sets are a thin API layer on top of the CRP. Both componen
 
 From a compliance perspective, virtual machine scale sets are a fundamental part of the Azure compute platform. They share a team, tools, processes, deployment methodology, security controls, just-in-time (JIT) compilation, monitoring, alerting, and so on, with the CRP itself. Virtual machine scale sets are Payment Card Industry (PCI)-compliant because the CRP is part of the current PCI Data Security Standard (DSS) attestation.
 
-For more information, see [the Microsoft Trust Center](https://www.trustcenter.cn/).
+For more information, see [the Microsoft Trust Center](https://www.trustcenter.cn).
 
 ## Extensions
 
@@ -321,28 +327,28 @@ To join a virtual machine scale set to an Azure Active Directory (Azure AD) doma
 To define an extension, use the JsonADDomainExtension property:
 
 ```json
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "joindomain",
-                                "properties": {
-                                    "publisher": "Microsoft.Compute",
-                                    "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.3",
-                                    "settings": {
-                                        "Name": "[parameters('domainName')]",
-                                        "OUPath": "[variables('ouPath')]",
-                                        "User": "[variables('domainAndUsername')]",
-                                        "Restart": "true",
-                                        "Options": "[variables('domainJoinOptions')]"
-                                    },
-                                    "protectedsettings": {
-                                        "Password": "[parameters('domainJoinPassword')]"
-                                    }
-                                }
-                            }
-                        ]
-                    }
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "joindomain",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "JsonADDomainExtension",
+                "typeHandlerVersion": "1.3",
+                "settings": {
+                    "Name": "[parameters('domainName')]",
+                    "OUPath": "[variables('ouPath')]",
+                    "User": "[variables('domainAndUsername')]",
+                    "Restart": "true",
+                    "Options": "[variables('domainJoinOptions')]"
+                },
+                "protectedsettings": {
+                    "Password": "[parameters('domainJoinPassword')]"
+                }
+            }
+        }
+    ]
+}
 ```
 
 ### My virtual machine scale set extension is trying to install something that requires a reboot. For example, "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature -Name FS-Resource-Manager -IncludeManagementTools"
@@ -378,7 +384,7 @@ To execute a custom script that's hosted in a private storage account, set up pr
 
 Yes. A Network Security Group can be applied directly to a scale set by referencing it in the networkInterfaceConfigurations section of the network profile. Example:
 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -448,7 +454,7 @@ To change the number of VMs in a virtual machine scale set, see [Change the inst
 
 ### How do I create a scale set in an existing resource group?
 
-Creating scale sets in an existing resource group is not yet possible from the Azure portal preview, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
+Creating scale sets in an existing resource group is not yet possible from the Azure portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
 
 ### Can we move a scale set to another resource group?
 
@@ -471,12 +477,12 @@ For more information, see [Manage all VMs in a virtual machine scale set](https:
 To turn on boot diagnostics, first, create a storage account. Then, put this JSON block in your virtual machine scale set **virtualMachineProfile**, and update the virtual machine scale set:
 
 ```json
-      "diagnosticsProfile": {
-        "bootDiagnostics": {
-          "enabled": true,
-          "storageUri": "http://yourstorageaccount.blob.core.chinacloudapi.cn"
-        }
-      }
+"diagnosticsProfile": {
+    "bootDiagnostics": {
+        "enabled": true,
+        "storageUri": "http://yourstorageaccount.blob.core.chinacloudapi.cn"
+    }
+}
 ```
 
 When a new VM is created, the InstanceView property of the VM shows the details for the screenshot, and so on. Here's an example:

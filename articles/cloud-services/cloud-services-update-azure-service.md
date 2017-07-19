@@ -12,9 +12,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
-ms.author: adegeo
-wacn.date: ''
+origin.date: 11/14/2016
+ms.author: v-yiso
+ms.date: 12/26/2016
 ---
 
 # How to update a cloud service

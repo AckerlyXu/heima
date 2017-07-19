@@ -10,9 +10,9 @@ ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: carolz
+origin.date: 01/23/2017
+ms.date: 06/20/2017
+ms.author: v-dazen
 ---
 # Virtual Machines Documentation
 

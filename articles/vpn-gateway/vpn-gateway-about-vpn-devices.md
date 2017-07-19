@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
-wacn.date: ''
-ms.author: yushwang;cherylmc
+origin.date: 06/14/2017
+ms.date: 07/17/2017
+ms.author: v-dazen
 
 ---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
@@ -30,8 +30,8 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 ###Items to note when viewing the tables:
 
 * There has been a terminology change for Azure VPN gateways. There is no functionality change. Only the names are changing.
-    * Static Routing = PolicyBased
-    * Dynamic Routing = RouteBased
+  * Static Routing = PolicyBased
+  * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
 
 > [!NOTE]
@@ -54,9 +54,9 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Cisco              |ASA       |8.3 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Not compatible |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Configuration samples*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
-| Citrix |NetScaler MPX, SDX, VPX |10.1 and above |[Configuration guide](https://docs.citrix.com/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
+| Citrix |NetScaler MPX, SDX, VPX |10.1 and above | |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuration guide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.4.2 |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
+| Fortinet |FortiGate |FortiOS 5.4.2 |  |[Configuration guide](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | Internet Initiative Japan (IIJ) |SEIL Series |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Configuration guide](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Not compatible |
 | Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper |J-Series |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Configuration samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -71,7 +71,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 
 (*) ISR 7200 Series routers only support PolicyBased VPNs.
 
-## <a name="additionaldevices" id="devices-not-on-the-compatible-list"></a> Non-validated VPN devices
+## <a name="additionaldevices"></a>Non-validated VPN devices
 If you don't see your device listed in the Validated VPN devices table, your device still may work with a Site-to-Site connection. Contact your device manufacturer for additional support and configuration instructions.
 
 ## <a name="editing"></a>Editing device configuration samples
@@ -186,4 +186,4 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 
 1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
 2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you are still experiencing connectivity issues, open a support request from the Azure portal preview.
+3. If you are still experiencing connectivity issues, open a support request from the Azure portal.

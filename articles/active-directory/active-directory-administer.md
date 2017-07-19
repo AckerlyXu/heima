@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/06/2017
-ms.author: curtand
+ms.author: v-junlch
 
 ---
 # Administer your Azure AD directory

@@ -7,11 +7,11 @@ editor: ''
 
 ms.service: site-recovery
 ms.devlang: na
-ms.topic:
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: ''
-wacn.date: ''
+origin.date: ''
+ms.date: 06/21/2017
 ---
 
 ### Install the Mobility service

@@ -13,9 +13,9 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
-wacn.date: ''
-ms.author: dobett
+origin.date: 05/02/2017
+ms.date: 07/10/2017
+ms.author: v-yiso
 ---
 
 # Process IoT Hub device-to-cloud messages using routes (.NET)
@@ -115,6 +115,9 @@ For more information about how to process messages from Service Bus queues, see 
 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
 
+    > [!NOTE]
+    > Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
     ![Endpoints in IoT hub][30]
@@ -198,22 +201,23 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 <!-- Links -->
 
 [Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: /documentation/services/data-factory/
-[HDInsight (Hadoop)]: /documentation/services/hdinsight/
+
+[HDInsight (Hadoop)]: /hdinsight/
 [Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
-[Azure Storage]: /documentation/services/storage/
-[Azure Service Bus]: /documentation/services/service-bus/
+
+[Azure Storage]: /storage/
+[Azure Service Bus]: /service-bus-messaging/
 
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [Get started with IoT Hub]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
-[Azure IoT Developer Center]: /develop/iot
-[lnk-service-fabric]: /documentation/services/service-fabric/
-[lnk-stream-analytics]: /documentation/services/stream-analytics/
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[Azure IoT Developer Center]: https://www.azure.cn/develop/iot
+[lnk-service-fabric]: /service-fabric/
+[lnk-stream-analytics]: /stream-analytics/
+[lnk-event-hubs]: /event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
@@ -229,4 +233,4 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
-[lnk-suite]: /documentation/services/iot-suite/
+[lnk-suite]: /iot-suite/

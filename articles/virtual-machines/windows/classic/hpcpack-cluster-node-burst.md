@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
-wacn.date: ''
-ms.author: danlep
+origin.date: 10/14/2016
+ms.date: 12/26/2016
+ms.author: v-dazen
 
 ---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
@@ -38,18 +38,18 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
-  Pack Head Node in an Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  Pack Head Node in an Azure VM](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-    > [!TIP]
-    > If you use the [HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
-    > you can include Azure burst nodes in your automated
-    > deployment. See the examples in that article.
-    > 
-    > 
+  > [!TIP]
+  > If you use the [HPC Pack IaaS deployment script](hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
+  > you can include Azure burst nodes in your automated
+  > deployment. See the examples in that article.
+  > 
+  > 
 * **Azure subscription** - To add Azure nodes, you can choose the same
   subscription used to deploy the head node VM, or a different
   subscription (or subscriptions).
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes.
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://www.azure.cn/support/support-ticket-form/?l=zh-cn) at no charge.
 
 ## Step 1: Create a cloud service and a storage account for the Azure nodes
 Use the Azure Classic Management Portal or equivalent tools to configure the following resources that are needed to deploy

@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
-ms.author: xshi
-
+origin.date: 04/06/2017
+ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 # Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub
 
@@ -118,7 +118,7 @@ You've successfully enabled the connection between the SensorTag and the IoT gat
 
 ## Run a BLE sample application to send SensorTag data to your IoT hub
 
-The Bluetooth Low Energy (BLE) sample application is provided by the Azure IoT Edge. The sample application collects data from BLE connection and send the data to you IoT hub. To run the sample application, you need to:
+The Bluetooth Low Energy (BLE) sample application is provided by Azure IoT Edge. The sample application collects data from BLE connection and send the data to you IoT hub. To run the sample application, you need to:
 
 1. Configure the sample application.
 1. Run the sample application on the IoT gateway.

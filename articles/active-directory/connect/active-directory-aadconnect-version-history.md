@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 02/08/2017
+ms.date: 03/07/2017
+ms.author: v-junlch
 ---
 
 # Azure AD Connect: Version Release History
@@ -28,7 +28,7 @@ This is list of related topics:
 Topic |  
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
-Required permissions | For permissions required to apply an update, see [accounts and permissions](/documentation/articles/active-directory-aadconnect-accounts-permissions/#upgrade/)
+Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1.1.380.0
@@ -163,7 +163,7 @@ Released: 2016 February
   - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
   - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
 - Allow changing the user's sign-in method after initial install.
-- Allow [Domain and OU filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#domain-and-ou-filtering/) in the installation wizard. This also allows connecting to forests where not all domains are available.
+- Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 - [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.
 
 **Features promoted from preview to GA:**
@@ -215,7 +215,7 @@ Released: 2015 November
   - Selecting a new OU to include in sync does not require a full password sync.
   - When a disabled user is enabled the password does not sync.
   - The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
-  - [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
+  - [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
 - Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
 - Not able to change the group used for group filtering after initial install.
 - Will no longer create a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.
@@ -256,9 +256,9 @@ Changed name from Azure AD Sync to Azure AD Connect.
 
 **New features:**
 
-- [Express settings](/documentation/articles/active-directory-aadconnect-get-started-express/) installation
-- Can [configure ADFS](/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs/)
-- Can [upgrade from DirSync](/documentation/articles/active-directory-aadconnect-dirsync-upgrade-get-started/)
+- [Express settings](active-directory-aadconnect-get-started-express.md) installation
+- Can [configure ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+- Can [upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - Introduced [staging mode](active-directory-aadconnectsync-operations.md#staging-mode)
 

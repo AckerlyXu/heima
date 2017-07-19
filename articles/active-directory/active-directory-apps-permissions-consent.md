@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: billmath
-wacn.date: ''
+origin.date: 11/17/2016
+ms.author: v-junlch
+ms.date: 01/05/2017
 ---
 
 # Apps, permissions, and consent in Azure Active Directory

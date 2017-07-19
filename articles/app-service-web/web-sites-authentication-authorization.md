@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 08/31/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 08/31/2016
+ms.date: 12/12/2016
+ms.author: v-dazen
 
 ---
 # Authenticate with on-premises Active Directory in your Azure app

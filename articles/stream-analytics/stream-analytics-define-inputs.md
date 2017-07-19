@@ -4,8 +4,8 @@ description: Learn about setting up a data connection to Stream Analytics called
 keywords: data stream, data connection, event stream
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Data connection: Learn about data stream inputs from events to Stream Analytics

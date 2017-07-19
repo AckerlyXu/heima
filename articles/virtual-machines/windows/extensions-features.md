@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 03/06/2017
+ms.date: 04/27/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
 # Virtual machine extensions and features for Windows
 
-Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run by using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal preview. Extensions can be bundled with a new virtual machine deployment or run against any existing system.
+Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run by using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment or run against any existing system.
 
 This document provides an overview of virtual machine extensions, prerequisites for using virtual machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. This document provides generalized information because many VM extensions are available, each with a potentially unique configuration. Extension-specific details can be found in each document specific to the individual extension.
 
@@ -110,11 +110,11 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 The `Set-AzureRmVMExtension` command can be used to start any VM extension. For more information, see the [Set-AzureRmVMExtension reference](https://msdn.microsoft.com/library/mt603745.aspx).
 
-### Azure portal preview
+### Azure portal
 
-A VM extension can be applied to an existing virtual machine through the Azure portal preview. To do so, select the virtual machine you want to use, choose **Extensions**, and click **Add**. This provides a list of available extensions. Select the one you want and follow the steps in the wizard.
+A VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine you want to use, choose **Extensions**, and click **Add**. This provides a list of available extensions. Select the one you want and follow the steps in the wizard.
 
-The following image shows the installation of the Microsoft Antimalware extension from the Azure portal preview.
+The following image shows the installation of the Microsoft Antimalware extension from the Azure portal.
 
 ![Install antimalware extension](./media/extensions-features/installantimalwareextension.png)
 
@@ -260,7 +260,7 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-Extension execution status can also be found in the Azure portal preview. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
+Extension execution status can also be found in the Azure portal. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
 
 ### Rerun VM extensions
 
@@ -270,7 +270,7 @@ There may be cases in which a virtual machine extension needs to be rerun. You c
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-An extension can also be removed using the Azure portal preview. To do so:
+An extension can also be removed using the Azure portal. To do so:
 
 1. Select a virtual machine.
 2. Select **Extensions**.
@@ -280,7 +280,7 @@ An extension can also be removed using the Azure portal preview. To do so:
 ## Common VM extensions reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

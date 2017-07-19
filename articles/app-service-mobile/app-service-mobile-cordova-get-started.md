@@ -15,9 +15,9 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-wacn.date: ''
-ms.author: adrianha
+origin.date: 10/30/2016
+ms.date: 01/23/2017
+ms.author: v-yiso
 ---
 
 # Create an Apache Cordova app
@@ -36,7 +36,7 @@ To complete this tutorial, you need the following prerequisites:
 
 * A PC with [Visual Studio Community 2015] or newer.
 * [Visual Studio Tools for Apache Cordova].
-* An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
+* An [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
 You may also bypass Visual Studio and use the Apache Cordova command line directly.  Using the command line
 is useful when completing the tutorial on a Mac computer.  Compiling Apache Cordova client applications using 

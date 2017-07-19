@@ -4,8 +4,8 @@ description: Learn about targeting Stream Analytics data outputs options includi
 keywords: data transformation, analysis results, data storage options
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: ''
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Stream Analytics outputs: Options for storage, analysis
@@ -24,6 +24,9 @@ When authoring a Stream Analytics job, consider how the resulting data will be c
 
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 <!-- Not Available ## Azure Data Lake Store-->
+<!-- Not Available ### Authorize an Azure Data Lake Store -->
+<!-- Not Available ### Renew Data Lake Store Authorization -->
+
 ## SQL Database
 [Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs will write to an existing table in an Azure SQL Database.  Note that the table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well (this is a preview feature). The table below lists the property names and their description for creating a SQL Database output.
 

@@ -1,5 +1,5 @@
 ---
-title: Run the Hadoop samples in HDInsight | Azure
+title: Run the Hadoop samples in HDInsight - Azure | Azure
 description: Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -28,7 +28,7 @@ A set of samples are provided to help you get started running MapReduce jobs on 
 * [**Word count**][hdinsight-sample-wordcount]: Counts word occurrences in a text file.
 * [**C# streaming word count**][hdinsight-sample-csharp-streaming]: Counts word occurrences in a text file using the Hadoop streaming interface.
 * [**Pi estimator**][hdinsight-sample-pi-estimator]: Uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.
-* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: Run a general purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
+* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: Run a general-purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
 
 > [!NOTE]
 > The source code can be found in the Appendix.
@@ -52,10 +52,10 @@ Nowadays, many people choose Hive and Pig over MapReduce.  For more information,
 
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
-    > <p>
+    >
     > Follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## <a name="hdinsight-sample-wordcount" id="word-count-java"></a>Word count - Java
+## <a name="hdinsight-sample-wordcount"></a>Word count - Java
 To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
 
 The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).

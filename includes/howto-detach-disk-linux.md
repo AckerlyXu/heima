@@ -1,7 +1,7 @@
 When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. When you detach a disk from the VM, the disk is not removed it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
 
 > [!NOTE]
-> A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You cannot detach an operating system disk unless you also delete the VM.
+> A VM in Azure uses different types of disks - an operating system disk, a local temporary disk, and optional data disks. For details, see [About Disks and VHDs for Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). You cannot detach an operating system disk unless you also delete the VM.
 
 ## Find the disk
 Before you can detach a disk from a VM you need to find out the LUN number, which is an identifier for the disk to be detached. To do that, follow these steps:
@@ -29,7 +29,7 @@ Before you can detach a disk from a VM you need to find out the LUN number, whic
 3. Note the LUN or the **logical unit number** for the disk that you want to detach.
 
 ## Remove operating system references to the disk
-Before detaching the disk from the Linux guest, you should make sure that all partitions on the disk are not in use. Ensure that the operating system does not attempt to remount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) the disk.
+Before detaching the disk from the Linux guest, you should make sure that all partitions on the disk are not in use. Ensure that the operating system does not attempt to remount them after a reboot. These steps undo the configuration you likely created when [attaching](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) the disk.
 
 1. Use the `lsscsi` command to discover the disk identifier. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk identifier you are looking for by using the LUN number. The last number in the tuple in each row is the LUN. In the following example from `lsscsi`, LUN 0 maps to */dev/sdc*
 
@@ -71,14 +71,14 @@ Before detaching the disk from the Linux guest, you should make sure that all pa
 5. Remove entries in the **/etc/fstab** file associated with either the device paths or UUIDs for all partitions for the disk to be detached.  Entries for this example might be:
 
     ```sh  
-    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
-    ```
+   UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+   ```
 
     or
 
-    ```sh   
-    /dev/sdc1   /datadrive   ext4   defaults   1   2
-    ```
+   ```sh   
+   /dev/sdc1   /datadrive   ext4   defaults   1   2
+   ```
 
 ## Detach the disk
 After you find the LUN number of the disk and removed the operating system references, you're ready to detach it:

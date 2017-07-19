@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Offline Data Sync in Azure Mobile Apps

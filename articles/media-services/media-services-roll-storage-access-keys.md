@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
-wacn.date: ''
-ms.author: milanga;cenkdin;juliako
+origin.date: 01/28/2017
+ms.date: 03/10/2017
+ms.author: v-johch
 ---
 
 #Update Media Services after rolling storage access keys

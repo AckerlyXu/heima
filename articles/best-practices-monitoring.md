@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2016
-wacn.date: ''
-ms.author: masashin
+origin.date: 07/13/2016
+ms.date: 02/14/2017
+ms.author: v-junlch
 ---
 
 # Monitoring and diagnostics guidance

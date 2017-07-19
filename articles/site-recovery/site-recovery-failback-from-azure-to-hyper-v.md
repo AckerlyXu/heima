@@ -3,8 +3,8 @@ title: Failback in Azure Site Recovery for Hyper-v virtual machines | Azure
 description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failback from Azure to on-premises datacenter.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
-manager: gauravd
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/31/2017
-ms.author: ruturajd
+origin.date: 03/31/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 
 # Failback in Site Recovery for Hyper-V virtual machines
 
-
-
-This article describes how to failback virtual machines protected by Site Recovery. 
+This article describes how to failback virtual machines protected by Site Recovery.
 
 ## Prerequisites
 1. Ensure that the primary site VMM server/Hyper-V server is connected.
@@ -49,13 +48,10 @@ After failover from the primary to secondary location, replicated virtual machin
 
     - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
-	>[!NOTE] 
-	>We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted.This option doesn't perform any checksum calculations.
-	>
-	>
-
-
-
+    > [!NOTE]
+    > We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted.This option doesn't perform any checksum calculations.
+    >
+    >
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 5. Initiate the failover. You can follow the failover progress on the **Jobs** tab.

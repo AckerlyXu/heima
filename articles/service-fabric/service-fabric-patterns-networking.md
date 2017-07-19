@@ -1,10 +1,10 @@
 ---
-title: Networking patterns for Azure Service Fabric | Microsoft Docs
+title: Networking patterns for Azure Service Fabric | Azure
 description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor:
 
 ms.assetid:
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
-ms.author: ryanwi
+origin.date: 06/16/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric networking patterns
@@ -27,9 +28,9 @@ You can integrate your Azure Service Fabric cluster with other Azure networking 
 
 Service Fabric runs in a standard virtual machine scale set. Any functionality that you can use in a virtual machine scale set, you can use with a Service Fabric cluster. The networking sections of the Azure Resource Manager templates for virtual machine scale sets and Service Fabric are identical. After you deploy to an existing virtual network, it's easy to incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
 
-Service Fabric is unique from other networking features in one aspect. The [Azure portal preview](https://portal.azure.cn) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal preview. 
+Service Fabric is unique from other networking features in one aspect. The [Azure portal](https://portal.azure.cn) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal. 
 
-If port 190980 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal preview, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal preview does not display the status of your cluster.
+If port 19080 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal does not display the status of your cluster.
 
 ## Templates
 
@@ -40,11 +41,11 @@ All Service Fabric templates are in [one download file](https://msdnshared.blob.
 
 ### Existing virtual network
 
-In the following example, we start with an existing virtual network named ExistingRG-vnet, in the **ExistingRG** resource group. The subnet is named default. These default resources are created when you use the Azure portal preview to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. If your Service Fabric cluster uses only an internal load balancer, without a public IP address, you can use the VM and its public IP as a secure *jump box*.
+In the following example, we start with an existing virtual network named ExistingRG-vnet, in the **ExistingRG** resource group. The subnet is named default. These default resources are created when you use the Azure portal to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. If your Service Fabric cluster uses only an internal load balancer, without a public IP address, you can use the VM and its public IP as a secure *jump box*.
 
 ### Static public IP address
 
-A static public IP address generally is a dedicated resource that's managed separately from the VM or VMs it's assigned to. It's provisioned in a dedicated networking resource group (as opposed to in the Service Fabric cluster resource group itself). Create a static public IP address named staticIP1 in the same ExistingRG resource group, either in the Azure portal preview or by using PowerShell:
+A static public IP address generally is a dedicated resource that's managed separately from the VM or VMs it's assigned to. It's provisioned in a dedicated networking resource group (as opposed to in the Service Fabric cluster resource group itself). Create a static public IP address named staticIP1 in the same ExistingRG resource group, either in the Azure portal or by using PowerShell:
 
 ```powershell
 PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location "China East" -AllocationMethod Static -DomainNameLabel sfnetworking
@@ -70,7 +71,7 @@ DnsSettings              : {
 
 ### Service Fabric template
 
-In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. 
+In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://azure.microsoft.com/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
 
 <a id="existingvnet"></a>
 ## Existing virtual network or subnet
@@ -78,36 +79,35 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 1. Change the subnet parameter to the name of the existing subnet, and then add two new parameters to reference the existing virtual network:
 
     ```
+    "subnet0Name": {
+            "type": "string",
+            "defaultValue": "default"
+        },
+        "existingVNetRGName": {
+            "type": "string",
+            "defaultValue": "ExistingRG"
+        },
+
+        "existingVNetName": {
+            "type": "string",
+            "defaultValue": "ExistingRG-vnet"
+        },
+        /*
         "subnet0Name": {
-                "type": "string",
-                "defaultValue": "default"
-            },
-            "existingVNetRGName": {
-                "type": "string",
-                "defaultValue": "ExistingRG"
-            },
-
-            "existingVNetName": {
-                "type": "string",
-                "defaultValue": "ExistingRG-vnet"
-            },
-            /*
-            "subnet0Name": {
-                "type": "string",
-                "defaultValue": "Subnet-0"
-            },
-            "subnet0Prefix": {
-                "type": "string",
-                "defaultValue": "10.0.0.0/24"
-            },*/
+            "type": "string",
+            "defaultValue": "Subnet-0"
+        },
+        "subnet0Prefix": {
+            "type": "string",
+            "defaultValue": "10.0.0.0/24"
+        },*/
     ```
-
 
 2. Change the `vnetID` variable to point to the existing virtual network:
 
     ```
-            /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
-            "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
+    /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
+    "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
 3. Remove `Microsoft.Network/virtualNetworks` from your resources, so Azure does not create a new virtual network:
@@ -169,7 +169,6 @@ In the examples in this article, we use the Service Fabric template.json. You ca
     ```
 
 For another example, see [one that is not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
-
 
 <a id="staticpublicip"></a>
 ## Static public IP address
@@ -243,25 +242,25 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 6. In the `Microsoft.Network/loadBalancers` resource, change the `publicIPAddress` element of `frontendIPConfigurations` to reference the existing static IP address instead of a newly created one:
 
     ```
-                "frontendIPConfigurations": [
-                        {
-                            "name": "LoadBalancerIPConfig",
-                            "properties": {
-                                "publicIPAddress": {
-                                    /*"id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"*/
-                                    "id": "[variables('existingStaticIP')]"
-                                }
-                            }
-                        }
-                    ],
+    "frontendIPConfigurations": [
+            {
+                "name": "LoadBalancerIPConfig",
+                "properties": {
+                    "publicIPAddress": {
+                        /*"id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"*/
+                        "id": "[variables('existingStaticIP')]"
+                    }
+                }
+            }
+        ],
     ```
 
 7. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to the DNS FQDN of the static IP address. If you are using a secure cluster, make sure you change *http://* to *https://*. (Note that this step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
 
     ```
-                    "fabricSettings": [],
-                    /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
-                    "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
+    "fabricSettings": [],
+    /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
+    "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
     ```
 
 8. Deploy the template:
@@ -281,7 +280,7 @@ After deployment, you can see that your load balancer is bound to the public sta
 <a id="internallb"></a>
 ## Internal-only load balancer
 
-This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal preview and for the Service Fabric resource provider, see the preceding section.
+This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal and for the Service Fabric resource provider, see the preceding section.
 
 1. Remove the `dnsName` parameter. (It's not needed.)
 
@@ -296,10 +295,10 @@ This scenario replaces the external load balancer in the default Service Fabric 
 2. Optionally, if you use a static allocation method, you can add a static IP address parameter. If you use a dynamic allocation method, you do not need to do this step.
 
     ```
-            "internalLBAddress": {
-                "type": "string",
-                "defaultValue": "10.0.0.250"
-            }
+    "internalLBAddress": {
+        "type": "string",
+        "defaultValue": "10.0.0.250"
+    }
     ```
 
 3. Remove `Microsoft.Network/publicIPAddresses` from your resources, so Azure does not create a new IP address:
@@ -327,43 +326,43 @@ This scenario replaces the external load balancer in the default Service Fabric 
 4. Remove the IP address `dependsOn` attribute of `Microsoft.Network/loadBalancers`, so you don't depend on creating a new IP address. Add the virtual network `dependsOn` attribute because the load balancer now depends on the subnet from the virtual network:
 
     ```
-                "apiVersion": "[variables('lbApiVersion')]",
-                "type": "Microsoft.Network/loadBalancers",
-                "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
-                "location": "[parameters('computeLocation')]",
-                "dependsOn": [
-                    /*"[concat('Microsoft.Network/publicIPAddresses/',concat(parameters('lbIPName'),'-','0'))]"*/
-                    "[concat('Microsoft.Network/virtualNetworks/',parameters('virtualNetworkName'))]"
-                ],
+    "apiVersion": "[variables('lbApiVersion')]",
+    "type": "Microsoft.Network/loadBalancers",
+    "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
+    "location": "[parameters('computeLocation')]",
+    "dependsOn": [
+        /*"[concat('Microsoft.Network/publicIPAddresses/',concat(parameters('lbIPName'),'-','0'))]"*/
+        "[concat('Microsoft.Network/virtualNetworks/',parameters('virtualNetworkName'))]"
+    ],
     ```
 
 5. Change the load balancer's `frontendIPConfigurations` setting from using a `publicIPAddress`, to using a subnet and `privateIPAddress`. `privateIPAddress` uses a predefined static internal IP address. To use a dynamic IP address, remove the `privateIPAddress` element, and then change `privateIPAllocationMethod` to **Dynamic**.
 
     ```
-                "frontendIPConfigurations": [
-                        {
-                            "name": "LoadBalancerIPConfig",
-                            "properties": {
-                                /*
-                                "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"
-                                } */
-                                "subnet" :{
-                                    "id": "[variables('subnet0Ref')]"
-                                },
-                                "privateIPAddress": "[parameters('internalLBAddress')]",
-                                "privateIPAllocationMethod": "Static"
-                            }
-                        }
-                    ],
+    "frontendIPConfigurations": [
+            {
+                "name": "LoadBalancerIPConfig",
+                "properties": {
+                    /*
+                    "publicIPAddress": {
+                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"
+                    } */
+                    "subnet" :{
+                        "id": "[variables('subnet0Ref')]"
+                    },
+                    "privateIPAddress": "[parameters('internalLBAddress')]",
+                    "privateIPAllocationMethod": "Static"
+                }
+            }
+        ],
     ```
 
 6. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to point to the internal load balancer address. If you use a secure cluster, make sure you change *http://* to *https://*. (Note that this step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
 
     ```
-                    "fabricSettings": [],
-                    /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
-                    "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
+    "fabricSettings": [],
+    /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
+    "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
     ```
 
 7. Deploy the template:
@@ -386,10 +385,10 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 1. Add the static internal load balancer IP address parameter. (For notes related to using a dynamic IP address, see earlier sections of this article.)
 
     ```
-            "internalLBAddress": {
-                "type": "string",
-                "defaultValue": "10.0.0.250"
-            }
+    "internalLBAddress": {
+        "type": "string",
+        "defaultValue": "10.0.0.250"
+    }
     ```
 
 2. Add an application port 80 parameter.
@@ -487,86 +486,86 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 5. Add a second `Microsoft.Network/loadBalancers` resource. It looks similar to the internal load balancer created in the [Internal-only load balancer](#internallb) section, but it uses the "-Int" load balancer variables, and implements only the application port 80. This also removes `inboundNatPools`, to keep RDP endpoints on the public load balancer. If you want RDP on the internal load balancer, move `inboundNatPools` from the external load balancer to this internal load balancer:
 
     ```
-            /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
-            {
-                "apiVersion": "[variables('lbApiVersion')]",
-                "type": "Microsoft.Network/loadBalancers",
-                /* Add "-Internal" to the name. */
-                "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal')]",
-                "location": "[parameters('computeLocation')]",
-                "dependsOn": [
-                    /* Remove public IP dependsOn, add vnet dependsOn
-                    "[concat('Microsoft.Network/publicIPAddresses/',concat(parameters('lbIPName'),'-','0'))]"
-                    */
-                    "[concat('Microsoft.Network/virtualNetworks/',parameters('virtualNetworkName'))]"
-                ],
-                "properties": {
-                    "frontendIPConfigurations": [
-                        {
-                            "name": "LoadBalancerIPConfig",
-                            "properties": {
-                                /* Switch from Public to Private IP address
-                                */
-                                "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"
-                                }
-                                */
-                                "subnet" :{
-                                    "id": "[variables('subnet0Ref')]"
-                                },
-                                "privateIPAddress": "[parameters('internalLBAddress')]",
-                                "privateIPAllocationMethod": "Static"
-                            }
+    /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
+    {
+        "apiVersion": "[variables('lbApiVersion')]",
+        "type": "Microsoft.Network/loadBalancers",
+        /* Add "-Internal" to the name. */
+        "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal')]",
+        "location": "[parameters('computeLocation')]",
+        "dependsOn": [
+            /* Remove public IP dependsOn, add vnet dependsOn
+            "[concat('Microsoft.Network/publicIPAddresses/',concat(parameters('lbIPName'),'-','0'))]"
+            */
+            "[concat('Microsoft.Network/virtualNetworks/',parameters('virtualNetworkName'))]"
+        ],
+        "properties": {
+            "frontendIPConfigurations": [
+                {
+                    "name": "LoadBalancerIPConfig",
+                    "properties": {
+                        /* Switch from Public to Private IP address
+                        */
+                        "publicIPAddress": {
+                            "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"
                         }
-                    ],
-                    "backendAddressPools": [
-                        {
-                            "name": "LoadBalancerBEAddressPool",
-                            "properties": {}
-                        }
-                    ],
-                    "loadBalancingRules": [
-                        /* Add the AppPort rule. Be sure to reference the "-Int" versions of backendAddressPool, frontendIPConfiguration, and the probe variables. */
-                        {
-                            "name": "AppPortLBRule1",
-                            "properties": {
-                                "backendAddressPool": {
-                                    "id": "[variables('lbPoolID0-Int')]"
-                                },
-                                "backendPort": "[parameters('loadBalancedAppPort1')]",
-                                "enableFloatingIP": "false",
-                                "frontendIPConfiguration": {
-                                    "id": "[variables('lbIPConfig0-Int')]"
-                                },
-                                "frontendPort": "[parameters('loadBalancedAppPort1')]",
-                                "idleTimeoutInMinutes": "5",
-                                "probe": {
-                                    "id": "[concat(variables('lbID0-Int'),'/probes/AppPortProbe1')]"
-                                },
-                                "protocol": "tcp"
-                            }
-                        }
-                    ],
-                    "probes": [
-                    /* Add the probe for the app port. */
-                    {
-                            "name": "AppPortProbe1",
-                            "properties": {
-                                "intervalInSeconds": 5,
-                                "numberOfProbes": 2,
-                                "port": "[parameters('loadBalancedAppPort1')]",
-                                "protocol": "tcp"
-                            }
-                        }
-                    ],
-                    "inboundNatPools": [
-                    ]
-                },
-                "tags": {
-                    "resourceType": "Service Fabric",
-                    "clusterName": "[parameters('clusterName')]"
+                        */
+                        "subnet" :{
+                            "id": "[variables('subnet0Ref')]"
+                        },
+                        "privateIPAddress": "[parameters('internalLBAddress')]",
+                        "privateIPAllocationMethod": "Static"
+                    }
                 }
-            },
+            ],
+            "backendAddressPools": [
+                {
+                    "name": "LoadBalancerBEAddressPool",
+                    "properties": {}
+                }
+            ],
+            "loadBalancingRules": [
+                /* Add the AppPort rule. Be sure to reference the "-Int" versions of backendAddressPool, frontendIPConfiguration, and the probe variables. */
+                {
+                    "name": "AppPortLBRule1",
+                    "properties": {
+                        "backendAddressPool": {
+                            "id": "[variables('lbPoolID0-Int')]"
+                        },
+                        "backendPort": "[parameters('loadBalancedAppPort1')]",
+                        "enableFloatingIP": "false",
+                        "frontendIPConfiguration": {
+                            "id": "[variables('lbIPConfig0-Int')]"
+                        },
+                        "frontendPort": "[parameters('loadBalancedAppPort1')]",
+                        "idleTimeoutInMinutes": "5",
+                        "probe": {
+                            "id": "[concat(variables('lbID0-Int'),'/probes/AppPortProbe1')]"
+                        },
+                        "protocol": "tcp"
+                    }
+                }
+            ],
+            "probes": [
+            /* Add the probe for the app port. */
+            {
+                    "name": "AppPortProbe1",
+                    "properties": {
+                        "intervalInSeconds": 5,
+                        "numberOfProbes": 2,
+                        "port": "[parameters('loadBalancedAppPort1')]",
+                        "protocol": "tcp"
+                    }
+                }
+            ],
+            "inboundNatPools": [
+            ]
+        },
+        "tags": {
+            "resourceType": "Service Fabric",
+            "clusterName": "[parameters('clusterName')]"
+        }
+    },
     ```
 
 6. In `networkProfile` for the `Microsoft.Compute/virtualMachineScaleSets` resource, add the internal back-end address pool:

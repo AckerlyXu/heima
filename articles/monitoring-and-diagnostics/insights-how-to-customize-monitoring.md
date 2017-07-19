@@ -1,25 +1,26 @@
 ---
 title: Overview of Metrics in Microsoft Azure | Azure
 description: Learn how to customize monitoring charts in Azure.
-authors: rboucher
-manager: ''
+author: rboucher
+manager: carolz
 editor: ''
 services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
+ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
-ms.author: robb
-wacn.date: ''
+origin.date: 06/06/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 # Overview of Metrics in Azure
 
-All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
+All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to access the full set of metrics programmatically.
 
 For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to learn more.
 
@@ -38,11 +39,11 @@ You can chart any of the metrics them over any time period you choose.
 4. To customize the lines that appear, click the **Edit** button on the chart, or, the **Edit chart** command on the Metric blade.
 
 5. On the Edit Query blade you can do three things:
-    - Change the time range
-    - Switch the appearance between Bar and Line
-    - Choose different metics
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-
+   
+   * Change the time range
+   * Switch the appearance between Bar and Line
+   * Choose different metics
+     ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
 6. Changing the time range is as easy as selecting a different range (such as **Past Hour**) and clicking **Save** at the bottom of the blade. You can also choose **Custom**, which allows you to choose any period of time over the past 2 weeks. For example, you can see the whole two weeks, or, just 1 hour from yesterday. Type in the text box to enter a different hour.
     ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
 
@@ -68,7 +69,7 @@ You can also see usage quotas on the blade for resources that have quotas:
 
 ![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Like with metrics, you can use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of usage quotas programmatically.
+Like with metrics, you can use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to access the full set of usage quotas programmatically.
 
 ## Next steps
 

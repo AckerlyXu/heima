@@ -16,8 +16,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
-ms.author: markgal;trinadhk;
+ms.date: 02/07/2017
+ms.author: v-junlch
 
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
@@ -46,7 +46,7 @@ Before you can protect or back up a Resource Manager-deployed virtual machine (V
 If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](./backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
 
 ##Supported operating system for backup
- - **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
+ - **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
  - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 ## Limitations when backing up and restoring a VM
@@ -69,7 +69,7 @@ Before you prepare your environment, please understand the limitations.
 ## Create a recovery services vault for a VM
 A recovery services vault is an entity that stores the backups and recovery points that have been created over time. The recovery services vault also contains the backup policies associated with the protected virtual machines.
 
-Azure Portal Preview does not support Recovery Services in Azure China yet. To create a recovery services vault, follow the PowerShell steps [here](./backup-azure-vms-automation.md#create-a-recovery-services-vault)
+Azure Portal does not support Recovery Services in Azure China yet. To create a recovery services vault, follow the PowerShell steps [here](./backup-azure-vms-automation.md#create-a-recovery-services-vault)
 
 ## Install the VM Agent on the virtual machine
 The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine. Learn about the [VM Agent](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
@@ -79,7 +79,7 @@ If you have problems backing up the Azure VM, check that the Azure VM Agent is c
 | **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installing the VM Agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. |<li> Install the latest [Linux agent](../virtual-machines/virtual-machines-linux-agent-user-guide.md). You will need Administrator privileges to complete the installation. We recommend installing agent from your distribution repository. We **do not recommend** installing Linux VM agent directly from github.  |
-| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/). We recommend updating agent from your distribution repository. We **do not recommend** updating Linux VM agent directly from github.<br>Ensure that no backup operation is running while the VM Agent is being updated. |
+| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/). We recommend updating agent from your distribution repository. We **do not recommend** updating Linux VM agent directly from github.<br>Ensure that no backup operation is running while the VM Agent is being updated. |
 | Validating the VM Agent installation |<li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
 
 ### Backup extension
@@ -90,7 +90,7 @@ The backup extension is installed by the Backup service whether or not the VM is
 ## Network connectivity
 In order to manage the VM snapshots, the backup extension needs connectivity to the Azure public IP addresses. Without the right Internet connectivity, the virtual machine's HTTP requests time out and the backup operation fails. If your deployment has access restrictions in place (through a network security group (NSG), for example), then choose one of these options for providing a clear path for backup traffic:
 
-- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653) - see the article for instructions on how to whitelist the IP addresses.
+- [Whitelist the Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=42064) - see the article for instructions on how to whitelist the IP addresses.
 - Deploy an HTTP proxy server for routing traffic.
 
 When deciding which option to use, the trade-offs are between manageability, granular control, and cost.
@@ -101,7 +101,7 @@ When deciding which option to use, the trade-offs are between manageability, gra
 | HTTP proxy |Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
 
 ### Whitelist the Azure datacenter IP ranges
-To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
+To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=42064) for details on the IP ranges, and instructions.
 
 ### Using an HTTP proxy for VM backups
 When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.
@@ -121,7 +121,7 @@ The example image below shows the three configuration steps necessary to use an 
 
 To use an HTTP proxy to communicating to the public Internet, follow these steps:
 
-#### Step 1. Configure outgoing network connections
+#### Step 1 - Configure outgoing network connections
 ###### For Windows machines
 This will setup proxy server configuration for Local System Account.
 
@@ -168,7 +168,7 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### Step 2. Allow incoming connections on the proxy server:
+#### Step 2 - Allow incoming connections on the proxy server:
 1. On the proxy server, open Windows Firewall. The easiest way to access the firewall is to search for Windows Firewall with Advanced Security.
 
     ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
@@ -187,7 +187,7 @@ HttpProxy.Port=<proxy port>
 
      For the rest of the wizard, click all the way to the end and give this rule a name.
 
-#### Step 3. Add an exception rule to the NSG:
+#### Step 3 - Add an exception rule to the NSG:
 In an Azure PowerShell command prompt, enter the following command:
 
 The following command adds an exception to the NSG. This exception allows TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you require a specific port in the public Internet, be sure to add that port to the ```-DestinationPortRange``` as well.

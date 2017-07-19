@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
-wacn.date: ''
-ms.author: bwren
+origin.date: 11/02/2016
+ms.date: 01/09/2017
+ms.author: v-dazen
 
 ---
 # Runbook execution in Azure Automation
@@ -27,7 +27,7 @@ The following diagram shows the lifecycle of a runbook job for PowerShell Workfl
 
 Your jobs will have access to your Azure resources by making a connection to your Azure subscription. They will only have access to resources in your data center if those resources are accessible from the public cloud.
 
-## <a name="job-statuses"></a> Job statuses
+## Job statuses
 The following table describes the different statuses that are possible for a job.
 
 | Status | Description |
@@ -84,7 +84,7 @@ The following sample commands retrieve the last job for a sample runbook and dis
     $job.JobParameters
     Get-AzureAutomationJobOutput -AutomationAccountName "MyAutomationAccount" -Id $job.Id -Stream Output
 
-## <a name="fairshare"></a> Fair share
+## Fair share
 In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.  PowerShell Workflow runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  
 
 If the runbook restarts from the same checkpoint or from the beginning of the runbook three consecutive times, it will be terminated with a status of Failed, waiting for resources. This is to protect from runbooks running indefinitely without completing, as they are not able to make it to the next checkpoint without being unloaded again. In this case, you will receive the following exception with the failure.

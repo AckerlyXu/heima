@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
-wacn.date: ''
-ms.author: joflore
+origin.date: 04/26/2017
+ms.date: 06/12/2017
+ms.author: v-junlch
 
 ---
 # Password policies and restrictions in Azure Active Directory

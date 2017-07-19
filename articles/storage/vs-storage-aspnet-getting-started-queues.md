@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2016
-wacn.date: ''
-ms.author: tarcher
+origin.date: 12/23/2016
+ms.date: 03/02/2017
+ms.author: v-johch
 ---
 
 # Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)

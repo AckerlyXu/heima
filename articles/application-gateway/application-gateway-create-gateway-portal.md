@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 04/05/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Create an application gateway by using the portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
@@ -47,11 +47,11 @@ This scenario will:
 
 To create an application gateway, complete the steps that follow. Application gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet, only additional application gateways are able to be added to the subnet.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
+1. Log in to the [Azure portal](https://portal.azure.cn). If you don't already have an account, you can sign up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial)
 1. In the Favorites pane of the portal, click **New**
 1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
 
-![Creating Application Gateway][1]
+    ![Creating Application Gateway][1]
 
 1. In the **Basics** blade that appears, eneter the following values, then click **OK**:
 
@@ -62,7 +62,7 @@ To create an application gateway, complete the steps that follow. Application ga
    |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium and Large. When choosing WAF tier, options are Medium and Large only.|
    |**Instance count**|2|Number of instances of the application gateway for high availability. Instance counts of 1 should only be used for testing purposes.|
    |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
-   |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
+   |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
    |**Location**|China North||
 
 1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This will open enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
@@ -103,7 +103,7 @@ Once the application gateway is created, the systems that host the application t
 
 ### IP Address or FQDN
 
-1. With the application gateway created, in the Azure portal preview **Favorites** pane, click **All resources**. Click the **AdatumAppGateway** application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGateway** in the **Filter by name…** box to easily access the application gateway.
+1. With the application gateway created, in the Azure portal **Favorites** pane, click **All resources**. Click the **AdatumAppGateway** application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGateway** in the **Filter by name…** box to easily access the application gateway.
 
 1. The application gateway you created is displayed. Click **Backend pools**, and select the current backend pool **appGatewayBackendPool**, this will open the **appGatewayBackendPool** blade.
 
@@ -115,7 +115,7 @@ Once the application gateway is created, the systems that host the application t
 
 You can also add Virtual Machine NICs as backend pool members. Only virtual machines within the same virtual network as the Application Gateway are available through the dropdown.
 
-1. With the application gateway created, in the Azure portal preview **Favorites** pane, click **All resources**. Click the **AdatumAppGateway** application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGateway** in the **Filter by name…** box to easily access the application gateway.
+1. With the application gateway created, in the Azure portal **Favorites** pane, click **All resources**. Click the **AdatumAppGateway** application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGateway** in the **Filter by name…** box to easily access the application gateway.
 
 1. The application gateway you created is displayed. Click **Backend pools**, and select the current backend pool **appGatewayBackendPool**, this will open the **appGatewayBackendPool** blade.
 
@@ -130,7 +130,7 @@ You can also add Virtual Machine NICs as backend pool members. Only virtual mach
 
 To delete all resources created in this article, complete the following steps:
 
-1. In the Azure portal preview **Favorites** pane, click **All resources**. Click the **AdatumAppGatewayRG** resource group in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGatewayRG** in the **Filter by name…** box to easily access the resource group.
+1. In the Azure portal **Favorites** pane, click **All resources**. Click the **AdatumAppGatewayRG** resource group in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGatewayRG** in the **Filter by name…** box to easily access the resource group.
 1. In the **AdatumAppGatewayRG** blade, click the **Delete** button.
 1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Click **Delete**, Type AdatumAppGateway for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
 

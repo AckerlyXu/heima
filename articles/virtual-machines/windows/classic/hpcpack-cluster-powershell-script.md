@@ -14,9 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
-wacn.date: ''
-ms.author: danlep
+origin.date: 12/29/2016
+ms.date: 02/24/2017
+ms.author: v-dazen
 
 ---
 # Create a Windows high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script
@@ -291,4 +291,4 @@ nodes are created for Azure node template *AzureTemplate1*. A script file runs o
 ## Next steps
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster-node-manage.md).
-* To get set up to submit jobs to the cluster from a local computer, see [Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* To get set up to submit jobs to the cluster from a local computer, see [Submit HPC jobs from an on-premises computer to an HPC Pack cluster in Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

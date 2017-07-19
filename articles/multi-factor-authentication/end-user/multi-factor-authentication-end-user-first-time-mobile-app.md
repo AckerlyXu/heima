@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
-ms.author: billmath
-wacn.date: ''
+origin.date: 08/30/2016
+ms.author: v-junlch
+ms.date: 06/21/2017
 ---
 
 # Use a mobile app as your contact method with Azure Multi-Factor Authentication

@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/01/2016
-wacn.date: ''
-ms.author: glenga
+origin.date: 06/01/2016
+ms.date: 12/16/2016
+ms.author: v-dazen
 
 ---
 # How to use Azure table storage with the WebJobs SDK

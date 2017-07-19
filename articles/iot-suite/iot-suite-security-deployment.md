@@ -3,7 +3,7 @@ title: Secure your Internet of Things deployment | Azure
 description: This article details how to secure your IoT deployment
 services: ''
 suite: iot-suite
-documentationCenter: ''
+documentationcenter: ''
 author: YuriDio
 manager: timlt
 editor: ''
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
-ms.author: yurid
-wacn.date: ''
+origin.date: 01/04/2017
+ms.author: v-yiso
+ms.date: 06/13/2017
 ---
 
 # Secure your IoT deployment
@@ -128,11 +128,11 @@ You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
 [lnk-service-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
-[lnk-docdb]: ../documentdb/index.md
-[lnk-asa]: ../stream-analytics/index.md
-[lnk-appservices]: ../app-service/index.md
+[lnk-docdb]: /documentdb/
+[lnk-asa]: /stream-analytics/
+[lnk-appservices]: /app-service/
 
-[lnk-blob]: ../storage/index.md
+[lnk-blob]: /storage/
 
 [lnk-predictive-overview]: ./iot-suite-predictive-overview.md
 [lnk-faq]: ./iot-suite-faq.md

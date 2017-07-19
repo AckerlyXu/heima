@@ -1,69 +1,96 @@
 ---
-title: Azure PowerShell Script-Copy a SQL database to new server | Microsoft Docs
+title: Azure PowerShell Script-Copy a SQL database to new server | Azure
 description: Azure PowerShell Script Sample - Copy a SQL database to a new server using PowerShell
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: Hayley244
+manager: digimobile
 editor: carlrab
 tags: azure-service-management
 
 ms.assetid:
 ms.service: sql-database
-ms.custom: sample
+ms.custom: load & move data
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
-ms.author: janeng
+origin.date: 05/23/2017
+ms.date: 07/10/2017
+ms.author: v-johch
 ---
 
 # Copy a SQL database to a new server using PowerShell
 
 This sample PowerShell script creates a copy of an existing database in a new server. 
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Copy a database to a new server
 
 ```powershell
-# Set an admin login and password for your database
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Set the resource group name and location for your source server
+$sourceresourcegroupname = "mySourceResourceGroup-$(Get-Random)"
+$sourcelocation = "China East"
+# Set the resource group name and location for your target server
+$targetresourcegroupname = "myTargetResourceGroup-$(Get-Random)"
+$targetlocation = "China East"
+# Set an admin login and password for your server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The logical server names have to be unique in the system
-$sourceserver = "source-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
-$targetserver = "target-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
+$sourceservername = "source-server-$(Get-Random)"
+$targetservername = "target-server-$(Get-Random)"
+# The sample database name
+$sourcedatabasename = "mySampleDatabase"
+$targetdatabasename = "CopyOfMySampleDatabase"
+# The ip address range that you want to allow to access your servers
+$sourcestartip = "0.0.0.0"
+$sourceendip = "0.0.0.0"
+$targetstartip = "0.0.0.0"
+$targetendip = "0.0.0.0"
 
-# Create new, or get existing resource group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China East"
+# Create two new resource groups
+$sourceresourcegroup = New-AzureRmResourceGroup -Name $sourceresourcegroupname -Location $sourcelocation
+$targetresourcegroup = New-AzureRmResourceGroup -Name $targetresourcegroupname -Location $targetlocation
 
-
-# Create a new server with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
-    -ServerName $sourceserver `
-    -Location "China East" `
+# Create a server with a system wide unique server name
+$sourceresourcegroup = New-AzureRmSqlServer -ResourceGroupName $sourceresourcegroupname `
+    -ServerName $sourceservername `
+    -Location $sourcelocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
-    -ServerName "target-server-$($(Get-AzureRMContext).Subscription.SubscriptionId)" `
-    -Location "China East" `
+$targetresourcegroup = New-AzureRmSqlServer -ResourceGroupName $targetresourcegroupname `
+    -ServerName $targetservername `
+    -Location $targetlocation `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
+# Create a server firewall rule that allows access from the specified IP range
+$sourceserverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $sourceresourcegroupname `
+    -ServerName $sourceservername `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $sourcestartip -EndIpAddress $sourceendip
+$targetserverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $targetresourcegroupname `
+    -ServerName $targetservername `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $targetstartip -EndIpAddress $targetendip
 
-# Create a blank database in the source-server
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
-    -ServerName $sourceserver `
-    -DatabaseName "MySampleDatabase" -RequestedServiceObjectiveName "S0"
+# Create a blank database in the source-server with an S0 performance level
+$sourcedatabase = New-AzureRmSqlDatabase  -ResourceGroupName $sourceresourcegroupname `
+    -ServerName $sourceservername `
+    -DatabaseName $sourcedatabasename -RequestedServiceObjectiveName "S0"
 
+# Copy source database to the target server 
+$databasecopy = New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceresourcegroupname `
+    -ServerName $sourceservername `
+    -DatabaseName $sourcedatabasename `
+    -CopyResourceGroupName $targetresourcegroupname `
+    -CopyServerName $targetservername `
+    -CopyDatabaseName $targetdatabasename 
 
-# Copy source database to target server 
-New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
-    -ServerName $sourceserver `
-    -DatabaseName "MySampleDatabase" `
-    -CopyResourceGroupName "myResourceGroup" `
-    -CopyServerName $targetserver `
-    -CopyDatabaseName "CopyOfMySampleDatabase"
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $sourceresourcegroupname
+# Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 ```
+
 ## Clean up deployment
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
@@ -78,15 +105,15 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | Creates a logical server that hosts a database or elastic pool. |
-| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase) | Creates a database in a logical server as a single or a pooled database. |
-| [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabasecopy) | Creates a copy of a database that uses the snapshot at the current time. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a logical server that hosts a database or elastic pool. |
+| [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a database in a logical server as a single or a pooled database. |
+| [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) | Creates a copy of a database that uses the snapshot at the current time. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).

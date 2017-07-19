@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 05/03/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 ---
 
 # Troubleshooting degraded state on Azure Traffic Manager
@@ -85,9 +85,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Cloud Services](/cloud-services/)
 
-[Azure Web Apps](/app-service-web/)
+[Azure Web Apps](/app-service/web/)
 
-[Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/library/hh758255.aspx)
+[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager Cmdlets][1]
 

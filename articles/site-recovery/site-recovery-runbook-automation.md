@@ -1,10 +1,10 @@
 ---
-title: Add Azure automation runbooks to recovery plans in Site Recovery | Microsoft Docs
+title: Add Azure automation runbooks to recovery plans in Site Recovery | Azure
 description: This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
-manager: gauravd
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
@@ -12,9 +12,10 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
-ms.date: 02/22/2017
-ms.author: ruturajd@microsoft.com
+ms.workload: storage-backup-recovery
+origin.date: 02/22/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Add Azure automation runbooks to recovery plans
@@ -40,14 +41,14 @@ recovery into a single-click recovery action.
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Click the customize button to begin adding a runbook. 
+1. Click the customize button to begin adding a runbook.
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
 1. Right-click on the start group 1 and select to add a 'Add post action'.
 2. Select to choose a script in the new blade.
 3. Name the script 'Hello World'.
-4. Choose an Automation Account name. 
+4. Choose an Automation Account name.
     >[!NOTE]
     > Automation account can be in any Azure geography but has to be in the same subscription as the Site Recovery vault.
 
@@ -80,7 +81,7 @@ Following is an example of how the context variable looks.
 
             "ResourceGroupName":"ContosoRG",
 
-            "CloudServiceName":"pod02hrweb-Chicago-test",
+            "CloudServiceName":"pod02hrweb-Shanghai-test",
 
             "RoleName":"Fabrikam-Hrweb-frontend-test",
 
@@ -157,10 +158,10 @@ workflow AddPublicIPAndNSG {
 To apply an existing NSG, you need the NSG name and the NSG resource group. We provide these variables as an input for the recovery plan scripts. To do this, create two variables in the Automation accounts assets and prefix it with the name of the recovery plan for which you are creating the parameters.
 
 1. Create a variable to store the NSG name. Prefix it with the name of the recovery plan.
-    ![Create NSG name variable](./media/site-recovery-runbook-automation-new/var1.png)
+    ![Create NSG name variable](media/site-recovery-runbook-automation-new/var1.png)
 
 2. Create a variable to store the NSG's RG name. Prefix it with the name of the recovery plan.
-    ![Create NSG RG name](./media/site-recovery-runbook-automation-new/var2.png)
+    ![Create NSG RG name](media/site-recovery-runbook-automation-new/var2.png)
 
 In the script, acquire the variables' values by using the following reference code:
 
@@ -210,7 +211,7 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 
     In this complex variable, **VMDetails* is the VM ID for the protected virtual machine. You can find this in the properties of the virtual machine on the portal. Here we have created a variable to store the details of two virtual machines.
 
-    ![VM's ID to be used as GUID](./media/site-recovery-runbook-automation-new/vmguid.png)
+    ![VM's ID to be used as GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
 3. Use this variable in your runbook and apply the NSG on the virtual machine if any of the given VMGUID is found in the recovery plan context.
 
@@ -241,28 +242,14 @@ Consider a scenario where you want just one script to turn on a public IP on spe
 You can use the same script with different recovery plans and provide different parameters by storing the value corresponding to different recovery plans in different variable.
 
 ## Sample scripts
-For a repository of scripts that you can directly import into your automation account, see [Kristian Nese's OMS repository for scripts](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)
+Deploy sample scripts into your Automation account using the Deploy to Azure button below.
 
-The script here is an Azure Resource Manager template that will deploy all the following scripts
+[![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* NSG
-
-The NSG runbook will assign Public IP addresses to every VM within the Recovery Plan and attach their virtual network adapters to a Network Security Group that allows default communication
-
-* PublicIP
-
-The Public IP runbook assigns Public IP addresses to every VM within the Recovery Plan. Access to the machines and applications will depend on the firewall settings within each guest
-
-* CustomScript
-
-The CustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan and install a custom script extension that will pull the script you refer to during deployment of the template
-
-* NSGwithCustomScript
-
-The NSGwithCustomScript runbook assigns Public IP addresses to every VM within the Recovery Plan, install a custom script using extension and connect the virtual network adapters to a NSG allowing default inbound and outbound communication for remote access
+Also view a quick video about recovering a two tier WordPress application to Azure.
 
 ## Additional Resources
-
+<!-- Not Available automation-sec-configure-azure-runas-account.md -->
 [Azure Automation Overview](http://msdn.microsoft.com/zh-CN/library/azure/dn643629.aspx "Azure Automation Overview")
 
-[Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
+[Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")

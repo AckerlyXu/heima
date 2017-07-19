@@ -6,7 +6,7 @@ When you create an Azure Website, a DNS name is automatically assigned to the si
 
 > [!NOTE]
 > When your website is configured as a Traffic Manager endpoint, you will use the **.trafficmanager.cn** address when creating DNS records.
-> <p> 
+> 
 > You can only use CNAME records with Traffic Manager
 > 
 > 

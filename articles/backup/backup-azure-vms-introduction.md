@@ -3,8 +3,8 @@ title: Planning your VM backup infrastructure in Azure | Microsoft Docs
 description: Important considerations when planning to back up virtual machines in Azure
 services: backup
 documentationcenter: ''
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: ''
 keywords: backup vms, backup virtual machines
 
@@ -14,12 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/5/2017
-ms.author: markgal;trinadhk
-wacn.date: ''
+origin.date: 05/22/2017
+ms.date: 06/30/2017
+ms.author: v-junlch
+
 ---
 # Plan your VM backup infrastructure in Azure
-This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](./backup-azure-vms-prepare.md), planning is the next step before you begin [to back up VMs](./backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](../virtual-machines/index.md).
+This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), planning is the next step before you begin [to back up VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](../virtual-machines/index.md).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshot_ extension in Windows, and the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup. To install the extension, the VM must be running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
@@ -39,7 +40,6 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 
 ### Data consistency
 Backing up and restoring business critical data is complicated by the fact that business critical data must be backed up while the applications that produce the data are running. To address this, Azure Backup supports application-consistent backups for both Windows and Linux VMs
-
 #### Windows VM
 Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full backup](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). To enable VSS copy backups, the following registry key needs to be set on the VM.
 
@@ -50,7 +50,7 @@ Azure Backup takes VSS full backups on Windows VMs (read more about [VSS full ba
 
 #### Linux VMs
 Azure Backup provides a scripting framework. To ensure application consistency when backing up Linux VMs, create custom pre-scripts and post-scripts that control the backup workflow and environment. Azure Backup invokes the pre-script before taking the VM snapshot and invokes the post-script once the VM snapshot job completes. For more details, see [application consistent
-VM backups using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+VM backups using pre-script and post-script](/backup/backup-azure-linux-app-consistent).
 > [!NOTE]
 > Azure Backup only invokes the customer-written pre- and post-scripts. If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application consistent. However, the customer is ultimately responsible for the application consistency when using custom scripts.
 >
@@ -60,7 +60,7 @@ This table explains the types of consistency and the conditions that they occur 
 
 | Consistency | VSS-based | Explanation and details |
 | --- | --- | --- |
-| Application consistency |Yes for Windows|Application consistency is ideal for workloads as it ensures that:<ol><li> The VM *boots up*. <li>There is *no corruption*. <li>There is *no data loss*.<li> The data is consistent to the application that uses the data, by involving the application at the time of backup--using VSS or pre/post script.</ol> <li>*Windows VMs*- Most Microsoft workloads have VSS writers that do workload-specific actions related to data consistency. For example, Microsoft SQL Server has a VSS writer that ensures that the writes to the transaction log file and the database are done correctly. For Azure Windows VM backups, to create an application-consistent recovery point, the backup extension must invoke the VSS workflow and complete it before taking the VM snapshot. For the Azure VM snapshot to be accurate, the VSS writers of all Azure VM applications must complete as well. (Learn the [basics of VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) and dive deep into the details of [how it works](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Linux VMs*- Customers can execute [custom pre-script and post-script to ensure application consistency](./backup-azure-linux-app-consistent.md). </li> |
+| Application consistency |Yes for Windows|Application consistency is ideal for workloads as it ensures that:<ol><li> The VM *boots up*. <li>There is *no corruption*. <li>There is *no data loss*.<li> The data is consistent to the application that uses the data, by involving the application at the time of backup--using VSS or pre/post script.</ol> <li>*Windows VMs*- Most Microsoft workloads have VSS writers that do workload-specific actions related to data consistency. For example, Microsoft SQL Server has a VSS writer that ensures that the writes to the transaction log file and the database are done correctly. For Azure Windows VM backups, to create an application-consistent recovery point, the backup extension must invoke the VSS workflow and complete it before taking the VM snapshot. For the Azure VM snapshot to be accurate, the VSS writers of all Azure VM applications must complete as well. (Learn the [basics of VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) and dive deep into the details of [how it works](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Linux VMs*- Customers can execute [custom pre-script and post-script to ensure application consistency](/backup/backup-azure-linux-app-consistent/). </li> |
 | File-system consistency |Yes - for Windows-based computers |There are two scenarios where the recovery point can be *file-system consistent*:<ul><li>Backups of Linux VMs in Azure, without pre-script/post-script or if pre-script/post-script failed. <li>VSS failure during backup for Windows VMs in Azure.</li></ul> In both these cases, the best that can be done is to ensure that: <ol><li> The VM *boots up*. <li>There is *no corruption*.<li>There is *no data loss*.</ol> Applications need to implement their own "fix-up" mechanism on the restored data. |
 | Crash consistency |No |This situation is equivalent to a virtual machine experiencing a "crash" (through either a soft or hard reset). Crash consistency typically happens when the Azure virtual machine is shut down at the time of backup. A crash-consistent recovery point provides no guarantees around the consistency of the data on the storage medium--either from the perspective of the operating system or the application. Only the data that already exists on the disk at the time of backup is captured and backed up. <br/> <br/> While there are no guarantees, usually, the operating system boots, followed by disk-checking procedure, like chkdsk, to fix any corruption errors. Any in-memory data or writes that have not been transferred to the disk are lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. <br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback until the data is consistent. When data is spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data. |
 
@@ -95,7 +95,7 @@ For each disk being backed up, Azure Backup reads the blocks on the disk and sto
 ## Total VM backup time
 While most of the backup time is spent reading and copying data, other operations contribute to the total time needed to back up a VM:
 
-- Time needed to [install or update the backup extension](./backup-azure-vms.md).
+- Time needed to [install or update the backup extension](backup-azure-vms.md).
 - Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 - Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to eight hours due to the number of backups being processed. However, the total VM backup time is less than 24 hours for daily backup policies.
 - Data transfer time, time needed for backup service to compute the incremental changes from previous backup and transfer those changes to vault storage.
@@ -116,13 +116,14 @@ We suggest following these practices while configuring backups for virtual machi
 - Schedule VM backups during non-peak hours. This way the Backup service uses IOPS for transferring data from the customer storage account to the vault.
 - Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
 - Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
-- We recommend running each Premium VM on a distinct premium storage account to ensure optimal backup performance.
+- For Premium VM backup, ensure that storage account that hosts premium disks has atleast 50% free space for staging snapshot for a successful backup. 
+- Make sure that python version on Linux VMs enabled for backup is 2.7
 
 ## Data encryption
-Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and back up the protected data seamlessly (read more about [backup of encrypted data](./backup-azure-vms-encryption.md)).
+Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and back up the protected data seamlessly (read more about [backup of encrypted data](backup-azure-vms-encryption.md)).
 
 ## Calculating the cost of protected instances
-Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk.”
+Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](https://www.azure.cn/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk.”
 
 Pricing for backing up VMs is *not* based on the maximum supported size for each data disk attached to the virtual machine. Pricing is based on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data that is stored in Azure Backup, which is the sum of the actual data in each recovery point.
 
@@ -145,7 +146,8 @@ Billing for a specified virtual machine stops only if the protection is stopped 
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-- [Back up virtual machines](./backup-azure-vms.md)
+- [Back up virtual machines](backup-azure-vms.md)
 - [Manage virtual machine backup](./backup-azure-manage-vms-classic.md)
-- [Restore virtual machines](./backup-azure-restore-vms.md)
-- [Troubleshoot VM backup issues](./backup-azure-vms-troubleshoot.md)
+- [Restore virtual machines](backup-azure-restore-vms.md)
+- [Troubleshoot VM backup issues](backup-azure-vms-troubleshoot.md)
+

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
+ms.author: v-johch
 ---
 
 # Storage Documentation
@@ -57,61 +57,3 @@ Learn how to use Azure Storage, a cloud storage service that is durable, availab
         </a>
     </li>   
 </ul>
-
----
- 
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/storage">PowerShell</a></p>
-                        <p><a href="https://docs.microsoft.com/cli/azure/storage">Azure CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.storage">.NET: Resource manager</a></p>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement">.NET: Data movement</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Blobs, Queues, Tables, and Files</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-node">Node​.js</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
-                        <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
-                        <p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p>
-                        <p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/storageservices/azure-storage-services-rest-api-reference">Blobs, Queues, Tables, and Files</a></p>
-                        <p><a href="https://docs.microsoft.com/rest/api/storagerp">Resource provider</a></p>
-                        <p><a href="https://docs.microsoft.com/rest/api/storageimportexport">Import/export</a></p>
-                        <p><a href="https://docs.microsoft.com/rest/api/storageservices">Storage Data REST API</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-

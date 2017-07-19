@@ -4,7 +4,7 @@ description: Understand specific error messages that you may receive when trying
 keywords: Remote desktop error,remote desktop connection error,cannot connect to VM,remote desktop troubleshooting
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 01/10/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 05/26/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Troubleshooting specific RDP error messages to a Windows VM in Azure
-You may receive a specific error message when using Remote Desktop connection to a Windows virtual machine (VM) in Azure. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them. If you are having issues connecting to your VM using RDP but do not encounter a specific error message, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+You may receive a specific error message when using Remote Desktop connection to a Windows virtual machine (VM) in Azure. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them. If you are having issues connecting to your VM using RDP but do not encounter a specific error message, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For information on specific error messages, see the following:
 
@@ -31,7 +31,9 @@ For information on specific error messages, see the following:
 * [Windows Security error: Your credentials did not work](#wincred).
 * [This computer can't connect to the remote computer](#rdpconnect).
 
-## <a id="rdplicense"></a> The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
+<a id="rdplicense"></a>
+
+## The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license.
 Cause: The 120-day licensing grace period for the Remote Desktop Server role has expired and you need to install licenses.
 
 As a workaround, save a local copy of the RDP file from the portal and run this command at a PowerShell command prompt to connect. This step disables licensing for just that connection:
@@ -42,7 +44,9 @@ If you don't actually need more than two simultaneous Remote Desktop connections
 
 For more information, see the blog post [Azure VM fails with "No Remote Desktop License Servers available"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
 
-## <a id="rdpname"></a> Remote Desktop can't find the computer "name".
+<a id="rdpname"></a>
+
+## Remote Desktop can't find the computer "name".
 Cause: The Remote Desktop client on your computer can't resolve the name of the computer in the settings of the RDP file.
 
 Possible solutions:
@@ -58,7 +62,9 @@ The address portion of this RDP file has:
 * The fully qualified domain name of the cloud service that contains the VM ("tailspin-azdatatier.chinacloudapp.cn" in this example).
 * The external TCP port of the endpoint for Remote Desktop traffic (55919).
 
-## <a id="rdpauth"></a> An authentication error has occurred. The Local Security Authority cannot be contacted.
+<a id="rdpauth"></a>
+
+## An authentication error has occurred. The Local Security Authority cannot be contacted.
 Cause: The target VM can't locate the security authority in the user name portion of your credentials.
 
 When your user name is in the form *SecurityAuthority*\\*UserName* (example: CORP\User1), the *SecurityAuthority* portion is either the VM's computer name (for the local security authority) or an Active Directory domain name.
@@ -69,7 +75,9 @@ Possible solutions:
 * If the account is on an Active Directory domain, check the spelling of the domain name.
 * If it is an Active Directory domain account and the domain name is spelled correctly, verify that a domain controller is available in that domain. It's a common issue in Azure virtual networks that contain domain controllers that a domain controller is unavailable because it hasn't been started. As a workaround, you can use a local administrator account instead of a domain account.
 
-## <a id="wincred"></a> Windows Security error: Your credentials did not work.
+<a id="wincred"></a>
+
+## Windows Security error: Your credentials did not work.
 Cause: The target VM can't validate your account name and password.
 
 A Windows-based computer can validate the credentials of either a local account or a domain account.
@@ -83,9 +91,11 @@ For example, if you signed in with the local account DC1\DCAdmin, and then promo
 
 Make sure that the account name is a name that the virtual machine can verify as a valid account, and that the password is correct.
 
-If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you need to change the password of the local administrator account, see [How to reset a password or the Remote Desktop service for Windows virtual machines](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a id="rdpconnect"></a> This computer can't connect to the remote computer.
+<a id="rdpconnect"></a>
+
+## This computer can't connect to the remote computer.
 Cause: The account that's used to connect does not have Remote Desktop sign-in rights.
 
 Every Windows computer has a Remote Desktop users local group, which contains the accounts and groups that can sign into it remotely. Members of the local administrators group also have access, even though those accounts are not listed in the Remote Desktop users local group. For domain-joined machines, the local administrators group also contains the domain administrators for the domain.
@@ -93,7 +103,7 @@ Every Windows computer has a Remote Desktop users local group, which contains th
 Make sure that the account you're using to connect with has Remote Desktop sign-in rights. As a workaround, use a domain or local administrator account to connect over Remote Desktop. To add the desired account to the Remote Desktop users local group, use the Microsoft Management Console snap-in (**System Tools > Local Users and Groups > Groups > Remote Desktop Users**).
 
 ## Next steps
-If none of these errors occurred and you have an unknown issue with connecting using RDP, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If none of these errors occurred and you have an unknown issue with connecting using RDP, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

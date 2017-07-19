@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
-wacn.date: ''
-ms.author: yushwang
+origin.date: 04/12/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 
 ---
 # How to configure BGP on Azure VPN Gateways using PowerShell
@@ -38,7 +38,7 @@ Each part of the instructions forms a basic building block for enabling BGP in y
 
 ![BGP topology](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-You can combine these together to build a more complex, multi-hope, transit network that meet your needs.
+You can combine these together to build a more complex, multi-hop, transit network that meet your needs.
 
 ## <a name ="enablebgp"></a>Part 1 - Configure BGP on the Azure VPN Gateway
 The following configuration steps will setup the BGP parameters of the Azure VPN gateway as shown in the following diagram:
@@ -46,7 +46,7 @@ The following configuration steps will setup the BGP parameters of the Azure VPN
 ![BGP Gateway](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
 ### Before you begin
-* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
 * You'll need to install the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create and configure VNet1
@@ -96,7 +96,7 @@ $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix
 New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-### <a name="crossprembgp"></a> Step 2 - Create the VPN Gateway for TestVNet1 with BGP parameters
+### Step 2 - Create the VPN Gateway for TestVNet1 with BGP parameters
 #### 1. Create the IP and subnet configurations
 Request a public IP address to be allocated to the gateway you will create for your VNet. You'll also define the subnet and IP configurations required.
 
@@ -149,7 +149,7 @@ This exercise will continue to build the configuration shown in the diagram. Be 
 
 ```powershell
 $RG5 = "TestBGPRG5"
-$Location5 = "China East 2"
+$Location5 = "China East"
 $LNGName5 = "Site5"
 $LNGPrefix50 = "10.52.255.254/32"
 $LNGIP5 = "Your_VPN_Device_IP"
@@ -298,4 +298,4 @@ If you have completed all three parts of this exercise, you will have establishe
 ![BGP for VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for steps.

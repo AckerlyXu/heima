@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2016
-wacn.date: ''
-ms.author: cenkd;juliako
+origin.date: 12/07/2016
+ms.date: 01/13/2017
+ms.author: v-johch
 ---
 
 # Filters and dynamic manifests

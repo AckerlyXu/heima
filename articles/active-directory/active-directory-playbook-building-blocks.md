@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: dstefan
-wacn.date: ''
+origin.date: 05/04/2017
+ms.author: v-junlch
+ms.date: 06/12/2017
 
 ---
 # Azure Active Directory proof of concept playbook: Building blocks

@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Hive with Curl in HDInsight | Azure
+title: Use Hadoop Hive with Curl in HDInsight - Azure | Azure
 description: Learn how to remotely submit Pig jobs to HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/14/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Run Hive queries with Hadoop in HDInsight using REST
@@ -35,9 +35,9 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
 > [!NOTE]
 > When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator.
-> <p>
+>
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> <p>
+>
 > The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). To help ensure that your credentials are securely sent to the server, always make requests by using Secure HTTP (HTTPS).
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
@@ -52,16 +52,16 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     The parameters used in this command are as follows:
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this request is a GET operation.
+   * **-u** - The user name and password used to authenticate the request.
+   * **-G** - Indicates that this request is a GET operation.
 
-    The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
+     The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/version/hive
     ```
 
-    This request returns a response similar to the following text:
+     This request returns a response similar to the following text:
 
     ```
     {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
@@ -75,34 +75,34 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     The following parameters used with this request:
 
-    * **-d** - Since `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+   * **-d** - Since `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
 
-        * **user.name** - The user that is running the command.
-        * **execute** - The HiveQL statements to execute.
-        * **statusdir** - The directory that the status for this job is written to.
+     * **user.name** - The user that is running the command.
+     * **execute** - The HiveQL statements to execute.
+     * **statusdir** - The directory that the status for this job is written to.
 
-        These statements perform the following actions:
-    * **DROP TABLE** - If the table already exists, it is deleted.
-    * **CREATE EXTERNAL TABLE** - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
+     These statements perform the following actions:
+   * **DROP TABLE** - If the table already exists, it is deleted.
+   * **CREATE EXTERNAL TABLE** - Creates a new 'external' table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
-        > [!NOTE]
-        > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
-        > <p>
-        > Dropping an external table does **not** delete the data, only the table definition.
+     > [!NOTE]
+     > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
+     >
+     > Dropping an external table does **not** delete the data, only the table definition.
 
-    * **ROW FORMAT** - How the data is formatted. The fields in each log are separated by a space.
-    * **STORED AS TEXTFILE LOCATION** - Where the data is stored (the example/data directory) and that it is stored as text.
-    * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
+   * **ROW FORMAT** - How the data is formatted. The fields in each log are separated by a space.
+   * **STORED AS TEXTFILE LOCATION** - Where the data is stored (the example/data directory) and that it is stored as text.
+   * **SELECT** - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
 
-        > [!NOTE]
-        > Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
+     > [!NOTE]
+     > Notice that the spaces between HiveQL statements are replaced by the `+` character when used with Curl. Quoted values that contain a space, such as the delimiter, should not be replaced by `+`.
 
-    * **INPUT__FILE__NAME LIKE '%25.log'** - This statement limits the search to only use files ending in .log.
+   * **INPUT__FILE__NAME LIKE '%25.log'** - This statement limits the search to only use files ending in .log.
 
-        > [!NOTE]
-        > The `%25` is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
+     > [!NOTE]
+     > The `%25` is the URL encoded form of %, so the actual condition is `like '%.log'`. The % has to be URL encoded, as it is treated as a special character in URLs.
 
-        This command should return a job ID that can be used to check the status of the job.
+     This command should return a job ID that can be used to check the status of the job.
 
             {"id":"job_1415651640909_0026"}
 
@@ -116,8 +116,8 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     If the job has finished, the state is **SUCCEEDED**.
 
-    > [!NOTE]
-    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. Jq is used to retrieve only the state value.
+   > [!NOTE]
+   > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job. Jq is used to retrieve only the state value.
 
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/curl**. This address stores the output in the **example/curl** directory in the clusters default storage.
 
@@ -131,14 +131,14 @@ Learn how to use the WebHCat REST API to run Hive queries with Hadoop on Azure H
 
     These statements perform the following actions:
 
-    * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. This statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
+   * **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. This statement creates an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
-        > [!NOTE]
-        > Unlike external tables, dropping an internal table deletes the underlying data as well.
+     > [!NOTE]
+     > Unlike external tables, dropping an internal table deletes the underlying data as well.
 
-    * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
-    * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
-    * **SELECT** - Selects all rows from the new **errorLogs** table.
+   * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+   * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
+   * **SELECT** - Selects all rows from the new **errorLogs** table.
 
 6. Use the job ID returned to check the status of the job. Once it has succeeded, use the Azure CLI as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
 
@@ -159,7 +159,7 @@ If you are using Tez with Hive, see the following documents for debugging inform
 
 For more information on the REST API used in this document, see the [WebHCat reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) document.
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

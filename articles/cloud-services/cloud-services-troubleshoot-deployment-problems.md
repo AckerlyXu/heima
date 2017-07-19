@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/30/2016
-ms.author: v-six
-wacn.date: ''
+origin.date: 11/30/2016
+ms.author: v-yiso
+ms.date: 05/22/2017
 ---
 
 # Troubleshoot cloud service deployment problems

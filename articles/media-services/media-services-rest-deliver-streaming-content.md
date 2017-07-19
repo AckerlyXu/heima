@@ -12,9 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
-wacn.date: ''
-ms.author: juliako
+origin.date: 08/30/2016
+ms.date: 12/16/2016
+ms.author: v-johch
 ---
 
 # Publish Azure Media Services content using REST

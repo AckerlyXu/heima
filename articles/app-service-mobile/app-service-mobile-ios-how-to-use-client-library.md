@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: yuaxu
+ms.author: v-yiso
 ---
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -693,32 +693,27 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 <!-- URLs. -->
 [Azure Mobile Apps Quick Start]: ./app-service-mobile-ios-get-started.md
 
-[Add Mobile Services to Existing App]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/-data
-[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started/
-[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+
+
+
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Authentication]: /documentation/articles/mobile-services-ios-get-started-users/
 [iOS SDK]: https://developer.apple.com/xcode
 
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/zh-cn/library/azure/jj193161.aspx
-[Service-side Authorization]: /documentation/articles/mobile-services-javascript-backend-service-side-authorization/
-[Use scripts to authorize users]: /documentation/articles/mobile-services-javascript-backend-service-side-authorization/
 [Dynamic Schema]: https://msdn.microsoft.com/zh-cn/library/azure/jj193175.aspx
-[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/zh-cn/library/azure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
-[Conflict-Handler]: /documentation/articles/mobile-services-ios-handling-conflicts-offline-data/#add-conflict-handling
 [Azure classic management portal]: http://manage.windowsazure.cn
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/zh-cn/library/azure/dn495101.aspx
-[4]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
+[4]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ./app-service-mobile-how-to-configure-active-directory-authentication.md

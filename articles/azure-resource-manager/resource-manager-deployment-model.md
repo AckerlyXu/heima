@@ -3,8 +3,8 @@ title: Resource Manager and classic deployment | Azure
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4
@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 06/09/2017
+ms.date: 07/03/2017
+ms.author: v-yeche
+
 ---
 
 # Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources
@@ -23,10 +24,10 @@ In this topic, you learn about Azure Resource Manager and classic deployment mod
 
 To simplify the deployment and management of resources, Azure recommends that you use Resource Manager for all new resources. If possible, Azure recommends that you redeploy existing resources through Resource Manager.
 
-If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](./resource-group-overview.md).
+If you are new to Resource Manager, you may want to first review the terminology defined in the [Azure Resource Manager overview](resource-group-overview.md).
 
 ## History of the deployment models
-Azure originally provided only the classic deployment model. In this model, each resource existed independently; there was no way to group related resources together. Instead, you had to manually track which resources made up your solution or application, and remember to manage them in a coordinated approach. To deploy a solution, you had to either create each resource individually through the classic portal or create a script that deployed all the resources in the correct order. To delete a solution, you had to delete each resource individually. You could not easily apply and update access control policies for related resources. Finally, you could not apply tags to resources to label them with terms that help you monitor your resources and manage billing.
+Azure originally provided only the classic deployment model. In this model, each resource existed independently; there was no way to group related resources together. Instead, you had to manually track which resources made up your solution or application, and remember to manage them in a coordinated approach. To deploy a solution, you had to either create each resource individually through the Classic Management Portal or create a script that deployed all the resources in the correct order. To delete a solution, you had to delete each resource individually. You could not easily apply and update access control policies for related resources. Finally, you could not apply tags to resources to label them with terms that help you monitor your resources and manage billing.
 
 In 2014, Azure introduced Resource Manager, which added the concept of a resource group. A resource group is a container for resources that share a common lifecycle. The Resource Manager deployment model provides several benefits:
 
@@ -46,7 +47,7 @@ When deciding which deployment model to use for your resources, there are three 
 2. The service supports Resource Manager but provides two types - one for Resource Manager and one for classic. This scenario applies only to virtual machines, storage accounts, and virtual networks.
 3. The service does not support Resource Manager.
 
-To discover whether a service supports Resource Manager, see [Resource Manager supported providers](./resource-manager-supported-services.md).
+To discover whether a service supports Resource Manager, see [Resource providers and types](resource-manager-supported-services.md).
 
 If the service you wish to use does not support Resource Manager, you must continue using classic deployment.
 
@@ -111,9 +112,9 @@ You may also know the classic deployment model as the Service Management model.
 
 Resources created in the classic deployment model share the following characteristics:
 
-* Created through the [classic portal](https://manage.windowsazure.cn)
+* Created through the [Classic Management Portal](https://manage.windowsazure.cn)
 
-    ![Classic portal](./media/resource-manager-deployment-model/classic-portal.png)
+    ![Classic Management Portal](./media/resource-manager-deployment-model/classic-portal.png)
 
     Or, the Azure portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
@@ -167,11 +168,11 @@ The following table describes changes in how Compute, Network, and Storage resou
 | Cloud Service for Virtual Machines |Cloud Service was a container for holding the virtual machines that required Availability from the platform and Load Balancing. |Cloud Service is no longer an object required for creating a Virtual Machine using the new model. |
 | Virtual Networks |A virtual network is optional for the virtual machine. If included, the virtual network cannot be deployed with Resource Manager. |Virtual machine requires a virtual network that has been deployed with Resource Manager. |
 | Storage Accounts |The virtual machine requires a storage account that stores the VHDs for the operating system, temporary, and additional data disks. |The virtual machine requires a storage account to store its disks in blob storage. |
-| Availability Sets |Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. |Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
-| Affinity Groups |Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
+| Availability Sets |Availability to the platform was indicated by configuring the same "AvailabilitySetName" on the Virtual Machines. The maximum count of fault domains was 2. |Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
+| Affinity Groups |Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn't exist in the APIs exposed through Azure Resource Manager. |
 | Load Balancing |Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. |The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional). [Read more.](../virtual-network/resource-groups-networking.md) |
 | Virtual IP Address |Cloud Services get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer. |Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
-| Reserved IP Address |You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky. |Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
+| Reserved IP Address |You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky. |Public IP Address can be created in "Static" mode and it offers the same capability as a "Reserved IP Address". Static Public IPs can only be assigned to a Load balancer right now. |
 | Public IP Address (PIP) per VM |Public IP Addresses can also be associated to a VM directly. |Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |
 | Endpoints |Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. |Inbound NAT Rules can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
 | DNS Name |A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.chinacloudapp.cn`. |DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN is in the following format - `<domainlabel>.<region>.chinacloudapp.cn`. |
@@ -182,9 +183,9 @@ To learn about connecting virtual networks from different deployment models, see
 ## Migrate from classic to Resource Manager
 If you are ready to migrate your resources from classic deployment to Resource Manager deployment, see:
 
-1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## Frequently Asked Questions
@@ -206,8 +207,8 @@ All the automation and scripts that you've built continue to work for the existi
 
 **Where can I find examples of Azure Resource Manager templates?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/zh-cn/documentation/templates/).
+A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/).
 
 ## Next steps
-* To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](/documentation/articles/resource-manager-template-walkthrough/).
-* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy.md).
+* To walk through the creation of template that defines a virtual machine, storage account, and virtual network, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).
+* To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).

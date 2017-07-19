@@ -8,8 +8,10 @@ manager: wpickett
 editor: ''
 
 ms.service: active-directory
-ms.date: 06/05/2015
-wacn.date: ''
+ms.topic: article
+origin.date: 06/05/2015
+ms.date: 01/21/2016
+ms.author: v-junlch
 ---
 
 # Multitenant Applications in Azure

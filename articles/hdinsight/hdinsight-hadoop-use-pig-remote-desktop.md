@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with Remote Desktop in HDInsight | Azure
+title: Use Hadoop Pig with Remote Desktop in HDInsight - Azure | Azure
 description: Learn how to use the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based Hadoop cluster in HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 01/17/2017
+ms.date: 03/10/2017
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -26,8 +26,8 @@ ROBOTS: NOINDEX
 This document provides a walkthrough for using the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
 
 > [!IMPORTANT]
-> Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
-> <p>
+> Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+>
 > For HDInsight 3.4 or greater, see [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) for information on interactively running Pig jobs directly on the cluster from a command-line.
 
 ## <a id="prereq"></a>Prerequisites
@@ -81,10 +81,10 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 
         STORE RESULT into 'wasbs:///example/data/pigout'
 
-    > [!NOTE]
-    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
-    >
-    >
+   > [!NOTE]
+   > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
+   >
+   >
 7. To exit the grunt prompt, enter the following statement.
 
         QUIT;

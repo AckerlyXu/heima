@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
-ms.author: robmcm
+origin.date: 04/25/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Create a Node.js chat application with Socket.IO in Azure App Service
@@ -40,13 +40,13 @@ and add it to the project you previously created.
 1. Rename the **index.js** file to **app.js**. This allows Azure to detect that this is a Node.js application.
 2. Open the **app.js** file in a text editor. Change the line containing `var io = require('../..')(server);` as shown below:
 
-        var express = require('express');
-        var app = express();
-        var server = require('http').createServer(app);
-        // var io = require('../..')(server);
-        // New:
-        var io = require('socket.io')(server);
-        var port = process.env.PORT || 3000;
+       var express = require('express');
+       var app = express();
+       var server = require('http').createServer(app);
+       // var io = require('../..')(server);
+       // New:
+       var io = require('socket.io')(server);
+       var port = process.env.PORT || 3000;
 3. Open the **package.json** file and add a reference to socket.io under `dependencies`, as shown below:
 
         "dependencies": {
@@ -86,22 +86,22 @@ Follow these steps to create an Azure web app, enable Git publishing, and then e
 
     When prompted, enter your credentials from step 2. You will receive status messages as modules are imported on the server. Once this process has completed, the application will be hosted on your Azure web app.
 
-    > [!NOTE]
-    > During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
-    > 
-    > 
+   > [!NOTE]
+   > During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.
+   > 
+   > 
 6. Socket.IO uses WebSockets, which are not enabled by default on Azure. To enable web sockets, use the following command:
 
         azure site set -w
 
     If prompted, enter the name of the web app.
 
-    > [!NOTE]
-    > The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Command-Line Interface. You can also enable WebSocket support using the [Azure Portal Preview](https://portal.azure.cn).
-    > 
-    > To enable WebSockets using the Azure Portal Preview, click the web app from the Web Apps blade, click **All settings** > **Application settings**. Under **Web Sockets**, click **On**. Then click **Save**.
-    > 
-    > 
+   > [!NOTE]
+   > The 'azure site set -w' command will work only with version 0.7.4 or higher of the Azure Command-Line Interface. You can also enable WebSocket support using the [Azure Portal](https://portal.azure.cn).
+   > 
+   > To enable WebSockets using the Azure Portal, click the web app from the Web Apps blade, click **All settings** > **Application settings**. Under **Web Sockets**, click **On**. Then click **Save**.
+   > 
+   > 
 7. To view the web app on Azure, use the following command to launch your web browser and navigate to the hosted web app:
 
         azure site browse
@@ -129,10 +129,10 @@ Perform the steps in [Create a cache in Azure Redis Cache] to create a new cache
 
         npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
-    > [!NOTE]
-    > The versions specified in this command are the versions used when testing this article.
-    > 
-    > 
+   > [!NOTE]
+   > The versions specified in this command are the versions used when testing this article.
+   > 
+   > 
 2. Modify the **app.js** file to add the following lines immediately after `var io = require('socket.io')(server);`
 
         var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
@@ -145,12 +145,12 @@ Perform the steps in [Create a cache in Azure Redis Cache] to create a new cache
 
     This will create a publish and subscribe client to the Redis cache created previously. The clients are then used with the adapter to configure Socket.IO to use the Redis cache for passing messages and events between instances of your application
 
-    > [!NOTE]
-    > While the **socket.io-redis** adapter can communicate directly to Redis, the current version does not support the authentication required by Azure Redis cache. So the initial connection is created using the **redis** module, then the client is passed to the **socket.io-redis** adapter.
-    > 
-    > While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6379.
-    > 
-    > 
+   > [!NOTE]
+   > While the **socket.io-redis** adapter can communicate directly to Redis, the current version does not support the authentication required by Azure Redis cache. So the initial connection is created using the **redis** module, then the client is passed to the **socket.io-redis** adapter.
+   > 
+   > While Azure Redis Cache supports secure connections using port 6380, the modules used in this example do not support secure connections as of 7/14/2014. The above code uses the default, unsecure port of 6379.
+   > 
+   > 
 3. Save the modified **app.js**
 
 ### Commit changes and redeploy
@@ -183,10 +183,10 @@ If client browsers keep falling back to long polling instead of using WebSockets
           io.set('transports', ['websocket']);
         });
 
-    > [!NOTE]
-    > Note that older browsers that do not support WebSockets will not be able to connect to the site while the above code is active, as it restricts communication to WebSockets only.
-    > 
-    > 
+  > [!NOTE]
+  > Note that older browsers that do not support WebSockets will not be able to connect to the site while the above code is active, as it restricts communication to WebSockets only.
+  > 
+  > 
 * **Use SSL**
 
     WebSockets relies on some lesser used HTTP headers, such as the **Upgrade** header. Some intermediate network devices, such as web proxies, may remove these headers. To avoid this problem, you can establish the WebSocket connection over SSL.
@@ -208,10 +208,10 @@ If client browsers keep falling back to long polling instead of using WebSockets
 
     Normally, Node.js applications do not include a **web.config** file, so Azure Websites will automatically generate one for Node.js applications when they are deployed. Since this file is automatically generated on the server, you must use the FTP or FTPS URL for your website to view this file. You can find the FTP and FTPS URLs for your site in the Classic Management Portal by selecting your web app, and then the **Dashboard** link. The URLs are displayed in the **quick glance** section.
 
-    > [!NOTE]
-    > The **web.config** file is only generated by Azure Websites if your application does not provide one. If you provide a **web.config** file in the root of your application project, it will be used by Azure Web Apps.
-    > 
-    > 
+  > [!NOTE]
+  > The **web.config** file is only generated by Azure Websites if your application does not provide one. If you provide a **web.config** file in the root of your application project, it will be used by Azure Web Apps.
+  > 
+  > 
 
     If the entry is not present, or is set to a value of `true`, then you should create a **web.config** in the root of your Node.js application and specify a value of `false`.  For reference, the below is a default **web.config** for an application that uses **app.js** as the entry point.
 

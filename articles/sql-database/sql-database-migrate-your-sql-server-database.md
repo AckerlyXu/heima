@@ -3,8 +3,8 @@ title: Migrate SQL Server DB to Azure SQL Database | Azure
 description: Learn to migrate your SQL Server database to Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: janeng
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/07/2017
-ms.author: janeng
+origin.date: 05/07/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 
 ---
 
@@ -98,15 +99,15 @@ Follow these steps to use the SQLPackage command-line utility to export the Adve
 
 Once the execution is complete the generated BCPAC file is stored in the directory where the sqlpackage executable is located. In this example C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin. 
 
-## Step 3: Log in to the Azure portal preview
+## Log in to the Azure Portal
 
-Log in to the [Azure portal preview](https://portal.azure.cn/). Logging on from the computer from which you are running the SQLPackage command-line utility eases the creation of the firewall rule in step 5.
+Log in to the [Azure Portal](https://portal.azure.cn/). Logging on from the computer from which you are running the SQLPackage command-line utility eases the creation of the firewall rule in step 5.
 
 ## Create a SQL Database logical server
 
 An [Azure SQL Database logical server](sql-database-features.md) acts as a central administrative point for multiple databases. Follow these steps to create a SQL Database logical server to contain the migrated Adventure Works OLTP SQL Server database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal preview.
+1. Click the **New** button found on the upper left-hand corner of the Azure Portal.
 
 2. Type **server** in the search window on the **New** page, and select **SQL database (logical server)** from the filtered list.
 
@@ -228,5 +229,3 @@ Advance to the next tutorial to learn how to secure your database.
 
 > [!div class="nextstepaction"]
 > [Secure your Azure SQL Database](sql-database-security-tutorial.md).
-
-

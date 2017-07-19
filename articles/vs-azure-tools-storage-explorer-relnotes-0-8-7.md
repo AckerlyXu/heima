@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: release-notes
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
-wacn.date: ''
-ms.author: cawa
+origin.date: 01/18/2017
+ms.date: 03/30/2017
+ms.author: v-junlch
 ---
 
 # Azure Storage Explorer 0.8.7 (Preview)

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/12/2017
-wacn.date: ''
-ms.author: yushwang
+origin.date: 01/12/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Overview of BGP with Azure VPN Gateways

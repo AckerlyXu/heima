@@ -7,13 +7,15 @@ authors: TomArcher
 manager: douge
 editor: ''
 
+ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: tarcher
+origin.date: 06/12/2017
+ms.date: 07/17/2017
+ms.author: v-yiso
 ---
 
 # Continuous Delivery for Cloud Services in Azure
@@ -65,9 +67,9 @@ build scripts on the build server, or you can use the command line in a
 TFS Build Definition, as described in the next section. For more
 information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/zh-cn/library/ms164311%28v=vs.140%29.aspx).
 
-1.  If Visual Studio is installed on the build server, locate and choose
-    **Visual Studio Commmand Prompt** in the **Visual Studio Tools**
-    folder in Windows.
+1. If Visual Studio is installed on the build server, locate and choose
+   **Visual Studio Command Prompt** in the **Visual Studio Tools**
+   folder in Windows.
 
     If Visual Studio is not installed on the build server, open a
     command prompt and make sure that MSBuild.exe is accessible on the
@@ -208,7 +210,7 @@ your custom build automation. It can also be called from Process
 Template workflow activities in Visual Studio TFS Team Build.
 
 1. Install the [Azure PowerShell cmdlets][Azure PowerShell cmdlets] (v0.6.1 or higher).
-   During the cmdlet setup phase choose to install as a snap-in. Note
+   During the cmdlet setup phase, choose to install as a snap-in. Note
    that this officially supported version replaces the older version
    offered through CodePlex, although the previous versions were numbered 2.x.x.
 2. Start Azure PowerShell using the Start menu or Start page. If you start in this way,
@@ -245,7 +247,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     deployment is being created.
 
     -   To create a new cloud service, you can call this script or use
-        the [Azure classic portal](https://manage.windowsazure.cn). The cloud service name
+     	the [Azure portal](https://portal.azure.cn). The cloud service name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique.
 
@@ -254,7 +256,7 @@ Template workflow activities in Visual Studio TFS Team Build.
         ```
 
     -   To create a new storage account, you can call this script or use
-        the [Azure classic portal](https://manage.windowsazure.cn). The storage account name
+        the [Azure portal](https://portal.azure.cn). The storage account name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique. You can try using the same name as the
         cloud service.
@@ -281,7 +283,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     ```
 
     This is typically followed up by test run verification and a VIP
-    swap. The VIP swap can be done via the [Azure classic portal](https://manage.windowsazure.cn) or 
+    swap. The VIP swap can be done via the [Azure portal](https://portal.azure.cn) or
     by using the Move-Deployment cmdlet.
 
     **Example scenario 2:** continuous deployment to the production
@@ -325,7 +327,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
-    [Azure classic portal](https://manage.windowsazure.cn). 
+   [Azure portal](https://portal.azure.cn).
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
@@ -346,11 +348,13 @@ Template workflow activities in Visual Studio TFS Team Build.
     script behavior to first delete any existing deployment and then
     create a new deployment.
 
-    >[!IMPORTANT]
-    > The script will always delete or replace your existing
-    deployments by default if they are detected. This is necessary to
-    enable continuous delivery from automation where no user/operator
-    prompting is possible.
+   > [!IMPORTANT]
+   > The script will always delete or replace your existing
+   > deployments by default if they are detected. This is necessary to
+   > enable continuous delivery from automation where no user/operator
+   > prompting is possible.
+   >
+   >
 
 ## 5: Publish a Package using TFS Team Build
 

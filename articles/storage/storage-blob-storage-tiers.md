@@ -3,8 +3,8 @@ title: Azure cool storage for blobs | Microsoft Docs
 description: Storage tiers for Azure Blob storage offer cost-efficient storage for object data based on access patterns. The cool storage tier is optimized for data that is accessed less frequently.
 services: storage
 documentationcenter: ''
-author: michaelhauss
-manager: vamshik
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
-ms.author: mihauss
+origin.date: 06/05/2017
+ms.date: 06/26/2017
+ms.author: v-johch
 
 ---
 # Azure Blob Storage: Hot and cool storage tiers
@@ -30,11 +31,15 @@ Each of these data access scenarios described above benefits from a differentiat
 
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
+> 
+> 
 
 Blob storage accounts expose the **Access Tier** attribute, which allows you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time.
 
 > [!NOTE]
-> Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](./storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> 
+> 
 
 Example usage scenarios for the hot storage tier include:
 
@@ -49,17 +54,19 @@ Example usage scenarios for the cool storage tier include:
 * Original (raw) data that must be preserved, even after it has been processed into final usable form. (*e.g.*, Raw media files after transcoding into other formats)
 * Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*e.g.*, Security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings and transcripts of customer calls for financial services)
 
-See [About Azure storage accounts](./storage-create-storage-account.md) for more information on storage accounts.
+See [About Azure storage accounts](storage-create-storage-account.md) for more information on storage accounts.
 
 For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand this might not be possible under certain circumstances where using general-purpose storage accounts would be the way to go, such as:
 
 * You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
 * You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
 * You need to use page blobs. Blob storage accounts do not support page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
-* You use a version of the [Storage Services REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+* You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
 > [!NOTE]
-> Blob storage accounts are currently supported in all Azure regions. 
+> Blob storage accounts are currently supported in all Azure regions.
+> 
+> 
 
 ## Comparison between the storage tiers
 The following table highlights the comparison between the two storage tiers:
@@ -109,7 +116,9 @@ The following table highlights the comparison between the two storage tiers:
 </table>
 
 > [!NOTE]
-> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](./storage-scalability-targets.md) for more information.
+> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for more information.
+> 
+> 
 
 ## Pricing and Billing
 Blob storage accounts use a new pricing model for blob storage based on the storage tier. When using a Blob storage account, the following billing considerations apply:
@@ -149,10 +158,10 @@ In this section we will demonstrate the following scenarios using the Azure port
 
     LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
 
-    For more details on Azure Storage replication options, check out [Azure Storage replication](./storage-redundancy.md).
+    For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
 7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
 8. Select the subscription in which you want to create the new storage account.
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](/documentation/articles//resource-group-overview/).
+9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 10. Select the region for your storage account.
 11. Click **Create** to create the storage account.
 
@@ -164,7 +173,9 @@ In this section we will demonstrate the following scenarios using the Azure port
 5. Click Save at the top of the blade.
 
 > [!NOTE]
-> Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](./storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> 
+> 
 
 ## Evaluating and migrating to Blob storage accounts
 The purpose of this section is to help users to make a smooth transition to using Blob storage accounts. There are two user scenarios:
@@ -185,28 +196,34 @@ To monitor your existing storage accounts and gather this data, you can make use
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts.
 This data is stored in well-known tables in the same storage account.
 
-For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/zh-cn/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/zh-cn/library/azure/hh343264.aspx)
+For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
 > Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
+> 
+> 
 
 To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+With this enabled, capacity data is recorded daily for a storage account's Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
 
 To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
 With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
 
 > [!NOTE]
 > In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
+> 
+> 
 
 To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate.
 One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month.
-Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30 day period.
+Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
-For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](./storage-enable-and-view-metrics.md).
+For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md).
 
 > [!NOTE]
 > Storing, accessing and downloading analytics data is also charged just like regular user data.
+> 
+> 
 
 #### Utilizing usage metrics to estimate costs
 ##### Storage costs
@@ -244,12 +261,13 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ### Migrating existing data
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
-You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
+
+You can use the following methods to migrate existing data into Blob storage accounts from on-premises storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
 
 #### AzCopy
 AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
 
-For more details, see [Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy.md).
+For more details, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 #### Data Movement Library
 Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
@@ -259,10 +277,12 @@ For more details, see [Azure Storage Data Movement Library for .Net](https://git
 #### REST API or Client Library
 You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
-For more details, see [Get Started with Azure Blob storage](./storage-dotnet-how-to-use-blobs.md).
+For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content will not be retrievable again. For more details regarding encryption-related metadata, see [Azure Storage client side encryption](./storage-client-side-encryption.md).
+> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content will not be retrievable again. For more details regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](storage-client-side-encryption.md).
+> 
+> 
 
 ## FAQs
 1. **Are existing storage accounts still available?**
@@ -293,7 +313,7 @@ For more details, see [Get Started with Azure Blob storage](./storage-dotnet-how
     Blob storage accounts support only block and append blobs, and not page blobs. Azure virtual machine disks are backed by page blobs and as a result Blob storage accounts cannot be used to store virtual machine disks. However it is possible to store backups of the virtual machine disks as block blobs in a Blob storage account.
 9. **Will I need to change my existing applications to use Blob storage accounts?**
 
-    Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd894041.aspx) or greater your application should work. If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
+    Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater your application should work. If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
 10. **Will there be a change in user experience?**
 
     Blob storage accounts are very similar to a general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
@@ -301,17 +321,17 @@ For more details, see [Get Started with Azure Blob storage](./storage-dotnet-how
 ## Next steps
 ### Evaluate Blob storage accounts
 
-[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./storage-enable-and-view-metrics.md)
+[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](storage-enable-and-view-metrics.md)
 
 [Check Blob storage pricing by region](https://www.azure.cn/pricing/details/storage/)
 
 [Check data transfers pricing](https://www.azure.cn/pricing/details/data-transfer/)
 
 ### Start using Blob storage accounts
-[Get Started with Azure Blob storage](./storage-dotnet-how-to-use-blobs.md)
+[Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md)
 
-[Moving data to and from Azure Storage](./storage-moving-data.md)
+[Moving data to and from Azure Storage](storage-moving-data.md)
 
-[Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy.md)
+[Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 
 [Browse and explore your storage accounts](http://storageexplorer.com/)

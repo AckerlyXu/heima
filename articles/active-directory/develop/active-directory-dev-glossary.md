@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: bryanla
+origin.date: 03/20/2017
+ms.date: 04/17/2017
+ms.author: v-junlch
 ---
 
 # Azure Active Directory developer glossary
@@ -45,8 +45,6 @@ In order to allow an application to integrate with and delegate Identity and Acc
 - Robust management of Single Sign-On using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
 - Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via Azure AD's OAuth 2.0 [authorization server](#authorization-server) implementation
 - [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
-
-See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
 
 ## authentication
 The act of challenging a party for legitimate credentials, providing the basis for creation of a security principal to be used for identity and access control. During an [OAuth2 authorization grant](#authorization-grant) for example, the party authenticating is filling the role of either [resource owner](#resource-owner) or [client application](#client-application), depending on the grant used.
@@ -187,11 +185,10 @@ Please use the following comments section to provide feedback and help us refine
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-Subscriptions-Assoc]:../active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
+[AAD-How-To-Integrate]: active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:./active-directory-howto-tenant.md
-[AAD-Integrating-Apps]:./active-directory-integrating-applications.md
 [AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
+[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

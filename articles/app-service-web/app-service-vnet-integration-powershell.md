@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
-wacn.date: ''
-ms.author: ccompy
+origin.date: 08/29/2016
+ms.date: 11/25/2016
+ms.author: v-dazen
 
 ---
 # Connect your app to your virtual network by using PowerShell
@@ -23,11 +23,11 @@ ms.author: ccompy
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## Overview
-In Azure App Service, you can connect your app (web, mobile, or API) to an Azure virtual network (VNet) in your subscription. This feature is called VNet Integration.
+In Azure App Service, you can connect your app (web, mobile, or API) to an Azure virtual network (VNet) in your subscription. This feature is called VNet Integration. The VNet Integration feature should not be confused with the App Service Environment feature, which allows you to run an instance of Azure App Service in your virtual network.
 
-You can use to integrate with virtual networks that are deployed by using either the classic deployment model or the Azure Resource Manager deployment model.
+The VNet Integration feature has a user interface (UI) in the new portal that you can use to integrate with virtual networks that are deployed by using either the classic deployment model or the Azure Resource Manager deployment model. If you want to learn more about the feature, see [Integrate your app with an Azure virtual network](web-sites-integrate-with-vnet.md).
 
-This article is about how to enable integration by using PowerShell. Because the commands for each deployment model are different, this article has a section for each deployment model.  
+This article is not about how to use the UI but rather about how to enable integration by using PowerShell. Because the commands for each deployment model are different, this article has a section for each deployment model.  
 
 Before you continue with this article, ensure that you have:
 
@@ -120,7 +120,7 @@ The first step is to generate the .cer file. The second step is to upload the .c
 
 The certificate will be found in the location that **$Configuration.GeneratedCertificatePath** specifies.
 
-To upload the certificate manually, use the [Azure portal preview][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**. From here, upload your certificate.
+To upload the certificate manually, use the [Azure portal][azureportal] and **Browse Virtual Network (classic)** > **VPN connections** > **Point-to-site** > **Manage certificates**. From here, upload your certificate.
 
 ##### Get the point-to-site package
 The next step in setting up a virtual network connection on a web app is to get the point-to-site package and provide it to your web app.

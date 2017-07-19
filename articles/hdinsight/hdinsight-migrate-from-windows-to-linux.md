@@ -1,5 +1,5 @@
 ---
-title: Migrate from Windows-based HDInsight to Linux-based HDInsight | Azure
+title: Migrate from Windows-based HDInsight to Linux-based HDInsight - Azure | Azure
 description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/12/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/12/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -112,7 +112,7 @@ The following table provides guidance on migrating server-side components that a
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. For more information on installing the Azure CLI, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
-| **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](https://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
+| **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](http://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology. You may be able to find a version that is compatible with Linux, or you may need to find an alternate solution or rewrite this component. |
 
 > [!IMPORTANT]
@@ -161,7 +161,7 @@ Ambari has an alert system that can tell you of potential problems with the clus
 
 > [!IMPORTANT]
 > Ambari alerts indicate that there *may* be a problem, not that there *is* a problem. For example, you may receive an alert that HiveServer2 cannot be accessed, even though you can access it normally.
-> <p>
+>
 > Many alerts are implemented as interval-based queries against a service, and expect a response within a specific time frame. So the alert doesn't necessarily mean that the service is down, just that it didn't return results within the expected time frame.
 
 You should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have been reported before taking action on it.

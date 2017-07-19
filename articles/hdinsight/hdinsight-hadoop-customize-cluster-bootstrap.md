@@ -1,5 +1,5 @@
 ---
-title: Customize HDInsight Clusters using bootstrap | Azure
+title: Customize HDInsight Clusters using bootstrap - Azure | Azure
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Customize HDInsight clusters using Bootstrap
@@ -82,7 +82,7 @@ A complete working PowerShell script can be found in [Appendix-A](#appx-a:-power
 
 **To verify the change:**
 
-1. Sign on to the [Azure portal preview](https://portal.azure.cn).
+1. Sign on to the [Azure portal](https://portal.azure.cn).
 2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
 3. Click the cluster you just created using the PowerShell script.
 4. Click **Dashboard** from the top of the blade to open the Ambari UI.
@@ -125,7 +125,7 @@ You can use bootstrap in Resource Manager template:
         }
     }
 
-![HDInsight Hadoop customize cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![HDInsight Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
 * [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.

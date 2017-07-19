@@ -1,5 +1,5 @@
 ---
-title: Enabling storage metrics in the Azure portal preview | Microsoft Docs
+title: Enabling storage metrics in the Azure Portal | Microsoft Docs
 description: How to enable storage metrics for the Blob, Queue, Table, and File services
 services: storage
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: robinsh
+ms.author: v-johch
 
 ---
 # Enabling Azure Storage metrics and viewing metrics data
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
 
 ## Overview
-Storage Metrics is enabled by default when you create a new storage account. You can configure monitoring via the [Azure portal preview](https://portal.azure.cn) or Windows PowerShell, or programmatically via one of the storage client libraries.
+Storage Metrics is enabled by default when you create a new storage account. You can configure monitoring via the [Azure Portal](https://portal.azure.cn) or Windows PowerShell, or programmatically via one of the storage client libraries.
 
 You can configure a retention period for the metrics data: this period determines for how long the storage service keeps the metrics and charges you for the space required to store them. Typically, you should use a shorter retention period for minute metrics than hourly metrics because of the significant extra space required for minute metrics. You should choose a retention period such that you have sufficient time to analyze the data and download any metrics you wish to keep for off-line analysis or reporting purposes. Remember that you will also be billed for downloading metrics data from your storage account.
 
-## How to enable metrics using the Azure portal preview
-Follow these steps to enable metrics in the [Azure portal preview](https://portal.azure.cn):
+## How to enable metrics using the Azure Portal
+Follow these steps to enable metrics in the [Azure Portal](https://portal.azure.cn):
 
 1. Navigate to your storage account.
 1. Select **Diagnostics** on the **Menu** blade
@@ -35,7 +35,7 @@ Follow these steps to enable metrics in the [Azure portal preview](https://porta
 1. Specify a retention policy to indicate how long to retain metrics and log data.
 1. Select **Save**.
 
-Note that the [Azure portal preview](https://portal.azure.cn) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
+Note that the [Azure Portal](https://portal.azure.cn) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
 ## How to enable metrics using PowerShell
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty to retrieve the current settings, and the cmdlet Set-AzureStorageServiceMetricsProperty to change the current settings.
@@ -94,9 +94,9 @@ blobClient.SetServiceProperties(properties);
 ```
 
 ## Viewing Storage metrics
-After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure portal preview](https://portal.azure.cn):
+After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure Portal](https://portal.azure.cn):
 
-1. Navigate to your storage account in the [Azure portal preview](https://portal.azure.cn).
+1. Navigate to your storage account in the [Azure Portal](https://portal.azure.cn).
 1. Select **Metrics** in the **Menu** blade for the service whose metrics you want to view.
 1. Select **Edit** on the chart you want to configure.
 1. In the **Edit Chart** blade, select the **Time Range**, **Chart type**, and the metrics you want displayed in the chart.
@@ -147,7 +147,7 @@ In this example minute metrics data, the partition key uses the time at minute r
 The sample data above shows all the records for a single minute (starting at 11:00AM), so the number of QueryEntities requests plus the number of QueryEntity requests plus the number of UpdateEntity requests add up to seven, which is the total shown on the user:All row. Similarly, you can derive the average end-to-end latency 104.4286 on the user:All row by calculating ((143.8 * 5) + 3 + 9)/7.
 
 ## Metrics alerts
-You should consider setting up alerts in the [Azure portal preview](https://portal.azure.cn) so Storage Metrics can automatically notify you of important changes in the behavior of your storage services. If you use a storage explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. See [Azure Storage Client Tools](storage-explorers.md) for a list of available storage explorer tools. You can configure alerts in the **Alert rules** blade, accessible under **Monitoring** in the Storage account menu blade.
+You should consider setting up alerts in the [Azure Portal](https://portal.azure.cn) so Storage Metrics can automatically notify you of important changes in the behavior of your storage services. If you use a storage explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. See [Azure Storage Client Tools](storage-explorers.md) for a list of available storage explorer tools. You can configure alerts in the **Alert rules** blade, accessible under **Monitoring** in the Storage account menu blade.
 
 > [!IMPORTANT]
 > There may be a delay between a storage event and when the corresponding hourly or minute metrics data is recorded. In the case of minute metrics, several minutes of data may be written at once. This can lead to transactions from earlier minutes being aggregated into the transaction for the current minute. When this happens, the alert service may not have all available metrics data for the configured alert interval, which may lead to alerts firing unexpectedly.

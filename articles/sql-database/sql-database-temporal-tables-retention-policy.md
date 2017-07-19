@@ -2,9 +2,9 @@
 title: Manage historical data in Temporal Tables with retention policy | Azure
 description: Learn how to use temporal retention policy to keep historical data under your control.
 services: sql-database
-documentationCenter: ''
-authors: bonova
-manager: drasumic
+documentationcenter: ''
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
-ms.date: 10/12/2016
-ms.author: bonova
+origin.date: 10/12/2016
+ms.date: 07/03/2017
+ms.author: v-johch
+
 ---
-
-#Manage historical data in Temporal Tables with retention policy
-
+# Manage historical data in Temporal Tables with retention policy
 Temporal Tables may increase database size more than regular tables, especially if you retain historical data for a longer period of time. Hence, retention policy for historical data is an important aspect of planning and managing the lifecycle of every temporal table. Temporal Tables in Azure SQL Database come with easy-to-use retention mechanism that helps you accomplish this task.
 
 Temporal history retention can be configured at the individual table level, which allows users to create flexible aging polices. Applying temporal retention is simple: it requires only one parameter to be set during table creation or schema change.
@@ -30,8 +30,7 @@ ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 
 In the example above we assumed that **ValidTo** column corresponds to the end of SYSTEM_TIME period.
 
-##How to configure retention policy?
-
+## How to configure retention policy?
 Before you configure retention policy for a temporal table, check first whether temporal historical retention is enabled *at the database level*.
 
 ```
@@ -39,7 +38,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](./sql-database-point-in-time-restore-portal.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
+Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](sql-database-recovery-using-backups.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
 
 ```
 ALTER DATABASE <myDB>
@@ -47,7 +46,9 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
 > [!IMPORTANT]
-> You can configure retention for temporal tables even if **is_temporal_history_retention_enabled** is OFF, but automatic cleanup for aged rows will not be triggered in that case.
+> You can configure retention for temporal tables even if **is_temporal_history_retention_enabled** is OFF, but automatic cleanup for aged rows is not triggered in that case.
+> 
+> 
 
 Retention policy is configured during table creation by specifying value for the HISTORY_RETENTION_PERIOD parameter:
 
@@ -81,7 +82,9 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ```
 
 > [!IMPORTANT]
->  Setting SYSTEM_VERSIONING to OFF *does not preserve* retention period value. Setting SYSTEM_VERSIONING to ON without HISTORY_RETENTION_PERIOD specified explicitly results in the INFINITE retention period.
+> Setting SYSTEM_VERSIONING to OFF *does not preserve* retention period value. Setting SYSTEM_VERSIONING to ON without HISTORY_RETENTION_PERIOD specified explicitly results in the INFINITE retention period.
+> 
+> 
 
 To review current state of the retention policy, use the following query that joins temporal retention enablement flag at the database level with retention periods for individual tables:
 
@@ -98,19 +101,17 @@ LEFT JOIN sys.tables T2
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 ```
 
-##How SQL Database deletes aged rows?
-
+## How SQL Database deletes aged rows?
 The cleanup process depends on the index layout of the history table. It is important to notice that *only history tables with a clustered index (B-tree or columnstore) can have finite retention policy configured*. A background task is created to perform aged data cleanup for all temporal tables with finite retention period.
 Cleanup logic for the rowstore (B-tree) clustered index deletes aged row in smaller chunks (up to 10K) minimizing pressure on database log and I/O subsystem. Although cleanup logic utilizes required B-tree index, order of deletions for the rows older than retention period cannot be firmly guaranteed. Hence, *do not take any dependency on the cleanup order in your applications*.
 
-The cleanup task for the clustered columnstore removes entire [row groups](https://msdn.microsoft.com/zh-cn/library/gg492088.aspx) at once (typically contain 1 million of rows each), which is very efficient, especially when historical data is generated at a high pace.
+The cleanup task for the clustered columnstore removes entire [row groups](https://msdn.microsoft.com/library/gg492088.aspx) at once (typically contain 1 million of rows each), which is very efficient, especially when historical data is generated at a high pace.
 
 ![Clustered columnstore retention](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
-Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data. That pattern is typical for intensive [transactional processing workloads that use temporal tables](https://msdn.microsoft.com/zh-cn/library/mt631669.aspx) for change tracking and auditing, trend analysis, or IoT data ingestion.
+Excellent data compression and efficient retention cleanup makes clustered columnstore index a perfect choice for scenarios when your workload rapidly generates high amount of historical data. That pattern is typical for intensive [transactional processing workloads that use temporal tables](https://msdn.microsoft.com/library/mt631669.aspx) for change tracking and auditing, trend analysis, or IoT data ingestion.
 
-##Index considerations
-
+## Index considerations
 The cleanup task for tables with rowstore clustered index requires index to start with the column corresponding the end of SYSTEM_TIME period. If such index doesn’t exist, you won’t be able to configure finite retention period:
 
 *Msg 13765, Level 16, State 1 <br></br>
@@ -146,8 +147,7 @@ An attempt to execute above statement will fail with the following error:
 *Msg 13772, Level 16, State 1 <br></br>
 Cannot create non-clustered index on a temporal history table 'WebsiteUserInfoHistory' since it has finite retention period and clustered columnstore index defined.*
 
-##Querying tables with retention policy
-
+## Querying tables with retention policy
 All queries on the temporal table automatically filter out historical rows matching finite retention policy, to avoid unpredictable and inconsistent results, since aged rows can be deleted by the cleanup task, *at any point in time and in arbitrary order*.
 
 The following picture shows the query plan for a simple query:
@@ -156,7 +156,7 @@ The following picture shows the query plan for a simple query:
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ```
 
-The query plan includes additional filter applied to end of period column (ValidTo) in the “Clustered Index Scan” operator on the history table (highlighted). This example assumes that 1 MONTH retention period was set on WebsiteUserInfo table.
+The query plan includes additional filter applied to end of period column (ValidTo) in the "Clustered Index Scan" operator on the history table (highlighted). This example assumes that 1 MONTH retention period was set on WebsiteUserInfo table.
 
 ![Retention query filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
@@ -164,11 +164,10 @@ However, if you query history table directly, you may see rows that are older th
 
 ![Querying history without retention filter](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
 
-Do not rely your business logic on reading history table beyond retention period as you may get inconsistent or unexpected results. It is recommended to use temporal queries with FOR SYSTEM_TIME clause for analyzing data in temporal tables.
+Do not rely your business logic on reading history table beyond retention period as you may get inconsistent or unexpected results. We recommend that you use temporal queries with FOR SYSTEM_TIME clause for analyzing data in temporal tables.
 
-##Point in time restore considerations
-
-When you create new database by [restoring existing database to a specific point in time](./sql-database-point-in-time-restore-portal.md), it has temporal retention disabled at the database level. (**is_temporal_history_retention_enabled** flag set to OFF). This functionality allows you to examine all historical rows upon restore, without worrying that aged rows are removed before you get to query them. You can use it to *inspect historical data beyond configured retention period*.
+## Point in time restore considerations
+When you create new database by [restoring existing database to a specific point in time](sql-database-recovery-using-backups.md), it has temporal retention disabled at the database level. (**is_temporal_history_retention_enabled** flag set to OFF). This functionality allows you to examine all historical rows upon restore, without worrying that aged rows are removed before you get to query them. You can use it to *inspect historical data beyond configured retention period*.
 
 Say that a temporal table has one MONTH retention period specified. If your database was created in Premium Service tier, you would be able to create database copy with the database state up to 35 days back in the past. That effectively would allow you to analyze historical rows that are up to 65 days old by querying the history table directly.
 
@@ -179,10 +178,9 @@ ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
-##Next steps
-
-To learn how to use Temporal Tables in your applications check out [Getting Started with Temporal Tables in Azure SQL Database](./sql-database-temporal-tables.md).
+## Next steps
+To learn how to use Temporal Tables in your applications, check out [Getting Started with Temporal Tables in Azure SQL Database](sql-database-temporal-tables.md).
 
 Visit Channel 9 to hear a [real customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-For detailed information about Temporal Tables, review [MSDN documentation](https://msdn.microsoft.com/zh-cn/library/dn935015.aspx).
+For detailed information about Temporal Tables, review [MSDN documentation](https://msdn.microsoft.com/library/dn935015.aspx).

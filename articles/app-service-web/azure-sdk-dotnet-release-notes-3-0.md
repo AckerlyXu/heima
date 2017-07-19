@@ -12,9 +12,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 03/07/2017
-wacn.date: ''
-ms.author: juliako;mikhegn
+origin.date: 03/07/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 
 ---
 # Azure SDK for .NET 3.0 release notes

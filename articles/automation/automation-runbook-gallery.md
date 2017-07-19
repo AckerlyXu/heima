@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-wacn.date: ''
-ms.author: magoedte;bwren
+origin.date: 12/14/2016
+ms.date: 01/25/2017
+ms.author: v-dazen
 
 ---
 # Runbook and module galleries for Azure Automation
@@ -23,7 +23,7 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 
 You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop.
 
-##<a name="runbooks-in-runbook-gallery"></a> Runbooks in Runbook Gallery
+## Runbooks in Runbook Gallery
 The [Runbook Gallery](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=RootCategory&f[0].Value=WindowsAzure&f[1].Type=SubCategory&f[1].Value=WindowsAzure_automation&f[1].Text=Automation) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. You can download a runbook from the gallery which is hosted in the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), or you can directly import runbooks from the gallery from the Azure Classic Management Portal.
 
 You can only import directly from the Runbook Gallery using the Azure Classic Management Portal. You cannot perform this function using Windows PowerShell.
@@ -65,7 +65,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 * Automation updates the Gallery once an hour, so you won't see your contributions immediately.
 
 ## Requesting a runbook or module
-You can send requests to [User Voice](https://www.azure.cn/product-feedback). If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation%2Cazureautomation).
+If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation%2Cazureautomation).
 
 ## Next Steps
 * To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)

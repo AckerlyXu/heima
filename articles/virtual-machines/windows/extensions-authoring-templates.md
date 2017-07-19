@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/29/2016
-wacn.date: ''
-ms.author: kundanap
+origin.date: 03/29/2016
+ms.date: 06/29/2016
+ms.author: v-dazen
 
 ---
 # Authoring Azure Resource Manager templates with Windows VM extensions
@@ -42,7 +42,7 @@ These three properties map to "publisher", "type", and "typeHandlerVersion" resp
 ## Identifying the schema for the extension configuration parameters
 The next step with authoring an extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
 
-To look at sample configurations for Windows extensions, see [Windows extensions samples](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To look at sample configurations for Windows extensions, see [Windows extensions samples](extensions-configuration-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Please refer to the following to get a fully complete template with VM extensions.
 

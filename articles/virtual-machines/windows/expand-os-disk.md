@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
-wacn.date: ''
-ms.author: kirpas
+origin.date: 10/18/2016
+ms.date: 12/30/2016
+ms.author: v-dazen
 
 ---
 # How to expand the OS drive of a Virtual Machine in an Azure Resource Group

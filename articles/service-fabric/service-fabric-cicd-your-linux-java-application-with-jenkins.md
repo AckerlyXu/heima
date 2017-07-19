@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
-ms.author: saysa
+ms.author: v-johch
 
 ---
 # Build and deploy your Linux Java application using Jenkins

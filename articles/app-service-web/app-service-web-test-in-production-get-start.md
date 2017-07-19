@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 01/13/2016
+ms.date: 09/26/2016
+ms.author: v-dazen
 
 ---
 # Get started with test in production for Web Apps
@@ -42,7 +42,7 @@ At the basic level in every TiP scenario, you route a predefined percentage of y
 > 
 > 
 
-1. Log into the [Azure Portal Preview](https://portal.azure.cn/).
+1. Log into the [Azure Portal](https://portal.azure.cn/).
 2. In your web app's blade, click **Settings** > **Traffic Routing**.
    ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Select the slot that you want to route traffic to and the percentage of the total traffic you desire, then click **Save**.

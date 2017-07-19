@@ -1,11 +1,11 @@
 ---
 title: Azure Service Bus Management Libraries| Azure
-description: Manage Service Bus namespaces and entities from .NET
+description: Manage Service Bus namespaces and messaging entities from .NET
 services: service-bus-messaging
-cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
+editor: ''
 
 ms.assetid:
 ms.service: service-bus-messaging
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
-wacn.date: ''
-ms.author: jotaub
+origin.date: 04/03/2017
+ms.date: 07/17/2017
+ms.author: v-yiso
 ---
 
 # Service Bus management libraries
@@ -37,15 +37,15 @@ To get started using the Service Bus management libraries, you must authenticate
 * [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
 
 ## Programming pattern
 
 The pattern to manipulate any Service Bus resource follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
+1. Obtain a token from Azure Active Directory using the **Microsoft.IdentityModel.Clients.ActiveDirectory** library.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.cn/{tenantId}");
+    var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

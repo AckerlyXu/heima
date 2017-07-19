@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
-ms.author: yurid
+origin.date: 01/04/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 # Internet of Things security architecture

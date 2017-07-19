@@ -1,37 +1,38 @@
 ---
-title: Migrate existing databases to scale-out | Microsoft Docs
+title: Migrate existing databases to scale-out | Azure
 description: Convert sharded databases to use elastic database tools by creating a shard map manager
 services: sql-database
 documentationcenter: ''
-author: ddove
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 10/24/2016
-ms.author: ddove
+origin.date: 10/24/2016
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
 # Migrate existing databases to scale-out
-
-Easily manage your existing scaled-out sharded databases using Azure SQL Database database tools (such as the [Elastic Database client library](./sql-database-elastic-database-client-library.md)). You must first convert an existing set of databases to use the [shard map manager](./sql-database-elastic-scale-shard-map-management.md). 
+Easily manage your existing scaled-out sharded databases using Azure SQL Database database tools (such as the [Elastic Database client library](sql-database-elastic-database-client-library.md)). You must first convert an existing set of databases to use the [shard map manager](sql-database-elastic-scale-shard-map-management.md). 
 
 ## Overview
 To migrate an existing sharded database: 
 
-1. Prepare the [shard map manager database](./sql-database-elastic-scale-shard-map-management.md).
+1. Prepare the [shard map manager database](sql-database-elastic-scale-shard-map-management.md).
 2. Create the shard map.
 3. Prepare the individual shards.  
 4. Add mappings to the shard map.
 
 These techniques can be implemented using either the [.NET Framework client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL DB - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
 
-For more information about the ShardMapManager, see [Shard map management](./sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](./sql-database-elastic-scale-introduction.md).
+For more information about the ShardMapManager, see [Shard map management](sql-database-elastic-scale-shard-map-management.md). For an overview of the elastic database tools, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
 ## Prepare the shard map manager database
 The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. Note that a database acting as shard map manager should not be the same database as a shard. Also note that the PowerShell script does not create the database for you. 
@@ -63,7 +64,7 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>'
 ## Step 2: create the shard map
 You must select the type of shard map to create. The choice depends on the database architecture: 
 
-1. Single tenant per database (For terms, see the [glossary](./sql-database-elastic-scale-glossary.md).) 
+1. Single tenant per database (For terms, see the [glossary](sql-database-elastic-scale-glossary.md).) 
 2. Multiple tenants per database (two types):
     1. List mapping
     2. Range mapping
@@ -135,7 +136,7 @@ Add-ListMapping
 ```
 
 ### Option 2: map the data for a range mapping
-Add the range mappings for all the tenant id range – database associations:
+Add the range mappings for all the tenant id range - database associations:
 
 ```
 # Create the mappings and associate it with the new shards 
@@ -161,18 +162,19 @@ Get-Mappings -ShardMap $ShardMap
 ```
 
 ## Summary
-Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard query](./sql-database-elastic-scale-multishard-querying.md).
+Once you have completed the setup, you can begin to use the Elastic Database client library. You can also use [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard query](sql-database-elastic-scale-multishard-querying.md).
 
 ## Next steps
 Get the PowerShell scripts from [Azure SQL DB-Elastic Database tools sripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](./sql-database-elastic-scale-get-started.md).
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](sql-database-elastic-scale-get-started.md).
 
 ## Additional resources
-For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database-design-patterns-multi-tenancy-saas-applications.md).
+For information on common data architecture patterns of multi-tenant software-as-a-service (SaaS) database applications, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
+For questions, please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted).
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
 [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png

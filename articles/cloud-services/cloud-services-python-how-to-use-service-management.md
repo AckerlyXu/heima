@@ -13,17 +13,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: lmazuel
+origin.date: 05/30/2017
+ms.date: 07/17/2017
+ms.author: v-yiso
 ---
 
 # How to use Service Management from Python
-
-> [!NOTE]
-> Service Management API is being replaced with the new Resource Management API, currently available in a preview release.  See the [Azure Resource Management documentation](http://azure-sdk-for-python.readthedocs.org/) for details on using the new Resource Management API from Python.
-> 
-> 
-
 This guide shows you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) supports programmatic access to much of the service management-related functionality that is available in the [Azure classic portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services, and virtual machines**). This functionality can be useful in building applications that need programmatic access to service management.
 
 ## <a name="WhatIs"> </a>What is Service Management
@@ -415,7 +410,7 @@ result = sms.capture_vm_image(
     )
 ```
 
-Next, to make sure that you have successfully captured the image, use the **list\_vm\_images** api and make sure your image is displayed in the results:
+Next, to make sure that you have successfully captured the image, use the **list\_vm\_images** api, and make sure your image is displayed in the results:
 
 ```
 images = sms.list_vm_images()
@@ -456,7 +451,7 @@ To learn more about how to capture a Windows Virtual Machine, see [How to Captur
 
 Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your python application.
 
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](https://www.azure.cn/develop/python/).
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
@@ -479,4 +474,4 @@ For more information, see the [Python Developer Center](/develop/python/).
 [management-portal]: https://manage.windowsazure.cn/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460799.aspx
 
-[cloud service]:./index.md
+[cloud service]: /cloud-services/

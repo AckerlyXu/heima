@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/12/2017
+ms.date: 04/27/2017
+ms.author: v-dazen
 
 ---
 # Upload data for Hadoop jobs in HDInsight
@@ -82,15 +82,16 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
         azure storage container list -a <storage-account-name> -k <primary-key>
 6. Use the following commands to upload and download files to the blob:
 
-    * To upload a file:
+   * To upload a file:
 
-            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-    * To download a file:
+           azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+   * To download a file:
 
-            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+           azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
 > If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
+>
 > * **AZURE\_STORAGE\_ACCOUNT**: The storage account name
 > * **AZURE\_STORAGE\_ACCESS\_KEY**: The storage account key
 >

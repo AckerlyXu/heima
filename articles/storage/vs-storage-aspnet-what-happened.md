@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-wacn.date: ''
-ms.author: tarcher
+origin.date: 12/02/2016
+ms.date: 01/06/2017
+ms.author: v-johch
 ---
 
 # What happened to my ASP.NET project (Visual Studio Azure Storage connected service)?

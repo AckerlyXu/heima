@@ -1,6 +1,6 @@
 ---
-title: Create Azure HDInsight (Hadoop) using a web browser | Azure
-description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure Portal Preview.
+title: Create Hadoop clusters using a web browser - Azure HDInsight | Azure
+description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure Portal.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: nitinme
+origin.date: 05/10/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
-# Create Linux-based clusters in HDInsight using the Azure portal preview
+# Create Linux-based clusters in HDInsight using the Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The Azure portal preview is a web-based management tool for services and resources hosted in the Azure cloud. In this article you will learn how to create Linux-based HDInsight clusters using the portal.
+The Azure portal is a web-based management tool for services and resources hosted in the Azure cloud. In this article you will learn how to create Linux-based HDInsight clusters using the portal.
 
 ## Prerequisites
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* **A modern web browser**. The Azure  portal preview uses HTML5 and Javascript, and may not function correctly in older web browsers.
+* **A modern web browser**. The Azure  portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
 ## Create clusters
-The Azure portal preview exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The Azure portal exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-1. Sign in to the [Azure  portal preview](https://portal.azure.cn).
+1. Sign in to the [Azure  portal](https://portal.azure.cn).
 2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure portal preview](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creating a new cluster in the Azure portal preview")
+    ![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Creating a new cluster in the Azure portal")
 
 3. In the **HDInsight** blade, click **Custom (size, settings, apps)**, click **Basics**, and then enter the following information.
 
-    ![Creating a new cluster in the Azure portal preview](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "Creating a new cluster in the Azure portal preview")
+    ![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "Creating a new cluster in the Azure portal")
 
     * Enter **Cluster Name**: This name must be globally unique.
 
@@ -59,8 +59,6 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
         * **Operating System**: Select **Linux**.
 
         * **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-        * **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
-
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
     * Enter an **SSH Username** and if you want to have the SSH password same as the admin password you specified earlier, select the **Use same password as cluster login** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
@@ -75,7 +73,7 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
 4. On the **Storage** blade, specify whether you want Azure Storage (WASB) as your default storage. Look at the table below for more information.
 
-    ![Creating a new cluster in the Azure portal preview](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Creating a new cluster in the Azure portal preview")
+    ![Creating a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
 
     | Storage                                      | Description |
     |----------------------------------------------|-------------|
@@ -91,20 +89,20 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
 6. Click **Cluster size** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
 
-    ![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.nodes.png "Specify number of cluster nodes")
+    ![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "Specify number of cluster nodes")
 
-    > [!IMPORTANT]
-    > If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
-    > <p> 
-    > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
-    > 
-    > 
+   > [!IMPORTANT]
+   > If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+   > 
+   > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
+   > 
+   > 
 
-    Click **Next** to save the node pricing configuration.
+   Click **Next** to save the node pricing configuration.
 
 7. Click **Advanced settings** to configure other optional settings such as using **Script Actions** to customize a cluster to install custom components or joining a **Virtual Network**. Look at the table below for more information.
 
-    ![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.advanced.png "Specify number of cluster nodes")
+    ![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "Specify number of cluster nodes")
 
     | Option | Description |
     |--------|-------------|
@@ -115,7 +113,7 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
 8. On the **Summary** blade, verify the information you entered earlier and then click **Create**.
 
-    ![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.summary.png "Specify number of cluster nodes")
+    ![Node pricing tiers blade](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Specify number of cluster nodes")
 
     > [!NOTE]
     > It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
@@ -123,7 +121,7 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
     > 
 12. Once the creation process completes, click the tile for the cluster from the Startboard to launch the cluster blade. The cluster blade provides the following information.
 
-    ![Cluster blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.completed.png "Cluster properties")
+    ![Cluster blade](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Cluster properties")
 
     Use the following to understand the icons at the top of this blade.
 

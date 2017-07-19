@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/23/2016
-wacn.date: ''
-ms.author: danlep
+origin.date: 08/23/2016
+ms.date: 10/25/2016
+ms.author: v-dazen
 
 ---
 # Common Azure CLI commands for virtual machine tasks in the Resource Manager deployment model

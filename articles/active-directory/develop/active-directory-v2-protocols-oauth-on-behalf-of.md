@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: nacanuma
-wacn.date: ''
+origin.date: 05/04/2017
+ms.author: v-junlch
+ms.date: 06/12/2017
 
 ---
 # Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow
@@ -55,7 +55,7 @@ https://login.partner.microsoftonline.cn/<tenant>/oauth2/v2.0/token
 | Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |required | The type of the token request. For a request using a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| client_id |required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) assigned to your app. |
+| client_id |required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com) assigned to your app. |
 | client_secret |required | The Application secret that you generated for your app in the Application Registration Portal. |
 | assertion |required | The value of the token used in the request. |
 | scope |required | A space separated list of scopes for the token request. For more information, see [scopes](active-directory-v2-scopes.md).|

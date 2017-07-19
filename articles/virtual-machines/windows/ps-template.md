@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: ''
-ms.author: davidmu
+origin.date: 03/07/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 
 This article shows you how to deploy an Azure Resource Manager template using PowerShell. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-create-first-template.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 It should take about five minutes to do the steps in this article.
 
@@ -49,7 +49,7 @@ All resources must be deployed in a [resource group](../../azure-resource-manage
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
     ```
 
-    You should see something like this example:
+  You should see something like this example:
 
     ```powershell 
     ResourceGroupName : myResourceGroup
@@ -65,7 +65,6 @@ Deploy the template and provide parameter values when prompted. This example dep
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" 
 ```
-
 You're asked to provide the name of the administrator account on the VM, the password of the account, and the DNS prefix.
 
 You should see something like this example:
@@ -98,5 +97,5 @@ You should see something like this example:
 ## Next Steps
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-- Learn how to use Azure PowerShell to create a virtual machine from [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to use Azure PowerShell to create a virtual machine from [Create a Windows VM using Resource Manager and PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to manage the virtual machine that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

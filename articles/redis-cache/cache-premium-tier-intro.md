@@ -13,9 +13,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 01/06/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Introduction to the Azure Redis Cache Premium tier

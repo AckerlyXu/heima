@@ -1,27 +1,27 @@
 ---
 title: 'Azure Cosmos DB: Develop with the Graph API in .NET | Azure'
 description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: arramac
-
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
+ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Graph API in .NET
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal preview and how to create a graph database and container. The application then creates a simple social network with four people using the [Graph API](graph-sdk-dotnet.md) (preview), then traverses and queries the graph using Gremlin.
+This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal and how to create a graph database and container. The application then creates a simple social network with four people using the [Graph API](graph-sdk-dotnet.md) (preview), then traverses and queries the graph using Gremlin.
 
 This tutorial covers the following tasks:
 
@@ -41,21 +41,21 @@ Gremlin is a functional programming language that supports write operations (DML
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/). 
-    * Alternatively, you can use the [Azure DocumentDB Emulator](../documentdb/documentdb-nosql-local-emulator.md) for this tutorial.
+    * Alternatively, you can use the [Azure DocumentDB Emulator](local-emulator.md) for this tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## Create database account
 
-Let's start by creating an Azure Cosmos DB account in the Azure portal preview.  
+Let's start by creating an Azure Cosmos DB account in the Azure portal.  
 
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
 > * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
-> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
+> * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
 >
 > 
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 1. Open **Visual Studio** on your computer.
@@ -77,13 +77,13 @@ Add these two constants and your *client* variable in your application.
 string endpoint = ConfigurationManager.AppSettings["Endpoint"]; 
 string authKey = ConfigurationManager.AppSettings["AuthKey"]; 
 ``` 
-Next, head back to the [Azure portal preview](https://portal.azure.cn) to retrieve your endpoint URL and primary key. The endpoint URL and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. 
+Next, head back to the [Azure portal](https://portal.azure.cn) to retrieve your endpoint URL and primary key. The endpoint URL and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection. 
 
-In the Azure portal preview, navigate to your Azure Cosmos DB account, click **Keys**, and then click **Read-write Keys**. 
+In the Azure portal, navigate to your Azure Cosmos DB account, click **Keys**, and then click **Read-write Keys**. 
 
 Copy the URI from the portal and paste it over `Endpoint` in the endpoint property above. Then copy the PRIMARY KEY from the portal and paste it into the `AuthKey` property above. 
 
-![Screen shot of the Azure portal preview used by the tutorial to create a C# application. Shows an Azure Cosmos DB account the KEYS button highlighted on the Azure Cosmos DB navigation , and the URI and PRIMARY KEY values highlighted on the Keys blade][keys] 
+![Screen shot of the Azure portal used by the tutorial to create a C# application. Shows an Azure Cosmos DB account the KEYS button highlighted on the Azure Cosmos DB navigation , and the URI and PRIMARY KEY values highlighted on the Keys blade][keys] 
 
 ## <a id="instantiate"></a>Instantiate the DocumentClient 
 Next, create a new instance of the **DocumentClient**.  
@@ -94,7 +94,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Create a database 
 
-Now, create an Azure Cosmos DB [database](../documentdb/documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md).  
+Now, create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
@@ -102,7 +102,7 @@ Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { I
 
 ## Create a graph 
 
-Next, create a graph container by using the using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method or [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) method of the **DocumentClient** class. A collection is a container of graph entities. 
+Next, create a graph container by using the using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method or [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) method of the **DocumentClient** class. A collection is a container of graph entities. 
 
 ```csharp 
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
@@ -263,9 +263,9 @@ That's it, this Azure Cosmos DB tutorial is complete!
 
 ## Clean up resources
 
-If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal preview.  
+If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal.  
 
-1. From the left-hand menu in the Azure portal preview, click **Resource groups** and then click the name of the resource you created. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next Steps

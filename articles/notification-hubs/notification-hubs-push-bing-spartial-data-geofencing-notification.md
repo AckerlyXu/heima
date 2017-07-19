@@ -9,8 +9,10 @@ manager: yuaxu
 editor: dend
 
 ms.service: notification-hubs
-ms.date: 05/31/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 05/31/2016
+ms.date: 01/09/2017
+ms.author: v-junlch
 ---
 
 # Geo-fenced push notifications with Azure Notification Hubs and Bing Spatial Data

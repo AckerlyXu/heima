@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
-wacn.date: ''
-ms.author: negat
+origin.date: 05/10/2017
+ms.date: 06/20/2017
+ms.author: v-dazen
 ---
 
 # Add a custom image to an Azure scale set template

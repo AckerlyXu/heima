@@ -1,9 +1,10 @@
 # Overview
 ## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs features](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
 # Get Started
-## [Create an Event Hub](event-hubs-create.md)
+## [Create an event hub](event-hubs-create.md)
 ## Send events
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
@@ -25,7 +26,7 @@
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
-#### [Diagnostic logs](event-hubs-diagnostic-logs.md)
+<!-- Not Available #### [Diagnostic logs](event-hubs-diagnostic-logs.md) -->
 ### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
@@ -39,21 +40,21 @@
 
 # Reference
 ## .NET
-### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
-### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
 ## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
-## [REST](/rest/api/eventhub)
+### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
+## [REST](https://docs.microsoft.com/rest/api/eventhub)
 ## [Exceptions](event-hubs-messaging-exceptions.md)
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
 ## [Code samples](event-hubs-samples.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)

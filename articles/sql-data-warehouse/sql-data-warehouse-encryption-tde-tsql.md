@@ -3,7 +3,7 @@ title: Transparent Data Encryption in SQL Data Warehouse (T-SQL)| Azure
 description: Transparent Data Encryption (TDE) in SQL Data Warehouse (T-SQL)
 services: sql-data-warehouse
 documentationcenter: ''
-author: ronortloff
+author: rockboyfor
 manager: barbkess
 editor: ''
 
@@ -14,9 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: rortloff;barbkess
+origin.date: 10/31/2016
+ms.date: 01/17/2017
+ms.author: v-yeche
 ---
 
 # Get started with Transparent Data Encryption (TDE)

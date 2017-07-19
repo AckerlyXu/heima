@@ -7,13 +7,14 @@ authors: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
-ms.author: sethm
+origin.date: 05/18/2017
+ms.author: v-yiso
 ---
 
 # Service Bus architecture
@@ -32,7 +33,7 @@ A Service Bus namespace is mapped to a scale unit. The scale unit handles all t
 
 - **One gateway store.** The gateway store holds the data for every entity that is defined in this scale unit. The gateway store is implemented on top of a SQL Azure database.
 
-- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](./service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. 
+- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioning messaging entities](./service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. 
 
 ## Containers
 
@@ -45,8 +46,7 @@ When a client sends a request to Service Bus, the Azure load balancer routes it 
 ![Processing of Incoming Messaging Requests](./media/service-bus-architecture/IC690644.png)
 
 ## Processing of incoming relay requests
-
-When a client sends a request to Service Bus, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
+When a client sends a request to the [Azure Relay](/service-bus-relay/) service, the Azure load balancer routes it to any of the gateway nodes. If the request is a listening request, the gateway node creates a new relay. If the request is a connection request to a specific relay, the gateway node forwards the connection request to the gateway node that owns the relay. The gateway node that owns the relay sends a rendezvous request to the listening client, asking the listener to create a temporary channel to the gateway node that received the connection request.
 
 When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
 
@@ -56,5 +56,6 @@ When the relay connection is established, the clients can exchange messages via 
 Now that you've read an overview of Service Bus architecture, visit the following links for more information:
 
 - [Service Bus messaging overview](./service-bus-messaging-overview.md)
+* [Azure Relay overview](../service-bus-relay/relay-what-is-it.md)
 - [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)
 - [A queued messaging solution using Service Bus queues](./service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)

@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/25/2016
-wacn.date: ''
-ms.author: v-livech
+origin.date: 10/25/2016
+ms.date: 12/20/2016
+ms.author: v-dazen
 
 ---
 # Azure and Linux VM Network Overview
@@ -41,9 +41,9 @@ When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you wi
 * [Create a UDR in the Azure CLI](../../virtual-network/virtual-network-create-udr-arm-cli.md)
 
 ## Associating a FQDN to your Linux VM
-When you create a virtual machine (VM) in the Azure portal preview using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a fully qualified domain name, or FQDN, by default, you can add one once the VM is created.
+When you create a virtual machine (VM) in the Azure portal using the Resource Manager deployment model, a public IP resource for the virtual machine is automatically created. You use this IP address to remotely access the VM. Although the portal does not create a fully qualified domain name, or FQDN, by default, you can add one once the VM is created.
 
-* [Create a Fully Qualified Domain Name in the Azure portal preview](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Network interfaces
 A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
@@ -53,7 +53,7 @@ A network interface (NIC) is the interconnection between a Virtual Machine (VM) 
 ## Virtual NICs and DNS labeling
 If you have a server that you need to be persistent, but that server is treated as cattle and is torn down and deployed frequently, you will want to use DNS labeling on your NIC to persist the name on the VNET.  With the following walk-through you will setup a persistently named NIC with a static IP.
 
-* [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Virtual Network Gateways
 A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet). When you configure a VPN gateway, you must create and configure a virtual network gateway and a virtual network gateway connection.

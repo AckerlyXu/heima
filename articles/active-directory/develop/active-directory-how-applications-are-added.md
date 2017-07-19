@@ -8,8 +8,10 @@ manager: kbrint
 editor: ''
 
 ms.service: active-directory
-ms.date: 02/09/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 02/09/2016
+ms.date: 02/06/2017
+ms.author: v-junlch
 ---
 
 # How and why applications are added to Azure AD

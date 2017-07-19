@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/07/2017
+ms.date: 02/13/2017
+ms.author: v-junlch
 ---
 
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
@@ -56,7 +56,7 @@ For more information about application permissions, go to [Microsoft Graph](http
 To use application permissions in your app, do the steps we discuss in the next sections.
 
 #### Request the permissions in the app registration portal
-1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or [create an app](./active-directory-v2-app-registration.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
+1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com), or [create an app](./active-directory-v2-app-registration.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
 2. Locate the **Direct Application Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
@@ -84,7 +84,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | tenant |Required |The directory tenant that you want to request permission from. This can be in GUID or friendly name format. If you don't know which tenant the user belongs to and you want to let them sign in with any tenant, use `common`. |
-| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) assigned to your app. |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com) assigned to your app. |
 | redirect_uri |Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded, and it can have additional path segments. |
 | state |Recommended |A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
@@ -132,7 +132,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) assigned to your app. |
+| client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com) assigned to your app. |
 | scope |Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
 | client_secret |Required |The Application Secret that you generated for your app in the app registration portal. |
 | grant_type |Required |Must be `client_credentials`. |

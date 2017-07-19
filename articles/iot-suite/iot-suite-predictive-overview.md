@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2017
-wacn.date: ''
-ms.author: dobett
+origin.date: 04/25/2017
+ms.date: 04/27/2017
+ms.author: v-yiso
 ---
 
 # Predictive maintenance preconfigured solution overview
@@ -47,7 +47,7 @@ To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities cus
 
 Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publically available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
 
-The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams that provide an accurate result from the trained model.
+The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template. The model is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams. This data is sufficient to provide an accurate result from the trained model.
 
 *\[1\] A. Saxena and K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
@@ -76,16 +76,6 @@ To complete this tutorial, you need an active Azure subscription.
 > [!NOTE]
 > If you encounter issues deploying the preconfigured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
 
-The following screenshot shows the solution panel when the provisioning is complete:
-
-![Provisioning complete][img-provisioning-complete]
-
-From this panel, you can:
-
-- Launch the solution dashboard.
-- Download a remote login file that enables you to connect to the R Server in your solution.
-- View more information about R Server.
-
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## View the solution
@@ -103,7 +93,7 @@ In the Azure portal, navigate to the resource group with the solution name you c
 
 ![][img-resource-group]
 
-When you provision the preconfigured solution with an R server, you are shown links to the server during the provisioning process. You can also connect to the R server from your solution's [azureiotsuite.com][lnk-azureiotsuite] page when it's in the **Ready** state.
+When you provision the preconfigured solution with an R server, you are shown links to the server during the provisioning process. You can also connect to the R server from your solution's [azureiotsuite.cn][lnk-azureiotsuite] page when it's in the **Ready** state.
 
 In the solution portal, you can see that the sample is provisioned with four simulated devices to represent two aircraft with two engines per aircraft, each with four sensors. When you first navigate to the solution portal, the simulation is stopped.
 
@@ -151,7 +141,7 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-faq]: ./iot-suite-faq.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
-[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn
 [lnk-permissions]: ./iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/

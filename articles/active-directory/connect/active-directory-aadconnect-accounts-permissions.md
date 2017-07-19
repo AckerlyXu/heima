@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: billmath
+ms.author: v-junlch
 
 ---
 # Azure AD Connect: Accounts and permissions
@@ -102,7 +102,7 @@ If you use express settings, then an account is created in Active Directory that
 
 If you use custom settings, then you are responsible for creating the account before you start the installation.
 
-### Azure AD Connect sync service account
+### Azure AD Connect sync service account <a name="azure-ad-connect-sync-service-accounts"></a><a name="azure-ad-connect-sync-service-account"></a>
 The sync service can run under different accounts. It can run under a **Virtual Service Account** (VSA), a **Group Managed Service Account** (gMSA/sMSA), or a regular user account. The supported options were changed with the 2017 April release of Connect when you do a fresh installation. If you upgrade from an earlier release of Azure AD Connect, these additional options are not available.
 
 | Type of account | Installation option | Description |
@@ -141,7 +141,7 @@ A virtual service account is a special type of account that does not have a pass
 
 ![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
 
-The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a [Group Managed Service Account](#managed-service-account) instead.
+The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a [Group Managed Service Account](#group-managed-service-account) instead.
 
 This feature requires Windows Server 2008 R2 or later. If you install Azure AD Connect on Windows Server 2008, then the installation falls back to using a [user account](#user-account) instead.
 

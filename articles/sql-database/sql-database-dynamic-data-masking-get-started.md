@@ -3,26 +3,27 @@ title: Azure SQL Database dynamic data masking | Microsoft docs
 description: SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users
 services: sql-database
 documentationcenter: ''
-author: ronitr
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/09/2017
-ms.author: ronitr; ronmat
+origin.date: 03/09/2017
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
 # SQL Database dynamic data masking
 
 SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
 
-Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
+Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It's a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
 For example, a service representative at a call center may identify callers by several digits of their credit card number, but those data items should not be fully exposed to the service representative. A masking rule can be defined that masks all but the last four digits of any credit card number in the result set of any query. As another example, an appropriate data mask can be defined to protect personally identifiable information (PII) data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
@@ -55,4 +56,3 @@ See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt5740
 
 ## Set up dynamic data masking for your database using REST API
 See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
-

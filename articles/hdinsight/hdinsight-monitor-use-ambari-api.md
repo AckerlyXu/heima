@@ -1,5 +1,5 @@
 ---
-title: Monitor Hadoop clusters in HDInsight using the Ambari API | Azure
+title: Monitor Hadoop clusters in HDInsight using the Ambari API - Azure | Azure
 description: Use the Apache Ambari APIs for creating, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 04/07/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -40,17 +40,17 @@ Before you begin this tutorial, you must have the following items:
 * **A workstation with Azure PowerShell**.
 * (Optional) [cURL][curl]. To install it, see [cURL Releases and Downloads][curl-download].
 
-    > [!NOTE]
-    > When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
-    > 
-    > 
+  > [!NOTE]
+  > When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
+  > 
+  > 
 * **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You need the following data to go through the tutorial:
 
-    | Cluster property | Azure PowerShell variable name | Value | Description |
-    | --- | --- | --- | --- |
-    |   HDInsight cluster name |$clusterName | |The name of your HDInsight cluster. |
-    |   Cluster username |$clusterUsername | |Cluster user name specified when the cluster was created. |
-    |   Cluster password |$clusterPassword | |Cluster user password. |
+  | Cluster property | Azure PowerShell variable name | Value | Description |
+  | --- | --- | --- | --- |
+  |   HDInsight cluster name |$clusterName | |The name of your HDInsight cluster. |
+  |   Cluster username |$clusterUsername | |Cluster user name specified when the cluster was created. |
+  |   Cluster password |$clusterPassword | |Cluster user password. |
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -143,7 +143,7 @@ The following table lists some of the most common Ambari monitoring API calls. F
 ## Next Steps
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
-* [Manage HDInsight clusters using the Azure portal preview][hdinsight-admin-portal]
+* [Manage HDInsight clusters using the Azure portal][hdinsight-admin-portal]
 * [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
 * [Manage HDInsight clusters using command-line interface][hdinsight-admin-cli]
 * [HDInsight documentation][hdinsight-documentation]
@@ -158,7 +158,7 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: https://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

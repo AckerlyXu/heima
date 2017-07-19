@@ -3,7 +3,7 @@ title: Resources for developing a data warehouse in Azure | Azure
 description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: rockboyfor
 manager: barbkess
 editor: ''
 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: jrj;barbkess
+origin.date: 10/31/2016
+ms.date: 03/20/2017
+ms.author: v-yeche
 ---
 
 # Design decisions and coding techniques for SQL Data Warehouse

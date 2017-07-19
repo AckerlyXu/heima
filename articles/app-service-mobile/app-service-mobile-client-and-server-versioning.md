@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: v-yiso
 ---
 
 # Client and server versioning in Mobile Apps and Mobile Services

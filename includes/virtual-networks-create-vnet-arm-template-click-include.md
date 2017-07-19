@@ -17,7 +17,7 @@ You can reuse pre-defined ARM templates upload to a github repository maintained
 8. Click **Leagl terms**, read the terms, and click **Buy** to agree. 
 9. Click **Create** to create the VNet.
 
-    ![Submitting deployment tile in Portal Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Submitting deployment tile in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 10. Once the deployment is done, click **TestVNet** > **All settings** > **Subnets** to see the subnet properties, as shown below.
 
-     ![Create VNet in Portal Preview](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+     ![Create VNet in Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)

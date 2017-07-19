@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/09/2017
-wacn.date: ''
-ms.author: allclark
+origin.date: 03/09/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a VM with a virtual hard disk
@@ -30,15 +31,13 @@ You'll need a bootable VHD.
 You can download the VHD that we used from https://azclisamples.blob.core.windows.net/vhds/sample.vhd,
 or use your own VHD. The script looks for `~/sample.vhd`.
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group
@@ -74,7 +73,7 @@ echo "You can now connect using 'ssh deploy@${IP_ADDRESS}'"
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete -n az-cli-vhd
 ```
 
@@ -100,4 +99,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

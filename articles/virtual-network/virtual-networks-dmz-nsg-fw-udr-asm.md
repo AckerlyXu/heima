@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2016
-wacn.date: ''
-ms.author: jonor;sivae
+origin.date: 02/01/2016
+ms.date: 12/16/2016
+ms.author: v-dazen
 
 ---
 # Example 3 - Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
@@ -194,17 +194,17 @@ In the logical diagram above, the security subnet is not shown since the firewal
 For this example, we need 7 types of rules, these rule types are described as follows:
 
 * External Rules (for inbound traffic):
-    1. Firewall Management Rule: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance.
-    2. RDP Rules (for each windows server): These four rules (one for each server) will allow management of the individual servers via RDP. This could also be bundled into one rule depending on the capabilities of the Network Virtual Appliance being used.
-    3. Application Traffic Rules: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). The configuration of these rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
-        * The first rule will allow the actual application traffic to reach the application server. While the other rules allow for security, management, etc., Application Rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80, thus a single firewall application rule will redirect inbound traffic to the external IP, to the web servers internal IP address. The redirected traffic session would be NAT'd to the internal server.
-        * The second Application Traffic Rule is the back end rule to allow the Web Server to talk to the AppVM01 server (but not AppVM02) via any port.
+  1. Firewall Management Rule: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance.
+  2. RDP Rules (for each windows server): These four rules (one for each server) will allow management of the individual servers via RDP. This could also be bundled into one rule depending on the capabilities of the Network Virtual Appliance being used.
+  3. Application Traffic Rules: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). The configuration of these rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
+     * The first rule will allow the actual application traffic to reach the application server. While the other rules allow for security, management, etc., Application Rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80, thus a single firewall application rule will redirect inbound traffic to the external IP, to the web servers internal IP address. The redirected traffic session would be NAT'd to the internal server.
+     * The second Application Traffic Rule is the back end rule to allow the Web Server to talk to the AppVM01 server (but not AppVM02) via any port.
 * Internal Rules (for intra-VNet traffic)
-    1. Outbound to Internet Rule: This rule will allow traffic from any network to pass to the selected networks. This rule is usually a default rule already on the firewall, but in a disabled state. This rule should be enabled for this example.
-    2. DNS Rule: This rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the Frontend to the Backend is blocked, this rule specifically allows DNS from any local subnet.
-    3. Subnet to Subnet Rule: This rule is to allow any server on the back end subnet to connect to any server on the front end subnet (but not the reverse).
+  1. Outbound to Internet Rule: This rule will allow traffic from any network to pass to the selected networks. This rule is usually a default rule already on the firewall, but in a disabled state. This rule should be enabled for this example.
+  2. DNS Rule: This rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the Frontend to the Backend is blocked, this rule specifically allows DNS from any local subnet.
+  3. Subnet to Subnet Rule: This rule is to allow any server on the back end subnet to connect to any server on the front end subnet (but not the reverse).
 * Fail-safe Rule (for traffic that doesn't meet any of the above):
-    1. Deny All Traffic Rule: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed.
+  1. Deny All Traffic Rule: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed.
 
 > [!TIP]
 > On the second application traffic rule, any port is allowed for easy of this example, in a real scenario the most specific port and address ranges should be used to reduce the attack surface of this rule.
@@ -222,7 +222,7 @@ For this example, we need 7 types of rules, these rule types are described as fo
 One prerequisite for the Virtual Machine running the firewall are public endpoints. For the firewall to process traffic the appropriate public endpoints must be open. There are three types of traffic in this example; 1) Management traffic to control the firewall and firewall rules, 2) RDP traffic to control the windows servers, and 3) Application Traffic. These are the three columns of traffic types in the upper half of logical view of the firewall rules above.
 
 > [!IMPORTANT]
-> A key takeway here is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal preview's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.chinacloudapp.cn:xxxx (reference the above diagram for the mapping of External Port and Internal IP and Port).
+> A key takeway here is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.chinacloudapp.cn:xxxx (reference the above diagram for the mapping of External Port and Internal IP and Port).
 > 
 > 
 
@@ -234,7 +234,7 @@ An endpoint can be opened either at the time of VM creation or post build as is 
 
 Although not clearly shown here due to the use of variables, but endpoints are **only** opened on the Security Cloud Service. This is to ensure that all inbound traffic is handled (routed, NAT'd, dropped) by the firewall.
 
-A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section and the next section, Firewall Rules Creation, will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal preview or PowerShell).
+A management client will need to be installed on a PC to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor on how to manage the device. The remainder of this section and the next section, Firewall Rules Creation, will describe the configuration of the firewall itself, through the vendors management client (i.e. not the Azure portal or PowerShell).
 
 Instructions for client download and connecting to the Barracuda used in this example can be found here: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
@@ -294,23 +294,23 @@ The specifics of each rule required to complete this example are described as fo
 > 
 
 * **RDP Rules**:  These Destination NAT rules will allow management of the individual servers via RDP.
-    There are four critical fields needed to create this rule:
+  There are four critical fields needed to create this rule:
 
-    1. Source - to allow RDP from anywhere, the reference "Any" is used in the Source field.
-    2. Service - use the appropriate Service Object created earlier, in this case "AppVM01 RDP", the external ports redirect to the servers local IP address and to port 3386 (the default RDP port). This specific rule is for RDP access to AppVM01.
-    3. Destination - should be the *local port on the firewall*, "DCHP 1 Local IP" or eth0 if using static IPs. The ordinal number (eth0, eth1, etc) may be different if your network appliance has multiple local interfaces. This is the port the firewall is sending out from (may be the same as the receiving port), the actual routed destination is in the Target List field.
-    4. Redirection - this section tells the virtual appliance where to ultimately redirect this traffic. The simplest redirection is to place the IP and Port (optional) in the Target List field. If no port is used the destination port on the inbound request will be used (ie no translation), if a port is designated the port will also be NAT'd along with the IP address.
+  1. Source - to allow RDP from anywhere, the reference "Any" is used in the Source field.
+  2. Service - use the appropriate Service Object created earlier, in this case "AppVM01 RDP", the external ports redirect to the servers local IP address and to port 3386 (the default RDP port). This specific rule is for RDP access to AppVM01.
+  3. Destination - should be the *local port on the firewall*, "DCHP 1 Local IP" or eth0 if using static IPs. The ordinal number (eth0, eth1, etc) may be different if your network appliance has multiple local interfaces. This is the port the firewall is sending out from (may be the same as the receiving port), the actual routed destination is in the Target List field.
+  4. Redirection - this section tells the virtual appliance where to ultimately redirect this traffic. The simplest redirection is to place the IP and Port (optional) in the Target List field. If no port is used the destination port on the inbound request will be used (ie no translation), if a port is designated the port will also be NAT'd along with the IP address.
 
-        ![Firewall RDP Rule][11]
+     ![Firewall RDP Rule][11]
 
-        A total of four RDP rules will need to be created: 
+     A total of four RDP rules will need to be created: 
 
-        | Rule Name | Server | Service | Target List |
-        | --- | --- | --- | --- |
-        | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
-        | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
-        | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
-        | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
+     | Rule Name | Server | Service | Target List |
+     | --- | --- | --- | --- |
+     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
+     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
+     | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
+     | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
 > Narrowing down the scope of the Source and Service fields will reduce the attack surface. The most limited scope that will allow functionality should be used.
@@ -384,7 +384,7 @@ With the activation of the firewall ruleset this example environment build is co
 
 ## Traffic Scenarios
 > [!IMPORTANT]
-> A key takeway is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal preview's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.chinacloudapp.cn:xxxx.
+> A key takeway is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.chinacloudapp.cn:xxxx.
 > 
 > 
 
@@ -412,12 +412,12 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 3. No NSG assigned to Security subnet, so system NSG rules allow traffic to firewall
 4. Traffic hits internal IP address of the firewall (10.0.1.4)
 5. Firewall begins rule processing:
-    1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
-    2. FW Rules 2 - 5 (RDP Rules) don't apply, move to next rule
-    3. FW Rule 6 (App: Web) does apply, traffic is allowed, firewall NATs it to 10.0.1.4 (IIS01)
+   1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
+   2. FW Rules 2 - 5 (RDP Rules) don't apply, move to next rule
+   3. FW Rule 6 (App: Web) does apply, traffic is allowed, firewall NATs it to 10.0.1.4 (IIS01)
 6. The Frontend subnet begins inbound rule processing:
-    1. NSG Rule 1 (Block Internet) doesn't apply (this traffic was NAT'd by the firewall, thus the source address is now the firewall which is on the Security subnet and seen by the Frontend subnet NSG to be "local" traffic and is thus allowed), move to next rule
-    2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
+   1. NSG Rule 1 (Block Internet) doesn't apply (this traffic was NAT'd by the firewall, thus the source address is now the firewall which is on the Security subnet and seen by the Frontend subnet NSG to be "local" traffic and is thus allowed), move to next rule
+   2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
 7. IIS01 is listening for web traffic, receives this request and starts processing the request
 8. IIS01 attempts to initiates an FTP session to AppVM01 on Backend subnet
 9. The UDR route on Frontend subnet makes the firewall the next hop
@@ -448,13 +448,13 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 2. The cloud service passes traffic through the open endpoint on port 8025 to firewall interface on 10.0.0.4:8025
 3. No NSG assigned to Security subnet, so system NSG rules allow traffic to firewall
 4. Firewall begins rule processing:
-    1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
-    2. FW Rule 2 (RDP IIS) doesn't apply, move to next rule
-    3. FW Rule 3 (RDP DNS01) doesn't apply, move to next rule
-    4. FW Rule 4 (RDP AppVM01) does apply, traffic is allowed, firewall NATs it to 10.0.2.5:3386 (RDP port on AppVM01)
+   1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
+   2. FW Rule 2 (RDP IIS) doesn't apply, move to next rule
+   3. FW Rule 3 (RDP DNS01) doesn't apply, move to next rule
+   4. FW Rule 4 (RDP AppVM01) does apply, traffic is allowed, firewall NATs it to 10.0.2.5:3386 (RDP port on AppVM01)
 5. The Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (Block Internet) doesn't apply (this traffic was NAT'd by the firewall, thus the source address is now the firewall which is on the Security subnet and seen by the Backend subnet NSG to be "local" traffic and is thus allowed), move to next rule
-    2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
+   1. NSG Rule 1 (Block Internet) doesn't apply (this traffic was NAT'd by the firewall, thus the source address is now the firewall which is on the Security subnet and seen by the Backend subnet NSG to be "local" traffic and is thus allowed), move to next rule
+   2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
 6. AppVM01 is listening for RDP traffic and responds
 7. With no outbound NSG rules, default rules apply and return traffic is allowed
 8. UDR routes outbound traffic to the firewall as the next hop
@@ -468,14 +468,14 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 3. UDR routes outbound traffic to the firewall as the next hop
 4. No outbound NSG rules are bound to the Frontend subnet, traffic is allowed
 5. Firewall begins rule processing:
-    1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
-    2. FW Rule 2 - 5 (RDP Rules) don't apply, move to next rule
-    3. FW Rules 6 & 7 (App Rules) don't apply, move to next rule
-    4. FW Rule 8 (To Internet) doesn't apply, move to next rule
-    5. FW Rule 9 (DNS) does apply, traffic is allowed, firewall forwards traffic to 10.0.2.4 (DNS01)
+   1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
+   2. FW Rule 2 - 5 (RDP Rules) don't apply, move to next rule
+   3. FW Rules 6 & 7 (App Rules) don't apply, move to next rule
+   4. FW Rule 8 (To Internet) doesn't apply, move to next rule
+   5. FW Rule 9 (DNS) does apply, traffic is allowed, firewall forwards traffic to 10.0.2.4 (DNS01)
 6. The Backend subnet begins inbound rule processing:
-    1. NSG Rule 1 (Block Internet) doesn't apply, move to next rule
-    2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
+   1. NSG Rule 1 (Block Internet) doesn't apply, move to next rule
+   2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
 7. DNS server receives the request
 8. DNS server doesn't have the address cached and asks a root DNS server on the internet
 9. UDR routes outbound traffic to the firewall as the next hop
@@ -504,15 +504,15 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 2. The UDR route on Backend subnet makes the firewall the next hop
 3. Since there are no outbound NSG rules on the Backend subnet the response is allowed
 4. Firewall begins rule processing:
-    1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
-    2. FW Rule 2 - 5 (RDP Rules) don't apply, move to next rule
-    3. FW Rules 6 & 7 (App Rules) don't apply, move to next rule
-    4. FW Rule 8 (To Internet) doesn't apply, move to next rule
-    5. FW Rule 9 (DNS) doesn't apply, move to next rule
-    6. FW Rule 10 (Intra-Subnet) does apply, traffic is allowed, firewall passes traffic to 10.0.1.4 (IIS01)
+   1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
+   2. FW Rule 2 - 5 (RDP Rules) don't apply, move to next rule
+   3. FW Rules 6 & 7 (App Rules) don't apply, move to next rule
+   4. FW Rule 8 (To Internet) doesn't apply, move to next rule
+   5. FW Rule 9 (DNS) doesn't apply, move to next rule
+   6. FW Rule 10 (Intra-Subnet) does apply, traffic is allowed, firewall passes traffic to 10.0.1.4 (IIS01)
 5. Frontend subnet begins inbound rule processing:
-    1. NSG Rule 1 (Block Internet) doesn't apply, move to next rule
-    2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
+   1. NSG Rule 1 (Block Internet) doesn't apply, move to next rule
+   2. Default NSG Rules allow subnet to subnet traffic, traffic is allowed, stop NSG rule processing
 6. Assuming proper authentication and authorization, IIS01 accepts the request and responds
 7. The UDR route on Frontend subnet makes the firewall the next hop
 8. Since there are no outbound NSG rules on the Frontend subnet the response is allowed
@@ -553,13 +553,13 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 1. Internet user requests SQL data from SecSvc001.CloudApp.Net (Internet Facing Cloud Service)
 2. Since there are no endpoints open for SQL, this would not pass the Cloud Service and wouldn't reach the firewall
 3. If SQL endpoints were open for some reason, the firewall would begin rule processing:
-    1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
-    2. FW Rules 2 - 5 (RDP Rules) don't apply, move to next rule
-    3. FW Rule 6 & 7 (Application Rules) don't apply, move to next rule
-    4. FW Rule 8 (To Internet) doesn't apply, move to next rule
-    5. FW Rule 9 (DNS) doesn't apply, move to next rule
-    6. FW Rule 10 (Intra-Subnet) doesn't apply, move to next rule
-    7. FW Rule 11 (Deny All) does apply, traffic is blocked, stop rule processing
+   1. FW Rule 1 (FW Mgmt) doesn't apply, move to next rule
+   2. FW Rules 2 - 5 (RDP Rules) don't apply, move to next rule
+   3. FW Rule 6 & 7 (Application Rules) don't apply, move to next rule
+   4. FW Rule 8 (To Internet) doesn't apply, move to next rule
+   5. FW Rule 9 (DNS) doesn't apply, move to next rule
+   6. FW Rule 10 (Intra-Subnet) doesn't apply, move to next rule
+   7. FW Rule 11 (Deny All) does apply, traffic is blocked, stop rule processing
 
 ## References
 ### Main Script and Network Config
@@ -574,14 +574,14 @@ This script will, based on the user defined variables:
 3. Create a new VNet and three subnets as defined in the Network Config file
 4. Build five virtual machines; 1 firewall and 4 windows server VMs
 5. Configure UDR including:
-    1. Creating two new route tables
-    2. Add routes to the tables
-    3. Bind tables to appropriate subnets
+   1. Creating two new route tables
+   2. Add routes to the tables
+   3. Bind tables to appropriate subnets
 6. Enable IP Forwarding on the NVA
 7. Configure NSG including:
-    1. Creating a NSG
-    2. Adding a rule
-    3. Binding the NSG to the appropriate subnets
+   1. Creating a NSG
+   2. Adding a rule
+   3. Binding the NSG to the appropriate subnets
 
 This PowerShell script should be run locally on an internet connected PC or server.
 

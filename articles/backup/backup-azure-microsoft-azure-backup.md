@@ -11,8 +11,10 @@ editor: ''
 keywords: azure backup server; backup vault
 
 ms.service: backup
-ms.date: 07/20/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 07/20/2016
+ms.date: 03/31/2017
+ms.author: v-junlch
 ---
 
 # Preparing to back up workloads using Azure Backup Server

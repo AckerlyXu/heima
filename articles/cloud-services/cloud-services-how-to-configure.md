@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: adegeo
+ms.author: v-yiso
 ---
 
 # How to Configure Cloud Services

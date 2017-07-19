@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/01/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 05/01/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 
 ---
 # ASP.NET Session State Provider for Azure Redis Cache
@@ -73,19 +73,19 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache blade in the Azure portal preview, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Configure the attributes with the values from your cache blade in the Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 * **host** - specify your cache endpoint.
 * **port** - use either your non-SSL port or your SSL port, depending on the ssl settings.
 * **accessKey** - use either the primary or secondary key for your cache.
 * **ssl** - true if you want to secure cache/client communications with ssl; otherwise false. Be sure to specify the correct port.
-    * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic.
+  * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic.
 * **throwOnError** - true if you want an exception to be thrown if there is a failure, or false if you want the operation to fail silently. You can check for a failure by checking the static Microsoft.Web.Redis.RedisSessionStateProvider.LastException property. The default is true.
 * **retryTimeoutInMilliseconds** - Operations that fail are retried during this interval, specified in milliseconds. The first retry occurs after 20 milliseconds, and then retries occur every second until the retryTimeoutInMilliseconds interval expires. Immediately after this interval, the operation is retried one final time. If the operation still fails, the exception is thrown back to the caller, depending on the throwOnError setting. The default value is 0, which means no retries.
 * **databaseId** - Specifies which database to use for cache output data. If not specified, the default value of 0 is used.
 * **applicationName** - Keys are stored in redis as `{<Application Name>_<Session ID>}_Data`. This naming scheme enables multiple applications to share the same Redis instance. This parameter is optional and if you do not provide it a default value is used.
-* **connectionTimeoutInMilliseconds** - This setting allows you to override the connectTimeout setting in the StackExchange.Redis client. If not specified, the default connectTimeout setting of 5000 is used.
-* **operationTimeoutInMilliseconds** - This setting allows you to override the syncTimeout setting in the StackExchange.Redis client. If not specified, the default syncTimeout setting of 1000 is used.
+* **connectionTimeoutInMilliseconds** - This setting allows you to override the connectTimeout setting in the StackExchange.Redis client. If not specified, the default connectTimeout setting of 5000 is used. For more information, see [StackExchange.Redis configuration model](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** - This setting allows you to override the syncTimeout setting in the StackExchange.Redis client. If not specified, the default syncTimeout setting of 1000 is used. For more information, see [StackExchange.Redis configuration model](http://go.microsoft.com/fwlink/?LinkId=398705).
 
 For more information about these properties, see the original blog post announcement at [Announcing ASP.NET Session State Provider for Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 

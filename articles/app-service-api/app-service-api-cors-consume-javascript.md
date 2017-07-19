@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/27/2016
-wacn.date: ''
-ms.author: alkarche
+origin.date: 08/27/2016
+ms.date: 02/21/2017
+ms.author: v-dazen
 
 ---
 # Consume an API app from JavaScript using CORS
@@ -30,25 +30,25 @@ This article contains two sections:
 * Starting with the [Continuing the .NET getting-started tutorials](#tutorialstart) section, the article is a tutorial that demonstrates CORS support by building on what you did in [the first API Apps getting started tutorial](app-service-api-dotnet-get-started.md). 
 
 ## <a id="corsconfig"></a> How to configure CORS in Azure App Service
-You can configure CORS in the Azure portal preview or by using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tools.
+You can configure CORS in the Azure portal or by using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tools.
 
-#### Configure CORS in the Azure portal preview
-1. In a browser go to the [Azure portal preview](https://portal.azure.cn/).
+#### Configure CORS in the Azure portal
+1. In a browser go to the [Azure portal](https://portal.azure.cn/).
 2. Click **App Services**, and then click the name of your API app.
 
     ![Select API app in portal](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 3. In the **Settings** blade that opens to the right of the **API app** blade, find the **API** section, and then click **CORS**.
 
-    ![Select CORS in Settings blade](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+   ![Select CORS in Settings blade](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 4. In the text box enter the URL or URLs that you want to allow JavaScript calls to come from.
 
     For example, if you deployed your JavaScript application to a web app named todolistangular, enter "https://todolistangular.chinacloudsites.cn". As an alternative, you can enter an asterisk (*) to specify that all origin domains are accepted.
 
 1. Click **Save**.
 
-    ![Click Save](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+   ![Click Save](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-    After you click **Save**, the API app will accept JavaScript calls from the specified URLs.
+   After you click **Save**, the API app will accept JavaScript calls from the specified URLs.
 
 #### Configure CORS by using Azure Resource Manager tools
 You can also configure CORS for an API app by using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) in command line tools such as [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) and the [Azure CLI](../cli-install-nodejs.md). 
@@ -92,7 +92,7 @@ In the [ToDoList sample application](https://github.com/Azure-Samples/app-servic
 
 ### Create a new web app for the ToDoListAngular project
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 The procedure to create a new App Service web app and deploy a project to it is similar to what you saw for [creating and deploying an API app in the first tutorial in this series](app-service-api-dotnet-get-started.md#createapiapp). The only difference is that the app type is **Web App** instead of **API App**.  For screen shots of the dialogs, see 
 
@@ -110,13 +110,13 @@ The procedure to create a new App Service web app and deploy a project to it is 
     Don't click **Publish** yet. In the following section, you configure the new web app to call the middle tier API app that is running in App Service. 
 
 ### Set the middle tier URL in web app settings
-1. Go to the [Azure portal preview](https://portal.azure.cn/), and then navigate to the **Web App** blade for the web app that you created to host the TodoListAngular (front end) project.
+1. Go to the [Azure portal](https://portal.azure.cn/), and then navigate to the **Web App** blade for the web app that you created to host the TodoListAngular (front end) project.
 2. Click **Settings > Application Settings**.
 3. In the **App settings** section, add the following key and value:
 
-    | Key | Value | Example |
-    | --- | --- | --- |
-    | toDoListAPIURL |https://{your middle tier API app name}.chinacloudsites.cn |https://todolistapi0121.chinacloudsites.cn |
+   | Key | Value | Example |
+   | --- | --- | --- |
+   | toDoListAPIURL |https://{your middle tier API app name}.chinacloudsites.cn |https://todolistapi0121.chinacloudsites.cn |
 4. Click **Save**.
 
     When the code runs in Azure, this value overrides the localhost URL that is in the *Web.config* file. 
@@ -154,7 +154,7 @@ The procedure to create a new App Service web app and deploy a project to it is 
 ### Deploy the ToDoListAngular web project to the new web app
 * In Visual Studio, in the **Connection** step of the **Publish Web** wizard, click **Publish**.
 
-    Visual Studio deploys the ToDoListAngular project to the new web app and opens a browser to the URL of the web app. 
+   Visual Studio deploys the ToDoListAngular project to the new web app and opens a browser to the URL of the web app. 
 
 ### Test the application without CORS enabled
 1. In your browser Developer Tools, open the Console window.
@@ -167,21 +167,21 @@ The procedure to create a new App Service web app and deploy a project to it is 
 ## Configure CORS for the middle tier API app
 In this section, you configure the CORS setting in Azure for the middle tier ToDoListAPI API app. This setting will allow the middle tier API app to receive JavaScript calls from the web app that you created for the ToDoListAngular project.
 
-1. In a browser, go to the [Azure portal preview](https://portal.azure.cn/).
+1. In a browser, go to the [Azure portal](https://portal.azure.cn/).
 2. Click **App Services**, and then click the ToDoListAPI (middle tier) API app.
 
     ![Select API app in portal](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 3. In the **Settings** blade that opens to the right of the **API app** blade, find the **API** section, and then click **CORS**.
 
-    ![Select CORS in portal](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+   ![Select CORS in portal](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 4. In the text box, enter the URL for the ToDoListAngular (front end) web app. For example, if you deployed the ToDoListAngular project to a web app named todolistangular0121, allow calls from the URL `https://todolistangular0121.chinacloudsites.cn`.
 
-    As an alternative, you can enter an asterisk (*) to specify that all origin domains are accepted.
+   As an alternative, you can enter an asterisk (*) to specify that all origin domains are accepted.
 5. Click **Save**.
 
-    ![Click Save](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+   ![Click Save](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
-    After you click **Save**, the API app will accept JavaScript calls from the specified URL. In this screen shot, the ToDoListAPI0223 API app will accept JavaScript client calls from the ToDoListAngular web app.
+   After you click **Save**, the API app will accept JavaScript calls from the specified URL. In this screen shot, the ToDoListAPI0223 API app will accept JavaScript client calls from the ToDoListAngular web app.
 
 ### Test the application with CORS enabled
 * Open a browser to the HTTPS URL of the web app. 

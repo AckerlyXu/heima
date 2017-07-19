@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2017
-wacn.date: ''
-ms.author: v-livech
+origin.date: 02/13/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 
 # Mount Azure File Storage on Linux VMs using SMB
 
-This article shows you how to utilize the Azure File Storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The requirements are:
+This article shows you how to utilize the Azure File Storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. You can also perform these steps with the [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). The requirements are:
 
 - [an Azure account](https://www.azure.cn/pricing/1rmb-trial/)
 - [SSH public and private key files](mac-create-ssh-keys.md)
@@ -65,6 +65,8 @@ File storage offers file shares in the cloud that use the standard SMB protocol.
 Moving files from a VM to an SMB mount that's hosted on File storage is a great way to debug logs. That's because the same SMB share can be mounted locally to your Mac, Linux, or Windows workstation. SMB isn't the best solution for streaming Linux or application logs in real time, because the SMB protocol is not built to handle such heavy logging duties. A dedicated, unified logging layer tool such as Fluentd would be a better choice than SMB for collecting Linux and application logging output.
 
 For this detailed walkthrough, we create the prerequisites needed to first create the File storage share, and then mount it via SMB on a Linux VM.
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 1. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) to hold the file share.
 
@@ -141,6 +143,6 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 ## Next steps
 
-- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Add a disk to a Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

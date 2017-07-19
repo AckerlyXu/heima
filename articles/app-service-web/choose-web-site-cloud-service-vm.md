@@ -13,10 +13,10 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
-wacn.date: ''
-ms.author: glenga
-
+origin.date: 07/07/2016
+ms.date: 07/10/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
 ## Overview
@@ -47,11 +47,11 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](/app-service-web/websites-webjobs-resources) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services. |
 | Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Scale out to multiple instances without redeploy |X |X |X |X |Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures. |
-| Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](web-sites-configure-ssl-certificate.md). |
+| Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md). |
 | Visual Studio integration |X |X |X |X | |
 | Remote Debugging |X |X |X | | |
-| Network isolation with [Azure Virtual Network](https://www.azure.cn/home/features/networking/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/app-service-web/app-service-vnet-integration-powershell/) |
-| Support for [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) |X |X |X |X | |
+| Network isolation with [Azure Virtual Network](/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/app-service-web/app-service-vnet-integration-powershell/) |
+| Support for [Azure Traffic Manager](/traffic-manager/) |X |X |X |X | |
 | Integrated Endpoint Monitoring |X |X |X | | |
 | Remote desktop access to servers | |X |X |X | |
 | Install any custom MSI | |X |X |X |Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md) or you can install any app on the VMs. |
@@ -92,7 +92,7 @@ Azure App Service is a great solution for hosting corporate websites. It enables
 * Integrate with Active Directory
 
 ### <a id="iis6"></a> I have an IIS6 application running on Windows Server 2003.
-Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Integration with Visual Studio, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure Portal Preview provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
+Azure App Service makes it easy to avoid the infrastructure costs associated with migrating older IIS6 applications. Integration with Visual Studio, and common CMS tools makes it easy to deploy IIS6 applications directly to the cloud. Once deployed, the Azure Portal provides robust management tools that enable you to scale down to manage costs and up to meet demand as necessary. With the migration tool you can:
 
 * Quickly and easily migrate your legacy Windows Server 2003 web application to the cloud.
 * Opt to leave your attached SQL database on-premise to create a hybrid application.
@@ -138,7 +138,7 @@ If your open source framework is supported on App Service, the languages and fra
 If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](https://www.azure.cn/home/features/networking/). On App Service you can use the [VNET integration feature](/app-service-web/app-service-vnet-integration-powershell/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/virtual-network/). On App Service you can use the [VNET integration feature](/app-service-web/app-service-vnet-integration-powershell/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:
@@ -151,22 +151,24 @@ HTTP-based web services enable you to support a wide variety of clients, includi
 ## <a id="nextsteps"></a> Next Steps
 For more information about the three web hosting options, see [Introducing Azure](../fundamentals-introduction-to-azure.md).
 
-To get started with the option(s) you choose for your application, see the following resources:
+To get started with the chosen options for your application, see the following resources:
 
 * [Azure App Service](/app-service/)
 * [Azure Cloud Services](/cloud-services/)
 * [Azure Virtual Machines](/virtual-machines/)
-* [Service Fabric](/service-fabric)
+* [Service Fabric](/service-fabric/)
 
 <!-- URL List -->
 
-[Azure App Service]: https://www.azure.cn/home/features/app-service/
+[Azure App Service]: /app-service/
 [Cloud Services]: /cloud-services/
 [Virtual Machines]: /virtual-machines/
-[Service Fabric]: https://www.azure.cn/home/features/service-fabric/
+[Service Fabric]: /service-fabric/
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: /app-service-web/websites-webjobs-resources
-[Configuring an SSL certificate for an Azure Website]: /azure/app-service-web/web-sites-configure-ssl-certificate
+[Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
+[azurestore]: https://azuremarketplace.microsoft.com/marketplace/apps
+[scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites
 [dotnet]: /develop/net/
 [nodejs]: /develop/nodejs/
 [PHP]: /develop/php/

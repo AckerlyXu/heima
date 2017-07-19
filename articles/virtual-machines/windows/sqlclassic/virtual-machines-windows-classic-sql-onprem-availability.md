@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/03/2017
-wacn.date: ''
-ms.author: mikeray
+origin.date: 05/31/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 # Extend on-premises Always On Availability Groups to Azure
@@ -28,7 +28,7 @@ This tutorial assumes you have the following:
 
 * An active Azure subscription. You can [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/).
 * An existing Always On Availability Group on-premises. For more information on Availability Groups, see [Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx).
-* Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Configure a Site-to-Site VPN in the Azure Classic Management Portal](../../../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Create a Site-to-Site connection using the Azure portal (classic)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
@@ -53,19 +53,19 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. You will populate each field on the page with values that will be used to create the Azure Virtual Machine (VM) that will host the replica.
 
-    | Setting | Description |
-    | --- | --- |
-    | **Image** |Select the desired combination of OS and SQL Server |
-    | **VM Size** |Select the size of VM that best suits your business needs |
-    | **VM Name** |Specify a unique name for the new VM. The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number. |
-    | **VM Username** |Specify a user name that will become the administrator account on the VM |
-    | **VM Administrator Password** |Specify a password for the new account |
-    | **Confirm Password** |Confirm the password of the new account |
-    | **Virtual Network** |Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](../../../virtual-network/virtual-networks-overview.md). |
-    | **Virtual Network Subnet** |Specify the virtual network subnet that the new VM should use |
-    | **Domain** |Confirm the pre-populated value for the domain is correct |
-    | **Domain User Name** |Specify an account that is in the local administrators group on the local cluster nodes |
-    | **Password** |Specify the password for the domain user name |
+   | Setting | Description |
+   | --- | --- |
+   | **Image** |Select the desired combination of OS and SQL Server |
+   | **VM Size** |Select the size of VM that best suits your business needs |
+   | **VM Name** |Specify a unique name for the new VM. The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number. |
+   | **VM Username** |Specify a user name that will become the administrator account on the VM |
+   | **VM Administrator Password** |Specify a password for the new account |
+   | **Confirm Password** |Confirm the password of the new account |
+   | **Virtual Network** |Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](../../../virtual-network/virtual-networks-overview.md). |
+   | **Virtual Network Subnet** |Specify the virtual network subnet that the new VM should use |
+   | **Domain** |Confirm the pre-populated value for the domain is correct |
+   | **Domain User Name** |Specify an account that is in the local administrators group on the local cluster nodes |
+   | **Password** |Specify the password for the domain user name |
 8. Click **OK** to validate the deployment settings.
 9. Legal terms are displayed next. Read and click **OK** if you agree to these terms.
 10. The **Specify Replicas** page is displayed again. Verify the settings for the new Azure replica on the **Replicas**, **Endpoints**, and **Backup Preferences** tabs. Modify settings to meet your business requirements.  For more information on the parameters contained on these tabs, see [Specify Replicas Page (New Availability Group Wizard/Add Replica Wizard)](https://msdn.microsoft.com/library/hh213088.aspx).Note that listeners cannot be created using the Listener tab for Availability Groups that contain Azure replicas. In addition, if a listener has already been created prior to launching the Wizard, you will receive a message indicating that it is not supported in Azure. We will look at how to create listeners in the **Create an Availability Group Listener** section.

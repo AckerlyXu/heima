@@ -1,5 +1,5 @@
 ---
-title: Use R in HDInsight to customize clusters | Azure
+title: Use R in HDInsight to customize clusters - Azure | Azure
 description: Learn how to install R using Script Action, and use R on HDInsight clusters.
 services: hdinsight
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
 # Install and use R on HDInsight Hadoop clusters
 
-Learn how to customize Windows based HDInsight cluster with R using Script Action, and how to use R on HDInsight clusters. The [HDInsight offering](https://www.azure.cn/pricing/details/hdinsight/) includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). For information on using R with a Linux-based cluster, see [Install and use R on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-r-scripts-linux.md).
+Learn how to customize Windows based HDInsight cluster with R using Script Action, and how to use R on HDInsight clusters.
 
 You can install R on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install R on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
@@ -39,7 +39,7 @@ The <a href="http://www.r-project.org/" target="_blank">R Project for Statistica
 R is compatible with Azure Blob Storage (WASB) so that data that is stored there can be processed using R on HDInsight.  
 
 ## Install R
-A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while creating the cluster using the Azure Portal Preview.
+A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while creating the cluster using the Azure Portal.
 
 > [!NOTE]
 > The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).

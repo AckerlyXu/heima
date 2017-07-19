@@ -1,6 +1,7 @@
 ---
-title: Use different kernels with Jupyter notebooks on Azure HDInsight Spark clusters | Azure
-description: Learn about the PySpark, PySpark3, and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux.
+title: Kernels for Jupyter notebook on Spark clusters in Azure HDInsight | Azure
+description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter notebook available with Spark clusters on Azure HDInsight.
+keywords: jupyter notebook on spark,jupyter spark
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,19 +11,19 @@ tags: azure-portal
 
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: nitinme
+origin.date: 05/15/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
-# Jupyter notebooks kernels with Apache Spark clusters in HDInsight 
+# Kernels for Jupyter notebook on Spark clusters in Azure HDInsight 
 
-HDInsight Spark clusters provide kernels that you can use with the Jupyter notebook for testing your Spark applications. A kernel is a program that runs and interprets your code. The two kernels are:
+HDInsight Spark clusters provide kernels that you can use with the Jupyter notebook on Spark for testing your applications. A kernel is a program that runs and interprets your code. The three kernels are:
 
 - **PySpark** - for applications written in Python2
 - **PySpark3** - for applications written in Python3
@@ -34,37 +35,37 @@ In this article, you learn how to use these kernels and the benefits of using th
 
 * An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## Create a Jupyter notebook
+## Create a Jupyter notebook on Spark HDInsight
 
-1. From the [Azure portal preview](https://portal.azure.cn/), open your cluster.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
+1. From the [Azure portal](https://portal.azure.cn/), open your cluster.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
 
 2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
 
-    ![Cluster dashboards](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Cluster dashboards") 
+    ![Jupyter notebook on Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Jupyter notebook on Spark") 
 
 3. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    > [!NOTE]
-    > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p>
-    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
-    > 
-    > 
+   > [!NOTE]
+   > You may also reach the Jupyter notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+   >
+   > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
+   > 
+   > 
 
 3. Click **New**, and then click either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
 
-    ![Create a Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a Jupyter notebook") 
+    ![Kernels for Jupyter notebook on Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter notebook on Spark") 
 
 4. A notebook opens with the kernel you selected.
 
-## Benefits of using these kernels
+## Benefits of using the kernels
 
-Here are a few benefits of using the new kernels.
+Here are a few benefits of using the new kernels with Jupyter notebook on Spark HDInsight clusters.
 
 - **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
 
-    * **sc** - for Spark context
-    * **sqlContext** - for Hive context
+   * **sc** - for Spark context
+   * **sqlContext** - for Hive context
 
     So, you don't have to run statements like the following to set the contexts:
 
@@ -79,21 +80,21 @@ Here are a few benefits of using the new kernels.
 
     The following table lists the different magics available through the kernels.
 
-    | Magic | Example | Description |
-    | --- | --- | --- |
-    | help |`%%help` |Generates a table of all the available magics with example and description |
-    | info |`%%info` |Outputs session information for the current Livy endpoint |
-    | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created, which ensures that the session is dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
-    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
-    | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
-    | logs |`%%logs` |Outputs the logs for the current Livy session. |
-    | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
-    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
+   | Magic | Example | Description |
+   | --- | --- | --- |
+   | help |`%%help` |Generates a table of all the available magics with example and description |
+   | info |`%%info` |Outputs session information for the current Livy endpoint |
+   | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created, which ensures that the session is dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](http://pandas.pydata.org/) dataframe. |
+   | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
+   | logs |`%%logs` |Outputs the logs for the current Livy session. |
+   | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
+   | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
-    > [!NOTE]
-    > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
-    >
-    >
+   > [!NOTE]
+   > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
+   >
+   >
 2. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic
@@ -146,7 +147,7 @@ In case there are issues accessing the storage account for the cluster, the note
 
 ## Supported browser
 
-Jupyter notebooks running against HDInsight Spark clusters are supported only on Google Chrome.
+Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrome.
 
 ## Feedback
 The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
@@ -159,13 +160,16 @@ The new kernels are in evolving stage and will mature over time. This could also
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
 * [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 

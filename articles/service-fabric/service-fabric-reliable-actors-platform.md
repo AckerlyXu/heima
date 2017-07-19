@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
-ms.author: vturecek
+ms.author: v-johch
 
 ---
 # How Reliable Actors use the Service Fabric platform

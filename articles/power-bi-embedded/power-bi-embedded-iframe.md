@@ -14,9 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: asaxton
+origin.date: 02/06/2017
+ms.date: 04/28/2017
+ms.author: v-junlch
 ---
 
 # How to use Power BI Embedded with REST

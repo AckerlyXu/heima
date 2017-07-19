@@ -9,8 +9,10 @@ editor: ''
 tags: ''
 
 ms.service: cloud-services
-ms.date: 07/30/2016
-wacn.date: 04/20/2016
+ms.topic: article
+origin.date: 07/30/2016
+ms.date: 01/03/2017
+ms.author: v-yiso
 ---
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
@@ -26,7 +28,7 @@ This article covers the CPU Sampling method of profiling, which can be done loca
 
 ## 1: Configure Visual Studio for profiling
 
-First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  You can also reference http://referencesource.microsoft.com/symbols, which might have additional symbol files.
+First, there are a few Visual Studio configuration options that might be helpful when profiling. To make sense of the profiling reports, you'll need symbols (.pdb files) for your application and also symbols for system libraries. You'll want to make sure that you reference the available symbol servers. To do this, on the **Tools** menu in Visual Studio, choose **Options**, then choose **Debugging**, then **Symbols**. Make sure that Microsoft Symbol Servers is listed under **Symbol file (.pdb) locations**.  
 
 ![Symbol options][4]
 

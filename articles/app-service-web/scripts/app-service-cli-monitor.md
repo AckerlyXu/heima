@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
-wacn.date: ''
-ms.author: cfowler
+origin.date: 03/20/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Monitor a web app with web server logs
@@ -25,11 +26,11 @@ In this scenario you will create a resource group, app service plan, web app and
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #/bin/bash
 
 # Variables
@@ -43,16 +44,16 @@ az group create --name myResourceGroup --location $location
 az appservice plan create --name AppServiceMonitorPlan --resource-group myResourceGroup --location $location
 
 # Create a Web App and save the URL
-url=$(az appservice web create --name $appName --plan AppServiceMonitorPlan --resource-group myResourceGroup --query defaultHostName | sed -e 's/^"//' -e 's/"$//')
+url=$(az webapp create --name $appName --plan AppServiceMonitorPlan --resource-group myResourceGroup --query defaultHostName | sed -e 's/^"//' -e 's/"$//')
 
 # Enable all logging options for the Web App
-az appservice web log config --name $appName --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
+az webapp log config --name $appName --resource-group myResourceGroup --application-logging true --detailed-error-messages true --failed-request-tracing true --web-server-logging filesystem
 
 # Create a Web Server Log
 curl -s -L $url/404
 
 # Download the log files for review
-az appservice web log download --name $appName --resource-group myResourceGroup
+az webapp log download --name $webappname --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
@@ -65,9 +66,9 @@ This script uses the following commands to create a resource group, web app, and
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Creates an Azure web app within the App Service plan. |
-| [az appservice web log config](https://docs.microsoft.com/cli/azure/appservice/web/log#config) | Configures which logs an Azure web app will persist. |
-| [az appservice web log download](https://docs.microsoft.com/cli/azure/appservice/web/log#download) | Downloads the logs of the an Azure web app to your local machine. |
+| [az appservice web create](https://docs.microsoft.com/cli/azure/webapp#create) | Creates an Azure web app within the App Service plan. |
+| [az appservice web log config](https://docs.microsoft.com/cli/azure/webapp/log#config) | Configures which logs an Azure web app will persist. |
+| [az appservice web log download](https://docs.microsoft.com/cli/azure/webapp/log#download) | Downloads the logs of the an Azure web app to your local machine. |
 
 ## Next steps
 

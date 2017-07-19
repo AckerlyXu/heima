@@ -13,9 +13,9 @@ ms.workload: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: sumedhb;aglick
+origin.date: 01/07/2017
+ms.date: 02/27/2017
+ms.author: v-junlch
 ---
 
 # Azure Key Vault availability and redundancy

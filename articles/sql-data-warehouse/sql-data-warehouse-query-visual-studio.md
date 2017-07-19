@@ -3,8 +3,8 @@ title: Connect to Azure SQL Data Warehouse - VSTS | Azure
 description: Query SQL Data Warehouse with Visual Studio.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Connect to SQL Data Warehouse with Visual Studio and SSDT
@@ -88,14 +88,14 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
 [Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
-<!-- [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  -->
+<!-- Not Available [visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  -->
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn
 
 <!--Image references-->
 
-[1]: ./media/sql-data-warehouse-query-visual-studio/open-ssdt.png
+[1]: media/sql-data-warehouse-query-visual-studio/open-ssdt.png
 [2]: media/sql-data-warehouse-query-visual-studio/add-server.png
 [3]: media/sql-data-warehouse-query-visual-studio/connection-dialog.png
 [4]: media/sql-data-warehouse-query-visual-studio/explore-sample.png

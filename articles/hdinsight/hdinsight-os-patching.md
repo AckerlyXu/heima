@@ -1,5 +1,5 @@
 ---
-title: Configure OS patching schedule for Linux-based HDInsight clusters -Azure | Azure
+title: Configure OS patching schedule for Linux-based HDInsight clusters - Azure | Azure
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
-wacn.date: ''
-ms.author: bhanupr
+origin.date: 03/21/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 
@@ -35,10 +35,6 @@ Using the script action described in this article, you can modify the OS patchin
 1. Enable or disable automatic reboots
 2. Set the frequency of reboots (days between reboots)
 3. Set the day of the week when a reboot occurs
-
-> [!NOTE]
-> This script action will only work with Linux-based HDInsight clusters created after August 1st, 2016. Patches will be effective only when VMs are rebooted. 
->
 
 ## How to use the script 
 

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: nitinme
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Get started: Create an Apache Spark cluster in HDInsight and run interactive Spark SQL queries
@@ -29,13 +29,13 @@ Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluste
 
 ## Prerequisites
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://azure.microsoft.com/free).
+* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your trial Azure account today](https://www.azure.cn/pricing/1rmb-trial).
 
 ## Create HDInsight Spark cluster
 
 In this section, you create an HDInsight Spark cluster using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Click the following image to open the template in the Azure portal preview.         
+1. Click the following image to open the template in the Azure portal.         
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-spark-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-jupyter-spark-sql/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -77,7 +77,7 @@ In this article, you use the **PySpark** kernel in the notebook from where you r
 
 ### Create Jupyter notebook with PySpark kernel
 
-1. Open the [Azure portal preview](https://portal.azure.cn/).
+1. Open the [Azure portal](https://portal.azure.cn/).
 
 2. If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
 
@@ -85,19 +85,19 @@ In this article, you use the **PySpark** kernel in the notebook from where you r
 
 3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    ![Open Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
+   ![Open Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
 
-    > [!NOTE]
-    > You may also access the Jupyter notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-    > <p>
-    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
-    >
-    >
+   > [!NOTE]
+   > You may also access the Jupyter notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
+   >
+   > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
+   >
+   >
 3. Create a notebook. Click **New**, and then click **PySpark**.
 
-    ![Create a Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
+   ![Create a Jupyter notebook to run interactive Spark SQL query](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
 
-    A new notebook is created and opened with the name Untitled(Untitled.pynb).
+   A new notebook is created and opened with the name Untitled(Untitled.pynb).
 
 4. Click the notebook name at the top, and enter a friendly name if you want.
 
@@ -137,11 +137,11 @@ In this article, you use the **PySpark** kernel in the notebook from where you r
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-    Because you are using a PySpark kernel, you can now directly run an interactive SQL query on the temporary table **hvac** that you created by using the `%%sql` magic. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Because you are using a PySpark kernel, you can now directly run an interactive SQL query on the temporary table **hvac** that you created by using the `%%sql` magic. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-    The following tabular output is displayed by default.
+   The following tabular output is displayed by default.
 
-    ![Table output of interactive Spark query result](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
+     ![Table output of interactive Spark query result](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
     You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
 
@@ -164,13 +164,16 @@ If you run into an issue with creating HDInsight clusters, see [access control r
 * [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
 * [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -186,5 +189,4 @@ If you run into an issue with creating HDInsight clusters, see [access control r
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[azure-management-portal]: https://manage.windowsazure.cn/
 [azure-create-storageaccount]: ../storage/storage-create-storage-account.md

@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2017
-ms.author: saysa
+ms.author: v-johch
 
 ---
 # Set up your development environment on Mac OS X
@@ -94,7 +94,7 @@ Ensure you have gone through the steps mentioned in the [Service Fabric Eclipse 
 <!-- Links -->
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
-* [Create a Service Fabric cluster in the Azure portal preview](service-fabric-cluster-creation-via-portal.md)
+* [Create a Service Fabric cluster in the Azure Portal](service-fabric-cluster-creation-via-portal.md)
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
 

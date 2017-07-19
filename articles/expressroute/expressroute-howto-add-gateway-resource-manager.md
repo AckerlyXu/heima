@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
-ms.author: charwen
-
+origin.date: 04/17/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 # Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]

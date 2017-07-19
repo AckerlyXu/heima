@@ -13,15 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2016
-wacn.date: ''
-ms.author: cephalin;riande
+origin.date: 01/12/2016
+ms.date: 03/17/2017
+ms.author: v-dazen
 
 ---
 # Deploy an ASP.NET MVC 5 mobile web app in Azure App Service
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 web app that is mobile-friendly and deploy it to Azure App Service. For this tutorial, you need 
 [Visual Studio Express 2013 for Web][Visual Studio Express 2013]
@@ -29,6 +26,8 @@ or the professional edition of Visual Studio if you already
 have that. You can use [Visual Studio 2015] but the screen shots will be different and you must use the ASP.NET 4.x templates.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## What You'll Build
 For this tutorial, you'll add mobile features to the simple
@@ -85,13 +84,13 @@ this topic:
 5. In Visual Studio, open the *C#\Mvc5Mobile.sln* file.
 6. In Solution Explorer, right-click the project and click **Publish**.
 
-    ![][DeployClickPublish]
+   ![][DeployClickPublish]
 7. In Publish Web, click **Azure App Service**.
 
-    ![][DeployClickWebSites]
+   ![][DeployClickWebSites]
 8. If you haven't already logged into Azure, click **Add an account**.
 
-    ![][DeploySignIn]
+   ![][DeploySignIn]
 9. Follow the prompts to log into your Azure account.
 10. The App Service dialog should now show you as signed in. Click **New**.
 
@@ -111,7 +110,7 @@ this topic:
 
     Once Visual Studio finishes publishing the starter project to the Azure web app, the desktop browser opens to display the live web app.
 15. Start your mobile browser emulator, copy the URL for
-    the conference application (*<prefix>*.chinacloudsites.cn) into the emulator, and then click the
+    the conference application (*\<prefix\>*.chinacloudsites.cn) into the emulator, and then click the
     top-right button and select **Browse by tag**. If you are using Internet
     Explorer 11 as the default browser, you just need to type `F12`, then
     `Ctrl+8`, and then change the browser profile to **Windows Phone**. The

@@ -15,9 +15,9 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
-wacn.date: ''
-ms.author: negat
+origin.date: 06/01/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Designing VM Scale Sets For Scale

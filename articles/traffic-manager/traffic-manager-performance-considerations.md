@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 03/16/2017
+ms.date: 04/27/2017
+ms.author: v-dazen
 ---
 
 # Performance considerations for Traffic Manager
@@ -80,6 +80,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
-[Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/library/hh758255.aspx)
+[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure Traffic Manager Cmdlets](https://docs.microsoft.com/powershell/servicemanagement/azure.trafficmanager/v1.6.1/azure.trafficmanager)
+[Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769)

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 01/23/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Install MySQL on a virtual machine created with the classic deployment model running Windows Server 2016
@@ -91,7 +91,7 @@ For the MySQL service to be available to client computers on the Internet, you m
 
 To configure an endpoint for the MySQL Server service:
 
-1. In the Azure portal preview, click **Virtual Machines (classic)**, click the name of your MySQL virtual machine, and then click **Endpoints**.
+1. In the Azure portal, click **Virtual Machines (classic)**, click the name of your MySQL virtual machine, and then click **Endpoints**.
 2. In the command bar, click **Add**.
 3. On the **Add endpoint** page, type a unique name for **Name**.
 4. Select **TCP** as the protocol.
@@ -105,10 +105,10 @@ To add a Windows Firewall rule that allows MySQL traffic from the Internet, run 
 ## Test your remote connection
 To test your remote connection to the Azure VM running the MySQL Server service, you must provide the DNS name of the cloud service containing the VN.
 
-1. In the Azure portal preview, click **Virtual Machines (classic)**, click the name of your MySQL server virtual machine, and then click **Overview**.
+1. In the Azure portal, click **Virtual Machines (classic)**, click the name of your MySQL server virtual machine, and then click **Overview**.
 2. From the virtual machine dashboard, note the **DNS Name** value. Here is an example:
 
-    ![](./media/mysql-2008r2/MySQL_DNSName.png)
+   ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. From a local computer running MySQL or the MySQL client, run the following command to log in as a MySQL user.
 
         mysql -u <yourMysqlUsername> -p -h <yourDNSname>

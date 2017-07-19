@@ -3,8 +3,8 @@ title: Create first Azure Resource Manager template | Azure
 description: A step-by-step guide to creating your first Azure Resource Manager template. It shows you how to use the template reference for a storage account to create the template.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 
@@ -12,10 +12,10 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/18/2017
-wacn.date: ''
+origin.date: 04/18/2017
+ms.date: 07/03/2017
 ms.topic: get-started-article
-ms.author: tomfitz
+ms.author: v-yeche
 ---
 
 # Create your first Azure Resource Manager template
@@ -71,7 +71,7 @@ Let's start with a blank template that includes only the basic sections of a tem
             {
                 "name": "string",
                 "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2016-05-01",
+                "apiVersion": "2016-12-01",
                 "sku": {
                     "name": "string"
                 },
@@ -99,6 +99,8 @@ Let's start with a blank template that includes only the basic sections of a tem
     }
     ```
 
+  VS Code may indicate that 2016-12-01 is not a valid API version. If you are using a version number from the template reference documentation, you can ignore this warning. You see this warning when the schema has not been updated with the latest version number from the resource provider. 
+
   The preceding example includes many placeholder values and some properties that you might not need in your storage account.
 
 ## Set values for storage account
@@ -115,7 +117,7 @@ Now, you are ready to set values for your storage account.
         {
             "name": "string",
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-05-01",
+            "apiVersion": "2016-12-01",
             "sku": {
              "name": "string"
             },
@@ -154,7 +156,7 @@ Your template now looks like:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -183,7 +185,7 @@ Again, VS Code helps you by suggesting available functions.
 
 ![show functions](./media/resource-manager-create-first-template/show-functions.png)
 
-Notice that the function is surrounded by square brackets. The [resourceGroup](resource-group-template-functions.md#resourcegroup) function returns an object with a property called `location`. The resource group holds all related resources for your solution. You could hardcode the location property to a value like "Central US" but you would have to manually change the template to redeploy to a different location. Using the `resourceGroup` function, makes it easy to redeploy this template to a different resource group in a different location.
+Notice that the function is surrounded by square brackets. The [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function returns an object with a property called `location`. The resource group holds all related resources for your solution. You could hardcode the location property to a value like "China East" but you would have to manually change the template to redeploy to a different location. Using the `resourceGroup` function, makes it easy to redeploy this template to a different resource group in a different location.
 
 Your template now looks like:
 
@@ -197,7 +199,7 @@ Your template now looks like:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -215,7 +217,7 @@ Your template now looks like:
 ## Add parameters and variables
 There are only two values left to set in your template - **name** and **sku.name**. For these properties, you add parameters that enable you to customize these values during deployment. 
 
-Storage account names have several restrictions that make them difficult to set. The name must be between 3 and 24 characters in length, use only numbers and lower-case letters, and be unique. Rather than trying to guess a unique value that matches the restrictions, use the [uniqueString](resource-group-template-functions.md#uniquestring) function to generate a hash value. To give this hash value more meaning, add a prefix that helps you identify it as a storage account after deployment. 
+Storage account names have several restrictions that make them difficult to set. The name must be between 3 and 24 characters in length, use only numbers and lower-case letters, and be unique. Rather than trying to guess a unique value that matches the restrictions, use the [uniqueString](resource-group-template-functions-string.md#uniquestring) function to generate a hash value. To give this hash value more meaning, add a prefix that helps you identify it as a storage account after deployment. 
 
 1. To pass in a prefix for the name that matches your naming conventions, go to the **parameters** section of your template. Add a parameter to the template that accepts a prefix for the storage account name:
 
@@ -287,7 +289,9 @@ Storage account names have several restrictions that make them difficult to set.
 
 4. Save your file.
 
-Your template now looks like:
+## Final template
+
+After completing the steps in this article, your template now looks like:
 
     ```json
     {
@@ -324,7 +328,7 @@ Your template now looks like:
         {
           "name": "[variables('storageName')]",
           "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2016-05-01",
+          "apiVersion": "2016-12-01",
           "sku": {
             "name": "[parameters('storageSKU')]"
           },
@@ -342,4 +346,4 @@ Your template now looks like:
 ## Next steps
 * Your template is complete, and you are ready to deploy it to your subscription. To deploy, see [Deploy resources to Azure](resource-manager-quickstart-deploy.md).
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
+* To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/).

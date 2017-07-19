@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/18/2017
-wacn.date: ''
-ms.author: jdial
+origin.date: 01/18/2017
+ms.date: 03/24/2017
+ms.author: v-dazen
 
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
@@ -52,7 +52,7 @@ Yes. You can deploy a [WAN optimization network virtual appliance](https://azure
 ### What tools do I use to create a VNet?
 You can use the following tools to create or configure a VNet:
 
-* Azure Portal Preview (for classic and Resource Manager VNets).
+* Azure Portal (for classic and Resource Manager VNets).
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 * PowerShell (for classic and Resource Manager VNets).
 * Azure CLI (for classic and Resource Manager VNets).
@@ -147,7 +147,7 @@ No. You cannot specify a custom DNS suffix for your VNets.
 Yes. All network interfaces (NIC) attached to a VM deployed through the Resource Manager deployment model must be connected to a VNet. VMs deployed through the classic deployment model can optionally be connected to a VNet.
 
 ### What are the different types of IP addresses I can assign to VMs?
-* **Private:** Assigned to each NIC within each VM. The address is assigned using either the static or dynamic allocation method. Private IP addresses are assigned from the range that you specified in the subnet settings of your VNet. Resources deployed through the classic deployment model receive private IP addresses, even if they're not connected to a VNet. A dynamic private IP address remains assigned to a resource until the resource is deallocated (VMs) or deleted (VMs or Cloud Service deployment slots). A static private IP address remains assigned to a resource until the resource is deleted.
+* **Private:** Assigned to each NIC within each VM. The address is assigned using either the static or dynamic method. Private IP addresses are assigned from the range that you specified in the subnet settings of your VNet. Resources deployed through the classic deployment model are assigned private IP addresses, even if they're not connected to a VNet. A private IP address assigned with the dynamic method remains assigned to a resource until the resource is deleted (VMs or Cloud Service deployment slots). A private IP address assigned with the dynamic method may change when a VM is restarted after having been in the stopped (deallocated) state. A private IP address assigned with the static method remains assigned to a resource until the resource is deleted. If you need to ensure that the private IP address for a resource never changes until the resource is deleted, assign a private IP address with the static method.
 * **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](virtual-networks-reserved-public-ip.md), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](virtual-networks-instance-level-public-ip.md) addresses and can be assigned dynamically.
 
 ### Can I reserve a private IP address for a VM that I will create at a later time?
@@ -160,7 +160,7 @@ It depends. Dynamic private IP addresses remain with a VM until its stopped (dea
 Yes, but it's not recommended. Manually changing the IP address for a NIC within a VM's operating system could potentially lead to losing connectivity to the VM if the IP address assigned to a NIC within the Azure VM were to change.
 
 ### What happens to my IP addresses if I stop a Cloud Service deployment slot or shutdown a VM from within the operating system?
-Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM. Dynamic addresses are only released if a VM is stopped (deallocated) or deleted, or a cloud service deployment slot is deleted. Clicking the **Stop** button for a VM within the Azure portal preview sets its state to Stopped (deallocated). In this case, the VM will lose its IP addresses.
+Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM. Dynamic addresses are only released if a VM is stopped (deallocated) or deleted, or a cloud service deployment slot is deleted. Clicking the **Stop** button for a VM within the Azure portal sets its state to Stopped (deallocated). In this case, the VM will lose its IP addresses.
 
 ### Can I move VMs from one subnet to another subnet in a VNet without re-deploying?
 Yes. You can find more information in the [How to move a VM or role instance to a different subnet](virtual-networks-move-vm-role-to-subnet.md) article.
@@ -179,7 +179,7 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ### Can I use Azure App Service Web Apps with a VNet?
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following article:
 
-* [Integrate your app with an Azure Virtual Network](../app-service-web/app-service-vnet-integration-powershell.md)
+* [Integrate your app with an Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
@@ -207,10 +207,10 @@ Yes. See the [Azure Network Security Overview](../security/security-network-over
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) and [classic (Service Management)](https://msdn.microsoft.com/library/azure/ee460799.aspx)) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) and [classic (Service Management)](http://go.microsoft.com/fwlink/?LinkId=296833)) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
-- The Azure portal preview to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
+- The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) and [classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.

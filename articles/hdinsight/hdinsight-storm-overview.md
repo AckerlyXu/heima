@@ -1,5 +1,5 @@
 ---
-title: What is Apache Storm - Azure HDInsight | Azure
+title: What is Apache Storm? - Azure HDInsight | Azure
 description: 'Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -16,13 +16,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
-
-# What is Apache Storm on Azure HDInsight
+# What is Apache Storm on Azure HDInsight?
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -54,7 +53,7 @@ Storm on HDInsight provides the following key benefits:
 
     * Azure Cosmos DB
 
-* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Kafka, Spark, HBase, or Hadoop clusters.
+* Securely combines the capabilities of multiple HDInsight clusters by using Virtual Network. You can create analytic pipelines that use Storm, Spark, HBase, or Hadoop clusters.
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -68,7 +67,7 @@ Storm runs topologies instead of the MapReduce jobs that you might be familiar w
 
 * Spout components bring data into a topology. They emit one or more streams into the topology.
 
-* Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, Kafka, or HBase.
+* Bolt components consume streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, or HBase.
 
 ## Ease of creation
 
@@ -78,17 +77,17 @@ You can provision a new Storm cluster on HDInsight in minutes. For more informat
 
 * __Secure Shell (SSH) connectivity__: You can access the head nodes of your Storm cluster over the Internet by using SSH. You can run commands directly on your cluster by using SSH.
 
-    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+  For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * __Web connectivity__: All HDInsight clusters provide the Ambari web UI. You can easily monitor, configure, and manage services on your cluster by using the Ambari web UI. Storm clusters also provide the Storm UI. You can monitor and manage running Storm topologies from your browser by using the Storm UI.
 
-    For more information, see the [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documents.
+  For more information, see the [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documents.
 
 * __Azure PowerShell and Azure CLI__: PowerShell and CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
 * __Visual Studio integration__: Azure Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies by using the SCP.Net framework. Data Lake Tools also provide tools to deploy, monitor, and manage solutions with Storm on HDInsight.
 
-    For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+  For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ## Integration with other Azure services
 

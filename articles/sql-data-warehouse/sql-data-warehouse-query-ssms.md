@@ -3,8 +3,8 @@ title: Connect to Azure SQL Data Warehouse - SSMS | Azure
 description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
-author: hirokib
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: elbutter;barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Connect to SQL Data Warehouse with SQL Server Management Studio (SSMS)
@@ -26,8 +26,8 @@ ms.author: elbutter;barbkess
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
-<!-- Not Supported sql-data-warehouse-get-started-visualize-with-power-bi.md-->
-<!-- Not Supported sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md-->
+<!-- Not Available [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) -->
+<!-- Not Available [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
 
 Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL Data Warehouse. 
 
@@ -75,7 +75,7 @@ Now that a connection has been established to your database, let's write a query
     ![Query results][6]
 
 ## Next steps
-<!-- Not Available Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].-->
+<!-- Not Available [visualizing the data with PowerBI][visualizing the data with PowerBI].-->
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
@@ -87,7 +87,7 @@ To configure your environment for Azure Active Directory authentication, see [Au
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn
-[Install SSMS]: https://msdn.microsoft.com/library/hh213248.aspx
+[Install SSMS]: https://msdn.microsoft.com/zh-cn/library/hh213248.aspx
 
 <!--Image references-->
 

@@ -9,14 +9,14 @@ editor:
 tags: azure-service-management
 
 ms.assetid: 07bcceae-2521-4fe3-b88f-ed833104ddd2
-ms.service: cache-redis
+ms.service: redis-cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 04/14/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 ---
 
 # Create a Premium Azure Redis Cache with clustering
@@ -24,8 +24,6 @@ ms.author: sdanie
 In this scenario, you learn how to create a 6 GB Premium tier Azure Redis Cache with clustering enabled and two shards.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Sample script
 

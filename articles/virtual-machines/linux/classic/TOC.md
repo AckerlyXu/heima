@@ -16,9 +16,10 @@
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
 ### [Manage VM extensions](manage-extensions.md)
 ### [Manage VMs with Visual Studio](manage-visual-studio.md)
-### [Monitor VMs using the Diagnostic VM Extension](diagnostic-extension.md)
+### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
+### [Create a Docker host using the CLI](cli-use-docker.md)
 
 ## Use Storage
 ### [Attach a data disk](attach-disk.md)
@@ -31,7 +32,6 @@
 ## Deploy images
 ### [Create and upload a VHD](create-upload-vhd.md)
 ### [Create and upload a FreeBSD VHD](freebsd-create-upload-vhd.md)
-### [List of Oracle VM images](oracle-images.md)
 
 ## Manage workloads
 ### MySQL and MariaDB
@@ -56,7 +56,7 @@
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.microsoft.com/java/api)
-## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
 ## [Compute REST](https://docs.microsoft.com/rest/api/compute)
 ## [Network REST](https://docs.microsoft.com/rest/api)
@@ -64,6 +64,4 @@
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
-## [Regional availability](https://azure.microsoft.com/regions/services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+## [Videos](https://www.azure.cn/video-center/)

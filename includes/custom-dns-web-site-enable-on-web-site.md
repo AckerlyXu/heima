@@ -2,12 +2,12 @@ After the records for your domain name have propagated, you must associate them 
 
 > [!NOTE]
 > It can take some time for TXT records created in the previous steps to propagate through the DNS system. You cannot add the domain name of to your web app until the TXT record has propagated. If you are using an A record, you cannot add the A record domain name to your web app until the TXT record created in the previous step has propagated.
-> <p> 
+> 
 > You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the TXT record is available.
 > 
 > 
 
-1. In your browser, open the [Azure Portal Preview](https://portal.azure.cn).
+1. In your browser, open the [Azure Portal](https://portal.azure.cn).
 2. In the **Web Apps** tab, click the name of your web app, and then select **Custom domains**
 
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)

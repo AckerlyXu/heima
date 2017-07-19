@@ -13,9 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-wacn.date: ''
-ms.author: renash
+origin.date: 12/16/2016
+ms.date: 12/29/2016
+ms.author: v-johch
 ---
 
 # Retrieving State Information for a Job

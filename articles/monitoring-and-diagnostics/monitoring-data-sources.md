@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/27/2017
-ms.author: johnkem
+origin.date: 03/27/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 # Consume monitoring data from Azure
@@ -33,6 +34,7 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 | App Service logs | Events | App services | <ul><li>**File, table, or blob storage:** [Web app diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Storage logs | Events | Azure Storage | <ul><li>**Storage table:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Security Center alerts | Events | Azure Security Center | <ul><li>**REST API:** [Security Alerts](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
+| Active Directory reporting | Events | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API](../active-directory/active-directory-reporting-api-getting-started.md)</li></ul> |
 | Security Center resource status | Status | [All supported resources](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST API:** [Security Statuses](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Resource Health | Status | Supported services | <ul><li>**REST API:** [Resource health REST API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Azure Monitor Activity Log alerts | Notifications | All Azure services | <ul><li>**Webhook:** Azure Activity Log alerts</li></ul> |

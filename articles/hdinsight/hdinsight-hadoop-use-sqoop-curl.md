@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Sqoop with Curl in HDInsight | Azure
+title: Use Hadoop Sqoop with Curl in HDInsight - Azure | Azure
 description: Learn how to remotely submit Sqoop jobs to HDInsight using Curl.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Run Sqoop jobs with Hadoop in HDInsight with Curl
@@ -42,9 +42,9 @@ To complete the steps in this article, you will need the following:
 ## Submit Sqoop jobs by using Curl
 > [!NOTE]
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server.
-> <p> 
+> 
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> <p> 
+> 
 > The REST API is secured via [basic authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 > 
 > 
@@ -59,10 +59,10 @@ To complete the steps in this article, you will need the following:
 
     The parameters used in this command are as follows:
 
-    * **-u** - The user name and password used to authenticate the request.
-    * **-G** - Indicates that this is a GET request.
+   * **-u** - The user name and password used to authenticate the request.
+   * **-G** - Indicates that this is a GET request.
 
-    The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, will be the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. 
+     The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, will be the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. 
 2. Use the following to submit a sqoop job:
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
@@ -79,7 +79,9 @@ To complete the steps in this article, you will need the following:
 
     This command should return a job ID that can be used to check the status of the job.
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 1. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 
@@ -87,10 +89,10 @@ To complete the steps in this article, you will need the following:
 
     If the job has finished, the state will be **SUCCEEDED**.
 
-    > [!NOTE]
-    > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job; jq is used to retrieve only the state value.
-    > 
-    > 
+   > [!NOTE]
+   > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job; jq is used to retrieve only the state value.
+   > 
+   > 
 2. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory on the default storage container used by your HDInsight cluster.
 
     You can list and download these files by using the [Azure CLI](../cli-install-nodejs.md). For example, to list files in **example/curl**, use the following command:
@@ -101,10 +103,10 @@ To complete the steps in this article, you will need the following:
 
         azure storage blob download <container-name> <blob-name> <destination-file>
 
-    > [!NOTE]
-    > You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="hdinsight-upload-data.md" target="_blank" for more information.
-    > 
-    > 
+   > [!NOTE]
+   > You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="hdinsight-upload-data.md" target="_blank" for more information.
+   > 
+   > 
 
 ## Limitations
 * Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database does not currently support bulk inserts.

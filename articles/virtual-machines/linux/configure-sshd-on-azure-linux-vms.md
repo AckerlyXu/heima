@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
-wacn.date: ''
-ms.author: v-livech
+origin.date: 11/21/2016
+ms.date: 01/13/2017
+ms.author: v-dazen
 
 ---
 
 # Configure SSHD on Azure Linux VMs
 
-This article shows how to lockdown the SSH Server on Linux, to provide best practices security and also to speed up the SSH login process by using SSH keys instead of passwords.  To further lockdown SSHD we are going to disable the root user from being able to login, limit the users that are allowed to login via an approved group list, disabling SSH protocol version 1, set a minimum key bit, and configure auto-logout of idle users.  The requirements for this article are: an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+This article shows how to lockdown the SSH Server on Linux, to provide best practices security and also to speed up the SSH login process by using SSH keys instead of passwords.  To further lockdown SSHD we are going to disable the root user from being able to login, limit the users that are allowed to login via an approved group list, disabling SSH protocol version 1, set a minimum key bit, and configure auto-logout of idle users.  The requirements for this article are: an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick Commands
 
@@ -75,7 +75,7 @@ ClientAliveCountMax 0
 
 SSHD is the SSH Server that runs on the Linux VM.  SSH is a client that runs from a shell on your MacBook, Linux workstation, or from a Bash on Windows.  SSH is also the protocol used to secure and encrypt the communication between your workstation and the Linux VM making SSH also a VPN (Virtual Private Network).
 
-For this article, it is very important to keep one login to your Linux VM open for the entire walk-through.  Once an SSH connection is established, it remains as an open session as long as the window is not closed.  Having one terminal logged in, allows for changes to be made to the SSHD service without being locked out if a breaking change is made.  If you do get locked out of your Linux VM with a broken SSHD configuration, Azure offers the ability to reset a broken SSHD configuration with the [Azure VM Access Extension](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For this article, it is very important to keep one login to your Linux VM open for the entire walk-through.  Once an SSH connection is established, it remains as an open session as long as the window is not closed.  Having one terminal logged in, allows for changes to be made to the SSHD service without being locked out if a breaking change is made.  If you do get locked out of your Linux VM with a broken SSHD configuration, Azure offers the ability to reset a broken SSHD configuration with the [Azure VM Access Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 For this reason we open two terminals and SSH to the Linux VM from both of them.  We use the first terminal to make the changes to SSHDs configuration file and restart the SSHD service.  We use the second terminal to test those changes once the service is restarted.  Because we are disabling SSH passwords and relying strictly on SSH keys, if your SSH keys are not correct and you close the connection to the VM, the VM will be permanently locked and no one will be able to login to it requiring it to be deleted and recreated.
 
@@ -175,8 +175,8 @@ It is strongly recommended to install and setup the open source app Fail2ban, wh
 
 Now that you have configured and locked down the SSH server on your Linux VM there are additional security best practices you can follow.  
 
-* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Encrypt disks on a Linux VM using the Azure CLI](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Access and security in Azure Resource Manager templates](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Access and security in Azure Resource Manager templates](dotnet-core-3-access-security.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

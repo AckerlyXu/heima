@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Understanding Users and Contacts | Microsoft Docs
 description: Explains users and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
-wacn.date: ''
-ms.author: markvi;andkjell
+origin.date: 04/24/2017
+ms.date: 06/23/2017
+ms.author: v-junlch
 
 ---
 # Azure AD Connect sync: Understanding Users and Contacts

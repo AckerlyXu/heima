@@ -2,17 +2,17 @@
 title: Azure Event Hubs Documentation - Tutorials, API Reference | Azure
 description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
 services: event-hubs
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid:	
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: carolz
+origin.date: 01/23/2017
+ms.date: 07/03/2017
+ms.author: v-yeche
 ---
 
 # Event Hubs Documentation
@@ -38,24 +38,7 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         </div>
         </a>
     </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=event-hubs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Event Hubs Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
+    <!-- Notice: We remove the Video list in the html content-->
     <li>
         <a href="/event-hubs/event-hubs-programming-guide">
         <div class="cardSize">
@@ -93,57 +76,4 @@ Learn how to use Event Hubs to collect and manage millions of events per second 
         </a>
     </li>
 </ul>
-
----
-<h2>Reference</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Command-Line</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.eventhub/">PowerShell</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Languages</h3>
-                        <p><a href="https://docs.microsoft.com/dotnet/api/">.NET API Browser</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
-                        <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/eventhub">REST API Reference</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
+<!-- We remove the Launage reference block together-->

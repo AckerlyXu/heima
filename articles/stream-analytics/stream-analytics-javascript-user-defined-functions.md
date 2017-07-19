@@ -3,8 +3,8 @@ title: Azure Stream Analytics JavaScript user-defined functions | Azure
 description: Perform advanced query mechanics with JavaScript user-defined functions
 keywords: javascript, user defined functions, udf
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid:
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 ---
 
 # Azure Stream Analytics JavaScript user-defined functions

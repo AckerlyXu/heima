@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/27/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 02/27/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a highly available VM
@@ -27,11 +28,9 @@ This script sample creates everything needed to run several Ubuntu virtual machi
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group.
@@ -43,15 +42,15 @@ az network vnet create --resource-group myResourceGroup --location chinanorth --
 # Create a public IP address.
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
-# Create an Azure Network Load Balancer.
+# Create an Azure Load Balancer.
 az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP \
   --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
 
-# Creates an NLB probe on port 80.
+# Creates an LB probe on port 80.
 az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
   --name myHealthProbe --protocol tcp --port 80
 
-# Creates an NLB rule for port 80.
+# Creates an LB rule for port 80.
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
   --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
@@ -107,7 +106,7 @@ done
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete --name myResourceGroup
 ```
 
@@ -135,4 +134,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

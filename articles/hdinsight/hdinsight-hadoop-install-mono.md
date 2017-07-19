@@ -1,5 +1,5 @@
 ---
-title: Install or update Mono on HDInsight | Azure
+title: Install or update Mono on HDInsight - Azure | Azure
 description: Learn how to use a specific version of Mono with HDInsight cluster. Mono is used to run .NET applications on Linux-based HDInsight clusters.
 services: hdinsight
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 05/01/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/01/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 ms.custom: hdinsightactive
 
 ---
 
 # Install or update Mono on HDInsight
 
-Learn how to install a specific version of [Mono](https://www.mono-project.com) on HDInsight 3.4 or higher.
+Learn how to install a specific version of [Mono](http://www.mono-project.com) on HDInsight 3.4 or higher.
 
 Mono is installed on HDInsight 3.4 and higher, and is used to run .NET applications. For information on the version of Mono included with each HDInsight version, see [HDInsight component versioning](hdinsight-component-versioning.md). To install a different version on your cluster, use the script action in this document. 
 
@@ -48,7 +48,7 @@ __Requirements__:
 
 ## To use the script
 
-For information on how to use this script with HDInsight, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. You can use the script through the Azure portal preview, Azure PowerShell, or the Azure CLI.
+For information on how to use this script with HDInsight, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document. You can use the script through the Azure portal, Azure PowerShell, or the Azure CLI.
 
 While following the script action document, use the following URI:
 

@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-wacn.date: ''
-ms.author: adegeo
+origin.date: 09/27/2016
+ms.date: 01/05/2017
+ms.author: v-dazen
 
 ---
 # Manage virtual machines in a virtual machine scale set

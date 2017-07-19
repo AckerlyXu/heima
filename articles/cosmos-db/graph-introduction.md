@@ -1,50 +1,60 @@
 ﻿---
 title: 'Introduction to Azure Cosmos DB Graph APIs | Azure'
-description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency using the Gremlin query language. 
-services: cosmosdb
-author: arramac
+description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency using the the Gremlin graph query language of Apache TinkerPop.
+services: cosmos-db
+author: rockboyfor
 documentationcenter: ''
 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: arramac
+origin.date: 05/21/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Introduction to Azure Cosmos DB: Graph API
 
-[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](../documentdb/documentdb-distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](../documentdb/documentdb-consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/documentdb/v1_1/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
+[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, which are all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models.
 
-![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png) 
+![Gremlin, graph, and Azure Cosmos DB](./media/graph-introduction/graph-gremlin.png)
 
-Azure Cosmos DB provides graph modeling and traversal APIs along with turn-key global distribution, elastic scaling of storage and throughput, <10 ms read latencies and <15 ms at p99, automatic indexing and query, tunable consistency levels, and comprehensive SLAs including 99.99% availability. Azure Cosmos DB can be queried using the [Gremlin standard](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), and integrates with other Gremlin-compatible graph systems.
+The Azure Cosmos DB Graph API provides:
 
-In this article, we provide an overview of the Azure Cosmos DB's Graph API, and how you can use it to store massive graphs with billions of vertices and edges, query them within order of milliseconds latency, and evolve the graph structure and schema easily. 
+- Graph modeling
+- Traversal APIs
+- Turn-key global distribution
+- Elastic scaling of storage and throughput with less than 10 ms read latencies and less than 15 ms at the 99th percentile
+- Automatic indexing with instant query availability
+- Tunable consistency levels
+- Comprehensive SLAs including 99.99% availability
 
-## Graph databases
-Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. But for many applications, there is also a need to model the rich relationships between entities. Graphs allow you to model both entities and relationships naturally. 
+To query Azure Cosmos DB, you can use the [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal language, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), or other TinkerPop-compatible graph systems like [Apache Spark GraphX](spark-connector-graph.md).
 
-A [graph](http://mathworld.wolfram.com/Graph.html) is a structure composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both vertices and edges can have an arbitrary number of properties. Vertices denote discrete objects such as a person, a place, or an event. Edges denote relationships between vertices. For instance, a person may know another person, have been involved in an event, and/or was recently at a particular place. Properties express information about the vertices and edges. Example properties include a vertex having a name, an age, and an edge having a timestamp and/or a weight. More formally, this model is known as a [property graph](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model). Azure Cosmos DB supports the property graph model. 
+This article provides an overview of the Azure Cosmos DB Graph API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily.
 
-For example, the following diagram sample graph that shows the relationship between people, mobile devices, interests, and operating systems. 
+## Graph database
+Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. For many applications, there is also a need to model or to model both entities and relationships naturally.
 
-![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png) 
+A [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both vertices and edges can have an arbitrary number of properties. Vertices denote discrete objects such as a person, a place, or an event. Edges denote relationships between vertices. For example, a person might know another person, be involved in an event, and recently been at a location. Properties express information about the vertices and edges. Example properties include a vertex that has a name, age, and edge, which has a timestamp and/or a weight. More formally, this model is known as a [property graph](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB supports the property graph model.
 
-Graphs are useful in understanding a wide range of datasets in science, technology, and business. Graph databases let you model and store graphs naturally and efficiently, which makes them appealing for many scenarios. Graph databases are typically NoSQL databases, because these use cases often also need schema flexibility and rapid iteration. 
+For example, the following sample graph shows relationships among people, mobile devices, interests, and operating systems.
 
-Graphs offer a novel and powerful data modeling technique. But this by itself, is not a sufficient reason to use a graph database. For many use cases and patterns involving graph traversals, graphs outperform traditional SQL and NoSQL databases by orders of magnitude. This difference in performance is further amplified when traversing more than one relationship like friend-of-a-friend. 
+![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png)
 
-You can combine the fast traversals provided by graph databases with graph algorithms like depth-first search, breadth-first search, Dijkstra's algorithm, etc., to solve problems in various domains like social networking, geospatial, content management, geospatial, and recommendations. 
+Graphs are useful to understand a wide range of datasets in science, technology, and business. Graph databases let you model and store graphs naturally and efficiently, which makes them useful for many scenarios. Graph databases are typically NoSQL databases because these use cases often also need schema flexibility and rapid iteration.
+
+Graphs offer a novel and powerful data modeling technique. But this fact by itself is not a sufficient reason to use a graph database. For many use cases and patterns that involve graph traversals, graphs outperform traditional SQL and NoSQL databases by orders of magnitude. This difference in performance is further amplified when traversing more than one relationship, like friend-of-a-friend.
+
+You can combine the fast traversals that graph databases provide with graph algorithms, like depth-first search, breadth-first search, and Dijkstra's algorithm, to solve problems in various domains like social networking, content management, geospatial, and recommendations.
 
 ## Planet-scale graphs with Azure Cosmos DB
-Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and supports the TinkerPop standard.  
+Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard.  
 
-![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png) 
+![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
 Azure Cosmos DB offers the following differentiated capabilities compared to other graph databases in the market: 
 

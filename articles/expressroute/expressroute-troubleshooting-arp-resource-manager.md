@@ -12,20 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
-ms.author: ganesr
+origin.date: 01/30/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 # Getting ARP tables in the Resource Manager deployment model
 
 > [!div class="op_single_selector"]
-[PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resource-manager.md)
-[PowerShell - Classic](./expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](./expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - Classic](./expressroute-troubleshooting-arp-classic.md)
+> 
+> 
 
 This article walks you through the steps to learn the ARP tables for your ExpressRoute circuit. 
 
 >[!IMPORTANT]
 > This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. You must open a support ticket with [Microsoft support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are unable to solve the problem using the guidance described below.
+> 
+> 
 
 ## Address Resolution Protocol (ARP) and ARP tables
 Address Resolution Protocol (ARP) is a layer 2 protocol defined in [RFC 826](https://tools.ietf.org/html/rfc826). ARP is used to map the Ethernet address (MAC address) with an ip address.
@@ -40,12 +45,11 @@ ARP tables can help validate layer 2 configuration and troubleshooting basic lay
 
 Example ARP table: 
 
-```
-    Age InterfaceProperty IpAddress  MacAddress    
-    --- ----------------- ---------  ----------    
-     10 On-Prem           10.0.0.1 ffff.eeee.dddd
-      0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
-```
+        Age InterfaceProperty IpAddress  MacAddress    
+        --- ----------------- ---------  ----------    
+         10 On-Prem           10.0.0.1   ffff.eeee.dddd
+          0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+
 
 The following section provides information on how you can view the ARP tables seen by the ExpressRoute edge routers. 
 

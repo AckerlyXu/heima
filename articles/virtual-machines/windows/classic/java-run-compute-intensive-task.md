@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
-ms.author: robmcm
+origin.date: 04/25/2017
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # How to run a compute-intensive task in Java on a virtual machine
@@ -51,24 +51,24 @@ The following is an example of the Java application monitoring the compute-inten
 1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
-    Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
+   Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
 4. Click **Next**.
 5. In the **Virtual machine configuration** dialog box:
-    1. Specify a name for the virtual machine.
-    2. Specify the size to use for the virtual machine.
-    3. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
-    4. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password.
-    5. Click **Next**.
+   1. Specify a name for the virtual machine.
+   2. Specify the size to use for the virtual machine.
+   3. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
+   4. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password.
+   5. Click **Next**.
 6. In the next **Virtual machine configuration** dialog box:
-    1. For **Cloud service**, use the default **Create a new cloud service**.
-    2. The value for **Cloud service DNS name** must be unique across chinacloudapp.cn. If needed, modify this value so that Azure indicates it is unique.
-    3. Specify a region, affinity group, or virtual network. For purposes of this tutorial, specify a region such as **China North**.
-    4. For **Storage Account**, select **Use an automatically generated storage account**.
-    5. For **Availability Set**, select **(None)**.
-    6. Click **Next**.
+   1. For **Cloud service**, use the default **Create a new cloud service**.
+   2. The value for **Cloud service DNS name** must be unique across chinacloudapp.cn. If needed, modify this value so that Azure indicates it is unique.
+   3. Specify a region, affinity group, or virtual network. For purposes of this tutorial, specify a region such as **China North**.
+   4. For **Storage Account**, select **Use an automatically generated storage account**.
+   5. For **Availability Set**, select **(None)**.
+   6. Click **Next**.
 7. In the final **Virtual machine configuration** dialog box:
-    1. Accept the default endpoint entries.
-    2. Click **Complete**.
+   1. Accept the default endpoint entries.
+   2. Click **Complete**.
 
 ## To remotely log in to your virtual machine
 1. Log on to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
@@ -98,8 +98,8 @@ To create a service namespace:
 5. After making sure the namespace name is available, choose the
    country or region in which your namespace should be hosted, and then click the **Create Namespace** button.  
 
-    The namespace you created will then appear in the Azure Classic Management Portal
-    and takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
+   The namespace you created will then appear in the Azure Classic Management Portal
+   and takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
 
 ## Obtain the Default Management Credentials for the namespace
 In order to perform management operations, such as creating a queue, on
@@ -493,7 +493,7 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
         java -jar TSPSolver.jar 8
 
-    If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
+   If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
 
 > [!NOTE]
 > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
@@ -523,12 +523,12 @@ Run the compute-intensive application, first to create the queue, then to solve 
 ## How to stop the Java applications
 For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
 
-[solver_output]: ./media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
-[client_output]: ./media/java-run-compute-intensive-task/WA_JavaTSPClient.png
-[svc_bus_node]: ./media/java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
-[create_namespace]: ./media/java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
-[avail_namespaces]: ./media/java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
-[namespace_list]: ./media/java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
-[properties_pane]: ./media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
-[default_key]: ./media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
+[solver_output]:media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
+[client_output]:media/java-run-compute-intensive-task/WA_JavaTSPClient.png
+[svc_bus_node]:media/java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg
+[create_namespace]:media/java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg
+[avail_namespaces]:media/java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
+[namespace_list]:media/java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
+[properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
+[default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md

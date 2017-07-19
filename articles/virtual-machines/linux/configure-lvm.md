@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
-wacn.date: ''
-ms.author: szark
+origin.date: 02/02/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Configure LVM on a Linux VM in Azure
@@ -28,7 +28,7 @@ LVM can be used to combine a number of physical disks into a single storage volu
 This document will describe how to combine several data disks into a single volume group, and then create a striped logical volume. The steps below are somewhat generalized to work with most distributions. In most cases the utilities and workflows for managing LVM on Azure are not fundamentally different than other environments. As usual, please also consult your Linux vendor for documentation and best practices for using LVM with your particular distribution.
 
 ## Attaching data disks
-One will usually want to start with two or more empty data disks when using LVM. Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine. Please see the Azure article [attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
+One will usually want to start with two or more empty data disks when using LVM. Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article will not go into detail on how to provision and attach data disks to a Linux virtual machine. Please see the Azure article [attach a disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
 ## Install the LVM utilities
 * **Ubuntu**
@@ -94,8 +94,8 @@ In this guide we will assume you have attached three data disks, which we'll ref
     sudo mkfs -t ext4 /dev/data-vg01/data-lv01
     ```
 
-    > [!NOTE]
-    > With SLES11 use `-t ext3` instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
+   > [!NOTE]
+   > With SLES11 use `-t ext3` instead of ext4. SLES11 only supports read-only access to ext4 filesystems.
 
 ## Add the new file system to /etc/fstab
 > [!IMPORTANT]
@@ -121,7 +121,6 @@ In this guide we will assume you have attached three data disks, which we'll ref
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-
     Then, save and close `/etc/fstab`.
 
 4. Test that the `/etc/fstab` entry is correct:

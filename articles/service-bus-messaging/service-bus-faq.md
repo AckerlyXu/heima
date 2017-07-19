@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: sethm;jotaub
+origin.date: 05/02/2017
+ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # Service Bus FAQ
@@ -61,7 +62,7 @@ The following properties of a queue and topic are immutable. Please take this in
 ## <a name="service-bus-pricing"></a> Pricing
 This section answers some frequently-asked questions about the Service Bus pricing structure.
 
-The [Service Bus pricing and billing](./service-bus-pricing-billing.md) article explains the billing meters in Service Bus, and for information about Service Bus pricing options, see [Service Bus pricing details](/pricing/details/service-bus/).
+The [Service Bus pricing and billing](./service-bus-pricing-billing.md) article explains the billing meters in Service Bus, and for information about Service Bus pricing options, see [Service Bus pricing details](https://www.azure.cn/pricing/details/messaging/).
 
 You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. 
 
@@ -69,7 +70,7 @@ You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkI
 For complete information about Service Bus pricing, please see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.
 
 ### What usage of Service Bus is subject to data transfer? What is not?
-Any data transfer within a given Azure region is provided at no charge, as well as any inbound data transfer. Data transfer outside a region is subject to egress charges which can be found [here](https://azure.microsoft.com/pricing/details/bandwidth/).
+Any data transfer within a given Azure region is provided at no charge, as well as any inbound data transfer. 
 
 ### Does Service Bus charge for storage?
 
@@ -126,7 +127,7 @@ To learn more about Service Bus, see the following topics.
 
 [Best practices for performance improvements using Service Bus]: ./service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: ./service-bus-outages-disasters.md
-[Pricing overview]: /pricing/details/messaging/
+[Pricing overview]: https://www.azure.cn/pricing/details/messaging/
 [Quotas overview]: ./service-bus-quotas.md
 [Exceptions overview]: ./service-bus-messaging-exceptions.md
 [Shared Access Signatures]: ./service-bus-sas.md

@@ -1,22 +1,22 @@
 ---
-title: 'Azure Cosmos DB portal tool: Document Explorer | Microsoft Docs'
-description: Learn about the Azure Cosmos DB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload documents.
+title: 'DocumentDB portal tool: Document Explorer | Microsoft Docs'
+description: Learn about the DocumentDB Document Explorer, an Azure Portal tool to view JSON, edit, create, and upload documents.
 keywords: view json
-services: cosmosdb
+services: documentdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: 029d81b3-6382-4799-a1bd-0dcbccd9968d
-ms.service: cosmosdb
+ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
-wacn.date: ''
-ms.author: kirillg
+origin.date: 04/18/2017
+ms.date: 05/31/2017
+ms.author: v-junlch
 
 ---
 # View, edit, create, and upload JSON documents 
@@ -24,12 +24,12 @@ ms.author: kirillg
 This article provides an overview of the two ways you can create, edit and query documents in the portal: [Document Explorer](#launch-document-explorer) and [Data Explorer (preview)](#data-explorer).
 
 > [!NOTE]
-> Document Explorer is not enabled on Azure Cosmos DB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
+> Document Explorer is not enabled on DocumentDB accounts with protocol support for MongoDB. This page will be updated when this feature is enabled.
 
 ## Launch Document Explorer in the Azure portal <a id="launch-document-explorer"></a>
-1. In the [Azure portal](https://portal.azure.cn), on the left navigation, click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
+1. In the [Azure portal](https://portal.azure.cn), on the left navigation, click ![DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**. 
 
-    If **Azure Cosmos DB** is not visible, click **More Services** at the bottom, and then click ![Azure Cosmos DB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
+    If **DocumentDB** is not visible, click **More Services** at the bottom, and then click ![DocumentDB icon](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **DocumentDB**.
 2. Select the account name. 
 3. In the resource menu, click **Document Explorer**. 
    
@@ -65,7 +65,7 @@ This article provides an overview of the two ways you can create, edit and query
    
     ![Screenshot of Document Explorer discard command](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## Delete a document from Cosmos DB
+## Delete a document from DocumentDB
 1. [Launch Document Explorer](#launch-document-explorer).
 2. Select the document in **Document Explorer**, click **Delete**, and then confirm the delete. After confirming, the document is immediately removed from the Document Explorer list.
    
@@ -145,16 +145,16 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 5. Once the operation is complete, you can select up to another 100 documents to upload.
 
 ## Work with JSON documents outside the portal
-The Document Explorer in the Azure portal is just one way to work with documents in Cosmos DB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).
+The Document Explorer in the Azure portal is just one way to work with documents in DocumentDB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).
 
-If you need to import or migrate files from another source (JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, or HBase), you can use the Cosmos DB [data migration tool](documentdb-import-data.md) to quickly import your data to Cosmos DB.
+If you need to import or migrate files from another source (JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, or HBase), you can use the DocumentDB [data migration tool](documentdb-import-data.md) to quickly import your data to DocumentDB.
 
 ## Troubleshoot
 **Symptom**: Document Explorer returns **No documents found**.
 
 **Solution**: Ensure that you have selected the correct subscription, database and collection in which the documents were inserted. Also, check to ensure that you are operating within your throughput quotas. If you are operating at your maximum throughput level and getting throttled, lower application usage to operate under the maximum throughput quota for the collection.
 
-**Explanation**: The portal is an application like any other, making calls to your Cosmos DB database and collection. If your requests are currently being throttled due to calls being made from a separate application, the portal may also be throttled, causing resources not to appear in the portal. To resolve the issue, address the cause of the high throughput usage, and then refresh the portal blade. Information on how to measure and lower throughput usage can be found in the [Throughput](documentdb-performance-tips.md#throughput) section of the [Performance tips](documentdb-performance-tips.md) article.
+**Explanation**: The portal is an application like any other, making calls to your DocumentDB database and collection. If your requests are currently being throttled due to calls being made from a separate application, the portal may also be throttled, causing resources not to appear in the portal. To resolve the issue, address the cause of the high throughput usage, and then refresh the portal blade. Information on how to measure and lower throughput usage can be found in the [Throughput](documentdb-performance-tips.md#throughput) section of the [Performance tips](documentdb-performance-tips.md) article.
 
 ## Next steps
 To learn more about the DocumentDB API SQL grammar supported in Document Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).

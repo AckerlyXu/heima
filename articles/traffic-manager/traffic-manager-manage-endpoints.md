@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 05/08/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 ---
 
 # Add, disable, enable, or delete endpoints
@@ -29,7 +29,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## To add a cloud service or an App service endpoint to a Traffic Manager profile
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn).
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn).
 2. In the portal's search bar, search for the **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**.
 4. In the **Endpoints** blade that is displayed, click **Add**.
@@ -49,7 +49,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## To disable an endpoint
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn).
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn).
 2. In the portal's search bar, search for the  **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that are displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**. 
 4. Click the endpoint that you want to disable, and then on the **Endpoint** blade that is displayed, click **Edit**.
@@ -58,7 +58,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## To enable an endpoint
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn).
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn).
 2. In the portal's search bar, search for the  **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that are displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**. 
 4. Click the endpoint that you want to disable, and then on the **Endpoint** blade that is displayed, click **Edit**.
@@ -67,7 +67,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## To delete an endpoint
 
-1. From a browser, sign in to the [Azure portal preview](http://portal.azure.cn).
+1. From a browser, sign in to the [Azure portal](http://portal.azure.cn).
 2. In the portal's search bar, search for the  **Traffic Manager profile** name that you want to modify, and then click the Traffic Manager profile in the results that are displayed.
 3. In the **Traffic Manager profile** blade, in the **Settings** section, click **Endpoints**. 
 4. Click the endpoint that you want to disable, and then on the **Endpoint** blade that is displayed, click **Edit**.
@@ -79,4 +79,4 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 * [Configure routing methods](traffic-manager-configure-routing-method.md)
 * [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 * [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
-* [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/library/hh758255.aspx)
+* [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)

@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2016
-wacn.date: ''
-ms.author: glenga
+origin.date: 11/27/2016
+ms.date: 03/17/2017
+ms.author: v-dazen
 
 ---
 # Run Background tasks with WebJobs
@@ -24,11 +24,13 @@ You can run programs or scripts in WebJobs in your [Azure App Service](/app-serv
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-This article shows how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
+This article shows how to deploy WebJobs by using the [Azure Portal](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 The following file types are accepted:
@@ -42,7 +44,7 @@ The following file types are accepted:
 * .jar (using java)
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
-1. In the **Web App** blade of the [Azure Portal Preview](https://portal.azure.cn), click **All settings > WebJobs** to show the **WebJobs** blade.
+1. In the **Web App** blade of the [Azure Portal](https://portal.azure.cn), click **All settings > WebJobs** to show the **WebJobs** blade.
 
     ![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 2. Click **Add**. The **Add WebJob** dialog appears.
@@ -64,7 +66,7 @@ The following file types are accepted:
 
 > [!NOTE]
 > If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Azure.
-> <p> 
+> 
 > For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 > 
 > 
@@ -96,7 +98,7 @@ Other CRON schedule examples:
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob using the Azure Scheduler
 The following alternate technique makes use of the Azure Scheduler. In this case, your WebJob does not have any direct knowledge of the schedule. Instead, the Azure Scheduler gets configured to trigger your WebJob on a schedule. 
 
-The Azure Portal Preview doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [Classic Management Portal](http://manage.windowsazure.cn).
+The Azure Portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [Classic Management Portal](http://manage.windowsazure.cn).
 
 1. In the [Classic Management Portal](http://manage.windowsazure.cn) go to the WebJob page and click **Add**.
 2. In the **How to Run** box, choose **Run on a schedule**.
@@ -136,7 +138,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [Cl
 
 1. On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
 
-    ![Link to Azure Scheduler][LinkToScheduler]
+   ![Link to Azure Scheduler][LinkToScheduler]
 2. On the Scheduler page, click the job.
 
     ![Job on the Scheduler portal page][SchedulerPortal]

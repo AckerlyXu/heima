@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-wacn.date: ''
-ms.author: davidmu
+origin.date: 03/01/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Manage Azure Virtual Machines using Azure Resource Manager and C# #
@@ -65,7 +65,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
     var subscriptionId = "subsciptionId";
     ```
 
-    You can find the subscription identifier on the Subscriptions blade of the Azure portal preview.    
+    You can find the subscription identifier on the Subscriptions blade of the Azure portal.    
 
 3. To get the token that is needed to create the credentials, add this method to the Program class:
 
@@ -85,9 +85,9 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
     Replace these values:
 
-    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal preview, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
+    - *client-id* with the identifier of the Azure Active Directory application. You can find this identifier on the Properties blade of your AD application. To find your AD application in the Azure portal, click **Azure Active Directory** in the resource menu, and then click **App registrations**.
     - *client-secret* with the access key of the AD application. You can find this identifier on the Properties blade of your AD application.
-    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal preview. It is labeled *Directory ID*.
+    - *tenant-id* with the tenant identifier of your subscription. You can find the tenant identifier on the Properties blade for Azure Active Directory in the Azure portal. It is labeled *Directory ID*.
 
 4. To call the method that you previously added, add this code to the Main method in the Program.cs file:
 
@@ -522,4 +522,4 @@ This example shows you how to add a data disk to a running virtual machine.
 
 - If there were issues with a deployment, you might look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
-- Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

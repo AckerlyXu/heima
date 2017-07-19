@@ -3,7 +3,7 @@ title: Export Azure Resource Manager template | Azure
 description: Use Azure Resource Manage to export a template from an existing resource group.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/30/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 03/30/2017
+ms.date: 05/02/2017
+ms.author: v-yeche
 ---
 
 # Export an Azure Resource Manager template from existing resources
@@ -388,7 +388,7 @@ In the web site resource, add a definition for the code to install:
 ```
 
 ### Virtual machine extension
-For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](../virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Virtual network gateway
 Add a virtual network gateway resource type.

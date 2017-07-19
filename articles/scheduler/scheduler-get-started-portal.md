@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Scheduler in Azure portal preview |  Azure
-description: Get started with Azure Scheduler in Azure portal preview
+title: Get started with Azure Scheduler in Azure Portal |  Azure
+description: Get started with Azure Scheduler in Azure Portal
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
-ms.author: deli
+ms.author: v-johch
 
 ---
-# Get started with Azure Scheduler in Azure portal preview
+# Get started with Azure Scheduler in Azure Portal
 It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
 
 ## Create a job
-1.  Sign in to [Azure portal preview](https://portal.azure.cn/).  
+1.  Sign in to [Azure Portal](https://portal.azure.cn/).  
 2. Click **+New** > type *Scheduler* in the search box >  select **Scheduler** in results > click **Create**.
    
     ![][marketplace-create]

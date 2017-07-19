@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: adhurwit
+origin.date: 01/07/2017
+ms.date: 02/27/2017
+ms.author: v-junlch
 ---
 
 # Use Azure Key Vault from a Web Application
@@ -40,7 +40,7 @@ To complete this tutorial, you must have the following:
 
 The web application that will be accessing the Key Vault is the one that is registered in Azure Active Directory and has been given access to your Key Vault. If this is not the case, go back to Register an Application in the Get Started tutorial and repeat the steps listed.
 
-This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](../app-service-web/index.md).
+This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](../app-service-web/index.yml).
 
 ## <a id="packages"></a>Add Nuget Packages
 There are two packages that your web application needs to have installed.

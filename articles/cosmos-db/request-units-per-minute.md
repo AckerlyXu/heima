@@ -1,21 +1,21 @@
 ---
 title: 'Azure CosmosDB: Request units per minute (RU/m) | Azure'
 description: Learn how to reduce cost by utilizing request units per minute.
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: arnomicrosoft
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: acomet
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Request units per minute in Azure Cosmos DB
@@ -63,7 +63,7 @@ When creating an Azure Cosmos DB collection, you specify the number of request u
 
 Enabling or disabling RU per minute simply requires a click when provisioning a collection. 
 
- ![Screenshot showing how to set RU/m in the Azure portal preview](./media/request-units-per-minute/azure-cosmos-db-request-unit-per-minute-portal.png)
+ ![Screenshot showing how to set RU/m in the Azure portal](./media/request-units-per-minute/azure-cosmos-db-request-unit-per-minute-portal.png)
 
 ### Through the SDK
 First, this is important to note that RU/m is only available for the following SDKs:
@@ -108,15 +108,15 @@ await client.ReplaceOfferAsync(offerV2);
 
 In this section, we provide an overview of scenarios that are a good fit for enabling request units per minute.
 
-**Dev/Test environment:** Good fit. During the development stage, if you are testing your application with different workloads, RU/m can provide the flexibility at this stage. While the [emulator](../documentdb/documentdb-nosql-local-emulator.md) is a great free tool to test Azure Cosmos DB. However if you want to start in a cloud environment, you will have a great flexibility with RU/m for your adhoc performance needs. You will spend more time developing, less worrying about performance needs at first. We recommend starting with the minimum RU/s provisioning and enable RU/m.
+**Dev/Test environment:** Good fit. During the development stage, if you are testing your application with different workloads, RU/m can provide the flexibility at this stage. While the [emulator](local-emulator.md) is a great free tool to test Azure Cosmos DB. However if you want to start in a cloud environment, you will have a great flexibility with RU/m for your adhoc performance needs. You will spend more time developing, less worrying about performance needs at first. We recommend starting with the minimum RU/s provisioning and enable RU/m.
 
-**Unpredictable, spiky, minute granularity needs:** Good fit - Savings: 25-75%. We have seen large improvement from RU/m and most production scenarios are into that group. If you have an IoT workload that has spike a few times in a minute, if you have queries running when your system makes mass insert at the same time, you will need extra capacity for hadndling spiky needs. We recommend optimizing your resource needs by applying our step by step approach below.
+**Unpredictable, spiky, minute granularity needs:** Good fit – Savings: 25-75%. We have seen large improvement from RU/m and most production scenarios are into that group. If you have an IoT workload that has spike a few times in a minute, if you have queries running when your system makes mass insert at the same time, you will need extra capacity for handeling spiky needs. We recommend optimizing your resource needs by applying our step by step approach below.
 
  ![Graph showing request consumption in 5 minute granularity](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-consumption.png)
 
  *Figure - RU consumption benchmark*
 
-**Peace of mind:** Good fit - Savings: 10-20%. Sometimes, you just want to have peace of mind and not worry about potential peaks and throttling. This feature is the right one for you. In that case, we recommend enabling RU/m and slightly lower your per second provisioning. This case is different from the above as you will not try to optimize aggressively your provisioning. This is more of a "Zero Throttling" mindset you are in.
+**Peace of mind:** Good fit – Savings: 10-20%. Sometimes, you just want to have peace of mind and not worry about potential peaks and throttling. This feature is the right one for you. In that case, we recommend enabling RU/m and slightly lower your per second provisioning. This case is different from the above as you will not try to optimize aggressively your provisioning. This is more of a "Zero Throttling" mindset you are in.
 
 Critical operations with adhoc needs: We sometimes recommend to only let critical operations access RU/m budget so the budget doesn't get consume by adhoc or less important operations. That can be easily defined in the section below.
 
@@ -171,6 +171,6 @@ var query = client.CreateDocumentQuery<Book>(
 
 In this article, we've described how partitioning works in Azure Cosmos DB, how you can create partitioned collections, and how you can pick a good partition key for your application.
 
-* Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](../documentdb/documentdb-performance-testing.md) for a sample.
-* Get started coding with the [SDKs](../documentdb/documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx).
-* Learn about [provisioned throughput](../documentdb/documentdb-request-units.md) in Azure Cosmos DB
+* Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
+* Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx).
+* Learn about [provisioned throughput](request-units.md) in Azure Cosmos DB

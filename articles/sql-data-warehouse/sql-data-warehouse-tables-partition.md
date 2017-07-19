@@ -3,8 +3,8 @@ title: Partitioning tables in SQL Data Warehouse | Azure
 description: Getting started with table partitioning in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Partitioning tables in SQL Data Warehouse
@@ -364,10 +364,10 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->
-[Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
-[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[partition function]: https://msdn.microsoft.com/library/ms187802.aspx
-[partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx
+[Partitioned Tables and Indexes]: https://msdn.microsoft.com/zh-cn/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/zh-cn/library/ms190273.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
+[partition function]: https://msdn.microsoft.com/zh-cn/library/ms187802.aspx
+[partition scheme]: https://msdn.microsoft.com/zh-cn/library/ms179854.aspx
 
 <!-- Other web references -->

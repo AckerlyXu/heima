@@ -3,7 +3,7 @@ title: Deploy resources to Azure | Azure
 description: Use Azure PowerShell or Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 02/16/2017
+ms.date: 06/05/2017
+ms.author: v-yeche
 
 ---
 # Deploy resources to Azure

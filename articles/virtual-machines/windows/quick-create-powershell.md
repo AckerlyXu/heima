@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-wacn.date: ''
-ms.author: nepeters
-
+origin.date: 05/02/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a Windows virtual machine with PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create and Azure virtual machine running Windows Server 2016. Once deployment is complete, we connect to the server and install IIS.  
 
-If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
 This quick start requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -141,7 +141,7 @@ With IIS installed and port 80 now open on your VM from the Internet, you can us
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, you can use the [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
 

@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) using .NET | Azure
+title: Create Hadoop clusters using .NET - Azure HDInsight | Azure
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/27/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 04/27/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Create Linux-based clusters in HDInsight using the .NET SDK
@@ -28,7 +28,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 > [!IMPORTANT]
 > The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
-> <p>
+>
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
 ## Prerequisites
@@ -93,7 +93,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
             private const string NewClusterPassword = "<Enter HTTP User Password>";
             private const string NewClusterSshUserName = "sshuser";
 
-            // You can use eitehr password or public key.  See https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/ or https://www.azure.cn/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/
+            // You can use eitehr password or public key. See https://docs.azure.cn/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
             private const string NewClusterSshPassword = "<Enter SSH User Password>";
             private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
                 Comment: ""rsa-key-20150731""

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: marsma
+ms.author: v-johch
 ---
 
 # Manage anonymous read access to containers and blobs
@@ -33,13 +33,13 @@ You can configure a container with the following permissions:
 
 You can use the following to set container permissions:
 
-* [Azure portal preview](https://portal.azure.cn)
+* [Azure Portal](https://portal.azure.cn)
 * [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 * [Azure CLI 2.0](storage-azure-cli.md#create-and-manage-blobs)
 * Programmatically, by using one of the storage client libraries or the REST API
 
-### Set container permissions in the Azure portal preview
-To set container permissions in the [Azure portal preview](https://portal.azure.cn), follow these steps:
+### Set container permissions in the Azure Portal
+To set container permissions in the [Azure Portal](https://portal.azure.cn), follow these steps:
 
 1. Open your **Storage account** blade in the portal. You can find your storage account by selecting **Storage accounts** in the main portal menu blade.
 1. Under **BLOB SERVICE** on the menu blade, select **Containers**.

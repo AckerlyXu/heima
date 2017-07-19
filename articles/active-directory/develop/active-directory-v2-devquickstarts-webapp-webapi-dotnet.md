@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/23/2017
+ms.date: 03/13/2017
+ms.author: v-junlch
 ---
 
 # Calling a web API from a .NET web app
@@ -42,7 +42,7 @@ git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-Web
 ```
 
 ## Register an app
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or follow these [detailed steps](./active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](./active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Create an **App Secret** of the **Password** type, and copy down its value for later
@@ -81,7 +81,7 @@ public void ConfigureAuth(IAppBuilder app)
         {
 
                     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
-                    // The `Scope` describes the permissions that your app will need.  See /documentation/articles/active-directory-v2-scopes/
+                    // The `Scope` describes the permissions that your app will need.  
                     // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
                     ClientId = clientId,

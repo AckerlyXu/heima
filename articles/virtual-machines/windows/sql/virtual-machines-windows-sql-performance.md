@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/28/2017
-wacn.date: ''
-ms.author: jroth
+origin.date: 04/28/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Performance best practices for SQL Server in Azure Virtual Machines
@@ -25,7 +25,7 @@ ms.author: jroth
 
 This topic provides best practices for optimizing SQL Server performance in Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
-When creating SQL Server images, [consider provisioning your VMs in the Azure portal preview](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager implement all these best practices, including the storage configuration.
+When creating SQL Server images, [consider provisioning your VMs in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server VMs provisioned in the Portal with Resource Manager implement all these best practices, including the storage configuration.
 
 This article is focused on getting the *best* performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
 
@@ -47,7 +47,7 @@ For more information on *how* and *why* to make these optimizations, please revi
 
 ## VM size guidance
 
-For performance sensitive applications, it's recommended that you use the following [virtual machines sizes](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
+For performance sensitive applications, it's recommended that you use the following [virtual machines sizes](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json):
 
 * **SQL Server Enterprise Edition**: DS3 or higher
 * **SQL Server Standard and Web Editions**: DS2 or higher
@@ -89,12 +89,12 @@ For VMs that support Premium Storage (DS-series and DSv2-series), we recommend s
 
 * **Use data disks for data and log files**: At a minimum, use 2 Premium Storage [P30 disks](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the following article: [Using Premium Storage for Disks](../../../storage/storage-premium-storage.md).
 
-* **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
+* **Disk Striping**: For more throughput, you can add additional data disks and use Disk Striping. To determine the number of data disks, you need to analyze the number of IOPS and bandwidth required for your log file(s), and for your data and TempDB file(s). Notice that different VM sizes have different limits on the number of IOPs and bandwidth supported, see the tables on IOPS per [VM size](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Use the following guidelines:
 
-    * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
+  * For Windows 8/Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
 
-        1. Set the interleave (stripe size) to 64 KB (65536 bytes) for OLTP workloads and 256 KB (262144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
-        1. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI). 
+      1. Set the interleave (stripe size) to 64 KB (65536 bytes) for OLTP workloads and 256 KB (262144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
+      1. Set column count = number of physical disks. Use PowerShell when configuring more than 8 disks (not Server Manager UI). 
 
     For example, the following PowerShell creates a new storage pool with the interleave size to 64 KB and the number of columns to 2:
 
@@ -105,23 +105,23 @@ For VMs that support Premium Storage (DS-series and DSv2-series), we recommend s
     New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false 
     ```
 
-    * For Windows 2008 R2 or earlier, you can use dynamic disks (OS striped volumes) and the stripe size is always 64 KB. Note that this option is deprecated as of Windows 8/Windows Server 2012. For information, see the support statement at [Virtual Disk Service is transitioning to Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
+  * For Windows 2008 R2 or earlier, you can use dynamic disks (OS striped volumes) and the stripe size is always 64 KB. Note that this option is deprecated as of Windows 8/Windows Server 2012. For information, see the support statement at [Virtual Disk Service is transitioning to Windows Storage Management API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-    * If your workload is not log intensive and does not need dedicated IOPs, you can configure just one storage pool. Otherwise, create two storage pools, one for the log file(s) and another storage pool for the data file(s) and TempDB. Determine the number of disks associated with each storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * If your workload is not log intensive and does not need dedicated IOPs, you can configure just one storage pool. Otherwise, create two storage pools, one for the log file(s) and another storage pool for the data file(s) and TempDB. Determine the number of disks associated with each storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-    * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
+  * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
 
 * **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
-    > [!WARNING]
-    > Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.
+  > [!WARNING]
+  > Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.
 
 * **NTFS allocation unit size**: When formatting the data disk, it is recommended that you use a 64-KB allocation unit size for data and log files as well as TempDB.
 
 * **Disk management best practices**: When removing a data disk or changing its cache type, stop the SQL Server service during the change. When the caching settings are changed on the OS disk, Azure stops the VM, changes the cache type, and restarts the VM. When the cache settings of a data disk are changed, the VM is not stopped, but the data disk is detached from the VM during the change and then reattached.
 
-    > [!WARNING]
-    > Failure to stop the SQL Server service during these operations can cause database corruption.
+  > [!WARNING]
+  > Failure to stop the SQL Server service during these operations can cause database corruption.
 
 ## I/O guidance
 

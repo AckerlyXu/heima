@@ -1,5 +1,5 @@
 ---
-title: Deploy Linux VMs into existing network with Azure portal preview | Azure
+title: Deploy Linux VMs into existing network with Azure portal | Azure
 description: Deploy a Linux VM into an existing Azure Virtual Network using the portal.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 05/11/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 
-# How to deploy a Linux virtual machine into an existing Azure Virtual Network with the Azure portal preview
+# How to deploy a Linux virtual machine into an existing Azure Virtual Network with the Azure portal
 
 This article shows you how to deploy a virtual machine (VM) into an existing virtual network (VNet). Azure assets like VNets and network security groups should be static and long lived resources that are rarely deployed. Once a VNet has been deployed, it can be reused by constant redeployments without any adverse affects to the infrastructure. Thinking about a VNet as being a traditional hardware network switch - you would not need to configure a brand new hardware switch with each deployment.  
 
@@ -63,7 +63,7 @@ With the VNet and the subnet created, associate the network security group with 
 
 ## Deploy the VM into the VNet and NSG
 
-Using the Azure portal preview, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.
+Using the Azure portal, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.
 
 ![createVM](./media/deploy-linux-vm-into-existing-vnet-using-portal/createVM.png)
 

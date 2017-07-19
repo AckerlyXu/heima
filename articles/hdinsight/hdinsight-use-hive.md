@@ -1,5 +1,5 @@
 ---
-title: What is Apache Hive and HiveQL- Azure HDInsight | Azure
+title: What is Apache Hive and HiveQL? - Azure HDInsight | Azure
 description: Apache Hive is a data warehouse system for Hadoop. You can query data stored in Hive using HiveQL, which similar to Transact-SQL. In this document, learn how to use Hive and HiveQL with Azure HDInsight.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
 services: hdinsight
@@ -11,17 +11,17 @@ tags: azure-portal
 
 ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
-# What is Apache Hive and HiveQL on Azure HDInsight
+# What is Apache Hive and HiveQL on Azure HDInsight?
 
 [Apache Hive](http://hive.apache.org/) is a data warehouse system for Hadoop. Hive enables data summarization, querying, and analysis of data. Hive queries are written in HiveQL, which is a query language similar to SQL.
 
@@ -50,7 +50,7 @@ Use the following table to discover how to use Hive with HDInsight:
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 deprecation](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> \* Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > If you are using a Windows-based HDInsight cluster, you can use the [Query console](hdinsight-hadoop-use-hive-query-console.md) from your browser or [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) to run Hive queries.
 
@@ -144,7 +144,7 @@ In the previous example, the HiveQL statements perform the following actions:
 
 > [!NOTE]
 > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process, or MapReduce operation.
-> <p>
+>
 > Dropping an external table does **not** delete the data, it only deletes the table definition.
 
 To create an **internal** table instead of external, use the following HiveQL:
@@ -174,9 +174,9 @@ These statements perform the following actions:
 
 > [!NOTE]
 > Tez is currently off by default for Windows-based HDInsight clusters and it must be enabled. To take advantage of Tez, the following value must be set for a Hive query:
-> <p>
+>
 > `set hive.execution.engine=tez;`
-> <p>
+>
 > Tez is the default engine for Linux-based HDInsight clusters.
 
 The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contains details about the implementation choices and tuning configurations.

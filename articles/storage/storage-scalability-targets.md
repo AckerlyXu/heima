@@ -3,8 +3,8 @@ title: Azure Storage Scalability and Performance Targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Storage, including capacity, request rate, and inbound and outbound bandwidth for both standard and premium storage accounts. Understand performance targets for partitions within each of the Azure Storage services.
 services: storage
 documentationcenter: na
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 03/07/2017
-ms.author: robinsh
+origin.date: 06/15/2017
+ms.date: 06/26/2017
+ms.author: v-johch
 
 ---
 # Azure Storage Scalability and Performance Targets
@@ -33,15 +34,18 @@ This topic describes the scalability and performance topics for Azure Storage. F
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for information on volume pricing.
 
-##<a name="scalability-targets-for-premium-storage-accounts"></a><a name="scalability-targets-for-standard-storage-accounts"></a><a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="premium-storage-accounts"></a> Scalability targets for blobs, queues, tables, and files
+##<a name="scalability-targets-for-premium-storage-accounts"></a><a name="scalability-targets-for-standard-storage-accounts"></a><a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="premium-storage-accounts"></a><a name="standard-storage-accounts"></a> Scalability targets for blobs, queues, tables, and files
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## Scalability targets for virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-See [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) for additional details.
+See [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
+## Managed virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 
 ## Unmanaged virtual machine disks
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]

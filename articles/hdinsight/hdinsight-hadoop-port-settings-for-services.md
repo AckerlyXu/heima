@@ -1,5 +1,5 @@
 ---
-title: Ports used by HDInsight | Azure
+title: Ports used by Hadoop services on HDInsight - Azure | Azure
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 06/02/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
-# Ports and URIs used by HDInsight
+# Ports used by Hadoop services on HDInsight
 
 This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 
@@ -46,7 +46,7 @@ All the nodes in an HDInsight cluster are located in an Azure Virtual Network, a
 | Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API. See [Use Hive with Curl](hdinsight-hadoop-use-pig-curl.md), [Use Pig with Curl](hdinsight-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hdinsight-connect-excel-hive-ODBC-driver.md). |
+| HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Connects to Hive using JDBC. See [Connect to Hive on HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) |
 
 The following are available for specific cluster types:
@@ -100,9 +100,8 @@ All services publicly exposed on the internet must be authenticated:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Head nodes |10001 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
-| HiveServer |Head nodes |10000 |Thrift |Service for programmatically connecting to Hive (Thrift/JDBC) |
-| Hive Metastore |Head nodes |9083 |Thrift |Service for programmatically connecting to Hive metadata (Thrift/JDBC) |
+| HiveServer2 |Head nodes |10001 |Thrift |Service for connecting to Hive (Thrift/JDBC) |
+| Hive Metastore |Head nodes |9083 |Thrift |Service for connecting to Hive metadata (Thrift/JDBC) |
 
 ### WebHCat ports
 
@@ -141,9 +140,8 @@ All services publicly exposed on the internet must be authenticated:
 | Region server |All worker nodes |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |The port that clients use to connect to ZooKeeper |
 
-### Kafka ports
+### Spark ports
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| Broker |Worker nodes |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Used for client communication |
-| &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
+| Spark Thrift servers |Head nodes |10002 |Thrift |Service for  connecting to Spark SQL (Thrift/JDBC) |

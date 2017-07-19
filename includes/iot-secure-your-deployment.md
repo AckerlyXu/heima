@@ -108,7 +108,7 @@ This article provides overview of implementation level details for designing and
 [lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
 [lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
-[lnk-docdb]: /services/documentdb/
-[lnk-asa]: /services/stream-analytics/
-[lnk-appservices]: /services/app-service/
-[lnk-blob]: /services/storage/
+[lnk-docdb]: /documentdb/
+[lnk-asa]: /stream-analytics/
+[lnk-appservices]: /app-service/
+[lnk-blob]: /storage/

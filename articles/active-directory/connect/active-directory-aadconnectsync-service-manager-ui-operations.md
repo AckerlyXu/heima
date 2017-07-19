@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 03/02/2017
+ms.date: 04/05/2017
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -40,7 +40,7 @@ The **Status** column is the most important information and shows the most sever
 
 When you select a row, the bottom updates to show the details of that run. To the far left of the bottom, you might have a list saying **Step #**. This list only appears if you have multiple domains in your forest where each domain is represented by a step. The domain name can be found under the heading **Partition**. Under **Synchronization Statistics**, you can find more information about the number of changes that were processed. You can click the links to get a list of the changed objects. If you have objects with errors, those errors show up under **Synchronization Errors**.
 
-For more information, see [troubleshoot an object that is not synchronizing](/documentation/articles/active-directory-aadconnectsync-troubleshoot-object-not-syncing/)
+For more information, see [troubleshoot an object that is not synchronizing](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

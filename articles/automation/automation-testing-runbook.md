@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
-wacn.date: ''
-ms.author: magoedte;bwren
+origin.date: 09/12/2016
+ms.date: 01/09/2017
+ms.author: v-dazen
 
 ---
 # Testing a runbook in Azure Automation

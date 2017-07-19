@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/24/2017
-wacn.date: ''
-ms.author: markvi
+origin.date: 04/24/2017
+ms.date: 06/12/2017
+ms.author: v-junlch
 
 ---
 # Azure Active Directory FAQ

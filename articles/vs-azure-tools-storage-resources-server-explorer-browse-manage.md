@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-wacn.date: ''
+origin.date: 11/18/2016
+ms.author: v-junlch
+ms.date: 05/22/2017
 ---
 # Browsing and Managing Storage Resources with Server Explorer
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]

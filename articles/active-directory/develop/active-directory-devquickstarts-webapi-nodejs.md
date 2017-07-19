@@ -3,7 +3,7 @@ title: Azure AD NodeJS Getting Started | Azure
 description: How to build a Node.js REST Web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: alexchen2016
 manager: mbaldwin
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: brandwe
+origin.date: 01/07/2017
+ms.date: 02/07/2017
+ms.author: v-junlch
 ---
 
 # Getting Started With WEB-API for Node
@@ -32,7 +32,7 @@ In order to do this, you’ll need to:
 The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-node-webapi).
 
 > [!NOTE]
-> This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.  If you haven't already, you should start with the [How to integrate with Azure Active Directory document](/documentation/articles/active-directory-how-to-integrate/) to learn about the basics of Azure Active Directory.
+> This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.  If you haven't already, you should start with the [How to integrate with Azure Active Directory document](active-directory-how-to-integrate.md) to learn about the basics of Azure Active Directory.
 > 
 > 
 

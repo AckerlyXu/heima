@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/architecture/resiliency/high-availability-azure-applications
+redirect_url: http://docs.microsoft.com/en-us/azure/architecture/resiliency/high-availability-azure-applications
 ---

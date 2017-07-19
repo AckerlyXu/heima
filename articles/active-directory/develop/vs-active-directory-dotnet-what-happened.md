@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-wacn.date: ''
-ms.author: tarcher
+origin.date: 03/01/2017
+ms.date: 04/17/2017
+ms.author: v-junlch
 ---
 
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?

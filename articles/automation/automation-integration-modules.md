@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/13/2017
-wacn.date: ''
-ms.author: magoedte
+origin.date: 01/13/2017
+ms.date: 06/21/2017
+ms.author: v-dazen
 ---
 
 # Azure Automation Integration Modules

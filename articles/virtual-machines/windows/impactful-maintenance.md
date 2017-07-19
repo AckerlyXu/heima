@@ -3,7 +3,7 @@ title: Impactful maintenance for Windows VMs in Azure | Azure
 description: Impactful maintenance for Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: 
+author: zivr
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
-wacn.date: ''
-ms.author: 
+origin.date: 03/27/2017
+ms.date: 05/15/2017
+ms.author: v-dazen
 
 ---
 
@@ -86,7 +86,7 @@ form of update domains. 
 
 For more information about configuring your virtual machines for high
 availability, see [*Manage the availability of your Windows virtual
-machines*](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+machines*](../linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### Scheduled Events
 
@@ -102,7 +102,7 @@ Events](../virtual-machines-scheduled-events.md).
 ## Maintenance Discovery and Notifications
 
 Maintenance schedule is visible to customers at the level of individual
-VMs. You can use Azure portal preview, API, PowerShell, or CLI to query for the
+VMs. You can use Azure portal, API, PowerShell, or CLI to query for the
 pre-emptive and scheduled maintenance windows. In addition, expect to
 receive a notification (email) in the case where one (or more) of your
 VMs are impacted during the process.
@@ -115,9 +115,9 @@ maintenance notification.
 
 ### View the Maintenance Window in the portal 
 
-You can use the Azure portal preview and look for VMs scheduled for maintenance.
+You can use the Azure portal and look for VMs scheduled for maintenance.
 
-1.  Sign in to the Azure portal preview.
+1.  Sign in to the Azure portal.
 
 2.  Click and open the **Virtual Machines** blade.
 

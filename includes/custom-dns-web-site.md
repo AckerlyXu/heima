@@ -57,10 +57,10 @@ Setting a custom domain name on a website is only available for the Shared and S
 
     ![][standardmode3]
 
-    > [!NOTE]
-    > If you will be using Traffic Manager with this website, you must use select Standard mode instead of Shared.
-    > 
-    > 
+   > [!NOTE]
+   > If you will be using Traffic Manager with this website, you must use select Standard mode instead of Shared.
+   > 
+   > 
 5. Click **Save**.
 6. When prompted about the increase in cost for Shared mode (or for Standard mode if you choose Standard), click **Yes** if you agree.
 
@@ -76,10 +76,10 @@ If you want to use your website with Traffic Manager, perform the following step
 1. If you do not already have a Traffic Manager profile, use the information in [Create a Traffic Manager profile using Quick Create][createprofile] to create one. Note the **.trafficmgr.com** domain name associated with your Traffic Manager profile. This will be used in a later step.
 2. Use the information in [Add or Delete Endpoints][addendpoint] to add your website as an endpoint in your Traffic Manager profile.
 
-    > [!NOTE]
-    > If your website is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your website in order to work with Traffic Manager.
-    > 
-    > 
+   > [!NOTE]
+   > If your website is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your website in order to work with Traffic Manager.
+   > 
+   > 
 3. Log on to your DNS registrar's website, and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 4. Now find where you can select or enter CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
 5. You must also provide the domain or subdomain alias for the CNAME. For example, **www** if you want to create an alias for **www.customdomain.com**.
@@ -112,15 +112,15 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 1. Use one of these methods to find the **.azurewebsite.net** domain name assigned to your website.
 
-    * Login to the [Azure Classic Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
-    * Install and configure [Azure Powershell](/install-and-configure-windows-powershell), and then use the following command:
-     
-            get-azurewebsite yoursitename | select hostnames
-    * Install and configure the [Azure Command Line Interface](/install-and-configure-cli), and then use the following command:
-     
-            azure site domain list yoursitename
+   * Login to the [Azure Classic Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
+   * Install and configure [Azure Powershell](/install-and-configure-windows-powershell), and then use the following command:
 
-    Save this **.azurewebsite.net** name, as it will be used in the following steps.
+           get-azurewebsite yoursitename | select hostnames
+   * Install and configure the [Azure Command Line Interface](/install-and-configure-cli), and then use the following command:
+
+           azure site domain list yoursitename
+
+     Save this **.azurewebsite.net** name, as it will be used in the following steps.
 2. Log on to your DNS registrar's website, and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 3. Now find where you can select or enter CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
 4. You must also provide the domain or subdomain alias for the CNAME. For example, **www** if you want to create an alias for **www.customdomain.com**. If you want to create an alias for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
@@ -197,31 +197,31 @@ To create an A record, you must first find the IP address of your website. Then 
 6. Find where you can select or enter A and CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page.
 7. Perform the following steps to create the A record:
 
-    1. Select or enter the domain or subdomain that will use the A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '*****'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
+   1. Select or enter the domain or subdomain that will use the A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '*****'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
 
-        If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
-    2. Enter the IP address of your cloud service in the provided field. This associates the domain entry used in the A record with the IP address of your cloud service deployment.
+       If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+   2. Enter the IP address of your cloud service in the provided field. This associates the domain entry used in the A record with the IP address of your cloud service deployment.
 
-        For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of our deployed application:
+       For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of our deployed application:
 
-        <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-        <tr>
-        <td><strong>Host name/Subdomain</strong></td>
-        <td><strong>IP address</strong></td>
-        </tr>
-        <tr>
-        <td>@</td>
-        <td>137.135.70.239</td>
-        </tr>
-        </table>
+       <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+       <tr>
+       <td><strong>Host name/Subdomain</strong></td>
+       <td><strong>IP address</strong></td>
+       </tr>
+       <tr>
+       <td>@</td>
+       <td>137.135.70.239</td>
+       </tr>
+       </table>
 
-        This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
+       This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '*****' as the subdomain.
 8. Next, create a CNAME record that has an alias of **awverify**, and a canonical domain of **awverify.mysite.chinacloudsites.cn** that you obtained earlier.
 
-    > [!NOTE]
-    > While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.
-    > 
-    > 
+   > [!NOTE]
+   > While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.
+   > 
+   > 
 
     For example, the following will create an CNAME record that Azure can use to verify the A record configuration.
 

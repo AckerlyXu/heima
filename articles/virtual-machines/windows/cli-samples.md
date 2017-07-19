@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/27/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 02/27/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
+ms.custom: mvc
 
 ---
 # Azure CLI Samples for Windows virtual machines
@@ -33,3 +34,6 @@ The following table includes links to bash scripts built using the Azure CLI tha
 | [Create a VM and run DSC configuration](./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
 |**Network virtual machines**||
 | [Secure network traffic between virtual machines](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two virtual machines, all related resources, and an internal and external network security groups (NSG). |
+|**Secure virtual machines**||
+| [Encrypt a VM and data disks](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
+| | |

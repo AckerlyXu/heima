@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
-wacn.date: ''
-ms.author: v-livech
+origin.date: 10/26/2016
+ms.date: 04/17/2017
+ms.author: v-dazen
 
 ---
 # Use cloud-init to customize a Linux VM during creation with the Azure CLI 1.0
@@ -30,7 +30,7 @@ This article shows how to make a cloud-init script to set the hostname, update i
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Quick Commands
 Create a cloud-init.txt script that sets the hostname, updates all packages, and adds a sudo user to Linux.
@@ -47,7 +47,6 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
-
 Create a resource group to launch VMs into.
 
 ```azurecli
@@ -80,15 +79,15 @@ When you launch a new Linux VM, you are getting a standard Linux VM with nothing
 On Azure, there are a three different ways to make changes onto a Linux VM as it is being deployed or booted.
 
 * Inject scripts using cloud-init.
-* Inject scripts using the Azure [VMAccess Extension](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Inject scripts using the Azure [VMAccess Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 * An Azure template using cloud-init.
-* An Azure template using [CustomScriptExtention](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* An Azure template using [CustomScriptExtention](extensions-customscript.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 To inject scripts at any time after boot:
 
 * SSH to run commands directly
-* Inject scripts using the Azure [VMAccess Extension](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), either imperatively or in an Azure template
-* Configuration management tools like Ansible, Salt, Chef, and Puppet.
+* Inject scripts using the Azure [VMAccess Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json), either imperatively or in an Azure template
+* Configuration management tools like Salt, Chef, and Puppet.
 
 > [!NOTE]
 > VMAccess Extension executes a script as root in the same way using SSH can.  However, using the VM extension enables several features that Azure offers that can be useful depending upon your scenario.
@@ -102,7 +101,7 @@ To inject scripts at any time after boot:
 | CoreOS |CoreOS |CoreOS |Stable |latest |yes |
 | Debian |credativ |Debian |8 |latest |no |
 | openSUSE |SUSE |openSUSE |13.2 |latest |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.3-LTS |latest |yes |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |yes |
 
 Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.
 
@@ -266,6 +265,6 @@ myCloudInitAddedAdminUser:x:1000:
 ## Next Steps
 Cloud-init is becoming one standard way to modify your Linux VM on boot. Azure also has VM extensions, which allow you to modify your LinuxVM on boot or while it is running. For example, you can use the Azure VMAccessExtension to reset SSH or user information while the VM is running. With cloud-init, you would need a reboot to reset the password.
 
-[About virtual machine extensions and features](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[About virtual machine extensions and features](../windows/extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)

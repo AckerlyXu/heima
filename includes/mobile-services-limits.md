@@ -11,4 +11,4 @@
 | CPU capacity | 60 minutes / day | Unlimited | Unlimited |
 | Outbound data transfer | 165 MB per day (daily Rollover) | Included | Included |
 
-For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://azure.microsoft.com/pricing/details/mobile-services/).
+For additional details on these limits and for information on pricing, see [Mobile Services Pricing](https://www.azure.cn/pricing/details/mobile-services/).

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/14/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 02/14/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 ---
 
 # Using the Azure CLI on Windows
@@ -56,7 +56,7 @@ Once completed, a Bash session will start that is preloaded with the Azure CLI t
 
 ## Next Steps
 
-[CLI sample for Azure virtual machines](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[CLI sample for Azure virtual machines](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [CLI samples for Azure Web Apps](../../app-service-web/app-service-cli-samples.md)
 

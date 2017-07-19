@@ -14,9 +14,9 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 04/27/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Overview of Application Gateway
@@ -29,7 +29,7 @@ Azure Application Gateway is a dedicated virtual appliance providing application
 
 Application Gateway currently provides the following capabilities:
 
-* **[Web Application Firewall](application-gateway-webapplicationfirewall-overview.md)** - The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
+* **[Web application firewall](application-gateway-webapplicationfirewall-overview.md)** - The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 * **HTTP load balancing** - Application Gateway provides round robin load balancing. Load balancing is done at Layer 7 and is used for HTTP(S) traffic only.
 * **Cookie-based session affinity** - This feature is useful when you want to keep a user session on the same back-end. By using gateway managed cookies, the Application Gateway is able to direct subsequent traffic from a user session to the same back-end for processing. This feature is important in cases where session state is saved locally on the back-end server for a user session.
 * **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to the server unencrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back to the client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
@@ -63,7 +63,7 @@ Application Gateway load balancing as an Azure-managed service allows the provis
 
 Application Gateway is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
 
@@ -83,7 +83,7 @@ Azure Application Gateway automatically monitors the health of the back-end inst
 
 For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources, the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This additional subnet it not required for the backend applications, as long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers. 
 
-You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal preview](https://portal.azure.cn/). For additional questions on Application gateway visit [Application Gateway FAQ](application-gateway-faq.md) to view a list of common frequently asked questions.
+You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.cn/). For additional questions on Application gateway visit [Application Gateway FAQ](application-gateway-faq.md) to view a list of common frequently asked questions.
 
 ## Pricing
 

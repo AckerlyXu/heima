@@ -1,32 +1,34 @@
 ---
-title: Elastic Database tools glossary | Microsoft Docs
+title: Elastic Database tools glossary | Azure
 description: Explanation of terms used for elastic database tools
 services: sql-database
 documentationcenter: ''
-manager: jhubbard
-author: ddove
+manager: digimobile
+author: Hayley244
 editor: ''
 
 ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
 ms.service: sql-database
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+origin.date: 10/24/2016
+ms.date: 07/10/2017
+ms.author: v-johch
 
 ---
 # Elastic Database tools glossary
-The following terms are defined for the [Elastic Database tools](./sql-database-elastic-scale-introduction.md), a feature of Azure SQL Database. The tools are used to manage [shard maps](./sql-database-elastic-scale-shard-map-management.md), and include the [client library](./sql-database-elastic-database-client-library.md), the [split-merge tool](./sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](./sql-database-elastic-pool.md), and [queries](./sql-database-elastic-query-overview.md). 
+The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md), a feature of Azure SQL Database. The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](sql-database-elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](sql-database-elastic-pool.md), and [queries](sql-database-elastic-query-overview.md). 
 
-These terms are used in [Adding a shard using Elastic Database tools](./sql-database-elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](./sql-database-elastic-database-recovery-manager.md).
+These terms are used in [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md).
 
 ![Elastic Scale terms][1]
 
 **Database**: An Azure SQL database. 
 
-**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](./sql-database-elastic-scale-multishard-querying.md)**.
+**Data dependent routing**: The functionality that enables an application to connect to a shard given a specific sharding key. See [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). Compare to **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
 **Global shard map**: The map between sharding keys and their respective shards within a **shard set**. The global shard map is stored in the **shard map manager**. Compare to **local shard map**.
 
@@ -34,7 +36,7 @@ These terms are used in [Adding a shard using Elastic Database tools](./sql-data
 
 **Local shard map**: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.
 
-**Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”). Compare to **data dependent routing**.
+**Multi-shard query**: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as "fan-out query"). Compare to **data dependent routing**.
 
 **Multi-tenant** and **Single-tenant**: This shows a single-tenant database and a multi-tenant database:
 
@@ -81,7 +83,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]  
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png

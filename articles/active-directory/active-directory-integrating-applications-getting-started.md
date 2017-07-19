@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
-wacn.date: ''
-ms.author: markvi
+origin.date: 05/04/2017
+ms.date: 06/12/2017
+ms.author: v-junlch
 
 ---
 # Integrating Azure Active Directory with applications getting started guide

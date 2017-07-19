@@ -3,8 +3,8 @@ title: Best practices for enterprises moving to Azure | Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 services: azure-resource-manager
 documentationcenter: na
-author: rdendtler
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 8692f37e-4d33-4100-b472-a8da37ce628f
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/31/2017
-wacn.date: ''
-ms.author: rodend;karlku;tomfitz
+origin.date: 03/31/2017
+ms.date: 07/03/2017
+ms.author: v-yeche
 ---
 
 # Azure enterprise scaffold - prescriptive subscription governance
@@ -45,7 +45,7 @@ The enterprise scaffold is intended to be the foundation of each new subscriptio
 > 
 > 
 
-The following image describes the components of the scaffold. The foundation relies on a solid plan for departments, accounts, and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of scaffold comes from core Azure capabilities and features that enable a secure and manageable environment.
+The following image describes the components of the scaffold. The foundation relies on a solid plan for departments, accounts, and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of the scaffold comes from core Azure capabilities and features that enable a secure and manageable environment.
 
 ![scaffold components](./media/resource-manager-subscription-governance/components.png)
 
@@ -78,15 +78,16 @@ You apply the scaffold at the subscription level to extend the governance requir
 ## Naming standards
 The first pillar of the scaffold is naming standards. Well-designed naming standards enable you to identify resources in the portal, on a bill, and within scripts. Most likely, you already have naming standards for on-premise infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standard facilitate more efficient management of the environment at all levels.
 
-<!--nameing convention not available in Azure.cn -->
+<!--Not Available on ../guidance/*.* such as guidance-naming-conventions.md -->
 > [!TIP]
+> For naming conventions:
 > * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
 > * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
 > 
-> 
+> The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
-The second pillar of the scaffold involves creating [Azure Resource Manager policies](./resource-manager-policy.md) and [auditing the activity log](./resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+The second pillar of the scaffold involves creating [Azure Resource Manager policies](resource-manager-policy.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).
@@ -137,7 +138,7 @@ To view how your environment is functioning, you need to audit user activity. Mo
 Activity logs from Resource Manager deployments enable you to determine the **operations** that took place and who performed them. Activity logs can be collected and aggregated using tools like Log Analytics.
 
 ## Resource tags
-As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](./resource-group-using-tags.md). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 
+As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](resource-group-using-tags.md). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 
 
 Resource tags are flexible and should be attached to most resources. Examples of common resource tags are:
 
@@ -192,7 +193,7 @@ This proliferation of subscriptions is no longer needed. With role-based access 
 > These tips help you manage user access across your subscription.
 
 ## Azure resource locks
-As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](./resource-group-lock-resources.md) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
+As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](resource-group-lock-resources.md) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
 
 Resource locks currently support two values: CanNotDelete and ReadOnly. CanNotDelete means that users (with the appropriate rights) can still read or modify a resource but cannot delete it. ReadOnly means that authorized users can't delete or modify a resource.
 
@@ -200,7 +201,7 @@ To create or delete management locks, you must have access to `Microsoft.Authori
 Of the built-in roles, only Owner and User Access Administrator are granted those actions.
 
 > [!TIP]
-> Core network options should be protected with locks. Accidental deletion of a gateway, site-to-site VPN would be disastrous to an Azure subscription. Azure doesn't allow you to delete a virtual network that is in use, but applying more restrictions is a helpful precaution. Policies are also crucial to the maintenance of appropriate controls. We recommend that you apply a **CanNotDelete** lock to polices that are in use.
+> Core network options should be protected with locks. Accidental deletion of a gateway, site-to-site VPN would be disastrous to an Azure subscription. Azure doesn't allow you to delete a virtual network that is in use, but applying more restrictions is a helpful precaution. 
 > 
 > * Virtual Network: CanNotDelete
 > * Network Security Group: CanNotDelete
@@ -238,6 +239,7 @@ Managing resources individually is both time-consuming and potentially error pro
 ## Azure Security Center
 Perhaps one of the biggest blockers to cloud adoption has been the concerns over security. IT risk managers and security departments need to ensure that resources in Azure are secure. 
 
+<!-- Not Available on ../security-center/*.* -->
 The Azure Security Center provides a central view of the security status of resources in the subscriptions, and provides recommendations that help prevent compromised resources. It can enable more granular policies (for example, applying policies to specific resource groups that allow the enterprise to tailor their posture to the risk they are addressing). Finally, Azure Security Center is an open platform that enables Microsoft partners and independent software vendors to create software that plugs into Azure Security Center to enhance its capabilities. 
 
 > [!TIP]
@@ -248,5 +250,4 @@ The Azure Security Center provides a central view of the security status of reso
 > 
 
 ## Next steps
-* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](./resource-manager-subscription-examples.md).
-
+* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md).

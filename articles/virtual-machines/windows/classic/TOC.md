@@ -1,6 +1,6 @@
 # Overview
 ## [About virtual machines](../../virtual-machines-windows-about.md)
-## [Disks and VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Disks and VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
 ## [Compare VMs, websites, and cloud services](../../../app-service-web/choose-web-site-cloud-service-vm.md)
@@ -92,6 +92,4 @@
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
-## [Regional availability](https://azure.microsoft.com/regions/services/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+## [Videos](https://www.azure.cn/video-center/)

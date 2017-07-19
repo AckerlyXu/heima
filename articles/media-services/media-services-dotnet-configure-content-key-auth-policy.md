@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-wacn.date: ''
-ms.author: juliako;mingfeiy
+origin.date: 01/05/2017
+ms.date: 04/10/2017
+ms.author: v-johch
 ---
 
 # Dynamic encryption: configure content key authorization policy

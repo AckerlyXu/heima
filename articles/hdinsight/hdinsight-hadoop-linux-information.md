@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/21/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Information about using HDInsight on Linux
@@ -25,7 +25,7 @@ ms.author: larryfr
 Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Prerequisites
 
@@ -67,21 +67,21 @@ This command returns a JSON document describing the service, and then jq pulls o
 
     > [!IMPORTANT]
     > Some of the web UIs available through Ambari access nodes using an internal domain name. Internal domain names are not publicly accessible over the internet. You may receive "server not found" errors when trying to access some features over the Internet.
-    > <p>
+    >
     > To use the full functionality of the Ambari web UI, use an SSH tunnel to proxy web traffic to the cluster head node. See [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UIs](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.cn/ambari
 
     > [!NOTE]
     > Authenticate by using the cluster administrator user and password.
-    > <p>
+    >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.cn/templeton
 
     > [!NOTE]
     > Authenticate by using the cluster administrator user and password.
-    > <p>
+    >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.cn on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
@@ -110,7 +110,7 @@ HDInsight uses blobs in Azure Storage as the default store. These services provi
 > [!WARNING]
 > HDInsight only supports __General-purpose__ Azure Storage accounts. It does not currently support the __Blob storage__ account type.
 
-An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs).
+An Azure Storage account can hold up to 4.75 TB, though individual blobs (or files from an HDInsight perspective) can only go up to 195 GB. For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 When using Azure Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder:
 
@@ -143,9 +143,9 @@ This command returns a value similar to the following URIs:
 
     The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
 
-You can also find the storage information using the Azure portal preview by using the following steps:
+You can also find the storage information using the Azure portal by using the following steps:
 
-1. In the [Azure portal preview](https://portal.azure.cn/), select your HDInsight cluster.
+1. In the [Azure portal](https://portal.azure.cn/), select your HDInsight cluster.
 
 2. From the **Properties** section, select **Storage Accounts**. The storage information for the cluster is displayed.
 
@@ -201,7 +201,7 @@ The different cluster types are affected by scaling as follows:
 
 For specific information on scaling your HDInsight cluster, see:
 
-* [Manage Hadoop clusters in HDInsight by using the Azure portal preview](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
 * [Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## How do I install Hue (or other Hadoop component)?
@@ -227,16 +227,16 @@ For example, if you want to use the latest version of [DataFu](http://datafu.inc
 
 > [!IMPORTANT]
 > Some components that are standalone jar files are provided with HDInsight, but are not in the path. If you are looking for a specific component, you can use the follow to search for it on your cluster:
-> <p>
+>
 > ```find / -name *componentname*.jar 2>/dev/null```
-> <p>
+>
 > This command returns the path of any matching jar files.
 
 To use a different version of a component, upload the version you need and use it in your jobs.
 
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported and Azure Support helps to isolate and resolve issues related to these components.
-> <p>
+>
 > Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## Next steps

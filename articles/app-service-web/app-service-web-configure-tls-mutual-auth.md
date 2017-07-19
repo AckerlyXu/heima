@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-wacn.date: ''
-ms.author: naziml
+origin.date: 08/08/2016
+ms.date: 11/25/2016
+ms.author: v-dazen
 
 ---
 # How To Configure TLS Mutual Authentication for Web App

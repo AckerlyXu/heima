@@ -1,5 +1,5 @@
 ---
-title: Create Azure HDInsight (Hadoop) using PowerShell | Azure
+title: Create Hadoop clusters using PowerShell - Azure HDInsight | Azure
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight by using Azure PowerShell.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: nitinme
+origin.date: 05/10/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -37,7 +37,7 @@ You must have the following before starting this procedure:
 
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and was removed on January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
-    > <p>
+    >
     > Please follow the steps in [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 ## Create cluster
@@ -51,70 +51,85 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 * Create an Azure Blob container
 * Create an HDInsight cluster
 
-The two most important parameters that you must set to create Linux clusters are the ones that specify the OS type and the SSH user details:
-
-* Make sure you specify the **-OSType** parameter as **Linux**.
-* To use SSH for remote sessions on the clusters, you can specify the SSH user password or the SSH public key. If you specify both the SSH user password and the SSH public key, the key will be ignored. If you want to use the SSH key for remote sessions, you must specify a blank SSH password when prompted for one. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
 The following script demonstrates how to create a new cluster:
 
-    $token ="<SpecifyAnUniqueString>"
-    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+```powershell
+# Login to your Azure subscription
+# Is there an active Azure subscription?
+$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+}
 
-    $resourceGroupName = $token + "rg"      # Provide a Resource Group name
-    $clusterName = $token
-    $defaultStorageAccountName = $token + "store"   # Provide a Storage account name
-    $defaultStorageContainerName = $token + "container"
-    $location = "China East" # Change the location if needed
-    $clusterNodes = 1           # The number of nodes in the HDInsight cluster
+# If you have multiple subscriptions, set the one to use
+# $subscriptionID = "<subscription ID to use>"
+# Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
-    # Sign in to Azure
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Get user input/default values
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to create resources in"
 
-    # Select the subscription to use if you have multiple subscriptions
-    Select-AzureRmSubscription -SubscriptionId $subscriptionID
+# Create the resource group
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-    # Create an Azure Resource Group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+$defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
 
-    # Create an Azure Storage account and container used as the default storage
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $defaultStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
-    New-AzureStorageContainer -Name $defaultStorageContainerName -Context $destContext
+# Create an Azure storae account and container
+New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName `
+    -Type Standard_LRS `
+    -Location $location
+$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $defaultStorageAccountName)[0].Value
+$defaultStorageContext = New-AzureStorageContext `
+                                -StorageAccountName $defaultStorageAccountName `
+                                -StorageAccountKey $defaultStorageAccountKey
 
-    # Create an HDInsight cluster
-    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
+# Get information for the HDInsight cluster
+$clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+# Cluster login is used to secure HTTPS services hosted on the cluster
+$httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
+# SSH user is used to remotely connect to the cluster using SSH clients
+$sshCredentials = Get-Credential -Message "Enter SSH user credentials"
 
-    # The location of the HDInsight cluster must be in the same data center as the Storage account.
-    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $defaultStorageAccountName | %{$_.Location}
+# Default cluster size (# of worker nodes), version, type, and OS
+$clusterSizeInNodes = "4"
+$clusterVersion = "3.5"
+$clusterType = "Hadoop"
+$clusterOS = "Linux"
+# Set the storage container name to the cluster name
+$defaultBlobContainerName = $clusterName
 
-    New-AzureRmHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -HttpCredential $credentials `
-        -Location $location `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultStorageContainerName  `
-        -ClusterSizeInNodes $clusterNodes `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.5" `
-        -SshCredential $sshCredentials
+# Create a blob container. This holds the default data store for the cluster.
+New-AzureStorageContainer `
+    -Name $clusterName -Context $defaultStorageContext 
 
-The values you specify for **$clusterCredentials** are used to create the Hadoop user account for the cluster. Use this account to connect to the cluster.
+# Create the HDInsight cluster
+New-AzureRmHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName `
+    -Location $location `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -ClusterType $clusterType `
+    -OSType $clusterOS `
+    -Version $clusterVersion `
+    -HttpCredential $httpCredential `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultStorageContainer $clusterName `
+    -SshCredential $sshCredentials
+```
 
-The values you specify for **$sshCredentials** are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs.
+The values you specify for the cluster login are used to create the Hadoop user account for the cluster. Use this account to connect to services hosted on the cluster such as web UIs or REST APIs.
+
+The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 > [!IMPORTANT]
-> In this script, you must specify the number of worker nodes that will be in the cluster. If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must also specify a head node size with at least 8 cores and 14 GB of RAM.
-> <p>
+> If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must also specify a head node size with at least 8 cores and 14 GB of RAM.
+>
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
 It can take up to 20 minutes to create a cluster.
@@ -123,45 +138,40 @@ It can take up to 20 minutes to create a cluster.
 
 You can also create an HDInsight configuration object using `New-AzureRmHDInsightClusterConfig` cmdlet. You can then modify this configuration object to enable additional configuration options for your cluster. Finally, use the `-Config` parameter of the `New-AzureRmHDInsightCluster` cmdlet to use the configuration.
 
-The following script creates a configuration object to configure an R Server on HDInsight cluster type. The configuration enables an edge node, RStudio, and an additional storage account.
+The following script creates a configuration object to add an additional storage account.
 
-    # Create another storage account used as additional storage account
-    $additionalStorageAccountName = $token + "store2"
-    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $additionalStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
-    $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
+```powershell
+$additionalStorageAccountName = Read-Host -Prompt "Enter the name of the additional storage account"
 
-    # Create a new configuration for RServer cluster type
-    # Use -EdgeNodeSize to set the size of the edge node for RServer clusters
-    # if you want a specific size. Otherwise, the default size is used.
-    $config = New-AzureRmHDInsightClusterConfig `
-        -ClusterType "RServer" `
-        -EdgeNodeSize "Standard_D12_v2"
+# Create the additional storage account
+New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $additionalStorageAccountName `
+    -Location $location `
+    -Type Standard_LRS
 
-    # Add RStudio to the configuration
-    $rserverConfig = @{"RStudio"="true"}
-    $config = $config | Add-AzureRmHDInsightConfigValues `
-        -RServer $rserverConfig
+# Get the additional storage account key
+$additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
 
-    # Add an additional storage account
-    Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.chinacloudapi.cn" -StorageAccountKey $additionalStorageAccountKey
+$config = New-AzureRmHDInsightClusterConfig -ClusterType Hadoop
 
-    # Create a new HDInsight cluster
-    New-AzureRmHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -HttpCredential $credentials `
-        -Location $location `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultStorageContainerName  `
-        -ClusterSizeInNodes $clusterNodes `
-        -OSType Linux `
-        -Version "3.5" `
-        -SshCredential $sshCredentials `
-        -Config $config
+# Add an additional storage account
+Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.chinacloudapi.cn" -StorageAccountKey $additionalStorageAccountKey
+
+# Create a new HDInsight cluster using -Config
+New-AzureRmHDInsightCluster `
+    -ClusterName $clusterName `
+    -ResourceGroupName $resourceGroupName `
+    -HttpCredential $httpCredential `
+    -Location $location `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultStorageContainer $defaultStorageContainerName  `
+    -ClusterSizeInNodes $clusterSizeInNodes `
+    -OSType $clusterOS `
+    -Version $clusterVersion `
+    -SshCredential $sshCredentials `
+    -Config $config
+```
 
 > [!WARNING]
 > Using a storage account in a different location than the HDInsight cluster is not supported. When using this example, create the additional storage account in the same location as the server.

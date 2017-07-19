@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: gwallace
+origin.date: 03/28/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 
@@ -29,7 +29,7 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall (preview), cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
@@ -42,6 +42,10 @@ Application Gateway supports HTTP, HTTPS, and WebSocket.
 **Q. What resources are supported today as part of backend pool?**
 
 Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, and fully qualified domain names (FQDN). Support for Azure Web Apps is not available today. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+
+**Q. What regions is the service available in?**
+
+Application Gateway is available in all regions of public Azure.
 
 **Q. Is this a dedicated deployment for my subscription or is it shared across customers?**
 
@@ -87,7 +91,13 @@ No, but you can deploy other application gateways in the subnet
 
 **Q. Are Network Security Groups supported on the Application Gateway subnet?**
 
-Network Security Groups are supported on the Application Gateway subnet, but exceptions must be put in for ports 65503-65534 for backend health to work correctly. Outbound internet connectivity should not be blocked.
+Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
+
+* Exceptions must be put in for ports 65503-65534 for backend health to work correctly.
+
+* Outbound internet connectivity should not be blocked.
+
+* Traffic from the AzureLoadBalancer tag must be allowed.
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
@@ -267,7 +277,7 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert.
+Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 **Q. Backend health returns unknown status, what could be causing this?**
 

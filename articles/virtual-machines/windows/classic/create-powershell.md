@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-wacn.date: ''
-ms.author: cynthn
+origin.date: 05/30/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 # Create a Windows virtual machine with PowerShell and the classic deployment model
 > [!div class="op_single_selector"]
-> * [Azure Classic Management Portal - Windows](tutorial.md)
+> * [Azure portal - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
 > 
 > 
@@ -29,7 +29,7 @@ ms.author: cynthn
 <br>
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
@@ -97,7 +97,7 @@ Option 2: Specify a name, size, and availability set name.
     $availset="<set name>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
 
-For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](/cloud-services/cloud-services-sizes-specs).
 
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 
@@ -156,7 +156,7 @@ Option 1: Create the virtual machine in an existing cloud service.
 
     New-AzureVM -ServiceName "<short name of the cloud service>" -VMs $vm1
 
-The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Classic Management Portal or in the list of Resource Groups in the Azure portal preview.
+The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure portal or in the list of Resource Groups in the Azure portal.
 
 Option 2: Create the virtual machine in an existing cloud service and virtual network.
 
@@ -172,7 +172,7 @@ If you are using a text editor, copy the command set to the clipboard and then r
 If you will be creating this virtual machine again or a similar one, you can:
 
 * Save this command set as a PowerShell script file (*.ps1).
-* Save this command set as an Azure Automation runbook in the **Automation** section of the Azure Classic Management Portal.
+* Save this command set as an Azure Automation runbook in the **Automation Accounts** section of the Azure portal.
 
 ## <a id="examples"></a>Examples
 Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.
@@ -250,4 +250,4 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
     New-AzureVM -ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## Next steps
-If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](../../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](../../virtual-machines-windows-expand-os-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

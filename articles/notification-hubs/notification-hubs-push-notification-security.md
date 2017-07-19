@@ -8,8 +8,10 @@ manager: erikre
 editor: ''
 
 ms.service: notification-hubs
-ms.date: 06/29/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/29/2016
+ms.date: 01/09/2017
+ms.author: v-junlch
 ---
 
 #Security

@@ -9,14 +9,14 @@ editor:
 tags: azure-service-management
 
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
-ms.service: cache-redis
+ms.service: redis-cache
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 04/14/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 ---
 
 # Get the hostname, ports, and keys for Azure Redis Cache
@@ -24,8 +24,6 @@ ms.author: sdanie
 In this scenario, you learn how to retrieve the hostname, ports, and keys used to connect to an Azure Redis Cache instance.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Sample script
 

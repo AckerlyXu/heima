@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
-wacn.date: ''
-ms.author: anithaa
+origin.date: 09/23/2016
+ms.date: 01/05/2017
+ms.author: v-dazen
 
 ---
 # Troubleshoot routes using Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Azure Portal Preview](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 
@@ -58,47 +58,47 @@ To see the aggregate routes that are applied to a network interface, complete th
 1. Start an Azure PowerShell session and login to Azure. If you're not familiar with Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article.
 2. The following command returns all routes applied to a network interface named *VM1-NIC1* in the resource group *RG1*.
 
-        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
+       Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
 
-    > [!TIP]
-    > If you don't know the name of a network interface, type the following command to retrieve the names of all network interfaces in a resource group.*
-    > 
-    > 
+   > [!TIP]
+   > If you don't know the name of a network interface, type the following command to retrieve the names of all network interfaces in a resource group.*
+   > 
+   > 
 
-        Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
+       Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
 
-    The following output looks similar to the output for each route applied to the subnet the NIC is connected to:
+   The following output looks similar to the output for each route applied to the subnet the NIC is connected to:
 
-        Name :
-        State : Active
-        AddressPrefix : {10.9.0.0/16}
-        NextHopType : VNetLocal
-        NextHopIpAddress : {}
+       Name :
+       State : Active
+       AddressPrefix : {10.9.0.0/16}
+       NextHopType : VNetLocal
+       NextHopIpAddress : {}
 
-        Name :
-        State : Active
-        AddressPrefix : {0.0.0.0/16}
-        NextHopType : Internet
-        NextHopIpAddress : {}
+       Name :
+       State : Active
+       AddressPrefix : {0.0.0.0/16}
+       NextHopType : Internet
+       NextHopIpAddress : {}
 
-    Notice the following in the output:
+   Notice the following in the output:
 
-    * **Name**: Name of the effective route may be empty, unless explicitly specified, for user-defined routes. 
-    * **State**: Indicates state of the effective route. Possible values are "Active" or "Invalid"
-    * **AddressPrefixes**: Specifies the address prefix of the effective route in CIDR notation. 
-    * **nextHopType**: Indicates the next hop for the given route. Possible values are *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering*, or *Null*. A value of *Null* for **nextHopType** in a UDR may indicate an invalid route. For example, if **nextHopType** is *VirtualAppliance* and the network virtual appliance VM is not in a provisioned/running state. If **nextHopType** is *VPNGateway* and there is no gateway provisioned/running in the given VNet, the route may become invalid.
-    * **NextHopIpAddress**: Specifies the IP address of the next hop of the effective route.
+   * **Name**: Name of the effective route may be empty, unless explicitly specified, for user-defined routes. 
+   * **State**: Indicates state of the effective route. Possible values are "Active" or "Invalid"
+   * **AddressPrefixes**: Specifies the address prefix of the effective route in CIDR notation. 
+   * **nextHopType**: Indicates the next hop for the given route. Possible values are *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering*, or *Null*. A value of *Null* for **nextHopType** in a UDR may indicate an invalid route. For example, if **nextHopType** is *VirtualAppliance* and the network virtual appliance VM is not in a provisioned/running state. If **nextHopType** is *VPNGateway* and there is no gateway provisioned/running in the given VNet, the route may become invalid.
+   * **NextHopIpAddress**: Specifies the IP address of the next hop of the effective route.
 
-    The following command returns the routes in an easier to view table:
+   The following command returns the routes in an easier to view table:
 
-        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
+       Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
 
-    The following output is some of the output received for the scenario described previously:
+   The following output is some of the output received for the scenario described previously:
 
-        Name State AddressPrefix NextHopType NextHopIpAddress
-        ---- ----- ------------- ----------- ----------------
-        Active {10.9.0.0/16} VnetLocal {}
-        Active {0.0.0.0/0} Internet {}
+       Name State AddressPrefix NextHopType NextHopIpAddress
+       ---- ----- ------------- ----------- ----------------
+       Active {10.9.0.0/16} VnetLocal {}
+       Active {0.0.0.0/0} Internet {}
 3. There is no route listed to the *ChinaNorth-VNet3* VNet (Prefix 10.10.0.0/16)** from *ChinaNorth-VNet1* (Prefix 10.9.0.0/16) in the output from the previous step. As shown in the following picture, the VNet peering link with the *ChinaNorth-VNet3* VNet is in the *Disconnected* state.
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
@@ -120,16 +120,16 @@ A few things to keep in mind when reviewing the list of routes returned:
 
 * Routing is based on Longest Prefix Match (LPM) among UDRs, BGP and system routes. If there is more than one route with the same LPM match, then a route is selected based on its origin in the following order:
 
-    * User-defined route
-    * BGP route
-    * System (Default) route
+  * User-defined route
+  * BGP route
+  * System (Default) route
 
     With effective routes, you can only see effective routes that are LPM match based on all the availble routes. By showing how the routes are actually evaluated for a given NIC, this makes it a lot easier to troubleshoot specific routes that may be impacting connectivity to/from your VM.
 * If you have UDRs and are sending traffic to a network virtual appliance (NVA), with *VirtualAppliance* as **nextHopType**, ensure that IP forwarding is enabled on the NVA receiving the traffic or packets are dropped. 
 * If Forced tunneling is enabled, all outbound Internet traffic will be routed to on-premises. RDP/SSH from Internet to your VM may not work with this setting, depending on how the on-premises handles this traffic. 
   Forced-tunneling can be enabled:
-    * If using site-to-site VPN, by setting a user-defined route (UDR) with nextHopType as VPN Gateway
-    * If a default route is advertised over BGP
+  * If using site-to-site VPN, by setting a user-defined route (UDR) with nextHopType as VPN Gateway
+  * If a default route is advertised over BGP
 * For VNet peering traffic to work correctly, a system route with **nextHopType** *VNetPeering* must exist for the peered VNet's prefix range. If such a route doesn't exist and the VNet peering link looks OK:
-    * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
-    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-powershell.md) article.
+  * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
+  * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-powershell.md) article.

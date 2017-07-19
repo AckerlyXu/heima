@@ -13,15 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/8/2017
-ms.author: renash
+ms.date: 03/08/2017
+ms.author: v-johch
 
 ---
 # How to use Azure File Storage with Linux
 ## Overview
 Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.
 
-You can create Azure file shares using the [Azure Portal preview](https://portal.azure.cn), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard file system APIs.
+You can create Azure file shares using the [Azure Portal](https://portal.azure.cn), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard file system APIs.
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
@@ -117,14 +117,14 @@ Filesystem  Size  Used Avail Use% Mounted on
 ```
 
 ## Manage the file share
-The [Azure Portal preview](https://portal.azure.cn) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
+The [Azure Portal](https://portal.azure.cn) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
 
 * Upload and download files to and from your file share.
 * Monitor the actual usage of each file share.
 * Adjust the file share size quota.
 * Copy the `net use` command to use to mount your file share from a Windows client.
 
-You can also use the Azure Cross-Platform Command-Line Interface (Azure CLI) from Linux to manage the file share. Azure CLI provides a set of open source, cross-platform commands for you to work with Azure Storage, including File storage. It provides much of the same functionality found in the Azure Portal preview as well as rich data access functionality. For examples, see [Using the Azure CLI with Azure Storage](./storage-azure-cli.md).
+You can also use the Azure Cross-Platform Command-Line Interface (Azure CLI) from Linux to manage the file share. Azure CLI provides a set of open source, cross-platform commands for you to work with Azure Storage, including File storage. It provides much of the same functionality found in the Azure Portal as well as rich data access functionality. For examples, see [Using the Azure CLI with Azure Storage](./storage-azure-cli.md).
 
 ## Develop with File storage
 As a developer, you can build an application with File storage by using the [Azure Storage Client Library for Java](https://github.com/azure/azure-storage-java). For code examples, see [How to use File storage from Java](storage-java-how-to-use-file-storage.md).

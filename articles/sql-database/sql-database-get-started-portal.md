@@ -1,33 +1,34 @@
 ---
-title: 'Azure portal preview: Create a SQL database | Azure'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal preview. You also learn to query an Azure SQL database using the Azure portal preview.
+title: 'Azure Portal: Create a SQL database | Azure'
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure Portal. You also learn to query an Azure SQL database using the Azure Portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/03/2017
-ms.author: carlrab
+origin.date: 05/30/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 
 ---
-# Create an Azure SQL database in the Azure portal preview
+# Create an Azure SQL database in the Azure Portal
 
-This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal preview.
+This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a "Database-as-a-Service" offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure Portal.
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
+If you don't have an Azure subscription, create a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
-## Log in to the Azure portal preview
+## Log in to the Azure Portal
 
-Log in to the [Azure portal preview](https://portal.azure.cn/).
+Log in to the [Azure Portal](https://portal.azure.cn/).
 
 ## Create a SQL database
 
@@ -35,16 +36,19 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a SQL database containing the Adventure Works LT sample data. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal preview.
+1. Click the **New** button found on the upper left-hand corner of the Azure Portal.
 
 2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page.
 
-    ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
+   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image:     
-   - Database name: **mySampleDatabase**
-   - Resource group: **myResourceGroup**
-   - Source source: **Sample (AdventureWorksLT)**
+3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
+
+   | Setting       | Suggested value | 
+   | ------------ | ------------------ | 
+   | **Database name** | mySampleDatabase | 
+   | **Resource group**  | myResourceGroup |
+   | **Source source** | Sample (AdventureWorksLT) |
 
    > [!IMPORTANT]
    > You must select the sample database on this form because it is used in the remainder of this quick start.
@@ -56,12 +60,12 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use. 
    >  
 
-    ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
+   ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
 5. When you have completed the form, click **Select**.
 
 6. Click **Pricing tier** to specify the service tier and performance level for your new database. Use the slider to select **20 DTUs** and **250** GB of storage. For more information on DTUs, see [What is a DTU?](sql-database-what-is-a-dtu.md).
 
-    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
+   ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
 7. After selected the amount of DTUs, click **Apply**.  
 
@@ -69,8 +73,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 9. On the toolbar, click **Notifications** to monitor the deployment process.
 
-    ![notification](./media/sql-database-get-started-portal/notification.png)
-
+   ![notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Create a server-level firewall rule
 
@@ -80,24 +83,23 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the SQL databases page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170411.database.chinacloudapi.cn**) and provides options for further configuration.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170411.database.chinacloudapi.cn**) and provides options for further configuration. Copy this fully qualified server name for use later.
 
    > [!IMPORTANT]
    > You will need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-      ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
-      ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
-
+   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
 4. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-      ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
+   ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
 4. Click **OK** and then close the **Firewall settings** page.
 
@@ -108,23 +110,23 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 ## Query the SQL database
 
-Now that you have created a sample database in Azure, let’s use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data. 
+Now that you have created a sample database in Azure, let's use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data. 
 
 1. On the SQL Database page for your database, click **Tools** on the toolbar. The **Tools** page opens.
 
-     ![tools menu](./media/sql-database-get-started-portal/tools-menu.png) 
+   ![tools menu](./media/sql-database-get-started-portal/tools-menu.png) 
 
 2. Click **Query editor (preview)**, click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
 
 3. Click **Login** and then, when prompted, select **SQL server authentication** and then provide the server admin login and password that you created earlier.
 
-    ![login](./media/sql-database-get-started-portal/login.png) 
+   ![login](./media/sql-database-get-started-portal/login.png) 
 
 4. Click **OK** to log in.
 
 5. After you are authenticated, type the following query in the query editor pane.
 
-   ```
+   ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
@@ -133,7 +135,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 6. Click **Run** and then review the query results in the **Results** pane.
 
-    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
 7. Close the **Query editor** page and the **Tools** page.
 
@@ -141,8 +143,7 @@ Now that you have created a sample database in Azure, let’s use the built-in q
 
 If you don't need these resources for another quickstart/tutorial (see [Next steps](#next-steps)), you can delete them by doing the following:
 
-
-1. From the left-hand menu in the Azure portal preview, click **Resource groups** and then click **myResourceGroup**. 
+1. From the left-hand menu in the Azure Portal, click **Resource groups** and then click **myResourceGroup**. 
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps

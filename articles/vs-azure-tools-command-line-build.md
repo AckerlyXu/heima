@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2017
-wacn.date: ''
-ms.author: tarcher
+origin.date: 03/05/2017
+ms.date: 05/22/2017
+ms.author: v-junlch
 
 ---
 # Building Azure projects from the command line

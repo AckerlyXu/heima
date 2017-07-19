@@ -13,9 +13,9 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
-wacn.date: ''
-ms.author: elioda
+origin.date: 09/13/2016
+ms.date: 07/10/2017
+ms.author: v-yiso
 ---
 
 # Use desired properties to configure devices (Node)
@@ -59,43 +59,41 @@ In this section, you create a Node.js console app that connects to your hub as *
     ```
 3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
 4. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the device connection string you copied when you created the **myDeviceId** device identity:
-
-    ```
-    'use strict';
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-
-    var connectionString = '{device connection string}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-
-    client.open(function(err) {
-        if (err) {
-            console.error('could not open IotHub client');
-        } else {
-            client.getTwin(function(err, twin) {
-                if (err) {
-                    console.error('could not get twin');
-                } else {
-                    console.log('retrieved device twin');
-                    twin.properties.reported.telemetryConfig = {
-                        configId: "0",
-                        sendFrequency: "24h"
-                    }
-                    twin.on('properties.desired', function(desiredChange) {
-                        console.log("received change: "+JSON.stringify(desiredChange));
-                        var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
-                        if (desiredChange.telemetryConfig &&desiredChange.telemetryConfig.configId !== currentTelemetryConfig.configId) {
-                            initConfigChange(twin);
+   
+        'use strict';
+        var Client = require('azure-iot-device').Client;
+        var Protocol = require('azure-iot-device-mqtt').Mqtt;
+   
+        var connectionString = '{device connection string}';
+        var client = Client.fromConnectionString(connectionString, Protocol);
+   
+        client.open(function(err) {
+            if (err) {
+                console.error('could not open IotHub client');
+            } else {
+                client.getTwin(function(err, twin) {
+                    if (err) {
+                        console.error('could not get twin');
+                    } else {
+                        console.log('retrieved device twin');
+                        twin.properties.reported.telemetryConfig = {
+                            configId: "0",
+                            sendFrequency: "24h"
                         }
-                    });
-                }
-            });
-        }
-    });
-    ```
-
+                        twin.on('properties.desired', function(desiredChange) {
+                            console.log("received change: "+JSON.stringify(desiredChange));
+                            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
+                            if (desiredChange.telemetryConfig &&desiredChange.telemetryConfig.configId !== currentTelemetryConfig.configId) {
+                                initConfigChange(twin);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+   
     The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
-
+   
     Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
    
    > [!IMPORTANT]
@@ -103,48 +101,46 @@ In this section, you create a Node.js console app that connects to your hub as *
    > 
    > 
 5. Add the following methods before the `client.open()` invocation:
-
-    ```
-    var initConfigChange = function(twin) {
-        var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
-        currentTelemetryConfig.pendingConfig = twin.properties.desired.telemetryConfig;
-        currentTelemetryConfig.status = "Pending";
-
-        var patch = {
-        telemetryConfig: currentTelemetryConfig
-        };
-        twin.properties.reported.update(patch, function(err) {
-            if (err) {
-                console.log('Could not report properties');
-            } else {
-                console.log('Reported pending config change: ' + JSON.stringify(patch));
-                setTimeout(function() {completeConfigChange(twin);}, 60000);
-            }
-        });
-    }
-
-    var completeConfigChange =  function(twin) {
-        var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
-        currentTelemetryConfig.configId = currentTelemetryConfig.pendingConfig.configId;
-        currentTelemetryConfig.sendFrequency = currentTelemetryConfig.pendingConfig.sendFrequency;
-        currentTelemetryConfig.status = "Success";
-        delete currentTelemetryConfig.pendingConfig;
-
-        var patch = {
+   
+        var initConfigChange = function(twin) {
+            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
+            currentTelemetryConfig.pendingConfig = twin.properties.desired.telemetryConfig;
+            currentTelemetryConfig.status = "Pending";
+   
+            var patch = {
             telemetryConfig: currentTelemetryConfig
+            };
+            twin.properties.reported.update(patch, function(err) {
+                if (err) {
+                    console.log('Could not report properties');
+                } else {
+                    console.log('Reported pending config change: ' + JSON.stringify(patch));
+                    setTimeout(function() {completeConfigChange(twin);}, 60000);
+                }
+            });
+        }
+   
+        var completeConfigChange =  function(twin) {
+            var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
+            currentTelemetryConfig.configId = currentTelemetryConfig.pendingConfig.configId;
+            currentTelemetryConfig.sendFrequency = currentTelemetryConfig.pendingConfig.sendFrequency;
+            currentTelemetryConfig.status = "Success";
+            delete currentTelemetryConfig.pendingConfig;
+   
+            var patch = {
+                telemetryConfig: currentTelemetryConfig
+            };
+            patch.telemetryConfig.pendingConfig = null;
+   
+            twin.properties.reported.update(patch, function(err) {
+                if (err) {
+                    console.error('Error reporting properties: ' + err);
+                } else {
+                    console.log('Reported completed config change: ' + JSON.stringify(patch));
+                }
+            });
         };
-        patch.telemetryConfig.pendingConfig = null;
-
-        twin.properties.reported.update(patch, function(err) {
-            if (err) {
-                console.error('Error reporting properties: ' + err);
-            } else {
-                console.log('Reported completed config change: ' + JSON.stringify(patch));
-            }
-        });
-    };
-    ```
-
+   
     The **initConfigChange** method updates reported properties on the local device twin object with the configuration update request and sets the status to **Pending**, then updates the device twin on the service. After successfully updating the device twin, it simulates a long running process that terminates in the execution of **completeConfigChange**. This method updates the local device twin's reported properties setting the status to **Success** and removing the **pendingConfig** object. It then updates the device twin on the service.
 
     Note that, to save bandwidth, reported properties are updated by specifying only the properties to be modified (named **patch** in the above code), instead of replacing the whole document.
@@ -154,63 +150,59 @@ In this section, you create a Node.js console app that connects to your hub as *
    > 
    > 
 6. Run the device app:
-
-    ```
-    node SimulateDeviceConfiguration.js
-    ```
-
+   
+        node SimulateDeviceConfiguration.js
+   
     You should see the message `retrieved device twin`. Keep the app running.
 
 ## Create the service app
 In this section, you will create a Node.js console app that updates the *desired properties* on the device twin associated with **myDeviceId** with a new telemetry configuration object. It then queries the device twins stored in the IoT hub and shows the difference between the desired and reported configurations of the device.
 
-1. Create a new empty folder called **setdesiredandqueryapp**. In the **setdesiredandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
-
+1. Create a new empty folder called **setdesiredandqueryapp**. In the **setdesiredandqueryapp** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
+   
     ```
     npm init
     ```
-2. At your command-prompt in the **setdesiredandqueryapp** folder, run the following command to install the **azure-iothub** package:
-
+2. At your command prompt in the **setdesiredandqueryapp** folder, run the following command to install the **azure-iothub** package:
+   
     ```
     npm install azure-iothub node-uuid --save
     ```
 3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
 4. Add the following code to the **SetDesiredAndQuery.js** file, and substitute the **{iot hub connection string}** placeholder with the IoT Hub connection string you copied when you created your hub:
-
-    ```
-    'use strict';
-    var iothub = require('azure-iothub');
-    var uuid = require('node-uuid');
-    var connectionString = '{iot hub connection string}';
-    var registry = iothub.Registry.fromConnectionString(connectionString);
-
-    registry.getTwin('myDeviceId', function(err, twin){
-        if (err) {
-            console.error(err.constructor.name + ': ' + err.message);
-        } else {
-            var newConfigId = uuid.v4();
-            var newFrequency = process.argv[2] || "5m";
-            var patch = {
-                properties: {
-                    desired: {
-                        telemetryConfig: {
-                            configId: newConfigId,
-                            sendFrequency: newFrequency
+   
+        'use strict';
+        var iothub = require('azure-iothub');
+        var uuid = require('node-uuid');
+        var connectionString = '{iot hub connection string}';
+        var registry = iothub.Registry.fromConnectionString(connectionString);
+   
+        registry.getTwin('myDeviceId', function(err, twin){
+            if (err) {
+                console.error(err.constructor.name + ': ' + err.message);
+            } else {
+                var newConfigId = uuid.v4();
+                var newFrequency = process.argv[2] || "5m";
+                var patch = {
+                    properties: {
+                        desired: {
+                            telemetryConfig: {
+                                configId: newConfigId,
+                                sendFrequency: newFrequency
+                            }
                         }
                     }
                 }
+                twin.update(patch, function(err) {
+                    if (err) {
+                        console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
+                    } else {
+                        console.log(twin.deviceId + ' twin updated successfully');
+                    }
+                });
+                setInterval(queryTwins, 10000);
             }
-            twin.update(patch, function(err) {
-                if (err) {
-                    console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
-                } else {
-                    console.log(twin.deviceId + ' twin updated successfully');
-                }
-            });
-            setInterval(queryTwins, 10000);
-        }
-    });
-    ```
+        });
 
     The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code, after it initializes the **Registry** object, retrieves the device twin for **myDeviceId**, and updates its desired properties with a new telemetry configuration object. After that, it calls the **queryTwins** function event 10 seconds.
 
@@ -220,36 +212,32 @@ In this section, you will create a Node.js console app that updates the *desired
     >
 
 1. Add the following code right before the `registry.getDeviceTwin()` invocation to implement the **queryTwins** function:
-
-    ```
-    var queryTwins = function() {
-        var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
-        query.nextAsTwin(function(err, results) {
-            if (err) {
-                console.error('Failed to fetch the results: ' + err.message);
-            } else {
-                console.log();
-                results.forEach(function(twin) {
-                    var desiredConfig = twin.properties.desired.telemetryConfig;
-                    var reportedConfig = twin.properties.reported.telemetryConfig;
-                    console.log("Config report for: " + twin.deviceId);
-                    console.log("Desired: ");
-                    console.log(JSON.stringify(desiredConfig, null, 2));
-                    console.log("Reported: ");
-                    console.log(JSON.stringify(reportedConfig, null, 2));
-                });
-            }
-        });
-    };
-    ```
-
+   
+        var queryTwins = function() {
+            var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
+            query.nextAsTwin(function(err, results) {
+                if (err) {
+                    console.error('Failed to fetch the results: ' + err.message);
+                } else {
+                    console.log();
+                    results.forEach(function(twin) {
+                        var desiredConfig = twin.properties.desired.telemetryConfig;
+                        var reportedConfig = twin.properties.reported.telemetryConfig;
+                        console.log("Config report for: " + twin.deviceId);
+                        console.log("Desired: ");
+                        console.log(JSON.stringify(desiredConfig, null, 2));
+                        console.log("Reported: ");
+                        console.log(JSON.stringify(reportedConfig, null, 2));
+                    });
+                }
+            });
+        };
+   
     The previous code queries the device twins stored in the IoT hub and prints the desired and reported telemetry configurations. Refer to the [IoT Hub query language][lnk-query] to learn how to generate rich reports across all your devices.
 2. With **SimulateDeviceConfiguration.js** running, run the application with:
-
-    ```
-    node SetDesiredAndQuery.js 5m
-    ```
-
+   
+        node SetDesiredAndQuery.js 5m
+   
     You should see the reported configuration change from **Success** to **Pending** to **Success** again with the new active send frequency of five minutes instead of 24 hours.
 
    > [!IMPORTANT]
@@ -263,11 +251,12 @@ In this tutorial, you set a desired configuration as *desired properties* from a
 Use the following resources to learn how to:
 
 - send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
+- schedule or perform operations on large sets of devices see the [Schedule and broadcast jobs][lnk-schedule-jobs] tutorial.
 - control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods][lnk-methods-tutorial] tutorial.
 
 <!-- links -->
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
@@ -275,10 +264,11 @@ Use the following resources to learn how to:
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-dm-overview]: ./iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
+[lnk-schedule-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-[lnk-connect-device]: /develop/iot/
+[lnk-connect-device]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
 

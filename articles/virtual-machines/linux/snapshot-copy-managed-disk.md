@@ -11,9 +11,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/6/2017
-wacn.date: ''
-ms.author: rasquill
+origin.date: 02/06/2017
+ms.date: 06/20/2017
+ms.author: v-dazen
 
 ---
 # Create a copy of a VHD stored as an Azure Managed Disk by using Managed Snapshots
@@ -21,7 +21,7 @@ Take a snapshot of a Managed disk for backup or create a Managed Disk from the s
 
 For information about pricing, see [Azure Storage Pricing](https://www.azure.cn/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Use either the Azure portal preview or the Azure CLI 2.0 to take a snapshot of the Managed Disk.
+Use the Azure CLI 2.0 to take a snapshot of the Managed Disk.
 
 ## Use Azure CLI 2.0 to take a snapshot
 
@@ -62,17 +62,5 @@ The output should look something like:
   "type": "Microsoft.Compute/snapshots"
 }
 ```
-
-## Use Azure portal preview to take a snapshot 
-
-1. Sign in to the [Azure portal preview](https://portal.azure.cn).
-2. Starting in the upper-left, click **New** and search for **snapshot**.
-3. In the Snapshot blade, click **Create**.
-4. Enter a **Name** for the snapshot.
-5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
-6. Select an Azure datacenter Location.  
-7. For **Source disk**, select the Managed Disk to snapshot.
-8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
-9. Click **Create**.
 
 If you plan to use the snapshot to create a Managed Disk and attach it a VM that needs to be high performing, use the parameter `--sku Premium_LRS` with the `az snapshot create` command. This creates the snapshot so that it is stored as a Premium Managed Disk. Premium Managed Disks perform better because they are solid-state drives (SSDs), but cost more than Standard disks (HDDs).

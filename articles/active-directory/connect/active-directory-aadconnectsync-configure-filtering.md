@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 02/21/2017
+ms.date: 04/05/2017
+ms.author: v-junlch
 ---
 
 # Azure AD Connect sync: Configure filtering
@@ -42,7 +42,7 @@ Because filtering can remove many objects at the same time, you want to make sur
 
 To protect you from deleting many objects by accident, the feature "[prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
 
-If you use a build before November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), make a change to a filter configuration, and use password synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](/documentation/articles/active-directory-aadconnectsync-troubleshoot-password-synchronization/#trigger-a-full-sync-of-all-passwords/). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
+If you use a build before November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), make a change to a filter configuration, and use password synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
 
 If **user** objects were inadvertently deleted in Azure AD because of a filtering error, you can recreate the user objects in Azure AD by removing your filtering configurations. Then you can synchronize your directories again. This action restores the users from the recycle bin in Azure AD. However, you can't undelete other object types. For example, if you accidentally delete a security group and it was used to ACL a resource, the group and its ACLs can't be recovered.
 
@@ -73,7 +73,7 @@ After you've completed all your filtering changes, don't forget to come back and
 ## Filtering options
 You can apply the following filtering configuration types to the directory synchronization tool:
 
-- [**Group-based**](/documentation/articles/active-directory-aadconnect-get-started-custom/#sync-filtering-based-on-groups/): Filtering based on a single group can only be configured on initial installation by using the installation wizard. It isn't covered further in this article.
+- [**Group-based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial installation by using the installation wizard. It isn't covered further in this article.
 - [**Domain-based**](#domain-based-filtering): By using this option, you can select which domains synchronize to Azure AD. You can also add and remove domains from the sync engine configuration when you make changes to your on-premises infrastructure after you install Azure AD Connect sync.
 - [**Organizational unit (OU)-based**](#organizational-unitbased-filtering): By using this option, you can select which OUs synchronize to Azure AD. This option is for all object types in selected OUs.
 - [**Attribute-based**](#attribute-based-filtering): By using this option, you can filter objects based on attribute values on the objects. You can also have different filters for different object types.
@@ -83,7 +83,7 @@ You can use multiple filtering options at the same time. For example, you can us
 ## Domain-based filtering
 This section provides you with the steps to configure your domain filter. If you added or removed domains in your forest after you installed Azure AD Connect, you also have to update the filtering configuration.
 
-The preferred way to change domain-based filtering is by running the installation wizard and changing [domain and OU filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#domain-and-ou-filtering/). The installation wizard automates all the tasks that are documented in this topic.
+The preferred way to change domain-based filtering is by running the installation wizard and changing [domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard automates all the tasks that are documented in this topic.
 
 You should only follow these steps if you're unable to run the installation wizard for some reason.
 
@@ -136,7 +136,7 @@ If you've updated your domain filter, you also need to update the run profiles.
 5.  To complete the configuration, you need to run a **Full import** and a **Delta sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational unit-based filtering <a name="organizational-unitbased-filtering"></a>
-The preferred way to change OU-based filtering is by running the installation wizard and changing [domain and OU filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#domain-and-ou-filtering/). The installation wizard automates all the tasks that are documented in this topic.
+The preferred way to change OU-based filtering is by running the installation wizard and changing [domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard automates all the tasks that are documented in this topic.
 
 You should only follow these steps if you're unable to run the installation wizard for some reason.
 

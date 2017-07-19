@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/25/2017
-wacn.date: ''
-ms.author: guybo
+origin.date: 04/25/2017
+ms.date: 06/20/2017
+ms.author: v-dazen
 
 ---
 # Azure VM scale sets and attached data disks
@@ -27,20 +27,15 @@ Azure [virtual machine scale sets](/virtual-machine-scale-sets/) now support vir
 
 ## Create a scale set with attached data disks
 A simple way to create a scale set with attached disks is to use the [Azure CLI](https://github.com/Azure/azure-cli) _vmss create_ command. The following example creates an Azure resource group, and a VM scale set of 10 Ubuntu VMs, each with 2 attached data disks, of 50 GB and 100 GB respectively.
-
 ```bash
 az group create -l chinaeast -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
-
 Note that the _vmss create_ command defaults certain configuration values if you do not specify them. To see the available options that you can override try:
-
 ```bash
 az vmss create --help
 ```
-
 Another way to create a scale set with attached data disks is to define a scale set in an Azure Resource Manager template, include a _dataDisks_ section in the _storageProfile_, and deploy the template. The 50 GB and 100 GB disk example above would be defined like this in the template:
-
 ```json
 "dataDisks": [
     {
@@ -57,7 +52,6 @@ Another way to create a scale set with attached data disks is to define a scale 
     }
 ]
 ```
-
 You can see a complete, ready to deploy example of a scale set template with an attached disk defined here: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## Adding a data disk to an existing scale set
@@ -65,11 +59,9 @@ You can see a complete, ready to deploy example of a scale set template with an 
 >  You can only attach data disks to a scale set which has been created with [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md).
 
 You can add a data disk to a VM scale set using Azure CLI _az vmss disk attach_ command. Make sure you specify a lun which is not already in use. The following CLI example adds a 50 GB drive to lun 3:
-
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
-
 
 The following PowerShell example adds a 50 GB drive to lun 3:
 ```powershell
@@ -81,8 +73,7 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 > [!NOTE]
 > Different VM sizes have different limits on the numbers of attached drives they support. Check the [virtual machine size characteristics](../virtual-machines/windows/sizes.md) before adding a new disk.
 
-You can also add a disk by adding a new entry to the _dataDisks_ property in the _storageProfile_ of a scale set definition and applying the change. To test this, find an existing scale set definition in the [Azure Resource Explorer](https://resources.azure.com/). Select _Edit_ and add a new disk to the list of data disks. E.g. using the example above:
-
+You can also add a disk by adding a new entry to the _dataDisks_ property in the _storageProfile_ of a scale set definition and applying the change. Select _Edit_ and add a new disk to the list of data disks. E.g. using the example above:
 ```json
 "dataDisks": [
     {
@@ -105,7 +96,6 @@ You can also add a disk by adding a new entry to the _dataDisks_ property in the
     }          
 ]
 ```
-
 Then select _PUT_ to apply the changes to your scale set. This example would work as long as you are using a VM size which supports more than two attached data disks.
 
 > [!NOTE]
@@ -113,11 +103,9 @@ Then select _PUT_ to apply the changes to your scale set. This example would wor
 
 ## Removing a data disk from a scale set
 You can remove a data disk from a VM scale set using Azure CLI _az vmss disk detach_ command. For example the following command removes the disk defined at lun 2:
-
 ```bash
 az vmss disk detach -g dsktest -n dskvmss --lun 2
 ```  
-
 Similarly you can also remove a disk from a scale set by removing an entry from the _dataDisks_ property in the _storageProfile_ and applying the change. 
 
 ## Additional notes
@@ -125,4 +113,4 @@ Support for Azure Managed disks, and scale set attached data disks was added to 
 
 In the initial implementation of attached disk support for scale sets, you cannot attach or detach data disks to/from individual VMs in a scale set.
 
-Azure portal preview support for attached data disks in scale sets is initially limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.
+Azure portal support for attached data disks in scale sets is initially limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.

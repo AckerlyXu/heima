@@ -1,5 +1,5 @@
 ---
-title: Analyze flight delay data with Hadoop in HDInsight | Azure
+title: Analyze flight delay data with Hadoop in HDInsight - Azure | Azure
 description: Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster.
 services: hdinsight
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/25/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 ROBOTS: NOINDEX
 
 ---
@@ -26,7 +26,7 @@ ROBOTS: NOINDEX
 Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.
 
 > [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 One of the major benefits of Azure HDInsight is the separation of data storage and compute. HDInsight uses Azure Blob storage for data storage. A typical job involves three parts:
 
@@ -59,8 +59,8 @@ Before you begin this tutorial, you must have the following items:
 * **A workstation with Azure PowerShell**.
 
     > [!IMPORTANT]
-    > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
-    > <p>
+    > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and was removed on January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
+    >
     > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 **Files used in this tutorial**
@@ -360,7 +360,7 @@ The path tutorials/flightdelay/data is the virtual folder you created when you u
 
 > [!NOTE]
 > You must update the Hive query to read from the new location.
-> <p>
+>
 > You must either configure the container access permission to be public or bind the Storage account to the HDInsight cluster. Otherwise, the Hive query string will not be able to access the data files.
 
 - - -
@@ -559,10 +559,10 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
     Here are the variables used in the script:
 
-    * **$hqlLocalFileName** - The script saves the HiveQL script file locally before uploading it to Blob storage. This is the file name. The default value is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
-    * **$hqlBlobName** - This is the HiveQL script file blob name used in the Azure Blob storage. The default value is tutorials/flightdelay/flightdelays.hql. Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name. If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.
-    * **$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data"
-      = "tutorials/flightdelay/output"
+   * **$hqlLocalFileName** - The script saves the HiveQL script file locally before uploading it to Blob storage. This is the file name. The default value is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
+   * **$hqlBlobName** - This is the HiveQL script file blob name used in the Azure Blob storage. The default value is tutorials/flightdelay/flightdelays.hql. Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name. If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.
+   * **$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data"
+     = "tutorials/flightdelay/output"
 
 - - -
 ## <a id="appendix-c"></a>Appendix C - Prepare an Azure SQL database for the Sqoop job output
@@ -703,15 +703,15 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-    > [!NOTE]
-    > The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL database server.
+   > [!NOTE]
+   > The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL database server.
 
     Here are some variables used in the script:
 
-    * **$ipAddressRestService** - The default value is http://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address. You can use other services if you want. The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).
-    * **$fireWallRuleName** - This is the name of the firewall rule for the Azure SQL database server. The default name is <u>FlightDelay</u>. You can rename it if you want.
-    * **$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server. The default value is 10GB. 10GB is sufficient for this tutorial.
-    * **$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database. The default value is HDISqoop. If you rename it, you must update the Sqoop Windows PowerShell script accordingly.
+   * **$ipAddressRestService** - The default value is http://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address. You can use other services if you want. The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).
+   * **$fireWallRuleName** - This is the name of the firewall rule for the Azure SQL database server. The default name is <u>FlightDelay</u>. You can rename it if you want.
+   * **$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server. The default value is 10GB. 10GB is sufficient for this tutorial.
+   * **$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database. The default value is HDISqoop. If you rename it, you must update the Sqoop Windows PowerShell script accordingly.
 4. Press **F5** to run the script.
 5. Validate the script output. Make sure the script ran successfully.
 

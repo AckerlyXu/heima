@@ -15,9 +15,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
-wacn.date: ''
-ms.author: rclaus
+origin.date: 12/08/2016
+ms.date: 05/22/2017
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -247,7 +247,7 @@ ms.custom: H1Hack27Feb2017
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md
 [storage-use-azcopy]:../../storage/storage-use-azcopy.md
-[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
+[template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../linux/attach-disk-portal.md
@@ -300,7 +300,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:.././azure/xplat-cli-azure-resource-manager
+[xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
 By choosing Azure as your SAP ready cloud partner, you will be able to reliably run your mission critical SAP workloads on a scaaleable, compliant, and enterprise-proven platform.  Get the scaleability, flexability, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across dev/test and production scenarios in azure - and be fully supported. From SAP NetWeaver to SAP S4/HANA, Linux to Windows, SAP HANA to SQL, we have you covered. 
 
@@ -329,7 +329,7 @@ Azure is certified for the following SAP products, with full support from Micros
 ## Getting Started with SAP HANA on Azure
 Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 
-Summary: This quickstart guide will help to set up a single-instance SAP HANA prototype/demo system on Azure VMs by a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12. The guide presumes that the reader is familiar with Azure IaaS basics like how to deploy virtual machines or virtual networks either via the Azure portal preview or Powershell/CLI including the option to use json templates. Furthermore it's expected that the reader is familiar with SAP HANA, SAP NetWeaver and how to install it on-premises.
+Summary: This quickstart guide will help to set up a single-instance SAP HANA prototype/demo system on Azure VMs by a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12. The guide presumes that the reader is familiar with Azure IaaS basics like how to deploy virtual machines or virtual networks either via the Azure portal or Powershell/CLI including the option to use json templates. Furthermore it's expected that the reader is familiar with SAP HANA, SAP NetWeaver and how to install it on-premises.
 
 Updated: September 2016
 
@@ -341,8 +341,6 @@ SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications
 
 Updated: September 2016
 
-[This guide can be found here](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 
@@ -351,7 +349,7 @@ via SAP Cloud Appliance Library 3.0.
 
 Updated: September 2016
 
-[This guide can be found here](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[This guide can be found here](sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planning and Implementation
 Title: SAP NetWeaver on Azure Virtual Machines (VMs) - Planning and Implementation Guide
@@ -378,13 +376,9 @@ Summary: This paper covers planning and implementation considerations for the DB
 
 Updated: August 2016
 
-[This guide can be found here][dbms-guide]
-
 ## <a name="63dab028-2c4f-4636-8f99-90bbb264eaba"></a>High Availability Deployment Guide
 Title: SAP NetWeaver on Azure Virtual Machines (VMs) - High Availability Deployment Guide
 
 Summary: This document describes how SAP single point of failure components like the SAP ASCS/SCS and DBMS can be protected in Azure. Components of the SAP ASCS/SCS, DBMS and application servers are essential for the functionality of SAP NetWeaver systems, e.g. SAP NetWeaver ABAP, SAP NetWeaver Java, SAP NetWeaver ABAP+Java systems. Therefore, high-availability functionality needs to be put in place to make sure that those components can sustain a failure of a server or a VM as done with Windows Cluster configurations for bare-metal and Hyper-V environments.
 
 Updated: December 2016
-
-[This guide can be found here][ha-guide]

@@ -4,8 +4,8 @@ description: Learn how to operate the Query Store in Azure SQL Database
 keywords: ''
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 0cccf6bd-1327-44f7-a6f9-8eff0c210463
@@ -14,8 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
-ms.date: 11/08/2016
-ms.author: carlrab
+origin.date: 11/08/2016
+ms.date: 07/03/2017
+ms.author: v-johch
 
 ---
 # Operating the Query Store in Azure SQL Database
@@ -40,20 +41,18 @@ This section describes optimal configuration defaults that are designed to ensur
 |  | | | |
 
 > [!IMPORTANT]
-> These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won’t be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
+> These defaults are automatically applied in the final stage of Query Store activation in all Azure SQL databases (see preceding important note). After this light up, Azure SQL Database won't be changing configuration values set by customers, unless they negatively impact primary workload or reliable operations of the Query Store.
 
-If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/zh-cn/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/zh-cn/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
+
+If you want to stay with your custom settings, use [ALTER DATABASE with Query Store options](https://msdn.microsoft.com/library/bb522682.aspx) to revert configuration to the previous state. Check out [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) in order to learn how top chose optimal configuration parameters.
 
 ## Next steps
-[SQL Database Performance Insight](./sql-database-performance.md)
+[SQL Database Performance Insight](sql-database-performance.md)
 
 ## Additional resources
 For more information check out the following articles:
 
-- [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
-
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/zh-cn/library/dn817826.aspx)
-
-- [Query Store Usage Scenarios](https://msdn.microsoft.com/zh-cn/library/mt614796.aspx)
-
-- [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/zh-cn/library/dn817826.aspx)
+* [A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
+* [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Query Store Usage Scenarios](https://msdn.microsoft.com/library/mt614796.aspx)
+* [Monitoring Performance By Using the Query Store](https://msdn.microsoft.com/library/dn817826.aspx)

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-ms.date: 11/10/2015
-wacn.date: ''
-ms.author: crwilcox
+origin.date: 11/10/2015
+ms.date: 05/24/2016
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ---
 # Creating an Azure VM, installing Jupyter, and running a Jupyter Notebook on Azure
@@ -45,7 +45,7 @@ virtual machines, and we will cover the setup of Jupyter on both types of virtua
 ### Create a Linux VM and open a port for Jupyter
 Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *Ubuntu* distribution. This tutorial uses Ubuntu Server 14.04 LTS. We'll assume the user name *azureuser*.
 
-After the virtual machine deploys we need to open up a security rule on the network security group.  From the Azure portal preview, go to **Network Security Groups** and open the tab for the Security Group corresponding to your VM. You need to add an Inbound Security rule with the following settings:
+After the virtual machine deploys we need to open up a security rule on the network security group.  From the Azure portal, go to **Network Security Groups** and open the tab for the Security Group corresponding to your VM. You need to add an Inbound Security rule with the following settings:
 **TCP** for the protocol, **\*** for the source (public) port and **9999** for the destination (private) port.
 
 ![Screenshot](./media/jupyter-notebook/azure-add-endpoint.png)

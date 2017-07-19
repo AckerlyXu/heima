@@ -13,9 +13,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/11/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 05/30/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # How to Use Azure Redis Cache
@@ -36,19 +36,23 @@ Azure Redis Cache is available in the following tiers:
 
 * **Basic** - Single node. Multiple sizes up to 53 GB.
 * **Standard** - Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
-* **Premium** - Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
+* **Premium** - Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB. All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
 
 Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details][Cache Pricing Details].
 
 This guide shows you how to use the [StackExchange.Redis][StackExchange.Redis] client using C\# code. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, and **adding and removing objects from the cache**. For more information on using Azure Redis Cache, see [Next Steps][Next Steps]. For a step-by-step tutorial of building an ASP.NET MVC web app with Redis Cache, see [How to create a Web App with Redis Cache](cache-web-app-howto.md).
 
-## <a name="getting-started-cache-service"></a> Get Started with Azure Redis Cache
+<a name="getting-started-cache-service"></a>
+
+## Get Started with Azure Redis Cache
 Getting started with Azure Redis Cache is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
 * [Create the cache][Create the cache]
 * [Configure the cache clients][Configure the cache clients]
 
-## <a name="create-cache" id="create-a-cache"></a> Create a cache
+<a name="create-cache"></a>
+
+## Create a cache
 [!INCLUDE [azurerm-azurechinacloud-environment-parameter](../../includes/azurerm-azurechinacloud-environment-parameter.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -58,19 +62,25 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 
 For more information about configuring your cache, see [How to configure Azure Redis Cache](cache-configure.md).
 
-## <a name="NuGet" id="configure-the-cache-clients"></a> Configure the cache clients
+<a name="NuGet"></a>
+
+## Configure the cache clients
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
-## <a name="working-with-caches"></a> Working with Caches
+<a name="working-with-caches"></a>
+
+## Working with Caches
 The steps in this section describe how to perform common tasks with Cache.
 
 * [Connect to the cache][Connect to the cache]
 * [Add and retrieve objects from the cache][Add and retrieve objects from the cache]
 * [Work with .NET objects in the cache](#work-with-net-objects-in-the-cache)
 
-## <a name="connect-to-cache" id="connect-to-the-cache"></a> Connect to the cache
+<a name="connect-to-cache"></a>
+
+## Connect to the cache
 To programmatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use the StackExchange.Redis client to access an Azure Redis Cache.
 
     using StackExchange.Redis;
@@ -82,7 +92,7 @@ To programmatically work with a cache, you need a reference to the cache. Add th
 
 The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application, and does not need to be created on a per operation basis. 
 
-To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key. Use the key generated from the Azure portal preview as the password parameter.
+To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key. Use the key generated from the Azure portal as the password parameter.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=...");
 
@@ -136,7 +146,9 @@ Azure Redis caches have a configurable number of databases (default of 16) that 
 
 Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's look at working with the cache.
 
-## <a name="add-object" id="add-and-retrieve-objects-from-the-cache"></a> Add and retrieve objects from the cache
+<a name="add-object"></a>
+
+## Add and retrieve objects from the cache
 Items can be stored in and retrieved from a cache by using the `StringSet` and `StringGet` methods.
 
     // If key1 exists, it is overwritten.
@@ -162,7 +174,7 @@ To specify the expiration of an item in the cache, use the `TimeSpan` parameter 
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## <a name="store-session" id="work-with-net-objects-in-the-cache"></a> Work with .NET objects in the cache
+## Work with .NET objects in the cache
 Azure Redis Cache can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized. This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
 One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) and serialize to and from JSON. The following example shows a get and set using an `Employee` object instance.
@@ -185,18 +197,20 @@ One simple way to serialize objects is to use the `JsonConvert` serialization me
     // Retrieve from cache
     Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
-## <a name="next-steps"></a> Next Steps
+<a name="next-steps"></a>
+
+## Next Steps
 Now that you've learned the basics, follow these links to learn more about Azure Redis Cache.
 
 * Check out the ASP.NET providers for Azure Redis Cache.
-    * [Azure Redis Session State Provider](cache-aspnet-session-state-provider.md)
-    * [Azure Redis Cache ASP.NET Output Cache Provider](cache-aspnet-output-cache-provider.md)
-* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal preview and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+  * [Azure Redis Session State Provider](cache-aspnet-session-state-provider.md)
+  * [Azure Redis Cache ASP.NET Output Cache Provider](cache-aspnet-output-cache-provider.md)
+* [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 * Check out the [StackExchange.Redis cache client documentation][StackExchange.Redis cache client documentation].
-    * Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][http://redis.io/clients].
+  * Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Cache can also be used with third-party services and tools such as Redsmin and Redis Desktop Manager.
-    * For more information about Redsmin, see [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin].
-    * Access and inspect your data in Azure Redis Cache with a GUI using [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
+  * For more information about Redsmin, see [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin].
+  * Access and inspect your data in Azure Redis Cache with a GUI using [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 * See the [redis][redis] documentation and read about [redis data types][redis data types] and [a fifteen minute introduction to Redis data types][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
@@ -258,7 +272,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: https://www.azure.cn/pricing/details/redis-cache/
-[Azure portal preview]: https://portal.azure.cn/
+[Azure portal]: https://portal.azure.cn/
 
 [Overview of Azure Redis Cache]: /redis-cache/
 [Azure Redis Cache]: /redis-cache/

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
-ms.author: daleche
+ms.author: v-johch
 ---
 
 # Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage

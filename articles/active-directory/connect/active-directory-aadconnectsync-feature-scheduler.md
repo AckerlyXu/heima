@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
-wacn.date: ''
-ms.author: billmath
+origin.date: 02/28/2017
+ms.date: 04/05/2017
+ms.author: v-junlch
 ---
 
 # Azure AD Connect sync: Scheduler

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-wacn.date: ''
-ms.author: cynthn
+origin.date: 11/16/2016
+ms.date: 12/20/2016
+ms.author: v-dazen
 
 ---
 # How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension
@@ -44,7 +44,6 @@ You will need to do the following:
 
 * You will need to [install the Azure CLI](../../../cli-install-nodejs.md) and [connect to your subscription](../../../xplat-cli-connect.md) to use Azure resources associated with your account.
 * Set the correct mode for the classic deployment model by typing the following at the command prompt:
-
     ``` 
         azure config mode asm
     ```
@@ -190,5 +189,5 @@ To repair disks that are not mounting or have mount configuration errors, use th
 
 ## Next steps
 * If you want to use Azure PowerShell cmdlets or Azure Resource Manager templates to reset the password or SSH key, fix the SSH configuration, and check disk consistency, see the [VMAccess extension documentation on GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
-* You can also use the [Azure portal preview](https://portal.azure.cn) to reset the password or SSH key of a Linux VM deployed in the classic deployment model. You can't currently use the portal do to this for a Linux VM deployed in the Resource Manager deployment model.
-* See [About virtual machine extensions and features](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more about using VM extensions for Azure virtual machines.
+* You can also use the [Azure portal](https://portal.azure.cn) to reset the password or SSH key of a Linux VM deployed in the classic deployment model. You can't currently use the portal do to this for a Linux VM deployed in the Resource Manager deployment model.
+* See [About virtual machine extensions and features](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for more about using VM extensions for Azure virtual machines.

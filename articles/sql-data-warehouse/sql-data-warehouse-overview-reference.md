@@ -3,7 +3,7 @@ title: SQL Data Warehouse reference topics | Azure
 description: Reference content links for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: barbkess
+origin.date: 10/31/2016
+ms.date: 01/04/2017
+ms.author: v-yeche
 
 ---
 

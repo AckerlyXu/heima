@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
-wacn.date: ''
-ms.author: iainfou
+origin.date: 02/09/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # How to Detach a Disk from a Linux Virtual Machine

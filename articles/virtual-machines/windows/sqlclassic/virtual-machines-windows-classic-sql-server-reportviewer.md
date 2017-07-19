@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
-wacn.date: ''
-ms.author: asaxton
+origin.date: 01/11/2017
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Use ReportViewer in a Web Site Hosted in Azure
@@ -39,7 +39,7 @@ Review the "General recommendation and best practices" section in [SQL Server Bu
 
 > [!NOTE]
 > ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
-> <p> 
+> 
 > ReportViewer configured in local processing mode is not supported in Azure.
 
 ## Adding Assemblies to the Deployment Package
@@ -69,7 +69,7 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 ### To configure for localized ReportViewer control
 1. Download and install the Microsoft Report Viewer 2012 Runtime redistributable package by following the above specified instructions.
 2. Create <language> folder in the project and copy the associated resource assembly files there. The resource assembly files to be copied are: **Microsoft.ReportViewer.Webforms.Resources.dll** and **Microsoft.ReportViewer.Common.Resources.dll**.Select the resource assembly files, and in the Properties pane, set **Copy to Output Directory** to "**Copy always**".
-3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](https://msdn.microsoft.com/library/bz9tc508.aspx).
+3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](http://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## Configuring Authentication and Authorization
 The ReportViewer needs to use proper credentials to authenticate with the report server, and the credentials must be authorized by the report server to access the reports you want. For information on authentication, see the white paper [Reporting Services report viewer control and Azure virtual machine based report servers](https://msdn.microsoft.com/library/azure/dn753698.aspx).
@@ -79,13 +79,13 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 
 > [!IMPORTANT]
 > If the Add Azure Deployment Project or Add Azure Cloud Service Project command does not appear in the shortcut menu in Solution Explorer, you may need to change the Target framework for the project to .NET Framework 4.
-> <p> 
+> 
 > The two commands provide essentially the same functionality. One or the other command will appear in the shortcut menu depending on which version of the Azure SDK you have installed.
 > 
 > 
 
 ## Resources
-[Microsoft Reports](https://msdn.microsoft.com/library/bb885185.aspx)
+[Microsoft Reports](http://go.microsoft.com/fwlink/?LinkId=205399)
 
 [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md)
 

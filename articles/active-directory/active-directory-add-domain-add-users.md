@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2016
-ms.author: curtand
-wacn.date: ''
+origin.date: 05/16/2016
+ms.author: v-junlch
+ms.date: 06/21/2016
 ---
 # Assign users to a custom domain
 After you have added your custom domain to Azure Active Directory, you must add the user accounts for this domain so that you can begin authenticating them.

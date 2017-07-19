@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Pig with REST in HDInsight | Azure
+title: Use Hadoop Pig with REST in HDInsight - Azure | Azure
 description: Learn how to use REST to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/03/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Run Pig jobs with Hadoop on HDInsight by using REST
@@ -33,8 +33,8 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
-    > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * [Curl](http://curl.haxx.se/)
 
@@ -63,7 +63,7 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
     * **-u**: The user name and password used to authenticate the request
     * **-G**: Indicates that this request is a GET request
 
-    The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return the status of WebHCat (also known as Templeton) for the server.
+     The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return the status of WebHCat (also known as Templeton) for the server.
 
 2. Use the following code to submit a Pig Latin job to the cluster:
 

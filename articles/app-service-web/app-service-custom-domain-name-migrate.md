@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
-wacn.date: ''
-ms.author: cephalin
+origin.date: 01/30/2017
+ms.date: 03/03/2017
+ms.author: v-dazen
 
 ---
 # Migrate an active custom domain to Azure App Service
@@ -24,11 +24,11 @@ ms.author: cephalin
 This article shows you how to migrate an active custom domain to [Azure App Service](../app-service/app-service-value-prop-what-is.md) without any downtime.
 
 When you migrate a live site and its domain name to App Service, that domain name is already serving live traffic, and you don't want any downtime in DNS resolution during
-the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification. 
+the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification.
 
 ## Prerequisites
 
-This article assumes that you already know how to [manually map a custom domain to App Service](web-sites-custom-domain-name.md).
+This article assumes that you already know how to [manually map a custom domain to App Service](app-service-web-tutorial-custom-domain.md).
 
 ## Bind the domain name preemptively
 
@@ -43,7 +43,7 @@ to your App Service app without any downtime in DNS resolution.
 
 Follow the steps below:
 
-1. First, create a verification TXT record with your DNS registry by following the steps at [Create the DNS record(s)](web-sites-custom-domain-name.md#createdns).
+1. First, create a verification TXT record with your DNS registry by following the steps at [Create the DNS record(s)](app-service-web-tutorial-custom-domain.md).
 Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.chinacloudsites.cn.
 See the following table for examples:  
 
@@ -70,13 +70,13 @@ See the following table for examples:
     </tr>
     </table>
 
-2. Then, add your custom domain name to your Azure app by following the steps at [Enable the custom domain name for your app](web-sites-custom-domain-name.md#enable).
+2. Then, add your custom domain name to your Azure app by following the steps at [Enable the custom domain name for your app](app-service-web-tutorial-custom-domain.md#enable-a).
 
     Your custom domain is now enabled in your Azure app. The only thing left to do is to update the DNS record with your domain registrar.
 
-3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Create the DNS record(s)](web-sites-custom-domain-name.md#createdns). 
+3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Create the DNS record(s)](app-service-web-tutorial-custom-domain.md).
 
     User traffic should be redirected to your Azure app immediately after DNS propagation happens.
 
 ## Next steps
-Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](web-sites-configure-ssl-certificate.md).
+Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](app-service-web-tutorial-custom-ssl.md).

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/03/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight
@@ -30,7 +30,7 @@ Hadoop achieves high availability and reliability by replicating services and da
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## Availability and reliability of nodes
 
@@ -66,9 +66,7 @@ Worker nodes perform the actual data analysis when a job is submitted to the clu
 
 An edge node does not actively participate in data analysis within the cluster. It is used by developers or data scientists when working with Hadoop. The edge node lives in the same Azure Virtual Network as the other nodes in the cluster, and can directly access all other nodes. The edge node can be used without taking resources away from critical Hadoop services or analysis jobs.
 
-Currently, R Server on HDInsight is the only cluster type that provides an edge node by default. For R Server on HDInsight, the edge node is used test R code locally on the node before submitting it to the cluster for distributed processing.
-
-For information on using an edge node with cluster types other than R Server, see the [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) document.
+For information on using an edge node, see the [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md) document.
 
 ## Accessing the nodes
 
@@ -216,9 +214,9 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight on the [HDInsight pricing page](https://www.azure.cn/pricing/details/hdinsight/).
 
-When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal preview][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
+When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
-* **Azure portal preview**: When creating a cluster, you can set the size of the nodes used by the cluster:
+* **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 

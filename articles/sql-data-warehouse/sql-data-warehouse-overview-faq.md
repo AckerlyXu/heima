@@ -3,8 +3,8 @@ title: Azure SQL Data Warehouse Frequently Asked Questions | Azure
 description: This article lists out frequently asked questions about Azure SQL Data Warehouse from customers and developers
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokib
-manager: johnmac
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
-ms.date: 3/1/2017
-wacn.date: ''
-ms.author: elbutter
+origin.date: 03/01/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 

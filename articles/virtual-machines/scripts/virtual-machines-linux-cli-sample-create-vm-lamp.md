@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2017
-wacn.date: ''
-ms.author: allclark
+origin.date: 04/05/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Deploy the LAMP stack in a load-balanced virtual machine scale set
@@ -27,11 +28,9 @@ on each virtual machine in the scale set.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create the resource group if it doesn't exist
@@ -88,7 +87,7 @@ echo "You can now reach the scale set by opening your browser to: 'http://${FQDN
 
 Run the following command to remove the resource group, the scale set and VMs, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete -n myResourceGroup
 ```
 
@@ -111,4 +110,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

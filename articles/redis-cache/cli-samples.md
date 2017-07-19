@@ -13,9 +13,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 04/14/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 
 ---
 # Azure CLI Samples for Azure Redis Cache

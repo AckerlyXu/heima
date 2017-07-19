@@ -16,9 +16,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: jgao
+origin.date: 05/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio
@@ -26,7 +26,7 @@ ms.author: jgao
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-Learn how to use Data Lake (HDInsight) Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries.
+Learn how to use Data Lake Tools for Visual Studio to connect to Hadoop clusters in [Azure HDInsight](hdinsight-hadoop-introduction.md) and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight](hdinsight-hadoop-introduction.md) and [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md). For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics and HDInsight. However, Data Lake Analytics is not yet available in Azure China.
 
@@ -39,8 +39,8 @@ To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll n
 * An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * A workstation with the following software:
 
-    * Windows 10, Windows 8.1, Windows 8, or Windows 7.
-    * Visual Studio 2013/2015/2017.
+  * Windows 10, Windows 8.1, Windows 8, or Windows 7.
+  * Visual Studio 2013/2015/2017.
 
     > [!NOTE]
     > Currently, the Data Lake Tools for Visual Studio only come with the English version.
@@ -67,21 +67,21 @@ Data Lake Tools for Visual Studio allows you to connect to your HDInsight cluste
 2. From the **View** menu, click **Server Explorer** to open the Server Explorer window.
 3. Expand **Azure**, and then expand **HDInsight**.
 
-    > [!NOTE]
-    > Notice the **HDInsight Task List** window should be open. If you don't see it, click **Other Windows** from the **View** menu, and then click **HDInsight Task List Window**.  
-    > 
-    > 
+   > [!NOTE]
+   > Notice the **HDInsight Task List** window should be open. If you don't see it, click **Other Windows** from the **View** menu, and then click **HDInsight Task List Window**.  
+   > 
+   > 
 4. Enter your Azure subscription credentials, and then click **Sign In**. This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.
-5. In Server Explorer, you'll see a list of existing HDInsight clusters. If you don't have any clusters, you can create one by using the Azure portal preview, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+5. In Server Explorer, you'll see a list of existing HDInsight clusters. If you don't have any clusters, you can create one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
    ![Data Lake Tools for Visual Studio Server Explorer cluster list](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.server.explorer.png "Data Lake Tools for Visual Studio Server Explorer")
 6. Expand an HDInsight cluster. You'll see **Hive Databases**, a default storage account, linked storage accounts, and **Hadoop Service log**. You can further expand the entities.
 
 After you've connected to your Azure subscription, you'll be able to do the following:
 
-**To connect to the Azure portal preview from Visual Studio**
+**To connect to the Azure portal from Visual Studio**
 
-* From Server Explorer, expand **Azure** > **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure portal preview**.
+* From Server Explorer, expand **Azure** > **HDInsight**, right-click an HDInsight cluster, and then click **Manage Cluster in Azure portal**.
 
 **To ask questions and provide feedback from Visual Studio**
 
@@ -113,7 +113,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 
         SELECT * FROM hivesampletable LIMIT 100
 
-    You can customize the row count.
+   You can customize the row count.
 
    ![Data Lake Tools: HDInsight Hive Visual Studio schema query](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Hive query results")
 
@@ -144,10 +144,10 @@ There are two ways to create and run Hive queries:
 
     ![Data Lake Tools: HDInsight Visual Studio Tools IntelliSense](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png "U-SQL IntelliSense")
 
-    > [!NOTE]
-    > Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.
-    > 
-    > 
+   > [!NOTE]
+   > Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.
+   > 
+   > 
 4. (Optional): Click **Validate Script** to check the script syntax errors.
 
     ![Data Lake Tools: Data Lake Tools for Visual Studio local validation](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png "Validate script")

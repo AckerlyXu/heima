@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2017
-wacn.date: ''
-ms.author: magoedte
+origin.date: 04/13/2017
+ms.date: 05/02/2017
+ms.author: v-dazen
 
 ---
 # Authenticate Runbooks with Azure classic deployment and Resource Manager

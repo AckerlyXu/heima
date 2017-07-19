@@ -13,9 +13,9 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 11/14/2016
-wacn.date: ''
-ms.author: carlrab
+origin.date: 11/14/2016
+ms.date: 01/20/2017
+ms.author: v-johch
 ---
 
 # View and update an Azure SQL database and its settings

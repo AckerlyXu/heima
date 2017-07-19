@@ -3,8 +3,8 @@ title: Create an Internet-facing load balancer - Azure CLI | Azure
 description: Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 01/23/2017
+ms.date: 04/17/2017
+ms.author: v-yeche
 ---
 
 # Creating an internet load balancer using the Azure CLI

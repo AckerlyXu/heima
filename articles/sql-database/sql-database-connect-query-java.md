@@ -3,33 +3,37 @@ title: Connect to Azure SQL Database by using Java | Azure
 description: Presents a Java code sample you can use to connect to and query Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: ajlam
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;carlrab;sstein
+ms.topic: hero-article
+origin.date: 05/23/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use Java to connect and query data
 
 This quick start demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
 
+## Prerequisites
+
 This quick start uses as its starting point the resources created in one of these quick starts:
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
+- [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 ## Install Java software
 
-The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) and select **Java** and then select your operating system.
+The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select **Java** and then select your operating system.
 
 ### **Mac OS**
 Open your terminal and navigate to a directory where you plan on creating your Java project. Install **brew** and **Maven** by entering the following commands: 
@@ -54,7 +58,7 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn/).
+1. Log in to the [Azure Portal](https://portal.azure.cn/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
 
@@ -99,7 +103,7 @@ import java.sql.DriverManager;
 public class App {
 
 	public static void main(String[] args) {
-	
+
 		// Connect to database
 		String hostName = "your_server.database.chinacloudapi.cn";
 		String dbName = "your_database";
@@ -120,7 +124,7 @@ public class App {
 				String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
 				    + "FROM [SalesLT].[ProductCategory] pc "  
 				    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-				
+
 				try (Statement statement = connection.createStatement();
 					ResultSet resultSet = statement.executeQuery(selectSql)) {
 
@@ -154,7 +158,7 @@ import java.sql.DriverManager;
 public class App {
 
 	public static void main(String[] args) {
-	
+
 		// Connect to database
 		String hostName = "your_server.database.chinacloudapi.cn";
 		String dbName = "your_database";
@@ -210,7 +214,7 @@ import java.sql.DriverManager;
 public class App {
 
 	public static void main(String[] args) {
-	
+
 		// Connect to database
 		String hostName = "your_server.database.chinacloudapi.cn";
 		String dbName = "your_database";
@@ -245,8 +249,6 @@ public class App {
 }
 ```
 
-
-
 ## Delete data
 
 Use the following code to delete the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement . Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
@@ -261,7 +263,7 @@ import java.sql.DriverManager;
 public class App {
 
 	public static void main(String[] args) {
-	
+
 		// Connect to database
 		String hostName = "your_server.database.chinacloudapi.cn";
 		String dbName = "your_database";
@@ -299,4 +301,3 @@ public class App {
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
-

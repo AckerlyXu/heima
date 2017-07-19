@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/01/2016
-wacn.date: ''
-ms.author: glenga
+origin.date: 06/01/2016
+ms.date: 12/12/2016
+ms.author: v-dazen
 
 ---
 # How to use Azure queue storage with the WebJobs SDK
@@ -38,32 +38,32 @@ Most of the code snippets only show functions, not the code that creates the `Jo
 The guide includes the following topics:
 
 * [How to trigger a function when a queue message is received](#trigger)
-    * String queue messages
-    * POCO queue messages
-    * Async functions
-    * Types the QueueTrigger attribute works with
-    * Polling algorithm
-    * Multiple instances
-    * Parallel execution
-    * Get queue or queue message metadata
-    * Graceful shutdown
+  * String queue messages
+  * POCO queue messages
+  * Async functions
+  * Types the QueueTrigger attribute works with
+  * Polling algorithm
+  * Multiple instances
+  * Parallel execution
+  * Get queue or queue message metadata
+  * Graceful shutdown
 * [How to create a queue message while processing a queue message](#createqueue)
-    * String queue messages
-    * POCO queue messages
-    * Create multiple messages or in async functions
-    * Types the Queue attribute works with
-    * Use WebJobs SDK attributes in the body of a function
+  * String queue messages
+  * POCO queue messages
+  * Create multiple messages or in async functions
+  * Types the Queue attribute works with
+  * Use WebJobs SDK attributes in the body of a function
 * [How to read and write blobs while processing a queue message](#blobs)
-    * String queue messages
-    * POCO queue messages
-    * Types the Blob attribute works with
+  * String queue messages
+  * POCO queue messages
+  * Types the Blob attribute works with
 * [How to handle poison messages](#poison)
-    * Automatic poison message handling
-    * Manual poison message handling
+  * Automatic poison message handling
+  * Manual poison message handling
 * [How to set configuration options](#config)
-    * Set SDK connection strings in code
-    * Configure QueueTrigger settings
-    * Set values for WebJobs SDK constructor parameters in code
+  * Set SDK connection strings in code
+  * Configure QueueTrigger settings
+  * Set values for WebJobs SDK constructor parameters in code
 * [How to trigger a function manually](#manual)
 * [How to write logs](#logs)
 * [How to handle errors and configure timeouts](#errors)

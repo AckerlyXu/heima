@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-wacn.date: ''
-ms.author: xshi
+origin.date: 10/28/2016
+ms.date: 05/08/2017
+ms.author: v-yiso
 ---
 
 # Configure and run a BLE sample application

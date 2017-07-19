@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
-wacn.date: ''
-ms.author: juliako
+origin.date: 02/13/2017
+ms.date: 03/10/2017
+ms.author: v-johch
 ---
 
 # Upload files into a Media Services account using REST

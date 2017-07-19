@@ -14,39 +14,39 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 03/14/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 
 ---
 # Frequently asked question about Linux Virtual Machines
-This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](../windows/faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## What can I run on an Azure VM?
-All subscribers can run server software on an Azure virtual machine. For more information, see [Linux on Azure-Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+All subscribers can run server software on an Azure virtual machine. For more information, see [Linux on Azure-Endorsed Distributions](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## How much storage can I use with a virtual machine?
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/).
 
 ## How can I access my virtual machine?
-Establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or
-[from Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
+Establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or
+[from Linux and Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
-If you're having problems, check out [Troubleshoot Secure Shell (SSH) connections](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you're having problems, check out [Troubleshoot Secure Shell (SSH) connections](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Can I use the temporary disk (/dev/sdb1) to store data?
 Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage. You risk losing data that can't be recovered.
 
 ## Can I copy or clone an existing Azure VM?
-Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](copy-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Can I add a NIC to my VM after it's created?
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
+Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
 Yes. The resource group name can be a maximum of 90 characters in length. See [Infrastructure resource group guidelines](infrastructure-resource-groups-guidelines.md) for more information about resource groups.

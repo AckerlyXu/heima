@@ -1,10 +1,10 @@
 ---
-title: Manage compute power in Azure SQL Data Warehouse (Azure portal preview) | Azure
-description: Azure portal preview tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
+title: Manage compute power in Azure SQL Data Warehouse (Azure Portal) | Azure
+description: Azure Portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 233b0da5-4abd-4d1d-9586-4ccc5f50b071
@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-wacn.date: ''
-ms.author: barbkess
+origin.date: 10/31/2016
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Manage compute power in Azure SQL Data Warehouse (Azure portal)

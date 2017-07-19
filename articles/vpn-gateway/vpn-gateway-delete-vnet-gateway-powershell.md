@@ -11,17 +11,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: article 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
-wacn.date: ''
-ms.author: cherylmc
+origin.date: 04/12/2017
+ms.date: 05/22/2017
+ms.author: v-dazen
 
 ---
 # Delete a virtual network gateway using PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal preview](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Resource Manager - Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >

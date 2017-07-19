@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/12/2016
-wacn.date: ''
-ms.author: cephalin
+origin.date: 01/12/2016
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Secure an app in Azure App Service
@@ -52,22 +52,16 @@ A full discussion of security considerations for web-based applications is beyon
 see the [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), 
 which lists the current top 10 critical web application security flaws, as determined by OWASP members.
 
-## Perform penetration testing on your app
-One of the easiest ways to get started with testing for vulnerabilities on your App Service app is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
-to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions.
-
-If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the Azure penetration testing approval process and 
-obtain prior approval to perform the desired penetration tests.
-
 ## <a name="https"></a> Secure communication with customers
-If you use the **\*.chinacloudsites.cn** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.chinacloudsites.cn** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
+If you use the **\*.chinacloudsites.cn** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.chinacloudsites.cn** domain names. If your site uses a [custom domain name](app-service-web-tutorial-custom-domain.md), you can upload an SSL certificate to [enable HTTPS](app-service-web-tutorial-custom-ssl.md) for the custom domain.
 
 Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against MITM attacks on the communication between your app and its users.
 
 ## Secure data tier
 App Service highly integrates with SQL Database, such that all the connection strings are encrypted across the board and are only decrypted on the VM that the app runs on *and* only when the app runs. 
 In addition, Azure SQL Database includes many security features to help you secure your application data from cyber threats, including 
-[at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx) and [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
+[at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx),
+[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](../sql-database/sql-database-threat-detection.md). 
 If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security-overview.md) for more information on how to secure 
 your data.
 
@@ -80,11 +74,11 @@ a *publish settings* file or a *publishing profile*. Both file types authenticat
 
 * A **publish settings** file contains
 
-    * Your Azure subscription ID
-    * A management certificate that allows you to perform management tasks for your subscription *without having to provide an account name or password*.
+  * Your Azure subscription ID
+  * A management certificate that allows you to perform management tasks for your subscription *without having to provide an account name or password*.
 * A **publishing profile** file contains
 
-    * Information for publishing to your app
+  * Information for publishing to your app
 
 If you use a utility that uses a publish settings file or publish profile file, import the file containing the publish settings or profile into the utility and then **delete** the file. If you must keep the file, to share with 
 others working on the project for example, store it in a secure location such as an *encrypted* directory with restricted permissions.
@@ -98,7 +92,7 @@ exposing this information. A simple search on [GitHub](https://github.com), for 
 
 The best practice is to keep this information out of your app's configuration files. App Service lets you store configuration information as part of the runtime environment as **app settings** and **connection strings**. The values 
 are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime. Apart from these situations, these
-configuration settings will remain encrypted unless you view or configure them using the [Azure Portal Preview](https://portal.azure.cn) or utilities such as PowerShell or the Azure CLI. 
+configuration settings will remain encrypted unless you view or configure them using the [Azure Portal](https://portal.azure.cn) or utilities such as PowerShell or the Azure CLI. 
 
 Storing configuration information in App Service makes it possible for the app's administrator to lock down sensitive information for the production apps. Developers can use a separate set of configuration settings
 for app development and the settings can be automatically superseded by the settings configured in App Service. Not even the developers need to know the secrets configured for the production app. For more information on 
@@ -110,7 +104,7 @@ always use FTPS instead of FTP.
 
 The FTPS link for your app can be found with the following steps:
 
-1. Open the [Azure Portal Preview](https://portal.azure.cn).
+1. Open the [Azure Portal](https://portal.azure.cn).
 2. Select **Browse All**.
 3. From the **Browse** blade, select **App Services**.
 4. From the **App Services** blade, Select the desired app.

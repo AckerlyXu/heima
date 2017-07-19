@@ -13,9 +13,9 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
-wacn.date: ''
-ms.author: dobett
+origin.date: 05/22/2017
+ms.date: 07/10/2017
+ms.author: v-yiso
 ---
 
 # Connect your simulated device to your IoT hub using Node
@@ -244,8 +244,8 @@ In this section, you create a Node.js console app that simulates a device that s
 ## Run the apps
 You are now ready to run the apps.
 
-1. At a command-prompt in the **readdevicetocloudmessages** folder, run the following command to begin monitoring your IoT hub:
-
+1. At a command prompt in the **readdevicetocloudmessages** folder, run the following command to begin monitoring your IoT hub:
+   
     ```
     node ReadDeviceToCloudMessages.js 
     ```
@@ -267,11 +267,12 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
-- [Connecting your device][lnk-connect-device]
-- [Getting started with device management][lnk-device-management]
-* [Getting started with Azure IoT Edge][lnk-gateway-SDK]
+* [Connecting your device][lnk-connect-device]
+* [Getting started with device management][lnk-device-management]
+* [Getting started with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
@@ -293,5 +294,5 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-connect-device]: /develop/iot/
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
+[lnk-connect-device]: https://www.azure.cn/develop/iot/

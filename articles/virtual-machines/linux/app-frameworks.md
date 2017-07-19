@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2017
-wacn.date: ''
-ms.author: rasquill
+origin.date: 05/19/2017
+ms.date: 10/25/2016
+ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
 # Deploy popular application frameworks on Linux using Azure Resource Manager templates
 
-Workloads usually require many resources to function according to design. Azure Resource Manager templates make it possible for you to not only define how applications are configured, but also how the resources are deployed to support configured applications. This article introduces you to the most popular templates in the gallery and gives you information for using the Azure portal preview, Azure CLI, or PowerShell to deploy them.
+Workloads usually require many resources to function according to design. Azure Resource Manager templates make it possible for you to not only define how applications are configured, but also how the resources are deployed to support configured applications. This article introduces you to the most popular templates in the gallery and gives you information for using the Azure portal, Azure CLI, or PowerShell to deploy them.
 
 [!INCLUDE [virtual-machines-common-app-frameworks](../../../includes/virtual-machines-common-app-frameworks.md)]

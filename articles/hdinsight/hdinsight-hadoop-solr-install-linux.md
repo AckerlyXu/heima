@@ -1,5 +1,5 @@
 ---
-title: Use Script Action to install Solr on Linux-based HDInsight | Azure
+title: Use Script Action to install Solr on Linux-based HDInsight - Azure | Azure
 description: Learn how to install Solr on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/14/2017
+ms.date: 05/08/2017
+ms.author: v-dazen
 
 ---
 # Install and use Solr on HDInsight Hadoop clusters
@@ -25,7 +25,7 @@ ms.author: larryfr
 Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a powerful search platform and provides enterprise-level search capabilities on data managed by Hadoop.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 > [!IMPORTANT]
 > The sample script used in this document creates a Solr cluster with a specific configuration. If you want to configure the Solr cluster with different collections, shards, schemas, replicas, etc., you must modify the script and Solr binaries.
@@ -58,12 +58,12 @@ To create a cluster that has Solr installed, use the steps in the [Create HDInsi
 
 1. From the __Cluster summary__ blade, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
 
-    * **NAME**: Enter a friendly name for the script action.
-    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
-    * **HEAD**: Check this option
-    * **WORKER**: Check this option
-    * **ZOOKEEPER**: Check this option to install on the Zookeeper node
-    * **PARAMETERS**: Leave this field blank
+   * **NAME**: Enter a friendly name for the script action.
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **HEAD**: Check this option
+   * **WORKER**: Check this option
+   * **ZOOKEEPER**: Check this option to install on the Zookeeper node
+   * **PARAMETERS**: Leave this field blank
 
 2. At the bottom of the **Script actions** blade, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
 
@@ -176,11 +176,11 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 
 1. Determine the host name for the primary headnode:
 
-    1. Use SSH to connect to the cluster head node. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`.
+   1. Use SSH to connect to the cluster head node. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`.
 
-        For more information on using SSH, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+       For more information on using SSH, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    2. Use the following command to get the fully qualified hostname:
+   2. Use the following command to get the fully qualified hostname:
 
         ```bash
         hostname -f
@@ -202,16 +202,15 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
 
 4. From the entries below **collection1**, select **Query**. Use the following values to populate the search page:
 
-    * In the **q** text box, enter **\*:**\*. This query returns all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
-    * In the **wt** text box, select the output format. Default is **json**.
+   * In the **q** text box, enter **\*:**\*. This query returns all the documents that are indexed in Solr. If you want to search for a specific string within the documents, you can enter that string here.
+   * In the **wt** text box, select the output format. Default is **json**.
 
-    Finally, select the **Execute Query** button at the bottom of the search pate.
+     Finally, select the **Execute Query** button at the bottom of the search pate.
 
-    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-    The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
+     The output returns the two documents that you added to the index earlier. The output is similar to the following JSON document:
 
-    ```
            "response": {
                "numFound": 2,
                "start": 0,
@@ -263,7 +262,6 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
                  }
                ]
              }
-    ```
 
 ### Starting and stopping Solr
 
@@ -318,8 +316,6 @@ Use the following steps to back up Solr data to the default storage for your clu
     ```bash
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
-
-For more information on working with Solr backup and restores, see [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 ## Next steps
 

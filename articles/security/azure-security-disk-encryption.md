@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
-ms.author: kakhan
+ms.author: v-johch
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs

@@ -8,8 +8,10 @@ manager: wpickett
 editor: ''
 
 ms.service: cloud-services
-ms.date: 12/22/2017
-wacn.date: 05/17/2016
+ms.topic: article
+origin.date: 12/22/2017
+ms.date: 03/03/2017
+ms.author: v-yiso
 ---
 
 # Build a Node.js web application using Express on an Azure Cloud Service
@@ -146,7 +148,7 @@ Once the deployment operation completes, your browser will open and display the 
 
 ## Next steps
 
-For more information, see the [Node.js Developer Center](/develop/nodejs/).
+For more information, see the [Node.js Developer Center](https://www.azure.cn/develop/nodejs/).
 
   [Node.js Web Application]: ./cloud-services-nodejs-develop-deploy-app.md
   [Express]: http://expressjs.com/

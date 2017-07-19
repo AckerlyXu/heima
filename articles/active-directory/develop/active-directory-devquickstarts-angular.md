@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/07/2017
+ms.date: 02/07/2017
+ms.author: v-junlch
 ---
 
 # Securing AngularJS Single Page Apps with Azure AD

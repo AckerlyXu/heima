@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/14/2017
-wacn.date: ''
-ms.author: negat
+origin.date: 06/01/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 ---
 
 # Learn about virtual machine scale set templates

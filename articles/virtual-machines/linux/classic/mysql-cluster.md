@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2015
-wacn.date: ''
-ms.author: jparrel
+origin.date: 04/14/2015
+ms.date: 02/20/2017
+ms.author: v-dazen
 
 ---
 # Use load-balanced sets to clusterize MySQL on Linux
@@ -36,7 +36,7 @@ These clustering architectures can be extended to other products like PostgreSQL
 ## Get ready
 You need the following resources and abilities:
 
-  - A Azure account with a valid subscription, able to create at least two VMs (XS was used in this example)
+  - An Azure account with a valid subscription, able to create at least two VMs (XS was used in this example)
   - A network and a subnet
   - An affinity group
   - An availability set
@@ -44,9 +44,9 @@ You need the following resources and abilities:
 
 ### Tested environment
 * Ubuntu 13.10
-    * DRBD
-    * MySQL Server
-    * Corosync and Pacemaker
+  * DRBD
+  * MySQL Server
+  * Corosync and Pacemaker
 
 ### Affinity group
 Create an affinity group for the solution by signing in to the Azure Classic Management Portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
@@ -331,8 +331,8 @@ Sample code for the resource is available on [GitHub](https://github.com/bureado
 The following limitations apply:
 
 * The linbit DRBD resource script that manages DRBD as a resource in Pacemaker uses `drbdadm down` when shutting down a node, even if the node is just going on standby. This is not ideal because the slave will not be synchronizing the DRBD resource while the master gets writes. If the master does not fail graciously, the slave can take over an older file system state. There are two potential ways of solving this:
-    * Enforcing a `drbdadm up r0` in all cluster nodes via a local (not clusterized) watchdog
-    * Editing the linbit DRBD script, making sure that `down` is not called in `/usr/lib/ocf/resource.d/linbit/drbd`
+  * Enforcing a `drbdadm up r0` in all cluster nodes via a local (not clusterized) watchdog
+  * Editing the linbit DRBD script, making sure that `down` is not called in `/usr/lib/ocf/resource.d/linbit/drbd`
 * The load balancer needs at least five seconds to respond, so applications should be cluster-aware and be more tolerant of timeout. Other architectures, like in-app queues and query middlewares, can also help.
 * MySQL tuning is necessary to ensure that writing is done at a manageable pace and caches are flushed to disk as frequently as possible to minimize memory loss.
 * Write performance is dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.

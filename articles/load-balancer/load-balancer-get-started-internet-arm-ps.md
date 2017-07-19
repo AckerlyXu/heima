@@ -3,8 +3,8 @@ title: Create an Azure Internet-facing load balancer - PowerShell | Azure
 description: Learn how to create an Internet-facing load balancer in Resource Manager by using PowerShell
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 
 ms.assetid: 8257f548-7019-417f-b15f-d004a1eec826
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: kumud
+origin.date: 01/23/2017
+ms.date: 05/08/2017
+ms.author: v-yeche
 ---
 
 # <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
@@ -236,7 +236,7 @@ Create network interfaces (or modify existing ones) and then associate them to N
 
 ## Create a virtual machine
 
-For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-quick-create-powershell.md?toc=%2fload-balancer%2ftoc.json).
 
 ## Add the network interface to the load balancer
 

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-wacn.date: ''
-ms.author: jdial
+origin.date: 05/04/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 
@@ -30,23 +30,25 @@ If you need to create, change, or delete NICs, read the [NIC settings and tasks]
 
 Complete the following tasks before completing any steps in any section of this article:
 
-- Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public and private IP addresses.
-- Log in to the Azure portal preview, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://azure.microsoft.com/free).
+- Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public and private IP addresses.
+- Log in to the Azure portal, Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, install and configure Azure PowerShell by completing the steps in the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, install and configure the Azure CLI by completing the steps in the [How to install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) article. Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ## <a name="about"></a>About NICs and IP addresses
 
-Each NIC can be assigned multiple private and public IP addresses, within the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Assigning multiple IP addresses to a NIC is helpful in scenarios such as:
+Each NIC can be assigned multiple private and public IP addresses, within the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Assigning multiple IP addresses to a NIC is helpful in scenarios such as:
 - Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
 - A VM serving as a network virtual appliance, such as a firewall or load balancer.
-- The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. To learn more about how to load balance multiple IP configurations, read the [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+- The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. To learn more about how to load balance multiple IP configurations, read the [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md?toc=%2fvirtual-network%2ftoc.json) article.
 
 IP addresses are assigned to an IP configuration. A NIC is always assigned a **primary** IP configuration, but may also have multiple **secondary** configurations assigned to it. Each IP configuration is assigned one or both of the following types of addresses:
-- **Private:** Private IP addresses enable a VM to communicate with other resources connected to the VNet the NIC is in. An IP configuration must have one private IP address assigned to it. The Azure DHCP servers assign the private IP address for the primary IP configuration of the NIC to the NIC within the VM operating system. A private IP address also enables the VM to communicate outbound to the Internet. Outbound connections are source network address translated (SNAT). To learn more about Azure outbound Internet connectivity, read the [Azure outbound Internet connectivity](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article. You cannot communicate inbound to a VM's private IP address from the Internet.
+- **Private:** Private IP addresses enable a VM to communicate with other resources connected to the VNet the NIC is in. An IP configuration must have one private IP address assigned to it. The Azure DHCP servers assign the private IP address for the primary IP configuration of the NIC to the NIC within the VM operating system. A private IP address also enables the VM to communicate outbound to the Internet. Outbound connections are source network address translated (SNAT). To learn more about Azure outbound Internet connectivity, read the [Azure outbound Internet connectivity](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json) article. You cannot communicate inbound to a VM's private IP address from the Internet.
 - **Public:** Public IP addresses enable inbound connectivity to a VM from the Internet. Outbound connections to the Internet are not SNATed. You may assign a public IP address to an IP configuration, but aren't required to. To learn more about public IP addresses, read the [Public IP address](virtual-network-public-ip-address.md) article.
 
-There are limits to the number of public and private IP addresses that you can assign to a NIC. For details, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
+There are limits to the number of public and private IP addresses that you can assign to a NIC. For details, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
 Public and private IP addresses can be assigned using the following allocation methods:
 - **Dynamic:** Dynamic private and public IP addresses are assigned by default. Dynamic addresses can change if the VM is put into the stopped (deallocated) state, then restarted. If you don't want the IP address to change for the life of the VM, use a static address.
@@ -54,10 +56,10 @@ Public and private IP addresses can be assigned using the following allocation m
 
 ## <a name="create-ip-config"></a>Add IP addresses
 
-You can add as many IP addresses as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
+You can add as many IP addresses as necessary to a NIC, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to add an IP address for.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the NIC you selected.
 5. Click **+ Add** in the blade that opens for IP configurations.
@@ -82,8 +84,8 @@ You can add as many IP addresses as necessary to a NIC, within the limits listed
 
 You may need to change the assignment method of an IP address, change the static IP address, or change the public IP address assigned to a NIC. If you're changing the private IP address of a secondary IP configuration associated with a secondary NIC in a VM (learn more about [primary and secondary NICs](virtual-network-network-interface-vm.md#about)), place the VM into the stopped (deallocated) state before completing the following steps: 
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to view or change IP address settings for.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the NIC you selected.
 5. Click the IP configuration you want to modify from the list in the blade that opens for IP configurations.
@@ -103,8 +105,8 @@ You may need to change the assignment method of an IP address, change the static
 
 You can remove private and public IP addresses from a NIC, but a NIC must always have at least one private IP address assigned to it.
 
-1. Log in to the [Azure portal preview](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
-2. In the box that contains the text *Search resources* at the top of the Azure portal preview, type *network interfaces*. When **network interfaces** appears in the search results, click it.
+1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
+2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
 3. In the **Network interfaces** blade that appears, click the NIC you want to remove IP addresses from.
 4. Click **IP configurations** in the **SETTINGS** section of the blade for the NIC you selected.
 5. Right-click a secondary IP configuration (you cannot delete the primary configuration) you want to delete, click **Delete**, then click **Yes** to confirm the deletion. If the configuration had a public IP address resource associated to it, the resource is dissociated from the IP configuration, but the resource is not deleted.
@@ -124,7 +126,7 @@ To create a VM with multiple NICs or IP addresses, read the following articles:
 
 |Task|Tool|
 |---|---|
-|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
+||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

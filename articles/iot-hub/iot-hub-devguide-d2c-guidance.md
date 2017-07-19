@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
-wacn.date: ''
-ms.author: elioda
+origin.date: 05/25/2017
+ms.date: 07/10/2017
+ms.author: v-yiso
 ---
 
 # Device-to-cloud communications guidance
@@ -37,8 +37,8 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 
 It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In this scenario, you can chose one of the following options:
 
-* Either, the device app sends a device-to-cloud message and reports a property change. 
-* Or, the solution back end can store the information in the device twin's tags when it receives the message. 
+* The device app sends a device-to-cloud message and reports a property change.
+* The solution back end can store the information in the device twin's tags when it receives the message.
 
 Since device-to-cloud messages enable a much higher throughput than device twin updates, it is sometimes desirable to avoid updating the device twin for every device-to-cloud message.
 
@@ -46,4 +46,4 @@ Since device-to-cloud messages enable a much higher throughput than device twin 
 [lnk-fileupload]: ./iot-hub-devguide-file-upload.md
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
-[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: ./iot-hub-devguide-messages-d2c.md

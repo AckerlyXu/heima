@@ -15,9 +15,9 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight
@@ -27,7 +27,7 @@ Learn how to create an Apache Storm topology that uses Python components. Apache
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight deprecation dates](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 The code for this project is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -142,6 +142,7 @@ To stop the topology, use __Ctrl + C__.
 
 > [!NOTE]
 > Once started, a Storm topology runs until stopped. To stop the topology, use one of the following methods:
+>
 > * The `storm kill TOPOLOGYNAME` command from the command line
 > * The **Kill** button in the Storm UI.
 

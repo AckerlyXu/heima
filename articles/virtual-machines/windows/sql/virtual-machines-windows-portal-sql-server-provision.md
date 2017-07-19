@@ -15,21 +15,21 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
-wacn.date: ''
-ms.author: jroth
+origin.date: 04/03/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
 experimental: true
 experimental_id: a641df96-f27d-40
 
 ---
-# Provision a SQL Server virtual machine in the Azure Portal Preview
+# Provision a SQL Server virtual machine in the Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
 > 
 > 
 
-This end-to-end tutorial shows you how to use the Azure Portal Preview to provision a virtual machine running SQL Server.
+This end-to-end tutorial shows you how to use the Azure Portal to provision a virtual machine running SQL Server.
 
 The Azure virtual machine (VM) gallery includes several images that contain Microsoft SQL Server. With a few clicks, you can select one of the SQL VM images from the gallery and provision it in your Azure environment.
 
@@ -41,16 +41,16 @@ In this tutorial, you will:
 * [Connect to SQL Server remotely](#connect-to-sql-server-remotely)
 
 ## Select a SQL VM image from the gallery
-1. Log in to the [Azure portal preview](https://portal.azure.cn) using your account.
+1. Log in to the [Azure portal](https://portal.azure.cn) using your account.
 
-    > [!NOTE]
-    > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
+   > [!NOTE]
+   > If you do not have an Azure account, visit [Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-2. On the Azure portal preview, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
+2. On the Azure portal, click **New**. The portal opens the **New** blade. The SQL Server VM resources are in the **Compute** group of the Marketplace.
 3. In the **New** blade, click **Compute** and then click **See all**.
 4. In the **Filter** text box type SQL Server, and press the ENTER key.
 
-    ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Azure Virtual Machines Blade](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system. 
 6. Select the image for SQL Server 2016 SP1 Developer on Windows Server 2016.
@@ -86,10 +86,10 @@ On the **Basics** blade, provide the following information:
 * If you have multiple subscriptions, verify that the subscription is correct for the new VM.
 * In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Use existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.).
 
-    > [!NOTE]
-    > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
-    > 
-    > 
+  > [!NOTE]
+  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
+  > 
+  > 
 * Select a **Location** for this deployment.
 * Click **OK** to save the settings.
 
@@ -106,7 +106,7 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** bla
 For production workloads, we recommend selecting a virtual machine size that supports [Premium Storage](../../../storage/storage-premium-storage.md). If you do not require that level of performance, use the **View all** button, which shows all machine size options. For example, you might use a smaller machine size for a development or test environment.
 
 > [!NOTE]
-> For more information about virtual machine sizes see, [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+> For more information about virtual machine sizes see, [Sizes for virtual machines](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 Choose your machine size, and then click **Select**.
 
@@ -123,7 +123,7 @@ On the **Settings** blade, configure Azure storage, networking, and monitoring f
 * Under **Storage account**, you can accept the automatically provisioned storage account name. You can also click on **Storage account** to choose an existing account and configure the storage account type. By default, Azure creates a new storage account with locally redundant storage. For more information about storage options, see [Azure Storage replication](../../../storage/storage-redundancy.md).
 * Under **Network**, you can accept the automatically populated values. You can also click on each feature to manually configure the **Virtual network**, **Subnet**, **Public IP address**, and **Network Security Group**. For the purposes of this tutorial, keep the default values.
 * Azure enables **Monitoring** by default with the same storage account designated for the VM. You can change these settings here.
-* Under **Availability set**, specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Under **Availability set**, specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](../manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 When you are done configuring these settings, click **OK**.
 
@@ -254,7 +254,7 @@ You have the option to enable [SQL Server R Services](https://msdn.microsoft.com
 ## 5. Review the summary
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
 
-You can monitor the deployment from the azure portal preview. The **Notifications** button at the top of the screen shows basic status of the deployment.
+You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
 > [!NOTE]
 > To provide you with an idea on deployment times, I deployed a SQL VM to the China East region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.

@@ -1,21 +1,21 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB | Azure
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-services: cosmosdb
-author: arramac
-manager: jhubbard
+services: cosmos-db
+author: rockboyfor
+manager: digimobile
 editor: monicar
 documentationcenter: ''
 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: arramac
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -62,7 +62,7 @@ Cosmos DB uses hash-based partitioning. When you write an item, Cosmos DB hashes
 Azure Cosmos DB containers can be created as "fixed" or "unlimited." Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. Some APIs allow the partition key to be omitted for fixed-size containers. To create a container as unlimited, you must specify a minimum throughput of 2500 RU/s.
 
 ## Partitioning and provisioned throughput
-Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](../documentdb/documentdb-request-units.md) (RU) per second with a potential add-on for RU per minute**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory, and IO consumed by the operation. A read of a 1-KB document with Session consistency consumes one request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
+Cosmos DB is designed for predictable performance. When you create a container, you reserve throughput in terms of **[request units](request-units.md) (RU) per second with a potential add-on for RU per minute**. Each request is assigned a request unit charge that is proportionate to the amount of system resources like CPU, Memory, and IO consumed by the operation. A read of a 1-KB document with Session consistency consumes one request unit. A read is 1 RU regardless of the number of items stored or the number of concurrent requests running at the same time. Larger items require higher request units depending on the size. If you know the size of your entities and the number of reads you need to support for your application, you can provision the exact amount of throughput required for your application's read needs. 
 
 > [!NOTE]
 > To achieve the full throughput of the container, you must choose a partition key that allows you to evenly distribute requests among some distinct partition key values.
@@ -70,10 +70,10 @@ Cosmos DB is designed for predictable performance. When you create a container, 
 > 
 
 ## <a name="designing-for-partitioning"></a> Working with the Azure Cosmos DB APIs
-You can use the Azure portal preview or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
+You can use the Azure portal or Azure CLI to create containers and scale them at any time. This section shows how to create containers and specify the throughput and partition key definition in each of the supported APIs.
 
 ### DocumentDB API
-The following sample shows how to create a container (collection) using the DocumentDB API. You can find more details in [Partitioning with DocumentDB API](../documentdb/documentdb-partition-data.md).
+The following sample shows how to create a container (collection) using the DocumentDB API. You can find more details in [Partitioning with DocumentDB API](partition-data.md).
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -99,7 +99,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### MongoDB API
-With the MongoDB API, you can create a sharded collection is through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
+With the MongoDB API, you can create a sharded collection through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell for the collection creation.
 
 In the Mongo Shell:
 
@@ -152,7 +152,7 @@ See [Developing with the Table API](tutorial-develop-table-dotnet.md) for more d
 
 ### Graph API
 
-With the Graph API, you must use the Azure portal preview or CLI to create containers. Alternatively, since Azure Cosmos DB is multi-model, you can use one of the other models to create and scale your graph container.
+With the Graph API, you must use the Azure portal or CLI to create containers. Alternatively, since Azure Cosmos DB is multi-model, you can use one of the other models to create and scale your graph container.
 
 You can read any vertex or edge using the partition key and id in Gremlin. For example, for a graph with region ("USA") as the partition key, and "Seattle" as the row key, you can find a vertex using the following syntax:
 
@@ -190,7 +190,7 @@ One of the common use cases of Cosmos DB is for logging and telemetry. It is imp
 * A third approach is a hybrid one where you have multiple containers, one for each day/month and the partition key is a granular property like hostname. This has the benefit that you can set different throughput based on the time window, for example, the container for the current month is provisioned with higher throughput since it serves reads and writes, whereas previous months with lower throughput since they only serve reads.
 
 ### Partitioning and multi-tenancy
-If you are implementing a multi-tenant application using Cosmos DB, there are two popular patterns - one partition key per tenant, and one container per tenant. Here are the pros and cons for each:
+If you are implementing a multi-tenant application using Cosmos DB, there are two popular patterns – one partition key per tenant, and one container per tenant. Here are the pros and cons for each:
 
 * One Partition Key per tenant: In this model, tenants are collocated within a single container. But queries and inserts for items within a single tenant can be performed against a single partition. You can also implement transactional logic across all items within a tenant. Since multiple tenants share a container, you can save storage and throughput costs by pooling resources for tenants within a single container rather than provisioning extra headroom for each tenant. The drawback is that you do not have performance isolation per tenant. Performance/throughput increases apply to the entire container vs targeted increases for tenants.
 * One Container per tenant: Each tenant has its own container. In this model, you can reserve performance per tenant. With Cosmos DB's new provisioning pricing model, this model is more cost-effective for multi-tenant applications with a few tenants.
@@ -200,5 +200,5 @@ You can also use a combination/tiered approach that collocates small tenants and
 ## Next steps
 In this article, we provided an overview for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
-* Learn about [provisioned throughput in Azure Cosmos DB](../documentdb/documentdb-request-units.md)
-* Learn about [global distribution in Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md)
+* Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
+* Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)

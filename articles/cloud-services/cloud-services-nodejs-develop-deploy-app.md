@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 11/01/2016
-ms.author: robmcm
+ms.author: v-yiso
 ---
 
 # Build and deploy a Node.js application to an Azure Cloud Service
@@ -204,7 +204,7 @@ For more information, see the [Node.js Developer Center].
 [Connect PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: ./index.md
-[Node.js Developer Center]: /develop/nodejs/
+[Node.js Developer Center]: https://www.azure.cn/develop/nodejs/
 
 <!-- IMG List -->
 

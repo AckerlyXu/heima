@@ -8,8 +8,10 @@ editor: ''
 services: notification-hubs
 
 ms.service: notification-hubs
-ms.date: 06/29/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 06/29/2016
+ms.date: 01/09/2017
+ms.author: v-junlch
 ---
 
 #Azure Notification Hubs Secure Push
@@ -17,7 +19,6 @@ wacn.date: ''
 > [!div class="op_single_selector"]
 >- [Windows Universal](./notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 >- [iOS](./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
->- [Android](/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/)
 
 ##Overview
 
@@ -39,7 +40,7 @@ It is important to note that in the preceding flow (and in this tutorial), we as
 This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the [Notify Users](./notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) tutorial, so you should complete the steps in that tutorial first.
 
 > [!NOTE]
-> This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](/documentation/articles/notification-hubs-windows-store-dotnet-get-started-wns-push-notification-wns-push-notification-wns-push-notification/).
+> This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 Also, note that Windows Phone 8.1 requires Windows (not Windows Phone) credentials, and that background tasks do not work on Windows Phone 8.0 or Silverlight 8.1. For Windows Store applications, you can receive notifications via a background task only if the app is lock-screen enabled (click the checkbox in the Appmanifest).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]

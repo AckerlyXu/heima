@@ -13,9 +13,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/09/2017
-wacn.date: ''
-ms.author: sdanie
+origin.date: 05/09/2017
+ms.date: 05/31/2017
+ms.author: v-dazen
 
 ---
 # How to create a Web App with Redis Cache
@@ -261,10 +261,10 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. In the `body` section, update the first `Html.ActionLink` statement and replace `Application name` with `Contoso Team Stats` and replace `Home` with `Teams`.
 
-    * Before: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
-    * After: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
+   * Before: `@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })`
+   * After: `@Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
 
-        ![Code changes][cache-layout-cshtml-code]
+     ![Code changes][cache-layout-cshtml-code]
 2. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework** scaffold. In the next section of the tutorial you'll add Redis Cache to optimize the data access and provide additional features to the application.
 
 ![Starter application][cache-starter-application]
@@ -330,10 +330,10 @@ In this section of the tutorial, you'll configure the sample application to stor
     ![Web.config][cache-web-config]
 2. Add the following `file` attribute to the `appSettings` element. If you used a different file name or location, substitute those values for the ones shown in the example.
 
-    * Before: `<appSettings>`
-    * After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
+   * Before: `<appSettings>`
+   * After: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
 
-    The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you [provision the Azure resources](#provision-the-azure-resources) in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+   The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file cannot be found. Your secrets (the connection string to your cache) are not included as part of the source code for the application. When you deploy your web app to Azure, the `WebAppPlusCacheAppSecrests.config` file won't be deployed (that's what you want). There are several ways to specify these secrets in Azure, and in this tutorial they are configured automatically for you when you [provision the Azure resources](#provision-the-azure-resources) in a subsequent tutorial step. For more information about working with secrets in Azure, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 ### Update the TeamsController class to return results from the cache or the database
 In this sample, team statistics can be retrieved from the database or from the cache. Team statistics are stored in the cache as a serialized `List<Team>`, and also as a sorted set using Redis data types. When retrieving items from a sorted set, you can retrieve some, all, or query for certain items. In this sample you'll query the sorted set for the top 5 teams ranked by number of wins.
@@ -706,17 +706,12 @@ This **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus
 > 
 > 
 
-Clicking the **Deploy to Azure** button takes you to the Azure portal preview and initiates the process of creating the resources described by the template.
-
-![Deploy to Azure][cache-deploy-to-azure-step-1]
+Clicking the **Deploy to Azure** button takes you to the Azure portal and initiates the process of creating the resources described by the template.
 
 1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower-cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
-
-    ![Deploy to Azure][cache-deploy-to-azure-step-2]
-
-3. After configuring the desired settings, scroll to the end of the page, read the terms and conditions, and check the **I agree to the terms and conditions stated above** checkbox.
-4. To begin provisioning the resources, click **Purchase**.
+3. After configuring the desired settings, select **Legal terms**, read the terms and conditions, and click the **Purchase** button.
+4. To begin provisioning the resources, click **Create**.
 
 To view the progress of your deployment, click the notification icon and click **Deployment started**.
 
@@ -734,7 +729,6 @@ When provisioning is complete, you can publish your application to Azure from Vi
 > 
 
 ## Publish the application to Azure
-
 In this step of the tutorial, you'll publish the application to Azure and run it in the cloud.
 
 1. Right-click the **ContosoTeamStats** project in Visual Studio and choose **Publish**.
@@ -769,7 +763,7 @@ Click some of the actions and experiment with retrieving the data from the diffe
 ## Delete the resources when you are finished with the application
 When you are finished with the sample tutorial application, you can delete the Azure resources used in order to conserve cost and resources. If you use the **Deploy to Azure** button in the [Provision the Azure resources](#provision-the-azure-resources) section and all of your resources are contained in the same resource group, you can delete them together in one operation by deleting the resource group.
 
-1. Sign in to the [Azure portal preview](https://portal.azure.cn) and click **Resource groups**.
+1. Sign in to the [Azure portal](https://portal.azure.cn) and click **Resource groups**.
 2. Type the name of your resource group into the **Filter items...** textbox.
 3. Click **...** to the right of your resource group.
 4. Click **Delete**.
@@ -793,7 +787,7 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 * If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
 * If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once you have selected or created the cache to use, browse to the cache in the Azure portal preview and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Once you have selected or created the cache to use, browse to the cache in the Azure portal and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
 2. Edit the `value` attribute and replace `MyCache.redis.cache.chinacloudapi.cn` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
@@ -814,16 +808,16 @@ Once you have selected or created the cache to use, browse to the cache in the A
 ## Next steps
 * Learn more about [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site.
 * For more examples of creating an ASP.NET Web App in App Service, see [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/).
-    * For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+  * For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
 * Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md).
-* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal preview.
+* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal.
 * Explore Azure Redis Cache premium features
 
-    * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
-    * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
-    * [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
-    * See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
+  * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
+  * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+  * [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+  * See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png

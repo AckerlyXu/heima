@@ -9,7 +9,7 @@
 | Max size of a block blob |50,000 X 100 MB (approx. 4.75 TB) |
 | Max size of a block in an append blob |4 MB |
 | Max size of an append blob |50,000 X 4 MB (approx. 195 GB) |
-| Max size of a page blob |1 TB |
+| Max size of a page blob |8 TB |
 | Max size of a table entity |1 MB |
 | Max number of properties in a table entity |252 |
 | Max size of a message in a queue |64 KB |
@@ -30,15 +30,15 @@
 | Max ingress<sup>2</sup> per storage account (Non-US regions) |5 Gbps if GRS/ZRS<sup>3</sup> enabled, 10 Gbps for LRS |
 | Max egress<sup>2</sup> per storage account (Non-US regions) |10 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 15 Gbps for LRS |
 
-<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://www.azure.cn/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
 <sup>2</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 
 <sup>3</sup>Azure Storage replication options include:
 
-- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-- **GRS**:  Geo-redundant storage. 
-- **ZRS**: Zone-redundant storage. Available only for block blobs. 
-- **LRS**: Locally redundant storage. 
+* **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
+* **GRS**:  Geo-redundant storage. 
+* **ZRS**: Zone-redundant storage. Available only for block blobs. 
+* **LRS**: Locally redundant storage. 
 
 

@@ -14,8 +14,8 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
-ms.author: xshi
+ms.date: 04/17/2017
+ms.author: v-yiso
 ---
 # Connect Intel Edison to Azure IoT Hub (C)
 
@@ -23,7 +23,7 @@ ms.author: xshi
 
 In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](./iot-hub-what-is-iot-hub.md).
 
-Don't have a kit yet? Start [here](/develop/iot/starter-kits)
+Don't have a kit yet? Start [here](https://www.azure.cn/develop/iot/iot-starter-kits)
 
 ## What you do
 
@@ -47,7 +47,7 @@ Connect Intel Edison to an IoT hub that you create. Then you run a sample applic
 
 * The Intel Edison board
 * Arduino expansion board
-* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 * A Mac or a PC that is running Windows or Linux.
 * An Internet connection.
 * A Micro B to Type A USB cable

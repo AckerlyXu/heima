@@ -1,5 +1,5 @@
 ---
-title: Use C# with Hive and Pig on Hadoop in HDInsight | Azure
+title: Use C# with Hive and Pig on Hadoop in HDInsight - Azure | Azure
 description: Learn how to use C# user-defined functions (UDF) with Hive and Pig streaming in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/12/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 04/12/2017
+ms.date: 06/05/2017
+ms.author: v-dazen
 
 ---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
@@ -45,13 +45,13 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 
-* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-hadoop-provision-linux-clusters.md).
+* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## .NET on HDInsight
 
-* __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5.
+* __Linux-based HDInsight__ clusters using [Mono (http://mono-project.com)](http://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.5.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
 

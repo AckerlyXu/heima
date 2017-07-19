@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2016
-wacn.date: ''
-ms.author: glenga
+origin.date: 06/01/2016
+ms.date: 12/12/2016
+ms.author: v-dazen
 
 ---
 # What is the Azure WebJobs SDK

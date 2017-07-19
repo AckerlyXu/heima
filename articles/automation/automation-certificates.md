@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2016
-wacn.date: ''
-ms.author: magoedte;bwren
+origin.date: 12/19/2016
+ms.date: 01/09/2017
+ms.author: v-dazen
 ---
 
 # Certificate assets in Azure Automation

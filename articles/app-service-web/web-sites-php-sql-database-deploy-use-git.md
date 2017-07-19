@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-wacn.date: ''
-ms.author: robmcm
+origin.date: 04/25/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 # Create a PHP-SQL web app and deploy to Azure App Service using Git
@@ -28,7 +28,7 @@ This tutorial shows you how to create a PHP web app in [Azure App Service](/app-
 
 You will learn:
 
-* How to create an Azure web app and a SQL Database using the [Azure Portal Preview](/app-service-web/app-service-web-app-azure-portal). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
+* How to create an Azure web app and a SQL Database using the [Azure Portal](/app-service-web/app-service-web-app-azure-portal). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
@@ -40,26 +40,29 @@ By following this tutorial, you will build a simple registration web application
 ## Create an Azure web app and set up Git publishing
 Follow these steps to create an Azure web app and a SQL Database:
 
-1. Log in to the [Azure Portal Preview](https://portal.azure.cn/).
+1. Log in to the [Azure Portal](https://portal.azure.cn/).
 2. Open the Azure Marketplace by clicking the **New** icon on the top left of the dashboard, click on **Select All** next to Marketplace and selecting **Web + Mobile**.
 3. In the Marketplace, select **Web + Mobile**.
 4. Click the **Web app** icon.
 5. After reading the description of the Web app, select **Create**.
 6. Click on each part (**Resource Group**, **Web App**, and **Subscription**) and enter or select values for the required fields:
 
-    * Enter a URL name of your choice    
-    * Select the region closest to you
+   * Enter a URL name of your choice    
+   * Select the region closest to you
 
 7. When finished defining the web app, click **Create**.
 
     When the web app has been created, the **Notifications** button will flash a green **SUCCESS** and the resource group blade open to show both the web app and the SQL database in the group.
-8. If you have not set up a Git repository before, login to [Azure Classic Management Portal](https://manage.windowsazure.cn/), find you app, and click **Dashboard** > **Reset your deployment credentials** under "quick glance" to setup deployment credentials for you app.
-8. Back to [Azure portal Preview](https://portal.azure.cn). Click the web app's icon in the resource group blade to open the web app's blade.
+8. Click the web app's icon in the resource group blade to open the web app's blade.
 
     ![web app's resource group](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
-9. In **Settings** click **Continuous deployment** > **Configure required settings**. Select **Local Git Repository** and click **OK**.
+9. Click **Deployment Options**. Select **Local Git Repository** and click **OK**.
 
     ![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
+
+    If you have not set up a Git repository before, you must provide a user name and password. To do this, click **Deployment credentials** in the web app's blade.
+
+    ![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 10. In **Settings** click on **Properties** to see the Git remote URL you need to use to deploy your PHP app later.
 
 ## Get SQL Database connection information

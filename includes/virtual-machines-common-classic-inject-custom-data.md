@@ -21,21 +21,21 @@ This feature is currently supported only in the [Azure Command-Line Interface](h
 ## Using custom data in the virtual machine
 * If your Azure VM is a Windows-based VM, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Although it was base64-encoded to transfer from the local computer to the new VM, it is automatically decoded and can be opened or used immediately.
 
-    > [!NOTE]
-    > If the file exists, it is overwritten. The security on the directory is set to **System:Full Control** and **Administrators:Full Control**.
-    > 
-    > 
+  > [!NOTE]
+  > If the file exists, it is overwritten. The security on the directory is set to **System:Full Control** and **Administrators:Full Control**.
+  > 
+  > 
 * If your Azure VM is a Linux-based VM, then the custom data file will be located in one of the following places depending on your distro. The data may be base64-encoded, so you may need to decode the data first:
 
-    * `/var/lib/waagent/ovf-env.xml`
-    * `/var/lib/waagent/CustomData`
-    * `/var/lib/cloud/instance/user-data.txt` 
+  * `/var/lib/waagent/ovf-env.xml`
+  * `/var/lib/waagent/CustomData`
+  * `/var/lib/cloud/instance/user-data.txt` 
 
 ## Cloud-init on Azure
 If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script, then cloud-init can simply execute it.
 
 ### Ubuntu Cloud Images
-In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information.
+In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for more information.
 
 However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 

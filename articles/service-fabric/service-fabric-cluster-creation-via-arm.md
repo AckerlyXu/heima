@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
-ms.author: chackdan
+ms.author: v-johch
 
 ---
 # Create a Service Fabric cluster by using Azure Resource Manager

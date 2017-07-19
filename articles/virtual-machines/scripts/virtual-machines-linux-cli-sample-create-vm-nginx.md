@@ -14,9 +14,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/27/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 02/27/2017
+ms.date: 04/17/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
 # Create a VM with NGINX
@@ -27,11 +28,9 @@ This script creates an Azure Virtual Machine and uses the Azure Virtual Machine 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Create a resource group.
@@ -71,7 +70,7 @@ apt-get -y install nginx
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli
+```azurecli 
 az group delete --name myResourceGroup
 ```
 
@@ -91,4 +90,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).

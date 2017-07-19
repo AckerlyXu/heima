@@ -1,10 +1,10 @@
 ---
-title: Protect Active Directory and DNS with Azure Site Recovery | Microsoft Docs
+title: Protect Active Directory and DNS with Azure Site Recovery | Azure
 description: This article describes how to implement a disaster recovery solution for Active Directory using Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: prateek9us
-manager: gauravd
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/17/2017
-ms.author: pratshar
+origin.date: 03/17/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Protect Active Directory and DNS with Azure Site Recovery
@@ -34,21 +35,22 @@ You need to setup [Site Recovery replication](#enable-protection-using-site-reco
 If you have a few applications and only a single domain controller, and you want to fail over the entire site together, then we recommend using Site Recovery to replicate the domain controller to the secondary site (whether you're failing over to Azure or to a secondary site). The same replicated domain controller/DNS virtual machine can be used for [test failover](#test-failover-considerations) as well.
 
 ### Environment with multiple domain controllers
-If you have many applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you also set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (Azure or a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you use domain controller replicated by Site Recovery and for failover, the additional domain controller the on target site. 
+If you have many applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you also set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (Azure or a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you use domain controller replicated by Site Recovery and for failover, the additional domain controller on the target site. 
 
 The following sections explain how to enable protection for a domain controller in Site Recovery, and how to set up a domain controller in Azure.
 
 ## Prerequisites
-- An on-premises deployment of Active Directory and DNS server.
-- An Azure Site Recovery Services vault in a Azure subscription.
-- If you're replicating to Azure run the Azure Virtual Machine Readiness Assessment tool on VMs to ensure they're compatible with Azure VMs and Azure Site Recovery Services.
+* An on-premises deployment of Active Directory and DNS server.
+* An Azure Site Recovery Services vault in a Azure subscription.
+* If you're replicating to Azure, run the Azure Virtual Machine Readiness Assessment tool on VMs to ensure they're compatible with Azure VMs and Azure Site Recovery Services.
 
 ## Enable protection using Site Recovery
 ### Protect the virtual machine
-Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V or VMware). The domain controller replicated using Site Recovery is used for [test failover](#test-failover-considerations). Make sure it meets the following requirements:
+Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V). The domain controller replicated using Site Recovery is used for [test failover](#test-failover-considerations). Make sure it meets the following requirements:
 
 1. The domain controller is a global catalog server
 2. The domain controller should be the FSMO role owner for roles that will be needed during a test failover (else these roles will need to be [seized](https://support.microsoft.com/zh-cn/help/255504/using-ntdsutil.exe-to-transfer-or-seize-fsmo-roles-to-a-domain-controller) after the failover)
+<!--Match Key [seized](http://aka.ms/ad_seize_fsmo)  [seized](https://support.microsoft.com/zh-cn/help/255504/using-ntdsutil.exe-to-transfer-or-seize-fsmo-roles-to-a-domain-controller) -->
 
 ### Configure virtual machine network settings
 For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the virtual machine will be attached to the right network after failover. 
@@ -60,7 +62,7 @@ For the domain controller/DNS virtual machine, configure network settings in Sit
 Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. For more information, see [Scheduling Replication Between Sites](https://technet.microsoft.com/zh-cn/library/cc731862.aspx).
 
 ### Site-to-Azure protection
-Follow the instructions to [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you  promote the server to a domain controller role specify the same domain name that's used on the primary site.
+Follow the instructions to [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
 
 Then [reconfigure the DNS server for the virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network), to use the DNS server in Azure.
 
@@ -73,7 +75,8 @@ Test failover occurs in a network that's isolated from production network so tha
 
 Most applications also require the presence of a domain controller and a DNS server to function. Therefore, before the application is failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery. Then run a test failover of the domain controller virtual machine before running a test failover of the recovery plan for the application. Here's how you do that:
 
-1. [Replicate](./site-recovery-replicate-vmware-to-azure.md) the domain controller/DNS virtual machine using Site Recovery.
+1. Replicate the domain controller/DNS virtual machine using Site Recovery.
+<!-- Not Available [Replicate](site-recovery-replicate-vmware-to-azure.md) -->
 1. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
 1. Provide a DNS IP address in the network created, as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that is used on failover in **Target IP** setting in **Compute and Network** settings. 
 
@@ -89,7 +92,7 @@ Most applications also require the presence of a domain controller and a DNS ser
 >
 >
 
-1. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](./site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
+1. If you're replicating to another on-premises site and you're using DHCP, follow the instructions to [setup DNS and DHCP for test failover](site-recovery-test-failover-vmm-to-vmm.md#prepare-dhcp)
 1. Do a test failover of the domain controller virtual machine run in the isolated network. Use latest available **application consistent** recovery point of the domain controller virtual machine to do the test failover. 
 1. Run a test failover for the recovery plan that contains virtual machines of the application. 
 1. After testing is complete, **Cleanup test failover** on the domain controller virtual machine. This step deletes the domain controller that was created for test failover.
@@ -111,7 +114,7 @@ When the VM-GenerationID is reset, the invocationID of the AD DS database is als
 Failing over to Azure may cause resetting of VM-GenerationID and that kicks in the additional safeguards when the domain controller virtual machine starts in Azure. This may result in a **significant delay** in user being able to login to the domain controller virtual machine. Since this domain controller would be used only in a test failover, virtualization safeguards are not necessary. To ensure that VM-GenerationID for the domain controller virtual machine doesn't change, then you can change the value of following DWORD to 4 in the on-premises domain controller.
 
 ```
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start
 ```
 
 #### Symptoms of virtualization safeguards
@@ -203,4 +206,4 @@ You can use a fresh DNS server and create all the required zones. For example, i
     ```
 
 ## Next steps
-Read [What workloads can I protect?](./site-recovery-workload.md) to learn more about protecting enterprise workloads with Azure Site Recovery.
+Read [What workloads can I protect?](site-recovery-workload.md) to learn more about protecting enterprise workloads with Azure Site Recovery.

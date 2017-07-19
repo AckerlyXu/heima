@@ -3,8 +3,8 @@ title: Azure Active Directory v2.0 authentication libraries | Microsoft Docs
 description: Compatible client libraries and server middleware libraries, and related library, source, and samples links, for the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: skwan
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2017
-wacn.date: ''
-ms.author: skwan;bryanla
+origin.date: 05/01/2017
+ms.date: 06/26/2017
+ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # Azure Active Directory v2.0 authentication libraries
@@ -108,7 +109,7 @@ For more information about the Azure AD v2.0 endpoint, see the [Azure AD app mod
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]:./active-directory-v2-devquickstarts-dotnet-api.md
+[ServerLib-Net4-Owin-Oauth-Sample]: active-directory-v2-devquickstarts-dotnet-api.md
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]:/
@@ -120,5 +121,5 @@ For more information about the Azure AD v2.0 endpoint, see the [Azure AD app mod
 [ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]:./active-directory-v2-devquickstarts-node-web.md
+[ServerLib-Node-Sample]: active-directory-v2-devquickstarts-node-web.md
 

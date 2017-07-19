@@ -3,8 +3,8 @@ title: Azure Active Directory v2.0 endpoint | Microsoft Docs
 description: An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 05/01/2017
+ms.date: 06/26/2017
+ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # Sign-in Microsoft Account & Azure AD users in a single app
@@ -33,7 +34,6 @@ The information here will be useful in understanding what is & what isn't possib
 
 - Learn about the [types of apps you can build with the v2.0 endpoint](active-directory-v2-flows.md).
 - Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
-- Check out this overview video for the v2.0 endpoint:
 
 ## Reference
 These links will be useful for exploring the platform in depth:

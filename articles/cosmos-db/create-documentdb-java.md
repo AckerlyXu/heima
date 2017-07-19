@@ -1,29 +1,29 @@
 ---
 title: 'Azure Cosmos DB: Build an app with Java and the DocumentDB API | Azure'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: mimig
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
-# Azure Cosmos DB: Build a DocumentDB API app with Java and the Azure portal preview
+# Azure Cosmos DB: Build a DocumentDB API app with Java and the Azure portal
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal preview. You'll then build and run a console app built on the [DocumentDB Java API](../documentdb/documentdb-sdk-java.md).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and run a console app built on the [DocumentDB Java API](documentdb-sdk-java.md).
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Create a database account
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a collection
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## Clone the sample application
 
@@ -124,11 +124,11 @@ Let's make a quick review of what's happening in the app. Open the `app.js` file
 
 ## Update your connection string
 
-Now go back to the Azure portal preview to get your connection string information and copy it into the app.
+Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal preview](http://portal.azure.cn/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `Program.java` file in the next step.
+1. In the [Azure portal](http://portal.azure.cn/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `Program.java` file in the next step.
 
-    ![View and copy an access key in the Azure portal preview, Keys blade](./media/create-documentdb-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Keys blade](./media/create-documentdb-dotnet/keys.png)
 
 2. In Open the `Program.java` file. 
 
@@ -148,15 +148,15 @@ Now go back to the Azure portal preview to get your connection string informatio
 
 You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
-## Review SLAs in the Azure portal preview
+## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal preview with the following steps:
+If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:
 
-1. From the left-hand menu in the Azure portal preview, click **Resource groups** and then click the name of the resource you created. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
 ## Next steps
@@ -164,4 +164,4 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Import data into Azure Cosmos DB](import-data.md)

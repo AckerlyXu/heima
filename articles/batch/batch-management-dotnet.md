@@ -3,8 +3,8 @@ title: Manage Batch account resources with the client library for .NET - Azure |
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,16 +14,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/15/2017
-ms.author: tamram
+origin.date: 04/24/2017
+ms.date: 07/03/2017
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
 
 > [!div class="op_single_selector"]
-> * [Azure portal](./batch-account-create-portal.md)
-> * [Batch Management .NET](./batch-management-dotnet.md)
+> * [Azure portal](batch-account-create-portal.md)
+> * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 
 
@@ -35,7 +36,7 @@ You can lower maintenance overhead in your Azure Batch applications by using the
 - **Combine features of other Azure services** for a full-featured management experience--by using Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
 
 > [!NOTE]
-> While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure portal Preview](./batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](./batch-quota-limit.md).
+> While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 > 
 > 
 
@@ -92,7 +93,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 
 ## Check Azure subscription and Batch account quotas
-Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](./batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
+Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
 
 ### Check an Azure subscription for Batch account quotas
 Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.
@@ -139,13 +140,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal Preview][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](./batch-quota-limit.md) for instructions on increasing your Batch account quotas.
+> While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 > 
 > 
 
 ## Use Azure AD with Batch Management .NET
 
-The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. For information about using Azure AD with the Batch Management .NET library, see [Use Azure Active Directory to authenticate Batch solutions](./batch-aad-auth.md). 
+The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage account resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview]. 
 
 ## Sample project on GitHub <a name="sample"></a>
 
@@ -167,20 +168,16 @@ To see Batch Management .NET in action, check out the [AccountManagment][acct_mg
    - Delete newly created account.
 7. Delete the resource group.
 
-Before deleting the newly created Batch account and resource group, you can view them in the [Azure portal Preview][azure_portal]:
-
-To run the sample application successfully, you must first register it with your Azure AD tenant in the Azure portal and grant permissions to the Azure Resource Manager API. Follow the steps provided in [Authenticate Batch management applications with Azure AD](./batch-aad-auth.md#use-azure-ad-with-batch-service-solutions).
-
+Before deleting the newly created Batch account and resource group, you can view them in the [Azure portal][azure_portal]:
 
 [aad_about]:../active-directory/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/active-directory-authentication-scenarios.md
-[aad_integrate]:../active-directory/develop/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [azure_portal]: http://portal.azure.cn
-[azure_storage]: https://azure.microsoft.com/services/storage/
+[azure_storage]: /storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -195,8 +192,9 @@ To run the sample application successfully, you must first register it with your
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
-[resman_overview]:../azure-resource-manager/resource-group-overview.md
+[resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
+

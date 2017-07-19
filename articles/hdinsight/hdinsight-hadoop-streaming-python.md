@@ -1,7 +1,8 @@
 ---
-title: Develop Python MapReduce jobs with HDInsight | Azure
-description: Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.
+title: Develop Python streaming MapReduce jobs with HDInsight - Azure | Azure
+description: Learn how to use Python in streaming MapReduce jobs. Hadoop provides a streaming API for MapReduce for writing in languages other than Java.
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: ''
 author: Blackmist
 manager: jhubbard
@@ -10,31 +11,31 @@ tags: azure-portal
 
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/03/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
-# Develop Python streaming programs for HDInsight
+# Develop Python streaming MapReduce programs for HDInsight
 
-Learn how to use Python in MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
+Learn how to use Python in streaming MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
 
 ## Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster
 
-    > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > [!IMPORTANT]
+  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * A text editor
 
-    > [!IMPORTANT]
-    > The text editor must use LF as the line ending. Using a line ending of CRLF causes errors when running the MapReduce job on Linux-based HDInsight clusters.
+  > [!IMPORTANT]
+  > The text editor must use LF as the line ending. Using a line ending of CRLF causes errors when running the MapReduce job on Linux-based HDInsight clusters.
 
 * The `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
@@ -60,77 +61,77 @@ Python can easily handle these requirements by using the `sys` module to read fr
 
 1. Create a file named `mapper.py` and use the following code as the content:
 
-    ```python
-    #!/usr/bin/env python
+   ```python
+   #!/usr/bin/env python
 
-    # Use the sys module
-    import sys
+   # Use the sys module
+   import sys
 
-    # 'file' in this case is STDIN
-    def read_input(file):
-        # Split each line into words
-        for line in file:
-            yield line.split()
+   # 'file' in this case is STDIN
+   def read_input(file):
+       # Split each line into words
+       for line in file:
+           yield line.split()
 
-    def main(separator='\t'):
-        # Read the data using read_input
-        data = read_input(sys.stdin)
-        # Process each words returned from read_input
-        for words in data:
-            # Process each word
-            for word in words:
-                # Write to STDOUT
-                print '%s%s%d' % (word, separator, 1)
+   def main(separator='\t'):
+       # Read the data using read_input
+       data = read_input(sys.stdin)
+       # Process each words returned from read_input
+       for words in data:
+           # Process each word
+           for word in words:
+               # Write to STDOUT
+               print '%s%s%d' % (word, separator, 1)
 
-    if __name__ == "__main__":
-        main()
-    ```
+   if __name__ == "__main__":
+       main()
+   ```
 
 2. Create a file named **reducer.py** and use the following code as the content:
 
-    ```python
-    #!/usr/bin/env python
+   ```python
+   #!/usr/bin/env python
 
-    # import modules
-    from itertools import groupby
-    from operator import itemgetter
-    import sys
+   # import modules
+   from itertools import groupby
+   from operator import itemgetter
+   import sys
 
-    # 'file' in this case is STDIN
-    def read_mapper_output(file, separator='\t'):
-        # Go through each line
-        for line in file:
-            # Strip out the separator character
-            yield line.rstrip().split(separator, 1)
+   # 'file' in this case is STDIN
+   def read_mapper_output(file, separator='\t'):
+       # Go through each line
+       for line in file:
+           # Strip out the separator character
+           yield line.rstrip().split(separator, 1)
 
-    def main(separator='\t'):
-        # Read the data using read_mapper_output
-        data = read_mapper_output(sys.stdin, separator=separator)
-        # Group words and counts into 'group'
-        #   Since MapReduce is a distributed process, each word
-        #   may have multiple counts. 'group' will have all counts
-        #   which can be retrieved using the word as the key.
-        for current_word, group in groupby(data, itemgetter(0)):
-            try:
-                # For each word, pull the count(s) for the word
-                #   from 'group' and create a total count
-                total_count = sum(int(count) for current_word, count in group)
-                # Write to stdout
-                print "%s%s%d" % (current_word, separator, total_count)
-            except ValueError:
-                # Count was not a number, so do nothing
-                pass
+   def main(separator='\t'):
+       # Read the data using read_mapper_output
+       data = read_mapper_output(sys.stdin, separator=separator)
+       # Group words and counts into 'group'
+       #   Since MapReduce is a distributed process, each word
+       #   may have multiple counts. 'group' will have all counts
+       #   which can be retrieved using the word as the key.
+       for current_word, group in groupby(data, itemgetter(0)):
+           try:
+               # For each word, pull the count(s) for the word
+               #   from 'group' and create a total count
+               total_count = sum(int(count) for current_word, count in group)
+               # Write to stdout
+               print "%s%s%d" % (current_word, separator, total_count)
+           except ValueError:
+               # Count was not a number, so do nothing
+               pass
 
-    if __name__ == "__main__":
-        main()
-    ```
+   if __name__ == "__main__":
+       main()
+   ```
 
 ## Run using PowerShell
 
 To ensure that your files have the right line endings, use the following PowerShell script:
 
 ```powershell
-# Set $original_file to the Python file name
+# Set $original_file to the python file path
 $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```
@@ -272,7 +273,7 @@ switch ($defaultStoreageType)
 3. To ensure the mapper.py and reducer.py have the correct line endings, use the following commands:
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 
@@ -284,17 +285,17 @@ switch ($defaultStoreageType)
 
     This command has the following parts:
 
-    * **hadoop-streaming.jar**: Used when performing streaming MapReduce operations. It interfaces Hadoop with the external MapReduce code you provide.
+   * **hadoop-streaming.jar**: Used when performing streaming MapReduce operations. It interfaces Hadoop with the external MapReduce code you provide.
 
-    * **-files**: Adds the specified files to the MapReduce job.
+   * **-files**: Adds the specified files to the MapReduce job.
 
-    * **-mapper**: Tells Hadoop which file to use as the mapper.
+   * **-mapper**: Tells Hadoop which file to use as the mapper.
 
-    * **-reducer**: Tells Hadoop which file to use as the reducer.
+   * **-reducer**: Tells Hadoop which file to use as the reducer.
 
-    * **-input**: The input file that we should count words from.
+   * **-input**: The input file that we should count words from.
 
-    * **-output**: The directory that the output is written to.
+   * **-output**: The directory that the output is written to.
 
     As the MapReduce job works, the process is displayed as percentages.
 

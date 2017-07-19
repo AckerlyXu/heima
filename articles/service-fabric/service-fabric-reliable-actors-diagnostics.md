@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
-wacn.date: ''
-ms.author: abhisram
+origin.date: 01/04/2017
+ms.date: 06/15/2017
+ms.author: v-johch
 ---
 
 # Diagnostics and performance monitoring for Reliable Actors

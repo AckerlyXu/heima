@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/26/2016
-wacn.date: ''
-ms.author: huvalo
+origin.date: 02/26/2016
+ms.date: 01/05/2017
+ms.author: v-dazen
 
 ---
 # Configuring Python with Azure App Service Web Apps
@@ -25,16 +25,16 @@ This tutorial describes options for authoring and configuring a basic Web Server
 It describes additional features of Git deployment, such as virtual environment and package installation using requirements.txt.
 
 ## Bottle, Django or Flask?
- If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
+If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
 
 * [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
 * [Creating web apps with Flask](web-sites-python-create-deploy-flask-app.md)
 
-## Web app creation on Azure Portal Preview
-This tutorial assumes an existing Azure subscription and access to the Azure Portal Preview.
+## Web app creation on Azure Portal
+This tutorial assumes an existing Azure subscription and access to the Azure Portal.
 
-If you do not have an existing web app, you can create one from the [Azure Portal Preview](https://portal.azure.cn).  Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.
+If you do not have an existing web app, you can create one from the [Azure Portal](https://portal.azure.cn).  Click the NEW button in the top left corner, then click **Web + Mobile** > **Web app**.
 
 ## Git Publishing
 Configure Git publishing for your newly created web app by following the instructions at [Local Git Deployment to Azure App Service](app-service-deploy-local-git.md). This tutorial uses Git to create, manage, and publish our Python web app to Azure App Service.

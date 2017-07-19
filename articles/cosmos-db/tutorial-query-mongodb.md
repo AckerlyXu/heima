@@ -1,28 +1,28 @@
 ---
 title: 'Azure Cosmos DB: How to query using the DocumentDB API? | Azure'
 description: Learn to query with the DocumentDB API for Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: ''
 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: mimig
+origin.date: 05/10/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 
 # Azure Cosmos DB: How to query with API for MongoDB?
 
-The Azure Cosmos DB [API for MongoDB](../documentdb/documentdb-protocol-mongodb.md) supports [MongoDB shell queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+The Azure Cosmos DB [API for MongoDB](mongodb-introduction.md) supports [MongoDB shell queries](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 This article covers the following tasks: 
 

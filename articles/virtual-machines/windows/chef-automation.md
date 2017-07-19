@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2015
-wacn.date: ''
-ms.author: diviso
+origin.date: 05/30/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 # Automating Azure virtual machine deployment with Chef
@@ -56,7 +56,8 @@ Then create a second directory called c:\chef\cookbooks.
 
 We now need to download our Azure settings file so Chef can communicate with our Azure subscription.
 
-Download your publish settings from [here](https://manage.windowsazure.cn/publishsettings/).
+<!--Download your publish settings from [here](https://manage.windowsazure.cn/publishsettings/).-->
+Download your publish settings using the PowerShell Azure [Get-​Azure​Publish​Settings​File](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) command. 
 
 Save the publish settings file in C:\chef.
 
@@ -204,7 +205,7 @@ The parameters are self-explanatory. Substitute your particular variables and ru
 > 
 > 
 
-Once you run the command, go to the Azure portal preview and you will see your machine begin to provision.
+Once you run the command, go to the Azure portal and you will see your machine begin to provision.
 
 ![][13]
 
@@ -218,21 +219,21 @@ Once the deployment is complete, we should be able to connect to the web service
 
 As you can see, I got creative with my HTML code.
 
-Don't forget we can also connect through an RDP session from the Azure Classic Management Portal via port 3389.
+Don't forget we can also connect through an RDP session from the Azure portal via port 3389.
 
 I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
 
 <!--Image references-->
-[2]: ./media/chef-automation/2.png
-[3]: ./media/chef-automation/3.png
-[4]: ./media/chef-automation/4.png
-[5]: ./media/chef-automation/5.png
-[6]: ./media/chef-automation/6.png
-[7]: ./media/chef-automation/7.png
-[8]: ./media/chef-automation/8.png
-[9]: ./media/chef-automation/9.png
-[10]: ./media/chef-automation/10.png
-[11]: ./media/chef-automation/11.png
-[13]: ./media/chef-automation/13.png
+[2]: media/chef-automation/2.png
+[3]: media/chef-automation/3.png
+[4]: media/chef-automation/4.png
+[5]: media/chef-automation/5.png
+[6]: media/chef-automation/6.png
+[7]: media/chef-automation/7.png
+[8]: media/chef-automation/8.png
+[9]: media/chef-automation/9.png
+[10]: media/chef-automation/10.png
+[11]: media/chef-automation/11.png
+[13]: media/chef-automation/13.png
 
 <!--Link references-->

@@ -3,18 +3,20 @@ title: Connect a device using C on Linux | Azure
 description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux.
 services: ''
 suite: iot-suite
-documentationCenter: na
-authors: dominicbetts
+documentationcenter: na
+author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
-ms.author: dobett
+origin.date: 06/05/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (Linux)
@@ -99,8 +101,9 @@ int main(void)
 The following steps describe how to use *CMake* to build your client application.
 
 1. In a text editor, open the **CMakeLists.txt** file in the **remote_monitoring** folder.
-2. Add the following instructions to define how to build your client application:
 
+1. Add the following instructions to define how to build your client application:
+   
     ```
     macro(compileAsC99)
       if (CMAKE_VERSION VERSION_LESS "3.1")
@@ -117,7 +120,7 @@ The following steps describe how to use *CMake* to build your client application
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER ".." "../parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
@@ -132,8 +135,7 @@ The following steps describe how to use *CMake* to build your client application
         ./remote_monitoring.h
     )
 
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h
-    _files})
+    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
         serializer

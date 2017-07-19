@@ -8,8 +8,10 @@ manager: paulyuk
 editor: tglee
 
 ms.service: multiple
-ms.date: 10/08/2015
-wacn.date: ''
+ms.topic: article
+origin.date: 10/08/2015
+ms.date: 02/21/2017
+ms.author: v-johch
 ---
 
 # Configure secure connections to a Service Fabric cluster from Visual Studio

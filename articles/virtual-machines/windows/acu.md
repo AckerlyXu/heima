@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 03/23/2017
+ms.date: 05/15/2017
+ms.author: v-dazen
 
 ---
 
@@ -25,7 +25,6 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 Here are links to more information about the different sizes:
-
 - [General-purpose](sizes-general.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Compute optimized](sizes-compute.md)

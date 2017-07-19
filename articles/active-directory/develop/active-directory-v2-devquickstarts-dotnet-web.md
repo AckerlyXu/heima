@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 01/23/2017
+ms.date: 03/13/2017
+ms.author: v-junlch
 ---
 
 # Add sign-in to an .NET MVC web app
@@ -38,7 +38,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-Web
 The completed app is provided at the end of this tutorial as well.
 
 ## Register an app
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or follow these [detailed steps](./active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](./active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.
 - Add the **Web** platform for your app.
@@ -91,7 +91,7 @@ Here, we'll configure the OWIN middleware to use the OpenID Connect authenticati
             new OpenIdConnectAuthenticationOptions
             {
                 // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
-                // The `Scope` describes the permissions that your app will need.  See https://azure.cn/documentation/articles/active-directory-v2-scopes/
+                // The `Scope` describes the permissions that your app will need.  
                 // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
                 ClientId = clientId,

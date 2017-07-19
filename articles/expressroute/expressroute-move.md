@@ -3,7 +3,7 @@ title: Moving ExpressRoute circuits from classic to Resource Manager | Azure
 description: This page provides an overview of what you need to know about bridging the classic and the Resource Manager deployment models.
 documentationCenter: na
 services: expressroute
-authors: ganesr
+author: ganesr
 manager: carmonm
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
-ms.author: ganesr
+origin.date: 05/02/2017
+ms.author: v-yiso
+ms.date: ''
 ---
 
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model
@@ -67,7 +68,7 @@ The following classic operations are supported on an ExpressRoute circuit when *
 
 You cannot perform the following classic operations when **allowClassicOperations** is set to TRUE:
 
- - Create/update/get/delete Border Gateway Protocol (BGP) peerings for Azure private, Azure public, and Microsoft peerings
+ - Create/update/get/delete Border Gateway Protocol (BGP) peerings for Azure private, Azure public peerings
  - Delete ExpressRoute circuits
 
 ## Communication between the classic and the Resource Manager deployment models
@@ -76,9 +77,9 @@ The ExpressRoute circuit acts like a bridge between the classic and the Resource
 
 Aggregate throughput is limited by the throughput capacity of the virtual network gateway. Traffic does not enter the connectivity provider's networks or your networks in such cases. Traffic flow between the virtual networks is fully contained within the Microsoft network.
 
-## Access to Azure public and Microsoft peering resources
+## Access to Azure public peering resources
 
-You can continue to access resources that are typically accessible through Azure public peering and Microsoft peering without any disruption.  
+You can continue to access resources that are typically accessible through Azure public peering without any disruption.  
 
 ## What's supported
 

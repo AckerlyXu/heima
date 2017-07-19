@@ -20,13 +20,13 @@
 
 # Reference
 ## .NET
-### [Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
-### [Microsoft.ServiceBus](/dotnet/api/Microsoft.ServiceBus)
+### [Microsoft.Azure.Relay](https://doc.microsoft.com/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](https://doc.microsoft.com/dotnet/api/Microsoft.ServiceBus)
 ## [Exceptions](relay-exceptions.md)
 ## [Port settings](relay-port-settings.md)
 
 # Resources
 ## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
-## [Pricing](https://www.azure.cn/pricing/details/service-bus/)
+## [Pricing](https://www.azure.cn/pricing/details/messaging/)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

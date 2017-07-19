@@ -3,8 +3,8 @@ title: Azure Active Directory v2.0 endpoint limitations and restrictions | Micro
 description: A list of limitations and restrictions for the Azure AD v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-wacn.date: ''
-ms.author: dastrock
+origin.date: 05/01/2017
+ms.date: 06/26/2017
+ms.author: v-junlch
+ms.custom: aaddev
 
 ---
 # Should I use the v2.0 endpoint?
@@ -39,9 +40,9 @@ You can use the v2.0 endpoint to [build a Web API that is secured with OAuth 2.0
 To see how to build a Web API that accepts tokens from a client that has the same Application ID, see the v2.0 endpoint Web API samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
 ## Restrictions on app registrations
-Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList). Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. Apps that are registered in any portal other than the Application Registration Portal are not compatible with the v2.0 endpoint. In the future, we plan to provide a way to use an existing application as a v2.0 app. Currently, though, there is no migration path for an existing app to work with the v2.0 endpoint.
+Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?deeplink=/appList). Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. Apps that are registered in any portal other than the Application Registration Portal are not compatible with the v2.0 endpoint. In the future, we plan to provide a way to use an existing application as a v2.0 app. Currently, though, there is no migration path for an existing app to work with the v2.0 endpoint.
 
-In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) have the following caveats:
+In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?deeplink=/appList) have the following caveats:
 
 - Only two app secrets are allowed per Application ID.
 - An app registration registered by a user with a personal Microsoft account can be viewed and managed only by a single developer account. It cannot be shared between multiple developers.  If you would like to share your app registration amongst multiple developers, you can create the application by signing into the registration portal with an Azure AD account.

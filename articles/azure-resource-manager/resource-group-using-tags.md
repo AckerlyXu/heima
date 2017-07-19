@@ -3,7 +3,7 @@ title: Tag Azure resources for logical organization | Azure
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 services: azure-resource-manager
 documentationcenter: ''
-author: tfitzmac
+author: rockboyfor
 manager: timlt
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-wacn.date: ''
-ms.author: tomfitz
+origin.date: 04/20/2017
+ms.date: 06/05/2017
+ms.author: v-yeche
 
 ---
 # Use tags to organize your Azure resources
@@ -28,7 +28,7 @@ ms.author: tomfitz
 
 ## Ensure tag consistency with policies
 
-Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.<!-- For more information, see [Apply resource policies for tags](/documentation/articles/resource-manager-policy-tags/).-->
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.
 
 ## Templates
 
@@ -100,7 +100,7 @@ Tags enable you to group your billing data. For example, if you are running mult
 <!-- Not supported billing-usage-rate-card-overview on Azure.cn -->
 You can usage comma-separated values (CSV) file. You download the usage file from the [Azure accounts portal](https://account.windowsazure.cn/). For REST API operations, see [Azure Billing REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](/documentation/articles/billing-understand-your-bill/).
+When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](../billing-understand-your-bill.md).
 
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
@@ -108,5 +108,5 @@ When you download the usage CSV for services that support tags with billing, the
 * You can apply restrictions and conventions across your subscription with customized policies. The policy you define could require that all resources have a value for a particular tag. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 * For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
-* For an introduction to using the portal, see [Using the Azure portal preview to manage your Azure resources](resource-group-portal.md)  
+* For an introduction to using the portal, see [Using the Azure Portal to manage your Azure resources](resource-group-portal.md)  
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).

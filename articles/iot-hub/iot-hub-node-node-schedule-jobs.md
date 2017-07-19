@@ -13,9 +13,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
-wacn.date: ''
-ms.author: juanpere
+origin.date: 09/30/2016
+ms.date: 07/10/2017
+ms.author: v-yiso
 ---
 
 # Schedule and broadcast jobs (Node)
@@ -126,8 +126,8 @@ In this section, you create a Node.js console app that initiates a remote **lock
     ```
     npm init
     ```
-2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
-
+2. At your command prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
+   
     ```
     npm install azure-iothub uuid --save
     ```
@@ -236,8 +236,8 @@ In this section, you create a Node.js console app that initiates a remote **lock
 ## Run the applications
 You are now ready to run the applications.
 
-1. At the command-prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
-
+1. At the command prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
+   
     ```
     node simDevice.js
     ```
@@ -255,14 +255,14 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 [Tutorial: How to do a firmware update][lnk-fwupdate]
 
-To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge][lnk-gateway-SDK].
+To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge][lnk-iot-edge].
 
 [lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: ./iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

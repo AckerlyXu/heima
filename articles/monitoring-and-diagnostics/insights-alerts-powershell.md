@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
-ms.author: robb
-
+origin.date: 10/20/2016
+ms.author: v-yiso
+ms.date: ''
 ---
 # Create metric alerts in Azure Monitor for Azure services - PowerShell
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ This article shows you how to set up Azure metric alerts using PowerShell.
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
-- **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-- **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. 
+* **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
+* **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. To learn more about activity log alerts [click here](./monitoring-activity-log-alerts.md)
 
 You can configure a metric alert to do the following when it triggers:
 
@@ -71,11 +71,10 @@ For additional information, you can always type ```get-help``` and then the Powe
     ```
 
 4. To create a rule, you need to have several important pieces of information first. 
-       - The **Resource ID** for the resource you want to set an alert for
-    - The **metric definitions** available for that resource
+  * The **Resource ID** for the resource you want to set an alert for
+  * The **metric definitions** available for that resource
 
-    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. **RESOURCE ID** is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.cn/).
-
+    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. **RESOURCE ID** is a field in the next blade. 
      An example Resource ID for a web app is
 
     ```
@@ -132,7 +131,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 
 * [Get an overview of Azure monitoring](./monitoring-overview.md) including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
-
+* Learn more about [configuring alerts on Activity log events](./monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
 
 * Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

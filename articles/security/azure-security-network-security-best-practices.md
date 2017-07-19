@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2016
-ms.author: TomSh
+ms.author: v-johch
 ---
 
 # Azure Network Security Best Practices

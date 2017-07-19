@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: nepeters
+origin.date: 05/03/2017
+ms.date: 07/03/2017
+ms.author: v-dazen
+ms.custom: mvc
 ---
 
-# Create a Windows virtual machine with the Azure portal preview
+# Create a Windows virtual machine with the Azure portal
 
-Azure virtual machines can be created through the Azure portal preview. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
-If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure
 
-Log in to the Azure portal preview at http://portal.azure.cn.
+Log in to the Azure portal at http://portal.azure.cn.
 
 ## Create virtual machine
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal preview.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
 2. Select **Compute**, select **Windows Server 2016 Datacenter**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
 
@@ -43,11 +44,11 @@ Log in to the Azure portal preview at http://portal.azure.cn.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. On the settings blade, select **Yes** under **Use managed disks**, keep the defaults for the rest of the settings, and click **OK**.
+5. On the settings blade, keep the defaults for the rest of the settings, and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
-7. The VM will be pinned to the Azure portal preview dashboard. Once the deployment has completed, the VM summary blade automatically opens.
+7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary blade automatically opens.
 
 ## Connect to virtual machine
 
@@ -71,11 +72,11 @@ On the virtual machine, start a PowerShell session and run the following command
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-When done, exit the RDP session and return the VM properties in the Azure portal preview.
+When done, exit the RDP session and return the VM properties in the Azure portal.
 
 ## Open port 80 for web traffic 
 
-A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal preview, an inbound rule is created on port 3389 for RDP connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.
+A Network security group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 3389 for RDP connections. Because this VM hosts a webserver, an NSG rule needs to be created for port 80.
 
 1. On the virtual machine, click the name of the **Resource group**.
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
@@ -86,11 +87,11 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 
 ## View the IIS welcome page
 
-With IIS installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure portal preview.
+With IIS installed, and port 80 open to your VM, the webserver can now be accessed from the internet. Open a web browser, and enter the public IP address of the VM. the public IP address can be found on the VM blade in the Azure portal.
 
 ![IIS default site](./media/quick-create-powershell/default-iis-website.png) 
 
-## Delete virtual machine
+## Clean up resources
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 

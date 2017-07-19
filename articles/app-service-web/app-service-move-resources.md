@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
-wacn.date: ''
-ms.author: zarizvi
+origin.date: 12/21/2016
+ms.date: 03/01/2017
+ms.author: v-dazen
 
 ---
 # Supported Move Configurations
@@ -25,7 +25,7 @@ Azure Web Apps currently supports the following move scenarios:
 
 * Move the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group. 
 
-    > [!Note]
-    > The destination resource group can not contain any Microsoft.Web resources in this scenario.
+   > [!Note]
+   > The destination resource group can not contain any Microsoft.Web resources in this scenario.
 
 * Move individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group).

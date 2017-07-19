@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-wacn.date: ''
-ms.author: masnider
+origin.date: 01/05/2017
+ms.date: 02/20/2017
+ms.author: v-johch
 ---
 
 # Availability of Service Fabric services

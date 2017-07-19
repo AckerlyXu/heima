@@ -12,9 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: wesmc
-wacn.date: ''
+origin.date: 10/03/2016
+ms.author: v-junlch
+ms.date: 11/22/2016
 ---
 
 #Azure Notification Hubs Notify Users with .NET backend

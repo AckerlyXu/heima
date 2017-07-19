@@ -1,32 +1,32 @@
 ---
 title: Azure CLI Samples for Azure Cosmos DB | Azure
 description: Azure CLI Samples - Create and manage Azure Cosmos DB accounts, databases, containers, regions, and firewalls. 
-services: cosmosdb
-author: mimig1
-manager: jhubbard
+services: cosmos-db
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 
 ms.assetid:
-ms.service: cosmosdb
-ms.custom: sample
+ms.service: cosmos-db
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 05/10/2017
-wacn.date: ''
-ms.author: mimig
+origin.date: 06/07/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 ---
 
 # Azure CLI samples for Azure Cosmos DB
 
-The following table includes links to sample Azure CLI scripts for Azure Cosmos DB.
+The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI 2.0 Reference](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb).
 
 | |  |
 |---|---|
 |**Create Azure Cosmos DB account, database, and containers**||
-|[Create a Document, Graph, or Table API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB DocumentDB API account, database, and container. |
+|[Create a DocumentDB, Graph, or Table API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB API account, database, and container for use with the DocumentDB, Graph, or Table APIs. |
 | [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale container throughput](scripts/scale-collection-throughput-cli.md) | Changes the provisioned througput on a container.|

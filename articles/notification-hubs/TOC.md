@@ -52,12 +52,12 @@
 ### [Diagnosis guidelines](notification-hubs-push-notification-fixer.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
-## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
-## [REST](/rest/api/notificationhubs)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs)
+## [REST](https://docs.microsoft.com/rest/api/notificationhubs)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Pricing](https://www.azure.cn/pricing/details/notification-hubs/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

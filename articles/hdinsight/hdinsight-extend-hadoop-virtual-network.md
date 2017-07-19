@@ -1,5 +1,5 @@
 ---
-title: Extend HDInsight with Virtual Network | Azure
+title: Extend HDInsight with Virtual Network - Azure | Azure
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/20/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/22/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ---
 # Extend HDInsight capabilities by using Azure Virtual Network
@@ -36,6 +36,7 @@ Learn how to use Azure Virtual Networks with HDInsight to enable the following s
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 * Azure CLI 2.0: For more information, see [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+
 * Azure PowerShell: For more information, see [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 > [!NOTE]
@@ -64,7 +65,7 @@ The following are a list of considerations when using HDInsight in a virtual net
 
 ### Connect cloud resources together in a private network (cloud-only)
 
-![diagram of cloud-only configuration](./media/hdinsight-extend-hadoop-virtual-network/cloud-only.png)
+![diagram of cloud-only configuration](media/hdinsight-extend-hadoop-virtual-network/cloud-only.png)
 
 Using Virtual Network to link Azure services with Azure HDInsight enables the following scenarios:
 
@@ -78,11 +79,11 @@ Using Virtual Network to link Azure services with Azure HDInsight enables the fo
 
 Site-to-site configuration allows you to connect multiple resources in your datacenter to the Azure virtual network. The connection can be made using a hardware VPN device or the Routing and Remote Access service.
 
-![diagram of site-to-site configuration](./media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
+![diagram of site-to-site configuration](media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
 
 Point-to-site configuration allows you to connect a specific resource to the Azure virtual network by using software VPN.
 
-![diagram of point-to-site configuration](./media/hdinsight-extend-hadoop-virtual-network/point-to-site.png)
+![diagram of point-to-site configuration](media/hdinsight-extend-hadoop-virtual-network/point-to-site.png)
 
 Using Virtual Network to link the cloud and your datacenter enables similar scenarios to the cloud-only configuration. But instead of being limited to working with resources in the cloud, you can also work with resources in your datacenter.
 
@@ -107,13 +108,18 @@ The HDInsight service is a managed service, and requires access to Azure managem
 > [!NOTE]
 > These operations do not require full access to the internet. When restricting internet access, allow inbound access on port 443 for the following IP addresses. This allows Azure to manage HDInsight:
 
-* 168.61.49.99
-* 23.99.5.239
-* 168.61.48.131
-* 138.91.141.162
+If you restrict access to the virtual network you must allow access to the managment IP addresses. The IP addresses that should be allowed are specific to the region that the HDInsight cluster and Virtual Network reside in. Use the following table to find the IP addresses for the region you are using.
+
+| Region | Allowed IP addresses | Allowed port |
+| ---- | ---- | ---- |
+| China North | 42.159.96.170 <br/> 139.217.2.219 | 443 |
+| China East | 42.159.198.178 <br/> 42.159.234.157 | 443 |
 
 > [!IMPORTANT]
 > HDInsight doesn't support restricting outbound traffic, only inbound traffic. When defining Network Security Group rules for the subnet that contains HDInsight, __only use inbound rules__.
+
+> [!NOTE]
+> If you use a custom DNS server with your virtual network, you must also allow access from __168.63.129.16__. This is the address of Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 ### Working with HDInsight in secured virtual networks
 
@@ -125,15 +131,15 @@ To find the internal IP address of the head nodes, use the scripts in the [Inter
 
 The following examples demonstrate how to create a Network Security Group that allows inbound traffic on port 443 from the following IP addresses:
 
-* 168.61.49.99
-* 23.99.5.239
-* 168.61.48.131
-* 138.91.141.162
+* 42.159.96.170
+* 139.217.2.219
+* 42.159.198.178
+* 42.159.234.157
 
 > [!IMPORTANT]
 > These addresses are for regions that do not have specific IP addresses listed. To find the IP addresses for your region, use the information in the [Secured Virtual Networks](#secured-virtual-networks) section.
 
-These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal preview](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+These steps assume that you have already created a Virtual Network and subnet that you want to install HDInsight into. See [Create a virtual network using the Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!WARNING]
 > Rules are tested against network traffic in order by __priority__. Once a rule matches the test criteria, it is applied and no more rules are tested for that request. If you have a rule that broadly blocks inbound traffic (such as a **deny all** rule), it __must__ come after the rules that allow traffic.
@@ -142,9 +148,9 @@ These steps assume that you have already created a Virtual Network and subnet th
 
 **Example: Azure Resource Management template**
 
-Using the following Resource Management template from the [Azure QuickStart Templates](https://github.com/azure/azure-quickstart-templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
+Using the following Resource Management template from the [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/) to create an HDInsight cluster in a VNet with the secure network configurations:
 
-[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://github.com/azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
+[Deploy a secured Azure VNet and an HDInsight Hadoop cluster within the VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
 
 **Example: Azure PowerShell**
 
@@ -168,44 +174,44 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -Location $location `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -name "hdirule1" `
-        -Description "HDI health and management address 168.61.49.99" `
+        -Description "HDI health and management address 42.159.96.170 " `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "168.61.49.99" `
+        -SourceAddressPrefix "42.159.96.170 " `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 300 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule2" `
-        -Description "HDI health and management 23.99.5.239" `
+        -Description "HDI health and management 139.217.2.219" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "23.99.5.239" `
+        -SourceAddressPrefix "139.217.2.219" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule3" `
-        -Description "HDI health and management 168.61.48.131" `
+        -Description "HDI health and management 42.159.198.178" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "168.61.48.131" `
+        -SourceAddressPrefix "42.159.198.178" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
         -Name "hdirule4" `
-        -Description "HDI health and management 138.91.141.162" `
+        -Description "HDI health and management 42.159.234.157" `
         -Protocol "*" `
         -SourcePortRange "*" `
         -DestinationPortRange "443" `
-        -SourceAddressPrefix "138.91.141.162" `
+        -SourceAddressPrefix "42.159.234.157" `
         -DestinationAddressPrefix "VirtualNetwork" `
         -Access Allow `
         -Priority 303 `
@@ -233,10 +239,10 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 2. Use the following to add rules to the new network security group that allow inbound communication on port 443 from the Azure HDInsight health and management service. Replace **RESOURCEGROUPNAME** with the name of the resource group that contains the Azure Virtual Network.
 
     ```azurecli
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.49.99/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.96.170 /24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "139.217.2.219/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 301 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule3 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.198.178/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 302 --direction "Inbound"
+    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule4 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "42.159.234.157/24" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     ```
 
 3. Once the rules have been created, use the following to retrieve the unique identifier for this network security group:
@@ -261,13 +267,13 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 > [!IMPORTANT]
 > Using the preceding steps only open access to the HDInsight health and management service on the Azure cloud. Any other access to the HDInsight cluster from outside the Virtual Network is blocked. To enable access from outside the virtual network, you must add additional Network Security Group rules.
-> <p>
+>
 > The following example demonstrates how to enable SSH access from the Internet:
-> <p>
+>
 > ```powershell
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound
 > ```
-> <p>
+>
 > ```azurecli
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
 > ```

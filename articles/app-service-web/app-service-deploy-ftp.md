@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
-wacn.date: ''
-ms.author: cephalin;dariac
+origin.date: 01/05/2016
+ms.date: 02/10/2017
+ms.author: v-dazen
 
 ---
 # Deploy your app to Azure App Service using FTP/S
@@ -24,7 +24,8 @@ or API app to [Azure App Service](/app-service-web/app-service-changes-existing-
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment. 
 
-## <a name="step1"></a> Step 1: Set deployment credentials
+<a name="step1"></a>
+## Step 1: Set deployment credentials
 
 To access the FTP server for your app, you first need deployment credentials. 
 
@@ -32,15 +33,15 @@ To set or reset your deployment credentials, see [Azure App Service Deployment C
 
 ## Step 2: Get FTP connection information
 
-1. In the [Azure portal preview](https://portal.azure.cn), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.cn), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Select **Overview** in the left menu, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
 
     ![FTP Connection Information](./media/web-sites-deploy/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > The **FTP/Deployment User** user value as displayed by the Azure Portal Preview including the app name in order to provide proper context for the FTP server.
+    > The **FTP/Deployment User** user value as displayed by the Azure Portal including the app name in order to provide proper context for the FTP server.
     > You can find the same information when you select **Properties** in the left menu. 
-    > <p>
+    >
     > Also, the deployment password is never shown. If you forget your deployment password, go back to [step 1](#step1) and reset your deployment password.
     >
     >
@@ -54,10 +55,11 @@ use the connection information you gathered to connect to your app.
 
 > [!NOTE] 
 > Unlike [Git-based deployments](app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
+>
 > - dependency restore (such as NuGet, NPM, PIP, and Composer automations)
 > - compilation of .NET binaries
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
-> <p> 
+> 
 > You must restore, build, and generate these necessary files manually on your local machine and deploy them together with your app.
 >
 >

@@ -59,7 +59,6 @@
 #### Manage domain names
 ##### [Classic portal](./active-directory-add-manage-domain-names.md)
 ### Customize the sign-in page
-#### [Classic portal](./active-directory-add-company-branding.md)
 ### [Administer your directory](./active-directory-administer.md)
 ### [O365 directories](./active-directory-manage-o365-subscription.md)
 ### [Self-service signup](./active-directory-self-service-signup.md)
@@ -94,18 +93,18 @@
 
 
 # Reference
-## [PowerShell cmdlets](/powershell/ )
-## [Java API Reference](/java/api)
-## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
+## [Java API Reference](http://docs.microsoft.com/java/api)
+## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](./active-directory-service-limits-restrictions.md)
 
 # Related
-## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
+## [Multi-Factor Authentication](/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Pricing](https://www.azure.cn/pricing/details/identity/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

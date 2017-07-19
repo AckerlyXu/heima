@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: dobett
+origin.date: 05/02/2017
+ms.author: v-yiso
+ms.date: 07/10/2017
 ---
 
 # Create an IoT hub using the Azure portal
@@ -156,7 +157,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -174,6 +175,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: ./iot-hub-operations-monitoring.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md

@@ -14,15 +14,15 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-ms.date: 11/17/2015
-wacn.date: ''
-ms.author: huvalo
+origin.date: 05/31/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
 # Django Hello World web application on a Linux VM
 > [!div class="op_single_selector"]
-> * [Windows](../windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-> * [Mac/Linux](../windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Windows](../windows/classic/python-django-web-app.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Mac/Linux](../windows/classic/python-django-web-app.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -44,9 +44,9 @@ A screenshot of the completed application is below:
 [!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
 
 ## Creating and configuring an Azure virtual machine to host Django
-1. Follow the instructions given [here](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
+1. Follow the instructions given [here](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
 2. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
-3. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](../windows/portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This step is optional to complete this tutorial.
+3. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](../windows/portal-create-fqdn.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).  This step is optional to complete this tutorial.
 
 ## <a id="setup"> </a>Setting up the development environment
 **Note:** If you need to install Python or would like to use the Client Libraries, please see the [Python Installation Guide](../../python-how-to-install.md).
@@ -54,59 +54,59 @@ A screenshot of the completed application is below:
 The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have Apache or django installed.  Follow these steps to connect to your VM and install Apache and django.
 
 1. Launch a new **Terminal** window.
-2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure Classic Management Portal.
+2. Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure  portal.
 
-        $ ssh yourusername@yourVmUrl
+       $ ssh yourusername@yourVmUrl
 3. Enter the following commands to install django:
 
-        $ sudo apt-get install python-setuptools python-pip
-        $ sudo pip install django
+       $ sudo apt-get install python-setuptools python-pip
+       $ sudo pip install django
 4. Enter the following command to install Apache with mod-wsgi:
 
-        $ sudo apt-get install apache2 libapache2-mod-wsgi
+       $ sudo apt-get install apache2 libapache2-mod-wsgi
 
 ## Creating a new Django application
 1. Open the **Terminal** window you used in the previous section to ssh into your VM.
 2. Enter the following commands to create a new Django project:
 
-        $ cd /var/www
-        $ sudo django-admin.py startproject helloworld
+       $ cd /var/www
+       $ sudo django-admin.py startproject helloworld
 
-    The **django-admin.py** script generates a basic structure for Django-based websites:
+   The **django-admin.py** script generates a basic structure for Django-based websites:
 
-    * **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based website
-    * **helloworld/helloworld/settings.py** contains Django settings for your application.
-    * **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
+   * **helloworld/manage.py** helps you to start hosting and stop hosting your Django-based website
+   * **helloworld/helloworld/settings.py** contains Django settings for your application.
+   * **helloworld/helloworld/urls.py** contains the mapping code between each url and its view.
 3. Create a new file named **views.py** in the **/var/www/helloworld/helloworld** directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
-        from django.http import HttpResponse
-        def home(request):
-            html = "<html><body>Hello World!</body></html>"
-            return HttpResponse(html)
+       from django.http import HttpResponse
+       def home(request):
+           html = "<html><body>Hello World!</body></html>"
+           return HttpResponse(html)
 4. Now replace the contents of the **urls.py** file with the following:
 
-        from django.conf.urls import patterns, url
-        urlpatterns = patterns('',
-            url(r'^$', 'helloworld.views.home', name='home'),
-        )
+       from django.conf.urls import patterns, url
+       urlpatterns = patterns('',
+           url(r'^$', 'helloworld.views.home', name='home'),
+       )
 
 ## Setting up Apache
 1. Create an Apache virtual host configuration file **/etc/apache2/sites-available/helloworld.conf**. Set the contents to the following, and replace *yourVmName* with the actual name of the machine you are using (for example *pyubuntu*).
 
-        <VirtualHost *:80>
-        ServerName yourVmName
-        </VirtualHost>
-        WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
-        WSGIPythonPath /var/www/helloworld
+       <VirtualHost *:80>
+       ServerName yourVmName
+       </VirtualHost>
+       WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
+       WSGIPythonPath /var/www/helloworld
 2. Enable the site with the following command:
 
-        $ sudo a2ensite helloworld
+       $ sudo a2ensite helloworld
 3. Restart Apache with the following command:
 
-        $ sudo service apache2 reload
+       $ sudo service apache2 reload
 4. Finally, load the web page in your browser:
 
-    ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
+   ![A browser window displaying the hello world page on Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 ## Shutting down your Azure virtual machine
 When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.

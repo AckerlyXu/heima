@@ -3,7 +3,7 @@ title: All topics for SQL Data Warehouse service | Azure
 description: Table of all topics for the Azure service named SQL Data Warehouse that exist on /azure/, Title and description.
 services: sql-data-warehouse
 documentationcenter: ''
-author: barbkess
+author: rockboyfor
 manager: jhubbard
 editor: ''
 
@@ -14,9 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: reference
-ms.date: 03/30/2017
-wacn.date: ''
-ms.author: barbkess
+origin.date: 03/30/2017
+ms.date: 05/08/2017
+ms.author: v-yeche
 ---
 
 # All topics for Azure SQL Data Warehouse service
@@ -71,7 +71,7 @@ This section lists articles which were updated recently, where the update was bi
 | &nbsp; | Title | Description |
 | ---:|:--- |:--- |
 | 27 |[Manage compute power in Azure SQL Data Warehouse (Overview)](sql-data-warehouse-manage-compute-overview.md) |Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs. |
-| 28 |[Manage compute power in Azure SQL Data Warehouse (Azure portal preview)](sql-data-warehouse-manage-compute-portal.md) |Azure portal preview tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
+| 28 |[Manage compute power in Azure SQL Data Warehouse (Azure Portal)](sql-data-warehouse-manage-compute-portal.md) |Azure Portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
 | 29 |[Manage compute power in Azure SQL Data Warehouse (PowerShell)](sql-data-warehouse-manage-compute-powershell.md) |PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
 | 30 |[Manage compute power in Azure SQL Data Warehouse (REST)](sql-data-warehouse-manage-compute-rest-api.md) |PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs. |
 | 31 |[Manage compute power in Azure SQL Data Warehouse (T-SQL)](sql-data-warehouse-manage-compute-tsql.md) |Transact-SQL (T-SQL) tasks to scale-out performance by adjusting DWUs. Save costs by scaling back during non-peak times. |
@@ -79,7 +79,7 @@ This section lists articles which were updated recently, where the update was bi
 | 33 |[Manage databases in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage.md) |Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage. |
 | 34 |[Monitor user queries in Azure SQL Data Warehouse](sql-data-warehouse-overview-manage-user-queries.md) |Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse |
 | 35 |[SQL Data Warehouse restore](sql-data-warehouse-restore-database-overview.md) |Overview of the database restore options for recovering a database in Azure SQL Data Warehouse. |
-| 36 |[Restore an Azure SQL Data Warehouse (Portal)](sql-data-warehouse-restore-database-portal.md) |Azure portal preview tasks for restoring an Azure SQL Data Warehouse. |
+| 36 |[Restore an Azure SQL Data Warehouse (Portal)](sql-data-warehouse-restore-database-portal.md) |Azure Portal tasks for restoring an Azure SQL Data Warehouse. |
 | 37 |[Restore an Azure SQL Data Warehouse (PowerShell)](sql-data-warehouse-restore-database-powershell.md) |PowerShell tasks for restoring an Azure SQL Data Warehouse. |
 | 38 |[Restore an Azure SQL Data Warehouse (REST API)](sql-data-warehouse-restore-database-rest-api.md) |REST API tasks for restoring an Azure SQL Data Warehouse. |
 

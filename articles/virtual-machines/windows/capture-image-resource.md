@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a managed image in Azure | Azure
 description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
 services: virtual-machines-windows
@@ -14,36 +14,34 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 02/27/2017
+ms.date: 07/10/2017
+ms.author: v-dazen
 
 ---
-# Capture a managed image of a generalized VM in Azure
+# Create a managed image of a generalized VM in Azure
 
-A managed image resource can be created from a generalized VM that is stored as either a managed disk or an unmanaged disks in a storage account. The image can then be used to create multiple VMs that use managed disks for storage. 
+A managed image resource can be created from a generalized VM that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. 
 
-## Prerequisites
-You need to have already [generalized the VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and Stop\deallocatted the VM. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
+## Generalize the Windows VM using Sysprep
 
-## Create a managed image in the portal 
+Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
-1. Open the [portal](https://portal.azure.cn).
-2. Click the plus sign to create a new resource.
-3. In the filter search, type **Image**.
-4. Select **Image** from the results.
-5. In the **Image** blade, click **Create**.
-6. In **Name**, type a name for the image.
-7. If you have more than one subscription, select the correct one from the **Subscription** drop-down.
-7. In **Resource Group** either select **Create new** and type in a name, or select **From existing** and select a resource group to use from the drop-down list.
-8. In **Location**, choose the location of your resource group.
-9. In **OS type** select the type of operating system, either Windows or Linux.
-11. In **Storage blob**, click **Browse** to look for the VHD in your Azure storage.
-12. In **Account type** choose Standard_LRS or Premium_LRS. Standard uses hard-disk drives and Premium uses solid-state drives. Both use locally-redundant storage.
-13. In **Disk caching** select the appropriate disk caching option. The options are **None**, **Read-only** and **Read\write**.
-14. Optional: You can also add an existing data disk to the image by clicking **+ Add data disk**.  
-15. When you are done making your selections, click **Create**.
-16. After the image is created, you will see it as an **Image** resource in the list of resources in the resource group you chose.
+Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
+> 
+> 
+
+1. Sign in to the Windows virtual machine.
+2. Open the Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
+3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
+4. In **Shutdown Options**, select **Shutdown**.
+5. Click **OK**.
+
+    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
 
 ## Create a managed image of a VM using Powershell
 
@@ -54,11 +52,9 @@ Before you begin, make sure that you have the latest version of the AzureRM.Comp
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-
 For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 1. Create some variables. 
-
     ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
@@ -103,7 +99,7 @@ Create a managed image using your generalized OS VHD.
     ```powershell
     $rgName = "myResourceGroupName"
     $vmName = "myVM"
-    $location = "West China North" 
+    $location = "China North" 
     $imageName = "yourImageName"
     $osVhdUri = "https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd"
     ```
@@ -141,9 +137,9 @@ You can also create a managed image from a snapshot of the VHD from a generalize
 
 2. Get the snapshot.
 
-    ```powershell
-    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
-    ```
+   ```powershell
+   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   ```
 
 3. Create the image configuration.
 
@@ -158,4 +154,4 @@ You can also create a managed image from a snapshot of the VHD from a generalize
     ```	
 
 ## Next steps
-- Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

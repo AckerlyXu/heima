@@ -1,24 +1,23 @@
 ---
 title: Use Azure portal to create SQL Database alerts | Azure
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
-author: CarlRabeler
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 services: sql-database
 documentationcenter: ''
 
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
-wacn.date: ''
-ms.author: carlrab
+origin.date: 02/01/2017
+ms.date: 07/03/2017
+ms.author: v-johch
 ---
-
 # Use Azure portal to create alerts for Azure SQL Database
 
 ## Overview
@@ -41,7 +40,7 @@ You can configure and get information about alert rules using
 * [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.cn/), locate the resource you are interested in monitoring and select it.

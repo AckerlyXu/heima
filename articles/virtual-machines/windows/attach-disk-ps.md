@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 02/07/2017
+ms.date: 04/24/2017
+ms.author: v-dazen
 
 ---
 
@@ -25,8 +25,8 @@ ms.author: cynthn
 This article shows you how to attach both new and existing disks to a Windows virtual machine using PowerShell. If your VM uses managed disks, you can attach additional managed data disks. You can also attach unmanaged data disks to a VM that uses unmanaged disks in a storage account.
 
 Before you do this, review these tips:
-* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you'll need a Premium Storage enabled VM size like the DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
@@ -34,7 +34,6 @@ If you use PowerShell, make sure that you have the latest version of the AzureRM
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-
 For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 
 ## Add an empty data disk to a virtual machine
@@ -46,7 +45,7 @@ This example shows how to add an empty data disk to an existing virtual machine.
 ```powershell
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
-$location = 'West China North' 
+$location = 'China North' 
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
@@ -108,7 +107,7 @@ You can also attach an existing VHD as a managed data disk to a virtual machine.
 ```powershell
 $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
-$location = 'West China North' 
+$location = 'China North' 
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk2'
 $dataVhdUri = 'https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/managed_data_disk.vhd' 

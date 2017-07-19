@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2016
-wacn.date: ''
-ms.author: magoedte;bwren
+origin.date: 07/06/2016
+ms.date: 01/03/2017
+ms.author: v-dazen
 
 #Redirection
 redirect_url: /automation/automation-solution-vm-management 
@@ -40,9 +40,9 @@ This scenario consists of two PowerShell Workflow runbooks that you can download
 | Start-AzureVMs |[Start Azure Classic VMs](https://gallery.technet.microsoft.com/Start-Azure-Classic-VMs-86ef746b) |PowerShell Workflow |Starts all classic virtual machines in an Azure subscriptionor all virtual machines with a particular service name. |
 | Stop-AzureVMs |[Stop Azure Classic VMs](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) |PowerShell Workflow |Stops all virtual machines in an automation account or all virtual machines with a particular service name. |
 
-## <a id="installing-and-configuring-the-scenario" name="installing-the-solution"></a> Installing and configuring the scenario
+## Installing and configuring the scenario
 ### 1. Install the runbooks
-After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](/automation/automation-creating-importing-runbook#ImportRunbook).
+After downloading the runbooks, you can import them using the procedure in [Importing a Runbook](/automation/automation-creating-importing-runbook/#ImportRunbook).
 
 ### 2. Review the description and requirements
 The runbooks include commented help text that includes a description and required assets.  You can also get the same information from this article.
@@ -55,7 +55,7 @@ The runbooks require the following assets that you must create and populate with
 | Credential |AzureCredential |Contains credentials for an account that has authority to start and stop virtual machines in the Azure subscription.  Alternatively, you can specify another credential asset in the **Credential** parameter of the **Add-AzureAccount -Environment AzureChinaCloud** activity. |
 | Variable |AzureSubscriptionId |Contains the subscription ID of your Azure subscription. |
 
-## <a id="using-the-scenario" name="using-the-solution"></a> Using the scenario
+## Using the scenario
 ### Parameters
 The runbooks each have the following parameters.  You must provide values for any mandatory parameters and can optionally provide values for other parameters depending on your requirements.
 

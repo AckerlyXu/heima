@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: renash
+ms.author: v-johch
 
 ---
 # Get started with Azure File storage on Windows
@@ -42,7 +42,7 @@ Here's a video that demonstrates how to create and use Azure File shares on Wind
 ## About this tutorial
 This getting started tutorial demonstrates the basics of using Azure File storage. In this tutorial, we will:
 
-* Use Azure portal preview or PowerShell to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
+* Use Azure Portal or PowerShell to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
 * Mount the file share, just as you would mount any SMB share.
 * Use the Azure Storage Client Library for .NET to access the file share from an on-premises application. Create a console application and perform these actions with the file share:
   * Write the contents of a file in the share to the console window.
@@ -54,8 +54,8 @@ This getting started tutorial demonstrates the basics of using Azure File storag
 
 File storage is now supported for all storage accounts, so you can either use an existing storage account, or you can create a new storage account. See [How to create a storage account](storage-create-storage-account.md#create-a-storage-account) for information on creating a new storage account.
 
-## Use the Azure portal preview to manage a file share
-The [Azure portal preview](https://portal.azure.cn) provides a user interface for customers to manage file shares. From the portal, you can:
+## Use the Azure Portal to manage a file share
+The [Azure Portal](https://portal.azure.cn) provides a user interface for customers to manage file shares. From the portal, you can:
 
 * Create your file share
 * Upload and download files to and from your file share
@@ -64,7 +64,7 @@ The [Azure portal preview](https://portal.azure.cn) provides a user interface fo
 * Get the `net use` command to use to mount the file share from a Windows client
 
 ### Create file share
-1. Sign in to the Azure portal preview.
+1. Sign in to the Azure Portal.
 2. On the navigation menu, click **Storage accounts** or **Storage accounts (classic)**.
    
     ![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-0.png)
@@ -125,7 +125,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 Open an Azure PowerShell window by clicking **Start** and typing **Windows PowerShell**. The PowerShell window loads the Azure Powershell module for you.
 
 ### Create a context for your storage account and key
-Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure portal preview](https://portal.azure.cn), see [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure Portal](https://portal.azure.cn), see [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 Replace `storage-account-name` and `storage-account-key` with your storage account name and key in the following example.
 
@@ -207,8 +207,8 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 ### Mount the file share from an Azure virtual machine running Windows
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share.
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure portal preview](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure portal preview](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. First, create a new Azure virtual machine by following the instructions in [Create a Windows virtual machine in the Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Next, remote into the virtual machine by following the instructions in [Log on to a Windows virtual machine using the Azure Portal](../virtual-machines/virtual-machines-windows-connect-logon.md).
 3. Open a PowerShell window on the virtual machine.
 
 ### Persist your storage account credentials for the virtual machine
@@ -561,7 +561,7 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 ## Troubleshooting File storage using metrics
 Azure Storage Analytics now supports metrics for File storage. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for File storage from the [Azure portal preview](https://portal.azure.cn). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+You can enable metrics for File storage from the [Azure Portal](https://portal.azure.cn). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for File storage.
 
@@ -675,7 +675,7 @@ Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoo
 
 18. **How can I enable server side encryption for Azure Files?**
 
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal preview](https://portal.azure.cn). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure Portal](https://portal.azure.cn). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
     We plan to support enabling encryption for file storage with [Azure PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) in the future. 
     See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage.

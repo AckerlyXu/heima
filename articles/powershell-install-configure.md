@@ -13,7 +13,7 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
-ms.author: coreyp
+ms.author: v-junlch
 ---
 
 # How to install and configure Azure PowerShell

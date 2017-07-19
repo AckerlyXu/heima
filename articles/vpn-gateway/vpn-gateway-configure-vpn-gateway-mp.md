@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
-wacn.date: ''
-ms.author: cherylmc
+origin.date: 04/04/2017
+ms.date: 05/22/2017
+ms.author: v-dazen
 
 ---
 # Configure a VPN gateway in the Classic Management Portal 
@@ -27,7 +27,7 @@ If you want to create a secure cross-premises connection between Azure and your 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration overview
-The following steps walk you through configuring your VPN gateway in the Classic Management Portal. These steps apply to gateways for virtual networks that were created using the classic deployment model. Currently, not all of the configuration settings for gateways are available in the Azure portal preview. When they are, we will create a new set of instructions that apply to the Azure portal preview.
+The following steps walk you through configuring your VPN gateway in the Classic Management Portal. These steps apply to gateways for virtual networks that were created using the classic deployment model. Currently, not all of the configuration settings for gateways are available in the Azure portal. When they are, we will create a new set of instructions that apply to the Azure portal.
 
 ### Before you begin
 Before you configure your gateway, you first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md), or [Configure a virtual network with a point-to-site VPN connection](vpn-gateway-point-to-site-create.md). Then, use the following steps to configure the VPN gateway and gather the information you need to configure your VPN device. 
@@ -126,6 +126,6 @@ Before changing your gateway VPN routing type, be sure to verify that your VPN d
     Use the procedure at the top of the page to create a new gateway: [Create a VPN gateway](#create-a-vpn-gateway).
 
 ## Next steps
-You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/windows/classic/createportal.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 If you want to configure a point-to-site VPN connection, see [Configure a point-to-site VPN connection](vpn-gateway-point-to-site-create.md).

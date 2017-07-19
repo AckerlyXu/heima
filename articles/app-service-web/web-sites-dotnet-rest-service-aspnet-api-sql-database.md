@@ -14,9 +14,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/29/2016
-wacn.date: ''
-ms.author: riande
+origin.date: 02/29/2016
+ms.date: 03/28/2017
+ms.author: v-dazen
 
 ---
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
@@ -41,7 +41,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
-<a name="bkmk_setupdevenv"></a>
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### Create the project
@@ -134,9 +133,9 @@ This is all you need to do for now to create the application that you'll deploy 
 
 1. The default browser automatically opens to the URL of the deployed site.
 
-    The application you created is now running in the cloud.
+   The application you created is now running in the cloud.
 
-    ![To Do List home page running in Azure][rxz2]
+   ![To Do List home page running in Azure][rxz2]
 
 ## Add a database to the application
 Next, you'll update the MVC application to add the ability to display and update contacts and store the data in a database. The application will use the Entity Framework to create the database and to read and update data in the database.
@@ -187,7 +186,7 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
     ![Add Controller in Controllers folder context menu][addcode001]
 4. In the **Add Scaffold** dialog box, select **MVC Controller with views, using Entity Framework** and click **Add**.
 
-    ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+   ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 5. Set the controller name to **HomeController**. Select **Contact** as your model class. Click the **New data context** button and accept the default "ContactManager.Models.ContactManagerContext" for the **New data context type**. Click **Add**.
 
     A dialog box will prompt you: "A file with the name HomeController already exits. Do you want to replace it?". Click **Yes**. We are overwriting the Home Controller that was created with the new project. We will use the new Home Controller for our contact list.
@@ -195,7 +194,7 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
     Visual Studio creates controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer
-The next task is to enable the [Code First Migrations](http://curah.microsoft.com/55220) feature in order to create the database based on the data model you created.
+The next task is to enable the Code First Migrations feature in order to create the database based on the data model you created.
 
 1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
 
@@ -452,7 +451,7 @@ The application shows the seed data and provides edit, details and delete links.
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
                    "~/Content/site.css"));
-    To:
+   To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -663,8 +662,6 @@ When you see that the item you enter is saved and appears on the contact manager
 The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
 ## Next Steps
-A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) is based on this tutorial and shows how to deploy a web application with the membership database.
-
 Another way to store data in an Azure application is to use Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
 
 * [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]

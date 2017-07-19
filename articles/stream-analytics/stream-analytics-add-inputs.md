@@ -4,8 +4,8 @@ description: Learn how to hook up a data source to your Stream Analytics job as 
 keywords: data input, streaming data
 documentationcenter: ''
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-wacn.date: ''
-ms.author: jeffstok
+origin.date: 03/28/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
 
 ---
 # Add a streaming data input or reference data to a Stream Analytics job
 Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
 
 Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
-<!-- Not Available on  documentation/learning-paths/stream-analytics/ -->
-<!--This article is a step in the [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/).-->
+<!-- Not Available [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/) even in global ACOM -->
 
 ## Data input: Streaming data and reference data
 There are two distinct types of inputs in Stream Analytics: data streams and reference data.
@@ -42,7 +41,7 @@ To add an input to your Stream Analytics job:
 
     In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
 
-    ![Azure portal - Add data input.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
+    ![Azure portal - Add data input.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
 2. Specify the type of the input: either **Data stream** or **Reference data**.
 
     ![Add the correct data input, streamed or reference](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)  

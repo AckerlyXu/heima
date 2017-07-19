@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
-wacn.date: ''
-ms.author: cynthn
+origin.date: 02/24/2017
+ms.date: 04/27/2017
+ms.author: v-dazen
 
 ---
 # How to detach a disk from a Windows virtual machine
 > [!IMPORTANT]
-> Azure has two distinct deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about how to detach a disk using the Resource Manager model, see [here](../../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure has two distinct deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about how to detach a disk using the Resource Manager model, see [here](../../virtual-machines-windows-detach-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Additional resources
-[About disks and VHDs for virtual machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About disks and VHDs for virtual machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to attach a data disk to a Windows virtual machine](attach-disk.md)

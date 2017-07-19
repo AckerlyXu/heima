@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2016
-ms.author: sashan;carlrab;barbkess
+ms.author: v-johch
 
 ---
 # Learn about SQL Database backups
@@ -78,7 +78,7 @@ Sentence #2 Explains why I should care about this.
 
 -------------------->
 
-SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. If you want to keep backups in your own storage container you can configure a long-term backup retention policy.
+SQL Database automatically creates a database backups and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. These backups are created automatically and at no additional charge. You don't need to do anything to make them happen. Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
 
 <!-- This image needs work, so not putting it in right now.
 
@@ -167,11 +167,13 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
+<!------------------
 ## How to extend the backup retention period?
 If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years.
 
 Once you add the LTR policy to a database using Azure Portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
 The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use Portal or PowerShell to access these backups.
+----------------------->
 
 <!-------------------
 OPTIONAL section

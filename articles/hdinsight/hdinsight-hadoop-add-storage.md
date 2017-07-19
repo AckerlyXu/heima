@@ -13,9 +13,9 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 05/03/2017
-wacn.date: ''
-ms.author: larryfr
+origin.date: 05/15/2017
+ms.date: 07/24/2017
+ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive
 Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster that uses Linux as the operating system.
 
 > [!IMPORTANT]
-> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding additional storage accounts during cluster creation, see the __Use additional storage__ section of the [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage) document.
+> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Hadoop, Spark, and more](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## How it works
 
@@ -62,7 +62,7 @@ __Requirements__:
 
 ## To use the script
 
-See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure portal preview, Azure PowerShell, and the Azure CLI.
+See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure portal, Azure PowerShell, and the Azure CLI.
 
 When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Replace any example parameters with the Azure storage account name and key of the storage account to be added to the cluster.
 
@@ -71,25 +71,33 @@ When using the information provided in the customization document, replace any e
 
 ## Known issues
 
-### Storage accounts not displayed in Azure portal preview or tools
+### Storage accounts not displayed in Azure portal or tools
 
-When viewing the HDInsight cluster in the Azure portal preview, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
+When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
 
 The storage information isn't displayed because the script only modifies the core-site.xml configuration for the cluster. This information is not used when retrieving the cluster information using Azure management APIs.
 
-To view storage account information added to the cluster using this script, use the Ambari REST API. The following command demonstrates how to use [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) and [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) to retrieve and parse JSON data from Ambari:
+To view storage account information added to the cluster using this script, use the Ambari REST API. Use the following commands to retrieve this information for your cluster:
 
-PowerShell
-
-```powershell
-curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"""] | select(. != null)'
+```PowerShell
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+    -Credential $creds
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.chinacloudapi.cn"
 ```
 
-Bash
+> [!NOTE]
+> Set `$clusterName` to the name of the HDInsight cluster. Set `$storageAccountName` to the name of the storage account. When prompted, enter the cluster login (admin) and password.
 
-```bash
-curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"] | select(. != null)'
+```Bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn"] | select(. != null)'
 ```
+
+> [!NOTE]
+> Set `$PASSWORD` to the cluster login (admin) account password. Set `$CLUSTERNAME` to the name of the HDInsight cluster. Set `$STORAGEACCOUNTNAME` to the name of the storage account.
+>
+> This example uses [curl (http://curl.haxx.se/)](http://curl.haxx.se/) and [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) to retrieve and parse JSON data.
 
 When using this command, replace __CLUSTERNAME__ with the name of the HDInsight cluster. Replace __PASSWORD__ with the HTTP login password for the cluster. Replace __STORAGEACCOUNT__ with the name of the storage account added using script action. Information returned from this command appears similar to the following text:
 
@@ -111,7 +119,7 @@ To work around this problem, you must remove the existing entry for the storage 
 
 2. From the list of services on the left of the page, select __HDFS__. Then select the __Configs__ tab in the center of the page.
 
-3. In the __Filter...__ field, enter a value of __fs.azure.account__. This returns entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both contain the name of the storage account as part of the key name. 
+3. In the __Filter...__ field, enter a value of __fs.azure.account__. This returns entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both contain the name of the storage account as part of the key name.
 
     The following are example entries for a storage account named __mystorage__:
 

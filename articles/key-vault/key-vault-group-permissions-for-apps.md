@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
-wacn.date: ''
-ms.author: ambapat
+origin.date: 12/01/2016
+ms.date: 01/05/2017
+ms.author: v-junlch
 ---
 
 # Grant permission to many applications to access a key vault
@@ -26,7 +26,7 @@ Key Vault access control policy only supports 16 entries. However you can create
 
 Here are the pre-requisites:
 - [Install Azure Active Directory V2 PowerShell module](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-- [Install Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+- [Install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 - To run the following commands, you need permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
 
 Now run the following commands in PowerShell.

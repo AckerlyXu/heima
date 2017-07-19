@@ -7,8 +7,10 @@ documentationCenter: na
 manager: stevenpo
 
 ms.service: active-directory
-ms.date: 02/09/2016
-wacn.date: ''
+ms.topic: article
+origin.date: 02/09/2016
+ms.date: 02/06/2017
+ms.author: v-junlch
 ---
 
 #How to debug SAML-based single sign-on to applications in Azure Active Directory
@@ -26,7 +28,6 @@ You can view the SAML token by selecting this line and then selecting the **Insp
 ## Related Articles
 
 - [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](/documentation/articles/active-directory-saas-custom-apps/)
 - [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./active-directory-saml-claims-customization.md)
 
 <!--Image references-->

@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2016
-wacn.date: ''
-ms.author: tarcher
+origin.date: 12/09/2016
+ms.date: 01/25/2017
+ms.author: v-dazen
 
 ---
 # Creating a virtual machine for a web application with Visual Studio

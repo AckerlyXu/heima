@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
-ms.author: dobett
+ms.author: v-yiso
 ---
 
 # Create an IoT hub using the resource provider REST API (.NET)
@@ -160,8 +160,8 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 ## Next steps
 Now you have deployed an IoT hub using the resource provider REST API, you may want to explore further:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
-- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+* Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
+* Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
 
@@ -170,17 +170,17 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-gateway]
+* [Simulating a device with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
-[lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
+[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md

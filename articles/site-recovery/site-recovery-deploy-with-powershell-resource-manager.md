@@ -3,8 +3,8 @@ title: Replicate Hyper-V VMs with PowerShell and Azure Resource Manager | Azure
 description: Automate the replication of Hyper-V VMs to Azure with Azure Site Recovery using PowerShell and Azure Resource Manager.
 services: site-recovery
 documentationcenter: ''
-author: bsiva
-manager: abhiag
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 05e0d76e-c3f5-4845-8052-094019b6d102
@@ -12,21 +12,24 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 02/06/2017
-wacn.date: ''
-ms.author: bsiva
+ms.workload: storage-backup-recovery
+origin.date: 05/31/2017
+ms.date: 07/10/2017
+ms.author: v-yeche
+
 ---
 
 # Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager
 
 > [!div class="op_single_selector"]
->- [Azure Portal](./site-recovery-hyper-v-site-to-azure.md)
->- [PowerShell - Resource Manager](./site-recovery-deploy-with-powershell-resource-manager.md)
->- [Classic Portal](./site-recovery-hyper-v-site-to-azure-classic.md)
+> * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
+> * [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
+> * [Classic Management Portal](site-recovery-hyper-v-site-to-azure-classic.md)
+>
+>
 
 ## Overview
-Azure Site Recovery contributes to your business continuity and disaster recovery strategy by orchestrating replication, failover, and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios, see the [Azure Site Recovery overview](./site-recovery-overview.md).
+Azure Site Recovery contributes to your business continuity and disaster recovery strategy by orchestrating replication, failover, and recovery of virtual machines in a number of deployment scenarios. For a full list of deployment scenarios, see the [Azure Site Recovery overview](site-recovery-overview.md).
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It can work with two types of modules: the Azure Profile module, or the Azure Resource Manager module.
 
@@ -36,6 +39,8 @@ This article describes how to use Windows PowerShell, together with Azure Resour
 
 > [!NOTE]
 > The Site Recovery PowerShell cmdlets currently allow you to configure the following: one Virtual Machine Manager site to another, a Virtual Machine Manager site to Azure, and a Hyper-V site to Azure.
+>
+>
 
 You don't need to be a PowerShell expert to use this article, but you do need to understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/zh-cn/library/hh857337.aspx).
 
@@ -43,19 +48,21 @@ You can also read more about [Using Azure PowerShell with Azure Resource Manager
 
 > [!NOTE]
 > Microsoft partners that are part of the Cloud Solution Provider (CSP) program can configure and manage protection of their customers' servers to their customers' respective CSP subscriptions (tenant subscriptions).
+>
+>
 
 ## Before you start
 Make sure you have these prerequisites in place:
 
-- A [Microsoft Azure](https://azure.cn/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://www.azure.cn/pricing/details/site-recovery/).
-- Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](../powershell-install-configure.md)
-- The [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
+* A [Azure](https://www.azure.cn/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://www.azure.cn/pricing/details/site-recovery/).
+* Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](../powershell-install-configure.md)
+* The [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
 This article illustrates how to use Azure Powershell with Azure Resource Manager to configure and manage protection of your servers. The example used in this article shows you how to protect a virtual machine, running on a Hyper-V host, to Azure. The following prerequisites are specific to this example. For a more comprehensive set of requirements for the various Site Recovery scenarios, refer to the documentation pertaining to that scenario.
 
-- A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more virtual machines.
-- Hyper-V servers connected to the Internet, either directly or through a proxy.
-- The virtual machines you want to protect should conform with [Virtual Machine prerequisites](/documentation/articles/site-recovery-best-practices/#azure-virtual-machine-requirements).
+* A Hyper-V host running Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2 containing one or more virtual machines.
+* Hyper-V servers connected to the Internet, either directly or through a proxy.
+* The virtual machines you want to protect should conform with [Virtual Machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## Step 1: Sign in to your Azure account
 1. Open a PowerShell console and run this command to sign in to your Azure account. The cmdlet brings up a web page that will prompt you for your account credentials.
@@ -64,7 +71,7 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     ```
 
-    Alternately, you could also include your account credentials as a parameter to the `Login-AzureRmAccount` cmdlet, by using the `-Credential` parameter.
+    Alternately, you could also include your account credentials as a parameter to the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` cmdlet, by using the `-Credential` parameter.
 
     If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name.
 
@@ -78,10 +85,10 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-3.  Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, by using the following commands:
+3. Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, by using the following commands:
 
-    - `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    -  `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
+    * `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    * `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
     In the output of these commands, if the **RegistrationState** is set to **Registered**, you can proceed to Step 2. If not, you should register the missing provider in your subscription.
 
@@ -114,7 +121,9 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
     You can retrieve a list of existing vaults by using the `Get-AzureRmRecoveryServicesVault` cmdlet.
 
 > [!NOTE]
-> If you wish to perform operations on Site Recovery vaults created using the classic portal or the Azure Service Management PowerShell module, you can retrieve a list of such vaults by using the `Get-AzureRmSiteRecoveryVault` cmdlet. You should create a new Recovery Services vault for all new operations. The Site Recovery vaults you've created earlier are supported, but don't have the latest features.
+> If you wish to perform operations on Site Recovery vaults created using the Classic Management Portal or the Azure Service Management PowerShell module, you can retrieve a list of such vaults by using the `Get-AzureRmSiteRecoveryVault` cmdlet. You should create a new Recovery Services vault for all new operations. The Site Recovery vaults you've created earlier are supported, but don't have the latest features.
+>
+>
 
 ## Step 3: Set the Recovery Services vault context
 
@@ -147,7 +156,7 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 ## Step 5: Install the Azure Site Recovery provider and Azure Recovery Services Agent on your Hyper-V host
 
-1. Download the installer for the latest version of the Provider from [here](https://aka.ms/downloaddra)
+1. Download the installer for the latest version of the provider from [Microsoft](https://aka.ms/downloaddra).
 
 2. Run the installer on your Hyper-V host, and at the end of the installation continue to the registration step.
 
@@ -165,11 +174,11 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
     ```
     $ReplicationFrequencyInSeconds = "300";    	#options are 30,300,900
-    $PolicyName = “replicapolicy”
+    $PolicyName = "replicapolicy"
     $Recoverypoints = 6            		#specify the number of recovery points
     $storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
 
-    $PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
+    $PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider "HyperVReplicaAzure" -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
     ```
 
     Check the returned job to ensure that the replication policy creation succeeds.
@@ -177,9 +186,11 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
     >[!IMPORTANT]
     > The storage account specified should be in the same Azure region as your Recovery Services vault, and should have geo-replication enabled.
     >
-    > - If the specified Recovery storage account is of type Azure Storage (Classic), failover of the protected machines recover the machine to Azure IaaS (Classic).
-    > - If the specified Recovery storage account is of type Azure Storage (Azure Resource Manager), failover of the protected machines recover the machine to Azure IaaS (Azure Resource Manager).
-
+    > * If the specified Recovery storage account is of type Azure Storage (Classic), failover of the protected machines recover the machine to Azure IaaS (Classic).
+    > * If the specified Recovery storage account is of type Azure Storage (Azure Resource Manager), failover of the protected machines recover the machine to Azure IaaS (Azure Resource Manager).
+    >
+    >
+    
 2. Get the protection container corresponding to the site, as follows:
 
     ```
@@ -213,11 +224,12 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
     >[!IMPORTANT]
     > The storage account specified should be in the same Azure region as your Recovery Services vault, and should have geo-replication enabled.
     >
-    > - If the specified Recovery storage account is of type Azure Storage (Classic), failover of the protected machines recover the machine to Azure IaaS (Classic).
-    > - If the specified Recovery storage account is of type Azure Storage (Azure Resource Manager), failover of the protected machines recover the machine to Azure IaaS (Azure Resource Manager).
-
+    > * If the specified Recovery storage account is of type Azure Storage (Classic), failover of the protected machines recover the machine to Azure IaaS (Classic).
+    > * If the specified Recovery storage account is of type Azure Storage (Azure Resource Manager), failover of the protected machines recover the machine to Azure IaaS (Azure Resource Manager).
+    >
     > If the VM you are protecting has more than one disk attached to it, specify the operating system disk by using the *OSDiskName* parameter.
-
+    >
+    >
 3. Wait for the virtual machines to reach a protected state after the initial replication. This can take a while, depending on factors such as the amount of data to be replicated and the available upstream bandwidth to Azure. The job State and StateDescription are updated as follows, upon the VM reaching a protected state.
 
     ```

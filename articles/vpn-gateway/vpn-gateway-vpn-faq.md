@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-wacn.date: ''
-ms.author: cherylmc
+origin.date: 05/30/2017
+ms.date: 07/17/2017
+ms.author: v-dazen
 
 ---
 # VPN Gateway FAQ
@@ -103,11 +103,11 @@ We are limited to using pre-shared keys (PSK) for authentication.
 #### Resource Manager deployment model
 
 * PowerShell: use "AddressPrefix" to specify traffic for the local network gateway.
-* Azure portal preview: navigate to the Local network gateway > Configuration > Address space.
+* Azure portal: navigate to the Local network gateway > Configuration > Address space.
 
 #### Classic deployment model
 
-* Azure portal preview: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
+* Azure portal: navigate to the classic virtual network > VPN connections > Site-to-site VPN connections > Local site name > Local site > Client address space. 
 * Classic Management Portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Forced Tunneling?
@@ -191,6 +191,10 @@ Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to mu
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
+
+## IPsec/IKE policy
+
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
 ## <a name="bgp"></a>BGP
 

@@ -3,8 +3,8 @@ title: Azure SQL Data Warehouse - get started tutorial | Azure
 description: This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You'll also learn the basics about scaling, pausing, and tuning. 
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokib
-manager: johnmac
+author: rockboyfor
+manager: digimobile
 editor: barbkess
 
 ms.assetid: 52DFC191-E094-4B04-893F-B64D5828A900
@@ -14,9 +14,9 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-wacn.date: ''
-ms.author: elbutter;barbkess
+origin.date: 01/26/2017
+ms.date: 07/17/2017
+ms.author: v-yeche
 
 ---
 # Get started with SQL Data Warehouse
@@ -32,8 +32,8 @@ The tutorial assumes you are familiar with SQL Data Warehouse basic concepts. If
 ### Sign up for Azure
 If you don't already have a Azure account, you need to sign up for one to use this service. If you already have an account, you may skip this step. 
 
-1. Navigate to the account pages [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
-2. Create a free Azure account, or purchase an account.
+1. Navigate to the account pages [https://www.azure.cn/pricing/1rmb-trial/](https://www.azure.cn/pricing/1rmb-trial/)
+2. Create a trial Azure account, or purchase an account.
 3. Follow the instructions
 
 ### Install appropriate SQL client drivers and tools
@@ -70,7 +70,7 @@ A SQL Data Warehouse is a special type of database that is designed for massivel
 
     **Resource Group**: Create a resource group or use an existing resource group.
     > [!NOTE]
-    > Resource groups are useful for resource administration such as scoping access control and templated deployment. Read more about Azure resource groups and best practices [here](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+    > Resource groups are useful for resource administration such as scoping access control and templated deployment. Read more about Azure resource groups and best practices [here](/azure-resource-manager/resource-group-overview#resource-groups)
 
     **Source**: Blank Database
 
@@ -110,7 +110,7 @@ If all goes correctly, you should now be connected to your logical SQL server. S
 
 There is only one server admin account and it has the most privileges of any user. Be careful not to allow too many people in your organization to know the admin password. 
 
-You can also have an Azure active directory admin account. We don't provide the details here. If you want to learn more about using Azure Active Directory authentication, see [Azure AD authentication](/azure/sql-database/sql-database-aad-authentication).
+You can also have an Azure active directory admin account. We don't provide the details here. If you want to learn more about using Azure Active Directory authentication, see [Azure AD authentication](/sql-database/sql-database-aad-authentication).
 
 Next, we explore creating additional logins and users.
 
@@ -173,7 +173,6 @@ Since you are currently logged in as the server admin you have permissions to cr
 
     ![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
-
 ## Load data from Azure blob storage
 
 You are now ready to load data into your data warehouse. This step shows you how to load Beijing City taxi cab data from a public Azure storage blob. 
@@ -225,7 +224,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
             STRING_DELIMITER = '',
-	    DATE_FORMAT = '',
+        DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -500,7 +499,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -532,7 +531,6 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 
     ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
-
 ## Improve query performance
 
 There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
@@ -560,7 +558,7 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > [!NOTE]
     > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
     >
-    
+
 5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
 
     ```sql
@@ -569,6 +567,9 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
 6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
 
 7. Run the query again! You should notice a significant difference. 
+
+    > [!NOTE]
+    > Because the query returns a lot of data, the bandwidth availability of the machine running SSMS may be a performance bottleneck. This can result in you not seeing any performance improvements!
 
 > [!NOTE]
 > Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
@@ -663,4 +664,4 @@ savings by pausing and scaling to meet your business needs.
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/
-[SQL Server Management Studio]: https://msdn.microsoft.com/library/mt238290.aspx
+[SQL Server Management Studio]: https://msdn.microsoft.com/zh-cn/library/mt238290.aspx

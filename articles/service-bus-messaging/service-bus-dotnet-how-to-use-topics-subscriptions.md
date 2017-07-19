@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 03/23/2017
-ms.author: sethm
+ms.author: v-yiso
 ---
 # How to use Service Bus topics and subscriptions
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
@@ -97,7 +97,7 @@ When using websites or Virtual Machines, it is recommended that you use the .NET
 Use the SAS name and key values that you retrieved from the [Azure portal][Azure portal], as described previously.
 
 ## Create a topic
-You can perform management operations for Service Bus topics and subscriptions using the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) class. This class provides methods to create, enumerate, and delete topics.
+You can perform management operations for Service Bus topics and subscriptions using the [NamespaceManager](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager) class. This class provides methods to create, enumerate, and delete topics.
 
 The following example constructs a `NamespaceManager` object using the Azure `CloudConfigurationManager` class
 with a connection string consisting of the base address of a Service Bus namespace and the appropriate
@@ -180,7 +180,7 @@ You can also set up filters that enable you to specify which messages sent to a 
 
 The most flexible type of filter supported by subscriptions is the [SqlFilter][SqlFilter] class, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
-The following example creates a subscription named **HighMessages** with a [SqlFilter][SqlFilter] object that only selects messages that have a custom **MessageNumber** property greater than 3.
+The following example creates a subscription named **HighMessages** with a [SqlFilter][SqlFilter] object that only selects messages that have a custom [MessageId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property greater than 3.
 
 ```csharp
 // Create a "HighMessages" filtered subscription.
@@ -192,7 +192,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Similarly, the following example creates a subscription named **LowMessages** with a [SqlFilter][SqlFilter] that only selects messages that have a **MessageNumber** property less than or equal to 3.
+Similarly, the following example creates a subscription named **LowMessages** with a [SqlFilter][SqlFilter] that only selects messages that have a [MessageId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property less than or equal to 3.
 
 ```csharp
 // Create a "LowMessages" filtered subscription.
@@ -222,7 +222,7 @@ Client.Send(new BrokeredMessage());
 ```
 
 Messages sent to Service Bus topics are instances of the [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) class. **BrokeredMessage** objects have a set of
-standard properties (such as [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) and [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object to the constructor of the **BrokeredMessage** object, and the appropriate **DataContractSerializer** is then used to serialize the object. Alternatively, a **System.IO.Stream** object can be provided.
+standard properties (such as [Label](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) and [TimeToLive](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object to the constructor of the **BrokeredMessage** object, and the appropriate **DataContractSerializer** is then used to serialize the object. Alternatively, a **System.IO.Stream** object can be provided.
 
 The following example demonstrates how to send five test messages to the **TestTopic** [TopicClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient) object obtained in the previous code example. Note that the [MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property value of each message varies depending on the iteration of the loop (this determines which subscriptions receive it).
 
@@ -299,7 +299,7 @@ There is also a time-out associated with a message locked within the subscriptio
 
 In the event that the application crashes after processing the message but before the [Complete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) request is issued, the message will be redelivered to the application when it restarts. This is often called *At Least Once processing*; that is, each message is processed at least once but in certain situations the same message may be
 redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the
-[MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property of the message, which remains constant across delivery attempts.
+[MessageId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) property of the message, which remains constant across delivery attempts.
 
 ## Delete topics and subscriptions
 The following example demonstrates how to delete the topic **TestTopic** from the **HowToSample** service namespace.

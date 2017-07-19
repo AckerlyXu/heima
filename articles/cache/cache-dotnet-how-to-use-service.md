@@ -8,8 +8,10 @@ manager: dwrede
 editor: ''
 
 ms.service: cache
-ms.date: 08/18/2015
-wacn.date: ''
+ms.topic: article
+origin.date: 08/18/2015
+ms.date: 06/21/2017
+ms.author: v-yiso
 ---
 
 # How to Use Azure Managed Cache Service

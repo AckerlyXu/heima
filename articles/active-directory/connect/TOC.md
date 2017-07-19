@@ -42,7 +42,7 @@
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md)
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2factive-directory%2faad-connect%2ftoc.json)
 #### [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [Metaverse designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [Metaverse search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
@@ -74,12 +74,6 @@
 ### [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)
 ### [Technical Concepts](active-directory-aadconnectsync-technical-concepts.md)
 ### [Service features](active-directory-aadconnectsyncservice-features.md)
-
-
-
-
-# Related
-## [Hybrid Identity Design Guide](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
 # Resources

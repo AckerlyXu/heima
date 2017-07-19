@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Managing Pools in Batch | Microsoft Docs
 description: Azure CLI Script Sample - Managing Pools in Batch
 services: batch
 documentationcenter: ''
-author: annatisch
-manager: daryls
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 
 ms.assetid:
@@ -13,8 +13,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: antisch
+origin.date: 05/02/2017
+ms.date: 07/04/2017
+ms.author: v-junlch
 ---
 
 # Managing Azure Batch pools with Azure CLI
@@ -22,25 +23,24 @@ ms.author: antisch
 These script demonstrates some of the tools available in the Azure CLI to create and
 manage pools of compute nodes in the Azure Batch service.
 
-Running these scripts assumes that a Batch account has already been set up and an application
-configured. For more information, please see the [sample scripts](../batch-cli-samples.md) covering
-each of these topics.
-
 > [!NOTE]
 > The commands in this sample create Azure virtual machines. Running VMs will accrue charges to your account. To minimize these charges, delete the VMs once you're done running the sample. See [Clean up pools](#clean-up-pools).
 
-If needed, install the Azure CLI using the instructions found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), 
-and then run `az login` to log into Azure.
-
 Batch pools can be configured in two ways, either with a Cloud Services configuration (Windows only),
-or a Virtual Machine configuration (Windows and Linux).
+or a Virtual Machine configuration (Windows and Linux). The sample scripts below show how to create pools with both configurations.
+
+## Prerequisites
+
+- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
+- Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](/batch/scripts/batch-cli-sample-create-account/) for a sample script that creates an account.
+- Configure an application to run from a start task if you haven't yet done so. See [Adding applications to Azure Batch with Azure CLI](/batch/scripts/batch-cli-sample-add-application/) for a sample script that creates an application and uploads an application package to Azure.
 
 ## Pool with cloud service configuration sample script
 ```azurecli
 #!/bin/bash
 
 # Authenticate Batch account CLI session.
-az batch account login -g myresource group -n mybatchaccount
+az batch account login -g myresourcegroup -n mybatchaccount
 
 # We want to add an application package reference to the pool, so first
 # we'll list the available applications.
@@ -80,7 +80,7 @@ az batch pool autoscale disable --pool-id mypool-windows
 #!/bin/bash
 
 # Authenticate Batch account CLI session.
-az batch account login -g myresource group -n mybatchaccount
+az batch account login -g myresourcegroup -n mybatchaccount
 
 # Retrieve a list of available images and node agent SKUs.
 az batch pool node-agent-skus list
