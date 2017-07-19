@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/04/2017
-ms.date: 06/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -75,6 +75,7 @@ You can add as many NICs to a VM as the VM size you're adding NICs to supports. 
 |---|---|
 |CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add)|
 |PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Detailed steps to [add a NIC to a VM](../virtual-machines/windows/multiple-nics.md#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a> View NICs for a VM
 
@@ -102,7 +103,7 @@ The VM you want to remove a NIC from must be in the stopped (deallocated) state 
 |---|---|
 |CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove)|
 |PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
+|Detailed steps to [remove a NIC to a VM](../virtual-machines/windows/multiple-nics.md#remove-a-nic-from-an-existing-vm)|
 ## <a name="next-steps"></a>Next steps
 To create a VM with multiple NICs or IP addresses, read the following articles:
 

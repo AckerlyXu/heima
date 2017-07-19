@@ -3,7 +3,7 @@ title: Configuration FAQs for Azure web apps | Azure
 description: Get answers to frequently asked questions about configuration and management issues for the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---

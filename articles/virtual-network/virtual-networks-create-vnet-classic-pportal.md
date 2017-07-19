@@ -1,6 +1,6 @@
 ---
-title: Create a virtual network using the Azure portal | Azure
-description: Learn how to create a virtual network using the Azure portal.
+title: Create a virtual network (classic) using the Azure portal | Azure
+description: Learn how to create a virtual network (classic) using the Azure portal.
 services: virtual-network
 documentationcenter: ''
 author: jimdial

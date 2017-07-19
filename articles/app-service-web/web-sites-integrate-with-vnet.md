@@ -19,13 +19,13 @@ ms.author: v-dazen
 
 ---
 # Integrate your app with an Azure Virtual Network
-This document describes the Azure App Service virtual network integration feature and shows how to set it up with apps in [Azure App Service](/app-service-web/app-service-changes-existing-services).  If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet routeable network that you control access to.  These networks can then be connected to your on premise networks using a variety of VPN technologies.  To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview][VNETOverview].  
+This document describes the Azure App Service virtual network integration feature and shows how to set it up with apps in [Azure App Service](/app-service-web/app-service-changes-existing-services).  If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet routeable network that you control access to.  These networks can then be connected to your on-premises networks using a variety of VPN technologies.  To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview][VNETOverview].  
 
 In Azure China, the Azure App Service has only one form.  
 
 * The multi-tenant systems that support the full range of pricing plans
 
-VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network.
+VNET Integration gives your web app access to resources in your virtual network but does not grant private access to your web app from the virtual network. 
 
 A common scenario where you would use VNET Integration is enabling access from your web app to a database or a web services running on a virtual machine in your Azure virtual network.  With VNET Integration you don't need to expose a public endpoint for applications on your VM but can use the private non-internet routable addresses instead.  
 
@@ -90,6 +90,7 @@ If your VNET does not have a gateway nor has Point to Site then you have to set 
 
 ##### Enabling Point to Site in a Resource Manager VNET
 To configure a Resource Manager VNET with a gateway and Point to Site, you can use either PowerShell as documented here, [Configure a Point-to-Site connection to a virtual network using PowerShell][V2VNETP2S] or use the Azure Portal as documented here, [Configure a Point-to-Site connection to a VNet using the Azure Portal][V2VNETPortal].  The UI to perform this capability is not yet available. 
+Note that you will not need to create certificates for the Point to Site configuration. This will be automatically configured when you connect your WebApp to the VNET. 
 
 ### Creating a pre-configured VNET
 If you want to create a new VNET that is configured with a gateway and Point-to-Site, then the App Service networking UI has the capability to do that but only for a Resource manager VNET.  If you wish to create a Classic VNET with a gateway and Point-to-Site then you need to do this manually through the Networking user interface. 
@@ -146,7 +147,7 @@ The information you now have available to you in the app level VNET Integration 
 * Gateway Status - Should your gateways be down for whatever reason then your app cannot access resources in the VNET.  
 * VNET address space - This is the IP address space for your VNET.  
 * Point to Site address space - This is the point to site IP address space for your VNET.  Your app will show communication as coming from one of the IPs in this address space.  
-* Site to site address space - You can use Site to Site VPNs to connect your VNET to your on premise resources or to other VNETs.  Should you have that configured then the IP ranges defined with that VPN connection will show here.
+* Site to site address space - You can use Site to Site VPNs to connect your VNET to your on-premises resources or to other VNETs.  Should you have that configured then the IP ranges defined with that VPN connection will show here.
 * DNS Servers - If you have DNS Servers configured with your VNET then they are listed here.
 * IPs routed to the VNET - There are a list of IP addresses that your VNET has routing defined for.  Those addresses will show here.  
 
@@ -173,11 +174,11 @@ As noted earlier the routes that are defined in your VNET are what is used for d
 The Certificate Status reflects a check being performed by the App Service to validate that the certificates that we are using for the VPN connection are still good.  When VNET Integration enabled, then if this is the first integration to that VNET from any apps in this ASP, there is a required exchange of certificates to ensure the security of the connection.  Along with the certificates we get the DNS configuration, routes and other similar things that describe the network.
 If those certificates or network information is changed then you will need to click "Sync Network".  **NOTE**: When you click "Sync Network" then you will cause a brief outage in connectivity between your app and your VNET.  While your app will not be restarted the loss of connectivity could cause your site to not function properly.  
 
-## Accessing on premise resources
-One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
+## Accessing on-premises resources
+One of the benefits of the VNET Integration feature is that if your VNET is connected to your on-premises network with a Site to Site VPN then your apps can have access to your on-premises resources from your app.  For this to work though you may need to update your on-premises VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
 > [!NOTE]
-> While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a Classic or Resource Manager VNET.
+> The VNET Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in [coexistence mode][VPNERCoex] it will not work.
 > 
 > 
 
@@ -246,15 +247,15 @@ Additional debug steps include:
 * log onto another VM in your VNET and attempt to reach your resource host:port from there.  There are some TCP ping utilities that you can use for this purpose or can even use telnet if need be.  The purpose here is just to determine if connectivity is there from this other VM. 
 * bring up an application on another VM and test access to that host and port from the console from your app  
 
-####On premise resources####
-If your cannot reach resources on premise then the first thing you should check is if you can reach a resource in your VNET.  If that is working then the next steps are pretty easy.  From a VM in your VNET you need to try to reach the on premise application.  You can use telnet or a TCP ping utility.  If your VM can't reach your on premise resource then first make sure your Site to Site VPN connection is working.  If it is working then check the same things noted earlier as well as the on premise gateway configuration and status.  
+####on-premises resources####
+If your cannot reach resources on-premises then the first thing you should check is if you can reach a resource in your VNET.  If that is working then the next steps are pretty easy.  From a VM in your VNET you need to try to reach the on-premises application.  You can use telnet or a TCP ping utility.  If your VM can't reach your on-premises resource then first make sure your Site to Site VPN connection is working.  If it is working then check the same things noted earlier as well as the on-premises gateway configuration and status.  
 
-Now if your VNET hosted VM can reach your on premise system but your app can't then the reason is likely one of the following:
+Now if your VNET hosted VM can reach your on-premises system but your app can't then the reason is likely one of the following:
 
-* your routes are not configured with your point to site IP ranges in your on premise gateway
+* your routes are not configured with your point to site IP ranges in your on-premises gateway
 * your network security groups are blocking access for your Point to Site IP range
-* your on premise firewalls are blocking traffic from your Point to Site IP range
-* you have a User Defined Route(UDR) in your VNET that prevents your Point to Site based traffic from reaching your on premise network
+* your on-premises firewalls are blocking traffic from your Point to Site IP range
+* you have a User Defined Route(UDR) in your VNET that prevents your Point to Site based traffic from reaching your on-premises network
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
@@ -267,11 +268,12 @@ Now if your VNET hosted VM can reach your on premise system but your app can't t
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
 
 <!--Links-->
-[VNETOverview]: https:/www.azure.cn/documentation/articles/virtual-networks-overview/ 
+[VNETOverview]: https://www.azure.cn/documentation/articles/virtual-networks-overview/ 
 [AzurePortal]: http://portal.azure.cn/
 [ASPricing]: https://www.azure.cn/pricing/details/app-service/
 [VNETPricing]: https://www.azure.cn/pricing/details/vpn-gateway/
 [DataPricing]: https://www.azure.cn/pricing/details/data-transfer/
-[V2VNETP2S]: https:/www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
-[IntPowershell]: https:/www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
+[V2VNETP2S]: https://www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[IntPowershell]: https://www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
 [V2VNETPortal]: /vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: /expressroute/expressroute-howto-coexist-resource-manager

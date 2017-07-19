@@ -3,7 +3,7 @@ title: Deployment FAQs for Azure web apps | Azure
 description: Get answers to frequently asked questions about deployment for the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -63,7 +63,7 @@ You can set up continuous deployment from GitHub. [Continuous deployment to App 
 
 ## How do I troubleshoot issues with continuous deployment from GitHub?
 
-For help investigating issues with continuous deployment from GitHub or Bitbucket, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
+For help investigating issues with continuous deployment from GitHub, see [Investigating continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
 ## I can't FTP to my site and publish my code. How do I resolve this?
 
