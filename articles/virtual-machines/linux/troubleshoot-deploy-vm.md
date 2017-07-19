@@ -57,19 +57,7 @@ To activate your monthly  credit, see this [article](https://azure.microsoft.com
 
 ## Why can I not install the GPU driver for an Ubuntu NV VM?
 
-Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. For more information, see [Set up GPU drivers for N-series VMs running Linux](n-series-driver-setup.md).
-
-## My drivers are missing for my Linux N-Series VM
-
-Drivers for Linux-based VMs are located [here](n-series-driver-setup.md). 
-
-## I can't find a GPU instance within my N-Series VM
-
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](n-series-driver-setup.md).
-
-## Is N-Series VMs available in my region?
-
-You can check the availability from the [Products available by region table](https://azure.microsoft.com/regions/services), and pricing [here](https://www.azure.cn/pricing/details/virtual-machines/series/#n-series).
+Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. However, N Series are not available yet in Azure China.
 
 ## I am not able to see VM Size family that I want when resizing my VM.
 

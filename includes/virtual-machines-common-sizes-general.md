@@ -6,7 +6,7 @@
 
 - Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
-- The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see [Sizes for virtual machines](virtual-machines-size-specs.md) and for VM pricing information, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
+- The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see [Sizes for virtual machines](../articles/virtual-machines/windows/sizes.md) and for VM pricing information, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
 
 ## DSv2-series
 

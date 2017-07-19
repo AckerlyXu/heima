@@ -51,10 +51,6 @@ productPesIds="1234, 5678"
     - Create a VM in a different availability set (in the same region).
     - Add the new VM to the same virtual network.
 
-## How can I use and deploy a windows client image into Azure?
-
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios if you have an appropriate Visual Studio (formerly MSDN) subscription. This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and uses of the Azure Gallery images.
-
 ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
 
 There are a couple of different ways to deploy Windows virtual machines with the Azure Hybrid Use Benefit.
@@ -73,42 +69,7 @@ For more information, see the following resources:
 
  - [Downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
- - [Azure Hybrid Use Benefit for Windows Server and Windows Client](hybrid-use-benefit-licensing.md).
-
  - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
-
-## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)
-
-To activate your monthly  credit, see this [article](https://azure.microsoft.com/offers/ms-azr-0064p/).
-
-## How to add Enterprise Dev/Test to my Enterprise Agreement (EA) to get access to Window client images?
-
-The ability to create subscriptions based on the Enterprise Dev/Test offer is restricted to Account Owners who have been given permission to do so by an Enterprise Administrator. The Account Owner creates subscriptions via the Azure Account Portal, and then should add active Visual Studio subscribers as co-administrators. So that they can manage and use the resources needed for development and testing. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
-
-## My drivers are missing for my Windows N-Series VM
-
-Drivers for Windows-based VMs are located [here](n-series-driver-setup.md).
-
-## I can't find a GPU instance within my N-Series VM
-
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
-
-## Are client images supported for N-Series?
-
-Currently, Azure only supports N-Series on VMs running Windows Server and Linux operating systems.
-
-## Is N-Series VMs available in my region?
-
-You can check the availability from the [Products available by region table](https://azure.microsoft.com/regions/services), and pricing [here](https://www.azure.cn/pricing/details/virtual-machines/series/#n-series).
-
-## What client images can I use and deploy in Azure, and how to I get them?
-
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
-
-- Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](client-images.md#eligible-offers). 
-- Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-image.md). The use remains limited to dev/test by active Visual Studio subscribers.
-
-This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 ## I am not able to see VM Size family that I want when resizing my VM.
 
