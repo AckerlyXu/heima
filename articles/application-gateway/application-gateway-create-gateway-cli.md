@@ -134,6 +134,7 @@ az network application-gateway create \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
+--public-ip-address AdatumAppGatewayPIP \
 --frontend-port 443 \
 --routing-rule-type Basic \
 --http-settings-port 80
