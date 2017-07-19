@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/09/2017
-ms.date: 05/31/2017
+origin.date: 07/03/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ms.custom: na
 
@@ -422,7 +422,7 @@ Yes. A Network Security Group can be applied directly to a scale set by referenc
 
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
-To do a VIP swap for virtual machine scale sets in the same subscription and same region, see [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/).
+If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. Another option is to host your application with [Azure App service](https://www.azure.cn/home/features/app-service/) which provides support for fast switching between staging and production slots.
 
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -437,6 +437,28 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 ### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
 
 To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [ARM: Get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+
+### How can I configure the DNS servers used by a scale set?
+
+To create a VM scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
+```json
+    "dnsSettings":{
+        "dnsServers":["10.0.0.6", "10.0.0.5"]
+    }
+```
+
+### How can I configure a scale set to assign a public IP address to each VM?
+
+To create a VM scale set that assigns a public IP address to each VM, make sure the API version of the Microsoft.Compute/virtualMAchineScaleSets resource is 2017-03-30, and add a _publicipaddressconfiguration_ JSON packet to the scale set ipConfigurations section. Example:
+
+```json
+    "publicipaddressconfiguration": {
+        "name": "pub1",
+        "properties": {
+        "idleTimeoutInMinutes": 15
+        }
+    }
+```
 
 ## Scale
 

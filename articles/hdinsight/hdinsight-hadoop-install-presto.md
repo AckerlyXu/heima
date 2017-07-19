@@ -43,7 +43,7 @@ This section provides instructions on how to use the sample script when creating
 
     a. It must be a Hadoop cluster with HDInsight version 3.5.
 
-    b. It must use Azure Storage as the data store.
+    b. It must use Azure Storage as the data store. 
 
     ![HDInsight cluster creation using custom options](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 

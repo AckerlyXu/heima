@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/30/2017
-ms.date: 07/24/2017
+origin.date: 07/03/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -36,8 +36,6 @@ You can create a scale set in the [Azure portal](https://portal.azure.cn) by sel
 You can define and deploy scale sets by using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx), just like individual Azure Resource Manager VMs. Therefore, you can use any standard Azure Resource Manager deployment methods. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 You can find a set of example templates for virtual machine scale sets in the [Azure Quickstart templates GitHub repository](https://github.com/Azure/azure-quickstart-templates). (Look for templates with **vmss** in the title.)
-
-A button links to the portal deployment feature in the detail pages for these templates. To deploy the scale set, click the button and then fill in any parameters that are required in the portal. If you are not sure whether a resource supports uppercase or mixed case, it's safer to use lowercase letters and numbers in parameter values. [VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player) is a handy video dissection of a scale set template.
 
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
@@ -71,7 +69,7 @@ The [Azure portal](https://portal.azure.cn) lists scale sets and shows their pro
 ## Scale set scenarios
 This section lists some typical scale set scenarios. Some higher-level Azure services (like Batch, Service Fabric, and Container Service) use these scenarios.
 
-* **Use RDP or SSH to connect to scale set instances**: A scale set is created inside a virtual network, and individual VMs in the scale set are not allocated public IP addresses. This policy avoids the expense and management overhead of allocating separate public IP addresses to all the nodes in your compute grid. You can connect to these VMs from other resources in your virtual network--for example, load balancers and standalone virtual machines--that can be allocated public IP addresses.
+* **Use RDP or SSH to connect to scale set instances**: A scale set is created inside a virtual network, and individual VMs in the scale set are not allocated public IP addresses by default. This policy avoids the expense and management overhead of allocating separate public IP addresses to all the nodes in your compute grid. If you do need direct external connections to scale set VMs, you can configure a scale set to automatically assign public IP addresses to new VMs. Alternatively you can connect to VMs from other resources in your virtual network that can be allocated public IP addresses, for example, load balancers and standalone virtual machines. 
 * **Connect to VMs by using NAT rules**: You can create a public IP address, assign it to a load balancer, and define an inbound NAT pool. These actions map ports on the IP address to a port on a VM in the scale set. For example:
 
   | Source | Source port | Destination | Destination port |

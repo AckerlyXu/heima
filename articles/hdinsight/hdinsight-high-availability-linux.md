@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/03/2017
-ms.date: 06/05/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -30,7 +30,7 @@ Hadoop achieves high availability and reliability by replicating services and da
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Availability and reliability of nodes
 

@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/14/2017
-ms.date: 05/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -27,7 +27,7 @@ ms.author: v-dazen
 Learn how to interactively run Pig jobs from an SSH connection to your HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
 > [!IMPORTANT]
-> The steps in this document require a Linux-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> The steps in this document require a Linux-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>Connect with SSH
 

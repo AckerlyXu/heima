@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/14/2017
-ms.date: 05/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -46,7 +46,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Requirements**
 

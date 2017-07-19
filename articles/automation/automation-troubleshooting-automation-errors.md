@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/24/2017
-ms.date: 03/28/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -57,8 +57,8 @@ In order to determine if you have properly authenticated to Azure and have acces
 1. Make sure that you run the **Add-AzureAccount -Environment AzureChinaCloud** before running the **Select-AzureSubscription** cmdlet.  
 2. If you still see this error message, modify your code by adding the **Get-AzureSubscription** cmdlet following the **Add-AzureAccount -Environment AzureChinaCloud** cmdlet and then execute the code.  Now verify if the output of Get-AzureSubscription contains your subscription details.  
 
-    * If you don't see any subscription details in the output, this means that the subscription isn't initialized yet.  
-    * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
+   * If you don't see any subscription details in the output, this means that the subscription isn't initialized yet.  
+   * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
 ### Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 **Error:**
@@ -68,9 +68,27 @@ You receive the error "Add-AzureAccount: AADSTS50079: Strong authentication enro
 If you have multi-factor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
 
 **Troubleshooting tips:**
-To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Common errors when working with runbooks
+### Scenario: The runbook job start was attempted three times, but it failed to start each time
+**Error:**
+Your runbook fails with the error ""The job was tried three times but it failed."
+
+**Reason for the error:**
+This error can be caused by the following reasons:  
+
+1. Memory Limit.  We have documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure-subscription-service-limits.md#automation-limits) so a job may fail it if is using more than 400 MB of memory. 
+
+2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a "Command not found" or "Cannot bind parameter" message. 
+
+**Troubleshooting tips:**
+Any of the following solutions will fix the problem:  
+
+* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
+
+* You need to update your Azure modules.  
+
 ### Scenario: Runbook fails because of deserialized object
 **Error:**
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``".
@@ -89,7 +107,7 @@ Any of the following three solutions will fix this problem:
 Your runbook job fails with the error "The quota for the monthly total job run time has been reached for this subscription".
 
 **Reason for the error:**
-This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks such as testing a job, starting a job from the portal, executing a job by using webhooks and scheduling a job to execute by using either the Azure Classic Management Portal or in your datacenter. To learn more about pricing for Automation see [Automation pricing](https://www.azure.cn/pricing/details/automation/).
+This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks such as testing a job, starting a job from the portal, and scheduling a job to execute by using either the Azure Classic Management Portal or in your datacenter. To learn more about pricing for Automation see [Automation pricing](https://www.azure.cn/pricing/details/automation/).
 
 **Troubleshooting tips:**
 If you want to use more than 500 minutes of processing per month you will need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier by taking the following steps:  

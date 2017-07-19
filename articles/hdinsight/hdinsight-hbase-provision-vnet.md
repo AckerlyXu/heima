@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/25/2017
-ms.date: 07/24/2017
+origin.date: 07/17/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -30,7 +30,7 @@ With virtual network integration, HBase clusters can be deployed to the same vir
 * The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
 ### Prerequisites
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial, you must have the following items:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 * **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](/powershell-install-configure/).
@@ -42,8 +42,8 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
 > Some properties are hard-coded into the template. For example:
 >
 > * **Location**: China East
-> * __Cluster version: 3.5
-> * **Cluster worker node count**: 4
+> * **Cluster version**: 3.5
+> * **Cluster worker node count**: 2
 > * **Default storage account**: a unique string
 > * **Virtual network name**: &lt;Cluster Name>-vnet
 > * **Virtual network address space**: 10.0.0.0/16
@@ -61,7 +61,7 @@ In this section, you create a Linux-based HBase cluster with the dependent Azure
     >[!NOTE]
     > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change the allowed location to "China North" and "China East"; change the HDInsight Linux version to Azure China supported one, 3.5.
 
-2. From the **Custom deployment** blade, enter the following:
+2. From the **Custom deployment** blade, enter the following properties:
 
    * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
    * **Resource group**: Select **Create new**, and specify a new resource group name.
@@ -77,7 +77,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
-1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
+1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following values for the Network configuration:
 
    * **Virtual network**: &lt;Cluster name>-vnet
    * **Subnet**: subnet1
@@ -102,7 +102,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
          curl -u <username>:<password> -k https://<clustername>.azurehdinsight.cn/ambari/api/v1/clusters/<clustername>.azurehdinsight.cn/services/hbase/components/hbrest
 
-     In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. This contains the FQDN for the nodes in the cluster. For example:
+     In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. It contains the FQDN for the nodes in the cluster. For example:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.chinacloudapp.cn
@@ -207,12 +207,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
          Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
 
-     This will return the DNS suffix. For example, **yourclustername.b4.internal.chinacloudapp.cn**.
-   * Use RDP
-
-     You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see [Manage Hadoop clusters in HDInsight using the Azure portal][hdinsight-admin-portal].
-
-     ![hdinsight.hbase.dns.surffix][img-dns-surffix]
+     This command returns the DNS suffix. For example, **yourclustername.b4.internal.chinacloudapp.cn**.
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
@@ -239,12 +234,12 @@ To use this information in a Java application, you can follow the steps in [Use 
     </property>
 
 > [!NOTE]
-> For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+> For more information about name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 >
 >
 
 ## Next steps
-In this tutorial you learned how to create an HBase cluster. To learn more, see:
+In this tutorial, you learned how to create an HBase cluster. To learn more, see:
 
 * [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)
