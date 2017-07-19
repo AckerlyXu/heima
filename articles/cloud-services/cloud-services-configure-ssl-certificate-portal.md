@@ -7,13 +7,15 @@ authors: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+origin.date: 05/26/2017
 ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # Configuring SSL for an application in Azure
@@ -26,15 +28,15 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 
 > [!NOTE]
 > The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
+>
 
-This task uses a production deployment; information on using a staging deployment is provided at the end of this topic.
+This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.
 
 Read [this](./cloud-services-how-to-create-deploy-portal.md) first if you have not yet created a cloud service.
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## Step 1: Get an SSL certificate
-
 To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third party who issues certificates for this purpose. If you do not already have one, you need to obtain one from a company that sells SSL certificates.
 
 The certificate must meet the following requirements for SSL certificates in Azure:
@@ -44,7 +46,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
 -   The certificate's subject name must match the domain used to access the cloud service. You cannot obtain an SSL certificate from a certificate authority (CA) for the chinacloudapp.cn domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www.contoso.com**.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can [create](./cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the chinacloudapp.cn domain as the website URL. For example, the task below uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.chinacloudapp.cn**.
+For test purposes, you can [create](./cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the chinacloudapp.cn domain as the website URL. For example, the following task uses a self-signed certificate in which  the common name (CN) used in the certificate is **sslexample.chinacloudapp.cn**.
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
@@ -84,12 +86,12 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 
     The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
 
-    Permissions (`permisionLevel` attribute) can be set to one of the following:
+   Permissions (`permisionLevel` attribute) can be set to one of the following values:
 
-    | Permission Value  | Description |
-    | ----------------  | ----------- |
-    | limitedOrElevated | **(Default)** All role processes can access the private key. |
-    | elevated          | Only elevated processes can access the private key.|
+   | Permission Value | Description |
+   | --- | --- |
+   | limitedOrElevated |**(Default)** All role processes can access the private key. |
+   | elevated |Only elevated processes can access the private key. |
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
@@ -105,9 +107,9 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </WebRole>
     ```
 
-3.  In your service definition file, add a **Binding** element within
-    the **Sites** section. This adds an HTTPS binding to map the
-    endpoint to your site:
+3. In your service definition file, add a **Binding** element within
+   the **Sites** section. This element adds an HTTPS binding to map the
+   endpoint to your site:
 
     ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -123,13 +125,12 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </WebRole>
     ```
 
-    All of the required changes to the service definition file have been
-    completed, but you still need to add the certificate information to
-    the service configuration file.
-
-4.  In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
-    section within the **Role** section, replacing the sample thumbprint
-    value shown below with that of your certificate:
+   All the required changes to the service definition file have been
+   completed; but, you still need to add the certificate information to
+   the service configuration file.
+4. In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
+value with that of your certificate. The following code sample provides
+   details of the **Certificates** section, except for the thumbprint value.
 
     ```xml
     <Role name="Deployment">
@@ -146,7 +147,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </Role>
     ```
 
-(The example above uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
+(This example uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
 
 Now that the service definition and service configuration files have
 been updated, package your deployment for uploading to Azure. If
@@ -155,10 +156,9 @@ you are using **cspack**, don't use the
 certificate information you just inserted.
 
 ## Step 3: Upload a certificate
+Connect to the Azure portal and...
 
-Connect to the portal and...
-
-1. Select your cloud service in the Portal, select your **Cloud Service**. (Which is in the **All resources** section.) 
+1. In the **All resources** section of the Portal, select your cloud service.
 
     ![Publish your cloud service](./media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
@@ -166,7 +166,11 @@ Connect to the portal and...
 
     ![Click the certificates icon](./media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-4. Provide the **File**, **Password**, then click **Upload**.
+3. Click **Upload** at the top of the certificates area.
+
+    ![Click the Upload menu item](./media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
+
+4. Provide the **File**, **Password**, then click **Upload** at the bottom of the data entry area.
 
 ## Step 4: Connect to the role instance by using HTTPS
 
@@ -175,19 +179,22 @@ connect to it using HTTPS.
 
 1.  Click the **Site URL** to open up the web browser.
 
-    ![Click on Site URL](./media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+   ![Click the Site URL](./media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
 2.  In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 
-    >[!NOTE]
-    > If you are using a self-signed certificate, when you browse to an HTTPS endpoint that's associated with the self-signed certificate you may see a certificate error in the browser. Using a certificate signed by a trusted certification authority eliminates this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
+   > [!NOTE]
+   > If you are using a self-signed certificate, when you browse to an HTTPS endpoint that's associated with the self-signed certificate you may see a certificate error in the browser. Using a certificate signed by a trusted certification authority eliminates this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
+   >
+   >
 
     ![Site preview](./media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[!TIP]
-    > If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Once your cloud service has been deployed, the URL to the staging environment is determined by the **Deployment ID** GUID in this format: `https://deployment-id.chinacloudapp.cn/`  
-
-    >Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.chinacloudapp.cn**), use the portal to add the certificate to your staged cloud service. Then, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package.
+   > [!TIP]
+   > If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Once your cloud service has been deployed, the URL to the staging environment is determined by the **Deployment ID** GUID in this format: `https://deployment-id.cloudapp.net/`  
+   >
+   > Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use the portal to add the certificate to your staged cloud service. Then, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package.
+   >
 
 ## Next steps
 

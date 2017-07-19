@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+origin.date: 04/26/2017
 ms.author: v-yiso
+ms.date: 07/17/2017
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted

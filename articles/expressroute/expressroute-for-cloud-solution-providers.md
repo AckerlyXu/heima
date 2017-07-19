@@ -1,19 +1,21 @@
 ---
 title: Azure ExpressRoute for Cloud Solution Providers | Azure
 description: This article provides information for Cloud Service Providers that want to incorporate Azure services and ExpressRoute into their offerings.
-documentationCenter: na
+documentationcenter: na
 services: expressroute
-authors: richcar
+author: richcar
 manager: carmonm
 editor: ''
 
+ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+origin.date: 10/10/2016
 ms.author: v-yiso
+ms.date: ''
 ---
 
 # ExpressRoute for Cloud Solution Providers (CSP)
@@ -24,6 +26,8 @@ ExpresRoute is comprised of a pair of circuits for high availability that are at
 
 >[!NOTE]
 > There are bandwidth and connection caps on ExpressRoute which means that large/complex implementations will require multiple ExpressRoute circuits for a single customer.
+> 
+> 
 
 Microsoft Azure provides a growing number of services that you can offer to your customers.  To best take advantage of these services will require the use ExpressRoute connections to provide high speed low latency access to the Microsoft Azure environment.
 
@@ -53,6 +57,8 @@ In the Connect-To model, the service provider creates a direct connection betwee
 
 >[!NOTE]
 > For ExpressRoute the customer would need to create and maintain the ExpressRoute circuit.  
+> 
+> 
 
 This connectivity scenario requires that the customer connects directly through a customer network to access CSP-managed Azure subscription, using a direct network connection that is created, owned and managed either wholly or in part by the customer. For these customers it is assumed that the provider does not currently have a customer identity store established, and the provider would assist the customer in replicating their current identify store into Azure Active Directory for management of their subscription through AOBO. Key drivers for this scenario include where a given partner or service provider has an established relationship with the customer, the customer is consuming provider services currently, or the partner has a desire to provide services that are based solely on Azure-hosted solutions without the need for an existing provider datacenter or infrastructure.
 
@@ -61,13 +67,15 @@ This connectivity scenario requires that the customer connects directly through 
 The choice between these two option are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 - **Role Based Access Control (RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../active-directory/role-based-access-control-configure.md).
 - **Networking** – Covers the various topics of networking in Azure.
-- **Azure Active Directory (AAD)** – AAD provides the identity management for Microsoft Azure and 3rd party SaaS applications. For more information about Azure AD see [here](../active-directory/index.md).  
+- **Azure Active Directory (AAD)** – AAD provides the identity management for Microsoft Azure and 3rd party SaaS applications. For more information about Azure AD see [here](/active-directory/).  
 
 ## Network speeds
 ExpressRoute supports network speeds from 50 Mb/s to 10Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.
 
 >[!NOTE]
 > Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed.  
+> 
+> 
 
 ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
@@ -89,6 +97,8 @@ You can define custom routes filters to allow only the route(s) you want to allo
 
 >[!NOTE]
 > For Microsoft and Public Peering connectivity must be though a public IP address owned by the customer or CSP and must adhere to all defined rules. For more information, see the [ExpressRoute Prerequisites](./expressroute-prerequisites.md) page.  
+> 
+> 
 
 ## Routing
 ExpressRoute connects to the Azure networks through the Azure Virtual Network Gateway. Network gateways provide routing for Azure virtual networks.

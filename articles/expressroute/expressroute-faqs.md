@@ -3,17 +3,19 @@ title: ExpressRoute FAQ
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details.
 documentationCenter: na
 services: expressroute
-authors: cherylmc
+author: cherylmc
 manager: timlt
 editor: ''
 
+ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+origin.date: 05/12/2017
 ms.author: v-yiso
+ms.date: ''
 ---
 
 # ExpressRoute FAQ
@@ -85,7 +87,7 @@ Yes. Each Express Route circuit has a redundant pair of cross connections config
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network. You can additionally create multiple circuits in a different peering location to achieve failure resilience.
 
 ### <a name="onep2plink"></a>If I'm not co-located at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft? 
-No, you only need one physical connection if your service provider can establish two Ethernet virtual circuits over the physical connection. The physical connection (e.g. an optical fiber) is terminated on a layer 1 (L1) device (see image below). The two Ethernet virtual circuits are tagged with different VLAN IDs, one for the primary circuit and one for the secondary. Those VLAN IDs are in the outer 802.1Q Ethernet header. The inner 802.1Q Ethernet header (not shown) is mapped to a specific [ExpressRoute routing domain](./expressroute-circuit-peerings.md). 
+No, you only need one physical connection if your service provider can establish two Ethernet virtual circuits over the physical connection. The physical connection (for example, an optical fiber) is terminated on a layer 1 (L1) device (see image below). The two Ethernet virtual circuits are tagged with different VLAN IDs, one for the primary circuit and one for the secondary. Those VLAN IDs are in the outer 802.1Q Ethernet header. The inner 802.1Q Ethernet header (not shown) is mapped to a specific [ExpressRoute routing domain](./expressroute-circuit-peerings.md). 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
@@ -99,7 +101,7 @@ Yes. You can have more than one ExpressRoute circuit in your subscription. The d
 Yes. You can have ExpressRoute circuits with many service providers. Each ExpressRoute circuit will be associated with one service provider only.
 
 ### Can I have multiple ExpressRoute circuits in the same location?
-Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network.
+Yes. You can have multiple ExpressRoute circuits, with the same or different service providers in the same location. However it will not be possible for you to link more than one ExpressRoute circuit to the same Virtual Network from the same location.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 The basic steps are outlined below.
@@ -149,7 +151,7 @@ This is used for internal management only. This public IP address is not exposed
 You must establish an ExpressRoute circuit and configure routes for public peering.
 
 ### Are there limits on the number of routes I can advertise?
-Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering and Microsoft peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
+Yes. We accept up to 4000 route prefixes for private peering and 200 each for public peering peering. You can increase this to 10,000 routes for private peering if you enable the ExpressRoute premium feature.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
@@ -184,7 +186,7 @@ ExpressRoute premium is a collection of features listed below.
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
 * Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. **Other example:** On the public peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
-* Connectivity to Office 365 services and CRM Online.
+* Connectivity to Office 365 and Dynamics 365.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The tables below show the ExpressRoute limits and the number of VNets per ExpressRoute circuit.
@@ -206,31 +208,30 @@ Refer to [pricing details](https://www.azure.cn/pricing/details/expressroute/) f
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
-## ExpressRoute and Office 365 Services and CRM Online
-
+## ExpressRoute for Office 365 and Dynamics 365
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
+### How do I create an ExpressRoute circuit to connect to Office 365 services and Dynamics 365?
 
 1. Review the  [ExpressRoute prerequisites page](./expressroute-prerequisites.md) to make sure you meet the requirements.
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](./expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to setup connectivity [ExpressRoute workflows for circuit provisioning and circuit states](./expressroute-workflows.md).
 
->[!IMPORTANT]
-> Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and CRM Online.
+> [!IMPORTANT]
+> Ensure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services and Dynamics 365.
+> 
+> 
 
-### Do I need to enable Azure Public Peering to connect to Office 365 services and CRM Online?
-No, you only need to enable Microsoft Peering. Authentication traffic to Azure AD will be sent through Microsoft Peering. 
 
-### Can my existing ExpressRoute circuits support connectivity to Office 365 services and CRM Online?
-Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](./expressroute-howto-circuit-classic.md).
+### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
+Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services and make sure that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
 
-### How much does ExpressRoute for Office 365 services and CRM Online cost?
-Office 365 services and CRM Online requires premium add-on to be enabled. The [pricing details page](https://www.azure.cn/pricing/details/expressroute/) provides details of costs for ExpressRoute.
+### How much does ExpressRoute for Office 365 services and Dynamics 365 cost?
+Office 365 services and Dynamics 365 requires premium add-on to be enabled. The [pricing details page](https://www.azure.cn/pricing/details/expressroute/) provides details of costs for ExpressRoute.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 Refer to [ExpressRoute partners and locations](./expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.

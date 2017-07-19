@@ -56,16 +56,25 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </div>
         </a>
     </li>
- 
+    <li>
+        <a href="/iot-suite/iot-suite-getstarted-preconfigured-solutions">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with IoT Preconfigured Solutions</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>    
 </ul>
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-suite.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download IoT Suite Documentation
-        </div>
-    </a>
-</div>
