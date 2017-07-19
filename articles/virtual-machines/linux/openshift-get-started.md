@@ -35,8 +35,6 @@ If you don't have an Azure subscription, create a [free account](https://www.azu
 
 This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## Log in to Azure 
 Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions or click **Try it** to use Cloud Shell.
 
