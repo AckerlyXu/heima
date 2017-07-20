@@ -174,7 +174,7 @@
 
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.hdinsight)
-## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 ## [REST](https://docs.microsoft.com/rest/api/hdinsight/)
