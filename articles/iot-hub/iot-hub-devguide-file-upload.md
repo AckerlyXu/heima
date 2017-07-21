@@ -14,9 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/04/2017
-ms.date: 05/08/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 
 # File uploads with IoT Hub

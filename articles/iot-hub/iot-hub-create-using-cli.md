@@ -13,8 +13,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+origin.date: 06/16/2017
 ms.author: v-yiso
+ms.date: 08/14/2017
 ---
 # Create an IoT hub using the Azure CLI 2.0
 

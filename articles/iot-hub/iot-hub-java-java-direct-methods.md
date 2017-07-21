@@ -1,6 +1,6 @@
 ---
 title: Use Azure IoT Hub direct methods (.NET/Node) | Azure
-description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for Node.js to implement a simulated device app that includes a direct method and the Azure IoT service SDK for .NET to implement a service app that invokes the direct method.
+description: How to use Azure IoT Hub direct methods. You use the Azure IoT device SDK for Java to implement a simulated device app that includes a direct method and the Azure IoT service SDK for Java to implement a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/12/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 # Use direct methods (Java)
 
@@ -46,7 +46,7 @@ To complete this tutorial, you need:
 
 In this section, you create a Java console app that responds to a method called by the solution back end.
 
-1. Create an empty folder called iot-java-direct-method. In the iot-java-direct-method folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
+1. Create an empty folder called iot-java-direct-method.
 
 1. In the iot-java-direct-method folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
@@ -60,7 +60,7 @@ In this section, you create a Java console app that responds to a method called 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.26</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -207,7 +207,7 @@ In this section, you create a Java console app that invokes a direct method in t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.3.19</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```

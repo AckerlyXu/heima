@@ -22,7 +22,6 @@ ms.date: 07/10/2017
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## Introduction
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages that require immediate action from the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
@@ -30,22 +29,19 @@ This tutorial builds on the code shown in the [Get started with IoT Hub] tutoria
 At the end of this tutorial, you run three Java console apps:
 
 * **simulated-device**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
-* **read-d2c-messages** displays the telemetry sent by your simulated device app.
+* **read-d2c-messages** displays the telemetry sent by your device app.
 * **read-critical-queue** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
+> IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
 > 
 > 
 
 To complete this tutorial, you need the following:
 
-+ A complete working version of the [Get started with IoT Hub] tutorial.
-
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Java for this tutorial on either Windows or Linux.
-
-+ Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Maven for this tutorial on either Windows or Linux.
-
+* A complete working version of the [Get started with IoT Hub] tutorial.
+* The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Maven 3](https://maven.apache.org/install.html)
 + An active Azure account. <br/>If you don't have an account, you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
@@ -55,8 +51,8 @@ In this section, you modify the simulated device app you created in the [Get sta
 
 1. Use a text editor to open the simulated-device\src\main\java\com\mycompany\app\App.java file. This file contains the code for the **simulated-device** app you created in the [Get started with IoT Hub] tutorial.
 2. Replace the **MessageSender** class with the following code:
-   
-    ```
+
+    ```java
     private static class MessageSender implements Runnable {
 
         public void run()  {
@@ -102,7 +98,7 @@ In this section, you modify the simulated device app you created in the [Get sta
     }
     ```
 
-    This method randomly adds the property `"level": "critical"` to messages sent by the simulated device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+    This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
@@ -118,14 +114,15 @@ In this section, you modify the simulated device app you created in the [Get sta
 
 3. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
-    ```
+    ```cmd/sh
     mvn clean package -DskipTests
     ```
 
 ## Add a queue to your IoT hub and route messages to it
-In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][Service Bus queue].
 
-1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. Make a note of the namespace and queue name.
+In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-java].
+
+1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-java]. Make a note of the namespace and queue name.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
@@ -151,14 +148,15 @@ Now you are ready to run the three applications.
 
 1. To run the **read-d2c-messages** application, in a command prompt or shell navigate to the read-d2c folder and execute the following command:
 
-   ```
+   ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
    ```
 
    ![Run read-d2c-messages][readd2c]
+
 2. To run the **read-critical-queue** application, in a command prompt or shell navigate to the read-critical-queue folder and execute the following command:
 
-   ```
+   ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
    ```
 
@@ -166,7 +164,7 @@ Now you are ready to run the three applications.
 
 3. To run the **simulated-device** app, in a command prompt or shell navigate to the simulated-device folder and execute the following command:
 
-   ```
+   ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
    ```
 
@@ -196,37 +194,20 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 <!-- Links -->
 
-[Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[HDInsight (Hadoop)]: /hdinsight/
-[Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
-
 [Azure Storage]: /storage/
-[Azure Service Bus]: /service-bus/
+[Azure Service Bus]: /service-bus-messaging/
 
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [Get started with IoT Hub]: ./iot-hub-java-java-getstarted.md
 [Azure IoT Developer Center]: https://www.azure.cn/develop/iot
-[lnk-service-fabric]: /service-fabric/
-[lnk-stream-analytics]: /stream-analytics/
-[lnk-event-hubs]: /event-hubs/
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh675232.aspx
 
 <!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-java-ephjava-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/zh-cn/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: https://github.com/Azure/azure-event-hubs/tree/master/java/azure-eventhubs-eph
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
-[lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-java-java-c2d.md
-[lnk-suite]: /iot-suite/
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[lnk-create-an-iot-hub]: ./iot-hub-java-java-getstarted.md#create-an-iot-hub
+[lnk-suite]: /iot-suite/

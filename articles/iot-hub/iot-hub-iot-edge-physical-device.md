@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/12/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 08/14/2017
 
 ---
 # Use Azure IoT Edge on a Raspberry Pi to forward device-to-cloud messages to IoT Hub
@@ -295,7 +295,7 @@ When you have a complete copy of the IoT Edge repository on your Raspberry Pi 3,
 
 ```sh
 cd ~/iot-edge
-./tools/build.sh
+./tools/build.sh  --disable-native-remote-modules
 ```
 
 ### Configure and run the BLE sample on your Raspberry Pi 3

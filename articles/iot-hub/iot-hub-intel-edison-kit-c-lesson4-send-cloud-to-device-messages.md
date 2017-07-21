@@ -4,9 +4,12 @@ description: A sample application runs on Edison and monitors incoming messages 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: arduino control led from web, arduino control led via web
+
+ROBOTS: NOINDEX
+redirect_url: /iot-hub/iot-hub-intel-edison-kit-c-get-started
 
 ms.assetid: 820d38f3-d3b8-4249-9e2b-f1b9b771e62f
 ms.service: iot-hub
@@ -14,7 +17,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2016
+origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
 ---

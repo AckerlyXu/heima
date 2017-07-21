@@ -1,10 +1,10 @@
 ---
 title: Intel Edison to cloud (C) - Connect Intel Edison to Azure IoT Hub | Azure
-description: Connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud.
+description: Learn how to setup and connect Intel Edison to Azure IoT Hub for Intel Edison to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'azure iot intel edison, intel edison iot hub, intel edison send data to cloud, intel edison to cloud'
 
@@ -14,8 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2017
+origin.date: 04/17/2017
 ms.author: v-yiso
+ms.date: 08/14/2017
 ---
 # Connect Intel Edison to Azure IoT Hub (C)
 
@@ -174,7 +175,7 @@ Congratulations! You've successfully configured Edison.
 
 1. Use one of the following SSH clients from your host computer to connect to your Intel Edison. The IP address is from the configuration tool and the password is the one you've set in that tool.
     - [PuTTY](http://www.putty.org/) for Windows.
-    - The built-in SSH client on Ubuntu or macOS.
+    - The built-in SSH client on Ubuntu or macOS (run `ssh root@"the IP address"`).
 
 2. Clone the sample client app to your device. 
    
