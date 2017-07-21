@@ -15,6 +15,9 @@
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 <!-- Not Available ### [Apache Storm](event-hubs-storm-getstarted-receive.md)-->
+## Capture events
+### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
+### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programming guide](event-hubs-programming-guide.md)
 
 # How to
@@ -22,40 +25,41 @@
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
+<!-- Not Available ### [Automatically scale throughput units](event-hubs-auto-inflate.md) -->
 ## Develop
 ### [Available APIs](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 <!-- Not Available #### [Diagnostic logs](event-hubs-diagnostic-logs.md) -->
-### [Authentication and authorization](../service-bus-messaging/service-bus-sas.md)
 ### [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Manage
 ### [Event Hubs management libraries](event-hubs-management-libraries.md)
-### Archive
-<!-- Not Available #### [Event Hubs Archive](event-hubs-archive-overview.md)-->
-#### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-#### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+### Capture
+#### [Event Hubs Capture](event-hubs-capture-overview.md)
+#### [Capture Event Hubs data using Python](event-hubs-capture-python.md)
+### [Using PowerShell to provision entities](event-hubs-manage-with-ps.md) 
 ### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
-### [Create and deploy an Event Hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
+### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Reference
+## Java
+### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
 ### [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.ServiceBus.Messaging.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.eventhub)
-## Java
-### [com.microsoft.azure.eventhubs](https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](https://docs.microsoft.com/rest/api/eventhub)
 ## [Exceptions](event-hubs-messaging-exceptions.md)
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Code samples](event-hubs-samples.md)
-## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
+

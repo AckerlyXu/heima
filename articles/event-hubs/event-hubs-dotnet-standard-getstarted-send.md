@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/27/2017
-ms.date: 07/03/2017
+origin.date: 06/27/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
+
 ---
 
 # Get started sending messages to Azure Event Hubs in .NET Standard
@@ -46,7 +47,10 @@ Start Visual Studio. From the **File** menu, click **New**, and then click **Pro
 
 ## Add the Event Hubs NuGet package
 
-Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package to your project.
+Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Standard library NuGet package to your project by following these steps: 
+
+1. Right-click the newly created project and select **Manage NuGet Packages**.
+2. Click the **Browse** tab, then search for "Microsoft.Azure.EventHubs" and select the **Microsoft.Azure.EventHubs** package. Click **Install** to complete the installation, then close this dialog box.
 
 ## Write some code to send messages to the event hub
 
@@ -201,3 +205,5 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+
+<!--Update_Description: update meta properties, wording update-->
