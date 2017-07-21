@@ -33,7 +33,7 @@ Follow steps to [install and configure Azure Powershell](https://docs.microsoft.
 
 ## Utilities you can run in a browser
 The following utilities have a web UI that runs in a browser:
-* **[Azure Cloud Shell (preview)](/cloud-shell/quickstart)** is an interactive, command-line shell that runs in your browser and from within the Azure portal.
+
 * **[Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** is a management and monitoring utility available in the Azure portal that can be used to manage different kinds of jobs, such as:
     * [Use Ambari with the REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Hive View in Ambari](hdinsight-hadoop-use-hive-ambari-view.md)
