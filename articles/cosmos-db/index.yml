@@ -38,28 +38,28 @@ sections:
     rows:
       - title: DocumentDB API
         values:
-        - href: /azure/cosmos-db/create-documentdb-dotnet
-        - href: /azure/cosmos-db/create-documentdb-java
-        - href: /azure/cosmos-db/create-documentdb-nodejs
-        - href: /azure/cosmos-db/create-documentdb-python
+        - href: /cosmos-db/create-documentdb-dotnet
+        - href: /cosmos-db/create-documentdb-java
+        - href: /cosmos-db/create-documentdb-nodejs
+        - href: /cosmos-db/create-documentdb-python
         - href:
       - title: MongoDB API
         values:
-          - href: /azure/cosmos-db/create-mongodb-dotnet
-          - href: /azure/cosmos-db/create-mongodb-java
-          - href: /azure/cosmos-db/create-mongodb-nodejs
+          - href: /cosmos-db/create-mongodb-dotnet
+          - href: /cosmos-db/create-mongodb-java
+          - href: /cosmos-db/create-mongodb-nodejs
           - href: 
           - href: 
       - title: Graph API
         values:
-          - href: /azure/cosmos-db/create-graph-dotnet
-          - href: /azure/cosmos-db/create-graph-java
-          - href: /azure/cosmos-db/create-graph-nodejs
+          - href: /cosmos-db/create-graph-dotnet
+          - href: /cosmos-db/create-graph-java
+          - href: /cosmos-db/create-graph-nodejs
           - href:
-          - href: /azure/cosmos-db/create-graph-gremlin-console
+          - href: /cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
-          - href: /azure/cosmos-db/create-table-dotnet
+          - href: /cosmos-db/create-table-dotnet
           - href:
           - href:
           - href:
