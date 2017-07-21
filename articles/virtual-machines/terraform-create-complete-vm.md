@@ -32,6 +32,7 @@ provider "azurerm" {
   client_id       = "your_client_id_from_script_execution"
   client_secret   = "your_client_secret_from_script_execution"
   tenant_id       = "your_tenant_id_from_script_execution"
+  environment     = "china"
 }
 
 # create a resource group 
@@ -40,7 +41,7 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "China North"
 }
 ~~~~
-In the `provider` section of the script, you tell Terraform to use an Azure provider to provision resources in the script. To get values for subscription_id, client_id, client_secret, and tenant_id, see the [Install and configure Terraform](terraform-install-configure.md) guide. If you have created environment variables for the values in this block, you don't need to include it. 
+In the `provider` section of the script, you tell Terraform to use an Azure provider to provision resources in the script. To get values for environment, subscription_id, client_id, client_secret, and tenant_id, see the [Install and configure Terraform](terraform-install-configure.md) guide. If you have created environment variables for the values in this block, you don't need to include it. 
 
 The `azurerm_resource_group` resource instructs Terraform to create a new resource group. You can see more resource types that are available in Terraform later in this article.
 
@@ -209,6 +210,7 @@ provider "azurerm" {
   client_id       = "XXX"
   client_secret   = "XXX"
   tenant_id       = "XXX"
+  environment     = "china"
 }
 
 # create a resource group if it doesn't exist

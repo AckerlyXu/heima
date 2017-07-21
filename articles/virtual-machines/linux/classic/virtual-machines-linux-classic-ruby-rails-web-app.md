@@ -97,7 +97,7 @@ You should see output similar to the following.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## Add an endpoint
-1. Go to the [Azure portal][https://portal.azure.cn] and select your VM.
+1. Go to the [Azure portal](https://portal.azure.cn) and select your VM.
 
 2. Select **ENDPOINTS** in the **Settings** along the left edge the page.
 

@@ -33,10 +33,12 @@ This guide describes how to deploy OpenShift Origin on Azure Virtual Machines us
 
 If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Log in to Azure 
-Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions or click **Try it** to use Cloud Shell.
+Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli 
 az login
@@ -110,7 +112,7 @@ For more information on service principals, see [Create an Azure service princip
 Next deploy OpenShift Origin using an Azure Resource Manager template. 
 
 > [!NOTE] 
-> The following command requires az CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> The following command requires az CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter.
 
