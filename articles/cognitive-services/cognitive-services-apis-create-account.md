@@ -72,8 +72,3 @@ API calls in your applications.
 ### Next Steps
 
 - For more information about all the Microsoft Cognitive Services available, see [Cognitive Services](/cognitive-services/).
-
-- For quick start guides to using some example Cognitive Services APIs, see:
-    - [Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language](cognitive-services-text-analytics-quick-start.md)
-    - [Quick start guide for the Cognitive Services Recommendations API](cognitive-services-recommendations-quick-start.md)
-
