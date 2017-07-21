@@ -1,6 +1,6 @@
 ---
 title: Query examples for common usage patterns in Stream Analytics | Azure
-description: Common Azure Stream Analytics Query Patterns
+description: 'Common Azure Stream Analytics Query Patterns '
 keywords: query examples
 services: stream-analytics
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/28/2017
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
 
 ---
@@ -179,7 +179,7 @@ The INTO clause tells Stream Analytics which of the outputs to write the data fr
 The first query is a pass-through of the data we received to an output that we named ArchiveOutput.
 The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.
 
-*Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements - this has the added benefit of opening fewer readers to the input source.
+*Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening fewer readers to the input source.
 
 For example, 
 
@@ -358,7 +358,7 @@ Now let's change the problem and find first car of particular Make in every 10 m
 
 **Explanation**:
 
-There are two steps in the query - the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
+There are two steps in the query – the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
 
 ## Query example: Detect the absence of events
 **Description**: Check that a stream has no value that matches a certain criteria.
@@ -427,7 +427,7 @@ Use LAST function to retrieve last Time value when event type was 'Start'. Note 
 ## Query example: Detect duration of a condition
 **Description**: Find out how long a condition occurred for.
 
-For example, suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) - we want to compute the duration of the bug.
+For example, suppose that a bug that resulted in all cars having an incorrect weight (above 20,000 pounds) – we want to compute the duration of the bug.
 
 **Input**:
 
@@ -519,7 +519,9 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->
