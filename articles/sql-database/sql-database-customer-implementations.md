@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/03/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Azure SQL Database customer implementation technical studies

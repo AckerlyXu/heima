@@ -142,7 +142,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
 
-To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), use the following [Azure CLI SQL Database](https://docs.microsoft.com/cli/azurehttps://docs.microsoft.com/sql/db) commands. Use the [Cloud Shell](/cloud-shell/overview) to run the CLI in your browser, or [install](https://docs.microsoft.com/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), use the following [Azure CLI SQL Database](https://docs.microsoft.com/cli/azure/sql/db) commands. Use the [Cloud Shell](/cloud-shell/overview) to run the CLI in your browser, or [install](https://docs.microsoft.com/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
