@@ -29,7 +29,7 @@ The Standard tier of Azure Event Hubs provides features beyond what is available
 * Longer event retention
 * Additional brokered connections, with an overage charge for more than the number included
 * More than a single Consumer Group
-* [Capture](/event-hubs/event-hubs-archive-overview)
+* [Capture](/event-hubs/event-hubs-capture-overview)
 
 For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://www.azure.cn/pricing/details/event-hubs/).
 
