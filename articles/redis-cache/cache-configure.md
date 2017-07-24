@@ -407,3 +407,5 @@ For information on moving resources from one resource group to another, and from
 
 ## Next steps
 * For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
+
+<!--Update_Description: wording update-->

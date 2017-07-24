@@ -614,3 +614,5 @@ Advance to the next tutorial to learn how to map a custom DNS name to your web a
 
 > [!div class="nextstepaction"] 
 > [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

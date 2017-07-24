@@ -277,3 +277,5 @@ Now if your VNET hosted VM can reach your on-premises system but your app can't 
 [IntPowershell]: https://www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
 [V2VNETPortal]: /vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 [VPNERCoex]: /expressroute/expressroute-howto-coexist-resource-manager
+
+<!--Update_Description: wording update-->

@@ -217,3 +217,5 @@ To turn on compression both for static and dynamic content types, add the follow
 ```
 
 You also can specify the specific dynamic and static MIME types that you want to compress. For more information, see our response to a forum question in [httpCompression settings on a simple Azure website](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
+
+<!--Update_Description: update meta data-->
