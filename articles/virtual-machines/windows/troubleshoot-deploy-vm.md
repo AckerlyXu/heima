@@ -51,26 +51,6 @@ productPesIds="1234, 5678"
     - Create a VM in a different availability set (in the same region).
     - Add the new VM to the same virtual network.
 
-## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?
-
-There are a couple of different ways to deploy Windows virtual machines with the Azure Hybrid Use Benefit.
-
-For an Enterprise Agreement subscription:
-
-•	Deploy VMs from specific Marketplace images that are pre-configured with Azure Hybrid Use Benefit.
-
-For Enterprise agreement:
-
-•	Upload a custom VM and deploy using a Resource Manager template or Azure PowerShell.
-
-For more information, see the following resources:
-
- - [Azure Hybrid Use Benefit overview ](https://www.azure.cn/pricing/hybrid-use-benefit/)
-
- - [Downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
-
- - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
-
 ## I am not able to see VM Size family that I want when resizing my VM.
 
 When a VM is running, it is deployed to a physical server. The physical servers in Azure regions are grouped in clusters of common physical hardware. Resizing a VM that requires the VM to be moved to different hardware clusters is different depending on which deployment model was used to deploy the VM.

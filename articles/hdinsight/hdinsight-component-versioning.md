@@ -112,7 +112,7 @@ July 31st, 2018 is the retirement date for HDInsight on Windows. If your region'
 Azure HDInsight version 3.3 was the last version of HDInsight for Windows. Any HDInsight cluster running on Windows (3.3 or prior) must be migrated to HDInsight on Linux (3.5 or later) before the retirement date to retain the ability to create new or resize existing HDI clusters. 
 
 ### What do I need to do?
-Refer to [this](/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) document to migrate Windows based HDInsight clusters to a supported Linux based HDInsight cluster before Jul 31st, 2018. For information on supported HDI versions, visit [here](/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) 
+Refer to [this](/hdinsight/hdinsight-migrate-from-windows-to-linux) document to migrate Windows based HDInsight clusters to a supported Linux based HDInsight cluster before Jul 31st, 2018. For information on supported HDI versions, visit [here](/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) 
 
 ### Where do I find the Cluster OS type?
 In the Azure portal, go to the HDInsight Cluster overview page. On that page, you will find Cluster type under Essentials. That will indicate the OS type of the Cluster. 
@@ -121,7 +121,7 @@ In the Azure portal, go to the HDInsight Cluster overview page. On that page, yo
 The HDInsight Windows cluster will run as-is, however you won't be able to create a new HDInsight on Windows cluster, or resize an existing HDInsight on Windows cluster. 
 
 ### My cluster has .NET dependency. How do I resolve this dependency on Linux?
-[Mono](http://www.mono-project.com/), an open source implementation of .NET, is available on HDInsight Linux clusters. Refer to [this](/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) document for more details. 
+[Mono](http://www.mono-project.com/), an open source implementation of .NET, is available on HDInsight Linux clusters. Refer to [this](/hdinsight/hdinsight-migrate-from-windows-to-linux) document for more details. 
 
 ### I am a new customer trying to create an HDInsight Windows based cluster, however I don't see the option in the Azure portal, or I am unable to create this from PowerShell or SDK. How can I create an HDI Windows based cluster?
 As of July 3rd, 2017, only existing HDInsight Windows-based customers can create new HDI Windows-based clusters (until the retirement date). We recommend you create a Linux-based HDI cluster. 

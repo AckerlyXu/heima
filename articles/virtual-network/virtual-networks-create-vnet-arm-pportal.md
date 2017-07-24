@@ -57,9 +57,7 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. In an Internet browser, open the [Azure portal](https://portal.azure.cn). Sign in by using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. At the top of the portal page, to the right of the **Search resources** box, click the **>_** icon to start Bash Azure Cloud Shell (Preview). The Cloud Shell pane appears at the bottom of the portal. After a few seconds, a **username@Azure:~$** prompt appears. Cloud Shell automatically signs you in to Azure by using the credentials you used to sign in to the portal.
-3. In your browser, copy the following script:
+1. In a terminal, run the following commands, or copy the following script to a file and run it.
     ```azurecli
     #!/bin/bash
 
@@ -81,11 +79,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
       --vnet-name MyVnet \
       --resource-group MyResourceGroup
     ```
-4. Create a script file and save it. At the Cloud Shell command prompt, type `nano myscript.sh --nonewlines`. The command starts the GNU nano editor, with an empty myscript.sh file. Place your cursor inside the editor window, right-click, and then click **Paste**.  
-5. To save the file as myscript.sh, press Ctrl+X, type **Y**, and then press the Enter key. Cloud Shell storage does not persist saved files across sessions.
-6. At the Cloud Shell command prompt, to mark the file as executable, run the `chmod +x myscript.sh` command.
-7. To execute the script, enter `./myscript.sh`.
-8. When the script is finished running, to review the subnets for the virtual network, copy the following command, and then paste it in the Bash Cloud Shell pane:
+
+8. When the script is finished running, to review the subnets for the virtual network, copy the following command, and then paste it in the Bash terminal:
     ```azurecli
     az network vnet subnet list --resource-group MyResourceGroup --vnet-name MyVnet --output table
     ```
@@ -156,8 +151,7 @@ You can deploy a virtual network by using an Azure Resource Manager template. To
 
 ### <a name="template-cli"></a>Azure CLI
 
-1. In the [portal](https://portal.azure.cn), sign in with your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. To the right of the **Search resources** box, click the **>_** icon to start Bash Azure Cloud Shell (Preview). The Cloud Shell pane appears at the bottom of the portal. After a few seconds, a **username@Azure:~$** prompt appears. Cloud Shell automatically signs you in to Azure by using the credentials you used to sign in to the Azure portal.
+1. If you don't have an Azure account, you can sign up for a [trial](https://azure.microsoft.com/offers/ms-azr-0044p).
 3. To create a resource group for the virtual network, enter the following command:
     `az group create --name MyResourceGroup --location chinaeast`
 4. You can deploy the template by using one of the following parameters options:
@@ -192,7 +186,7 @@ When you've finished this tutorial, you might want to delete the resources that 
 
 ### <a name="delete-cli"></a>Azure CLI
 
-At the Cloud Shell command prompt, enter the following command: `az group delete --name MyResourceGroup --yes`
+At a terminal, enter the following command: `az group delete --name MyResourceGroup --yes`
 
 ### <a name="delete-powershell"></a>PowerShell
 

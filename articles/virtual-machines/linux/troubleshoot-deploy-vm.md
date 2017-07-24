@@ -51,14 +51,6 @@ productPesIds="1234, 5678"
     - Create a VM in a different availability set (in the same region).
     - Add the new VM to the same virtual network.
 
-## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)
-
-To activate your monthly  credit, see this [article](https://azure.microsoft.com/offers/ms-azr-0064p/).
-
-## Why can I not install the GPU driver for an Ubuntu NV VM?
-
-Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. However, N Series are not available yet in Azure China.
-
 ## I am not able to see VM Size family that I want when resizing my VM.
 
 When a VM is running, it is deployed to a physical server. The physical servers in Azure regions are grouped in clusters of common physical hardware. Resizing a VM that requires the VM to be moved to different hardware clusters is different depending on which deployment model was used to deploy the VM.

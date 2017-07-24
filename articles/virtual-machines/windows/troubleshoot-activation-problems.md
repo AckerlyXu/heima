@@ -110,10 +110,6 @@ Product activated successfully.**
 
 No. The image in Azure Marketplace has the appropriate KMS client setup key already configured. 
 
-### Does Windows activation work the same way regardless if the VM is using Azure Hybrid Use Benefit (HUB) or not? 
-
-Yes. 
-
 ### What happens if Windows activation period expires? 
 
 When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See  the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) page.   

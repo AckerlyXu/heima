@@ -967,7 +967,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 **Template**
 
 * Upload the VHD with Powershell or Azure CLI
-* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json).
 
 #### Deployment of a VM Image
 To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer specific image for SAP][planning-guide-5.2.2] of this document.
@@ -1915,7 +1915,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 >
 > Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to
 > backup/restore databases. More information can be found here:
-> <https://docs.azure.cn/backup/backup-azure-dpm-introduction/>.  
+> <https://docs.azure.cn/backup/backup-azure-dpm-introduction-classic/>.  
 >
 > ![Linux][Logo_Linux] Linux
 >

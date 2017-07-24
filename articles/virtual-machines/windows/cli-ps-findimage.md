@@ -34,12 +34,9 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 | MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
-| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
 | MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
 | MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
 ## Find specific images
 
