@@ -19,7 +19,7 @@ ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
-# migrate a virtual network (classic) from an affinity group to a region
+# Migrate a virtual network (classic) from an affinity group to a region
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager deployment model.
@@ -31,7 +31,7 @@ As a result of these architectural improvements, affinity groups are no longer r
 We recommend that you don't use affinity groups in general. Aside from the virtual network requirement, affinity groups were also important to use to ensure resources, such as compute (classic) and storage (classic), were placed near each other. However, with the current Azure network architecture, these placement requirements are no longer necessary.
 
 > [!IMPORTANT]
-> Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many virtual network features, such as Network Security Groups, are only available when using a regional virtual network, and are not available for virtual networks that are associated with affinity groups.
+> Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many virtual network features, such as network security groups, are only available when using a regional virtual network, and are not available for virtual networks that are associated with affinity groups.
 > 
 > 
 
