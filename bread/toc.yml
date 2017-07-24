@@ -62,9 +62,9 @@
     tocHref: /cognitive-services/
     topicHref: /cognitive-services/
 
-  - name: DocumentDB
-    tocHref: /documentdb/
-    topicHref: /documentdb/
+  - name: CosmosDB
+    tocHref: /cosmos-db/
+    topicHref: /cosmos-db/
   - name: Event Hubs
     tocHref: /event-hubs/
     topicHref: /event-hubs/
