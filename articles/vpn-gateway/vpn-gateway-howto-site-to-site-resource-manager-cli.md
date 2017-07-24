@@ -194,3 +194,5 @@ This section contains common commands that are helpful when working with site-to
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about forced tunneling, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For a list of networking Azure CLI commands, see [Azure CLI](https://docs.microsoft.com/cli/azure/network).
+
+<!--Update_Description: wording update-->

@@ -100,3 +100,5 @@ Configure the virtual network gateway to create a secure site-to-site connection
 
 ## Next steps
  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).
+
+<!--Update_Description: wording update-->

@@ -61,3 +61,5 @@ If you are not concerned about keeping any of your resources in the resource gro
 1. In **All resources**, locate the resource group and click to open the blade.
 2. Click **Delete**. On the Delete blade, view the affected resources. Make sure that you want to delete all of these resources. If not, use the steps in [Delete a VPN gateway](#deletegw) at the top of this article.
 3. To proceed, type the name of the resource group that you want to delete, then click **Delete**.
+
+<!--Update_Description: wording update-->

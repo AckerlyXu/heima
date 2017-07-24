@@ -288,3 +288,5 @@ az group delete --name myResourceGroup
 ## Next step 
 > [!div class="nextstepaction"]
 > [Consume API apps from JavaScript clients with CORS](app-service-api-cors-consume-javascript.md)
+
+<!--Update_Description: add note about Azure CLI 2.0 version-->

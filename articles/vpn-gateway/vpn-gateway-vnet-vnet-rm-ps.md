@@ -465,3 +465,5 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 * Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/#pivot=services&panel=Compute) for more information.
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+
+<!--Update_Description: wording update-->
