@@ -143,3 +143,5 @@ After you have linked the IntelliJ IDEA to the emulator, you can submit your pro
 - To learn how to debug Spark applications using the toolkit remotely on HDInsight through VPN, see [Use HDInsight Tools in Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 - To learn how to use HDInsight Tools for Eclipse to create Spark application, see [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](hdinsight-apache-spark-eclipse-tool-plugin.md).
 - To watch a video of HDInsight Tools for Eclipse, see [Use HDInsight Tool for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha).
+
+<!--Update_Description: wording update-->

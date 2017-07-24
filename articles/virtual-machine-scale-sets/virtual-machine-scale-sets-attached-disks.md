@@ -114,3 +114,5 @@ Support for Azure Managed disks and scale set attached data disks is available i
 In the initial implementation of attached disk support for scale sets, you cannot attach or detach data disks to/from individual VMs in a scale set.
 
 Azure portal support for attached data disks in scale sets is initially limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.
+
+<!--Update_Description: wording update-->

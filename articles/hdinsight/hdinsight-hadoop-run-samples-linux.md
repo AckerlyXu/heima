@@ -233,3 +233,5 @@ From this article, you learned how to run the samples included with the Linux-ba
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+
+<!--Update_Description: wording update-->

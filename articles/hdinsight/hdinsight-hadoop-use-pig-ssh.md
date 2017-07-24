@@ -129,3 +129,5 @@ For more information on other ways to work with Hadoop on HDInsight, see the fol
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+
+<!--Update_Description: update meta data-->

@@ -326,3 +326,5 @@ For more information on working with Solr backup and restores, see [https://cwik
 * [Install Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). Use cluster customization to install Hue on HDInsight Hadoop clusters. Hue is a set of Web applications used to interact with a Hadoop cluster.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
+
+<!--Update_Description: wording update-->

@@ -201,3 +201,5 @@ The Azure portal provides a convenient way to quickly create a scale set. For mo
 Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
 
 Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).
+
+<!--Update_Description: update sample code-->

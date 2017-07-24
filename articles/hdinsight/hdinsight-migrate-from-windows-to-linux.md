@@ -282,3 +282,5 @@ If you know that the scripts do not contain strings with embedded CR characters,
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Use SSH to connect to HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
+
+<!--Update_Description: update meta data-->

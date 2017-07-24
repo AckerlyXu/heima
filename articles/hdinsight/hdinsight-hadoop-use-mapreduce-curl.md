@@ -108,3 +108,5 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For more information about the REST interface that is used in this article, see the [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+
+<!--Update_Description: update meta data-->
