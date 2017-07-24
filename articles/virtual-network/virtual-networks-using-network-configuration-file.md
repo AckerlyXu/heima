@@ -1,5 +1,5 @@
 ---
-title: Configure an Azure Virtual Network (Classic) - Network configuration file | Azure
+title: Configure an Azure Virtual Network (classic) - Network configuration file | Azure
 description: Learn how to create and modify virtual networks (classic) by exporting, changing, and importing a network configuration file.
 services: virtual-network
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: v-dazen
 ms.custom: 
 
 ---
-# Configure a virtual network (Classic) using a network configuration file
+# Configure a virtual network (classic) using a network configuration file
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager deployment model.
 
