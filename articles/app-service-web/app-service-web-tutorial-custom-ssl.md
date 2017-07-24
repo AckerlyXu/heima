@@ -301,3 +301,5 @@ In this tutorial, you learned how to:
 > * Bind your custom SSL certificate to App Service
 > * Enforce HTTPS for your app
 > * Automate SSL certificate binding with scripts
+
+<!--Update_Description: add section "Merge intermediate certificates"-->

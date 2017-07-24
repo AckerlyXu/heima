@@ -174,3 +174,5 @@ The left menu provides different pages for configuring your app.
 
 > [!div class="nextstepaction"]
 > [Node.js with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

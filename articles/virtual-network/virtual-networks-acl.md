@@ -89,3 +89,5 @@ Network ACLs can be specified on a load balanced set endpoint. If an ACL is spec
 
 ## Next Steps
 [Manage access control lists for endpoints using PowerShell](virtual-networks-acl-powershell.md)
+
+<!--Update_Description: wording update-->

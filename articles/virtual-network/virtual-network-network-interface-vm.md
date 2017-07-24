@@ -115,3 +115,5 @@ To create a VM with multiple NICs or IP addresses, read the following articles:
 ||[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IP addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md)|
 ||[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+
+<!--Update_Description: add links to multiple-nics.md-->

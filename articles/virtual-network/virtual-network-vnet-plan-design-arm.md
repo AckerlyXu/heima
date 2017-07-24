@@ -242,3 +242,5 @@ Based on those requirements, you could add users from the networking team to the
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
 * Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
 * Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel).
+
+<!--Update_Description: wording update-->

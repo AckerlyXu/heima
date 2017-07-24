@@ -97,3 +97,5 @@ To reset the app-level credentials:
 ## Next steps
 
 Find out how to use these credentials to deploy your app from [local Git](app-service-deploy-local-git.md) or using [FTP/S](app-service-deploy-ftp.md).
+
+<!--Update_Description: add a note about RBAC-->

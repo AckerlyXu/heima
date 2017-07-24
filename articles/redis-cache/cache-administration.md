@@ -124,3 +124,5 @@ The **Schedule updates** feature is only available in the premium pricing tier.
 
 ## Next steps
 * Explore more [Azure Redis Cache premium tier](cache-premium-tier-intro.md) features.
+
+<!--Update_Description: wording update-->
