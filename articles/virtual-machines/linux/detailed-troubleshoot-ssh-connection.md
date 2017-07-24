@@ -127,3 +127,5 @@ Try connecting from your computer again. If it still fails, the following are so
 
 ## Additional resources
 For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](troubleshoot-app-connection.md)
+
+<!--Update_Description: delete classic portal-->

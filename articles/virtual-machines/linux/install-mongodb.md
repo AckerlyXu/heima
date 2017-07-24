@@ -222,3 +222,5 @@ These examples deploy the core MongoDB environment for development purposes. App
 For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md).
+
+<!--Update_Description: wording update-->

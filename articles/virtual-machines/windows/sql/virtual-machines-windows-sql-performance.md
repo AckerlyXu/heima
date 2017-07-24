@@ -165,3 +165,5 @@ Some deployments may achieve additional performance benefits using more advanced
 For security best practices, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
 Review other SQL Server Virtual Machine topics at [SQL Server on Azure Virtual Machines Overview](virtual-machines-windows-sql-server-iaas-overview.md).
+
+<!--Update_Description: wording update-->

@@ -103,3 +103,5 @@ This section does not apply to [Azure Managed Disks](../../storage/storage-manag
 
 ## Next steps
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

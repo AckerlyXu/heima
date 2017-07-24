@@ -88,3 +88,5 @@ For more information about the I/O capabilities of the different Azure Storage o
 
 ## Next steps
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: wording update-->

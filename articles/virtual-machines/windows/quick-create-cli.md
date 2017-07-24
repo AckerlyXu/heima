@@ -113,3 +113,5 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
+
+<!--Update_Description: wording update-->

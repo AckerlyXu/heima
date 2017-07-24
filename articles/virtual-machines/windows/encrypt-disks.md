@@ -216,3 +216,5 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ## Next steps
 * For more information about managing Azure Key Vault, see [Set up Key Vault for virtual machines](key-vault-setup.md).
 * For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+
+<!--Update_Description: wording update-->

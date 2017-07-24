@@ -183,3 +183,5 @@ The [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2
   > 
 
 * You will then need to shut down the virtual machine and upload the VHD to Azure.
+
+<!--Update_Description: wording update-->

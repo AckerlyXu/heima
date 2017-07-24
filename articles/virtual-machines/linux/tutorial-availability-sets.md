@@ -111,3 +111,5 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 
 > [!div class="nextstepaction"]
 > [Create a VM scale set](tutorial-create-vmss.md)
+
+<!--Update_Description: wording update-->

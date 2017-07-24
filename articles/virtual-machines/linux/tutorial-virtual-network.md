@@ -308,3 +308,5 @@ Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
 > [Monitor virtual machines](tutorial-monitoring.md)
+
+<!--Update_Description: wording update-->

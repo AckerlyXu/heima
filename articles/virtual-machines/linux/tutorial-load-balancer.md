@@ -298,3 +298,5 @@ Advance to the next tutorial to learn more about Azure virtual network component
 
 > [!div class="nextstepaction"]
 > [Manage VMs and virtual networks](tutorial-virtual-network.md)
+
+<!--Update_Description: wording update-->

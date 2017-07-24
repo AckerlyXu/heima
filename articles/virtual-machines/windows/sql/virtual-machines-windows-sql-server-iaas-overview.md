@@ -107,3 +107,5 @@ For more information, see the CEIP section of the [Accept License Terms](https:/
 For questions about pricing, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) and the [Azure pricing page](https://www.azure.cn/pricing/details/virtual-machines/windows/). Select your target edition of SQL Server in the **OS/Software** list. Then view the prices for differently sized virtual machines.
 
 More question? First, see the [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md). But also add your questions or comments to the bottom of any SQL VM topics to interact with Azure.cn and the community.
+
+<!--Update_Description: wording update-->

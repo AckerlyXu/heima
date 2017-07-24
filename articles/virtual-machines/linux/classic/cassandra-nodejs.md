@@ -714,3 +714,5 @@ Azure is a flexible platform that allows the running of both Microsoft as well a
 * [http://cassandra.apache.org](http://cassandra.apache.org)
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
+
+<!--Update_Description: wording update-->

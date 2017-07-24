@@ -291,3 +291,5 @@ Advance to the next tutorial to learn about automating VM configuration.
 
 > [!div class="nextstepaction"]
 > [Automate VM configuration](./tutorial-automate-vm-deployment.md)
+
+<!--Update_Description: wording update-->

@@ -113,3 +113,5 @@ The Ubuntu Linux VM has Python 2.7 preinstalled, but it doesn't come with Apache
 
 ## Shut down your Azure virtual machine
 When you're done with this tutorial, we recommend that you shut down or remove the Azure VM you created for the tutorial. This frees up resources for other tutorials, and you can avoid incurring Azure usage charges.
+
+<!--Update_Description: wording update-->

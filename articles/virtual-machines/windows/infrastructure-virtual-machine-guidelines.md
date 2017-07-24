@@ -53,3 +53,5 @@ You can build templates, defined by declarative JSON files, to create your VMs. 
 
 ## Next steps
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: wording update-->

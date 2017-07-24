@@ -102,3 +102,5 @@ You can also use the **Remove-AzureVMSqlServerExtension** Powershell cmdlet.
 Begin using one of the services supported by the extension. For more details, see the topics referenced in the [Supported services](#supported-services) section of this article.
 
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+
+<!--Update_Description: add sql server 2016-->

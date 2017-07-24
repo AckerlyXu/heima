@@ -62,3 +62,5 @@ When finished, click the **OK** button on the bottom of the **SQL Server configu
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
+
+<!--Update_Description: update meta data-->

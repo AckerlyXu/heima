@@ -141,3 +141,5 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Use this new image for future deployments. If desired, delete the original image.
 
 For more information on managing your VMs with the CLI, see [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).
+
+<!--Update_Description: wording update-->

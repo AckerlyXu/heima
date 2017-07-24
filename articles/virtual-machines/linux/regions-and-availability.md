@@ -20,3 +20,5 @@ ms.author: v-dazen
 ---
 
 [!INCLUDE [virtual-machines-common-regions-and-availability](../../../includes/virtual-machines-common-regions-and-availability.md)]
+
+<!--Update_Description: update meta data-->

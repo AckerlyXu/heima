@@ -140,3 +140,5 @@ Advance to the next tutorial to learn about highly available virtual machines.
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md).
+
+<!--Update_Description: wording update-->

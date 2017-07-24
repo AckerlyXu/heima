@@ -110,3 +110,5 @@ Alternatively, use the [Azure portal](http://portal.azure.cn) to create a custom
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
 [How to Create a Linux Virtual Machine]:create-custom.md
+
+<!--Update_Description: wording update-->

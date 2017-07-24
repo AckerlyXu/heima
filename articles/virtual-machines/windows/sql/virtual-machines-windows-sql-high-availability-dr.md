@@ -134,3 +134,5 @@ For other topics related to running SQL Server in Azure VMs, see [SQL Server on 
 ### Other resources
 * [Install a new Active Directory forest in Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Create Failover Cluster for availability groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+
+<!--Update_Description: wording update-->

@@ -228,3 +228,5 @@ Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
 > [Linux virtual machine script samples](./cli-samples.md)
+
+<!--Update_Description: wording update-->

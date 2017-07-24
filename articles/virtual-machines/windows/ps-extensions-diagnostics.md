@@ -194,3 +194,5 @@ The configuration needs to be updated to include the following:
 ## Next steps
 * For additional guidance on using the Azure Diagnostics capability and other techniques to troubleshoot problems, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
 * [Diagnostics configurations schema](https://msdn.microsoft.com/library/azure/mt634524.aspx) explains the various XML configurations options for the diagnostics extension.
+
+<!--Update_Description: wording update-->

@@ -273,3 +273,5 @@ Advance to the next tutorial to learn how to create custom VM images.
 
 > [!div class="nextstepaction"]
 > [Create custom VM images](./tutorial-custom-images.md)
+
+<!--Update_Description: wording update-->

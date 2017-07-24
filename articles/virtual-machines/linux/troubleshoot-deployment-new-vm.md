@@ -86,3 +86,5 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 ## Next steps
 If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: add section "Top Issues"-->

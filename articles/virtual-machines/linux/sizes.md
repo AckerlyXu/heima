@@ -52,3 +52,5 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
+
+<!--Update_Description: update meta data-->

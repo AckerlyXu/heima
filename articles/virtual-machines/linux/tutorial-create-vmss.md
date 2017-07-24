@@ -251,3 +251,5 @@ Advance to the next tutorial to learn more about load balancing concepts for vir
 
 > [!div class="nextstepaction"]
 > [Load balance virtual machines](tutorial-load-balancer.md)
+
+<!--Update_Description: wording update-->

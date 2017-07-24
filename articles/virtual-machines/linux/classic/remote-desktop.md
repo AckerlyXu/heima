@@ -107,3 +107,5 @@ Log in with the user name and password of your Linux VM.
 
 ## Next steps
 For more information about using xrdp, see [http://www.xrdp.org/](http://www.xrdp.org/).
+
+<!--Update_Description: wording update-->

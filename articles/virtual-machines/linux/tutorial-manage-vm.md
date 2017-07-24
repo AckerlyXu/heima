@@ -312,3 +312,5 @@ Advance to the next tutorial to learn about VM disks.
 
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
+
+<!--Update_Description: wording update-->
