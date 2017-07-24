@@ -140,3 +140,5 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 **A.** Yes. A scale set is an implicit availability set with 5 fault domains and 5 update domains. Scale sets of more than 100 VMs span multiple *placement groups*, which are equivalent to multiple availability sets. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
 
 You can find more answers to questions about scale sets in the [Azure virtual machine scale sets FAQ](virtual-machine-scale-sets-faq.md).
+
+<!--Update_Description: wording update-->

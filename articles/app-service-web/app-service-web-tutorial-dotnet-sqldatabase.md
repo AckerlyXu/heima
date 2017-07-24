@@ -426,3 +426,5 @@ Advance to the next tutorial to learn how to map a custom DNS name to the web ap
 
 > [!div class="nextstepaction"]
 > [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+
+<!--Update_Description: use Logical Server instead of Database Server-->

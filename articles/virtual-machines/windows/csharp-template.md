@@ -327,3 +327,5 @@ It should take about five minutes for this console application to run completely
 ## Next steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md).
 * Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
+
+<!--Update_Description: wording update-->

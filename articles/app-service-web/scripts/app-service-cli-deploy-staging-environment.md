@@ -90,3 +90,5 @@ This script uses the following commands. Each command in the table links to comm
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

@@ -269,3 +269,5 @@ You can verify your connections by using the Azure portal or PowerShell. When ve
 ## <a name="faq"></a>VNet-to-VNet FAQ
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+
+<!--Update_Description: add steps to create classic vnet in the new portal-->

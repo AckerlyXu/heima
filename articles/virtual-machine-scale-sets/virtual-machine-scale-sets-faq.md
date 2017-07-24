@@ -542,3 +542,5 @@ The main difference between deleting a VM in a virtual machine scale set and dea
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.
   - Related to this scenario, you might have created your own scale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
+
+<!--Update_Description: add question "How can I configure the DNS servers used by a scale set?" and "How can I configure a scale set to assign a public IP address to each VM?"-->

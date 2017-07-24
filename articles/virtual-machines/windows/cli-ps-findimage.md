@@ -145,3 +145,5 @@ From this list, copy the chosen SKU name, and you have all the information for t
 
 ## Next steps
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
+
+<!--Update_Description: update output of some powershell commands-->

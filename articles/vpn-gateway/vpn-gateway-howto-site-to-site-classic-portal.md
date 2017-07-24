@@ -217,3 +217,5 @@ When the connection is created, the result is: **Status: Successful**.
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).
+
+<!--Update_Description: wording update-->

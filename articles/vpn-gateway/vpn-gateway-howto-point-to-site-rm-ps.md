@@ -367,3 +367,5 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
+
+<!--Update_Description: wording update-->

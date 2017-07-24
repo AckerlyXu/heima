@@ -47,3 +47,5 @@ Install the latest version of the CLI commands (2.0 or later). For information a
 ## Next steps
 
 You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).
+
+<!--Update_Description: add selector-->

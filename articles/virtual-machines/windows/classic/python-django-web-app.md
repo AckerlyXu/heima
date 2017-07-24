@@ -181,3 +181,5 @@ When you're done with this tutorial, we recommend that you shut down or remove t
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
+
+<!--Update_Description: wording update-->

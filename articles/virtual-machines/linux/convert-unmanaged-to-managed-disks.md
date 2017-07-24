@@ -107,3 +107,5 @@ You can't use the preceding steps to convert an unmanaged disk into a managed di
 
 ## Next steps
 For more information about storage options, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md).
+
+<!--Update_Description: add Section "Managed disks and Azure Storage Service Encryption"-->

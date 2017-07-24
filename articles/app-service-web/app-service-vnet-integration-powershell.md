@@ -721,3 +721,5 @@ Although the script says delete, it does not delete the virtual network. It's ju
 <!--Links-->
 [createvpngateway]: /vpn-gateway/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.cn
+
+<!--Update_Description: update the sample code-->

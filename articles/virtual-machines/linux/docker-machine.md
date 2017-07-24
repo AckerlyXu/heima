@@ -133,3 +133,5 @@ To see the container in action, open a web browser and enter the public IP addre
 
 ## Next steps
 You can also create hosts with the [Docker VM Extension](dockerextension.md). For examples on using Docker Compose, see [Get started with Docker and Compose in Azure](docker-compose-quickstart.md).
+
+<!--Update_Description: wording update-->

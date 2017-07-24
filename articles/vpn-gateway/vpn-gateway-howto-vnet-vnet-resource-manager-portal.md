@@ -188,3 +188,5 @@ View the FAQ details for additional information about VNet-to-VNet connections.
 
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/#pivot=services&panel=Compute) for more information.
+
+<!--Update_Description: wording update-->

@@ -143,3 +143,5 @@ Verify that you have the following items before beginning your configuration.
 
   Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
   ```
+
+<!--Update_Description: update sample code-->

@@ -574,3 +574,5 @@ You might want to read [more about how to deploy from templates](../../azure-res
 
 ## Next steps
 Now you're ready to begin working with multiple networking components and VMs. You can use this sample environment to build out your application by using the core components introduced here.
+
+<!--Update_Description: simplify the steps-->

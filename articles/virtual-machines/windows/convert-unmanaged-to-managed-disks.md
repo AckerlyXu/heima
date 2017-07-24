@@ -143,3 +143,5 @@ You can't use the preceding steps to convert an unmanaged disk into a managed di
 ## Next steps
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
+
+<!--Update_Description: wording update-->

@@ -312,3 +312,5 @@ The most common reason is access to the backend is being blocked by an NSG or cu
 ## Next Steps
 
 To learn more about Application Gateway visit [Introduction to Application Gateway](application-gateway-introduction.md).
+
+<!--Update_Description: add some questions-->
