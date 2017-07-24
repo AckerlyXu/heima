@@ -3,7 +3,7 @@ title: Azure Traffic Manager - traffic routing methods | Azure
 description: This articles helps you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: timlt
 editor: ''
 
