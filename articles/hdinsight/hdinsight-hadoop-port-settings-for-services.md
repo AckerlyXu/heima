@@ -152,3 +152,5 @@ All services publicly exposed on the internet must be authenticated:
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift |Service for  connecting to Spark SQL (Thrift/JDBC) |
+
+<!--Update_Description: add Ambari ports-->

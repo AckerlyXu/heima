@@ -530,3 +530,5 @@ If you set any one parameter in a section as part of the template itself, HDInsi
             }
         ]
     }
+
+<!--Update_Description: add a spark template-->

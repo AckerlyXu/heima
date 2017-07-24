@@ -245,3 +245,5 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 For other ways to work with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
 
 For more information on Hive User-Defined Functions, see [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) section of the Hive wiki at apache.org.
+
+<!--Update_Description: wording update-->

@@ -85,3 +85,5 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
 * Complete the [virtual network peering tutorial](virtual-network-create-peering.md)
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
+
+<!--Update_Description: wording update-->

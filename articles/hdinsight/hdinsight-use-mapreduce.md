@@ -196,3 +196,5 @@ To learn more about working with data in HDInsight, see the following documents:
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
+
+<!--Update_Description: update meta data-->

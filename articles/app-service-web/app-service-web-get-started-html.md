@@ -145,3 +145,5 @@ The left menu provides different pages for configuring your app.
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

@@ -49,3 +49,5 @@ To see how to convert a Resource Manager template to provision scale sets with m
 To learn more about using managed data disks with scale sets, see [this article](./virtual-machine-scale-sets-attached-disks.md).
 
 To begin working with large scale sets, refer to [this article](./virtual-machine-scale-sets-placement-groups.md).
+
+<!--Update_Description: wording update-->

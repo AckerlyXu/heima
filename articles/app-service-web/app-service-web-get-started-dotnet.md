@@ -168,3 +168,5 @@ The left menu provides different pages for configuring your app.
 
 > [!div class="nextstepaction"]
 > [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+<!--Update_Description: wording update-->

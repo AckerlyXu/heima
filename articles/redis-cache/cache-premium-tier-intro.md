@@ -87,3 +87,5 @@ Create a cache and explore the new premium tier features.
 * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
 * [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)
 * [How to administer Azure Redis Cache](cache-administration.md)
+
+<!--Update_Description: update meta data-->

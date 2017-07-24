@@ -276,3 +276,5 @@ If you are using Tez with Hive, see the following documents:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+
+<!--Update_Description: update meta data-->

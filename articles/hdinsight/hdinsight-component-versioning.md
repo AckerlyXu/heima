@@ -211,3 +211,5 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
+
+<!--Update_Description: add FAQ-->

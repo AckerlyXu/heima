@@ -155,3 +155,5 @@ Learn more about the [traffic-routing methods](traffic-manager-routing-methods.m
 Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
 
 [Troubleshoot Degraded status](traffic-manager-troubleshooting-degraded.md) on a Traffic Manager endpoint
+
+<!--Update_Description: wording update-->

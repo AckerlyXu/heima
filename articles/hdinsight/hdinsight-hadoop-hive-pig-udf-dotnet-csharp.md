@@ -265,3 +265,5 @@ For other ways to use Pig and Hive, and to learn about using MapReduce, see the 
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+
+<!--Update_Description: update meta data-->

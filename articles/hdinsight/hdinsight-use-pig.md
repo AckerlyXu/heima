@@ -150,3 +150,5 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
+
+<!--Update_Description: update meta data-->

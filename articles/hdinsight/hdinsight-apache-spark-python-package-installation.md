@@ -107,3 +107,5 @@ Visit the documentation on [how to use custom script actions](/hdinsight/hdinsig
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+
+<!--Update_Description: update meta data-->

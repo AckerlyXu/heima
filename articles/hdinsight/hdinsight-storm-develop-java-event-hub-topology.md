@@ -382,3 +382,5 @@ Output is logged to the console when running locally. Use __Ctrl+C__ to stop the
 ## Next steps
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+
+<!--Update_Description: wording update-->

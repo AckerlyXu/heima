@@ -1494,3 +1494,5 @@ Release notes for the Hortonworks Data Platforms (HDPs) that are used by HDInsig
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
+
+<!--Update_Description: update meta data-->

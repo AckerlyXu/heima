@@ -168,3 +168,5 @@ For more information, see [How to: Monitor web endpoint status].
 [configure01]: ./media/web-sites-configure/configure01.png
 [configure02]: ./media/web-sites-configure/configure02.png
 [configure03]: ./media/web-sites-configure/configure03.png
+
+<!--Update_Description: add CRON expression trigger-->
