@@ -172,3 +172,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
 [lnk-portal-storage]: ../storage/storage-create-storage-account.md
 [lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
+
+<!--Update_Description: update meta data only-->

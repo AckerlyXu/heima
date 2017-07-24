@@ -166,3 +166,5 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
+
+<!--Update_Description: update meta data only-->

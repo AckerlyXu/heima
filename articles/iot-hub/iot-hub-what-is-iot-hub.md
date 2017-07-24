@@ -123,3 +123,5 @@ To get started writing some code and running some samples, see the [Get started 
 [lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
 
 [lnk-security-ground-up]: ./iot-hub-security-ground-up.md
+
+<!--Update_Description:update meta properties and wording-->

@@ -209,3 +209,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Azure IoT Suite]: /iot-suite/
 [Azure IoT device SDKs]: ./iot-hub-devguide-sdks.md
+
+<!--Update_Description: update wording and some links-->

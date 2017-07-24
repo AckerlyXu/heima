@@ -168,3 +168,6 @@ The Bluetooth Low Energy (BLE) sample application is provided by Azure IoT Edge.
 ## Next steps
 
 [Use IoT gateway for sensor data transformation with Azure IoT Edge](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+
+<!--Update_Description: update wording and code-->

@@ -123,3 +123,5 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
+
+<!--Update_Description: update meta data and some links-->

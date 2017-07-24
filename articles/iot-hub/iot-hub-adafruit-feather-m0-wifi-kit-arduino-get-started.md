@@ -232,3 +232,4 @@ You have successfully connected Feather M0 WiFi to your IoT hub and sent the cap
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
+<!--Update_Description: update wording and meta data-->

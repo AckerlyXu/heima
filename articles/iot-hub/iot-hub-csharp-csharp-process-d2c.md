@@ -234,3 +234,5 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: /iot-suite/
+
+<!--Update_Description: update wording-->

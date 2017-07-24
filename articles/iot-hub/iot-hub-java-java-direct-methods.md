@@ -334,3 +334,6 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+
+
+<!--Update_Description:update meta properties and wording-->

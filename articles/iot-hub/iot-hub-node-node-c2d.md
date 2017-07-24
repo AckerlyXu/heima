@@ -198,3 +198,6 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn
 [Azure IoT Suite]: /iot-suite/
+
+
+<!--Update_Description:update meta properties and wording-->

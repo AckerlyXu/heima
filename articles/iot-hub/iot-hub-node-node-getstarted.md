@@ -293,6 +293,8 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal]: https://portal.azure.cn/
 
+<!--Update_Description:update meta properties and link references-->
+
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/

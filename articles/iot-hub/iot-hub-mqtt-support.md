@@ -230,6 +230,9 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 
+
+<!--Update_Description:update meta properties and link references-->
+
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-messaging]: ./iot-hub-devguide-messaging.md
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md

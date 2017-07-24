@@ -169,3 +169,6 @@ A full CLI experience helps you create and manage all your Azure resources. You 
 ## Azure Storage issues
 
 [Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com/) is a standalone app from Microsoft that you can use to work with Azure Storage data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
+
+
+<!--Update_Description: update meta data only-->

@@ -45,3 +45,5 @@ You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a colle
 [lnk-iot-suite]: /iot-suite/
 [lnk-iotdev]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-device-management-overview.md
+
+<!--Update_Description:update meta properties and link references-->

@@ -37,3 +37,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-security-deployment]: ./iot-hub-security-deployment.md
 
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+
+<!--Update_Description:update meta properties only-->

@@ -215,3 +215,5 @@ If you see the following output from the serial monitor window and the blinking 
 You have successfully connected a Sparkfun ESP8266 Thing Dev to your IoT hub and sent the captured sensor data to your IoT hub. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+<!--Update_Description:update meta properties and wording-->

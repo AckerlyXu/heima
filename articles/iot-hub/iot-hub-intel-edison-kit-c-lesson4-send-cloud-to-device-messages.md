@@ -98,3 +98,6 @@ You’ve successfully sent messages from your IoT hub to Edison to blink the LED
 [create-an-azure-function-app-and-storage-account]: ./iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [gulp-command-and-blink-messages]: ./media/iot-hub-intel-edison-lessons/lesson4/gulp_blink_c.png
 [change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
+
+
+<!--Update_Description: update wording-->

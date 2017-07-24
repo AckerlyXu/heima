@@ -101,7 +101,7 @@ Follow these steps to install the package.
 
    > Enter 'y', when it prompts you to 'Include this channel?'
    
-   If you receive an `import read failed(-1)` error, use the following commands to resolve the issue:
+   If you receive an `import read failed(-1)` error, use the following commands to resolve the issue:
    ```bash
    wget http://iotdk.intel.com/misc/iot_pub2.key 
    rpm --import iot_pub2.key  
@@ -172,3 +172,4 @@ Congratulations! You've finished setting up Intel NUC as a gateway. Now you're r
 ## Next steps
 [Use an IoT gateway to connect a device to Azure IoT Hub](./iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
+<!--Update_Description: add some code-->

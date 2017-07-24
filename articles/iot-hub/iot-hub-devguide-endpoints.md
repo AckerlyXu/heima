@@ -111,3 +111,5 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [lnk-operations-mon]: ./iot-hub-operations-monitoring.md
+
+<!--Update_Description: update wording-->

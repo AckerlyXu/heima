@@ -578,3 +578,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
 [lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
 [lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
+
+<!--Update_Description:update meta properties and code-->

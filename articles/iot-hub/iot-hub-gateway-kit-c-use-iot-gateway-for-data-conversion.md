@@ -144,3 +144,5 @@ You get a `libmy_module.so` file after the compile is completed. Make a note of 
 You’ve successfully use the IoT gateway to convert the message from SensorTag into the .json format.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+<!--Update_Description: update some code -->

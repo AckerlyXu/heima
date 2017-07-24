@@ -202,3 +202,6 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Azure portal]: https://portal.azure.cn
 [Azure IoT Suite]: /iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+
+<!--Update_Description:update meta properties and code-->
+

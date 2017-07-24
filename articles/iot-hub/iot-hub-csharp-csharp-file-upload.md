@@ -194,3 +194,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-iotedge]: ./iot-hub-windows-iot-edge-simulated-device.md
 
 
+<!--Update_Description: update wording and code-->

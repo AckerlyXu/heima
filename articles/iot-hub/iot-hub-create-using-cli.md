@@ -122,3 +122,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-portal]: ./iot-hub-create-through-portal.md
+
+<!--Update_Description: update meta data only-->

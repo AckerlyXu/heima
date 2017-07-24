@@ -267,3 +267,5 @@ To continue getting started with IoT Hub, see [Getting started with IoT Edge][ln
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+
+<!--Update_Description: update wording and code format-->

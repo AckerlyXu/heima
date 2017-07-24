@@ -243,3 +243,5 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/
+
+<!--Update_Description: update wording-->

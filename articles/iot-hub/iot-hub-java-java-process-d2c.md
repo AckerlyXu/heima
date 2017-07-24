@@ -211,3 +211,5 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-c2d]: ./iot-hub-java-java-c2d.md
 
 [lnk-suite]: /iot-suite/
+
+<!--Update_Description:update wording and link references-->
