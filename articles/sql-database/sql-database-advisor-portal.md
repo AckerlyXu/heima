@@ -151,3 +151,5 @@ Monitor your recommendations and continue to apply them to refine performance. D
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Role-based access control](../active-directory/role-based-access-control-what-is.md)
+
+<!--Update_Description: update word & link-->

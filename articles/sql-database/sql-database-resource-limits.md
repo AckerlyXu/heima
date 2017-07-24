@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+origin.date: 07/12/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Azure SQL Database resource limits
@@ -71,3 +71,5 @@ For an expanded definition of each resource listed in the previous tables, see t
 [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)
 
 [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
+
+<!--Update_Description: update meta properties-->

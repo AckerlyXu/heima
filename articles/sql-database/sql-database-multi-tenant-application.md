@@ -3,8 +3,8 @@ title: Implement multi-tenant SaaS application with Azure SQL Database | Azure
 description: Implement multi-tenant SaaS application with Azure SQL Database.
 services: sql-database
 documentationcenter: ''
-author: 'AyoOlubeko'
-manager: 'jhubbard'
+author: Hayley244
+manager: digimobile
 editor: 'monicar'
 tags: ''
 
@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/08/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 
@@ -37,14 +37,17 @@ In this tutorial, you will learn to:
 
 If you don't have an Azure subscription, [create a trial account](https://www.azure.cn/1rmb-trial/) before you begin.
 
+## Prerequisites
+
 To complete this tutorial, make sure you have:
-* PowerShell installed on your machine, and the [latest Azure PowerShell SDK](/downloads/)
 
-* The latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.
+* Installed the newest version of PowerShell and the [latest Azure PowerShell SDK](/downloads/)
 
-* [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html), and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+* Installed The latest version of [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installing SQL Server Management Studio also installs the latest version of SQLPackage, a command-line utility that can be used to automate a range of database development tasks.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) installed on your machine. Maven will be used to help manage dependencies, build, test and run the sample Java project
+* Installed the [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) and the [latest JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine. 
+
+* installed [Apache Maven](https://maven.apache.org/download.cgi). Maven will be used to help manage dependencies, build, test and run the sample Java project
 
 ## Set up Data Environment
 
@@ -66,7 +69,7 @@ Follow these steps to create a SQL server and an elastic pool that will host all
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Login to Azure and create a SQL server and elastic pool 
@@ -500,6 +503,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Try connecting to 'tenant1' using the Java application. You will get an error stating that the tenant does not exist.
 
 ## Next Steps 
+
 In this tutorial, you learned to:
 > [!div class="checklist"]
 > * Set up a database environment to support a multi-tenant SaaS application, using the Database-per-tenant pattern
@@ -515,5 +519,4 @@ In this tutorial, you learned to:
 
 * Java samples for common Azure tasks, see [Java Developer Center](/develop/java/)
 
-
-
+<!--Update_Description: wording update-->

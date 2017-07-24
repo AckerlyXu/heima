@@ -33,3 +33,5 @@ The following table includes links to Azure CLI script examples for Azure SQL Da
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-cli.md) | This CLI script example Scales a single Azure SQL database to a different performance level after querying the size information for the database. |
 | [Scale an elastic pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a SQL elastic pool to a different performance level.  |
 |||
+
+<!--Update_Description: wording update-->

@@ -218,3 +218,5 @@ When TDE is enabled for an Azure SQL database, backups are also encrypted. All n
 ## Next steps
 
 Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](./sql-database-business-continuity.md).
+
+<!--Update_Description: update word-->

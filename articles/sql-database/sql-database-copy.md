@@ -106,3 +106,5 @@ To learn about managing users and logins when you copy a database to a different
 
 * For information about logins, see [Manage logins](sql-database-manage-logins.md) and [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 * To export a database, see [Export the database to a BACPAC](sql-database-export.md).
+
+<!--Update_Description: update meta properties-->

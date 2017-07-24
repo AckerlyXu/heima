@@ -72,3 +72,5 @@ Write-Output "_applicationSecret:" $secret
 
 - [Create a SQL database with C#](sql-database-get-started-csharp.md)
 - [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+
+<!--Update_Description: update meta properties-->

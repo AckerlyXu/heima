@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: sql-database
 origin.date: 05/27/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Distributed transactions across cloud databases
@@ -149,7 +149,9 @@ The following limitations currently apply to elastic database transactions in SQ
 * Transactions across WCF services are not supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## Next steps
-Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). For questions, please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
+
+<!--Update_Description: update word & link references-->

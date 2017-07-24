@@ -125,3 +125,6 @@ Azure Active Directory authentication supports the following methods of connecti
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+
+
+<!--Update_Description: update word & link-->

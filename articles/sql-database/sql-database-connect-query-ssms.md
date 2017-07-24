@@ -17,8 +17,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/26/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
@@ -169,3 +169,5 @@ Use the following code to delete the new product that you previously added using
 - To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
 - To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
 - To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+
+<!--Update_Description: update word & link-->

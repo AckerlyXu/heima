@@ -64,3 +64,5 @@ You should familiarize yourself with the following features that can be used to 
 - To learn about users and logins, see [Manage logins](sql-database-manage-logins.md). 
 - For a discussion of proactive monitoring, see [Database Auditing](sql-database-auditing.md) and [SQL Database Threat Detection](sql-database-threat-detection.md).
 - For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
+
+<!--Update_Description: update word & link-->

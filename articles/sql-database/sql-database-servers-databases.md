@@ -209,3 +209,5 @@ To create and manage Azure SQL server, databases, and firewalls using the REST A
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md).
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-cloud-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).
+
+<!--Update_Description: update word & link-->
