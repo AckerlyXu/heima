@@ -140,3 +140,5 @@ To require the use of managed disks, use the following policy:
 * After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource.
 * For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
+
+<!--Update_Description: wording update-->

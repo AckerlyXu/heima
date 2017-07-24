@@ -394,3 +394,5 @@ It should take about five minutes for this console application to run completely
 ## Next steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * Learn more about using the [Azure libraries for .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
+
+<!--Update_Description: wording update-->

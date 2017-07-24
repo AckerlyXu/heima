@@ -240,3 +240,5 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 ```
 ## Next steps
 Now you can choose precisely the image you want to use by taking note of the URN value. When specifying the image, you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, which you just found, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: update from Azure CLI 1.0 to 2.0-->

@@ -572,3 +572,5 @@ Because you are charged for resources used in Azure, it's always a good practice
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
 - Learn more about the [Azure Python Library](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
+
+<!--Update_Description: add section "Perform management tasks"-->

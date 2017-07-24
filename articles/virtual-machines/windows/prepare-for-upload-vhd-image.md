@@ -409,3 +409,5 @@ If there's any data disk that is attached to the VM, the Temporal drive volume's
 
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
+
+<!--Update_Description: wording update-->

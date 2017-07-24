@@ -153,3 +153,5 @@ To use Azure services from your Ruby application, see:
 [endpoints]:./media/virtual-machines-linux-classic-ruby-rails-web-app/endpoints.png
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
+
+<!--Update_Description: update new portal instead of classic portal-->

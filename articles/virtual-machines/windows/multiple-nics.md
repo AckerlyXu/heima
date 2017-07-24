@@ -233,3 +233,5 @@ You can read a complete example of [creating multiple NICs by using Resource Man
 
 ## Next steps
 Review [Windows VM sizes](sizes.md) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports.
+
+<!--Update_Description: wording update-->
