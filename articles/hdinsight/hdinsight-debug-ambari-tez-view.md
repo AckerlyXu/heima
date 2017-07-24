@@ -109,3 +109,5 @@ Now that you have learned how to use the Tez view, learn more about [Using Hive 
 For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
 
 For more information on using Ambari with HDInsight, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+
+<!--Update_Description: wording update-->

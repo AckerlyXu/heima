@@ -225,3 +225,5 @@ After you ensure that MySQL in-app is running, try to use PHPMyAdmin.
 ## I get an HTTP 403 error when I try to import or export my MySQL in-app database by using PHPMyadmin. How do I resolve this?
 
 If you are using an older version of Chrome, you might be experiencing a known bug. To resolve the issue, upgrade to a newer version of Chrome. Also try using a different browser, like Internet Explorer or Edge, where the issue does not occur.
+
+<!--Update_Description: update meta data-->

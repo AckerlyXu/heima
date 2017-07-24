@@ -129,3 +129,5 @@ Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.m
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
+
+<!--Update_Description: wording update-->

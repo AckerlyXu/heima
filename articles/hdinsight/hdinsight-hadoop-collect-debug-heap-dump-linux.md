@@ -129,3 +129,5 @@ To modify the configuration for a service, use the following steps:
    > the entries for the **Restart** button may be different for other services.
 
 8. Once the services have been restarted, use the **Service Actions** button to **Turn Off Maintenance Mode**. This Ambari to resume monitoring for alerts for the service.
+
+<!--Update_Description: update meta data-->

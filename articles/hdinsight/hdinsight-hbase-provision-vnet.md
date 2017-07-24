@@ -289,3 +289,5 @@ In this tutorial, you learned how to create an HBase cluster. To learn more, see
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"
 
 [azure-preview-portal]: https://portal.azure.cn
+
+<!--Update_Description: wording update-->

@@ -349,3 +349,5 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to a 
 
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+
+<!--Update_Description: wording update-->

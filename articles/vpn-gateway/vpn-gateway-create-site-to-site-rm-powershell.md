@@ -244,3 +244,5 @@ If the IP address prefixes that you want routed to your on-premises location cha
 
 *  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+
+<!--Update_Description: wording update-->

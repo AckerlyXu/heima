@@ -287,3 +287,5 @@ In the examples, notice that the shared key is exactly the same. The shared key 
 
 ## Next steps
 Verify your connections. See [Verify a VPN Gateway connection](vpn-gateway-verify-connection-resource-manager.md).
+
+<!--Update_Description: add steps to create classic vnet in the new portal-->

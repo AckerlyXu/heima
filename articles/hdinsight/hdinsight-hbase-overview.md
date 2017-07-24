@@ -80,3 +80,5 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 [azure-create-storageaccount]: ../storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
+
+<!--Update_Description: update meta data-->

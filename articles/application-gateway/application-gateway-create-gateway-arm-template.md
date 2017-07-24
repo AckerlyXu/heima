@@ -247,3 +247,5 @@ If you want more information about load balancing options in general, visit:
 
 * [Azure Load Balancer](/load-balancer/)
 * [Azure Traffic Manager](/traffic-manager/)
+
+<!--Update_Description: add script for getting cert in macOS-->

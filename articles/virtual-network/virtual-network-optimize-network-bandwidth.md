@@ -122,3 +122,5 @@ Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing t
 ## Next steps
 * Now that the VM is optimized, see the result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
+
+<!--Update_Description: wording update-->

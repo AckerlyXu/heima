@@ -146,3 +146,5 @@ Now that you have successfully created an HDInsight cluster using the Azure CLI,
 * [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+
+<!--Update_Description: wording update-->
