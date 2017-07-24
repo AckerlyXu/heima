@@ -4,7 +4,7 @@ Use the Azure CLI to get the remote deployment URL for your API App. In the foll
 az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
 ```
 
-configure your local Git deployment to be able to push to the remote.
+Configure your local Git deployment to be able to push to the remote.
 
 ```bash
 git remote add azure <URI from previous step>

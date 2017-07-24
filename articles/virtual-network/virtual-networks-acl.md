@@ -19,14 +19,14 @@ ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
-# What is an endpoint Access Control list?
+# What is an endpoint access control list?
 
 > [!IMPORTANT]
 > Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json) for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager deployment model. 
 
 An endpoint access control list (ACL) is a security enhancement available for your Azure deployment. An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint. This packet filtering capability provides an additional layer of security. You can specify network ACLs for endpoints only. You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network. It is recommended to use network security groups (NSGs) instead of ACLs, whenever possible. To learn more about NSGs, see [Network security group overview](virtual-networks-nsg.md)
 
-ACLs can be configured by using either PowerShell or the Azure Portal. To configure a network ACL by using PowerShell, see [Managing Access Control Lists for Endpoints using PowerShell](virtual-networks-acl-powershell.md). To configure a network ACL by using the Azure Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+ACLs can be configured by using either PowerShell or the Azure portal. To configure a network ACL by using PowerShell, see [Managing access control lists for endpoints using PowerShell](virtual-networks-acl-powershell.md). To configure a network ACL by using the Azure portal, see [How to set up endpoints to a virtual machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Using Network ACLs, you can do the following:
 
@@ -83,7 +83,7 @@ Because multiple rules can be specified for an endpoint, there must be a way to 
 | 200 |175.0.0.0/8 |80 |Permit |
 
 ## Network ACLs and load balanced sets
-Network ACLs can be specified on a Load balanced set endpoint. If an ACL is specified for a load balanced Set, the Network ACL is applied to all Virtual Machines in that load balanced Set. For example, if a load balanced Set is created with "Port 80" and the load balanced Set contains 3 VMs, the Network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.
+Network ACLs can be specified on a load balanced set endpoint. If an ACL is specified for a load balanced set, the network ACL is applied to all virtual machines in that load balanced set. For example, if a load balanced set is created with "Port 80" and the load balanced set contains 3 VMs, the network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.
 
 ![Network ACLs and load balanced sets](./media/virtual-networks-acl/IC674733.png)
 
