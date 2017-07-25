@@ -1001,11 +1001,6 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/sql-database/sql-database-get-started-elastic-pool.md",
-      "redirect_url": "/sql-database/sql-database-elastic-pool-manage-portal",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/sql-database/sql-database-get-started.md",
       "redirect_url": "/sql-database/sql-database-get-started-portal",
       "redirect_document_id": "false"
