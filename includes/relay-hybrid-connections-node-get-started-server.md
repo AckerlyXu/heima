@@ -10,12 +10,13 @@
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Add the following Relay `constants` to the `listener.js` for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection.
+2. Add the following constants to the `listener.js` file for the hybrid connection details. Replace the placeholders in brackets with the values you obtained when you created the hybrid connection.
    
-   1. `const ns` - The Relay namespace (use FQDN - e.g. `{namespace}.servicebus.windows.net`)
-   2. `const path` - The name of the Hybrid Connection
-   3. `const keyrule` - The name of the SAS key
-   4. `const key` - The SAS key value
+   1. `const ns` - The Relay namespace. Be sure to use the fully qualified namespace name; for example, `{namespace}.servicebus.chinacloudapi.cn`.
+   2. `const path` - The name of the hybrid connection.
+   3. `const keyrule` - The name of the SAS key.
+   4. `const key` - The SAS key value.
+
 3. Add the following code to the `listener.js` file:
    
     ```js
@@ -40,7 +41,7 @@
         console.log('error' + err);
     });
     ```
-    Here is what your listener.js should look like:
+    Here is what your listener.js file should look like:
    
     ```js
     const WebSocket = require('hyco-ws');
