@@ -169,7 +169,7 @@ Select the target VMM server and cloud.
 
      ![Replication policy](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
-###<a name="network-mapping-overview"></a> Configure network mapping
+### <a name="network-mapping-overview"></a> Configure network mapping
 
 - Learn about [network mapping](#prepare-for-network-mapping) before you start.
 - Verify that virtual machines on VMM servers are connected to a VM network.
