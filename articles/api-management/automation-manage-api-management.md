@@ -34,8 +34,4 @@ Here are some examples of using API Management with Automation:
 
 * [Azure API Management – Using PowerShell for backup and restore](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
 
-## Next Steps
-Now that you've learned the basics of Azure Automation and how it can be used to manage Azure API Management, follow these links to learn more.
-
-* See the Azure Automation [getting started tutorial](../automation/automation-first-runbook-graphical.md).
 

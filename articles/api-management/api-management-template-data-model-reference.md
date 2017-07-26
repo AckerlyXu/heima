@@ -20,7 +20,7 @@ ms.date: ''
 # Azure API Management template data model reference
 This topic describes the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.  
   
- For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates/).  
+ For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
   
 -   [API](#API)  
 -   [API summary](#APISummary)  

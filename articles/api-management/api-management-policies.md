@@ -64,7 +64,7 @@ This section provides a reference for the following API Management policies. For
   
     -   [Set status code](./api-management-advanced-policies.md#SetStatus) - Changes the HTTP status code to the specified value.  
   
-    -   [Trace](./api-management-advanced-policies.md#Trace) - Adds a string into the [API Inspector](./api-management-howto-api-inspector/) output.  
+    -   [Trace](./api-management-advanced-policies.md#Trace) - Adds a string into the [API Inspector](./api-management-howto-api-inspector.md) output.  
   
     -   [Wait](./api-management-advanced-policies.md#Wait) - Waits for enclosed [Send request](./api-management-advanced-policies.md#SendRequest), [Get value from cache](./api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](./api-management-advanced-policies.md#choose) policies to complete before proceeding.  
   

@@ -19,12 +19,12 @@ ms.date: ''
 ---
 
 # How to Use Role-Based Access Control in Azure API Management
-Azure API Management relies on Azure Role-Based Access Control (RBAC) to enable fine-grained access management for API Management services and entities (e.g., APIs, policies). This article gives you an overview of the built-in and custom roles in API Management. If you want more details on access management in the Azure portal, see [Get started with access management in the Azure portal](./role-based-access-control-what-is.md)
+Azure API Management relies on Azure Role-Based Access Control (RBAC) to enable fine-grained access management for API Management services and entities (e.g., APIs, policies). This article gives you an overview of the built-in and custom roles in API Management. If you want more details on access management in the Azure portal, see [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
 
 ## Built-in Roles
 API Management currently provides 3 built-in roles and will add 2 more roles in the near future. These roles can be assigned at differnt scopes including subscription, resource group, and individual API Management instance. For instance, if the "Azure API Management Service Reader" role is assigned to an user at the resource group level, then the user will have read access to all API Management instances inside the resource group. 
 
-The following table provides brief descriptions of the built-in roles. You can assign these roles using the Azure Portal or other tools including Azure [PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-powershell), Azure [Command-line interface](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-azure-cli), and [REST API](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-rest). For details about how to assign built-in roles, see [Use role assignments to manage access to your Azure subscription resources](./role-based-access-control-what-is.md).
+The following table provides brief descriptions of the built-in roles. You can assign these roles using the Azure Portal or other tools including Azure [PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-powershell), Azure [Command-line interface](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-azure-cli), and [REST API](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-manage-access-rest). For details about how to assign built-in roles, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-what-is.md).
 
 | Role          | Read access<sup>[1]</sup> | Write access<sup>[2]</sup> | Service creation, deletion, scaling, VPN and custom domain configuration | Access to legacy Publsiher Portal | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -62,6 +62,6 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 ## Next Steps
 
 * Learn more about Role-Based Access Control in Azure
-  * [Get started with access management in the Azure portal](./role-based-access-control-what-is.md)
-  * [Use role assignments to manage access to your Azure subscription resources](./role-based-access-control-what-is.md)
+  * [Get started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md)
+  * [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-what-is.md)
   * [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md)

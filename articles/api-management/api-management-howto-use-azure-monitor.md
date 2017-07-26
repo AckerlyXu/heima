@@ -36,7 +36,6 @@ You can access metrics in your API Management service, or access metrics of all 
 
 ![Metrics blade][metrics-blade]
 
-For more information about how to use Metrics, see [Overview of Metrics].
 
 ## Activity Logs
 Activity logs provide insight into the operations that were performed on your API Management services. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your API Management services. 
@@ -111,24 +110,15 @@ You can access diagnostic logs in your API Management service, or access logs of
 
 ![Diagnostic logs blade][diagnostic-logs-blade]
 
-For more information about how to use Metrics, see [Overview of Diagnostic Logs].
 
 ## Next Step
 
-* [Get Started with Azure Monitor]
-* [Overview of Metrics]
+
 * [Overview of Activity Logs]
-* [Overview of Diagnostic Logs]
 * [Overview of Alerts]
 
-[Get Started with Azure Monitor]: ../monitoring-and-diagnostics/monitoring-get-started.md
-[Overview of Metrics]: ../monitoring-and-diagnostics/monitoring-overview-metrics.md
 [Overview of Activity Logs]: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md
-[Overview of Diagnostic Logs]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [Overview of Alerts]: ../monitoring-and-diagnostics/insights-alerts-portal.md
-
-
-
 [metrics-blade]: ./media/api-management-azure-monitor/api-management-metrics-blade.png
 [activity-logs-blade]: ./media/api-management-azure-monitor/api-management-activity-logs-blade.png
 [alert-rules-blade]: ./media/api-management-azure-monitor/api-management-alert-rules-blade.png

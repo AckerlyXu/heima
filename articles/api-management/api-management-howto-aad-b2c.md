@@ -21,8 +21,6 @@ ms.date: ''
 ## Overview
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your developer portal. This guide shows you the configuration that's required in your API Management service to integrate with Azure Active Directory B2C. For information about enabling access to the developer portal by using classic Azure Active Directory, see [How to authorize developer accounts using Azure Active Directory].
 
-> [!NOTE]
-> To complete the steps in this guide, you must first have an Azure Active Directory B2C tenant to create an application in. Also, you need to have signup and signin policies ready. For more information, see [Azure Active Directory B2C overview].
 
 ## Authorize developer accounts by using Azure Active Directory B2C
 
@@ -111,7 +109,6 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 ## Next steps
 
-*  [Azure Active Directory B2C overview]
 *  [Azure Active Directory B2C: Extensible policy framework]
 *  [Use a Microsoft account as an identity provider in Azure Active Directory B2C]
 *  [Use a Google account as an identity provider in Azure Active Directory B2C]
@@ -182,7 +179,6 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
-[Azure Active Directory B2C overview]: ../active-directory-b2c/active-directory-b2c-overview.md
 [How to authorize developer accounts using Azure Active Directory]: ./api-management-howto-aad.md
 [Azure Active Directory B2C: Extensible policy framework]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Use a Microsoft account as an identity provider in Azure Active Directory B2C]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
