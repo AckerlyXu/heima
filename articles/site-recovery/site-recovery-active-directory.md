@@ -70,7 +70,7 @@ Then [reconfigure the DNS server for the virtual network](../active-directory/ac
 
 **DNS in Azure Production Network**
 
-## Test failover considerations
+## <a name="test-failover-considerations"></a>Test failover considerations
 Test failover occurs in a network that's isolated from production network so that there's no impact on production workloads.
 
 Most applications also require the presence of a domain controller and a DNS server to function. Therefore, before the application is failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery. Then run a test failover of the domain controller virtual machine before running a test failover of the recovery plan for the application. Here's how you do that:
