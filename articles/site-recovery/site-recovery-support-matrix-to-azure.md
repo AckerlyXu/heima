@@ -152,7 +152,7 @@ Import/export service | No | No
 Availability sets | Yes | Yes
 HUB | Yes | Yes  
 
-## Failed-over Azure VM requirements
+## <a name="failed-over-azure-vm-requirements"></a>Failed-over Azure VM requirements
 
 You can deploy Site Recovery to replicate virtual machines and physical servers running any operating system supported by Azure. This includes most versions of Windows and Linux. On-premises VMs that you want to replicate must conform with the following Azure requirements while replicating to Azure.
 

@@ -21,9 +21,6 @@ ms.author: v-dazen
 # How to monitor Azure Redis Cache
 Azure Redis Cache uses [Azure Monitor](/monitoring-and-diagnostics/) to provide several options for monitoring your cache instances. You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.
 
->[!NOTE]
-> If you want to enable cache diagnostics in Azure China, you need to set the `rdb-storage-connection-string` with Azure PowerShell or Azure CLI.
-
 Metrics for Azure Redis Cache instances are collected using the Redis [INFO](http://redis.io/commands/info) command approximately twice per minute and automatically stored for 30 days (see [Export cache metrics](#export-cache-metrics) to configure a different retention policy) so they can be displayed in the metrics charts and evaluated by alert rules. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
