@@ -335,8 +335,8 @@ The actor framework build tools automatically create a default service definitio
 
 * Replica set count is determined by the persistence attribute on your actor. Each time the persistence attribute on your actor is changed, the replica set count in the default service definition is reset accordingly.
 * Partition scheme and range are set to Uniform Int64 with the full Int64 key range.
-
-##<a name="service-fabric-partition-concepts-for-stateful-actors"></a><a name="service-fabric-partition-concepts-for-actors"></a> Service Fabric partition concepts for actors
+<a name="service-fabric-partition-concepts-for-stateful-actors"></a>
+## <a name="service-fabric-partition-concepts-for-actors"></a> Service Fabric partition concepts for actors
 Actor services are partitioned stateful services. Each partition of an actor service contains a set of actors. Service partitions are automatically distributed over multiple nodes in Service Fabric. Actor instances are distributed as a result.
 
 ![Actor partitioning and distribution][5]
