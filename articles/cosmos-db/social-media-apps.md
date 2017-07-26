@@ -41,7 +41,8 @@ Why isn't SQL the best choice in this scenario? Let's look at the structure of a
 We could, of course, use a humongous SQL instance with enough power to solve thousands of queries with these many joins to serve our content, but truly, why would we when a simpler solution exists?
 
 ## The NoSQL road
-This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin Graph API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) in a cost-effective way. Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), our previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
 
     {
         "id":"ew12-res2-234e-544f",
@@ -131,9 +132,8 @@ To solve this, we can use a mixed approach. As part of the User Statistics docum
         "totalPoints":11342
     }
 
-And the actual graph of followers can be stored using Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md), to create [vertexes](http://mathworld.wolfram.com/GraphVertex.html) for each user and [edges](http://mathworld.wolfram.com/GraphEdge.html) that maintain the "A-follows-B" relationships. The Graph API let's you not only obtain the followers of a certain user but create more complex queries to even suggest people in common. If we add to the graph the Content Categories that people like or enjoy, we can start weaving experiences that include smart content discovery, suggesting content that those we follow like, or finding people with whom we might have much in common.
+<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
 
-The User Statistics document can still be used to create cards in the UI or quick profile previews.
 
 ## The "Ladder" pattern and data duplication
 As you might have noticed in the JSON document that references a post, there are multiple occurrences of a user. And you'd have guessed right, this means that the information that represents a user, given this denormalization, might be present in more than one place.

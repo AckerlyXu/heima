@@ -4,7 +4,7 @@ title: Azure Cosmos DB Documentation
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: Azure Cosmos DB Documentation - Tutorials, API Reference
-  description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value, and graph databases.
+  description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value databases.
   services: cosmos-db
   author: rockboyfor
   manager: digimobile
@@ -16,7 +16,7 @@ metadata:
   ms.date: 07/17/2017
   ms.author: v-yeche
 abstract:
-  description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value, or graph databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
+  description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -33,8 +33,6 @@ sections:
           src: media/index/logo_nodejs.svg
       - image:
           src: media/index/logo_python.svg
-      - image:
-          src: media/index/logo_gremlin.svg
     rows:
       - title: DocumentDB API
         values:
@@ -42,25 +40,15 @@ sections:
         - href: /cosmos-db/create-documentdb-java
         - href: /cosmos-db/create-documentdb-nodejs
         - href: /cosmos-db/create-documentdb-python
-        - href:
       - title: MongoDB API
         values:
           - href: /cosmos-db/create-mongodb-dotnet
           - href: /cosmos-db/create-mongodb-java
           - href: /cosmos-db/create-mongodb-nodejs
           - href: 
-          - href: 
-      - title: Graph API
-        values:
-          - href: /cosmos-db/create-graph-dotnet
-          - href: /cosmos-db/create-graph-java
-          - href: /cosmos-db/create-graph-nodejs
-          - href:
-          - href: /cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
           - href: /cosmos-db/create-table-dotnet
-          - href:
           - href:
           - href:
           - href:
@@ -71,10 +59,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/cosmos-db/tutorial-develop-graph-dotnet">Graph</a>
+    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a>
     - html: Import data into Cosmos DB&#58; <a href="documentdb-import-data">DocumentDB</a> | <a href="documentdb-mongodb-migrate">MongoDB</a>
-    - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a> | <a href="/cosmos-db/tutorial-query-graph">Graph</a>
-    - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/cosmos-db/tutorial-global-distribution-graph">Graph</a>
+    - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a>
+    - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
     - html: <a href="local-emulator">Develop your application locally using the emulator</a>
 - title: Samples
   items:
