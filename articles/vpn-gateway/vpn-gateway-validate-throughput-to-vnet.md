@@ -136,4 +136,4 @@ From the on-premises network, run *tracert* to the VIP of the Azure Gateway or V
 For more information or help, check out the following links:
 
 - [Optimize network throughput for Azure virtual machines](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Azure.cn Support](https://www.azure.cn/support/support-azure/)
+- [Azure Support](https://www.azure.cn/support/support-azure/)

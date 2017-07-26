@@ -23,18 +23,18 @@ ms.author: v-dazen
 
 A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone.
 
-A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.  
+A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.
 
 ## <a name="gwtype"></a>Gateway types
 
 Each virtual network can only have one virtual network gateway of each type. When you are creating a virtual network gateway, you must make sure that the gateway type is correct for your configuration.
 
-The available values for -GatewayType are: 
+The available values for -GatewayType are:
 
 * Vpn
 * ExpressRoute
 
-A VPN gateway requires the `-GatewayType` *Vpn*.  
+A VPN gateway requires the `-GatewayType` *Vpn*.
 
 Example:
 
@@ -56,7 +56,7 @@ If you use the Azure portal to create a Resource Manager virtual network gateway
 
 #### PowerShell
 
-The following PowerShell example specifies the `-GatewaySku` as `Standard`.
+The following PowerShell example specifies the `-GatewaySku` as Standard.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -103,7 +103,7 @@ There are two VPN types:
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-The following PowerShell example specifies the `-VpnType` as *RouteBased*. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration. 
+The following PowerShell example specifies the `-VpnType` as *RouteBased*. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
