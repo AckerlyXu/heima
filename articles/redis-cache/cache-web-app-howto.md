@@ -708,6 +708,8 @@ This **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus
 
 Clicking the **Deploy to Azure** button takes you to the Azure portal and initiates the process of creating the resources described by the template.
 
+[![Deploy to Azure](media/cache-web-app-howto/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+
 1. In the **Basics** section, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. In the **Settings** section, specify an **Administrator Login** (don't use **admin**), **Administrator Login Password**, and **Database Name**. The other parameters are configured for a free App Service hosting plan, and lower-cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
 3. After configuring the desired settings, select **Legal terms**, read the terms and conditions, and click the **Purchase** button.

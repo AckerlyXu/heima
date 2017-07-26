@@ -29,7 +29,7 @@ In this topic, you learn how to install Presto on HDInsight Hadoop clusters by u
 [Presto](https://prestodb.io/overview.html) is a fast distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on the components of Presto and how they work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
 
 > [!WARNING]
-> Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
+> Components provided with the HDInsight cluster are fully supported and Azure Support will help to isolate and resolve issues related to these components.
 > 
 > Custom components, such as Presto, receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net/). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 > 
