@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
 
 ---
 # Programmatically create a Stream Analytics job monitor
 
-This article demonstrates how to enable monitoring for a Stream Analytics job. Stream Analytics jobs that are created via REST APIs, Azure SDK, or PowerShell do not have monitoring enabled by default. You can manually enable it in the Azure Portal by going to the job's Monitor page and clicking the Enable button or you can automate this process by following the steps in this article. The monitoring data will show up in the Metrics area of the Azure portal for your Stream Analytics job.
+This article demonstrates how to enable monitoring for a Stream Analytics job. Stream Analytics jobs that are created via REST APIs, Azure SDK, or PowerShell do not have monitoring enabled by default. You can manually enable it in the Azure portal by going to the job's Monitor page and clicking the Enable button or you can automate this process by following the steps in this article. The monitoring data will show up in the Metrics area of the Azure portal for your Stream Analytics job.
 
 ## Prerequisites
 
@@ -118,7 +118,8 @@ Before you begin this process, you must have the following:
     }
     ```
 
-## Create Management Clients
+## Create management clients
+
 The following code will set up the necessary variables and management clients.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -144,7 +145,7 @@ The following code will set up the necessary variables and management clients.
 The following code enables monitoring for an **existing** Stream Analytics job. The first part of the code performs a GET request against the Stream Analytics service to retrieve information about the particular Stream Analytics job. It uses the *Id* property (retrieved from the GET request) as a parameter for the Put method in the second half of the code, which sends a PUT request to the Insights service to enable monitoring for the Stream Analytics job.
 
 > [!WARNING]
->If you have previously enabled monitoring for a different Stream Analytics job, either through the Azure portal or programmatically via the below code, **we recommend that you provide the same storage account name that you used when you previously enabled monitoring.**
+> If you have previously enabled monitoring for a different Stream Analytics job, either through the Azure portal or programmatically via the below code, **we recommend that you provide the same storage account name that you used when you previously enabled monitoring.**
 > 
 > The storage account is linked to the region that you created your Stream Analytics job in, not specifically to the job itself.
 > 
@@ -178,7 +179,9 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!--Update_Description: update link-->

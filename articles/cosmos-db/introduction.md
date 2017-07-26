@@ -25,7 +25,7 @@ Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With 
 
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 
-Azure Cosmos DB contains a write optimized, resource governed, schema-agnostic database engine that natively supports multiple data models: key-value, documents, graphs, and columnar. It also supports many APIs for accessing data including [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md) (preview), and [Azure Tables](table-introduction.md) (preview), in an extensible manner. 
+Azure Cosmos DB contains a write optimized, resource governed, schema-agnostic database engine that natively supports multiple data models: key-value, documents and columnar. It also supports many APIs for accessing data including [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), and [Azure Tables](table-introduction.md) (preview), in an extensible manner. 
 
 Azure Cosmos DB started in late 2010 to address developer pain-points that are faced by large scale applications inside Microsoft. Since building globally distributed applications is not a problem unique to just to Microsoft, we made the service available externally to all Azure Developers in the form of Azure DocumentDB. Azure Cosmos DB is the next big leap in the evolution of DocumentDB and we are now making it available for you to use. As a part of this release of Azure Cosmos DB, DocumentDB customers (with their data) are automatically Azure Cosmos DB customers. The transition is seamless and they now have access to a broader range of new capabilities offered by Azure Cosmos DB. 
 
@@ -50,9 +50,9 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * Don't worry about hardware, adding nodes, VMs or cores. Just point and click, and your data is there. 
 
 * [**Multiple data models and popular APIs for accessing and querying data**](#data-models)
-    * Support for multiple data models including key-value, document, graph, and columnar.
+    * Support for multiple data models including key-value, document and columnar.
     * Extensible APIs for Node.js, Java, .NET, .NET Core, Python, and MongoDB.
-    * SQL and Gremlin for queries. 
+    * SQL for queries. 
 
 * [**Elastically scale throughput and storage on demand, worldwide**](#horizontal-scale)
     * Easily scale throughput at [second](request-units.md) and [minute](https://aka.ms/acdbrupm) granularities, and change it anytime you want. 
@@ -95,14 +95,14 @@ Global distribution of resources in Cosmos DB is [turn-key](distribute-data-glob
 Regardless of the amount of data or the number of regions, Cosmos DB guarantees each newly associated region to start processing client requests under an hour at the 99th percentile. This is done by parallelizing the seeding and copying data from all the source resource partitions to the newly associated region. Customers can also remove an existing region or take a region that was previously associated with their database account offline.
 
 ## <a id="data-models"></a> Multi-model, multi-API support
- Azure Cosmos DB natively supports multiple data models including documents, key-value, graph, and column-family. The core content-model of Cosmos DB's database engine is based on atom-record-sequence (ARS). Atoms consist of a small set of primitive types like string, bool, and number. Records are structs composed of these types. Sequences are arrays consisting of atoms, records, or sequences. 
+ Azure Cosmos DB natively supports multiple data models including documents, key-value, and column-family. The core content-model of Cosmos DB's database engine is based on atom-record-sequence (ARS). Atoms consist of a small set of primitive types like string, bool, and number. Records are structs composed of these types. Sequences are arrays consisting of atoms, records, or sequences. 
 
  The database engine can efficiently translate and project different data models onto the ARS-based data model. The core data model of Cosmos DB is natively accessible from dynamically typed programming languages and can be exposed as-is as JSON. 
 
- The service also supports popular database APIs for data access and querying. Cosmos DB's database engine currently supports [DocumentDB SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), [Azure Tables](table-introduction.md) (preview), and [Gremlin](graph-introduction.md) (preview). You can continue to build applications using popular OSS APIs and get all the benefits of a battle-tested and fully managed, globally distributed database service. 
+ The service also supports popular database APIs for data access and querying. Cosmos DB's database engine currently supports [DocumentDB SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), [Azure Tables](table-introduction.md) (preview). You can continue to build applications using popular OSS APIs and get all the benefits of a battle-tested and fully managed, globally distributed database service. 
 
 ## <a id="horizontal-scale"></a> Horizontal scaling of storage and throughput
-All the data within a Cosmos DB container (for example, a document collection, table, or graph) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
+All the data within a Cosmos DB container (for example, a document collection, table) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
 
 ![Azure Cosmos DB is horizontally scalable](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -162,5 +162,5 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB's DocumentDB API](create-documentdb-dotnet.md)
 * [Get started with Azure Cosmos DB's MongoDB API](create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md)
+<!-- Not Available * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md) -->
 * [Get started with Azure Cosmos DB's Table API](create-table-dotnet.md)
