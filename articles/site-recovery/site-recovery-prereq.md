@@ -28,7 +28,8 @@ The Azure Site Recovery service contributes to your business continuity and disa
 
 This article summarizes the prerequisites required to begin Site Recovery replication from on-premises to Azure.
 
-##<a name="Azure requirements"></a><a name="azure-requirements"></a> Azure requirements
+<a name="Azure requirements"></a>
+##<a name="azure-requirements"></a> Azure requirements
 
 **Requirement** | **Details**
 --- | ---

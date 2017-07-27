@@ -29,7 +29,8 @@ Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applicati
 For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](/cosmos-db/).
 
 ### What happened to DocumentDB?
-The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (Preview), Table API (Preview) and MongoDB API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
+The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Table API (Preview) and MongoDB API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
+<!-- Not Available Graph API (Preview) -->
 
 ### How do I get to my DocumentDB account in the Azure portal?
 In the Azure portal, click the Azure Cosmos DB icon in the left pane. If you had a DocumentDB account before, you now have an Azure Cosmos DB account, with no change to your billing.
@@ -40,7 +41,7 @@ Azure Cosmos DB is a good choice for new web, mobile, gaming, and IoT applicatio
 ### How does Azure Cosmos DB offer predictable performance?
 A [request unit](request-units.md) (RU) is the measure of throughput in Azure Cosmos DB. A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. Every operation in Azure Cosmos DB, including reads, writes, SQL queries, and stored procedure executions, has a deterministic RU value that's based on the throughput required to complete the operation. Instead of thinking about CPU, IO, and memory and how they each affect your application throughput, you can think in terms of a single RU measure.
 
-You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a DocumentDB API collection, Graph API graph, MongoDB API collection, and Table API table. 
+You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a DocumentDB API collection, MongoDB API collection, and Table API table. 
 
 ### Is Azure Cosmos DB HIPAA compliant?
 Yes, Azure Cosmos DB is HIPAA-compliant. HIPAA establishes requirements for the use, disclosure, and safeguarding of individually identifiable health information. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/HIPAA).
@@ -52,7 +53,8 @@ There is no limit to the total amount of data that a container can store in Azur
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB. The key idea is to distribute your workload roughly evenly among a sufficiently large number of partition keys.
 
 ### How much does Azure Cosmos DB cost?
-For details, refer to the [Azure Cosmos DB pricing details](https://www.azure.cn/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the DocumentDB API collection, Graph API graph, MongoDB API collection, and Table API tables. 
+For details, refer to the [Azure Cosmos DB pricing details](https://www.azure.cn/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the DocumentDB API collection, MongoDB API collection, and Table API tables. 
+<!-- Not Avaialbe  Graph API graph -->
 
 ### Is a free account available?
 If you are new to Azure, you can sign up for an [Azure free account](https://www.azure.cn/pricing/1rmb-trial/), which gives you 30 days and $200 to try all the Azure services. Or, if you have a Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service. 
@@ -64,7 +66,8 @@ If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.c
 
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a DocumentDB API, Graph API (Preview), Table API (Preview), or MongoDB API account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a DocumentDB API, Table API (Preview), or MongoDB API account to your Azure subscription.
+<!-- Not Available Graph API (Preview) -->
 
 ### What is a master key?
 A master key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute master keys. The primary master key and secondary master key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-account.md#keys).
@@ -355,15 +358,8 @@ Because this preview is compatible with the standard table, most of the errors w
 ### Why do I get throttled when I try to create lot of tables one after another in the Table API (Preview)?
 Azure Cosmos DB is an SLA-based system that provides latency, throughput, availability and consistency guarantees. Because it is a provisioned system, it reserves resources to guarantee these requirements. The rapid rate of creation of tables is detected and throttled. We recommend that you look at the rate of creation of tables and lower it to less than 5 per minute. Remember that the Table API (Preview) is a provisioned system. The moment you provision it, you will begin to pay for it. 
 
-## Develop against the Graph API (Preview)
-### How can I apply the functionality of Graph API (Preview) to Azure Cosmos DB?
-You can use an extension library to apply the functionality of Graph API (Preview). This library is called Azure Graphs, and it is available on NuGet. 
+<!-- Not Available ## Develop against the Graph API (Preview) -->
 
-### It looks like you support the Gremlin graph traversal language. Do you plan to add more forms of query?
-Yes, we plan to add other mechanisms for query in the future. 
-
-### How can I use the new Graph API (Preview) offering? 
-To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
 <a id="moving-to-cosmos-db"></a>
 ## Questions from DocumentDB customers
@@ -375,11 +371,12 @@ Azure Cosmos DB started as "Project Florence" in 2010 to address the pain points
 
 Since that time, we've added new features and introduced significant new capabilities. Azure Cosmos DB is the result. As a part of this release, DocumentDB customers, with their data, automatically and seamlessly become Azure Cosmos DB customers. These capabilities are in the areas of the core database engine, as well as global distribution, elastic scalability, and industry-leading, comprehensive SLAs. Specifically, we have evolved the Azure Cosmos DB database engine to efficiently map all popular data models, type systems, and APIs to the underlying data model of Azure Cosmos DB. 
 
-The current developer-facing manifestation of this work is the new support for [Gremlin](../cosmos-db/graph-introduction.md) and [Table storage APIs](../cosmos-db/table-introduction.md). And this is just the beginning. We plan to add other popular APIs and newer data models over time, with more advances in performance and storage at global scale. 
+The current developer-facing manifestation of this work is the new support for [Table storage APIs](../cosmos-db/table-introduction.md). And this is just the beginning. We plan to add other popular APIs and newer data models over time, with more advances in performance and storage at global scale. 
 
 It is important to point out that the DocumentDB [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Azure Cosmos DB can support. For developers who use a fully managed service such as Azure Cosmos DB, the only interface to the service is the APIs that are exposed by the service. Nothing really changes for existing DocumentDB customers. In Azure Cosmos DB, you get exactly the same SQL API that DocumentDB offers. And now (and in the future), you can access other previously inaccessible capabilities 
 
 Another manifestation of our continued work is the extended foundation for global and elastic scalability of throughput and storage. One of the very first manifestations of scalability is the [RU/m](../cosmos-db/request-units-per-minute.md), but we plan to announce additional capabilities that can help reduce costs for our customers for various workloads. We have made several foundational enhancements to the global distribution subsystem. One of the many such developer-facing features is the Consistent Prefix consistency model, which makes a total five well-defined consistency models. We will release many more interesting capabilities as they mature. 
+<!-- Not Available [Gremlin](../cosmos-db/graph-introduction.md) -->
 
 ### What do I need to do to ensure that my DocumentDB resources continue to run on Azure Cosmos DB?
 

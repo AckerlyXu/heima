@@ -45,7 +45,8 @@ To change compute resources:
 
     ![Click Save][3]
 
-## <a name="pause-compute"></a><a name="pause-compute-bk"></a> Pause compute
+<a name="pause-compute-bk"></a>
+## <a name="pause-compute"></a> Pause compute
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
 To pause a database:
