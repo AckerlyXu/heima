@@ -30,7 +30,7 @@ Partitioning and partition keys are also covered in this Azure Friday video with
 > 
 
 ## Partitioning in Azure Cosmos DB
-In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Cosmos DB provides containers for storing data called **collections (for document), graphs, or tables**. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB containers are unlimited in terms of storage and throughput. 
+In Azure Cosmos DB, you can store and query schema-less data with order-of-millisecond response times at any scale. Cosmos DB provides containers for storing data called **collections (for document) or tables**. Containers are logical resources and can span one or more physical partitions or servers. The number of partitions is determined by Cosmos DB based on the storage size and the provisioned throughput of the container. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB containers are unlimited in terms of storage and throughput. 
 
 ![horizontal](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -50,7 +50,6 @@ The semantics for partition keys are slightly different to match the semantics o
 | --- | --- | --- |
 | DocumentDB | custom partition key path | fixed `id` | 
 | MongoDB | custom shard key  | fixed `_id` | 
-| Graph | custom partition key property | fixed `id` | 
 | Table | fixed `PartitionKey` | fixed `RowKey` | 
 
 Cosmos DB uses hash-based partitioning. When you write an item, Cosmos DB hashes the partition key value and use the hashed result to determine which partition to store the item in. Cosmos DB stores all items with the same partition key in the same physical partition. The choice of the partition key is an important decision that you have to make at design time. You must pick a property name that has a wide range of values and has even access patterns.
@@ -150,23 +149,8 @@ TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 See [Developing with the Table API](tutorial-develop-table-dotnet.md) for more details.
 
-### Graph API
+<!-- Not Available ### Graph API -->
 
-With the Graph API, you must use the Azure portal or CLI to create containers. Alternatively, since Azure Cosmos DB is multi-model, you can use one of the other models to create and scale your graph container.
-
-You can read any vertex or edge using the partition key and id in Gremlin. For example, for a graph with region ("USA") as the partition key, and "Seattle" as the row key, you can find a vertex using the following syntax:
-
-```
-g.V(['USA', 'Seattle'])
-```
-
-Same with edges, you can reference an edge using the partition key and row key.
-
-```
-g.E(['USA', 'I5'])
-```
-
-See [Gremlin support for Cosmos DB](gremlin-support.md) for more details.
 
 ## <a name="designing-for-partitioning"></a> Designing for partitioning
 To scale effectively with Azure Cosmos DB, you need to pick a good partition key when you create your container. There are two key considerations for choosing a partition key:

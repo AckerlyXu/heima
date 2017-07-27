@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.custom: backup-restore
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
 
 ---
@@ -43,13 +43,19 @@ To learn more about:
 * Azure blob snapshots, see [Create a blob snapshot](../storage/storage-blob-snapshots.md).
 
 ## Geo-redundant backups
-Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS). 
+Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS).
+<!-- Not Available [paired data center](../best-practices-availability-paired-regions.md).  -->
 
 This feature is on by default. If you don't want to use geo-redundant backups, you can [opt out] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 
 > [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 > 
+> 
+
+> [!NOTE]
+> You cannot opt out of geo-redundant backups with DWU 9000 and DWU 18000. 
+>
 > 
 
 To learn more about:
@@ -111,3 +117,5 @@ The primary use for SQL data warehouse backups is to restore the data warehouse 
 * To restore a data warehouse, see [Restore a SQL data warehouse](sql-data-warehouse-restore-database-overview.md)
 
 <!-- ### Tutorials -->
+
+<!--Update_Description: wording update-->

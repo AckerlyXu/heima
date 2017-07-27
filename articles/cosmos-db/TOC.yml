@@ -27,16 +27,6 @@
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
-  - name: Graph
-    items:
-    - name: .NET
-      href: create-graph-dotnet.md
-    - name: Gremlin console
-      href: create-graph-gremlin-console.md
-    - name: Java
-      href: create-graph-java.md
-    - name: Node.js
-      href: create-graph-nodejs.md
   - name: Table
     items:
     - name: .NET
@@ -51,8 +41,6 @@
       href: tutorial-develop-mongodb.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
-    - name: Graph
-      href: tutorial-develop-graph-dotnet.md
   - name: 2 - Import
     items:
     - name: DocumentDB
@@ -67,8 +55,6 @@
       href: tutorial-query-mongodb.md
     - name: Table
       href: tutorial-query-table.md
-    - name: Graph
-      href: tutorial-query-graph.md
   - name: 4 - Distribute globally
     items:
     - name: DocumentDB
@@ -77,8 +63,6 @@
       href: tutorial-global-distribution-mongodb.md
     - name: Table
       href: tutorial-global-distribution-table.md
-    - name: Graph
-      href: tutorial-global-distribution-graph.md
   - name: 5 - Develop locally
     items:
     - name: Use the emulator
@@ -112,8 +96,6 @@
       href: mongodb-introduction.md
     - name: Table
       href: table-introduction.md
-    - name: Graph
-      href: graph-introduction.md
   - name: Security
     href: database-security.md
   - name: TCO
@@ -209,10 +191,6 @@
         items:
         - name: Node.js console app
           href: mongodb-samples.md
-    - name: Graph API
-      items:
-      - name: Gremlin support
-        href: gremlin-support.md
     - name: Table API
       items:
       - name: Table storage
@@ -251,8 +229,6 @@
     items:
     - name: Connect to Spark
       href: spark-connector.md
-    - name: Connect to Spark GraphX
-      href: spark-connector-graph.md      
     - name: Deploy a website with Azure App Service
       href: create-website.md
     - name: Analyze data with Hadoop
@@ -289,10 +265,6 @@
     items:
     - name: .NET
       href: table-sdk-dotnet.md
-  - name: Graph APIs
-    items:
-    - name: .NET
-      href: graph-sdk-dotnet.md
 - name: Resources
   items:
   - name: Pricing
