@@ -25,17 +25,6 @@ The [Jupyter project](http://jupyter.org), formerly the [IPython project](http:/
 ![Screenshot](./media/jupyter-notebook/ipy-notebook-spectral.png)
 Using SciPy and Matplotlib packages to analyze the structure of a sound recording.
 
-## Jupyter Two Ways: Azure Notebooks or Custom Deployment
-Azure provides a service that you can use to [quickly start using Jupyter
-](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).  By using the Azure Notebook Service, you can easily gain access to Jupyter's web-accessible interface to
-scalable computational resources with all the power of Python and its many
-libraries.  Since the installation is handled by the service, users can access these
-resources without the need for administration and configuration by the user.
-
-If the notebook service does not work for your scenario please continue to read this article which will will show you how to deploy the Jupyter Notebook on Azure, using Linux virtual machines (VMs).
-
-[!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
-
 ## Create and configure a VM on Azure
 The first step is to create a virtual machine (VM)  running on Azure.
 This VM is a complete operating system in the cloud and will be used to
