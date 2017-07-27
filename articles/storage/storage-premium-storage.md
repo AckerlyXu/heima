@@ -89,9 +89,7 @@ These are some of the features of the DS-series, DSv2-series and Fs-series VMs:
 
 * **Cloud service**
 
-
     You can add DS-series VMs to a cloud service that has only DS-series VMs. Do not add DS-series VMs to an existing cloud service that has any type other than DS-series VMs. You can migrate your existing VHDs to a new cloud service that runs only DS-series VMs. If you want to use the same virtual IP address for the new cloud service that hosts your DS-series VMs, use [reserved IP addresses](../virtual-network/virtual-networks-instance-level-public-ip.md).
-
 
 * **Operating system disk**
 
@@ -122,9 +120,7 @@ These are some of the features of the DS-series, DSv2-series and Fs-series VMs:
 
     For example, a STANDARD_DS1 VM has a dedicated bandwidth of 32 MB/s for premium storage disk traffic. A P10 premium storage disk can provide a bandwidth of 100 MB/s. If a P10 premium storage disk is attached to this VM, it can only go up to 32 MB/s. It cannot use the maximum 100 MB/s that the P10 disk can provide.
 
-
     Currently, the largest VM in the DS-series is the Standard_DS15_v2. The Standard_DS15_v2 can provide up to 960 MB/s across all disks. 
-
 
     Note that these limits are for disk traffic only. These limits don't include cache hits and network traffic. A separate bandwidth is available for VM network traffic. Bandwidth for network traffic is different from the dedicated bandwidth used by premium storage disks.
 
@@ -170,7 +166,6 @@ When you provision a premium storage disk, the size of the disk determines the m
 Here are some important things to know about Premium Storage scalability and performance targets:
 
 * **Provisioned capacity and performance**
-
 
     When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250 MB/s throughput for that disk. Your application can use all or part of the capacity and performance.
 
