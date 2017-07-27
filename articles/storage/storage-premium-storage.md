@@ -56,13 +56,11 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
 
-
     Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
 * **Premium page blobs**
 
     Premium Storage supports page blobs. Use page blobs to store persistent, unmanaged disks for VMs in Premium Storage. Unlike standard Azure Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues. Premium page blobs supports eight sizes from P4 to P50, and P60 (8191GiB). P60 Premium page blob is not supported to be attached as VM disks. 
-
 
     Any object placed in a premium storage account will be a page blob. The page blob snaps to one of the supported provisioned sizes. This is why a premium storage account is not intended to be used to store tiny blobs.
 
