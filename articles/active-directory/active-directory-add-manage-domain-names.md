@@ -66,3 +66,4 @@ Most management tasks for domain names in Azure Active Directory can also be com
 - [Manage custom domain names](active-directory-add-manage-domain-names.md)
 
 
+<!--Update_Description: update meta properties -->   

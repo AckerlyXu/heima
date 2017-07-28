@@ -60,4 +60,4 @@ Domain management tasks can be completed from the Azure Classic Management Porta
 - [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 - [Using the Azure AD Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-
+<!--Update_Description: update meta properties -->   

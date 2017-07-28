@@ -42,3 +42,4 @@ ms.author: v-junlch
   - [I am confused about how application consent works](application-dev-consent-framework.md)
   - [I don't understand the difference between delegated and application permissions](application-dev-delegated-and-app-perms.md)
 
+<!--Update_Description: update meta properties -->   

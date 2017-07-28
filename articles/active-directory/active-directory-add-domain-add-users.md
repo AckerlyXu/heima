@@ -48,4 +48,4 @@ This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/li
 - [Manage custom domain names](active-directory-add-manage-domain-names.md)
 - [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
 
-
+<!--Update_Description: update meta properties -->   

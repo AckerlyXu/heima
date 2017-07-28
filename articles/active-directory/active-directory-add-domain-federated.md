@@ -63,3 +63,4 @@ If your organization uses multiple custom domain names, such as â€˜contoso.comâ€
 - [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
 
+<!--Update_Description: update meta properties -->   

@@ -112,3 +112,4 @@ To get started integrating applications with Azure AD, take a look at the [Integ
 [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 
+<!--Update_Description: update meta properties -->   

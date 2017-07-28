@@ -191,3 +191,4 @@ These links use the same access control mechanisms as the access panel and Offic
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
+<!--Update_Description: update meta properties -->   

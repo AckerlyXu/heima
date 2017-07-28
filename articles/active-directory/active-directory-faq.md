@@ -179,3 +179,4 @@ For more information, see:
 
 **A:**  No.  Azure AD does not support the LDAP protocol.
 
+<!--Update_Description: wording update-->   
