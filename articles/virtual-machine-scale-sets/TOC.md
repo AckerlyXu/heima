@@ -28,6 +28,7 @@
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
+### [Networking for scale sets](virtual-machine-scale-sets-networking.md)
 ### [Convert a template to managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## FAQ

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/12/2017
-ms.date: 05/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -282,3 +282,5 @@ If you know that the scripts do not contain strings with embedded CR characters,
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Use SSH to connect to HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
+
+<!--Update_Description: update meta data-->

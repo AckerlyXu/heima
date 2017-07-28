@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/03/2017
-ms.date: 05/08/2017
+origin.date: 05/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -35,7 +35,7 @@ Pig is a platform for creating programs for Hadoop by using a procedural languag
 | [Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 and 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="why"></a>Why use Pig
 
@@ -107,7 +107,7 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Pig and SQL Server Integration Services
 
@@ -150,3 +150,5 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
+
+<!--Update_Description: update meta data-->

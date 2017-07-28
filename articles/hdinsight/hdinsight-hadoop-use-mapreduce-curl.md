@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/11/2017
-ms.date: 05/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -108,3 +108,5 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For more information about the REST interface that is used in this article, see the [WebHCat Reference](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+
+<!--Update_Description: update meta data-->

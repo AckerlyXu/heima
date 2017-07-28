@@ -15,8 +15,8 @@ ms.devlang: 'dotnet'
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-origin.date: 04/12/2017
-ms.date: 06/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -78,3 +78,5 @@ For more information on accessing logs, see the following documents:
 * [Use C# user defined functions with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+
+<!--Update_Description: update meta data-->

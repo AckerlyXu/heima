@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2017
-ms.date: 05/08/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -100,3 +100,5 @@ The full version numbers for Windows-based HDInsight clusters deployed with this
 | 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
 | 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
 | 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
+
+<!--Update_Description: update meta data-->

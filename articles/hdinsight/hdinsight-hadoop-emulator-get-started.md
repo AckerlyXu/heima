@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/06/2017
-ms.date: 07/24/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -81,3 +81,5 @@ To download an older HDP version sandbox, expand the archive:
 * [Learn how to use Visual Studio with the Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 * [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+
+<!--Update_Description: update meta data-->

@@ -56,7 +56,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 * [Location](#location)
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
 ## Resource group name 
@@ -190,9 +190,9 @@ You can install additional components or customize cluster configuration by usin
 Some native Java components, like Mahout and Cascading, can be run on the cluster as Java Archive (JAR) files. These JAR files can be distributed to Azure Storage and submitted to HDInsight clusters with Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
-> If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Azure.cn Support](https://www.azure.cn/support/contact/).
+> If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Azure Support](https://www.azure.cn/support/contact/).
 >
-> Cascading is not supported by HDInsight and is not eligible for Azure.cn Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
+> Cascading is not supported by HDInsight and is not eligible for Azure Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 >
 >
 
