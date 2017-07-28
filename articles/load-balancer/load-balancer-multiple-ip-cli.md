@@ -36,7 +36,8 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 Follow the steps below to achieve the scenario outlined in this article:
 
 1. [Install and Configure the Azure CLI](../cli-install-nodejs.md) the Azure CLI by following the steps in the linked article and log into your Azure account.
-2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-group) called *contosofabrikam* as described above.
+2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) called *contosofabrikam* as described above.
+<!-- Not Available create-resource-group --> 
 
     ```azurecli
     azure group create contosofabrikam chinaeast
@@ -103,7 +104,8 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Create the network interfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic) for VM1 and add a second IP configuration, *VM1-ipconfig2*, and [create the VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms) as shown below:
+11. [Create the network interfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) for VM1 and add a second IP configuration, *VM1-ipconfig2*, and [create the VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms) as shown below:
+<!-- Not Available create-a-virtual-nic -->
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

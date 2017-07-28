@@ -25,10 +25,11 @@ Review the prerequisites summarized in the table.
 **Prerequisite** | **Details**
 --- | ---
 **Azure** | Learn about [Azure requirements](site-recovery-prereq.md#azure-requirements)
-**On-premises configuration server** | You need a physical server (or VMware VM) running Windows Server 2012 R2 or later. You set up this server during Site Recovery deployment.<br/><br/> By default the process server and master target server are also installed on this machine. When you scale up, you might need a separate process server. If you do, it has the same requirements as the configuration server.<br/><br/> [Learn more](site-recovery-set-up-vmware-to-azure.md#configuration-server-minimum-requirements).
+**On-premises configuration server** | You need a physical server (or VMware VM) running Windows Server 2012 R2 or later. You set up this server during Site Recovery deployment.<br/><br/> By default the process server and master target server are also installed on this machine. When you scale up, you might need a separate process server. If you do, it has the same requirements as the configuration server.<br/><br/>
 **On-premises VMs** | Machines you want to replicate should be running a [supported operating system](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) and conform with [Azure prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **URLs** | The configuration server needs access to these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> If you have IP address-based firewall rules, ensure they allow communication to Azure.<br/></br> Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.<br/></br> Allow IP address ranges for the Azure region of your subscription, and for China North (used for Access Control and Identity Management).<br/><br/> Allow this URL for the MySQL download: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 **Mobility service** | Installed on every replicated server.
+<!-- Not Available  [Learn more](site-recovery-set-up-vmware-to-azure.md#configuration-server-minimum-requirements).-->
 
 ## Limitations
 

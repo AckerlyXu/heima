@@ -34,7 +34,8 @@ Crucial for BCDR planning, Recovery Time Objective (RTO) and Recovery Point Obje
 
 Failover is made possible by ASR which initially copies designated virtual machines from the primary data center to the secondary data center or to Azure (depending on the scenario), and then periodically refreshes the replicas. During infrastructure planning, network design should be considered as potential bottleneck that can prevent you from meeting company RTO and RPO objectives.  
 
-When administrators are planning to deploy a disaster recovery solution, one of the key questions in their minds is how the virtual machine would be reachable after the failover is completed. ASR allows the administrator to choose the network to which a virtual machine would be connected to after failover. If the primary site is Azure or it is an on-premises site managed by a VMM server then this is achieved by using Network Mapping. Learn more about [Network Mapping in Azure to Azure DR](site-recovery-network-mapping-azure-to-azure.md) and [Network Mapping from VMM](site-recovery-network-mapping.md)
+When administrators are planning to deploy a disaster recovery solution, one of the key questions in their minds is how the virtual machine would be reachable after the failover is completed. ASR allows the administrator to choose the network to which a virtual machine would be connected to after failover. If the primary site is Azure or it is an on-premises site managed by a VMM server then this is achieved by using Network Mapping. Learn more about [Network Mapping from VMM](site-recovery-network-mapping.md)
+<!-- Not Available [Network Mapping in Azure to Azure DR](site-recovery-network-mapping-azure-to-azure.md) -->
 
 While designing the network for the recovery site, the administrator has two choices:
 

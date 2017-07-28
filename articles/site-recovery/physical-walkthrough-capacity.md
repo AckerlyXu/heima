@@ -22,12 +22,10 @@ ms.author: v-yeche
 
 Use this article to figure out capacity and scaling, when you're replicating on-premises Windows/Linux physical servers to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
-Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
-
 ## Plan deployment capacity
 
-1. Read this [article](site-recovery-plan-capacity-vmware.md) to learn about estimating replication requirements, and guidance for sizing Site Recovery components.
-2. Read the considerations below to learn about scaling component servers, and controlling replicated machine bandwidth.
+<!-- Not Available (site-recovery-plan-capacity-vmware.md) -->
+1. Read the considerations below to learn about scaling component servers, and controlling replicated machine bandwidth.
 
 ## Replication considerations
 
@@ -92,7 +90,8 @@ The way in which you scale your servers depends on your preference for a scale-u
 
 ## Deploy additional process servers
 
-1. Follow [these instructions](site-recovery-vmware-setup-azure-ps-resource-manager.md) to set up an additional process server.
+1. Set up an additional process server.
+<!-- Not Available [these instructions](site-recovery-vmware-setup-azure-ps-resource-manager.md) -->
 2. If you don't have the passphrase, run **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** on the configuration server to get it.
 3. After setting up the process server, you migrate source machines to use it.
 
@@ -104,7 +103,8 @@ The way in which you scale your servers depends on your preference for a scale-u
 
 ## Control network bandwidth
 
-After you run [the Deployment Planner tool](site-recovery-deployment-planner.md) to calculate the bandwidth you need for replication (the initial replication and then delta), you can control the amount of bandwidth used for replication using a couple of options:
+After you calculate the bandwidth you need for replication (the initial replication and then delta), you can control the amount of bandwidth used for replication using a couple of options:
+<!-- Not Avaialble [the Deployment Planner tool](site-recovery-deployment-planner.md) -->
 
 * **Throttle bandwidth**: VMware traffic that replicates to Azure goes through a specific process server. You can throttle bandwidth on the machines running as process servers.
 * **Influence bandwidth**: You can influence the bandwidth used for replication by using a couple of registry keys:

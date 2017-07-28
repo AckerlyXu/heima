@@ -35,7 +35,8 @@ If you want to migrate machines to Azure (without failback), learn more in [this
 Follow the article to complete these deployment steps:
 
 
-1. [Learn more](site-recovery-components.md) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
+1. [Learn more](site-recovery-components.md) about the architecture for this deployment.
+<!-- Not Available [learn about](site-recovery-hyper-v-azure-architecture.md) -->
 2. Verify prerequisites and limitations.
 3. Set up Azure network and storage accounts.
 4. Prepare the on-premises VMM server and Hyper-V hosts.
@@ -255,7 +256,7 @@ Here's what happens when network mapping begins:
 
     ![Replication policy](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
-##<a name="step-5-capacity-planning"></a> Capacity planning
+##<a name="capacity-planning"></a> Capacity planning
 
 Now that you have your basic infrastructure set up, think about capacity planning, and figure out whether you need additional resources.
 

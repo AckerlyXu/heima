@@ -27,7 +27,7 @@ recovery plans and gives you capability to execute runbooks, thus allowing power
 If you have not heard about Azure Automation yet, sign up
 [here](https://www.azure.cn/home/features/automation/) and
 download their sample scripts
-[here](../automation/automation-runbook-gallery/). Read
+[here](../automation/automation-runbook-gallery.md). Read
 more about [Azure Site
 Recovery](https://www.azure.cn/home/features/site-recovery/) and
 how to orchestrate recovery to Azure using recovery plans

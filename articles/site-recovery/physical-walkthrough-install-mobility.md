@@ -24,15 +24,10 @@ This article describes how to install the Mobility service component when replic
 
 The Mobility service captures data writes on a machine, and forwards them to the process server. It should be installed on each server that you want to replicate to Azure.
 
-You can install the Mobility service manually, or using a push installation from the Site Recovery process server when replication is enabled, or using a tool such as System Center Configuration Manager. If you use push installation, the service is installed on the server when you enable replication.
+You can install the Mobility service using a push installation from the Site Recovery process server when replication is enabled, or using a tool such as System Center Configuration Manager. If you use push installation, the service is installed on the server when you enable replication.
 
-Post comments and questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
-
-## Install manually
-
-1. Check the [prerequisites](site-recovery-vmware-to-azure-install-mob-svc.md#prerequisites) for manual installation.
-2. Follow [these instructions](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui) for manual installation using the portal.
-3. If you prefer to install from the command line, follow [these instructions](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt).
+<!-- Not Available ## Install manually -->
+<!-- Not Available site-recovery-vmware-to-azure-install-mob-svc.md -->
 
 ## Install from the process server
 
@@ -50,8 +45,7 @@ If you want to push the Mobility service installation from the process server wh
 
     - For Linux, the account should be root on the source Linux server.
 
-2. Then follow [these instructions](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) if you want to push the Mobility service on VMs running Windows or Linux.
-
+<!-- Not Available [these instructions](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery) -->
 ## Other installation methods
 
 - [Learn about](site-recovery-install-mobility-service-using-sccm.md) installing the Mobility service using Configuration Manager

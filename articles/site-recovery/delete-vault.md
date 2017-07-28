@@ -44,13 +44,15 @@ Follow recommended steps (in given order) for your scenario to delete the vault
 
 ## Delete Vault, used in Site Recovery for protecting Hyper-V VMs (with VMM) to Azure:
 1.  Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Ensure all replication policies are deleted, see [how to](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+- Ensure all replication policies are deleted.
 -	Delete references to VMM Servers, see [how to](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server)
 -	Now try deleting the vault.
+<!-- Not Available (site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy) -->
 
 ## Delete Vault, used in Site Recovery  for protecting Hyper-V VMs (without VMM) to Azure:
 1. Ensure all Protected VMs are deleted, see [how to](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Ensure all replication policies are deleted, see [how to](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+- Ensure all replication policies are deleted.
 -	Delete references to Hyper-V Servers, see [how to](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
 -	Delete Hyper-V site.
 -	Now try deleting the vault.
+<!-- Not Available (site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy) -->
