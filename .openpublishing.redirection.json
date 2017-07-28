@@ -3732,7 +3732,7 @@
     },
     {
       "source_path": "articles/documentdb/index.md",
-      "redirect_url": "https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/",
+      "redirect_url": "/cosmos-db/",
       "redirect_document_id": false
     }
   ]

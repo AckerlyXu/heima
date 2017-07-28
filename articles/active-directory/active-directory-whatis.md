@@ -3,19 +3,19 @@ title: What is Azure Active Directory?
 description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
-editor: ''
-
+author: alexchen2016
+manager: digimobile
+ms.reviewer: jsnow
+ms.author: v-junlch
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2017
-ms.date: 06/12/2017
-ms.author: v-junlch
+origin.date: 07/17/2017
+ms.date: 07/28/2017
+ms.custom: it-pro
 
 ---
 # What is Azure Active Directory?
@@ -29,7 +29,7 @@ Azure AD also includes a full suite of identity management capabilities includin
 
 Additionally, with just [four clicks](./connect/active-directory-aadconnect-get-started-express.md), Azure AD can be integrated with an existing Windows Server Active Directory, giving organizations the ability to leverage their existing on-premises identity investments to manage access to cloud based SaaS applications.
 
-If you are an Office365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD. Every Office365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant. Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!
+If you are an Office 365, Azure or Dynamics CRM Online customer, you might not realize that you are already using Azure AD. Every Office 365, Azure and Dynamics CRM tenant is actually already an Azure AD tenant. Whenever you want you can start using that tenant to manage access to thousands of other cloud applications Azure AD integrates with!
 
 ![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
 
@@ -38,24 +38,12 @@ The multi-tenant, geo-distributed, high availability design of Azure AD means th
 
 For more details, see [Service Level Agreements](https://www.azure.cn/support/legal/sla/).
 
-## What are the benefits of Azure AD?
-Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:
+## Choose an edition
+To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions. Azure Active Directory paid editions are built on top of your existing free directory, providing enterprise class capabilities spanning self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
 
-- Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.
-- Empower employees with access to world class cloud apps and self-service capabilities from wherever they need to work on the devices they love to use.
-- Easily and securely manage employee and vendor access to your corporate social media accounts.
-- Improve application security with Azure AD multifactor authentication and conditional access.
-- Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overheads.
-- Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
-- Secure mobile (remote) access to on-premises applications.
-
-## How does Azure AD compare to on-premises Active Directory Domain Services (AD DS)?
-
-Both Azure Active Directory (Azure AD) and on-premises Active Directory (Active Directory Domain Services or AD DS) are systems that store directory data and manage communication between users and resources, including user logon processes, authentication, and directory searches.
-
-AD DS is a server role on Windows Server, which means that it can be deployed on physical or virtual machines. It has a hierarchical structure based on X.500. It uses DNS for locating objects, can be interacted with using LDAP, and it primarily uses Kerberos for authentication. Active Directory enables organizational units (OUs) and Group Policy Objects (GPOs) in addition to joining machines to the domain, and trusts are created between domains.
-
-Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
+> [!NOTE]
+> For the pricing options of these editions, see [Azure Active Directory Pricing](https://www.azure.cn/pricing/details/identity/). Azure Active Directory Premium P1, Premium P2, and Azure Active Directory Basic are not currently supported in China. Please contact us at the Azure Active Directory Forum for more information.
+>
 
 ## How can I get started?
 
@@ -71,11 +59,6 @@ Azure AD is a multi-customer public directory service, which means that within A
 
 - [Start a trial](https://www.azure.cn/pricing/1rmb-trial/) - sign up for a trial today and  start integrating your apps with Azure AD
 
-## Where can I learn more?
-We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
 
-- [Enabling your directory for hybrid management with Azure AD Connect](./connect/active-directory-aadconnect.md)
-- [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
+<!-- Update_Description: wording update -->
 
-- [Manage your passwords from anywhere](./active-directory-passwords.md)
-- [What is application access and single sign-on with Azure Active Directory?](./active-directory-appssoaccess-whatis.md)
