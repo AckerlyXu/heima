@@ -53,5 +53,5 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Resources
-## [Redis cache samples](cache-redis-samples.md)
 ## [Pricing](https://www.azure.cn/pricing/details/redis-cache/)
+## [Redis cache samples](cache-redis-samples.md)

@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 05/02/2017
-ms.date: 05/31/2017
+origin.date: 07/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -169,3 +169,5 @@ Learn how to use more premium cache features.
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
+
+<!--Update_Description: update meta data-->

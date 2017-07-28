@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 03/17/2017
-ms.date: 07/03/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
@@ -31,9 +31,10 @@ To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
 1. [Install Python](https://www.python.org/downloads/)
-1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Download the sample
 
@@ -42,6 +43,8 @@ In a terminal window, run the following command to clone the sample app reposito
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
+
+You use this terminal window to run all the commands in this quickstart.
 
 Change to the directory that contains the sample code.
 
@@ -81,13 +84,13 @@ You've created an empty new web app in Azure.
 
 ## Configure to use Python
 
-Use the [az appservice web config update](https://docs.microsoft.com/cli/azure/webapp/config#update) command to configure the web app to use Python version `3.4`.
+Use the [az webapp config set](https://docs.microsoft.com/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.
 
 ```azurecli
-az appservice web config update --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az appservice web config container update](https://docs.microsoft.com/cli/azure/webapp/config/container#update) command.
+Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](https://docs.microsoft.com/cli/azure/webapp/config/container#set) command.
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
@@ -170,7 +173,7 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure web app
 
-Go to the [Azure portal](https://portal.azure.cn) to manage the web app you created.
+Go to the <a href="https://portal.azure.cn" target="_blank">Azure portal</a> to manage the web app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure web app.
 
@@ -183,3 +186,5 @@ You see your web app's Overview page. Here, you can perform basic management tas
 The left menu provides different pages for configuring your app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+<!--Update_Description: add a note about Azure CLI 2.0 version-->

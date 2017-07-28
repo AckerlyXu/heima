@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/14/2017
-ms.date: 07/03/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
 # Create an ASP.NET web app in Azure
 
-[Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
+[Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 ![ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -74,6 +74,11 @@ This opens the **Create App Service** dialog, which helps you create all the nec
 
 In the **Create App Service** dialog, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, make sure that the account has your Azure subscription. You can select the signed-in account to add the correct account.
 
+> [!NOTE]
+> If you're already signed in, don't select **Create** yet.
+>
+>
+
 ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
 Once signed in, you're ready to create all the necessary resources for an Azure web app in this dialog.
@@ -106,7 +111,7 @@ Select **OK**.
 
 ## Create and publish the web app
 
-In **Web App Name**, type a unique app name. The URL of the web app is `http://<app_name>.chinacloudsites.cn`. 
+In **Web App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`). The URL of the web app is `http://<app_name>.chinacloudsites.cn`, where `<app_name>` is your web app name. 
 
 You can accept the automatically generated name, which is unique.
 
@@ -145,7 +150,7 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure web app
 
-Go to the [Azure portal](https://portal.azure.cn) to manage the web app.
+Go to the <a href="https://portal.azure.cn" target="_blank">Azure portal</a> to manage the web app.
 
 From the left menu, select **App Services**, and then select the name of your Azure web app.
 
@@ -163,3 +168,5 @@ The left menu provides different pages for configuring your app.
 
 > [!div class="nextstepaction"]
 > [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+<!--Update_Description: wording update-->
