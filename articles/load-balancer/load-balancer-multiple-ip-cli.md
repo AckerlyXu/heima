@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 05/08/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 
@@ -36,7 +36,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 Follow the steps below to achieve the scenario outlined in this article:
 
 1. [Install and Configure the Azure CLI](../cli-install-nodejs.md) the Azure CLI by following the steps in the linked article and log into your Azure account.
-2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) called *contosofabrikam* as described above.
+2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-resource-group) called *contosofabrikam* as described above.
 
     ```azurecli
     azure group create contosofabrikam chinaeast
@@ -56,7 +56,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure network vnet subnet create --resource-group contosofabrikam --vnet-name myVnet --name mySubnet --address-prefix 10.0.0.0/24
     ```
 
-5. [Create the load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-load-balancer-and-ip-pools) called *mylb*:
+5. [Create the load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) called *mylb*:
 
     ```azurecli
     azure network lb create --resource-group contosofabrikam --location chinaeast --name mylb
@@ -77,7 +77,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Create your backend address pools - *contosopool* and *fabrikampool*, a [probe](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-load-balancer-health-probe) - *HTTP*, and your load balancing rules - *HTTPc* and *HTTPf*:
+8. Create your backend address pools - *contosopool* and *fabrikampool*, a [probe](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) - *HTTP*, and your load balancing rules - *HTTPc* and *HTTPf*:
 
     ```azurecli
     azure network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -89,13 +89,13 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. Run the following command below and then check the output to [verify your load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#verify-the-load-balancer) was created correctly:
+9. Run the following command below and then check the output to [verify your load balancer](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) was created correctly:
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Create a public IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp*, and [storage account](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-storage-account), *mystorageaccont1* for your first virtual machine VM1 as shown below:
+10. [Create a public IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp*, and [storage account](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json), *mystorageaccont1* for your first virtual machine VM1 as shown below:
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location chinaeast --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -103,7 +103,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Create the network interfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-an-nic-to-use-with-the-linux-vm) for VM1 and add a second IP configuration, *VM1-ipconfig2*, and [create the VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms) as shown below:
+11. [Create the network interfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-virtual-nic) for VM1 and add a second IP configuration, *VM1-ipconfig2*, and [create the VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms) as shown below:
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
@@ -123,8 +123,10 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure vm create --resource-group contosofabrikam --name VM2 --location chinaeast --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You may host your domains in Azure DNS.<!--Not available in Azure.cn  For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You may host your domains in Azure DNS.<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+
+<!--Update_Description: update link-->
