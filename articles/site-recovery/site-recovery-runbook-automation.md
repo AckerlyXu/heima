@@ -13,8 +13,8 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 02/22/2017
-ms.date: 07/10/2017
+origin.date: 06/23/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -25,11 +25,14 @@ can orchestrate recovery of your virtual machines protected using Azure Site Rec
 recovery plans and gives you capability to execute runbooks, thus allowing powerful automation tasks.
 
 If you have not heard about Azure Automation yet, sign up
-[here](https://www.azure.cn/home/features/automation/). Read
+[here](https://www.azure.cn/home/features/automation/) and
+download their sample scripts
+[here](../automation/automation-runbook-gallery/). Read
 more about [Azure Site
 Recovery](https://www.azure.cn/home/features/site-recovery/) and
 how to orchestrate recovery to Azure using recovery plans
 [here](https://www.azure.cn/blog/?p=166264).
+<!-- https://azure.microsoft.com/documentation/scripts/ Redirect to ../automation/automation-runbook-gallery/ -->
 
 In this tutorial, we look at how you can integrate Azure Automation
 runbooks into recovery plans. We automate simple tasks that earlier
@@ -130,6 +133,7 @@ $vmMap = $RecoveryPlanContext.VmMap
      Write-output "Rolename " = $VM.RoleName
      }
  }
+
 ```
 
 > [!NOTE]
@@ -176,7 +180,7 @@ $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 Next you can use the variables in the runbook and apply the NSG to the Network Interface of the failed over virtual machine.
 
 ```
- InlineScript { 
+InlineScript { 
      if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
         $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
         Write-output $NSG.Id
@@ -192,7 +196,7 @@ For each recovery plan, create independent variables so that you can reuse the s
 
 ### Using complex variable to store more information
 
-Consider a scenario where you want just one script to turn on a public IP on specific VMs Another example would be to apply different NSGs on different virtual machines (not all). This script should be reusable for any other recovery plan. Each recovery plan can have variable number of virtual machines (example, a sharepoint recovery has two front ends, a simple LOB application has only one front end). To achieve this result, it is impossible to create separate variables per recovery plan. Here we use a new technique and create a [complex variable](https://msdn.microsoft.com/zh-cn/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets, by specifying multiple values. You need the Azure powershell to execute the following steps.
+Consider a scenario where you want just one script to turn on a public IP on specific VMs Another example would be to apply different NSGs on different virtual machines (not all). This script should be reusable for any other recovery plan. Each recovery plan can have variable number of virtual machines (example, a sharepoint recovery has two front ends, a simple LOB application has only one front end). To achieve this result, it is impossible to create separate variables per recovery plan. Here we use a new technique and create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in the Azure Automation account assets, by specifying multiple values. You need the Azure powershell to execute the following steps.
 
 1. On the Azure powershell login to your subscription.
 
@@ -250,6 +254,8 @@ Also view a quick video about recovering a two tier WordPress application to Azu
 
 ## Additional Resources
 <!-- Not Available automation-sec-configure-azure-runas-account.md -->
-[Azure Automation Overview](http://msdn.microsoft.com/zh-CN/library/azure/dn643629.aspx "Azure Automation Overview")
+[Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
 [Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
+
+<!--Update_Description: update meta properties, wording update-->

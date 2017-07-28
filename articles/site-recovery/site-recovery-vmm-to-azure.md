@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/14/2017
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -27,8 +27,6 @@ ms.author: v-yeche
 
 This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center VMM clouds to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
 
-After reading this article, post any comments at the bottom, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/zh-cn/home?forum=hypervrecovmgr).
-
 If you want to migrate machines to Azure (without failback), learn more in [this article](site-recovery-migrate-to-azure.md).
 
 
@@ -37,7 +35,7 @@ If you want to migrate machines to Azure (without failback), learn more in [this
 Follow the article to complete these deployment steps:
 
 
-1. [Learn more](site-recovery-components.md#hyper-v-to-azure) about the architecture for this deployment.
+1. [Learn more](site-recovery-components.md) about the architecture for this deployment. In addition, [learn about](site-recovery-hyper-v-azure-architecture.md) how Hyper-V replication works in Site Recovery.
 2. Verify prerequisites and limitations.
 3. Set up Azure network and storage accounts.
 4. Prepare the on-premises VMM server and Hyper-V hosts.
@@ -47,7 +45,7 @@ Follow the article to complete these deployment steps:
 8. Enable replication for the VMs.
 9. Run a test failover to make sure everything's working as expected.
 
-##<a name="on-premises-prerequisites"></a> Prerequisites
+## <a name="on-premises-prerequisites"></a> Prerequisites
 
 **Support requirement** | **Details**
 --- | ---
@@ -205,8 +203,8 @@ Specify the Azure storage account to be used for replication, and the Azure netw
 
     ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
-   * If you want to create a storage account using the classic model, do that in the Azure Portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
-   * If you're using a premium storage account for replicated data, set up an additional standard storage account, to store replication logs that capture ongoing changes to on-premises data.
+    * If you want to create a storage account using the classic model, do that in the Azure Portal. [Learn more](../storage/storage-create-storage-account-classic-portal.md)
+    * If you're using a premium storage account for replicated data, set up an additional standard storage account, to store replication logs that capture ongoing changes to on-premises data.
 5. If you haven't created an Azure network, and you want to create one using Resource Manager, click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 
    ![Network](./media/site-recovery-vmm-to-azure/gs-createnetwork.png)
@@ -308,7 +306,7 @@ Now enable replication as follows:
 
     Click **OK** to save changes. You can set additional properties later.
 
-	![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+    ![Enable replication](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 8. In **Replication settings** > **Configure replication settings**, select the replication policy you want to apply for the protected VMs. Then click **OK**. You can modify the replication policy in **Replication policies** > policy name > **Edit Settings**. Changes you apply are used for machines that are already replicating, and new machines.
 
@@ -433,3 +431,5 @@ The **UploadThreadsPerVM** registry value controls the number of threads that ar
 ## Next steps
 
 After initial replication is complete, and you've tested the deployment, you can invoke failovers as the need arises. [Learn more](site-recovery-failover.md) about different types of failovers and how to run them.
+
+<!--Update_Description: update meta properties, update link-->
