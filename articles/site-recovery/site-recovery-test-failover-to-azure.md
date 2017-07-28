@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 07/04/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -27,6 +27,7 @@ Test failover is run to validate your replication strategy or perform a disaster
 
 ## Supported scenarios
 Test failover is supported in all deployment scenarios other than legacy VMware site to Azure. Test failover is also not supported when virtual machine has been failed over to Azure.  
+<!-- Not Available [legacy VMware site to Azure](site-recovery-vmware-to-azure-classic-legacy.md) -->
 
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can also run test failover for a single machine by using the appropriate option on it.
@@ -85,9 +86,11 @@ If you want to connect to Azure VMs using RDP after failover, make sure you do t
 **Failover** | **Location** | **Actions**
 --- | --- | ---
 **Azure VM running Windows** | On on-premises machine before failover | To access the Azure VM over the internet, enable RDP, make sure TCP, and UDP rules are added for the **Public**, and that RDP is allowed in **Windows Firewall** > **Allowed Apps**, for all profiles.<br/><br/> To access over a site-to-site connection, enable RDP on the machine, and ensure that RDP is allowed in the **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.<br/><br/>  Make sure the operating system's SAN policy is set to **OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).<br/><br/> Make sure there are no Windows updates pending on the virtual machine when you trigger a failover. Windows update might start when you failover and you will not be able to login to the virtual machine until the update completes. <br/><br/>
-**Azure VM running Windows** | On Azure VM after failover | For a classic virtual machine, [add a public endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) for the RDP protocol (port 3389)<br/><br/>  For a Resource Manager virtual machine, [add a public IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) on it.<br/><br/> The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the RDP port.<br/><br/> For a Resource Manager virtual machine, you can check **Boot diagnostics** to look at a screenshot of the virtual machine<br/><br/> If you can't connect, check that the VM is running and then look at these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).<br/><br/>
+**Azure VM running Windows** | On Azure VM after failover | For a classic virtual machine, [add a public endpoint](../virtual-machines/windows/classic/setup-endpoints.md) for the RDP protocol (port 3389)<br/><br/>  For a Resource Manager virtual machine, [add a public IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) on it.<br/><br/> The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the RDP port.<br/><br/> For a Resource Manager virtual machine, you can check **Boot diagnostics** to look at a screenshot of the virtual machine<br/><br/> If you can't connect, check that the VM is running and then look at these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).<br/><br/>
 **Azure VM running Linux** | On on-premises machine before failover | Ensure that the Secure Shell service on the Azure VM is set to start automatically on system boot.<br/><br/> Check that firewall rules allow an SSH connection to it.
-**Azure VM running Linux** | Azure VM after failover | The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the SSH port.<br/><br/> For  a classic virtual machine, [add a public endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) should be created, to allow incoming connections on the SSH port (TCP port 22 by default).<br/><br/> For a Resource Manager virtual machine, [add a public IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) on it.<br/><br/> For a Resource Manager virtual machine, you can check **Boot diagnostics** to look at a screenshot of the virtual machine<br/><br/>
+**Azure VM running Linux** | Azure VM after failover | The network security group rules on the failed over VM, and the Azure subnet to which it is connected, need to allow incoming connections to the SSH port.<br/><br/> For  a classic virtual machine, [add a public endpoint](../virtual-machines/windows/classic/setup-endpoints.md) should be created, to allow incoming connections on the SSH port (TCP port 22 by default).<br/><br/> For a Resource Manager virtual machine, [add a public IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) on it.<br/><br/> For a Resource Manager virtual machine, you can check **Boot diagnostics** to look at a screenshot of the virtual machine<br/><br/>
 
 ## Next steps
 Once you have successfully tried a test failover you can try doing a [failover](site-recovery-failover.md).
+
+<!--Update_Description: update meta properties, update link-->

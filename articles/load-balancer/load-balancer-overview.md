@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/24/2016
-ms.date: 05/08/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 
@@ -80,7 +80,7 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     An input endpoint listens on a public port and forwards traffic to an internal port. You can map the same ports for an internal or external endpoint or use a different port for them. For example, you can have a web server configured to listen to port 81 while the public endpoint mapping is port 80. The creation of a public endpoint triggers the creation of a load balancer instance.
 
-    When created using the Azure Portal, the portal automatically creates endpoints to the virtual machine for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. You can use these endpoints to remotely administer the virtual machine over the Internet.
+    When created using the Azure portal, the portal automatically creates endpoints to the virtual machine for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. You can use these endpoints to remotely administer the virtual machine over the Internet.
 
 * Automatic reconfiguration
 
@@ -116,6 +116,10 @@ You can assign more than one load-balanced public IP address to a set of virtual
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
+## Limitations
+
+Load Balancer backend pools can contain any VM SKU except Basic tier.
+
 ## Next steps
 
 [Internet-facing load balancer overview](load-balancer-internet-overview.md)
@@ -123,3 +127,5 @@ You can assign more than one load-balanced public IP address to a set of virtual
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
 [Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+
+<!--Update_Description: wording update; add Limitations of Load Balancer backend pools-->

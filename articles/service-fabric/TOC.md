@@ -183,7 +183,7 @@
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 ##### [Visual Studio and Azure Resource Manager](service-fabric-cluster-creation-via-visual-studio.md)
-#### Scale 
+
 #### [Upgrade](service-fabric-cluster-upgrade.md)
 #### [Set access control](service-fabric-cluster-security-roles.md)
 #### [Configure](service-fabric-cluster-fabric-settings.md)
