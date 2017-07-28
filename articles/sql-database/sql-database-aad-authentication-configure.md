@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 05/25/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 07/10/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse
@@ -123,6 +123,16 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ```
 
 You can also provision an Azure Active Directory Administrator by using the REST APIs. For more information, see [Service Management REST API Reference and Operations for Azure SQL Databases Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+
+### CLI  
+You can also provision an Azure AD admin by calling the following CLI commands:
+| Command | Description |
+| --- | --- |
+|az sql server ad-admin create |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
+|az sql server ad-admin delete |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
+|az sql server ad-admin list |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
+
+For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
 ## Configure your client computers
 On all client machines, from which your applications or users connect to Azure SQL Database or Azure SQL Data Warehouse using Azure AD identities, you must install the following software:
@@ -307,3 +317,5 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn -U bob@contoso.com -
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
+
+<!--Update_Description: wording update-->

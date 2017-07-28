@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/26/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 
@@ -32,18 +32,20 @@ In this tutorial, you configure an Azure SQL database and application for failov
 > * Create and compile a Java application to query an Azure SQL database
 > * Perform a disaster recovery drill
 
+If you don't have an Azure subscription, [create a 1 rmb trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
+
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
+To complete this tutorial, make sure the following prerequisites are completed:
 
-- The latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
-- An Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
+- Installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
+- Installed an Azure SQL database. This tutorial uses the AdventureWorksLT sample database with a name of **mySampleDatabase** from one of these quick starts:
 
    - [Create DB - Portal](sql-database-get-started-portal.md)
    - [Create DB - CLI](sql-database-get-started-cli.md)
    - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-In addition, to execute SQL scripts against your database, you can use one of the following query tools:
+- Have identified a method to execute SQL scripts against your database, you can use one of the following query tools:
    - The query editor in the [Azure portal](https://portal.azure.cn). For more information on using the query editor in the Azure portal, see [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database).
    - The newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), which is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.
    - The newest version of [Visual Studio Code](https://code.visualstudio.com/docs), which is a graphical code editor for Linux, macOS, and Windows that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse. For more information on using this tool with Azure SQL Database, see [Connect and query with VS Code](sql-database-connect-query-vscode.md). 
@@ -382,4 +384,6 @@ Install [Maven](https://maven.apache.org/download.cgi) using the official instal
    ```
 ## Next steps 
 
-- For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
+For more information, see [Active geo-replication and failover groups](sql-database-geo-replication-overview.md).
+
+<!--Update_Description: wording update-->

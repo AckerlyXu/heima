@@ -3,8 +3,8 @@ title: SQL Database backups - automatic, geo-redundant | Microsoft Docs
 description: SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy.
 services: sql-database
 documentationcenter: ''
-author: anosov1960
-manager: jhubbard
+author: Hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: v-johch
+origin.date: 07/05/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Learn about SQL Database backups
@@ -121,20 +122,10 @@ You can use these backups to:
 * Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application.
 * To perform a restore, see [restore database from backups](./sql-database-recovery-using-backups.md).
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
-
->[!NOTE]
+> [!NOTE]
 > In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
+> 
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
 ## How much backup storage is included at no cost?
 SQL Database provides up to 200% of your maximum provisioned database storage as backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
 
@@ -220,6 +211,12 @@ You don't need to repeat links you have already given them.
 ```
 --------------------->
 
+## Are backups encrypted?
+
+When TDE is enabled for an Azure SQL database, backups are also encrypted. All new Azure SQL databases are configured with TDE enabled by default. For more information on TDE, see [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
+
 ## Next steps
 
 Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](./sql-database-business-continuity.md).
+
+<!--Update_Description: update word-->

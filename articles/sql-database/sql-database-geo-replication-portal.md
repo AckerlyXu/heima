@@ -14,9 +14,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/062/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 03/06/2016
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure Portal and initiate failover
@@ -24,11 +24,6 @@ ms.author: v-johch
 This article shows you how to configure active geo-replication for SQL Database in the [Azure Portal](http://portal.azure.cn) and to initiate failover.
 
 To initiate failover with the Azure Portal, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
-
-> [!NOTE]
-> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017, the non-readable secondary type was retired, and existing non-readable databases automatically upgraded to readable secondaries.
-> 
-> 
 
 To configure active geo-replication by using the Azure Portal, you need the following resource:
 
@@ -50,7 +45,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 > 
 
 1. In the [Azure Portal](http://portal.azure.cn), browse to the database that you want to set up for geo-replication.
-2. On the SQL database page, select **Geo-Replication**, and then select the region to create the secondary database. 
+2. On the SQL database page, select **Geo-Replication**, and then select the region to create the secondary database.
    
     ![Configure geo-replication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Select or configure the server and pricing tier for the secondary database.
@@ -100,3 +95,4 @@ This operation permanently terminates the replication to the secondary database,
 * To learn more about active geo-replication, see [Active geo-replication](sql-database-geo-replication-overview.md).
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
 
+<!--Update_Description: wording update-->

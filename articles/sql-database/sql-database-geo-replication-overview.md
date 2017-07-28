@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-origin.date: 09/26/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 07/10/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Overview: Failover groups and Active Geo-Replication
@@ -45,7 +45,6 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Active Geo-Replication capabilities
 The Active Geo-Replication feature provides the following essential capabilities:
-
 * **Automatic Asynchronous Replication**: You can only create a secondary database by adding to an existing database. The secondary can be created in any Azure SQL Database server. Once created, the secondary database is populated with the data copied from the primary database. This process is known as seeding. After secondary database has been created and seeded, updates to the primary database are asynchronously replicated to the secondary database automatically. Asynchronous replication means that transactions are committed on the primary database before they are replicated to the secondary database. 
 * **Readable secondary databases**: An application can access a secondary database for read-only operations using the same or different security principals used for accessing the primary database. The secondary databases operate in snapshot isolation mode to ensure replication of the updates of the primary (log replay) is not delayed by queries executed on the secondary.
 
@@ -107,16 +106,16 @@ You can upgrade or downgrade a primary database to a different performance level
 >
 
 ## Preventing the loss of critical data
-Due to the high latency of wide area networks, continuous copy uses an asynchronous replication mechanism. Asynchronous replication makes some data loss unavoidable if a failure occurs. However, some applications may require no data loss. To protect these critical updates, an application developer can call the [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) system procedure immediately after committing the transaction. Calling **sp_wait_for_database_copy_sync** blocks the calling thread until the last committed transaction has been replicated to the secondary database. The procedure waits until all queued transactions have been acknowledged by the secondary database. **sp_wait_for_database_copy_sync** is scoped to a specific continuous copy link. Any user with the connection rights to the primary database can call this procedure.
+Due to the high latency of wide area networks, continuous copy uses an asynchronous replication mechanism. Asynchronous replication makes some data loss unavoidable if a failure occurs. However, some applications may require no data loss. To protect these critical updates, an application developer can call the [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) system procedure immediately after committing the transaction. Calling **sp_wait_for_database_copy_sync** blocks the calling thread until the last committed transaction has been transmitted to the secondary database. However, it does not wait for The transmitted transactions to be replayed and committed on the secondary. **sp_wait_for_database_copy_sync** is scoped to a specific continuous copy link. Any user with the connection rights to the primary database can call this procedure.
 
 > [!NOTE]
-> The delay caused by a **sp_wait_for_database_copy_sync** procedure call can be significant. The delay depends on the size of the transaction log length at the moment and this call does not return until the entire log is replicated. Avoid calling this procedure unless it becomes necessary.
+> **sp_wait_for_database_copy_sync** will prevent data loss after failover, but it will not guarantee full synchronization for read access. The delay caused by a **sp_wait_for_database_copy_sync** procedure call can be significant and depends on the size of the transaction log at the time of the call. 
 > 
 
 ## Programmatically managing Active Geo-Replication
 As discussed previously, auto-failover groups (in-preview) and Active Geo-Replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available.
 
-**Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
+**Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
 > Many new features of Active Geo-Replication are only supported using [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) based [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) and [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx). The [(classic) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) and [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility so using the Azure Resource Manager-based APIs are recommended. 
@@ -161,7 +160,7 @@ As discussed previously, auto-failover groups (in-preview) and Active Geo-Replic
 | [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Sets which replica database is primary by failing over from the current primary replica database. |
 | [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
 | [Get Replication Link](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [List Replication Links](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [List Replication Links](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
 | [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Deletes a database replication link. Cannot be done during failover. |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Creates or updates a failover group |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Removes the failover group from the server |
@@ -181,3 +180,5 @@ As discussed previously, auto-failover groups (in-preview) and Active Geo-Replic
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 * To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
 * To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+
+<!--Update_Description: update word & link references -->

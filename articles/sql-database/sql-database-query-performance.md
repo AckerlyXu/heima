@@ -9,10 +9,9 @@ editor: monicar
 
 ms.service: sql-database
 ms.topic: article
-origin.date: 08/09/2016
-ms.date: 07/03/2017
-ms.author: v-johch
----
+origin.date: 07/05/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 # Azure SQL Database Query Performance Insight
 
@@ -30,7 +29,7 @@ Managing and tuning the performance of relational databases is a challenging tas
 
 ## Permissions
 
-The following [role-based access control](../active-directory/role-based-access-control-configure.md) permissions are required to use Query Performance Insight: 
+The following [role-based access control](../active-directory/role-based-access-control-what-is.md) permissions are required to use Query Performance Insight: 
 
 - **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource consuming queries and charts. 
 - **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.
@@ -70,7 +69,7 @@ In the [portal](http://portal.azure.cn) do the following:
     - Duration per query (depends on aggregation function).
     - Total number of executions for a particular query.
 
-    Select or clear individual queries to include or exclude them from the chart. 
+    Select or clear individual queries to include or exclude them from the chart.
 
 1. If your data becomes stale, click the **Refresh** button.
 1. Optionally, click **Settings** to customize how CPU consumption data is displayed, or to show a different time period.
@@ -101,7 +100,7 @@ During your use of Query Performance Insight, you might encounter the following 
 - "Query Store for this database is in read-only mode and not collecting performance insights data."
 - "Query Store parameters are not optimally set for Query Performance Insight."
 
-These messages usually appear when Query Store is not able to collect new data. To resolve these issues, you have a couple of options:
+These messages usually appear when Query Store is not able to collect new data. To resolve these issues, you have a couple of options: 
 
 - Change the Retention and Capture policy of Query Store
 - Increase size of Query Store 
@@ -140,7 +139,7 @@ ALTER DATABASE [YourDB]
 SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
 
-Clear Query Store. Deletes all current information in the Query Store:
+Clear Query Store. Deletes all current information in the Query Store: 
 
 ```
 ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
@@ -160,3 +159,5 @@ For additional recommendations about improving the performance of your SQL datab
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
+
+<!--Update_Description: update link references-->

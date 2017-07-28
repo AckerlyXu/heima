@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/14/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Restore an Azure SQL Database or failover to a secondary
@@ -90,10 +90,10 @@ You need to make sure your existing alert rule settings are updated to map to th
 
 
 ### Enable Auditing
-If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator that auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.chinacloudapi.cn. For more information, see [Database auditing](sql-database-auditing.md). 
+If auditing is required to access your database, you need to enable Auditing after the database recovery. For more information, see [Database auditing](sql-database-auditing.md).
 
 ## Next steps
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-
+<!--Update_Description: wording update-->

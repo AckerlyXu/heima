@@ -32,7 +32,7 @@ sql-database-service-tiers.md
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Min eDTUs per database | {0,10,20,<br>50} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
 | Max eDTUs per database | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
-| Max data storage per database | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB |
+| Max data storage per database | 50 GB | 100 GB | 200 GB | 250 GB | 250 GB | 250 GB |
 ||||||||
 
 ### Standard elastic pool limits (continued) 
@@ -54,7 +54,7 @@ sql-database-service-tiers.md
 
 | Pool size (eDTUs)  | **125** | **250** | **500** | **1000** | **1500** **| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Max data storage per pool* | 250 GB | 500 GB | 750 GB | 750 GB | 1.5 TB | 
+| Max data storage per pool* | 250 GB | 500 GB | 750 GB | 1 TB | 1.5 TB | 
 | Max In-Memory OLTP storage per pool | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
 | Max number DBs per pool | 50 | 100 | 100 | 100 | 100 |  
 | Max concurrent workers per pool (requests) | 200 | 400 | 800 | 1600 |  2400 | 
@@ -62,7 +62,7 @@ sql-database-service-tiers.md
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | Min eDTUs per database | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} | {0,25,50,75,<br>125,250,500,<br>1000,1500} | 
 | Max eDTUs per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |
-| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
+| Max data storage per database | 250 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
 ### Premium elastic pool limits (continued) 
@@ -92,11 +92,11 @@ sql-database-service-tiers.md
 | Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |
 | Min eDTUs per database | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} |
 | Max eDTUs per database | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | 
-| Max data storage per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
+| Max data storage per database | 250 GB | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
 ||||||||
 
 > [!IMPORTANT]
 >\* Pooled databases share pool storage, so data storage in an elastic pool is limited to the smaller of the remaining pool storage or max storage per database.
 >
->\*\* The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher max data storage size per pool, this size must be explicitly selected using the Azure portal or [PowerShell](../articles/sql-database/sql-database-elastic-pool-manage-powershell.md#change-the-storage-limit-for-an-elastic-pool). Premium pools with more than 750 GB of storage is currently in public preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per pool for all other regions is currently limited to 750 GB.
+>\*\* The default max data storage per pool for Premium pools with 1500 eDTUs or more is 750 GB. To obtain the higher max data storage size per pool, this size must be explicitly selected using the Azure portal or [PowerShell](../articles/sql-database/sql-database-elastic-pool.md#what-are-the-resource-limits-for-elastic-pools). Premium pools with more than 750 GB of storage is currently in public preview in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. The max storage per pool for all other regions is currently limited to 750 GB.
 >
