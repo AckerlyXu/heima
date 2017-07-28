@@ -3,8 +3,8 @@ title: Managing Applications with Azure Active Directory | Microsoft Docs
 description: This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
@@ -12,7 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+origin.date: 07/05/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
 
 ---
@@ -79,7 +80,7 @@ It important to understand that the way the authorization is enacted on the targ
 
 - **Applications pre-integrated by service provider** Like Office 365 and Azure, these are applications built directly on Azure AD and relying on it for their comprehensive identity and access management capabilities. Access to these applications is enabled through directory information and token issuance.
 - **Applications pre-integrated by Microsoft and custom applications** These are independent cloud applications that rely on an internal application directory and can operate independently of Azure AD. Access to these applications is enabled by issuing an application specific credential mapped to an application account. Depending on the application capabilities, the credential may be a federation token or user-name and password for an account that was previously provisioned in the application.
-- **On-premises applications** Applications published through the Azure AD application proxy primarily enabling access to on-premises applications. These applications rely on a central on premise directory like Windows Server Active Directory. Access to these applications is enabled by triggering the proxy to deliver the application content to the end user while honoring the on-premises sign-on requirement.
+- **On-premises applications** Applications published through the Azure AD application proxy primarily enabling access to on-premises applications. These applications rely on a central on-premises directory like Windows Server Active Directory. Access to these applications is enabled by triggering the proxy to deliver the application content to the end user while honoring the on-premises sign-on requirement.
 
 For example, if a user joins your organization, you need to create an account for the user in Azure AD for the primary sign-on operations. If this user requires access to a managed application such as Salesforce, you also need to create an account for this user in Salesforce and link it to the Azure account to make SSO work. When the user leaves your organization, it is advisable to delete the Azure AD account and all counterpart accounts in the IAM stores of the applications the user had access to.
 
@@ -105,8 +106,9 @@ Azure AD provides you with pre-integrated reporting and monitoring capabilities 
 With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://azure.microsoft.com/services/multi-factor-authentication/).
 
 ## Getting started
-To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](./active-directory-integrating-applications-getting-started.md).
+To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).
 
 ## See also
 [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+
 

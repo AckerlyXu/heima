@@ -4,9 +4,9 @@ description: Use self-service password reset to regain access to your Work or Sc
 services: active-directory
 keywords: 
 documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: femila
-editor: gahug
+author: alexchen2016
+manager: digimobile
+ms.reviewer: gahug
 
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
+origin.date: 07/17/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
 ms.custom: end-user
-ms.date: 06/21/2017
+
 ---
 # Help, I forgot my password
 

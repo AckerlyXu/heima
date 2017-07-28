@@ -3,8 +3,8 @@ title: Add your custom domain name to Azure Active Directory | Microsoft Docs
 description: How to add your company's domain names to Azure Active Directory, and how to verify the domain name.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 05/16/2016
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.date: 06/21/2017
+
 ---
 # Add a custom domain name to Azure Active Directory
 
@@ -27,6 +28,8 @@ You've got one or more domain names that your organization uses to do business, 
 
 > [!NOTE]
 > If you plan to configure your custom domain name to be used with Active Directory Federation Services (AD FS) or a different security token service (STS) on your corporate network, follow the instructions in [Add and configure a domain for federation with Azure Active Directory](./active-directory-add-domain-federated.md). This is useful if you plan to synchronize users from your corporate directory to Azure AD, and [password hash sync](./connect/active-directory-aadconnectsync-implement-password-synchronization.md) does not meet your requirements.
+> 
+> 
 
 ## Add a custom domain name to your directory
 1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn/) with a user account that is a global administrator of your Azure AD directory.
