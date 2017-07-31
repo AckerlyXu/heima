@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Getting Started using express settings | Microsoft Doc
 description: Learn how to download, install and run the setup wizard for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -62,4 +63,4 @@ Learn more about [Integrating your on-premises identities with Azure Active Dire
 | Upgrade from DirSync |
 | Accounts used for installation |
 
-
+<!-- Update_Description: update meta properties -->

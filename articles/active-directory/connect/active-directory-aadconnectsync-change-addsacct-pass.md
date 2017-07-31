@@ -4,8 +4,8 @@ description: This topic document describes how to update Azure AD Connect after 
 services: active-directory
 keywords: AD DS account, Active Directory account, password
 documentationcenter: ''
-author: cychua
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -52,3 +53,4 @@ To update the Synchronization Service with the new password:
 
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
+<!-- Update_Description: update meta properties -->

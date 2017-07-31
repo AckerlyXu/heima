@@ -4,7 +4,7 @@ description: This article describes Azure Active Directory (Azure AD) Pass-throu
 services: active-directory
 keywords: what is Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: alexchen2016
 manager: digimobile
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 06/21/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ---
 
@@ -42,7 +42,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
-  - Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including Multi-Factor Authentication (MFA).
+  - Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including Multi-Factor Authentication (MFA), and by [filtering out brute force password attacks](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
 - *Highly available*
   - Additional agents can be installed on multiple on-premises servers to provide high availability of sign-in requests.
 
@@ -56,6 +56,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - It can be enabled via [Azure AD Connect](active-directory-aadconnect.md).
 - It uses a lightweight on-premises agent that listens for and responds to password validation requests.
 - Installing multiple agents provides high availability of sign-in requests.
+- It [protects](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) your on-premises accounts against brute force password attacks in the cloud.
 
 ## Next steps
 
@@ -67,3 +68,4 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
 
+<!-- Update_Description: wording update -->

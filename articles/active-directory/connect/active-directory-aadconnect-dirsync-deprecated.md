@@ -3,8 +3,8 @@ title: Upgrade from DirSync and Azure AD Sync | Microsoft Docs
 description: Describes how to upgrade from DirSync and Azure AD Sync to Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
@@ -61,3 +62,4 @@ The Azure AD Connector for FIM/MIM has **not** been announced as deprecated. It 
 ## Additional Resources
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
+<!-- Update_Description: update meta properties -->
