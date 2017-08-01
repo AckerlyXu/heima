@@ -3,8 +3,8 @@ title: Connectors in the Azure AD Synchronization Service Manager UI | Microsoft
 description: Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
@@ -38,7 +39,7 @@ The Connectors tab is used to manage all systems the sync engine is connected to
 | Refresh Schema |Refreshes the cached schema. It is preferred to use the option in the installation wizard instead, since that also updates sync rules. |
 | [Search Connector Space](#search-connector-space) |Used to find objects and to Follow an object and its data through the system. |
 
-### Delete
+### Delete <a name="delete"></a>
 The delete action is used for two different things.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
@@ -48,12 +49,12 @@ The option **Delete Connector and connector space** removes the data and the con
 
 Both options sync all objects and update the metaverse objects. This action is a long running operation.
 
-### Configure Run Profiles
+### Configure Run Profiles <a name="configure-run-profiles"></a>
 This option allows you to see the run profiles configured for a Connector.
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
-### Search Connector Space
+### Search Connector Space <a name="search-connector-space"></a>
 The search connector space action is useful to find objects and troubleshoot data issues.
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
@@ -92,3 +93,4 @@ Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-wha
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!-- Update_Description: wording update -->

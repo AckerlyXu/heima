@@ -41,7 +41,6 @@
 ## [Understand the app manifest](./active-directory-application-manifest.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## Work with SAML
 ### [Azure AD and SAML](./active-directory-saml-protocol-reference.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
-### [Customize claims](./active-directory-saml-claims-customization.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ### [Debug SAML-based SSO](./active-directory-saml-debugging.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 ## [Use signing key rollover](./active-directory-signing-key-rollover.md?toc=%2factive-directory%2fdevelop%2ftoc.json)
 
