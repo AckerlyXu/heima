@@ -21,8 +21,7 @@ ms.author: v-yeche
 ---
 # Authentication and user permissions
 Azure Analysis Services uses Azure Active Directory (Azure AD) for identity management and user authentication. Any user creating, managing, or connecting to an Azure Analysis Services server must have a valid user identity in an [Azure AD tenant](../active-directory/active-directory-administer.md) in the same subscription.
-
-Azure Analysis Services supports [Azure AD B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). With B2B, users from outside an organization can be invited as guest users in an Azure AD directory. Guests can be from another Azure AD tenant directory or any valid email address. Once invited and the user accepts the invitation sent by email from Azure, the user identity is added to the tenant directory. Those identities can then be added to security groups or as members of a server administrator or database role.
+<!-- Not Available [Azure AD B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -->
 
 ![Azure Analysis Services authentication architecture](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
@@ -73,7 +72,7 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 
 ## Next steps
 
-[Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md)   
+<!-- Not Available [Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md) -->
 [Manage database roles and users](analysis-services-database-users.md)  
 [Manage server administrators](analysis-services-server-admins.md)  
 [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)
