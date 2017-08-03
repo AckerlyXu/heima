@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Managing Media Services Assets across Multiple Storage Accounts
@@ -275,3 +276,4 @@ The following code uses the latest Media Services SDK to perform the following t
 	        }
 	    }
 
+<!--Update_Description: update meta properties-->

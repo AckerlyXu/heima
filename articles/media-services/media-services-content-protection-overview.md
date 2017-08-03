@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Protecting content overview
@@ -106,3 +107,5 @@ The following topics demonstrate how to protect content in storage, deliver dyna
 [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
+
+<!--Update_Description: update meta properties-->

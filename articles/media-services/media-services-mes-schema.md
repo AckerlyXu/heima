@@ -51,7 +51,7 @@ Contains a sequence of the following elements.
 | Name | Type | Description |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Currently, only one-pass encoding is supported. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determines the (default) spacing between IDR frames . |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determines the fixed spacing between IDR frames in units of seconds. Also referred to as the GOP duration. See **SceneChangeDetection** (below) for controlling whether the encoder can deviate from this value. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |If set to true, encoder attempts to detect scene change in the video and inserts an IDR frame. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controls the trade-off between encode speed and video quality. Could be one of the following values: **Speed**, **Balanced**, or **Quality**<br/><br/> Default: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |Feature will be exposed in a future releases. |
@@ -263,3 +263,5 @@ If the above is not the desired behavior, then you can make use of the PreserveR
 
 ## Examples
 See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
+
+<!--Update_Description: wording update-->

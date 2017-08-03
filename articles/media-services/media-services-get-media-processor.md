@@ -41,7 +41,7 @@ Azure Media Encryptor|Depreciated|
 
 ##Get Media Processor
 
-The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically](./media-services-dotnet-connect-programmatically.md).
+The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [Access Azure Media Services API with .NET](./media-services-dotnet-get-started-with-aad.md).
 
 ```
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)

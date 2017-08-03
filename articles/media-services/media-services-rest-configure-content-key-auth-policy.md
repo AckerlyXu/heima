@@ -58,7 +58,7 @@ For more information, see
 >
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](./media-services-rest-connect-programmatically.md). 
+>After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
 
 ### Open Restriction
 Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.

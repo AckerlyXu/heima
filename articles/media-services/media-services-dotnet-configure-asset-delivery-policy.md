@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: v-johch
+origin.date: 07/13/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Configure asset delivery policies with .NET SDK
@@ -62,7 +63,7 @@ MPEG DASH
 * You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
 * If you have an asset with an existing streaming locator, you cannot link a new policy to the asset (you can either unlink an existing policy from the asset, or update a delivery policy associated with the asset).  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
-##Clear asset delivery policy 
+## Clear asset delivery policy 
 
 The following **ConfigureClearAssetDeliveryPolicy** method specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. You might want to apply this policy to your storage encrypted assets.
 
@@ -80,7 +81,7 @@ static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
 }
 ```
 
-##DynamicCommonEncryption asset delivery policy 
+## DynamicCommonEncryption asset delivery policy 
 
 The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](./media-services-dotnet-create-contentkey.md#common_contentkey)).
 
@@ -139,7 +140,7 @@ static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 }
 ```
 
-##DynamicEnvelopeEncryption asset delivery policy 
+## DynamicEnvelopeEncryption asset delivery policy 
 
 The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](./media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
@@ -184,14 +185,12 @@ private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 }
 ```
 
-##<a id="types"></a>Types used when defining AssetDeliveryPolicy
+## <a id="types"></a>Types used when defining AssetDeliveryPolicy
 
-###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
 
+The following enum describes values you can set for the asset delivery protocol.
 ```
-/// <summary>
-/// Delivery protocol for an asset delivery policy.
-/// </summary>
 [Flags]
 public enum AssetDeliveryProtocol
 {
@@ -215,6 +214,8 @@ public enum AssetDeliveryProtocol
     /// </summary>
     HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+
     /// <summary>
     /// Include all protocols.
     /// </summary>
@@ -222,12 +223,11 @@ public enum AssetDeliveryProtocol
 }
 ```
 
-###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+
+The following enum describes values you can set for the asset delivery policy type.  
 
 ```
-/// <summary>
-/// Policy type for dynamic encryption of assets.
-/// </summary>
 public enum AssetDeliveryPolicyType
 {
     /// <summary>
@@ -258,17 +258,16 @@ public enum AssetDeliveryPolicyType
 }
 ```
 
-###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+The following enum describes values you can use to configure the delivery method of the content key to the client.
 
 ```
-/// <summary>
-/// Delivery method of the content key to the client.
-/// </summary>
 public enum ContentKeyDeliveryType
 {
     /// <summary>
     /// None.
-    /// </summary>
+    ///</summary>
     None = 0,
 
     /// <summary>
@@ -284,12 +283,11 @@ public enum ContentKeyDeliveryType
 }
 ```
 
-###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+
+The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.
 
 ```
-/// <summary>
-/// Keys used to get specific configuration for an asset delivery policy.
-/// </summary>
 public enum AssetDeliveryPolicyConfigurationKey
 {
     /// <summary>
@@ -328,3 +326,5 @@ public enum AssetDeliveryPolicyConfigurationKey
     EnvelopeEncryptionIV
 }
 ```
+
+<!--Update_Description: update code-->
