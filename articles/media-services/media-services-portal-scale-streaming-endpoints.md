@@ -37,10 +37,9 @@ To change the number of streaming units, do the following:
 
 1. In the [Azure portal](https://portal.azure.cn/), select your Azure Media Services account.
 2. In the **Settings** window, select **Streaming endpoints**.
-3. Click on the streaming endpoint that you want to scale. 
-
-    [!NOTE] You can only scale **Premium** streaming endpoints.
-
+3. Click on the streaming endpoint that you want to scale.   
+    > [!NOTE] 
+    > You can only scale **Premium** streaming endpoints.
 4. Move the slider to specify the number of streaming units.
 
     ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
