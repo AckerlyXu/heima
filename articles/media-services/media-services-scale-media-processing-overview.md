@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
-ms.author: v-johch
+origin.date: 07/04/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Scaling Media Processing overview
@@ -59,4 +60,5 @@ Achieve the scaling media processing task with one of these technologies:
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
-> 
+
+<!--Update_Description: update metadata-->

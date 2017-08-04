@@ -13,25 +13,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 11/29/2016
-ms.date: 01/13/2017
+origin.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: v-johch
 ---
-
 # Media Services Operations REST API overview
+
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 The **Media Services Operations REST** API is used for creating jobs, assets, access policies, and other operations on objects in a Media Service account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Microsoft Azure Media Services is a service that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub. Because Media Services conforms to Azure design guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
-##Considerations 
+This topic gives an overview of how to use REST v2 with Media Services.
+
+## Considerations
 
 The following considerations apply when using REST.
 
 - When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](./media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](./media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 
-- When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object) you MUST set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (see the following example). Odata does not understand the **__metadata** property in the request, unless you set it to verbose.  
+- When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object) you MUST set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (see the following example). Odata does not understand the **__metadata** property in the request, unless you set it to verbose.
 
     ```
     POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
@@ -47,10 +49,11 @@ The following considerations apply when using REST.
         "Name" : "NewTestJob", 
         "InputMediaAssets" : 
             [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-    . . . 
+    . . .
     ```
 
 ## Standard HTTP request headers supported by Media Services
+
 For every call you make into Media Services, there is a set of required headers you must include in your request and also a set of optional headers you may want to include. The following table lists the required headers:
 
 Header|Type|Value
@@ -101,12 +104,14 @@ DELETE|Deletes an object.
 MERGE|Updates an existing object with named property changes.
 HEAD|Returns metadata of an object for a GET response.
 
-##Limitation
+## Limitation
 
-When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](./media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](./media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](./media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](./media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities).
 
 ## Discovering Media Services model
 
 To make Media Services entities more discoverable, the $metadata operation can be used. It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on. The following example shows how to construct the URI: https://wamsshaclus001rest-hs.chinacloudapp.cn/API/$metadata.
 
 You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.
+
+<!--Update_Description: wording update-->

@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 ---
 
 #Media Services PlayReady license template overview
@@ -305,3 +306,4 @@ For an example of what protection levels Silverlight supports, see: [Silverlight
   <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 </xs:schema>
 ```
+<!--Update_Description: update metadata-->
