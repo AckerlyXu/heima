@@ -1,25 +1,25 @@
 ---
-title: Azure DocumentDB .NET SDK & Resources | Azure
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
-services: cosmos-db
+title: Azure DocumentDB .NET Change Feed Processor SDK & Resources | Azure
+description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET Change Feed Processor SDK.
+services: cosmosdb
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
+editor: mimig1
 
-ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: cosmos-db
+ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/05/2017
+origin.date: 07/10/2017
 ms.date: 08/07/2017
+wacn.date: ''
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB .NET SDK: Download and release notes
+# DocumentDB .NET Change Feed Processor SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -29,21 +29,15 @@ ms.custom: H1Hack27Feb2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
 
 <table>
 
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the DocumentDB Change Feed Processor .NET SDK](change-feed.md)</td></tr>
 
 <tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
@@ -51,11 +45,10 @@ ms.custom: H1Hack27Feb2017
 <!-- Not Available ## Release notes -->
 <!-- Not Available ## Release & Retirement dates -->
 
-
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: update link-->
+<!--Update_Description: new articles on Cosmos-Db FAQ -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,8 @@ Write your queries faster by downloading the SQL query cheat sheet and using it 
 
 ## More help with writing SQL queries
 * For a walk through of the query options available in Cosmos DB, see [Query Cosmos DB](documentdb-sql-query.md).
-* For the related reference documentation, see [Cosmos DB SQL Query Language](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx).
+* For the related reference documentation, see [Azure Cosmos DB DocumentDB API: SQL syntax reference](documentdb-sql-query-reference.md).
 
-## Release notes
-Updated on 7/29/2016 to include TOP.
+<!-- Not Available ## Release notes -->
+
+<!--Update_Description: update link-->
