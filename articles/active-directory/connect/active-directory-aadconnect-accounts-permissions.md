@@ -86,7 +86,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
-| Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
+| Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md) for public folders. | 
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
@@ -184,6 +184,6 @@ There is a limit of 20 sync service accounts in Azure AD. To get the list of exi
 To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 <!-- Update_Description: wording update -->
