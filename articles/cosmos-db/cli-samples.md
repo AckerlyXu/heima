@@ -11,17 +11,17 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 06/07/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ---
 
 # Azure CLI samples for Azure Cosmos DB
 
-The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI 2.0 Reference](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb).
+The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI 2.0 Reference](https://docs.microsoft.com/cli/azure/cosmosdb).
 
 | |  |
 |---|---|
@@ -41,3 +41,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |**Connect Azure Cosmos DB to resources**||
 |[Connect a web app to Azure Cosmos DB](/app-service-web/scripts/app-service-cli-app-service-documentdb?toc=%2fcli%2fazure%2ftoc.json)|Create and connect an Azure Cosmos DB database and an Azure web app.|
 |||
+
+<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website -->
+
+<!--Update_Description: update meta properties-->

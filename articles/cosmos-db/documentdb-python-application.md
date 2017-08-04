@@ -13,9 +13,9 @@ ms.service: cosmos-db
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: article
 origin.date: 11/16/2016
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -414,3 +414,5 @@ For additional Python Flask tutorials, see [The Flask Mega-Tutorial, Part I: Hel
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.cn
+
+<!--Update_Description: update meta properties-->

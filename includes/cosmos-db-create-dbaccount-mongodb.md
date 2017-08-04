@@ -9,7 +9,7 @@
 
     In this quick start we'll be programming against the MongoDB API so you'll choose **MongoDB** as you fill out the form. But if you have graph data for a social media app, document data from a catalog app, or key/value (table) data, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
 
-    Fill out the New account blade using the information in the screenshot as a guide . You will choose unique values as you set up your account so your values will not match the screenshot exactly
+    Fill out the **New account** blade using the information in the table as a guide.
 
     ![Screen shot of the New Azure Cosmos DB blade](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -29,3 +29,4 @@
 6.  When the deployment is complete, open the new account from the All Resources tile. 
 
     ![DocumentDB account on the All Resources tile](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
+<!--Update_Description: wording update-->
