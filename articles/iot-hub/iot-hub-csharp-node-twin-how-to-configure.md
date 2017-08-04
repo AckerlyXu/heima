@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/30/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 # Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -44,6 +44,7 @@ If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial,
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
+<a id="#create-the-simulated-device-app"></a>
 ## Create the simulated device app
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
@@ -283,4 +284,6 @@ Use the following resources to learn how to:
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: ./iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: ./iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+<!--Update_Description: update wording and add some anchors-->

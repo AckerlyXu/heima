@@ -4,9 +4,12 @@ description: A sample application runs on Edison and monitors incoming messages 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: arduino control led from web, arduino control led via web
+
+ROBOTS: NOINDEX
+redirect_url: /iot-hub/iot-hub-intel-edison-kit-c-get-started
 
 ms.assetid: 820d38f3-d3b8-4249-9e2b-f1b9b771e62f
 ms.service: iot-hub
@@ -14,7 +17,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2016
+origin.date: 03/21/2017
 ms.date: 05/08/2017
 ms.author: v-yiso
 ---
@@ -95,3 +98,6 @@ You’ve successfully sent messages from your IoT hub to Edison to blink the LED
 [create-an-azure-function-app-and-storage-account]: ./iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [gulp-command-and-blink-messages]: ./media/iot-hub-intel-edison-lessons/lesson4/gulp_blink_c.png
 [change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
+
+
+<!--Update_Description: update wording-->

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/16/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
@@ -36,4 +36,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-security-architecture]: ./iot-hub-security-architecture.md
 [lnk-security-deployment]: ./iot-hub-security-deployment.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+
+<!--Update_Description:update meta properties only-->

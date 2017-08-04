@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/12/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 08/14/2017
 ---
 
 # Get started with device management (Java)
@@ -73,7 +73,7 @@ In this section, you create a Java console app that invokes the reboot direct me
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.3.19</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -214,7 +214,7 @@ In this section, you create a Java console app that simulates a device. The app 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.26</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -442,3 +442,5 @@ You are now ready to run the apps.
 
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
+
+<!--Update_Description:update wording-->
