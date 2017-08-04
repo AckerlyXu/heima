@@ -3,8 +3,8 @@ title: 'Hybrid Identity required ports and protocols - Azure | Microsoft Docs'
 description: This page is a technical reference page for ports that are required to be open for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
 
 ---
 # Hybrid Identity Required Ports and Protocols
@@ -32,7 +32,7 @@ This table describes the ports and protocols that are required for communication
 | MS-RPC |135 (TCP/UDP) |Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest, and also during Password synchronization. |
 | LDAP |389 (TCP/UDP) |Used for data import from AD. Data is encrypted with Kerberos Sign & Seal. |
 | LDAP/SSL |636 (TCP/UDP) |Used for data import from AD. The data transfer is signed and encrypted. Only used if you are using SSL. |
-| RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. See [KB929851](https://support.microsoft.com/zh-cn/kb/929851), [KB832017](https://support.microsoft.com/zh-cn/kb/832017), and [KB224196](https://support.microsoft.com/zh-cn/kb/224196) for more information. |
+| RPC |49152- 65535 (Random high RPC Port)(TCP/UDP) |Used during the initial configuration of Azure AD Connect when it binds to the AD forests, and during Password synchronization. See [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), and [KB224196](https://support.microsoft.com/kb/224196) for more information. |
 
 ## Table 2 - Azure AD Connect and Azure AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Azure AD.
@@ -97,3 +97,5 @@ This table describes the following outbound ports and protocols that are require
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Outbound |
 | Azure Service Bus |5671 (TCP/UDP) |Outbound |
+
+<!-- Update_Description: update meta properties -->

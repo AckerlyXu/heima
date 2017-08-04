@@ -3,8 +3,8 @@ title: 'Azure AD Connect: User sign-in | Microsoft Docs'
 description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/09/2017
-ms.date: 06/12/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -82,7 +82,7 @@ If you're deploying a new farm or using an existing farm, you need:
 
 - Local administrator credentials on your federation servers.
 - Local administrator credentials on any workgroup servers (not domain-joined) that you intend to deploy the Web Application Proxy role on.
-- The machine that you run the wizard on to be able to connect to any other machines that you want to install AD FS on by using Windows Remote Management.
+- The machine that you run the wizard on to be able to connect to any other machines that you want to install AD FS or Web Application Proxy on by using Windows Remote Management.
 
 For more information, see [Configuring SSO with AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 
@@ -177,3 +177,4 @@ On the **User sign-in** page, select the desired user sign-in.
 - Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 - Learn more about [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md).
 
+<!-- Update_Description: wording update -->

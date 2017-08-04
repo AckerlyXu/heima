@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/13/2017
-ms.date: 06/23/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ---
 
@@ -86,3 +86,4 @@ If troubleshooting didn't help, use the following steps to manually reset the fe
 
 Call `Enable-AzureADSSO` and type in "true" at the `Enable: ` prompt to turn on the feature in your tenant.
 
+<!-- Update_Description: update meta properties -->

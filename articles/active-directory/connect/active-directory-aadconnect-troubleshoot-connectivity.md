@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Troubleshoot connectivity issues | Azure'
+title: 'Azure AD Connect: Troubleshoot connectivity issues | Microsoft Docs'
 description: Explains how to troubleshoot connectivity issues with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/07/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
 
@@ -48,7 +48,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 
 ## Errors in the wizard
-The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
+The installation wizard is using two different security contexts. On the page **Connect to Azure AD**, it is using the currently signed in user. On the page **Configure**, it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). If there is an issue, it appears most likely already at the **Connect to Azure AD** page in the wizard since the proxy configuration is global.
 
 The following issues are the most common errors you encounter in the installation wizard.
 
@@ -73,10 +73,10 @@ This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com
 If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you see this error:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-- Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to https://login.microsoftonline.com (on another computer than the Azure AD Connect server) and verify the account is usable.
+- Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to https://login.partner.microsoftonline.cn (on another computer than the Azure AD Connect server) and verify the account is usable.
 
 ### Verify proxy connectivity
-To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet, use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.microsoftonline.com and this URI works as well, but the other URI is faster to respond.)
+To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet, use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.partner.microsoftonline.cn and this URI works as well, but the other URI is faster to respond.)
 
 PowerShell uses the configuration in machine.config to contact the proxy. The settings in winhttp/netsh should not impact these cmdlets.
 
@@ -102,44 +102,6 @@ If you have followed all these preceding steps and still cannot connect, you mig
 - You see that dns resolution lists the actual hosts to be in the DNS name space nsatc.net and other namespaces not under microsoftonline.com. However, there are not any web service requests on the actual server names and you do not have to add these URLs to the proxy.
 - The endpoints adminwebservice and provisioningapi are discovery endpoints and used to find the actual endpoint to use. These endpoints are different depending on your region.
 
-### Reference proxy logs
-Here is a dump from an actual proxy log and the installation wizard page from where it was taken (duplicate entries to the same endpoint have been removed). This section can be used as a reference for your own proxy and network logs. The actual endpoints might be different in your environment (in particular those URLs in *italic*).
-
-**Connect to Azure AD**
-
-| Time | URL |
-| --- | --- |
-| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
-
-**Configure**
-
-| Time | URL |
-| --- | --- |
-| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
-
-**Initial Sync**
-
-| Time | URL |
-| --- | --- |
-| 1/11/2016 8:48 |connect://login.chinacloudapi.cn:443 |
-| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## Authentication errors
 This section covers errors that can be returned from ADAL (the authentication library used by Azure AD Connect) and PowerShell. The error explained should help you in understand your next steps.
@@ -193,3 +155,5 @@ This error appears when the Sign-in assistant cannot reach the proxy or the prox
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+<!-- Update_Description: wording update -->

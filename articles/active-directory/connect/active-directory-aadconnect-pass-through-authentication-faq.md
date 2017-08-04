@@ -4,18 +4,17 @@ description: Answers to frequently asked questions about Azure Active Directory 
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/21/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-
 ---
 
 # Azure Active Directory Pass-through Authentication: Frequently asked questions
@@ -30,6 +29,10 @@ It depends on your on-premises environment and organizational requirements. Revi
 
 Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
 
+## Does Conditional Access work with Pass-through Authentication?
+
+Yes, all Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
+
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 
 Yes. Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](active-directory-aadconnect-get-started-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
@@ -37,6 +40,10 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 ## Does Password Hash Synchronization act as a fallback to Pass-through Authentication?
 
 No, Password Hash Synchronization is not a generic fallback to Pass-through Authentication. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+
+## Can I install an Azure AD Application Proxy connector on the same server as a Pass-through Authentication Agent?
+
+No, this configuration is _not_ supported.
 
 ## What versions of Azure AD Connect and Pass-through Authentication Agent do you need?
 
@@ -47,6 +54,10 @@ You need version 1.1.486.0 or later for Azure AD Connect and 1.5.58.0 or later f
 If you have configured [password writeback](../active-directory-passwords-update-your-own-password.md) for a specific user, and if the user signs in using Pass-through Authentication, they can change or reset their passwords. The passwords are written back to on-premises Active Directory as expected.
 
 However, if password writeback is not configured or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Please update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator has to reset their password in your on-premises Active Directory.
+
+## How does Pass-through Authentication protect you against brute force password attacks?
+
+Read [this article](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) for more information.
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
@@ -115,3 +126,4 @@ Uninstalling a Pass-through Authentication Agent from a server causes it to stop
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
 
+<!-- Update_Description: wording update -->

@@ -4,18 +4,17 @@ description: This article describes how the Azure Active Directory Seamless Sing
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/21/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive
@@ -45,8 +44,8 @@ Once the set-up is complete, Seamless SSO works the same way as any other sign-i
 1. The user tries to access an application (for example, the Outlook Web App - https://outlook.office365.com/owa/) from a domain-joined corporate device inside your corporate network.
 2. If the user is not already signed in, the user is redirected to the Azure AD sign-in page.
 
-    >[!NOTE]
-    >If the Azure AD sign-in request includes a `domain_hint` (identifying your tenant- for example, contoso.partner.onmschina.cn) or `login_hint` (identifying the user - for example, user@contoso.partner.onmschina.cn or user@contoso.com) parameter, then step 2 is skipped.
+  >[!NOTE]
+  >If the Azure AD sign-in request includes a `domain_hint` (identifying your tenant- for example, contoso.partner.onmschina.cn) or `login_hint` (identifying the user - for example, user@contoso.partner.onmschina.cn or user@contoso.com) parameter, then step 2 is skipped.
 
 3. The user types in their user name into the Azure AD sign-in page.
 4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
@@ -70,3 +69,4 @@ Seamless SSO is opportunistic, which means if it fails, the sign-in experience f
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-sso.md) - Learn how to resolve common issues with the feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
 
+<!-- Update_Description: update meta properties -->

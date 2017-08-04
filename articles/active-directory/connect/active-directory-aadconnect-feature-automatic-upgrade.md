@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Automatic upgrade | Azure'
+title: 'Azure AD Connect: Automatic upgrade | Microsoft Docs'
 description: This topic describes the built-in automatic upgrade feature in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/07/2017
-ms.date: 03/07/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Azure AD Connect: Automatic upgrade
 This feature was introduced with build 1.1.105.0 (released February 2016).
 
@@ -83,7 +83,6 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeAbortedSyncOrConfigurationInProgress |The installation wizard is running or a sync was scheduled outside the scheduler. |
 | **UpgradeNotSupported** | |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
-
 | UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) feature. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
@@ -95,3 +94,5 @@ Here is a list of the most common messages you find. It does not list all, but t
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+<!-- Update_Description: update meta properties -->

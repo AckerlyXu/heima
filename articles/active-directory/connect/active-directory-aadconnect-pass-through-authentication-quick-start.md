@@ -4,18 +4,17 @@ description: This article describes how to get started with Azure Active Directo
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/21/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-
 ---
 
 # Azure Active Directory Pass-through Authentication: Quick start
@@ -53,6 +52,9 @@ Ensure that the following prerequisites are in place:
 
 Pass-through Authentication can be enabled using [Azure AD Connect](active-directory-aadconnect.md).
 
+>[!IMPORTANT]
+>Pass-through Authentication can be enabled on the Azure AD Connect primary or staging server. It is highly recommended that you enable it from the primary server.
+
 If you are installing Azure AD Connect for the first time, choose the [custom installation path](active-directory-aadconnect-get-started-custom.md). At the **User sign-in** page, choose **Pass-through Authentication** as the Sign on method. On successful completion, a Pass-through Authentication agent is installed on the same server as Azure AD Connect. In addition, the Pass-through Authentication feature is enabled on your tenant.
 
 ![Azure AD Connect - user sign-in](./media/active-directory-aadconnect-sso/sso3.png)
@@ -87,8 +89,8 @@ AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 ### Register the Authentication Agent with Azure AD
 
 1.	Open a PowerShell window as an Administrator.
-2.	Navigate to **C:\Program Files\Microsoft AAD App Proxy agent** and run the script as follows:
-`.\Registeragent.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy agent\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
+2.	Navigate to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script as follows:
+`.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
 3.	When prompted, enter the credentials of the Global Administrator account on your Azure AD tenant.
 
 ## Next steps
@@ -99,3 +101,4 @@ AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md) - Learn more about this complementary feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
 
+<!-- Update_Description: wording update -->
