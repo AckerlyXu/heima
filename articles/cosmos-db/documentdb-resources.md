@@ -381,7 +381,7 @@ Registration of a UDF is done by creating a new UDF resource on a collection via
         });
 
 ### Executing a UDF as part of the query
-A UDF can be specified as part of the SQL query and is used as a way to extend the core [SQL query language for the DocumentDB API](documentdb-sql-query-reference).
+A UDF can be specified as part of the SQL query and is used as a way to extend the core [SQL query language for the DocumentDB API](documentdb-sql-query-reference.md).
 <!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference -->
 
 
