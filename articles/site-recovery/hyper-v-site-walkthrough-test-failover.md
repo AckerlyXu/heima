@@ -28,16 +28,7 @@ This article describes how to run a test failover from  on-premises Hyper-V virt
 
 Before you run a test failover we recommend that you verify the VM properties, and make any changes you need to. you can access the VM properties in **Replicated items**. The **Essentials** blade shows information about machines settings and status.
 
-## Managed disk considerations
-
-[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
-
-- Managed disks are created and attached to the VM only when a failover to Azure occurs. When you enable protection, data from on-premises VMs replicates to storage accounts.
-- Managed disks can be created only for VMs that are deployed using the Resource manager deployment model.
-- Failback from Azure to an on-premises Hyper-V environment is not currently supported for machines with managed disks. You should only set **Use managed disks** to **Yes** if you're doing a migration only (failover to Azure without failback)
-- With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected. [Learn more](/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
-- - If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](/storage/storage-managed-disks-overview#managed-disks-and-encryption).
-
+<!-- Not Available ## Managed disk considerations -->
 ## Network considerations
 
 - You can set the target IP address to be used for the Azure VM after failover. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover will fail. The same target IP address can be used for test failover if the address is available in the test failover network.
