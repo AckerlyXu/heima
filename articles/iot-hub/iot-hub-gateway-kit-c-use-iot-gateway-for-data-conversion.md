@@ -4,7 +4,7 @@ description: Use IoT gateway to convert the format of sensor data through a cust
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot gateway data conversion, iot gateway data transformation'
 
@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/07/2017
+origin.date: 06/25/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 # Use IoT gateway for sensor data transformation with Azure IoT Edge
 
@@ -68,11 +68,11 @@ You learn how to create a module to convert messages from the SensorTag into a d
 To compile the module, run the following commands:
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```
@@ -144,3 +144,5 @@ You get a `libmy_module.so` file after the compile is completed. Make a note of 
 You’ve successfully use the IoT gateway to convert the message from SensorTag into the .json format.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+<!--Update_Description: update some code -->

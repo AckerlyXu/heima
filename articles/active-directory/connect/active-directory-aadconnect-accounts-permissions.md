@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Accounts and permissions | Microsoft Docs'
 description: This topic describes the accounts used and created and permissions required.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -26,12 +27,12 @@ The Azure AD Connect installation wizard offers two different paths:
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics.
 
-|Topic |Link|
+|Topic |Link|  
 | --- | --- |
 |Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
-|Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)|
-|Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)|
-|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Install using Express settings | [Express installation of Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Install using Customized settings | [Custom installation of Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)|
 
 ## Express settings installation
@@ -62,7 +63,7 @@ The [account](#active-directory-account) created for reading and writing to AD D
 | Reset password |Preparation for enabling password writeback |
 
 ## Custom settings installation
-When using custom settings, the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account).
+Previously, when using custom settings, the account used to connect to Active Directory must be created before the installation. The permissions you must grant this account can be found in [create the AD DS account](#create-the-ad-ds-account). With Azure AD Connect version 1.1.524.0 and after, you have the option to let Azure AD Connect wizard create the account for you.
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
@@ -82,8 +83,10 @@ Which permissions you require depends on the optional features you enable. If yo
 
 | Feature | Permissions |
 | --- | --- |
+| msDS-ConsistencyGuid feature |Write permissions to the msDS-ConsistencyGuid attribute documented in [Design Concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Password sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Write permissions to the attributes documented in [Exchange hybrid writeback](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
+| Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](active-directory-aadconnectsync-attributes-synchronized.md) for public folders. | 
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
@@ -172,12 +175,15 @@ An account in Azure AD is created for the sync service's use. This account can b
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is FABRIKAMCON. If you have staging servers, each server has its own account. There is a limit of 10 sync service accounts in Azure AD.
+The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is FABRIKAMCON. If you have staging servers, each server has its own account.
 
 The service account is created with a long complex password that does not expire. It is granted a special role **Directory Synchronization Accounts** that has only permissions to perform directory synchronization tasks. This special built-in role cannot be granted outside the Azure AD Connect wizard and the Azure portal shows this account with the role **User**.
 
-![AD account Role](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+There is a limit of 20 sync service accounts in Azure AD. To get the list of existing Azure AD service accounts in your Azure AD, run the following Azure AD PowerShell cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!-- Update_Description: wording update -->

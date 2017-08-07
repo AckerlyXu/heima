@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/01/2017
-ms.date: 07/10/2017
+origin.date: 07/11/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
 ---
 
@@ -220,7 +220,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-sas-tokens]: ./iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
+[lnk-sas-tokens]: ./iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
 [lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 
 [lnk-devices]: https://catalog.azureiotsuite.com/
@@ -229,6 +229,9 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+
+
+<!--Update_Description:update meta properties and link references-->
 
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-messaging]: ./iot-hub-devguide-messaging.md

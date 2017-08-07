@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Supported topologies | Azure'
+title: 'Azure AD Connect: Supported topologies | Microsoft Docs'
 description: This topic details supported and unsupported topologies for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/07/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
 
@@ -109,8 +109,9 @@ Some Office 365 workloads have certain restrictions on supported topologies:
 
 | Workload | Restrictions |
 --------- | ---------
-| Exchange Online | If there's more than one on-premises Exchange organization (that is, Exchange has been deployed to more than one forest), you must use Exchange 2013 SP1 or later. For more information, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/zh-cn/library/jj873754.aspx). |
-| Skype for Business | When you're using multiple on-premises forests, only the account-resource forest topology is supported. For more information, see [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/zh-cn/library/dn933910.aspx). |
+| Exchange Online | If there's more than one on-premises Exchange organization (that is, Exchange has been deployed to more than one forest), you must use Exchange 2013 SP1 or later. For more information, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx). |
+| Skype for Business | When you're using multiple on-premises forests, only the account-resource forest topology is supported. For more information, see [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+
 
 ## Staging server
 ![Staging server in a topology](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -126,7 +127,7 @@ You can also use this method to replace the active sync server. Prepare the new 
 It's possible to have more than one staging server when you want to have multiple backups in different datacenters.
 
 ## Multiple Azure AD tenants
-We recommend having a single tenant in Azure AD for an organization. It covers common scenarios where you can use a single tenant.
+We recommend having a single tenant in Azure AD for an organization.
 
 ![Topology for multiple forests and multiple tenants](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -180,3 +181,5 @@ To learn how to install Azure AD Connect for these scenarios, see [Custom instal
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+<!-- Update_Description: wording update -->

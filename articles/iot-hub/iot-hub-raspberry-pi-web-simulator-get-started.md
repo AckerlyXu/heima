@@ -1,21 +1,23 @@
 ---
 title: Simulated Raspberry Pi to cloud (Node.js) - Connect Raspberry Pi web simulator to Azure IoT Hub | Azure
-description: Connect Raspberry Pi web simulator to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud.
+description: Learn how to setup and connect a simulated Raspberry Pi to Azure IoT Hub for it to send data to the Azure cloud platform. You do not need a physical board for this tutorial.
 services: iot-hub
 documentationcenter: ''
-author: Derek1101
-manager: timtl
+author: shizn
+manager: timlt
 tags: ''
 keywords: 'raspberry pi simulator, azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud'
+experimental: true
+experiment_id: "4b13d735-4c02-4e"
 
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 5/27/2017
+origin.date: 07/07/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 08/14/2017
 ---
 
 # Connect Raspberry Pi online simulator to Azure IoT Hub (Node.js)
@@ -37,7 +39,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 
 ## What you learn
 
-* How to create an Azure IoT hub and get your new device connection string.
+* How to create an Azure IoT hub and get your new device connection string. If you don't have an Azure account, [create a Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 * How to work with Raspberry Pi online simulator.
 * How to send sensor data to your IoT hub.
 
@@ -46,7 +48,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 Click the button to launch Raspberry Pi online simulator.
 
 > [!div class="button"]
-[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/build/index.html)
+[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/)
 
 There are three areas in the web simulator.
 * Assembly area - The default circuit is that a Pi connects with a BME280 sensor and an LED. The area is locked in preview version so currently you cannot do customization.
@@ -81,3 +83,5 @@ You should see the following output that shows the sensor data and the messages 
 You’ve run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+<!--Update_Description:update meta properties and wording-->

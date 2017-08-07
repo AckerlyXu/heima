@@ -1,9 +1,9 @@
 ---
 title: 'Get started connecting simulated devices to Azure IoT Hub | Azure'
-description: 'Learn how to create simulated IoT devices and connect them to Azure IoT Hub. Your devices can send telemtry to IoT Hub and Iot Hub can monitor and manage your devices.'
+description: 'Learn how to create simulated IoT devices and connect them to Azure IoT Hub. Your devices can send telemetry to IoT Hub and Iot Hub can monitor and manage your devices.'
 services: iot-hub
 documentationcenter: ''
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: ''
 keywords: 'azure iot hub tutorial'
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 08/14/2017
 ---
 # Azure IoT Hub get started with simulated devices tutorials
 
@@ -43,3 +43,5 @@ In addition, you can use an IoT Edge gateway to enable simulated devices to conn
 [Sim_Pyth]: ./iot-hub-python-getstarted.md
 [Sim_Lnx]: ./iot-hub-linux-iot-edge-get-started.md
 [Sim_Win]: ./iot-hub-windows-iot-edge-get-started.md
+
+<!--Update_Description: update meta data only-->
