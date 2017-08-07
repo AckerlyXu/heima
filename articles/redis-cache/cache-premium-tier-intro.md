@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 01/06/2017
-ms.date: 03/01/2017
+origin.date: 07/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -87,3 +87,5 @@ Create a cache and explore the new premium tier features.
 * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
 * [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)
 * [How to administer Azure Redis Cache](cache-administration.md)
+
+<!--Update_Description: update meta data-->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/21/2017
-ms.date: 05/31/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
 
 ---
@@ -81,7 +81,16 @@ The following table shows an example of how the example VNets and local sites ar
 
 ## <a name="classicvnet"></a>1. Configure the classic VNet settings
 
-In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above. If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
+In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
+
+When using the portal to create a classic virtual network, you must navigate to the virtual network blade by using the following steps, otherwise the option to create a classic virtual network does not appear:
+
+1. Click the '+' to open the 'New' blade.
+2. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
+3. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network blade. 
+4. On the virtual network blade, select 'Classic' to create a classic VNet. 
+
+If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
 
 Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
@@ -260,3 +269,5 @@ You can verify your connections by using the Azure portal or PowerShell. When ve
 ## <a name="faq"></a>VNet-to-VNet FAQ
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+
+<!--Update_Description: add steps to create classic vnet in the new portal-->

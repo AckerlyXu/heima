@@ -43,7 +43,7 @@ Review the "General recommendation and best practices" section in [SQL Server Bu
 > ReportViewer configured in local processing mode is not supported in Azure.
 
 ## Adding Assemblies to the Deployment Package
-When you host your ASP.NET application on-premise, the ReportViewer assemblies are usually installed directly in the global assembly cache (GAC) of the IIS server during Visual Studio installation, and can be accessed directly by the application. However, when you host your ASP.NET application in the cloud, Azure does not allow anything to be installed into the GAC, so you must make sure the ReportViewer assemblies are available locally for your application. You can do this by adding references to them in your project and configure them to be copied locally.
+When you host your ASP.NET application on-premises, the ReportViewer assemblies are usually installed directly in the global assembly cache (GAC) of the IIS server during Visual Studio installation, and can be accessed directly by the application. However, when you host your ASP.NET application in the cloud, Azure does not allow anything to be installed into the GAC, so you must make sure the ReportViewer assemblies are available locally for your application. You can do this by adding references to them in your project and configure them to be copied locally.
 
 In remote processing mode, the ReportViewer control uses the following assemblies:
 

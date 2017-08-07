@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2017
-ms.date: 05/02/2017
+origin.date: 07/05/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -173,3 +173,5 @@ Learn how to use more premium cache features.
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
+
+<!--Update_Description: update meta data-->

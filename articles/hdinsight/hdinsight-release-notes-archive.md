@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2017
-ms.date: 05/08/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 ROBOTS: NOINDEX
 
@@ -1494,3 +1494,5 @@ Release notes for the Hortonworks Data Platforms (HDPs) that are used by HDInsig
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
+
+<!--Update_Description: update meta data-->

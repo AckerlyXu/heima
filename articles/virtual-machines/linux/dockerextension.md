@@ -24,7 +24,7 @@ Docker is a popular container management and imaging platform that allows you to
 ## Azure Docker VM extension overview
 The Azure Docker VM extension installs and configures the Docker daemon, Docker client, and Docker Compose in your Linux virtual machine (VM). By using the Azure Docker VM extension, you have more control and features than simply using Docker Machine or creating the Docker host yourself. These additional features, such as [Docker Compose](https://docs.docker.com/compose/overview/), make the Azure Docker VM extension suited for more robust developer or production environments.
 
-For more information about the different deployment methods, including using Docker Machine, see the following articles:
+For more information about the different deployment methods, including using Docker Machine, see the following article:
 
 * To quickly prototype an app, you can create a single Docker host using [Docker Machine](docker-machine.md).
 

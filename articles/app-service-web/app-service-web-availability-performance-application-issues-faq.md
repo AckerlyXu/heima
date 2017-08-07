@@ -3,7 +3,7 @@ title: Application performance FAQs for Azure web apps | Azure
 description: Get answers to frequently asked questions about availability, performance, and application issues in the Web Apps feature of Azure App Service.
 services: app-service\web
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/24/2017
 ms.author: v-dazen
 
 ---
@@ -184,3 +184,5 @@ For more information about outbound connections in your web app, see the blog po
 ## How do I use Visual Studio to remote debug my App Service web app?
 
 For a detailed walkthrough that shows you how to debug your web app by using Visual Studio, see [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+
+<!--Update_Description: update meta data-->

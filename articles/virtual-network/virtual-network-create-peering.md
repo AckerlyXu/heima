@@ -254,7 +254,7 @@ The steps in the previous sections explained how to create a virtual network pee
 13. In the **myVnet1 - Peerings** blade that appeared, click **+ Add**
 14. In the **Add peering** blade that appears, enter, or select the following options, then click **OK**:
      - **Name**: *myVnet1ToMyVnet2*
-     - **Virtual network deployment model**:  Select **Classic**. 
+     - **Virtual network deployment model**:  Select **Resource Manager**. 
      - **I know my resource ID**: Check this box.
      - **Resource ID**: Enter the resource Id for myVnet2. This box only appears when the **I know my resource ID** checkbox is checked.
      - **Allow virtual network access:** Ensure that **Enabled** is selected.
@@ -342,7 +342,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 ### <a name="delete-cli"></a>Azure CLI
 
-From a Linux, macOS, or Windows command shell, enter the command that follows. Alternatively, click the Try It button at the top right of the following code block to launch the Cloud Shell. Then, use the Copy button to copy and paste the sample code into the Cloud Shell.
+From a Linux, macOS, or Windows command shell, enter the command that follows.
 
 ```azurecli
 az group delete --name myResourceGroup --yes

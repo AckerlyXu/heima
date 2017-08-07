@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/05/2017
-ms.date: 07/24/2017
+origin.date: 06/26/2017
+ms.date: 07/31/2017
 ms.author: v-dazen
 
 ---
@@ -44,7 +44,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 * A Linux-based Hadoop on HDInsight cluster.
 
   > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
 
@@ -276,3 +276,5 @@ If you are using Tez with Hive, see the following documents:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+
+<!--Update_Description: update meta data-->
