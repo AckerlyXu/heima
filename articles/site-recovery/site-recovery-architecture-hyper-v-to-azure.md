@@ -24,8 +24,6 @@ This article describes the components and processes involved when replicating on
 
 Site Recovery can replicate Hyper-V VMs on Hyper-V clusters and standalone hosts that are managed with or without System Center Virtual Machine Manager (VMM).
 
-Post any comments at the bottom of this article, or in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
-
 ## Architectural components
 
 There are a number of components involved when replicating Hyper-V VMs to Azure.
