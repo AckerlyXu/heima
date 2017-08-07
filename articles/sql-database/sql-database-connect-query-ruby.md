@@ -83,8 +83,8 @@ end
 
 1. At the command prompt, run the following commands:
 
-   ```bash
-   ruby sqltest.rb
+```bash
+ruby sqltest.rb
 ```
 
 2. Verify that the top 20 rows are returned and then close the application window.

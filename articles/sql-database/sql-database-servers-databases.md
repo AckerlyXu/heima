@@ -94,7 +94,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.cn
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > For information on selecting the pricing tier for your database, see [Service tiers](sql-database-service-tiers.md).
 >
 
