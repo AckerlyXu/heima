@@ -146,7 +146,7 @@ Using a list so the information is easy to find when scanning.
 ------------------->
 
 * Basic service tier is 7 days.
-* Standard service tier is 35 days.
+* Standard service tier is 14 days.
 * Premium service tier is 35 days.
 
 If you downgrade your database from the Standard or Premium service tiers to Basic, the backups are saved for seven days. All existing backups older than seven days are no longer available. 
