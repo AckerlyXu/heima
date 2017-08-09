@@ -1,7 +1,7 @@
 ---
 title: Using Azure Import/Export to transfer data to and from blob storage | Azure
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from blob storage.
-author: muralikk
+author: hayley244
 manager: syadav
 editor: tysonn
 services: storage
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/17/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
 # Use the Azure Import/Export service to transfer data to blob storage
@@ -35,7 +35,7 @@ You can use this service in scenarios such as:
 * Backup: Take backups of your on-premises data to store in Azure blob storage.
 * Data recovery: Recover large amount of data stored in blob storage and have it delivered to your on-premises location.
 
-##<a name="pre-requisites"></a> Prerequisites
+## <a name="pre-requisites"></a> Prerequisites
 In this section we list the prerequisites required to use this service. Please review them carefully before shipping your drives.
 
 ### Storage account
@@ -65,12 +65,10 @@ The journal files store basic information about your job and drive such as drive
 
 The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
+Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
-
->
 
 ### Hard disk drives
 Only 2.5 inch SSD, 2.5/3.5 inch SATA II/III or SAS internal HDD are supported for use with the Import/Export service. A Single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. To use a disk that connnects the disk array controller, set the disk array controller to pass-through mode.
@@ -79,7 +77,6 @@ For import jobs, only the first data volume on the drive will be processed. The 
 
 > [!IMPORTANT]
 > External hard disk drives that come with a built-in USB adaptor are not supported by this service. Also, the disk inside the casing of an external HDD cannot be used; please do not send external HDDs.
-> 
 > 
 
 Below is a list of external USB adaptors used to copy data to internal HDDs. 
@@ -102,9 +99,10 @@ You can use one of the following 64-bit Operating Systems to prepare the hard dr
 Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. All of these operating systems support BitLocker Drive Encryption.
 
 ### Locations
-The Azure Import/Export service supports copying data to and from China North Azure storage accounts. You can ship hard disk drives to one of the following locations. If your storage account is in an Azure location which is not specified here, an alternate shipping location will be provided when you are creating the job using the Azure portal or the Import/Export REST API.
+The Azure Import/Export service supports copying data to and from China East or China North Azure storage accounts. You can ship hard disk drives to one of the following locations. If your storage account is in an Azure location which is not specified here, an alternate shipping location will be provided when you are creating the job using the Azure portal or the Import/Export REST API.
 
 Supported shipping locations:
+- China East
 - China North
 
 ### Shipping
@@ -112,7 +110,7 @@ Supported shipping locations:
 
 When creating an import or export job, you will be provided a shipping address of one of the supported locations to ship your drives. The shipping address provided will depend on the location of your storage account, but it may not be the same as your storage account location.
 
-You can use carriers like FedEx, DHL, UPS, or the US Postal Service to ship your drives to the shipping address.
+You can use carriers like FedEx or the China Postal Service to ship your drives to the shipping address.
 
 **Shipping drives from the data center:**
 
@@ -122,8 +120,8 @@ You can use a carrier of your choice in order to forward ship the hard disk. The
 
 In shipping your packages, you must follow the terms at [Azure Service Terms](https://www.azure.cn/support/legal/services-terms/).
 
-> [!IMPORTANT]
-> Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+> [!IMPORTANT] 
+> Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner. 
 
 ## How does the Azure Import/Export service work?
 You can transfer data between your on-premises site and Azure blob storage using the Azure Import/Export service by creating jobs and shipping hard disk drives to an Azure data center. Each hard disk drive you ship is associated with a single job. Each job is associated with a single storage account. Review the [pre-requisites section](#pre-requisites) carefully to learn about the specifics of this service such as supported blob types, disk types, locations, and shipping.
@@ -161,7 +159,7 @@ At a high level, an export job involves the following steps:
   
     ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
-###<a name="viewing-your-job-status"></a> Viewing your job and drive status
+### <a name="viewing-your-job-status"></a> Viewing your job and drive status
 You can track the status of your import or export jobs from the Azure portal. Click the **Import/Export** tab. A list of your jobs will appear on the page.
 
 ![View Job State](./media/storage-import-export-service/jobstate.png)
@@ -403,9 +401,9 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently asked questions
 
-**Can I copy Azure Files using the Azure Import/Export service?**
+**Can I copy Azure File storage using the Azure Import/Export service?**
 
-No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure Files, Tables, and Queues are not supported.
+No, the Azure Import/Export service only supports Block Blobs and Page Blobs. All other storage types including Azure File storage, Table Storage, and Queue Storage are not supported.
 
 **Is the Azure Import/Export service available for CSP subscriptions?**
 
@@ -461,13 +459,13 @@ No. The WAImportExport tool is only compatible with 64-bit Windows operating sys
 
 Please ship only your hard drives. Do not include items like power supply cables or USB cables.
 
-**Do I have to ship my drives using FedEx or DHL?**
+**Do I have to ship my drives using FedEx or China Postal Service?**
 
-You can ship drives to the data center using any known carrier like FedEx, DHL, UPS, or US Postal Service. However, for shipping the drives back to you from the data center, you must provide a FedEx account number in the US and EU, or a DHL account number in the Asia and Australia regions.
+You can ship drives to the data center using any known carrier like FedEx or China Postal Service. However, for shipping the drives back to you from the data center, you must provide a available address.
 
 **Are there any restrictions with shipping my drive internationally?**
 
-Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
 
 **When creating a job, the shipping address is a location that is different from my storage account location. What should I do?**
 
@@ -495,8 +493,24 @@ b) Update the jobs with a tracking number suffixed with -1, -2 etc.
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
 Max Page Blob size is 1TB.
+
+**Does Disk Import/Export support AES 256 encryption?**
+
+Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
+
+If using [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+If using [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
+
 ## Next steps
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 
+<!--Update_Description: wording update-->

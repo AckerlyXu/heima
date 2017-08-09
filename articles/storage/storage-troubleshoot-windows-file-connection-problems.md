@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+origin.date: 06/28/2017
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
 # Troubleshoot Azure File storage problems in Windows
 
-This article lists common problems that are related to Azure File storage when you connect from Windows clients. It also provides possible causes and resolutions for these problems.
+This article lists common problems that are related to Azure File storage when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
 
 <a id="error53-67-87"></a>
 ## Error 53, Error 67, or Error 87 when you mount or unmount an Azure file share
@@ -184,3 +184,4 @@ To copy a file over the network, you must first decrypt it. Use one of the follo
 
 Be aware that setting the registry key affects all copy operations that are made to network shares.
 
+<!--Update_Description: wording update-->

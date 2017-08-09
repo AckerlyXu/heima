@@ -3,7 +3,7 @@ title: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a cl
 description: Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment
 services: storage
 documentationcenter: ''
-author: forester123
+author: hayley244
 manager: digimobile
 editor: tysonn
 tags: storage
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 ---
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs in a classic deployment
 [!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
@@ -133,4 +133,5 @@ A "Stopped (deallocated)" status releases the computer resources, such as the CP
 
 ## Next steps
 * [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
-* [How to break the locked lease of blob storage in Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+
+<!--Update_Description: update link references - delete a link in 'next steps'-->
