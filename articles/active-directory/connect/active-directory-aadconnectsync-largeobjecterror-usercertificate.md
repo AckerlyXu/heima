@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Handling LargeObject errors caused by userCertifi
 description: This topic provides the remediation steps for LargeObject errors caused by userCertificate attribute.
 services: active-directory
 documentationcenter: ''
-author: cychua
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
 
 ---
 
@@ -25,15 +25,17 @@ Azure AD enforces a maximum limit of **15** certificate values on the **userCert
 
 >*"The provisioned object is too large. Trim the number of attribute values on this object. The operation will be retried in the next synchronization cycle..."*
 
-The LargeObject error may be caused by other AD attributes. To confirm it is indeed caused by the userCertificate attribute, you need to verify against the object either in on-premises AD or in the [Synchronization Service Manager Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
+The LargeObject error may be caused by other AD attributes. To confirm it is indeed caused by the userCertificate attribute, you need to verify against the object either in on-premises AD or in the [Synchronization Service Manager Metaverse Search](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch).
 
 To obtain the list of objects in your tenant with LargeObject errors, use one of the following methods:
 
  - The notification email for directory synchronization errors that is sent at the end of each sync cycle has the list of objects with LargeObject errors. 
- - The [Synchronization Service Manager Operations tab](active-directory-aadconnectsync-service-manager-ui-operations.md) displays the list of objects with LargeObject errors if you click the latest Export to Azure AD operation.
+ - The [Synchronization Service Manager Operations tab](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) displays the list of objects with LargeObject errors if you click the latest Export to Azure AD operation.
  
 ## Mitigation options
 Until the LargeObject error is resolved, other attribute changes to the same object cannot be exported to Azure AD. To resolve the error, you can consider the following options:
+
+ - Upgrade Azure AD Connect to build 1.1.524.0 or after. In Azure AD Connect build 1.1.524.0, the out-of-box synchronization rules have been updated to not export attributes userCertificate and userSMIMECertificate if the attributes have more than 15 values. For details on how to upgrade Azure AD Connect, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  - Implement an **outbound sync rule** in Azure AD Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Azure AD for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
@@ -176,4 +178,4 @@ Now that the issue is resolved, re-enable the built-in sync scheduler:
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-
+<!-- Update_Description: wording update -->

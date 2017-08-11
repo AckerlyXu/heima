@@ -3,8 +3,8 @@ title: Troubleshoot an object that is not synchronizing to Azure AD | Microsoft 
 description: Troubleshoot why an object is not synchronizing to Azure AD.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
@@ -141,3 +142,4 @@ Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-wha
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!-- Update_Description: update meta properties -->

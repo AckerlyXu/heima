@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect Synchronization Service Manager Operations | Azure
+title: 'Azure AD Connect Synchronization Service Manager Operations | Microsoft Docs'
 description: Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
@@ -13,12 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2017
-ms.date: 04/05/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
-
 # Using the Sync Service Manager Operations tab
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
@@ -46,3 +45,5 @@ For more information, see [troubleshoot an object that is not synchronizing](act
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+<!-- Update_Description: update meta properties -->
