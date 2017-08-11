@@ -1,10 +1,10 @@
 ---
-title: Create an Azure Service Fabric cluster from a template | Microsoft Docs
+title: Create an Azure Service Fabric cluster from a template | Azure
 description: This article describes how to set up a secure Service Fabric cluster in Azure by using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -12,8 +12,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2017
-ms.author: v-johch
+origin.date: 06/22/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Create a Service Fabric cluster by using Azure Resource Manager
@@ -66,7 +67,7 @@ The first step is to create a resource group specifically for your key vault. We
 If you plan to deploy clusters in multiple regions, we suggest that you name the resource group and the key vault in a way that indicates which region it belongs to.  
 
 ```powershell
-    New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China East'
+    New-AzureRmResourceGroup -Name chinaeast-mykeyvault -Location 'China East'
 ```
 The output should look like this:
 
@@ -74,11 +75,11 @@ The output should look like this:
 
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
 
-        ResourceGroupName : mycluster-keyvault
-        Location          : chinaeast
-        ProvisioningState : Succeeded
-        Tags              :
-        ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
+    ResourceGroupName : chinaeast-mykeyvault
+    Location          : chinaeast
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault
 
 ```
 <a id="new-key-vault"></a>
@@ -95,11 +96,11 @@ The key vault _must be enabled for deployment_ to allow the compute resource pro
 The output should look like this:
 
 ```powershell
-    Vault Name                       : myvault
-    Resource Group Name              : mycluster-keyvault
+    Vault Name                       : mychinaeastvault
+    Resource Group Name              : chinaeast-mykeyvault
     Location                         : China East
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-    Vault URI                        : https://myvault.vault.azure.cn
+    Resource ID                      : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
+    Vault URI                        : https://mychinaeastvault.vault.azure.cn
     Tenant ID                        : <guid>
     SKU                              : Standard
     Enabled For Deployment?          : False
@@ -112,7 +113,6 @@ The output should look like this:
                                        Display Name             :    
                                        Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
                                        Permissions to Secrets   :    all
-
 
     Tags                             :
 ```
@@ -171,7 +171,7 @@ The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically f
 
 ```powershell
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
 ```
 
@@ -194,7 +194,7 @@ After the conflict is resolved, the output should look like this:
     Switching context to SubscriptionId <guid>
     Ensuring ResourceGroup chinaeast-mykeyvault in China East
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
-    Using existing valut mychinaeastvault in China East
+    Using existing value mychinaeastvault in China East
     Reading pfx file from C:\path\to\key.pfx
     Writing secret to mychinaeastvault in vault mychinaeastvault
 
@@ -228,7 +228,7 @@ $newCertName = "chackotestcertificate1"
 $dnsName = "www.mycluster.chinaeast.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+ Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 
 ```
 
@@ -256,7 +256,6 @@ Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.
 Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
 Writing secret to chackonewcertificate1 in vault chinaeastkv1
 
-
 Name  : CertificateThumbprint
 Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
 
@@ -277,7 +276,6 @@ Value : https://chinaeastkv1.vault.azure.cn:443/secrets/chackonewcertificate1/ee
 * The key vault and its URL (called SourceVault in the preceding PowerShell output).
 * The cluster server authentication certificate and its URL in the key vault.
 * The application certificates and their URLs in the key vault.
-
 
 <a id="add-AAD-for-client"></a>
 
@@ -309,7 +307,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 
     https://&lt;cluster_domain&gt;:19080/Explorer
 
-    You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure classic portal][azure-classic-portal], you should see two new entries:
+    You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure Classic Management Portal][azure-classic-portal], you should see two new entries:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -528,9 +526,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 <a name="assign-roles"></a>
 
 ## Assign users to roles
-After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure classic management portal][azure-classic-portal].
+After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure Classic Management Portal][azure-classic-portal].
 
-1. In the Azure classic management portal, go to your tenant, and then select **Applications**.
+1. In the Azure portal, go to your tenant, and then select **Applications**.
 2. Select the web application, which has a name like `myTestCluster_Cluster`.
 3. Click the **Users** tab.
 4. Select a user to assign, and then click the **Assign** button at the bottom of the screen.
@@ -545,6 +543,7 @@ After you have created the applications to represent your cluster, assign your u
 >
 >
 
+<!-- Not Available ## Create secure clusters on Linux -->
 ## Next steps
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
@@ -558,14 +557,14 @@ After you sign in successfully to Azure AD in Service Fabric Explorer, the brows
 ![SFX select certificate dialog][sfx-select-certificate-dialog]
 
 #### Reason
-The user isn’t assigned a role in the Azure AD cluster application. Thus, Azure AD authentication fails on Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
+The user isn't assigned a role in the Azure AD cluster application. Thus, Azure AD authentication fails on Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
 
 #### Solution
-Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on “User assignment required to access app,” as `SetupApplications.ps1` does.
+Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on "User assignment required to access app," as `SetupApplications.ps1` does.
 
 ### Connection with PowerShell fails with an error: "The specified credentials are invalid"
 #### Problem
-When you use PowerShell to connect to the cluster by using “AzureActiveDirectory” security mode, after you sign in successfully to Azure AD, the connection fails with an error: "The specified credentials are invalid."
+When you use PowerShell to connect to the cluster by using "AzureActiveDirectory" security mode, after you sign in successfully to Azure AD, the connection fails with an error: "The specified credentials are invalid."
 
 #### Solution
 This solution is the same as the preceding one.
@@ -594,7 +593,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalIn
 To learn about the Connect-ServiceFabricCluster cmdlet, see [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
 ### Can I reuse the same Azure AD tenant in multiple clusters?
-Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.
+Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn't work.
 
 ### Why do I still need a server certificate while Azure AD is enabled?
 FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
@@ -605,15 +604,15 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.cn
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
-[service-fabric-cluster-security]: ./service-fabric-cluster-security.md
+[service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
-[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
+[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.chinacloudapi.cn/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/
 [resource-group-template-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
-[x509-certificates-and-service-fabric]: ./service-fabric-cluster-security.md#x509-certificates-and-service-fabric
+[x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
@@ -623,3 +622,5 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
+
+<!--Update_Description: update meta properties, wording update-->

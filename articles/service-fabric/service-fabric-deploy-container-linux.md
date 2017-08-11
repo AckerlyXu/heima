@@ -1,10 +1,10 @@
 ---
 title: Service Fabric and Deploying Containers in Linux | Azure
-description: Service Fabric and the use of Docker containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Docker container image into a cluster
+description: Service Fabric and the use of Linux containers to deploy microservice applications. This article describes the capabilities that Service Fabric provides for containers and how to deploy a Linux container image into a cluster
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 4ba99103-6064-429d-ba17-82861b6ddb11
@@ -13,12 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
-ms.author: v-johch
+origin.date: 6/29/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
-# Deploy a Docker container to Service Fabric
-
+# Deploy a Linux container to Service Fabric
+> [!div class="op_single_selector"]
+> * [Deploy Windows Container](service-fabric-deploy-container.md)
+> * [Deploy Linux Container](service-fabric-deploy-container-linux.md)
+>
+>
 
 This article walks you through building containerized services in Docker containers on Linux.
 
@@ -48,14 +53,16 @@ Run the following commands to install docker on your Linux development box (if y
 ```
 
 ## Create the application
-1. In a terminal, type `yo azuresfguest`.
-2. For the framework, choose **Container**.
-3. Name your application - for example, SimpleContainerApp
-4. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
+1. In a terminal, type `yo azuresfcontainer`.
+2. Name your application - for example, mycontainerap
+3. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
+4. If the image does not have a workload entry-point defined, then you need to explicitly specify input commands with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Deploy the application
+
+### Using XPlat CLI
 Once the application is built, you can deploy it to the local cluster using the Azure CLI.
 
 1. Connect to the local Service Fabric cluster.
@@ -77,13 +84,19 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     ./uninstall.sh
     ```
+
+### Using Azure CLI 2.0
+
+See the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
 For an example application, [checkout the Service Fabric container code samples on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Adding more services to an existing application
 
-To add another container service to an application already created using `yo`, perform the following steps: 
+To add another container service to an application already created using `yo`, perform the following steps:
+
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
-2. Run `yo azuresfguest:AddService`
+2. Run `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 
@@ -113,6 +126,9 @@ In the service manifest, add a `ContainerHost` for the entry point. Then set the
 
 You can provide input commands by specifying the optional `Commands` element with a comma-delimited set of commands to run inside the container.
 
+> [!NOTE]
+> If the image does not have a workload entry-point defined, then you need to explicitly specify input commands inside `Commands` element with a comma-delimited set of commands to run inside the container, which will keep the container running after startup.
+
 ## Understand resource governance
 Resource governance is a capability of the container that restricts the resources that the container can use on the host. The `ResourceGovernancePolicy`, which is specified in the application manifest is used to declare resource limits for a service code package. Resource limits can be set for the following resources:
 
@@ -124,8 +140,8 @@ Resource governance is a capability of the container that restricts the resource
 
 > [!NOTE]
 > In a future release, support for specifying specific block IO limits such as IOPs, read/write BPS, and others will be included.
-> 
-> 
+>
+>
 
 ```xml
     <ServiceManifestImport>
@@ -198,7 +214,7 @@ If you specify an endpoint, using the `Endpoint` tag in the service manifest of 
     </ServiceManifestImport>
 ```
 
-By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section. 
+By registering with the Naming service, you can easily do container-to-container communication in the code within your container by using the [reverse proxy](service-fabric-reverseproxy.md). Communication is performed by providing the reverse proxy http listening port and the name of the services that you want to communicate with as environment variables. For more information, see the next section.
 
 ## Configure and set environment variables
 Environment variables can be specified for each code package in the service manifest, both for services that are deployed in containers or for services that are deployed as processes/guest executables. These environment variable values can be overridden specifically in the application manifest or specified during deployment as application parameters.
@@ -306,3 +322,10 @@ Now that you have deployed a containerized service, learn how to manage its life
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
+
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+
+<!--Update_Description: update meta properties, add reference link, wording update -->

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/10/2017
-ms.date: 07/17/2017
+origin.date: 06/20/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 ---
 
@@ -36,7 +36,7 @@ Not today, but this is also a common request that we intend to deliver.
 
 The challenge with OS updates is that they typically require a reboot of the machine, which results in temporary availability loss. By itself, that is not a problem, since Service Fabric will automatically redirect traffic for those services to other nodes. However, if OS updates are not coordinated across the cluster, there is the potential that many nodes go down at once. Such simultaneous reboots can cause complete availability loss for a service, or at least for a specific partition (for a stateful service).
 
-In the future, we will support an OS update policy that is fully automated and coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
+In the future, we plan to support an OS update policy that is fully automated and coordinated across update domains, ensuring that availability is maintained despite reboots and other unexpected failures.
 
 In the interim, we have [provided a script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) that a cluster administrator can use to manually kick off patching of each node in a safe manner.
 
@@ -82,7 +82,7 @@ This issue has been reported on clusters that are on 5.6.204.9494 version
 
 **Mitigation** :  Follow [this document](service-fabric-dnsservice.md) to enable the DNS service fabric service in your cluster.
 
-**Fix** :  Upgrade to the a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
+**Fix** :  Upgrade to a supported cluster version that is higher than 5.6.204.9494, when it is available. If your cluster is set to automatic upgrades, then the cluster will automatically upgrade to the version that has this issue fixed.
 
 ## Application Design
 
@@ -135,4 +135,6 @@ The are currently no plans to open source the Service Fabric runtime.
 
 ## Next steps
 
-- [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+- [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+
+<!--Update_Description: update meta properties-->

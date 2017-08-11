@@ -1,10 +1,10 @@
 ---
-title: 'Service Fabric cluster security: client roles | Microsoft Docs'
+title: 'Service Fabric cluster security: client roles | Azure'
 description: This article describes the two client roles and the permissions provided to the roles.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: coreysa
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Role-based access control for Service Fabric clients
@@ -103,3 +104,4 @@ In the cluster manifest file, you can provide admin capabilities to the client i
 
 [Service Fabric cluster creation](service-fabric-cluster-creation-via-portal.md)
 
+<!--Update_Description: update meta properties-->

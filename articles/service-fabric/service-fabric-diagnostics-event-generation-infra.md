@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -56,19 +56,19 @@ Any information that can indicate the health and performance of your application
 
 To report health, use code similar to this:
 
-  ```csharp
-    if (!result.HasValue)
-    {
-        HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-        this.Partition.ReportInstanceHealth(healthInformation);
-    }
-  ```
+```csharp
+if (!result.HasValue)
+{
+    HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
+    this.Partition.ReportInstanceHealth(healthInformation);
+}
+```
 
 To report a metric, use code similar to this:
 
-  ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
-  ```
+```csharp
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+```
 
 ### Service Fabric support logs
 
@@ -94,30 +94,18 @@ If you are going to deploy containers to your cluster, enable WAD to pick up doc
 
 ## Measuring performance
 
-Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about [on-premise](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. Here are two common ways in which you can set up collecting performance data for your cluster:
-<!-- Not Available [scaling a cluster on Azure](service-fabric-cluster-scale-up-down.md) -->
+Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-up-down.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
 
-* Using an agent: this is the preferred way of collecting performance data, since modifying the data an agent collects is a relatively easier process than changing diagnostics configurations of the cluster. Read [this](service-fabric-diagnostics-event-analysis-oms.md) article to learn more about the OMS agent, which is one such monitoring agent that is able to pick up performance data for Service Fabric cluster VMs and any deployed containers.
-<!-- Not Available [this](../log-analytics/log-analytics-windows-agents.md) -->
+For a list of performance counters to collect when using Service Fabric, see [Performance Counters in Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 
-* Configuring diagnostics to write performance counters to a table: for clusters on Azure, this means changing the Azure Diagnostics configuration to pick up the appropriate performance counters from the VMs in your cluster, and enabling it to pick up docker stats if you will be deploying any containers. [This article](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md) goes over setting up performance counters, albeit for .NET applications; the process is very similar for Service Fabric clusters as well. A quick sample of code added to your "WadCfg > DiagnosticMonitorConfiguration" in a Resource Manager template looks like following. In this case, we are setting one performance counter, which is being sampled every 15 seconds (this can be changed and follows the format of "PT\<time>\<unit>", for example, PT3M would sample at three minute intervals), and transferred to the appropriate storage table every one minute.
+Here are two common ways in which you can set up collecting performance data for your cluster:
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+* Using an agent: this is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change them. Read about [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) and [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agents.md) articles to learn more about the OMS agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
+
+* Configuring diagnostics to write performance counters to a table: for clusters on Azure, this means changing the Azure Diagnostics configuration to pick up the appropriate performance counters from the VMs in your cluster, and enabling it to pick up docker stats if you will be deploying any containers. Read about configuring [Performance Counters in WAD](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric to set up performance counter collection.
 
 ## Next steps
 
 Your logs and events need to be aggregated before they can be sent to any analysis platform. Read about [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) and [WAD](service-fabric-diagnostics-event-aggregation-wad.md) to better understand some of the recommended options.
+
+<!--Update_Description: update meta properties, update reference link -->

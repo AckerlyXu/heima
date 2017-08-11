@@ -3,8 +3,8 @@ title: Partitioning Service Fabric services | Azure
 description: Describes how to partition Service Fabric stateful services. Partitions enables data storage on the local machines so data and compute can be scaled together.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/17/2017
-ms.date: 06/15/2017
-ms.author: v-johch
+origin.date: 06/30/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 ---
 
 # Partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
+This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## Partitioning
 Partitioning is not unique to Service Fabric. In fact, it is a core pattern of building scalable services. In a broader sense, we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well-known form of partitioning is [data partitioning][wikipartition], also known as sharding.
@@ -38,12 +38,12 @@ As an example, consider a case where users with IDs in a certain range should on
 The remainder of this walkthrough focuses on stateful services.
 
 ### Partition Service Fabric stateful services
-Service Fabric makes it easy to develop scalable stateful services by offering a first-class way to partition state (data). Conceptually, you can think about a partition of a stateful service as a scale unit that is highly reliable through [replicas](./service-fabric-availability-services.md) that are distributed and balanced across the nodes in a cluster.
+Service Fabric makes it easy to develop scalable stateful services by offering a first-class way to partition state (data). Conceptually, you can think about a partition of a stateful service as a scale unit that is highly reliable through [replicas](service-fabric-availability-services.md) that are distributed and balanced across the nodes in a cluster.
 
-Partitioning in the context of Service Fabric stateful services refers to the process of determining that a particular service partition is responsible for a portion of the complete state of the service. (As mentioned before, a partition is a set of [replicas](./service-fabric-availability-services.md)). A great thing about Service Fabric is that it places the partitions on different nodes. This allows them to grow to a node's resource limit. As the data needs grow, partitions grow, and Service Fabric rebalances partitions across nodes. This ensures the continued efficient use of hardware resources.
+Partitioning in the context of Service Fabric stateful services refers to the process of determining that a particular service partition is responsible for a portion of the complete state of the service. (As mentioned before, a partition is a set of [replicas](service-fabric-availability-services.md)). A great thing about Service Fabric is that it places the partitions on different nodes. This allows them to grow to a node's resource limit. As the data needs grow, partitions grow, and Service Fabric rebalances partitions across nodes. This ensures the continued efficient use of hardware resources.
 
-To give you an example, say you start with a 5-node cluster and a service that is configured to have 10 partitions and a target of three replicas. In this case, Service Fabric would balance and distribute the replicas across the cluster--and you would end up with two primary [replicas](./service-fabric-availability-services.md) per node.
-If you now need to scale out the cluster to 10 nodes, Service Fabric would rebalance the primary [replicas](./service-fabric-availability-services.md) across all 10 nodes. Likewise, if you scaled back to 5 nodes, Service Fabric would rebalance all the replicas across the 5 nodes.  
+To give you an example, say you start with a 5-node cluster and a service that is configured to have 10 partitions and a target of three replicas. In this case, Service Fabric would balance and distribute the replicas across the cluster--and you would end up with two primary [replicas](service-fabric-availability-services.md) per node.
+If you now need to scale out the cluster to 10 nodes, Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise, if you scaled back to 5 nodes, Service Fabric would rebalance all the replicas across the 5 nodes.  
 
 Figure 2 shows the distribution of 10 partitions before and after scaling the cluster.
 
@@ -66,8 +66,8 @@ If you think about the example again, you can easily see that the partition that
 
 In order to avoid this, you should do two things, from a partitioning point of view:
 
-- Try to partition the state so that it is evenly distributed across all partitions.
-- Report load from each of the replicas for the service. (For information on how, check out this article on [Metrics and Load](./service-fabric-cluster-resource-manager-metrics.md)). Service Fabric provides the capability to report load consumed by services, such as amount of memory or number of records. Based on the metrics reported, Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas to more suitable nodes, so that overall no node is overloaded.
+* Try to partition the state so that it is evenly distributed across all partitions.
+* Report load from each of the replicas for the service. (For information on how, check out this article on [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric provides the capability to report load consumed by services, such as amount of memory or number of records. Based on the metrics reported, Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas to more suitable nodes, so that overall no node is overloaded.
 
 Sometimes, you cannot know how much data will be in a given partition. So a general recommendation is to do both--first, by adopting a partitioning strategy that spreads the data evenly across the partitions and second, by reporting load.  The first method prevents situations described in the voting example, while the second helps smooth out temporary differences in access or load over time.
 
@@ -79,22 +79,22 @@ In rare cases, you may end up needing more partitions than you have initially ch
 
 Another consideration for partitioning planning is the available computer resources. As the state needs to be accessed and stored, you are bound to follow:
 
-- Network bandwidth limits
-- System memory limits
-- Disk storage limits
+* Network bandwidth limits
+* System memory limits
+* Disk storage limits
 
 So what happens if you run into resource constraints in a running cluster? The answer is that you can simply scale out the cluster to accommodate the new requirements.
 
-[The capacity planning guide](./service-fabric-capacity-planning.md) offers guidance for how to determine how many nodes your cluster needs.
+[The capacity planning guide](service-fabric-capacity-planning.md) offers guidance for how to determine how many nodes your cluster needs.
 
 ## Get started with partitioning
 This section describes how to get started with partitioning your service.
 
 Service Fabric offers a choice of three partition schemes:
 
-- Ranged partitioning (otherwise known as UniformInt64Partition).
-- Named partitioning. Applications using this model usually have data that can be bucketed, within a bounded set. Some common examples of data fields used as named partition keys would be regions, postal codes, customer groups, or other business boundaries.
-- Singleton partitioning. Singleton partitions are typically used when the service does not require any additional routing. For example, stateless services use this partitioning scheme by default.
+* Ranged partitioning (otherwise known as UniformInt64Partition).
+* Named partitioning. Applications using this model usually have data that can be bucketed, within a bounded set. Some common examples of data fields used as named partition keys would be regions, postal codes, customer groups, or other business boundaries.
+* Singleton partitioning. Singleton partitions are typically used when the service does not require any additional routing. For example, stateless services use this partitioning scheme by default.
 
 Named and Singleton partitioning schemes are special forms of ranged partitions. By default, the Visual Studio templates for Service Fabric use ranged partitioning, as it is the most common and useful one. The remainder of this article focuses on the ranged partitioning scheme.
 
@@ -118,15 +118,17 @@ Let's create your first reliable stateful service with multiple partitions. In t
 Before you write any code, you need to think about the partitions and partition keys. You need 26 partitions (one for each letter in the alphabet), but what about the low and high keys?
 As we literally want to have one partition per letter, we can use 0 as the low key and 25 as the high key, as each letter is its own key.
 
->[!NOTE]
+> [!NOTE]
 > This is a simplified scenario, as in reality the distribution would be uneven. Last names starting with the letters "S" or "M" are more common than the ones starting with "X" or "Y".
+> 
+> 
 
 1. Open **Visual Studio** > **File** > **New** > **Project**.
 2. In the **New Project** dialog box, choose the Service Fabric application.
 3. Call the project "AlphabetPartitions".
 4. In the **Create a Service** dialog box, choose **Stateful** service and call it "Alphabet.Processing" as shown in the image below.
+        ![New service dialog in Visual Studio][1]
 
-    ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)
 5. Set the number of partitions. Open the Applicationmanifest.xml file located in the ApplicationPackageRoot folder of the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
 
     ```xml
@@ -142,7 +144,6 @@ As we literally want to have one partition per letter, we can use 0 as the low k
       </StatefulService>
     </Service>
     ```
-
 6. For the service to be accessible, open up an endpoint on a port by adding the endpoint element of ServiceManifest.xml (located in the PackageRoot folder) for the Alphabet.Processing service as shown below:
 
     ```xml
@@ -150,12 +151,12 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```
 
     Now the service is configured to listen to an internal endpoint with 26 partitions.
-
 7. Next, you need to override the `CreateServiceReplicaListeners()` method of the Processing class.
 
     >[!NOTE]
     > For this sample, we assume that you are using a simple HttpCommunicationListener. For more information on reliable service communication, see [The Reliable Service communication model](./service-fabric-reliable-services-communication.md).
-
+    > 
+    > 
 8. A recommended pattern for the URL that a replica listens on is the following format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
     So you want to configure your communication listener to listen on the correct endpoints and with this pattern.
 
@@ -189,7 +190,6 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 
     It's also worth noting that the published URL is slightly different from the listening URL prefix.
     The listening URL is given to HttpListener. The published URL is the URL that is published to the Service Fabric Naming Service, which is used for service discovery. Clients will ask for this address through that discovery service. The address that clients get needs to have the actual IP or FQDN of the node in order to connect. So you need to replace '+' with the node's IP or FQDN as shown above.
-
 9. The last step is to add the processing logic to the service as shown below.
 
     ```CSharp
@@ -235,21 +235,17 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```
 
     `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `dictionary`.
-
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 
     This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key, and sends it to the Alphabet.Processing service for processing.
-
 11. In the **Create a Service** dialog box, choose **Stateless** service and call it "Alphabet.Web" as shown below.
 
     ![Stateless service screenshot](./media/service-fabric-concepts-partitioning/createnewstateless.png).
-
 12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below.
 
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
-
 13. You need to return a collection of ServiceInstanceListeners in the class Web. Again, you can choose to implement a simple HttpCommunicationListener.
 
     ```CSharp
@@ -266,7 +262,6 @@ As we literally want to have one partition per letter, we can use 0 as the low k
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-
 14. Now you need to implement the processing logic. The HttpCommunicationListener calls `ProcessInputRequest` when a request comes in. So let's go ahead and add the code below.
 
     ```CSharp
@@ -347,7 +342,6 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     ```
 
     Once the processing is done, we write the output back.
-
 15. The last step is to test the service. Visual Studio uses application parameters for local and cloud deployment. To test the service with 26 partitions locally, you need to update the `Local.xml` file in the ApplicationParameters folder of the AlphabetPartitions project as shown below:
 
     ```xml
@@ -356,25 +350,24 @@ As we literally want to have one partition per letter, we can use 0 as the low k
       <Parameter Name="WebApi_InstanceCount" Value="1" />
     </Parameters>
     ```
-
 16. Once you finish deployment, you can check the service and all of its partitions in the Service Fabric Explorer.
 
     ![Service Fabric Explorer screenshot](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-
 17. In a browser, you can test the partitioning logic by entering `http://localhost:8081/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
 
     ![Browser screenshot](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
+The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## Next steps
-
 For information on Service Fabric concepts, see the following:
 
-- [Availability of Service Fabric Services](./service-fabric-availability-services.md)
-
-- [Scalability of Service Fabric Services](./service-fabric-concepts-scalability.md)
-
-- [Capacity planning for Service Fabric applications](./service-fabric-capacity-planning.md)
+* [Availability of Service Fabric services](service-fabric-availability-services.md)
+* [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
+* [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
+
+[1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png
+
+<!--Update_Description: update meta properties, update image reference -->
