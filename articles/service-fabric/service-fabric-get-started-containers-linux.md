@@ -22,8 +22,8 @@ ms.author: v-yeche
 
 # Create your first Service Fabric container application on Linux
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
+<!-- Not Available > * [Windows](service-fabric-get-started-containers.md) -->
 
 Running an existing application in a Linux container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster.  You will also share your containerized application through [Azure Container Registry](/container-registry/).  This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
