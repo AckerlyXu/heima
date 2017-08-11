@@ -27,9 +27,9 @@ The following table includes links to PowerShell scripts samples that create and
 | | |
 |-|-|
 | **Create cluster** ||
-| [Create a secure cluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
+| Create a secure cluster| Creates an Azure Service Fabric cluster. |
 | **Manage cluster** ||
-| [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
+| Add an application certificate| Adds an application X.509 certificate to all nodes in a cluster. |
 | **Manage applications** ||
-| [Deploy an application](./scripts/service-fabric-powershell-deploy-application.md)| Deploy an application to a cluster.|
-| [Remove an application](./scripts/service-fabric-powershell-remove-application.md)| Remove an application from a cluster.|
+| Deploy an application| Deploy an application to a cluster.|
+| Remove an application| Remove an application from a cluster.|

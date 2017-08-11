@@ -29,7 +29,7 @@ Get started with guest executables by deploying your first [guest executable app
 ## Containers
 By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016. Container images can be pulled from any container repository and deployed to the machine. You can deploy existing applications as guest exectuables, Service Fabric stateless or stateful Reliable services or Reliable Actors in containers, and you can mix services in processes and services in containers in the same application.
 
-[Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
+<!-- Not Available [Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md) -->
 
 ## Reliable Services
 Reliable Services is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services provide a minimal set of APIs that allow the Service Fabric runtime to manage the lifecycle of your services and that allow your services to interact with the runtime. The application framework is minimal, giving you full control over design and implementation choices, and can be used to host any other application framework, such as ASP.NET Core.

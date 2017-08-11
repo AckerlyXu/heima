@@ -41,6 +41,7 @@ A folder in the Service Fabric application project called **ApplicationParameter
 >[!NOTE]
 > For actor services, you should build the project first before attempting to edit the file in an editor or through the publish dialog box. This is because part of the manifest files will be generated during the build.
 
+<a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box> </a>
 ## To publish an application by using the Publish Service Fabric Application dialog box
 
 The following steps demonstrate how to publish an application by using the **Publish Service Fabric Application** dialog box provided by the Visual Studio Service Fabric Tools.

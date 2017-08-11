@@ -20,7 +20,7 @@ ms.author: v-yeche
 ---
 # Deploy a Linux container to Service Fabric
 > [!div class="op_single_selector"]
-> * [Deploy Windows Container](service-fabric-deploy-container.md)
+<!-- Not Available > * [Deploy Windows Container](service-fabric-deploy-container.md)-->
 > * [Deploy Linux Container](service-fabric-deploy-container-linux.md)
 >
 >

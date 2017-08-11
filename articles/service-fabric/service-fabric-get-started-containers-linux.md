@@ -32,7 +32,7 @@ Running an existing application in a Linux container on a Service Fabric cluster
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
 
-* A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
+<!-- Not Available [Create a container registry](../container-registry/container-registry-get-started-portal.md) -->
 
 ## Define the Docker container
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub. 
@@ -136,9 +136,10 @@ docker rm my-web-site
 ## Push the image to the container registry
 After you verify that the application runs in Docker, push the image to your registry in Azure Container Registry.
 
-Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run `docker login` to log in to your container registry with your registry credentials.
+<!-- Not Available [registry credentials](../container-registry/container-registry-authentication.md) -->
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.  Or, you could login using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario.  Or, you could login using your registry username and password.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -322,7 +323,7 @@ Here are the complete service and application manifests used in this article.
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
+<!-- Not Available * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial. -->
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 

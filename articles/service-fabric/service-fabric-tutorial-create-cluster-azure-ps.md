@@ -147,6 +147,4 @@ In this tutorial, you learned how to:
 > * Connect to the cluster using PowerShell
 > * Remove a cluster
 
-Next, advance to the following tutorial to learn how to deploy an existing application.
-> [!div class="nextstepaction"]
-> [Deploy an existing .NET application with Docker Compose](service-fabric-host-app-in-a-container.md)
+<!-- Not Available > [Deploy an existing .NET application with Docker Compose](service-fabric-host-app-in-a-container.md) -->
