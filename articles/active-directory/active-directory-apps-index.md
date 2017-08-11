@@ -52,7 +52,7 @@ Single sign-on allows users to access a variety of apps and services using only 
 | More than 150 app tutorials on how to configure single sign-on for apps |
 | How to manually set up and customize your single sign-on configuration |How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
-| How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](./active-directory-sso-certs.md) |
+| How to configure your app's certificate's expiration date, and how to renew your certificates | Managing Certificates for Federated Single Sign-On in Azure Active Directory |
 
 Federated single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) supports unlimited applications. If your organization has [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) or [Azure AD Premium](https://www.azure.cn/pricing/details/identity/), then you can [use groups to assign access to federated applications](#managing-access-to-applications).
 
