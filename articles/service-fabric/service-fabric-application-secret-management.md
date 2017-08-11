@@ -3,8 +3,8 @@ title: Managing secrets in Service Fabric applications | Azure
 description: This article describes how to secure secret values in a Service Fabric application.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/10/2017
-ms.date: 03/03/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 ---
 
 # Managing secrets in Service Fabric applications
@@ -113,7 +113,7 @@ To override values in Settings.xml, declare an override parameter for the servic
 
 Now the value can be specified as an *application parameter* when creating an instance of the application. Creating an application instance can be scripted using PowerShell, or written in C#, for easy integration in a build process.
 
-Using PowerShell, the parameter is supplied to the `New-ServiceFabricApplication` command as a [hash table](https://technet.microsoft.com/zh-cn/library/ee692803.aspx):
+Using PowerShell, the parameter is supplied to the `New-ServiceFabricApplication` command as a [hash table](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 PS C:\Users\vturecek> New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
@@ -151,7 +151,7 @@ When using a data encipherment certificate, you need to make sure NETWORK SERVIC
     </Principals>
   <Policies>
     <SecurityAccessPolicies>
-      <SecurityAccessPolicy GrantRights=”Read” PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
+      <SecurityAccessPolicy GrantRights="Read" PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
     </SecurityAccessPolicies>
   </Policies>
   <Certificates>
@@ -162,6 +162,8 @@ When using a data encipherment certificate, you need to make sure NETWORK SERVIC
 
 > [!NOTE]
 > When copying a certificate thumbprint from the certificate store snap-in on Windows, an invisible character is placed at the beginning of the thumbprint string. This invisible character can cause an error when trying to locate a certificate by thumbprint, so be sure to delete this extra character.
+> 
+> 
 
 ### Use application secrets in service code
 The API for accessing configuration values from Settings.xml in a configuration package allows for easy decrypting of values that have the `IsEncrypted` attribute set to `true`. Since the encrypted text contains information about the certificate used for encryption, you do not need to manually find the certificate. The certificate just needs to be installed on the node that the service is running on. Simply call the `DecryptValue()` method to retrieve the original secret value:
@@ -172,12 +174,14 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## Next Steps
-Learn more about [running applications with different security permissions](./service-fabric-application-runas-security.md)
+Learn more about [running applications with different security permissions](service-fabric-application-runas-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
-[config-package]: ./service-fabric-application-model.md
-[service-fabric-cluster-creation-via-arm]: ./service-fabric-cluster-creation-via-arm.md
+[config-package]: service-fabric-application-model.md
+[service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
 <!-- Images -->
 [overview]:./media/service-fabric-application-secret-management/overview.png
+
+<!--Update_Description: update meta properties， wording update-->

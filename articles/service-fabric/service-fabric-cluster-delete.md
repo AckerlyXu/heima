@@ -3,8 +3,8 @@ title: Delete an Azure cluster and its resources | Azure
 description: Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
-ms.author: v-johch
+origin.date: 06/24/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Delete a Service Fabric cluster on Azure and the resources it uses
@@ -27,10 +28,10 @@ You have two options: Either delete the resource group that the cluster is in (w
 > 
 
 ## Delete the entire resource group (RG) that the Service Fabric cluster is in
-This is the easiest way to ensure that you delete all the resources associated with your cluster, including the resource group. You can delete the resource group using PowerShell or through the Azure Portal. If your resource group has resources that are not related to Service fabric cluster, then you can delete specific resources.
+This is the easiest way to ensure that you delete all the resources associated with your cluster, including the resource group. You can delete the resource group using PowerShell or through the Azure portal. If your resource group has resources that are not related to Service fabric cluster, then you can delete specific resources.
 
 ### Delete the resource group using Azure PowerShell
-You can also delete the resource group by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+You can also delete the resource group by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](https://docs.microsoft.com/powershell/azure/overview)
 
 Open a PowerShell window and run the following PS cmdlets:
 
@@ -42,8 +43,8 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 You will get a prompt to confirm the deletion if you did not use the *-Force* option. On confirmation the RG and all the resources it contains are deleted.
 
-### Delete a resource group in the Azure Portal
-1. Login to the [Azure Portal](https://portal.azure.cn).
+### Delete a resource group in the Azure portal
+1. Login to the [Azure portal](https://portal.azure.cn).
 2. Navigate to the Service Fabric cluster you want to delete.
 3. Click on the Resource Group name on the cluster essentials page.
 4. This brings up the **Resource Group Essentials** page.
@@ -61,9 +62,9 @@ If you deployed your cluster using the portal or using one of the Service Fabric
 
 ***Tag#2:*** Key = resourceName, Value = ServiceFabric
 
-### Delete specific resources in the Azure Portal
+### Delete specific resources in the Azure portal
 
-1. Login to the [Azure Portal](https://portal.azure.cn).
+1. Login to the [Azure portal](https://portal.azure.cn).
 2. Navigate to the Service Fabric cluster you want to delete.
 3. Go to **All settings** on the essentials blade.
 4. Click on **Tags** under **Resource Management** in the settings blade.
@@ -75,8 +76,7 @@ If you deployed your cluster using the portal or using one of the Service Fabric
     ![Tagged Resources][TaggedResources]
 
 ### Delete the resources using Azure PowerShell
-
-You can delete the resources one-by-one by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+You can delete the resources one-by-one by running the following Azure PowerShell cmdlets. Make sure Azure PowerShell 1.0 or greater is installed on your computer. If you have not done this before, follow the steps outlined in [How to install and Configure Azure PowerShell.](https://docs.microsoft.com/powershell/azure/overview)
 
 Open a PowerShell window and run the following PS cmdlets:
 
@@ -107,3 +107,5 @@ Read the following to also learn about upgrading a cluster and partitioning serv
 [ResourceTags]: ./media/service-fabric-cluster-delete/ResourceTags.png
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
+
+<!--Update_Description: update meta properties, update reference link -->

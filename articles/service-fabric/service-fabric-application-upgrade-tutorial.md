@@ -3,8 +3,8 @@ title: Service Fabric app upgrade tutorial| Azure
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric application upgrade tutorial using Visual Studio
@@ -37,7 +38,9 @@ Selecting **Publish** brings up a popup, and you can set the **Target profile** 
 
 ![Publishing a Service Fabric application][image2]
 
-Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+
+**NOTE:** If deploying to `Cloud.xml` profile (Azure Service Fabric), the application should then be available at **http://{ServiceFabricName}.{Region}.chinacloudapp.cn:8081/visualobjects/**. Make sure you do have `8081/TCP` configured in the Load Balancer (find the Load Balancer in the same resource group as the Service Fabric instance).
 
 ## Step 2: Update the Visual Objects sample
 You might notice that with the version that was deployed in step 1, the visual objects do not rotate. Let's upgrade this application to one where the visual objects also rotate.
@@ -82,3 +85,5 @@ Fix common problems in application upgrades by referring to the steps in [Troubl
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
+
+<!--Update_Description: update meta properties-->

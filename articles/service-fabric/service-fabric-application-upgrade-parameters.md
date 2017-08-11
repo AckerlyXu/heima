@@ -1,10 +1,10 @@
 ---
-title: 'Application upgrade: upgrade parameters | Microsoft Docs'
+title: 'Application upgrade: upgrade parameters | Azure'
 description: Describes parameters related to upgrading a Service Fabric application, including health checks to perform and policies to automatically undo the upgrade.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Application upgrade parameters
@@ -70,3 +71,5 @@ Make your application upgrades compatible by learning how to use [Data Serializa
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
+
+<!--Update_Description: update meta properties-->

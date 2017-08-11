@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/24/2017
-ms.date: 07/17/2017
+origin.date: 06/24/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -199,3 +199,5 @@ None.
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+
+<!--Update_Description: update meta properties-->

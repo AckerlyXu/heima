@@ -1,10 +1,10 @@
 ---
-title: Service Fabric application upgrade | Microsoft Docs
+title: Service Fabric application upgrade | Azure
 description: This article provides an introduction to upgrading a Service Fabric application, including choosing upgrade modes and performing health checks.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric application upgrade
@@ -71,4 +72,6 @@ Learn how to use advanced functionality while upgrading your application by refe
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
 
-[image]: ./media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
+[image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
+
+<!--Update_Description: update meta properties-->
