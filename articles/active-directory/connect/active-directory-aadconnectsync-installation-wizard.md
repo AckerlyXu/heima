@@ -29,7 +29,7 @@ When you start the installation wizard, you see a page with these options:
 
 ![Page with a list of additional tasks](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](active-directory-aadconnect-federation-management.md#manage-ad-fs).
+If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](active-directory-aadconnect-federation-management.md#ad-fs-management).
 
 Select one of the tasks and click **Next** to continue.
 
@@ -78,7 +78,7 @@ To change the state, select this option and select or unselect the checkbox.
 ## Change user sign-in
 This option allows you to change from password sync to federation or the other way around. You cannot change to **do not configure**.
 
-For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
+For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
 ## Next steps
 - Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
