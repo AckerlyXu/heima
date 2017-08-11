@@ -259,9 +259,9 @@
 ## Monitor and diagnose
 ### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
 ### Generate events
-##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
-##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
-##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
+#### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
+#### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
+#### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
 ### Inspect application and cluster health
 #### [Monitor Service Fabric health](service-fabric-health-introduction.md)
 #### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
