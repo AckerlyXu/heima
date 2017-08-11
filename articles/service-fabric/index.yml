@@ -48,8 +48,7 @@ sections:
     items:
     - html: <a href="service-fabric-tutorial-create-dotnet-app">Deploy a .NET application</a>
     - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Lift and shift an existing .NET application</a>
-<!-- Not Available - title: Free PluralSight Video Training-->
-
+### Not Available - title: Free PluralSight Video Training
 - title: Samples
   items:
   - type: list
