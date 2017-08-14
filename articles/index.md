@@ -305,7 +305,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </ul>
                                     <h3>Containers</h3>
                                     <ul>
-
                                         <li>
                                             <a href="/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -433,7 +432,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
@@ -1066,7 +1064,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                     <li>
                         <a href="#containers">Containers</a>
                         <ul id="containers" class="cardsA">
-
                             <li>
                                 <a href="/service-fabric/">
                                     <div class="cardSize">
@@ -1243,7 +1240,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
                     <li>
@@ -1760,7 +1756,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/rest/api">Reference</a>
                                                 </p>
-
                                             </div>
                                         </div>
                                     </div>
