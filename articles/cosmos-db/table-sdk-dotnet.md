@@ -25,8 +25,8 @@ ms.author: v-yeche
 |**SDK download**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](https://aka.ms/acdbtnetqs)|
-|**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+<!-- Not Available [Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md) -->
 
 ## Release notes
 

@@ -3,8 +3,8 @@ title: How to recognize differences between delegated and application permission
 description: Learn about delegated and application permissions, how they are used by clients and exposed by resources for applications you are developing with Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: femila
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 
 ms.service: active-directory
@@ -12,7 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+origin.date: 07/11/2017
+ms.date: 07/28/2017
 ms.author: v-junlch
 
 ---
@@ -21,8 +22,10 @@ ms.author: v-junlch
 
 ## Recommended documents
 
-- Learn more about how client applications use [delegated and application permission requests](develop/active-directory-dev-glossary.md#permissions) to access resources.
-- For more depth, learn how resource applications expose [scopes](develop/active-directory-dev-glossary.md#scopes) and [application roles](develop/active-directory-dev-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
+- Learn more about how client applications use [delegated and application permission requests](/active-directory/develop/active-directory-dev-glossary#permissions) to access resources.
+- For more depth, learn how resource applications expose [scopes](/active-directory/develop/active-directory-dev-glossary#scopes) and [application roles](/active-directory/develop/active-directory-dev-glossary#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+
+<!-- Update_Description: link update -->

@@ -13,12 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/16/2017
-ms.author: v-johch
-
+origin.date: 07/11/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
+Update_Description:
 ---
 # Redact faces with Azure Media Analytics
+
 ## Overview
+
 **Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For  more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
@@ -26,11 +29,13 @@ This topic gives details about **Azure Media Redactor** and shows how to use it 
 The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. 
 
 ## Face redaction modes
+
 Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process is very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
 
 In addition to a fully automatic mode, there is a two-pass workflow which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
 
 ### Combined mode
+
 This will produce a redacted mp4 automatically without any manual input.
 
 | Stage | File Name | Notes |
@@ -40,12 +45,15 @@ This will produce a redacted mp4 automatically without any manual input.
 | Output asset |foo_redacted.mp4 |Video with blurring applied |
 
 #### Input example:
+
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### Output example:
+
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### Analyze mode
+
 The **analyze** pass of the two-pass workflow takes a video input and produces a JSON file of face locations, and jpg images of each detected face.
 
 | Stage | File Name | Notes |
@@ -56,6 +64,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
 #### Output Example:
+
     {
       "version": 1,
       "timescale": 50,
@@ -69,8 +78,9 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
           "duration": 2,
           "interval": 2,
           "events": [
-            [  
+            [
               {
+                "index": 13,
                 "id": 1,
                 "x": 0.306415737,
                 "y": 0.03199235,
@@ -78,6 +88,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
                 "height": 0.322126418
               },
               {
+                "index": 13,
                 "id": 2,
                 "x": 0.5625317,
                 "y": 0.0868245438,
@@ -91,6 +102,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
     … truncated
 
 ### Redact Mode
+
 The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
 
 This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
@@ -106,31 +118,32 @@ The output from the Analyze pass does not include the original video. The video 
 | Output asset |foo_redacted.mp4 |Video with blurring applied based on annotations |
 
 #### Example Output
+
 This is the output from an IDList with one ID selected.
 
 [view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 Example foo_IDList.txt
- 
+
      1
      2
      3
- 
-## Attribute descriptions
+
+## Elements of the output JSON file
+
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
 
-The detected and tracked faces are returned with coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
-
-For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) topic.
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 ## Sample code
+
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a face redaction task based on a configuration file that contains the following json preset. 
-   
+
         {'version':'1.0', 'options': {'mode':'combined'}}
-	
+
 3. Download the output JSON files. 
 
     ```
@@ -151,36 +164,35 @@ The following program shows how to:
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
                 ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
+            private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
 
-        // Azure China uses a different API server and a different ACS Base Address from the Global.
-        private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-        private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+            // Azure China uses a different API server and a different ACS Base Address from the Global.
+            private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
+            private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
 
             // Field for service context.
             private static CloudMediaContext _context = null;
             private static MediaServicesCredentials _cachedCredentials = null;
-        private static Uri _apiServer = null;
+            private static Uri _apiServer = null;
 
             static void Main(string[] args)
             {
 
                 // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
+                _cachedCredentials = new MediaServicesCredentials(
                             _mediaServicesAccountName,
                             _mediaServicesAccountKey,
                             _defaultScope,
                             _chinaAcsBaseAddressUrl);
 
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
+                // Create the API server Uri
+                _apiServer = new Uri(_chinaApiServerUrl);
 
-                    // Used the chached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                // Used the chached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
 
                 // Run the FaceRedaction job.
-                var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
-                                            @"C:\supportFiles\FaceRedaction\config.json");
+                var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4", @"C:\supportFiles\FaceRedaction\config.json");
 
                 // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
@@ -269,9 +281,7 @@ The following program shows how to:
                     .LastOrDefault();
 
                 if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor",
-                                                               mediaProcessorName));
-
+                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
                 return processor;
             }
 
@@ -305,13 +315,14 @@ The following program shows how to:
                         break;
                 }
             }
-
         }
     }
     ```
 
 ## Related links
+
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
+<!--Update_Description: update word & meta data-->

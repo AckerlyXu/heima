@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/09/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
 # Introduction to Azure Cosmos DB: Table API
 
-[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. 
+[Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value and columnar data models. 
 
 ![Azure Table storage API and Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
@@ -38,7 +38,7 @@ If you currently use Azure Table storage, you gain the following benefits by mov
 | Global Distribution | Single region with one optional readable secondary read region for HA. You cannot initiate failover | [Turn-key global distribution](distribute-data-globally.md) from one to 30+ regions, Support for [automatic and manual failovers](regional-failover.md) at any time, anywhere in the world |
 | Indexing | Only primary index on PartitionKey and RowKey. No secondary indexes | Automatic and complete indexing on all properties, no index management |
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. Azure Cosmos DB's database engine is capable of supporting aggregates, geo-spatial, and sorting. |
-| Consistency | Strong within primary region, Eventual with secondary region | [five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs |
+| Consistency | Strong within primary region, Eventual with secondary region | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs |
 | Pricing | Storage-optimized  | Throughput-optimized |
 | SLAs | 99.9% availability | 99.99% availability within a single region, and ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://www.azure.cn/support/sla/cosmos-db/) on general availability |
 
@@ -52,3 +52,5 @@ Here are a few pointers to get you started:
 * Get started with [Azure Cosmos DB's Table API](create-table-dotnet.md) using existing NET Table SDK.
 * Learn about [Global distribution with Azure Cosmos DB](distribute-data-globally.md).
 * Learn about [Provisioned throughput in Azure Cosmos DB](request-units.md).
+
+<!--Update_Description: wording update-->

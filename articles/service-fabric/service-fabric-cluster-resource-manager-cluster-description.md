@@ -3,8 +3,8 @@ title: Resource Balancer cluster description | Azure
 description: Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities to the Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
-author: masnider
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/05/2017
-ms.date: 02/20/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-yeche
 ---
 
 # Describing a service fabric cluster
@@ -42,15 +42,15 @@ In the graphic below we color all the entities that contribute to Fault Domains 
 
 During runtime, the Service Fabric Cluster Resource Manager considers the Fault Domains in the cluster and plans a layout.  It attempts to spread out the stateful replicas or stateless instances for a given service so that they are in separate Fault Domains. This process helps ensure that if there is a failure of any one Fault Domain (at any level in the hierarchy), that the availability of that service is not compromised.
 
-Service Fabric’s Cluster Resource Manager doesn’t care how many layers there are in the Fault Domain hierarchy. However, it tries to ensure that the loss of any one portion of the hierarchy doesn’t impact the services running on top of it. Because of this, it is best if there are the same number of nodes at each level of depth in the Fault Domain hierarchy. Keeping the levels balanced prevents one portion of the hierarchy from containing more services than others. Doing otherwise would contribute to imbalances in the load of individual nodes and make the failure of certain domains more critical than others.
+Service Fabric's Cluster Resource Manager doesn't care how many layers there are in the Fault Domain hierarchy. However, it tries to ensure that the loss of any one portion of the hierarchy doesn't impact the services running on top of it. Because of this, it is best if there are the same number of nodes at each level of depth in the Fault Domain hierarchy. Keeping the levels balanced prevents one portion of the hierarchy from containing more services than others. Doing otherwise would contribute to imbalances in the load of individual nodes and make the failure of certain domains more critical than others.
 
-If the “tree” of Fault Domains is unbalanced in your cluster, it makes it harder for the Cluster Resource Manager to figure the best allocation of services. Imbalanced Fault Domains layouts mean that the loss of a particular domain can impact the availability of the cluster more than others. As a result, the Cluster Resource Manager is torn between its two goals: It was to use the machines in that “heavy” domain by placing services on them, and it wants to place services so that the loss of a domain doesn’t cause problems. What does this look like?
+If the "tree" of Fault Domains is unbalanced in your cluster, it makes it harder for the Cluster Resource Manager to figure the best allocation of services. Imbalanced Fault Domains layouts mean that the loss of a particular domain can impact the availability of the cluster more than others. As a result, the Cluster Resource Manager is torn between its two goals: It was to use the machines in that "heavy" domain by placing services on them, and it wants to place services so that the loss of a domain doesn't cause problems. What does this look like?
 
 <center>
 ![Two different cluster layouts][Image2]
 </center>
 
-In the diagram above, we show two different example cluster layouts. In the first example the nodes are distributed evenly across the Fault Domains. In the other one Fault Domain ends up with many more nodes. If you ever stand up your own cluster on-premise or in another environment, it’s something you have to think about.
+In the diagram above, we show two different example cluster layouts. In the first example the nodes are distributed evenly across the Fault Domains. In the other one Fault Domain ends up with many more nodes. If you ever stand up your own cluster on-premises or in another environment, it's something you have to think about.
 
 In Azure the choice of which Fault Domain contains a node is managed for you. However, depending on the number of nodes that you provision you can still end up with Fault Domains with more nodes in them than others. For example, say you have five Fault Domains but provision seven nodes for a given NodeType. In this case the first two Fault Domains end up with more nodes. If you continue to deploy more NodeTypes with only a couple instances, the problem gets worse.
 
@@ -69,24 +69,24 @@ There are pros and cons to having large numbers of Upgrade Domains. With more Up
 
 The downside of having many Upgrade Domains is that upgrades tend to take longer. Service Fabric waits a short period of time after an Upgrade Domain is completed before proceeding. This delay is so that issues introduced by the upgrade have a chance to show up and be detected. The tradeoff is acceptable because it prevents bad changes from affecting too much of the service at a time.
 
-Too few Upgrade Domains has its own side effects – while each individual Upgrade Domain is down and being upgraded a large portion of your overall capacity is unavailable. For example, if you only have three Upgrade Domains you are taking down about 1/3 of your overall service or cluster capacity at a time. Having so much of your service down at once isn’t desirable since you have to have enough capacity in the rest of your cluster to handle the workload. Maintaining that buffer means that in the normal case those nodes are less-loaded than they would otherwise be, increasing the cost of running your service.
+Too few Upgrade Domains has its own side effects – while each individual Upgrade Domain is down and being upgraded a large portion of your overall capacity is unavailable. For example, if you only have three Upgrade Domains you are taking down about 1/3 of your overall service or cluster capacity at a time. Having so much of your service down at once isn't desirable since you have to have enough capacity in the rest of your cluster to handle the workload. Maintaining that buffer means that in the normal case those nodes are less-loaded than they would otherwise be, increasing the cost of running your service.
 
-There’s no real limit to the total number of fault or Upgrade Domains in an environment, or constraints on how they overlap. Common structures that we’ve seen are:
+There's no real limit to the total number of fault or Upgrade Domains in an environment, or constraints on how they overlap. Common structures that we've seen are:
 
 * Fault Domains and Upgrade Domains mapped 1:1
 * One Upgrade Domain per Node (physical or virtual OS instance)
-* A “striped” or “matrix” model where the Fault Domains and Upgrade Domains form a matrix with machines usually running down the diagonals
+* A "striped" or "matrix" model where the Fault Domains and Upgrade Domains form a matrix with machines usually running down the diagonals
 
 <center>
 ![Fault and Upgrade Domain Layouts][Image4]
 </center>
 
-There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is fairly simple to set up. The 1 UD per Node model is most like what people are used to from managing small sets of machines in the past where each would be taken down independently.
+There's no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is fairly simple to set up. The 1 UD per Node model is most like what people are used to from managing small sets of machines in the past where each would be taken down independently.
 
 The most common model (and the one used in Azure) is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. Whether this ends up sparse or packed depends on the total number of nodes compared to the number of FDs and UDs. Put differently, for sufficiently large clusters, almost everything ends up looking like the dense matrix pattern, shown in the bottom right option of the image above.
 
 ## Fault and Upgrade Domain constraints and resulting behavior
-The Cluster Resource Manager treats the desire to keep a service balanced across fault and Upgrade Domains as a constraint. You can find out more about constraints in [this article](./service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraints state: "For a given service partition there should never be a difference *greater than one* in the number of service objects (stateless service instances or stateful service replicas) between two domains."  Practically what this means is that for a given service certain moves or arrangements might not be valid, because they would violate the Fault or Upgrade Domain constraints.
+The Cluster Resource Manager treats the desire to keep a service balanced across fault and Upgrade Domains as a constraint. You can find out more about constraints in [this article](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraints state: "For a given service partition there should never be a difference *greater than one* in the number of service objects (stateless service instances or stateful service replicas) between two domains."  Practically what this means is that for a given service certain moves or arrangements might not be valid, because they would violate the Fault or Upgrade Domain constraints.
 
 Let's look at one example. Let's say that we have a cluster with six nodes, configured with five Fault Domains and five Upgrade Domains.
 
@@ -140,7 +140,7 @@ While this layout is balanced in terms of Fault Domains, it is now violating the
 ## Configuring fault and Upgrade Domains
 Defining Fault Domains and Upgrade Domains is done automatically in Azure hosted Service Fabric deployments. Service Fabric picks up and uses the environment information from Azure.
 
-If you’re creating your own cluster (or want to run a particular topology in development), you provide the Fault Domain and Upgrade Domain information yourself. In this example, we define a nine node local development cluster that spans three “datacenters” (each with three racks). This cluster also has three Upgrade Domains striped across those three datacenters. In the cluster manifest template, it looks something like this:
+If you're creating your own cluster (or want to run a particular topology in development), you provide the Fault Domain and Upgrade Domain information yourself. In this example, we define a nine node local development cluster that spans three "datacenters" (each with three racks). This cluster also has three Upgrade Domains striped across those three datacenters. In the cluster manifest template, it looks something like this:
 
 ClusterManifest.xml
 
@@ -239,9 +239,9 @@ via ClusterConfig.json for Standalone deployments
 >
 
 ## Placement constraints and node properties
-Sometimes (in fact, most of the time) you’re going to want to ensure that certain workloads run only on certain nodes or certain sets of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. A great example of targeting hardware to particular workloads is almost every n-tier architecture out there. In these architectures certain machines serve as the front end/interface serving side of the application (and hence are probably exposed to the internet). Different sets of machines (often with different hardware resources) handle the work of the compute or storage layers (and usually are not exposed to the internet). Service Fabric expects that even in a microservices world there are cases where particular workloads need to run on particular hardware configurations, for example:
+Sometimes (in fact, most of the time) you're going to want to ensure that certain workloads run only on certain nodes or certain sets of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. A great example of targeting hardware to particular workloads is almost every n-tier architecture out there. In these architectures certain machines serve as the front end/interface serving side of the application (and hence are probably exposed to the internet). Different sets of machines (often with different hardware resources) handle the work of the compute or storage layers (and usually are not exposed to the internet). Service Fabric expects that even in a microservices world there are cases where particular workloads need to run on particular hardware configurations, for example:
 
-* an existing n-tier application has been “lifted and shifted” into a Service Fabric environment
+* an existing n-tier application has been "lifted and shifted" into a Service Fabric environment
 * a workload wants to run on specific hardware for performance, scale, or security isolation reasons
 * A workload should be isolated from other workloads for policy or resource consumption reasons
 
@@ -279,7 +279,7 @@ Here are some examples of basic constraint statements.
   * `"NodeColor != green"`
   * `"((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"`
 
-Only nodes where the overall statement evaluates to “True” can have the service placed on it. Nodes that do not have a property defined do not match any placement constraint containing that property.
+Only nodes where the overall statement evaluates to "True" can have the service placed on it. Nodes that do not have a property defined do not match any placement constraint containing that property.
 
 Service Fabric defines some default node properties that can be used automatically without the user having to define them. As of this writing the default properties defined at each node are the **NodeType** and the **NodeName**. So for example you could write a placement constraint as `"(NodeType == NodeType03)"`. Generally we have found NodeType to be one of the most commonly used properties. It is useful since it corresponds 1:1 with a type of a machine, which in turn corresponds to a type of workload in a traditional n-tier application architecture.
 
@@ -287,7 +287,7 @@ Service Fabric defines some default node properties that can be used automatical
 ![Placement Constraints and Node Properties][Image6]
 </center>
 
-Let’s say that the following node properties were defined for a given node type:
+Let's say that the following node properties were defined for a given node type:
 
 ClusterManifest.xml
 
@@ -337,7 +337,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 If you are sure that all nodes of NodeType01 are valid, you could also select that node type.
 
-One of the cool things about a service’s placement constraints is that they can be updated dynamically during runtime. So if you need to, you can move a service around in the cluster, add and remove requirements, etc. Service Fabric takes care of ensuring that the service stays up and available even when these types of changes are ongoing.
+One of the cool things about a service's placement constraints is that they can be updated dynamically during runtime. So if you need to, you can move a service around in the cluster, add and remove requirements, etc. Service Fabric takes care of ensuring that the service stays up and available even when these types of changes are ongoing.
 
 C#:
 
@@ -353,22 +353,22 @@ Powershell:
 Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstraints "NodeType == NodeType01"
 ```
 
-Placement constraints (along with many other orchestrator controls that we’re going to talk about) are specified for every different named service instance. Updates always take the place of (overwrite) what was previously specified.
+Placement constraints (along with many other orchestrator controls that we're going to talk about) are specified for every different named service instance. Updates always take the place of (overwrite) what was previously specified.
 
 The properties on a node are defined via the cluster definition and hence cannot be updated without an upgrade to the cluster. The upgrade of a node's properties and requires each affected node to go down and then come back up.
 
 ## Capacity
-One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you’re trying to run services efficiently is a bunch of nodes that are hot while others are cold. Hot nodes lead to resource contention and poor performance, and cold nodes represent wasted resources/increased cost. Before we talk about balancing, what about just ensuring that nodes don’t run out of resources in the first place?
+One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you're trying to run services efficiently is a bunch of nodes that are hot while others are cold. Hot nodes lead to resource contention and poor performance, and cold nodes represent wasted resources/increased cost. Before we talk about balancing, what about just ensuring that nodes don't run out of resources in the first place?
 
-Service Fabric represents resources as `Metrics`. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. For information configuring metrics and their uses, see [this article](./service-fabric-cluster-resource-manager-metrics.md)
+Service Fabric represents resources as `Metrics`. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like "WorkQueueDepth" or "MemoryInMb". For information configuring metrics and their uses, see [this article](service-fabric-cluster-resource-manager-metrics.md)
 
-Metrics are different from placements constraints and node properties. Node properties are static descriptors of the nodes themselves, whereas metrics are about resources that nodes have and that services consume when they are running on a node. A node property could be "HasSSD" and could be set to true or false. The amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. The node would have its capacity for “DriveSpaceInMb” to the amount of total non-reserved space on the drive. Services would report how much of the metric they used during runtime.
+Metrics are different from placements constraints and node properties. Node properties are static descriptors of the nodes themselves, whereas metrics are about resources that nodes have and that services consume when they are running on a node. A node property could be "HasSSD" and could be set to true or false. The amount of space available on that SSD (and consumed by services) would be a metric like "DriveSpaceInMb". The node would have its capacity for "DriveSpaceInMb" to the amount of total non-reserved space on the drive. Services would report how much of the metric they used during runtime.
 
 It is important to note that just like for placement constraints and node properties, the Service Fabric Cluster Resource Manager doesn't understand what the names of the metrics mean. Metric names are just strings. It is a good practice to declare units as a part of the metric names that you create when it could be ambiguous.
 
-If you turned off all resource *balancing*, Service Fabric’s Cluster Resource Manager would still try to ensure that no node ended up over its capacity. Generally this is possible unless the cluster as a whole is too full. Capacity is another *constraint* that the Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole. Both the capacity and the consumption at the service level are expressed in terms of metrics. So for example, the metric might be "MemoryInMb" and a given Node may have a capacity for "MemoryInMb" of 2048. Some service running on that node can say it is currently consuming 64 of "MemoryInMb".
+If you turned off all resource *balancing*, Service Fabric's Cluster Resource Manager would still try to ensure that no node ended up over its capacity. Generally this is possible unless the cluster as a whole is too full. Capacity is another *constraint* that the Cluster Resource Manager uses to understand how much of a resource a node has. Remaining capacity is also tracked for the cluster as a whole. Both the capacity and the consumption at the service level are expressed in terms of metrics. So for example, the metric might be "MemoryInMb" and a given Node may have a capacity for "MemoryInMb" of 2048. Some service running on that node can say it is currently consuming 64 of "MemoryInMb".
 
-During runtime, the Cluster Resource Manager tracks how much of each resource is present on each node and how much is remaining. It does this by subtracting any declared usage of each service running on that node from the node's capacity. With this information, the Service Fabric Cluster Resource Manager can figure out where to place or move replicas so that nodes don’t go over capacity.
+During runtime, the Cluster Resource Manager tracks how much of each resource is present on each node and how much is remaining. It does this by subtracting any declared usage of each service running on that node from the node's capacity. With this information, the Service Fabric Cluster Resource Manager can figure out where to place or move replicas so that nodes don't go over capacity.
 
 C#:
 
@@ -419,12 +419,12 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ],
 ```
 
-It is also possible (and in fact common) that a service’s load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on then only had 512 (of the "MemoryInMb" metric) remaining. Now that replica or instance's placement is invalid, since there's not enough room on that node. This can also happen if the combined usage of the replicas and instances on that node exceeds that node’s capacity. In either case the Cluster Resource Manager has to kick in and get the node back below capacity. It does this by moving one or more of the replicas or instances on that node to different nodes. When moving replicas, the Cluster Resource Manager tries to minimize the cost of those movements. Movement cost is discussed in [this article](./service-fabric-cluster-resource-manager-movement-cost.md).
+It is also possible (and in fact common) that a service's load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on then only had 512 (of the "MemoryInMb" metric) remaining. Now that replica or instance's placement is invalid, since there's not enough room on that node. This can also happen if the combined usage of the replicas and instances on that node exceeds that node's capacity. In either case the Cluster Resource Manager has to kick in and get the node back below capacity. It does this by moving one or more of the replicas or instances on that node to different nodes. When moving replicas, the Cluster Resource Manager tries to minimize the cost of those movements. Movement cost is discussed in [this article](service-fabric-cluster-resource-manager-movement-cost.md).
 
 ## Cluster capacity
-So how do we keep the overall cluster from being too full? Well, with dynamic load there’s not a lot the Cluster Resource Manager can do. Services can have their load spike independently of actions taken by the Cluster Resource Manager. As a result, your cluster with plenty of headroom today may be underpowered when you become famous tomorrow. That said, there are some controls that are baked in to prevent basic problems. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.
+So how do we keep the overall cluster from being too full? Well, with dynamic load there's not a lot the Cluster Resource Manager can do. Services can have their load spike independently of actions taken by the Cluster Resource Manager. As a result, your cluster with plenty of headroom today may be underpowered when you become famous tomorrow. That said, there are some controls that are baked in to prevent basic problems. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.
 
-Say that you go to create a stateless service and it has some load associated with it (more on default and dynamic load reporting later). Let’s say that the service cares about the "DiskSpaceInMb" metric. Let's also say that it is going to consume five units of "DiskSpaceInMb" for every instance of the service. You want to create three instances of the service. Great! So that means that we need 15 units of "DiskSpaceInMb" to be present in the cluster in order for us to even be able to create these service instances. The Cluster Resource Manager is continually calculating the overall capacity and consumption of each metric, so it can easily determine if there's sufficient space in the cluster. If there isn't sufficient space, the Cluster Resource Manager rejects the create service call.
+Say that you go to create a stateless service and it has some load associated with it (more on default and dynamic load reporting later). Let's say that the service cares about the "DiskSpaceInMb" metric. Let's also say that it is going to consume five units of "DiskSpaceInMb" for every instance of the service. You want to create three instances of the service. Great! So that means that we need 15 units of "DiskSpaceInMb" to be present in the cluster in order for us to even be able to create these service instances. The Cluster Resource Manager is continually calculating the overall capacity and consumption of each metric, so it can easily determine if there's sufficient space in the cluster. If there isn't sufficient space, the Cluster Resource Manager rejects the create service call.
 
 Since the requirement is only that there be 15 units available, this space could be allocated many different ways. For example, there could be one remaining unit of capacity on 15 different nodes, or three remaining units of capacity on five different nodes. As long as the Cluster Resource Manager can rearrange things so there's five units available on three nodes, it will eventually place the service. Such rearrangement is almost always possible unless the cluster as a whole is almost entirely full, the services are all very "bulky", or both.
 
@@ -467,7 +467,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ]
 ```
 
-The creation of new services fails when the cluster is out of buffered capacity for a metric. This ensures that the cluster retains enough spare overhead so that upgrades and failures don’t cause nodes to go over capacity. Buffered capacity is optional but is recommended in any cluster that defines a capacity for a metric.
+The creation of new services fails when the cluster is out of buffered capacity for a metric. This ensures that the cluster retains enough spare overhead so that upgrades and failures don't cause nodes to go over capacity. Buffered capacity is optional but is recommended in any cluster that defines a capacity for a metric.
 
 The Cluster Resource Manager exposes this information via PowerShell and the Query APIs. This lets you see the buffered capacity settings, the total capacity, and the current consumption for every metric in use in the cluster. Here we see an example of that output:
 
@@ -498,10 +498,10 @@ LoadMetricInformation     :
 ```
 
 ## Next steps
-- For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](./service-fabric-cluster-resource-manager-architecture.md)
-- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](./service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](./service-fabric-cluster-resource-manager-introduction.md)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](./service-fabric-cluster-resource-manager-balancing.md)
+* For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
+* Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+* To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -510,3 +510,5 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
+
+<!--Update_Description: update meta properties， wording update -->

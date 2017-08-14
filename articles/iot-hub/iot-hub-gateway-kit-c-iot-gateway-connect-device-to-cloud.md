@@ -4,7 +4,7 @@ description: Learn how to use Intel NUC as an IoT gateway to connect a TI Sensor
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iot gateway connect device to cloud'
 
@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/06/2017
+origin.date: 06/25/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 # Use IoT gateway to connect things to the cloud - SensorTag to Azure IoT Hub
 
@@ -37,6 +37,7 @@ You learn how to use an IoT gateway to connect a Texas Instruments SensorTag (CC
 ## What you need
 
 - Tutorial [Set up Intel NUC as an IoT gateway](./iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) completed in which you set up Intel NUC as an IoT gateway.
+- * An active Azure subscription. If you don't have an Azure account, [create an Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 - An SSH client that runs on your host computer. PuTTY is recommended on Windows. Linux and macOS already come with an SSH client.
 - The IP address and the username and password to access the gateway from the SSH client.
 - An Internet connection.
@@ -128,7 +129,7 @@ The Bluetooth Low Energy (BLE) sample application is provided by Azure IoT Edge.
 1. Go to the folder of the sample application by running the following command:
 
    ```bash
-   cd /user/share/azureiotgatewaysdk/samples
+   cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
 1. Open the configuration file by running the following command:
@@ -167,3 +168,6 @@ The Bluetooth Low Energy (BLE) sample application is provided by Azure IoT Edge.
 ## Next steps
 
 [Use IoT gateway for sensor data transformation with Azure IoT Edge](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+
+<!--Update_Description: update wording and code-->

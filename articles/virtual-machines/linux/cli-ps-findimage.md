@@ -1,9 +1,9 @@
 ---
-title: Select Linux VM images with the Azure  CLI | Azure
-description: Learn how to determine the publisher, offer, and SKU for images when creating a Linux virtual machine with the Resource Manager deployment model.
+title: Select Linux VM images with the Azure CLI | Azure
+description: Learn how to use the Azure CLI to determine the publisher, offer, SKU, and version for Marketplace VM images.
 services: virtual-machines-linux
 documentationcenter: ''
-author: squillace
+author: dlepow
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,202 +14,231 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 02/15/2017
-ms.date: 04/24/2017
+origin.date: 07/11/2017
+ms.date: 08/14/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
 ---
-# How to find Linux VM images with the Azure CLI
-This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
+# How to find Linux VM images in the Azure Marketplace with the Azure CLI
+
+This topic describes how to use the Azure CLI 2.0 to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a Linux VM.
+
+Make sure that you installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and are logged in to an Azure account (`az login`).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-## Use Azure CLI 2.0
+## List popular images
 
-Once you have [installed the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), use the `az vm image list` command to see a cached list of popular VM images. For example, the following example of the command `az vm image list -o table` displays:
+Run the [az vm image list](https://docs.microsoft.com/cli/azure/vm/image#list) command, without the `--all` option, to see a list of popular VM images in the Azure Marketplace. For example, run the following command to display a cached list of popular images in table format:
+
+```azurecli
+az vm image list --output table
+```
+
+The output includes the URN (the value in the *Urn* column), which is of the form *Publisher*:*Offer*:*Sku*:*Version*. Use this value to specify an image when creating a VM with `az vm create`. When creating a VM with one of the popular VM images, you can alternatively specify the URN alias, such as *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
-WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
-CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
-openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
-SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
-Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
-### Finding all current images
+## List all current images
 
-To obtain the current list of all images, use the `az vm image list` command with the `--all` option. Unlike the Azure CLI 1.0 commands, the `az vm image list --all` command returns all images in **chinanorth** by default (unless you specify a particular `--location` argument), so the `--all` command takes some time to complete. If you intend to investigate interactively, use `az vm image list --all > allImages.json`, which returns a list of all images currently available on Azure and stores it as a file for local use. 
-
-You can specify one of several options to restrict your search to a specific location, offer, publisher, or sku if you already have one or more in mind. If you do not specify a location, the values for **chinanorth** are returned.
-
-### Find specific images
-
-Use `az vm image list` with a filter to find specific information. For example, the following displays the **offer**s that are available for **Debian** (remember that without the `--all` switch, it only searches the local cache of common images):
+To obtain the current list of all VM images in Marketplace, use the `az vm image list` command with the `--all` option. This version of the command takes some time to complete:
 
 ```azurecli
-az vm image list --offer Debian -o table --all
+az vm image list --all
 ```
 
-The output is something like: 
+If you don't specify a particular location with the `--location` option, the values for `chinanorth` are returned by default. (Set a different default location by running `az configure --defaults location=<location>`.)
 
-```
-Offer   Publisher   Sku   Urn                              Version
-------  ---------   ---   -------------------------------  -------------
-Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
-
-<list shortened for the example>
-```
-
-You can perform similar filters on the **--publisher** and **--sku** option. You can even perform partial matches on a filter, such as searching for **--offer Deb** to find all Debian images or **--publisher Micr** to find all Microsoft-published images.
-
-If you know where you are deploying, you can use the general image search results along with the `az vm image list-skus`, `az vm image list-offers`, and `az vm image list-publishers` commands to find exactly what you want and where it can be deployed. For example, if from the preceding example you know that `credativ` has a Debian offer, you can then use the `--location` and other options to find exactly what you want. The following example looks for a Debian 8 image in **chinanorth**:
-
-```azurecli 
-az vm image show -l chinanorth -f debian -p credativ --sku 8 --version 8.0.201701180
-```
-
-and the output is:
-
-```json
-{
-  "dataDiskImages": [],
-  "id": "/Subscriptions/<guid>/Providers/Microsoft.Compute/Locations/chinanorth/Publishers/credativ/ArtifactTypes/VMImage/Offers/debian/Skus/8/Versions/8.0.201701180",
-  "location": "chinanorth",
-  "name": "8.0.201701180",
-  "osDiskImage": {
-    "operatingSystem": "Linux"
-  },
-  "plan": null,
-  "tags": null
-}
-```
-
-## Use Azure CLI 1.0 
-
-> [!NOTE]
-> This article describes how to navigate and select virtual machine images, using an installation of either the Azure CLI 1.0 or Azure PowerShell that supports the Azure Resource Manager deployment model. As a prerequisite, change to the Resource Manager mode. With the Azure CLI, enter that mode by typing `azure config mode arm`. 
-> 
-
-The quickest way to locate an image is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
+If you intend to investigate interactively, direct the output to a local file. For example:
 
 ```azurecli
-azure vm image list chinanorth canonical ubuntuserver
-info:    Executing command vm image list
-warn:    The parameter --sku if specified will be ignored
-+ Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"chinanorth")
-data:    Publisher  Offer         Sku                OS     Version          Location  Urn
-data:    ---------  ------------  -----------------  -----  ---------------  --------  --------------------------------------------------------
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201604203  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201605161  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606100  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606270  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201607210  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201608150  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607220  chinanorth    canonical:ubuntuserver:16.10-DAILY:16.10.201607220
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607230  chinanorth    canonical:ubuntuserver:16.10-DAILY:16.10.201607230
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  chinanorth    canonical:ubuntuserver:16.10-DAILY:16.10.201607240
+az vm image list --all > allImages.json
 ```
 
-The **Urn** column will be the form you pass to `azure vm quick-create`.
+## Find specific images
 
-Often, however, you don't yet know what is available. In this case, you can navigate images by using the `azure vm image list-publishers` command and specifying a data center location at the prompt. For example, the following lists all image publishers in the China North location (pass the location argument by lowercasing and removing spaces from the standard locations)
+Use `az vm image list` with additional options to restrict your search to a specific location, offer, publisher, or SKU. For example, the following command displays all Debian offers (remember that without the `--all` switch, it only searches the local cache of common images):
 
 ```azurecli
-azure vm image list-publishers
-info:    Executing command vm image list-publishers
-Location: chinanorth
-+ Getting virtual machine and/or extension image publishers (Location: "chinanorth")
-data:    Publisher                                   Location
-data:    ------------------------------------------  ----------
-data:    AsiaInfo.DeepSecurity                       chinanorth
-data:    AzureChinaMarketplace                       chinanorth
-data:    Canonical                                   chinanorth
-data:    CoreOS                                      chinanorth
-data:    credativ                                    chinanorth
+az vm image list --offer Debian --all --output table 
 ```
 
-These lists can be quite long, so the example list preceding is just a snippet. Let's say that I noticed that Canonical is, indeed, an image publisher in the China North location. You can now find their offers by calling `azure vm image list-offers` and pass the location and the publisher at the prompts, like the following example:
+The output can be a long list, so it is truncated here: 
+
+```
+Offer    Publisher    Sku                Urn                                              Version
+-------  -----------  -----------------  -----------------------------------------------  --------------
+Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
+Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
+Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
+Debian   credativ     7                  credativ:Debian:7:7.0.201604200                  7.0.201604200
+Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
+Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
+Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
+...
+```
+
+Apply similar filters with the `--location`, `--publisher`, and `--sku` options. You can even perform partial matches on a filter, such as searching for `--offer Deb` to find all Debian images.
+
+For example, the following command lists all Debian 8 SKUs in `chinanorth`:
 
 ```azurecli
-azure vm image list-offers
-info:    Executing command vm image list-offers
-Location: chinanorth
-Publisher: canonical
-+ Getting virtual machine image offers (Publisher: "canonical" Location:"chinanorth")
-data:    Publisher  Offer         Location
-data:    ---------  ------------  ----------
-data:    canonical  UbuntuServer  chinanorth
-info:    vm image list-offers command OK
+az vm image list --location chinanorth --offer Deb --publisher credativ --sku 8 --all --output table
 ```
 
-Now we know that in the China North region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, you call `azure vm image list-skus` and respond to the prompt with the location, publisher, and offer that you have discovered.
+Output:
+
+```
+Offer    Publisher    Sku                Urn                                              Version
+-------  -----------  -----------------  -----------------------------------------------  -------------
+Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
+Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
+Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
+Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
+Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
+Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
+Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
+Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
+Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
+Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
+Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
+Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+...
+```
+
+## Navigate the images 
+Another way to find an image in a location is to run the [az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image#list-publishers), [az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image#list-offers), and [az vm image list-skus](https://docs.microsoft.com/cli/azure/vm/image#list-skus) commands in sequence. With these commands, you determine these values:
+
+1. List the image publishers.
+2. For a given publisher, list their offers.
+3. For a given offer, list their SKUs.
+
+For example, the following command lists the image publishers in the China North location:
 
 ```azurecli
-azure vm image list-skus
-info:    Executing command vm image list-skus
-Location: chinanorth
-Publisher: canonical
-Offer: ubuntuserver
-+ Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"chinanorth")
-data:    Publisher  Offer         sku                Location
-data:    ---------  ------------  -----------------  --------
-data:    canonical  ubuntuserver  12.04.2-LTS        chinanorth
-data:    canonical  ubuntuserver  12.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  12.04.4-LTS        chinanorth
-data:    canonical  ubuntuserver  12.04.5-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  12.04.5-LTS        chinanorth
-data:    canonical  ubuntuserver  12.10              chinanorth
-data:    canonical  ubuntuserver  14.04-beta         chinanorth
-data:    canonical  ubuntuserver  14.04.0-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.1-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.2-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.3-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.4-LTS        chinanorth
-data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  14.04.5-LTS        chinanorth
-data:    canonical  ubuntuserver  14.10              chinanorth
-data:    canonical  ubuntuserver  14.10-beta         chinanorth
-data:    canonical  ubuntuserver  14.10-DAILY        chinanorth
-data:    canonical  ubuntuserver  15.04              chinanorth
-data:    canonical  ubuntuserver  15.04-beta         chinanorth
-data:    canonical  ubuntuserver  15.04-DAILY        chinanorth
-data:    canonical  ubuntuserver  15.10              chinanorth
-data:    canonical  ubuntuserver  15.10-alpha        chinanorth
-data:    canonical  ubuntuserver  15.10-beta         chinanorth
-data:    canonical  ubuntuserver  15.10-DAILY        chinanorth
-data:    canonical  ubuntuserver  16.04-alpha        chinanorth
-data:    canonical  ubuntuserver  16.04-beta         chinanorth
-data:    canonical  ubuntuserver  16.04.0-DAILY-LTS  chinanorth
-data:    canonical  ubuntuserver  16.04.0-LTS        chinanorth
-data:    canonical  ubuntuserver  16.10-DAILY        chinanorth
-info:    vm image list-skus command OK
+az vm image list-publishers --location chinanorth --output table
 ```
 
-With this information, you can now find exactly the image you want by calling the original call at the top.
+Output:
+
+```
+Location    Name
+----------  ----------------------------------------------------
+chinanorth      4psa
+chinanorth      7isolutions
+chinanorth      a10networks
+chinanorth      abiquo
+chinanorth      accellion
+chinanorth      Acronis
+chinanorth      Acronis.Backup
+chinanorth      actian_matrix
+chinanorth      actifio
+chinanorth      activeeon
+chinanorth      adatao
+...
+```
+These lists can be long, so this example output is just a snippet. Use this information to find offers from a specific publisher. For example, if Canonical is an image publisher in the China North location,  find their offers by running `azure vm image list-offers`. Pass the location and the publisher as in the following example:
 
 ```azurecli
-azure vm image list chinanorth canonical ubuntuserver 16.04.0-LTS
-info:    Executing command vm image list
-+ Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "16.04.0-LTS" Location:"chinanorth")
-data:    Publisher  Offer         Sku          OS     Version          Location  Urn
-data:    ---------  ------------  -----------  -----  ---------------  --------  --------------------------------------------------
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201604203  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201605161  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606100  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606270  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201607210  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  chinanorth    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
-info:    vm image list command OK
+az vm image list-offers --location chinanorth --publisher Canonical --output table
 ```
 
+Output:
+
+```
+Location    Name
+----------  -------------------------
+chinanorth      Ubuntu15.04Snappy
+chinanorth      Ubuntu15.04SnappyDocker
+chinanorth      UbunturollingSnappy
+chinanorth      UbuntuServer
+chinanorth      Ubuntu_Core
+chinanorth      Ubuntu_Snappy_Core
+chinanorth      Ubuntu_Snappy_Core_Docker
+```
+You see that in the China North region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, run `azure vm image list-skus` and set the location, publisher, and offer that you have discovered:
+
+```azurecli
+az vm image list-skus --location chinanorth --publisher Canonical --offer UbuntuServer --output table
+```
+
+Output:
+
+```
+Location    Name
+----------  -----------------
+chinanorth      12.04.3-LTS
+chinanorth      12.04.4-LTS
+chinanorth      12.04.5-DAILY-LTS
+chinanorth      12.04.5-LTS
+chinanorth      12.10
+chinanorth      14.04.0-LTS
+chinanorth      14.04.1-LTS
+chinanorth      14.04.2-LTS
+chinanorth      14.04.3-LTS
+chinanorth      14.04.4-LTS
+chinanorth      14.04.5-DAILY-LTS
+chinanorth      14.04.5-LTS
+chinanorth      16.04-beta
+chinanorth      16.04-DAILY-LTS
+chinanorth      16.04-LTS
+chinanorth      16.04.0-LTS
+chinanorth      16.10
+chinanorth      16.10-DAILY
+chinanorth      17.04
+chinanorth      17.04-DAILY
+chinanorth      17.10-DAILY
+```
+
+Finally, use the `az vm image list` command to find a specific version of the SKU you want, for example, **14.04-LTS**:
+
+```azurecli
+az vm image list --location chinanorth --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
+```
+
+Output:
+
+```
+Offer         Publisher    Sku        Urn                                               Version
+------------  -----------  ---------  ------------------------------------------------  ---------------
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611220  16.04.201611220
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611300  16.04.201611300
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612050  16.04.201612050
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612140  16.04.201612140
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612210  16.04.201612210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201701130  16.04.201701130
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702020  16.04.201702020
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702200  16.04.201702200
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702210  16.04.201702210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702240  16.04.201702240
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703020  16.04.201703020
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703280  16.04.201703280
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703300  16.04.201703300
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705080  16.04.201705080
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
+```
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+Now you can choose precisely the image you want to use by taking note of the URN value. When specifying the image, you can optionally replace the version number in the URN with "latest". This version is always the latest version of the distribution. To create a virtual machine quickly by using the URN information, which you just found, see [Create a Linux VM using the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: update from Azure CLI 1.0 to 2.0-->

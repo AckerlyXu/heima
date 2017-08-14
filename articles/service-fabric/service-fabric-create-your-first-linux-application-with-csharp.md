@@ -13,8 +13,8 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/02/2017
-ms.date: 07/17/2017
+origin.date: 6/28/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -31,6 +31,9 @@ Service Fabric provides SDKs for building services on Linux in both .NET Core an
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
+You will also want to configure the [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (recommended) or
+[XPlat CLI](service-fabric-azure-cli.md) for deploying your application.
+
 ## Create the application
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 
@@ -38,7 +41,7 @@ A Service Fabric application can contain one or more services, each with a speci
 2. Name your application.
 3. Choose the type of your first service and name it. For the purposes of this tutorial, we choose a Reliable Actor Service.
 
-   ![Service Fabric Yeoman generator for C#][sf-yeoman]
+    ![Service Fabric Yeoman generator for C#][sf-yeoman]
 
 > [!NOTE]
 > For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
@@ -48,26 +51,39 @@ A Service Fabric application can contain one or more services, each with a speci
 ## Build the application
 The Service Fabric Yeoman templates include a build script that you can use to build the app from the terminal (after navigating to the application folder).
 
-  ```sh
- cd myapp
- ./build.sh
-  ```
+```sh
+cd myapp
+./build.sh
+```
 
 ## Deploy the application
-Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+Once the application is built, you can deploy it to the local cluster.
+
+### Using XPlat CLI
 
 1. Connect to the local Service Fabric cluster.
 
-    ```sh
+    ```bash
     azure servicefabric cluster connect
     ```
-2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
+2. Run the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
     ```bash
     ./install.sh
     ```
-3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
-4. Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+
+### Using Azure CLI 2.0
+
+Deploying the built application is the same as any other Service Fabric application. See the documentation on
+[managing a Service Fabric application with the Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md) for
+detailed instructions.
+
+Parameters to these commands can be found in the generated manifests inside the application package.
+
+Once the application has been deployed, open a browser and navigate to [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Then, expand the **Applications** node and note that there is now an entry for your application type and another for
+the first instance of that type.
 
 ## Start the test client and perform a failover
 Actor projects do not do anything on their own. They require another service or client to send them messages. The actor template includes a simple test script that you can use to interact with the actor service.
@@ -99,6 +115,13 @@ To add another service to an application already created using `yo`, perform the
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
+
+<!--Update_Description: update meta properties, update reference link, new feature on connect cluster using Azure CLI 2.0-->

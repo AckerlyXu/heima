@@ -2,9 +2,9 @@
 title: Working with the App Service Mobile Apps managed client library (Windows | Xamarin) | Azure
 description: Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps.
 services: app-service\mobile
-documentationCenter: ''
-authors: adrianhall
-manager: erikre
+documentationcenter: ''
+author: adrianhall
+manager: adrianha
 editor: ''
 
 ms.service: app-service-mobile
@@ -12,8 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
-ms.author: v-yiso
+origin.date: 01/04/2017
+ms.author: adrianha
+ms.date: 07/31/2017
 ---
 
 # How to use the managed client for Azure Mobile Apps
@@ -952,8 +953,10 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
 
 For more information, see the [Windows Live SDK] documentation.
 
-###<a name="serverflow"></a>Server-managed authentication
-Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Microsoft.
+### <a name="serverflow"></a>Server-managed authentication
+Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with
+the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a
+server flow sign-in by using Facebook.
 
 ```
 private MobileServiceUser user;
@@ -965,7 +968,7 @@ private async System.Threading.Tasks.Task Authenticate()
         try
         {
             user = await client
-                .LoginAsync(MobileServiceAuthenticationProvider.Microsoft);
+                .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
             message =
                 string.Format("You are now logged in - {0}", user.UserId);
         }
@@ -981,7 +984,8 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-If you are using an identity provider other than Microsoft, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
+If you are using an identity provider other than MicrosoftAccount, change the value of [MobileServiceAuthenticationProvider]
+to the value for your provider.
 
 In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign-in page of
 the selected provider.  Once the identity provider returns, Azure App Service generates an App Service
@@ -995,10 +999,10 @@ the authentication token from the provider.  Windows Store and UWP apps can use 
 current authentication token after a successful sign-in, as follows:
 
 ```
-await client.LoginAsync(MobileServiceAuthenticationProvider.Microsoft);		
+await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);		
 
 PasswordVault vault = new PasswordVault();
-vault.Add(new PasswordCredential("Microsoft", client.currentUser.UserId, 
+vault.Add(new PasswordCredential("MicrosoftAccount", client.currentUser.UserId, 
     client.currentUser.MobileServiceAuthenticationToken));
 ```
 
@@ -1008,13 +1012,13 @@ cached credentials when they are found, and otherwise attempts to authenticate a
 
 ```
 // Try to retrieve stored credentials.
-var creds = vault.FindAllByResource("Microsoft").FirstOrDefault();
+var creds = vault.FindAllByResource("MicrosoftAccount").FirstOrDefault();
 if (creds != null)
 {
     // Create the current user from the stored credentials.
     client.currentUser = new MobileServiceUser(creds.UserName);
     client.currentUser.MobileServiceAuthenticationToken = 
-        vault.Retrieve("Microsoft", creds.UserName).Password;
+        vault.Retrieve("MicrosoftAccount", creds.UserName).Password;
 }
 else
 {
@@ -1026,13 +1030,15 @@ When you sign-out a user, you must also remove the stored credential, as follows
 
 ```
 client.Logout();
-vault.Remove(vault.Retrieve("Microsoft", client.currentUser.UserId));
+vault.Remove(vault.Retrieve("MicrosoftAccount", client.currentUser.UserId));
 ```
 
 Xamarin    apps use the [Xamarin.Auth] APIs to securely store credentials in an **Account** object. For an example
 of using these APIs, see the [AuthStore.cs] code file in the [ContosoMoments photo sharing sample](https://github.com/azure-appservice-samples/ContosoMoments).
 
-When you use client-managed authentication, you can also cache the access token obtained from your provider such as Microsoft. This token can be supplied to request a new authentication token from the backend, as follows:
+When you use client-managed authentication, you can also cache the access token obtained from your provider such
+as MicrosoftAccount. This token can be supplied to request a new authentication token from the backend, as
+follows:
 
 ```
 var token = new JObject();
@@ -1040,7 +1046,7 @@ var token = new JObject();
 token.Add("access_token", "<your_access_token_value>");
 
 // Authenticate using the access token.
-await client.LoginAsync(MobileServiceAuthenticationProvider.Microsoft, token);
+await client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount, token);
 ```
 
 ##<a name="pushnotifications"></a>Push Notifications
@@ -1272,3 +1278,7 @@ public async Task CallClientWithHandler()
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
+
+
+
+<!--Update_Description: update wording and code-->

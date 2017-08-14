@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/10/2017
-ms.date: 07/03/2017
+ms.date: 07/24/2017
 ms.author: v-yeche
 ---
 
@@ -62,7 +62,7 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
     };
     ```
 
-3. Set the CreateOrUpdate parameters to your specified values.
+3. Set the `CreateOrUpdate` parameters to your specified values.
 
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
@@ -80,3 +80,5 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Microsoft.Azure.Management.EventHub Reference](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)
+
+<!--Update_Description: wording update and command style update-->

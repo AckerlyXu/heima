@@ -1,10 +1,10 @@
 ---
 title: ESP8266 to cloud - Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub | Azure
-description: A guide to connecting an Arduino device, Sparkfun ESP8266 Thing Dev, to Azure IoT Hub which is a Microsoft cloud service that helps manage your IoT assets.
+description: Learn how to setup and connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2017
 ms.author: v-yiso
-ms.date: 07/10//2017
+ms.date: 08/14/2017
 ---
 # Connect Sparkfun ESP8266 Thing Dev to Azure IoT Hub in the cloud
 
@@ -49,6 +49,7 @@ To complete this operation, you need the following parts from your Thing Dev Sta
 
 You also need the following for your development environment:
 
+* An active Azure subscription. If you don't have an Azure account, [create a Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 * Mac or PC that is running Windows or Ubuntu.
 * Wireless network for Sparkfun ESP8266 Thing Dev to connect to.
 * Internet connection to download the configuration tool.
@@ -214,3 +215,5 @@ If you see the following output from the serial monitor window and the blinking 
 You have successfully connected a Sparkfun ESP8266 Thing Dev to your IoT hub and sent the captured sensor data to your IoT hub. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+<!--Update_Description:update meta properties and wording-->

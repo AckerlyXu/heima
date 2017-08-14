@@ -14,14 +14,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-origin.date: 05/10/2017
-ms.date: 07/17/2017
+origin.date: 06/27/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a DocumentDB API app with Java and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and run a console app built on the [DocumentDB Java API](documentdb-sdk-java.md).
 
@@ -50,12 +50,12 @@ Now let's clone a DocumentDB API app from github, set the connection string, and
 2. Run the following command to clone the sample repository. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `app.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
+Let's make a quick review of what's happening in the app. Open the `Program.java` file and find these lines of code that create the Azure Cosmos DB resources. 
 
 * The `DocumentClient` is initialized.
 
@@ -136,13 +136,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `"https://FILLME.documents.azure.cn"`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the master key to the DocumentClient constructor in `Program.java'. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
-
-    `config.primaryKey "FILLME"`
+4. Then copy your PRIMARY KEY value from the portal and replace the second parameter "FILL ME" with the key in the DocumentClient constructor in `Program.java'. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Run the app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install the required Java packages.
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
@@ -165,3 +163,5 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
+
+<!--Update_Description: update meta properties, wording update-->

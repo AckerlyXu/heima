@@ -3,7 +3,7 @@ title: How to use blob storage (object storage) from C++ | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: michaelhauss
+author: hayley244
 manager: vamshik
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
 # How to use Blob Storage from C++
@@ -52,8 +52,8 @@ To install the Azure Storage Client Library for C++, you can use the following m
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  
 
 ```cpp
-include <was/storage_account.h>
-include <was/blob.h>
+#include <was/storage_account.h>
+#include <was/blob.h>
 ```
 
 ## Setup an Azure storage connection string
@@ -269,3 +269,5 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 * [Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage Documentation](./index.md)
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+
+<!--Update_Description: update code-->

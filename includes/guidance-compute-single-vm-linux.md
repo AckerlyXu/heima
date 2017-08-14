@@ -5,7 +5,7 @@ This article outlines a set of proven practices for running a Linux virtual mach
 > 
 > 
 
-We don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set].
+We don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. 
 
 ## Architecture diagram
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
@@ -142,6 +142,8 @@ A user can be assigned to multiple roles, and you can create custom roles for ev
 > 
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
+
+Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
 ## Solution deployment
 

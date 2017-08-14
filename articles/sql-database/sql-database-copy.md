@@ -11,9 +11,9 @@ ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-origin.date: 04/05/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 06/15/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -106,3 +106,5 @@ To learn about managing users and logins when you copy a database to a different
 
 * For information about logins, see [Manage logins](sql-database-manage-logins.md) and [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 * To export a database, see [Export the database to a BACPAC](sql-database-export.md).
+
+<!--Update_Description: update meta properties-->

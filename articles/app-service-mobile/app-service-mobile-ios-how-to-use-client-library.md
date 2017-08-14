@@ -2,18 +2,20 @@
 title: How to Use iOS SDK for Azure Mobile Apps
 description: How to Use iOS SDK for Azure Mobile Apps
 services: app-service\mobile
-documentationCenter: ios
-authors: yuaxu
+documentationcenter: ios
+author: ysxu
 manager: yochayk
 editor: ''
 
+ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
 ms.author: v-yiso
+ms.date: 07/31/2017
 ---
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -720,3 +722,5 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [8]: ../active-directory/develop/active-directory-devquickstarts-ios.md
 
 [10]: https://developers.facebook.com/docs/ios/getting-started
+
+<!--Update_Description: update meta data-->

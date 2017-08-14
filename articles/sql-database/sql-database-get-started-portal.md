@@ -16,8 +16,8 @@ ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/30/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Create an Azure SQL database in the Azure Portal
@@ -89,7 +89,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
    > You will need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
    > 
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
 
@@ -158,3 +158,5 @@ Now that you have a database, you can connect and query using your favorite tool
 - [Java](sql-database-connect-query-java.md)
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
+
+<!--Update_Description: update image link references-->

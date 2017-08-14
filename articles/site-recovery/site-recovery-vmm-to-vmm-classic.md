@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 07/10/2017
+origin.date: 06/23/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ ms.author: v-yeche
 >
 >
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](./site-recovery-overview.md)
+The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
 ## Overview
 
@@ -87,7 +87,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 ## Step 3: Install the Azure Site Recovery Provider
 
-1. On the **Quick Start** page, in **Prepare VMM servers**, click **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
+1. On the **Quick Start** page, in **Prepare VMM servers**, click **Download Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
 
 2. Run this file on the source VMM server.
 
@@ -146,23 +146,15 @@ The Azure Site Recovery Provider can also be installed from the command line. Th
 2. Stop the System Center Virtual Machine Manager Service
 3. Extract the Provider installer by running these commands from a command prompt with **Administrator** privileges:
 
-    ```
-    C:\Windows\System32> CD C:\ASR
-    C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-    ```
-
+        C:\Windows\System32> CD C:\ASR
+        C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 4. Install the provider by running:
 
-    ```
-    C:\ASR> setupdr.exe /i
-    ```
-
+        C:\ASR> setupdr.exe /i
 5. Register the provider by running:
 
-    ```
-    CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
-    ```
+        CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
 Where the parameters are:
 
@@ -243,7 +235,7 @@ You'll need to do the following actions to prepare for initial replication offli
 ## Step 6: Configure storage mapping
 By default when you replicate a virtual machine on a source Hyper-V host server to a target Hyper-V host server, replicated data is stored in the default location that's indicated for the target Hyper-V host in Hyper-V Manager. For more control over where replicated data is stored, you can configure storage mappings as follows:
 
-1. Define storage classifications on both the source and target VMM servers. [Learn more](https://technet.microsoft.com/zh-cn/library/gg610685.aspx). Classifications must be available to the Hyper-V host servers in source and target clouds. Classifications don't need to have the same type of storage. For example you can map a source classification that contains SMB shares to a target classification that contains CSVs.
+1. Define storage classifications on both the source and target VMM servers. [Learn more](https://technet.microsoft.com/library/gg610685.aspx). Classifications must be available to the Hyper-V host servers in source and target clouds. Classifications don't need to have the same type of storage. For example you can map a source classification that contains SMB shares to a target classification that contains CSVs.
 2. After classifications are in place you can create mappings. To do this, on the **Quick Start** page > **Map storage**.
 3. Click the **Storage** tab > **Map storage classifications**.
 4. On the **Map storage classifications** tab, select classifications on the source and target VMM servers. Save your settings.
@@ -258,7 +250,7 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 
     ![Enable virtual machine protection](./media/site-recovery-vmm-to-vmm-classic/enable-protection.png)
 
-3. Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.
+3. Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you'll be able to view them in Azure.
 
     ![Virtual machine protection job](./media/site-recovery-vmm-to-vmm-classic/vm-jobs.png)
 
@@ -334,6 +326,7 @@ This section provides additional privacy information for the Azure Site Recovery
 * **What it does**: Registers server with service so that virtual machines can be protected
 * **Information collected**: After registering the Service collects, processes and transmits management certificate information from the VMM server that's designated to provide disaster recovery using the Service name of the VMM server, and the name of virtual machine clouds on your VMM server.
 * **Use of information**:
+
     * Management certificate—This is used to help identify and authenticate the registered VMM server for access to the Service. The Service uses the public key portion of the certificate to secure a token that only the registered VMM server can gain access to. The server needs to use this token to gain access to the Service features.
     * Name of the VMM server—The VMM server name is required to identify and communicate with the appropriate VMM server on which the clouds are located.
     * Cloud names from the VMM server—The cloud name is required when using the Service cloud pairing/unpairing feature described below. When you decide to pair your cloud from a primary data center with another cloud in the recovery data center, the names of all the clouds from the recovery data center are presented.
@@ -390,3 +383,5 @@ The Provider on the VMM server gets notified of the event from the Service, and 
 ## Next steps
 
 After you've run a test failover to check your environment is working as expected, [learn about](site-recovery-failover.md) different types of failovers.
+
+<!--Update_Description: update meta properties, wording update-->

@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 07/10/2017
+origin.date: 06/29/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 
@@ -32,7 +32,7 @@ This article provides you an example of how you can use System Center Configurat
 
 ## Prerequisites
 1. A software deployment tool, like Configuration Manager, that is already deployed in your environment.
-  Create two [device collections](https://technet.microsoft.com/zh-cn/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want to protect by using Site Recovery.
+  Create two [device collections](https://technet.microsoft.com/library/gg682169.aspx), one for all **Windows servers**, and another for all **Linux servers**, that you want to protect by using Site Recovery.
 3. A configuration server that is already registered with Site Recovery.
 4. A secure network file share (Server Message Block share) that can be accessed by the Configuration Manager server.
 
@@ -463,3 +463,5 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 
 ## Next steps
 You are now ready to [enable protection](/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.
+
+<!--Update_Description: update meta properties-->

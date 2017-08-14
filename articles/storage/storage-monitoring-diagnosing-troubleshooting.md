@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: v-johch
+ms.date: 08/17/2017
+ms.author: v-haiqya
 
 ---
 # Monitor, diagnose, and troubleshoot Azure Storage
@@ -26,7 +26,7 @@ Diagnosing and troubleshooting issues in a distributed application hosted in a c
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
 
 > [!NOTE]
-> The Azure Files service does not support logging at this time.
+> The Azure File storage does not support logging at this time.
 > 
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md).
@@ -67,7 +67,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
-  * [Troubleshooting Azure Files issues with Windows and Linux](storage-troubleshoot-file-connection-problems.md)
+  * [Troubleshooting Azure File storage issues with Windows and Linux](storage-troubleshoot-windows-file-connection-problems.md)
 * [Appendices]
   * [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
   * [Appendix 2: Using Wireshark to capture network traffic]
@@ -99,7 +99,7 @@ The "[Appendices]" include information about using other tools such as Wireshark
 ## <a name="monitoring-your-storage-service"></a>Monitoring your storage service
 If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](http://go.microsoft.com/fwlink/?LinkId=510865).
 
-You can choose which hourly metrics you want to display in the [Azure Portal](https://portal.azure.cn) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold.
+You can choose which hourly metrics you want to display in the [Azure Portal](https://portal.azure.cn) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. 
 
 The storage service collects metrics using a best effort, but may not record every storage operation.
 
@@ -119,7 +119,7 @@ The charts in the following image illustrate how the averaging that occurs for h
 The remainder of this section describes what metrics you should monitor and why.
 
 ### <a name="monitoring-service-health"></a>Monitoring service health
-You can use the [Azure Portal](https://portal.azure.cn) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application. 
+You can use the [Azure Portal](https://portal.azure.cn) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
 The [Azure Portal](https://portal.azure.cn) can also provide notifications of incidents that affect the various Azure services.
 Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://www.azure.cn/support/service-dashboard/).
@@ -512,46 +512,46 @@ The following client-side log generated by the Storage Client library illustrate
 
 Log entries:
 
-Request ID |  Operation Text
----|---
-07b26a5d-...|Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer.
-07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
-07b26a5d-...|Waiting for response.
-07b26a5d-... | Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;.
-07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation.
-07b26a5d-... | Downloading response body.
-07b26a5d-... | Operation completed successfully.
-07b26a5d-... | Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer.
-07b26a5d-... | StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
-07b26a5d-... | Waiting for response.
-07b26a5d-... | Response received. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = .
-07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation.
-07b26a5d-... | Downloading response body.
-07b26a5d-... | Operation completed successfully.
-e2d06d78-... | Starting asynchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer.</td>
-e2d06d78-... | StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
-e2d06d78-...| Waiting for response.
-de8b1c3c-... | Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer/blobCreated.txt.
-de8b1c3c-... |  StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
-de8b1c3c-... | Preparing to write request data.
-e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found..
-e2d06d78-... | Response received. Status code = 404, Request ID = 353ae3bc-..., Content-MD5 = , ETag = .
-e2d06d78-... | Response headers were processed successfully, proceeding with the rest of the operation.
-e2d06d78-... | Downloading response body.
-e2d06d78-... | Operation completed successfully.
-e2d06d78-... | Starting asynchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer.
-e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
-e2d06d78-... | Waiting for response.
-de8b1c3c-... | Writing request data.
-de8b1c3c-... | Waiting for response.
-e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (409) Conflict..
-e2d06d78-... | Response received. Status code = 409, Request ID = c27da20e-..., Content-MD5 = , ETag = .
-e2d06d78-... | Downloading error response body.
+| Request ID | Operation Text |
+| --- | --- |
+| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer. |
+| 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |Waiting for response. |
+| 07b26a5d-... |Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
+| 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
+| 07b26a5d-... |Downloading response body. |
+| 07b26a5d-... |Operation completed successfully. |
+| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer. |
+| 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |Waiting for response. |
+| 07b26a5d-... |Response received. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
+| 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
+| 07b26a5d-... |Downloading response body. |
+| 07b26a5d-... |Operation completed successfully. |
+| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer.</td> |
+| e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Waiting for response. |
+| de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Preparing to write request data. |
+| e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (404) Not Found.. |
+| e2d06d78-... |Response received. Status code = 404, Request ID = 353ae3bc-..., Content-MD5 = , ETag = . |
+| e2d06d78-... |Response headers were processed successfully, proceeding with the rest of the operation. |
+| e2d06d78-... |Downloading response body. |
+| e2d06d78-... |Operation completed successfully. |
+| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.chinacloudapi.cn/azuremmblobcontainer. |
+| e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| e2d06d78-... |Waiting for response. |
+| de8b1c3c-... |Writing request data. |
+| de8b1c3c-... |Waiting for response. |
+| e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (409) Conflict.. |
+| e2d06d78-... |Response received. Status code = 409, Request ID = c27da20e-..., Content-MD5 = , ETag = . |
+| e2d06d78-... |Downloading error response body. |
 de8b1c3c-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found..
-de8b1c3c-... | Response received. Status code = 404, Request ID = 0eaeab3e-..., Content-MD5 = , ETag = .
-de8b1c3c-...| Exception thrown during the operation: The remote server returned an error: (404) Not Found..
-de8b1c3c-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (404) Not Found..
-e2d06d78-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (409) Conflict..
+| de8b1c3c-... | Response received. Status code = 404, Request ID = 0eaeab3e-..., Content-MD5 = , ETag = .
+| de8b1c3c-...| Exception thrown during the operation: The remote server returned an error: (404) Not Found..
+| de8b1c3c-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (404) Not Found..
+| e2d06d78-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (409) Conflict..
 
 In this example, the log shows that the client is interleaving requests from the **CreateIfNotExists** method (request id e2d06d78…) with the requests from the **UploadFromStream** method (de8b1c3c-...); this is happening because the client application is invoking these methods asynchronously. You should modify the asynchronous code in the client to ensure that it creates the container before attempting to upload any data to a blob in that container. Ideally, you should create all your containers in advance.
 
@@ -877,3 +877,5 @@ On step 1 of the **Text Import Wizard**, select **Semicolon** as the only delimi
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
+
+<!--Update_Description: wording update - update table format-->

@@ -2,18 +2,21 @@
 title: Azure solutions for Internet of Things | Azure
 description: Overview of a sample IoT solution architecture and how it relates to devices, the Azure IoT Hub service, Azure IoT device SDKs, Azure IoT service SDKs, and other Azure services
 services: iot-hub
-documentationCenter: ''
-authors: dominicbetts
+documentationcenter: ''
+author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: a859e379-dca7-42fa-bdf6-1125c86ad140
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+origin.date: 06/16/2017
 ms.author: v-yiso
+ms.date: 08/14/2017
+ 
 ---
 
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
@@ -37,8 +40,10 @@ To get started writing some code and running some samples, see the [Get started 
 You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
 
 [lnk-getstarted]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-hub]: ./iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../iot-suite/index.md
+[lnk-iot-suite]: /iot-suite/
 [lnk-iotdev]: https://www.azure.cn/develop/iot/
 [lnk-device-management]: ./iot-hub-device-management-overview.md
+
+<!--Update_Description:update meta properties and link references-->

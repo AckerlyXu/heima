@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 06/20/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -60,14 +60,14 @@ If you only need the SDK, you can install this package:
 * [Install the Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK 2.6.210
-* Service Fabric runtime 5.6.210
+* Service Fabric SDK 2.6.220
+* Service Fabric runtime 5.6.220
 * Visual Studio 2015 tools 1.6.50508.2
 * Visual Studio 2017 Update 2
 
 The current preview versions are:
-* Service Fabric SDK 255.255.2709.255
-* Service Fabric runtime 255.255.5709.255
+* Service Fabric SDK 255.255.2718.255
+* Service Fabric runtime 255.255.5718.255
 * Visual Studio 2015 tools 1.6.50509.5
 * Visual Studio 2017 Update 3 Preview 1
 
@@ -97,3 +97,5 @@ Now that you've finished setting up your development environment, start building
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI link"
 [powershell5-download]:https://www.microsoft.com/en-US/download/details.aspx?id=50395
+
+<!--Update_Description: update meta properties, wording update-->

@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
-ms.author: v-johch
+origin.date: 06/08/2017
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
 # Use the Azure storage emulator for development and testing
@@ -24,7 +25,7 @@ The Microsoft Azure storage emulator provides a local environment that emulates 
 ## Get the storage emulator
 The storage emulator is available as part of the [Azure SDK](/downloads/). You can also install the storage emulator by using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direct download). To install the storage emulator, you must have administrative privileges on your computer.
 
-The storage emulator currently runs only on Windows.
+The storage emulator currently runs only on Windows. For those considering a storage emulator for Linux, one option is the community maintained, open source storage emulator [Azurite](https://github.com/arafato/azurite).
 
 > [!NOTE]
 > Data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, we recommended that you store that data in an Azure storage account, rather than in the storage emulator.
@@ -158,7 +159,7 @@ Beginning with version 3.1, the storage emulator supports read-access geo-redund
 >
 >
 
-##<a name="storage-emulator-command-line-tool-reference"></a> Storage emulator command-line tool reference
+## <a name="storage-emulator-command-line-tool-reference"></a> Storage emulator command-line tool reference
 Starting in version 3.0, a console window is displayed when you start the Storage Emulator. Use the command line in the console window to start and stop the emulator as well as query for status and perform other operations.
 
 > [!NOTE]
@@ -211,6 +212,10 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+### Version 5.2
+* The storage emulator now supports version 2017-04-17 of the storage services on Blob, Queue, and Table service endpoints.
+* Fixed a bug where table property values were not being properly encoded.
+
 ### Version 5.1
 * Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
 
@@ -262,5 +267,8 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Next steps
 
+* Evaluate the cross-platform, community-maintained open source storage emulator [Azurite](https://github.com/arafato/azurite). 
 * [Azure Storage samples using .NET](storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Azure Storage Explorer](http://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.
+
+<!--Update_Description: wording update-->

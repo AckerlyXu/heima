@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Table API in .NET
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 This tutorial covers the following tasks: 
 
@@ -57,7 +57,7 @@ During the preview, Azure Cosmos DB supports the Table API using the .NET SDK. Y
 To learn more about complex Azure Table storage tasks, see:
 
 * [Introduction to Azure Cosmos DB: Table API](table-introduction.md)
-* The Table service reference documentation for complete details about available APIs [Storage Client Library for .NET reference](https://msdn.microsoft.com/zh-cn/library/mt347887.aspx&clcid=0x409)
+* The Table service reference documentation for complete details about available APIs [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/mt347887.aspx)
 
 ### About this tutorial
 This tutorial is for developers who are familiar with the Azure Table storage SDK, and would like to use the premium features available using Azure Cosmos DB. It is based on [Get Started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) and shows how to take advantage of additional capabilities like secondary indexes, provisioned throughput, and multi-homing. We cover how to use the Azure portal to create an Azure Cosmos DB account, and then build and deploy a Table application. We also walk through .NET examples for creating and deleting a table, and inserting, updating, deleting, and querying table data. 
@@ -137,7 +137,7 @@ Azure Cosmos DB supports a number of capabilities that are not available in the 
 | --- | --- |
 | TableConnectionMode  | Azure Cosmos DB supports two connectivity modes. In `Gateway` mode, requests are always made to the Azure Cosmos DB gateway, which forwards it to the corresponding data partitions. In `Direct` connectivity mode, the client fetches the mapping of tables to partitions, and requests are made directly against data partitions. We recommend `Direct`, the default.  |
 | TableConnectionProtocol | Azure Cosmos DB supports two connection protocols - `Https` and `Tcp`. `Tcp` is the default, and recommended because it is more lightweight. |
-| TablePreferredLocations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx), for example, `China North`. Also see [Multi-homing APIs](tutorial-global-distribution-table.md).
+| TablePreferredLocations | Comma-separated list of preferred (multi-homing) locations for reads. Each Azure Cosmos DB account can be associated with 1-30+ regions. Each client instance can specify a subset of these regions in the preferred order for low latency reads. The regions must be named using their [display names](https://msdn.microsoft.com/library/azure/gg441293.aspx), for example, `China North`. Also see [Multi-homing APIs](tutorial-global-distribution-table.md).
 | TableConsistencyLevel | You can trade off between latency, consistency, and availability by choosing between five well-defined consistency levels: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, and `Eventual`. Default is `Session`. The choice of consistency level makes a significant performance difference in multi-region setups. See [Consistency levels](consistency-levels.md) for details. |
 | TableThroughput | Reserved throughput for the table expressed in request units (RU) per second. Single tables can support 100s-millions of RU/s. See [Request units](request-units.md). Default is `400` |
 | TableIndexingPolicy | Consistent and automatic secondary indexing of all columns within tables | JSON string conforming to the indexing policy specification. See [Indexing Policy](indexing-policies.md) to see how you can change indexing policy to include/exclude specific columns. | Automatic indexing of all properties (hash for strings, and range for numbers) |
@@ -162,7 +162,7 @@ To change the default value, open the `app.config` file from Solution Explorer i
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -357,3 +357,5 @@ You can now proceed to the next tutorial and learn more about querying table dat
 
 > [!div class="nextstepaction"]
 > [Query with the Table API](tutorial-query-table.md)
+
+<!--Update_Description: wording update-->

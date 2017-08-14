@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/17/2017
-ms.date: 07/10/2017
+origin.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 
@@ -117,9 +117,9 @@ You can resolve this issue via one of the following methods:
 * Configure separate backend pool VMs per application. 
 * Configure the application in dual NIC VMs so each application was using its own Network interface and IP address. 
 
-### Cause 4: Accessing the Internet Load Balancer VIP from the participating Load Balancer backend pool VM
+### Cause 4: Accessing the Internal Load Balancer VIP from the participating Load Balancer backend pool VM
 
-If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internet Load Balancer VIP, that results in failure. This is an unsupported scenario.
+If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internal Load Balancer VIP, that results in failure. This is an unsupported scenario.
 **Resolution**
 Evaluate Application Gateway or other proxies (for example, nginx or haproxy) to support that kind of scenario. For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
@@ -132,3 +132,5 @@ If you decide to open a support case, collect the following information for a qu
 ## Next steps
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://www.azure.cn/support/contact/).
+
+<!--Update_Description: wording update-->

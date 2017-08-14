@@ -1,10 +1,10 @@
 ---
-title: Debug Azure microservices in Linux | Microsoft Docs
+title: Debug Azure microservices in Linux | Azure
 description: Learn how to monitor and diagnose your services written using Azure Service Fabric on a local development machine.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 
 # Monitor and diagnose services in a local machine development setup
-
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -28,7 +28,6 @@ ms.author: v-johch
 >
 
 Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. Monitoring and diagnostics are critical in an actual deployed production environment. Adopting a similar model during development of services ensures that the diagnostic pipeline works when you move to a production environment. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
-
 
 ## Debugging Service Fabric Java applications
 
@@ -54,7 +53,6 @@ The folder pointed to by the `app.properties` file must exist. After the `app.pr
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
 
-
 This configuration results in logs being collected in a rotating fashion at `/tmp/servicefabric/logs/`. The log file in this case is named mysfapp%u.%g.log where:
 * **%u** is a unique number to resolve conflicts between simultaneous Java processes.
 * **%g** is the generation number to distinguish between rotating logs.
@@ -63,9 +61,7 @@ By default if no handler is explicitly configured, the console handler is regist
 
 For more information, see the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
-
 ## Debugging Service Fabric C# applications
-
 
 Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [GitHub: logging](http:/github.com/aspnet/logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
 
@@ -76,7 +72,6 @@ The first step is to include System.Diagnostics.Tracing so that you can write yo
 ```
 
 You can use a custom EventListener to listen for the service event and then appropriately redirect them to trace files. The following code snippet shows a sample implementation of logging using EventSource and a custom EventListener:
-
 
 ```csharp
 
@@ -99,7 +94,6 @@ You can use a custom EventListener to listen for the service event and then appr
 }
 
 ```
-
 
 ```csharp
    internal class ServiceEventListener : EventListener
@@ -127,7 +121,6 @@ You can use a custom EventListener to listen for the service event and then appr
     }
 ```
 
-
 The preceding snippet outputs the logs to a file in `/tmp/MyServiceLog.txt`. This file name needs to be appropriately updated. In case you want to redirect the logs to console, use the following snippet in your customized EventListener class:
 
 ```csharp
@@ -136,8 +129,8 @@ public static TextWriter Out = Console.Out;
 
 The samples at [C# Samples](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started) use EventSource and a custom EventListener to log events to a file.
 
-
-
 ## Next steps
 The same tracing code added to your application also works with the diagnostics of your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how to set them up.
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
+
+<!--Update_Description: update meta properties-->

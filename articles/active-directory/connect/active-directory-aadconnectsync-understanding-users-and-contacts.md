@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/24/2017
-ms.date: 06/23/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -53,3 +53,4 @@ When an object has been exported to Azure AD then it is not allowed to change th
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 
+<!-- Update_Description: update meta properties -->

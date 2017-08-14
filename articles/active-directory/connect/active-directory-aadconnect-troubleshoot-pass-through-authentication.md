@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/23/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ---
 
@@ -119,3 +119,4 @@ If audit logging is enabled, additional information can be found in the security
     </QueryList>
 ```
 
+<!-- Update_Description: update meta properties -->

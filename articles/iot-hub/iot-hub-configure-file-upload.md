@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/07/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 
 # Configure IoT Hub file uploads using the Azure portal
@@ -23,7 +23,8 @@ ms.date: 07/10/2017
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## File upload
-To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+
+To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub. Select **File upload** to display a list of file upload properties for the IoT hub that is being modified.
 
 ![View IoT Hub file upload settings in the portal][13]
 
@@ -69,3 +70,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: ./iot-hub-security-ground-up.md
+
+
+<!--Update_Description: update meta data and wording-->

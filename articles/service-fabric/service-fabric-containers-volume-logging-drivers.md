@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/01/2017
-ms.date: 07/17/2017
+origin.date: 6/28/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 ---
 
@@ -60,3 +60,5 @@ Refer to the following articles to deploy containers to a Service Fabric cluster
 <!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
 
 [Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)
+
+<!--Update_Description: update meta properties-->

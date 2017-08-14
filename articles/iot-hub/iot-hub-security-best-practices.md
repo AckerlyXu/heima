@@ -2,8 +2,8 @@
 title: Azure IoT security best practices | Azure
 description: IoT security best practices for securing your IoT infrastructure. Includes recommendations for solution developers, solution deployers, and solution operators
 services: iot-hub
-documentationCenter: ''
-authors: YuriDio
+documentationcenter: ''
+author: YuriDio
 manager: timlt
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/16/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
@@ -35,3 +35,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-security-deployment]: ./iot-hub-security-deployment.md
 
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+
+
+<!--Update_Description:update meta properties only-->

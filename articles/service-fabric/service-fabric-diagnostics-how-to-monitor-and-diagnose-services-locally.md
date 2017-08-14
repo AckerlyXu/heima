@@ -1,10 +1,10 @@
 ---
 title: Debug Azure microservices in Windows | Azure
-description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
+description: Learn how to monitor and diagnose your services written using Azure Service Fabric on a local development machine.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
-ms.author: v-johch
+origin.date: 04/24/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 
@@ -42,7 +43,7 @@ Service Fabric emits ETW events to help application developers understand what's
 
 2. Each event has standard metadata information that tells you the node, application and service the event is coming from. You can also filter the list of events by using the **Filter events** box at the top of the events window. For example, you can filter on **Node Name** or **Service Name.** And when you're looking at event details, you can also pause by using the **Pause** button at the top of the events window and resume later without any loss of events.
 
-  ![Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+    ![Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 ## Add your own custom traces to the application code
 The Service Fabric Visual Studio project templates contain sample code. The code shows how to add custom application code ETW traces that show up in the Visual Studio ETW viewer alongside system traces from Service Fabric. The advantage of this method is that metadata is automatically added to traces, and the Visual Studio Diagnostic Events Viewer is already configured to display them.
@@ -64,4 +65,6 @@ After adding custom ETW tracing to your service code, you can build, deploy, and
 The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how you can set them up.
 
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Event aggregation and collection using EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
+<!--Update_Description: update meta properties, update reference link -->

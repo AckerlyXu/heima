@@ -1,5 +1,5 @@
 ---
-title: Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL | Azure
+title: 'TSQL:Initiate failover for Azure SQL Database | Azure'
 description: Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL
 services: sql-database
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 origin.date: 01/10/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 ---
 # Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL
 
@@ -87,3 +87,5 @@ ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 * For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * For information about using Active Geo-Replication with elastic pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * For an overview of business continuity, see [Business Continuity Overview](sql-database-business-continuity.md)
+
+<!--Update_Description: update meta properties-->

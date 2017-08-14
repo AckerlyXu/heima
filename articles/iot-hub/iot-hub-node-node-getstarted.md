@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure IoT Hub (Node) | Azure
-description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for Node.js. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
+description: Learn how to send device-to-cloud messages to Azure IoT Hub using IoT SDKs for Node.js. Create simulated device and service apps to register your device, send messages, and read messages from IoT hub.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/22/2017
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
 ---
 
@@ -280,7 +280,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
@@ -292,6 +292,8 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-hub-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal]: https://portal.azure.cn/
+
+<!--Update_Description:update meta properties and link references-->
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
 origin.date: 04/17/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 ---
 
 # Create a single Azure SQL database using PowerShell
@@ -51,7 +51,7 @@ $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
 $startip = "0.0.0.0"
-$endip = "0.0.0.1"
+$endip = "0.0.0.0"
 # The database name
 $databasename = "mySampleDatabase"
 ```
@@ -125,3 +125,4 @@ Now that you have a database, you can connect and query using your favorite tool
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
+<!--Update_Description: update code-->

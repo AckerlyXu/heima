@@ -1,0 +1,103 @@
+---
+title: Run a test failover for physical server replication to Azure with Azure Site Recovery | Azure
+description: Summarizes the steps you need for running a test failover for [physical servers replicating to Azure using the Azure Site Recovery service.
+services: site-recovery
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
+
+ms.assetid: a640e139-3a09-4ad8-8283-8fa92544f4c6
+ms.service: site-recovery
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 06/27/2017
+ms.date: 07/31/2017
+ms.author: v-yeche
+
+---
+# Step 11: Run a test failover of physical servers to Azure
+
+This article describes how to run a test failover from on-premises physical servers to Azure, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
+
+## Before you start
+
+Before you run a test failover we recommend that you verify the server properties, and make any changes you need to. you can access the VM properties in **Replicated items**. The **Essentials** blade shows information about machine settings and status.
+
+<!-- Not Available ## Managed disk considerations -->
+
+
+## Network considerations
+
+You can set the target IP address for an Azure VM created after failover.
+
+- If you don't provide an address, the failed over machine will use DHCP.
+- If you set an address that isn't available at failover, failover won't work.
+- The same target IP address can be used for test failover, if the address is available in the test failover network.
+- The number of network adapters is dictated by the size you specify for the target virtual machine:
+
+     - If the number of network adapters on the source machine is the same as, or less than, the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
+     - If the number of adapters for the source virtual machine exceeds the number allowed for the target size, then the target size maximum will be used.
+     - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
+   - If the virtual machine has multiple network adapters they will all connect to the same network.
+   - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
+<!-- Not Available [Learn more](vmware-walkthrough-network.md) -->
+## View and modify VM settings
+
+We recommend that you verify the properties of the source server before you run a failover.
+
+1. In **Protected Items**, click **Replicated Items**, and click the machine.
+2. In the **Replicated item** pane, you can see a summary of machine information, health status, and the latest available recovery points. Click **Properties** to view more details.
+3. In **Compute and Network**, you can:
+    - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+    - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - Specify a target size for the Azure VM
+    - Select an [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Specify whether to use [managed disks](#managed-disk-considerations). Select **Yes**, if you want to attach managed disks to your machine on migration to Azure.
+    - View or modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
+4. In **Disks**, you can see information about the operating system and data disks on the VM.
+
+## Run a test failover
+
+After you've set everything up, run a test failover to make sure everything's working as expected.
+
+- If you want to connect to Azure VMs using RDP after failover, [prepare to connect](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+ - To fully test you need to copy of Active Directory and DNS in your test environment. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
+ - For full information about test failover, read [this article](site-recovery-test-failover-to-azure.md) article.
+
+<!-- Not Available VIDEO -->
+Now, run a failover:
+
+1. To fail over a single machine, in **Settings** > **Replicated Items**, click the machine > **+Test Failover** icon.
+
+    ![Test failover](./media/physical-walkthrough-test-failover/test-failover.png)
+
+2. To fail over a recovery plan, in **Settings** > **Recovery Plans**, right-click the plan > **Test Failover**. To create a recovery plan, [follow these instructions](site-recovery-create-recovery-plans.md).  
+
+3. In **Test Failover**, select the Azure network to which Azure VMs will be connected after failover occurs.
+
+4. Click **OK** to begin the failover. You can track progress by clicking on the machine to open its properties, or on the **Test Failover** job in vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
+
+5. After the failover completes, you should also be able to see the replica Azure VM appear in the Azure portal > **Virtual Machines**. You should make sure that the VM is the appropriate size, that it's connected to the appropriate network, and that it's running.
+
+6. If you prepared for connections after failover, you should be able to connect to the Azure VM.
+
+### Delete test failover VMs
+
+1. After you finish, click on **Cleanup test failover** on the recovery plan or machine.
+2. In **Notes**, record and save any observations associated with the test failover.
+3. The cleanup action deletes Azure VMs that were created during test failover.
+
+## Summary
+
+If you completed the test failover successfully, your physical servers are replicating and you've checked that they can fail over to Azure. Now, you can run failovers in accordance with your organizational requirements. 
+
+Remember that you can't currently fail back from Azure to a physical server. You have to fail back to a VMware VM. This means you need an on-premises VMware infrastructure in order to fail back. 
+<!-- Not Availabe [Learn more](site-recovery-failback-azure-to-vmware.md) -->
+## Next steps
+
+- [Run failovers](site-recovery-failover.md) as needed.
+
+<!--Update_Description: new article about walkthrought test failover from physical to azure -->

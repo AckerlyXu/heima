@@ -18,6 +18,9 @@
       - name: Privileged Identity Management
         tocHref: /active-directory/privileged-identity-management/
         topicHref: /active-directory/privileged-identity-management/
+  - name: Analysis Services
+    tocHref: /analysis-services/
+    topicHref: /analysis-services/
   - name: App Service
     tocHref: /app-service/
     topicHref: /app-service/
@@ -62,9 +65,9 @@
     tocHref: /cognitive-services/
     topicHref: /cognitive-services/
 
-  - name: DocumentDB
-    tocHref: /documentdb/
-    topicHref: /documentdb/
+  - name: CosmosDB
+    tocHref: /cosmos-db/
+    topicHref: /cosmos-db/
   - name: Event Hubs
     tocHref: /event-hubs/
     topicHref: /event-hubs/

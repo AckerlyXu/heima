@@ -1,5 +1,5 @@
 ---
-title: Get the required values for authenticating an application to access SQL Database from code | Azure
+title: Get values for app authentication - Azure SQL Database | Azure
 description: Create a service principal for accessing SQL Database from code.
 services: sql-database
 documentationCenter: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 09/30/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Get the required values for authenticating an application to access SQL Database from code
@@ -72,3 +72,5 @@ Write-Output "_applicationSecret:" $secret
 
 - [Create a SQL database with C#](sql-database-get-started-csharp.md)
 - [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+
+<!--Update_Description: update meta properties-->

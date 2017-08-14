@@ -13,9 +13,9 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
-ms.topic: hero-article
+ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -624,3 +624,5 @@ That's it, build it and you're on your way!
 
 [create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
+
+<!--Update_Description: update meta properties-->

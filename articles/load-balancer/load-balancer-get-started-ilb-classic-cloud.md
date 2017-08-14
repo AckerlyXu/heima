@@ -14,18 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/03/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 
 # Get started creating an internal load balancer (classic) for cloud services
+
 > [!div class="op_single_selector"]
->- [PowerShell](./load-balancer-get-started-ilb-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-ilb-classic-cli.md)
->- [Cloud services](./load-balancer-get-started-ilb-classic-cloud.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Cloud services](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](./load-balancer-get-started-ilb-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
 
 ## Configure internal load balancer for cloud services
 
@@ -50,7 +51,7 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
 </NetworkConfiguration>
 ```
 
-Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
+Let's add the values for the network configuration file to show how it will look. In the example, assume you created a VNet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
 
 ```xml
 <NetworkConfiguration>
@@ -62,7 +63,7 @@ Let's add the values for the network configuration file to show how it will look
 </NetworkConfiguration>
 ```
 
-For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/zh-cn/library/azure/dn722411.aspx).
+For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
 ### Step 2
 
@@ -90,6 +91,8 @@ The network traffic will be load balanced using the testLB load balancer using p
 
 ## Next steps
 
-[Configure a load balancer distribution mode using source IP affinity](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!--Update_Description: wording update-->

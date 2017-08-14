@@ -4,7 +4,7 @@ description: Learn how to use the iothub-explorer CLI tool to monitor device to 
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: timtl
+manager: timlt
 tags: ''
 keywords: 'iothub explorer, cloud device messaging, iot hub cloud to device, cloud to device messaging'
 
@@ -14,9 +14,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+origin.date: 03/27/2017
 ms.author: v-yiso
-
+ms.date: 08/14/2017
 ---
 # Use iothub-explorer to send and receive messages between your device and IoT Hub
 
@@ -84,3 +84,6 @@ The command blinks the LED that is connected to your device and sends the messag
 You’ve learned how to monitor device-to-cloud messages and send cloud-to-device messages between your IoT device and Azure IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+
+<!--Update_Description: update meta data only-->

@@ -1,10 +1,10 @@
 ---
-title: Troubleshooting application upgrades | Microsoft Docs
+title: Troubleshooting application upgrades | Azure
 description: This article covers some common issues around upgrading a Service Fabric application and how to resolve them.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Troubleshoot application upgrades
@@ -183,7 +184,7 @@ The upgrade continues from the upgrade domain where it was last suspended and us
 ### Service Fabric is not following the specified health policies
 Possible Cause 1:
 
-Service Fabric translates all percentages into actual numbers of entities (for example, replicas, partitions, and services) for health evaluation and always rounds up to whole entities. For example, if the maximum *MaxPercentUnhealthyReplicasPerPartition* is 21% and there are five replicas, then Service Fabric allows up to two unhealthy replicas (that is,`Math.Ceiling (5\*0.21)). Thus, health policies should be set accordingly.
+Service Fabric translates all percentages into actual numbers of entities (for example, replicas, partitions, and services) for health evaluation and always rounds up to whole entities. For example, if the maximum *MaxPercentUnhealthyReplicasPerPartition* is 21% and there are five replicas, then Service Fabric allows up to two unhealthy replicas (that is,`Math.Ceiling (5*0.21)`). Thus, health policies should be set accordingly.
 
 Possible Cause 2:
 
@@ -219,5 +220,4 @@ Make your application upgrades compatible by learning how to use [Data Serializa
 
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
-
+<!--Update_Description: update meta properties-->

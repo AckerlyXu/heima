@@ -1,7 +1,9 @@
----
+--- 
 layout: HubPage
 hide_bc: true
-title: Azure Documentation | Microsoft Docs
+experimental: true
+experiment_id: "81ba5f65-59fb-4d"
+title: Azure Documentation
 description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
@@ -100,13 +102,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/app-service-web/app-service-web-get-started-dotnet">
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
                                                         <img src="media/index/logo_NET.svg" alt="">
                                                         <span>.NET</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/app-service-web/app-service-web-get-started-nodejs">
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
                                                         <img src="media/index/logo_nodejs.svg" alt="">
                                                         <span>Node.js</span>
                                                     </a>
@@ -118,13 +120,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/app-service-web/app-service-web-get-started-java">
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/">
                                                         <img src="media/index/logo_java.svg" alt="">
                                                         <span>Java</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/app-service-web/app-service-web-get-started-python">
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure/">
                                                         <img src="media/index/logo_python.svg" alt="">
                                                         <span>Python</span>
                                                     </a>
@@ -133,6 +135,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/app-service-web/">Web Apps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                                                        <li><a class="barLink" href="/azure/service-fabric/">Service Fabric</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -151,6 +154,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <li><a class="barLink" href="/sql-database/">SQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL Database as a Service</a></li>
                                                 </ul>
+                                                <h4>NoSQL</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/cosmos-db/">Cosmos DB</a></li>
+                                                </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
                                                     <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">Computer Vision API</a></li>
@@ -168,13 +175,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/cli/azure/overview">
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/powershell/azure/overview">
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
                                                         <img src="media/index/azure_dev-8.svg" alt="">
                                                         <span>Azure<br />PowerShell</span>
                                                     </a>
@@ -278,9 +285,9 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/documentdb/">
-                                                <img src="media/index/DocumentDB.svg" alt="" />
-                                                <p>DocumentDB</p>
+                                            <a href="/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -293,6 +300,28 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <a href="/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Redis Cache</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Containers</h3>
+                                    <ul>
+
+                                        <li>
+                                            <a href="/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>App Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Batch</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -404,21 +433,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Developer Tools</h3>
-                                    <ul>
-                                        <li>
-                                            <a target="_blank" href="https://www.visualstudio.com/docs/overview">
-                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank" href="https://support.hockeyapp.net/kb">
-                                                <img src="media/index/HockeyApp.svg" alt="" />
-                                                <p>HockeyApp</p>
-                                            </a>
-                                        </li>
-                                    </ul>
+
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
@@ -1049,6 +1064,69 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
+                        <a href="#containers">Containers</a>
+                        <ul id="containers" class="cardsA">
+
+                            <li>
+                                <a href="/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/app-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AppService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service</h3>
+                                                    <p>Deploy web apps on Linux using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/batch/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Batch.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Batch</h3>
+                                                    <p>Run compute jobs using containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#databases">Databases</a>
                         <ul id="databases" class="cardsA">
                             <li>
@@ -1109,17 +1187,17 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="/documentdb/">
+                                <a href="/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DocumentDB.svg" alt="" />
+                                                        <img src="media/index/cosmosdb.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DocumentDB</h3>
+                                                    <h3>Cosmos DB</h3>
                                                     <p>Managed NoSQL document database-as-a-service</p>
                                                 </div>
                                             </div>
@@ -1165,87 +1243,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#analytics">Data + Analytics</a>
-                        <ul id="analytics" class="cardsA">
-                            <li>
-                                <a href="/hdinsight/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/HDInsight.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>HDInsight</h3>
-                                                    <p>Provision cloud Hadoop, Spark, Hbase, and Storm clusters</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/stream-analytics/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cognitive-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/CognitiveServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Cognitive Services</h3>
-                                                    <p>Add smart API capabilities to enable contextual interactions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/power-bi-embedded/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Power BI Embedded</h3>
-                                                    <p>Embed fully interactive, stunning data visualizations in your applications</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+
                         </ul>
                     </li>
                     <li>
@@ -1492,49 +1490,6 @@ description: Learn how to build and manage powerful applications using Microsoft
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Developer Tools</a>
-                        <ul id="devtools" class="cardsA">
-                            <li>
-                                <a target="_blank" href="https://www.visualstudio.com/docs/overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
-                                                    <p>Services for teams to share code, track work, and ship software</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="https://support.hockeyapp.net/kb">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/HockeyApp.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>HockeyApp</h3>
-                                                    <p>Deploy mobile apps, collect feedback and crash reports, and monitor usage</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
@@ -1680,10 +1635,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/net/">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1701,16 +1656,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure/python-sdk-azure-install">Get the Azure libraries for Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/python">Learn more</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/api/overview/azure/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1728,16 +1680,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://www.npmjs.com/package/azure">Get the Node.js SDK</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/node-sdk-azure-install">Get the Azure libraries for Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="http://azure.github.io/azure-sdk-for-node/">API reference</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/nodejs">Learn more</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/api/overview/azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1758,10 +1707,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://azure.microsoft.com/develop/java/">Get started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/">API reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/overview/azure">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1811,6 +1760,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/rest/api">Reference</a>
                                                 </p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -1834,10 +1784,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <h3>Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">Get Started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/cli/azure">Reference</a>
@@ -1859,13 +1809,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             <div class="cardText">
                                                 <h3>PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell-install-configure">Get Started</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://github.com/PowerShell/PowerShell/blob/master/docs/installation/">Download PowerShell</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/install-azurerm-ps">Download PowerShell</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/">Reference</a>
+                                                    <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1922,7 +1872,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </div>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/architecture/">
+                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/guide/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1932,8 +1882,8 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cloud Fundamentals</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you're new to the cloud or new to Azure, start here.</p>
+                                                    <h3>Azure Application Architecture Guide</h3>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1941,7 +1891,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/architecture/reference-architectures/">
+                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/reference-architectures/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1960,7 +1910,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/architecture/patterns/">
+                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/patterns/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1979,7 +1929,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/architecture/best-practices/api-design">
+                                <a target="_blank" href="https://docs.microsoft.com/azure/architecture/best-practices/api-design">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
