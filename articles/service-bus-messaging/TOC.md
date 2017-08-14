@@ -42,14 +42,14 @@
 ### AMQP
 #### [AMQP overview](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
-#### [Java](service-bus-java-how-to-use-jms-api-amqp.md)
+#### [Java Message Service and AMQP](service-bus-java-how-to-use-jms-api-amqp.md)
 #### [AMQP protocol guide](service-bus-amqp-protocol-guide.md)
 #### [AMQP request-response-based operations](service-bus-amqp-request-response.md)
 
 ## Manage
 ### [Service Bus management libraries](service-bus-management-libraries.md)
 ### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
-### [Using PowerShell to provision entities](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus/)
+### [Using PowerShell to provision entities](service-bus-manage-with-ps.md)
 
 # Reference
 ## .NET
@@ -63,12 +63,10 @@
 ## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
 
 # Resources
-## [Pricing details](service-bus-pricing-billing.md)
-## [Samples](service-bus-samples.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-
+## [Pricing details](service-bus-pricing-billing.md)
 ## [Pricing](https://www.azure.cn/pricing/details/messaging/)
+## [Samples](service-bus-samples.md)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)

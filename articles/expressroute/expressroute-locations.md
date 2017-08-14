@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/13/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 08/21/2017
 ---
 
 # ExpressRoute partners and peering locations
@@ -174,3 +174,6 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
+
+
+<!--Update_Description:update meta properties only-->

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/13/2016
+origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 08/21/2017
 ---
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
@@ -156,6 +156,12 @@ The circuit user can run the following cmdlet to redeem a link authorization:
     ----- --------
     Provisioned SalesVNET1
 
+Run this command in the newly linked subscription for the virtual network:
+
+    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+
 ## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).
+
+<!--Update_Description: update wording and code-->
