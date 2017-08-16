@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/24/2017
-ms.date: 07/17/2017
+origin.date: 6/28/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 
 ---
@@ -202,3 +202,5 @@ You can instruct Visual Studio to compress packages on deployment, by adding the
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
+
+<!--Update_Description: update meta properties-->

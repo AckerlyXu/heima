@@ -3,8 +3,8 @@ title: Service Fabric project creation next steps | Azure
 description: This article contains links to a set of core development tasks for Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: seanmck
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
@@ -13,8 +13,9 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/28/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 
 ---
 # Your Service Fabric application and next steps
@@ -46,13 +47,12 @@ The actor project provides methods for setting and getting the value of a counte
 ### Stateless Web API
 The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
 
-
 ### ASP.NET core
 The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
 
 ### Guest executables and guest containers
 
-A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest  [directly in the application package](service-fabric-deploy-existing-app.md). Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
+A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest either [directly in the application package](service-fabric-deploy-existing-app.md) or [through a container image](service-fabric-deploy-container.md). In both cases, Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
 
 ## Next steps
 ### Create an Azure cluster
@@ -80,3 +80,5 @@ To learn how you can set up a continuous integration process for your Service Fa
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
+
+<!--Update_Description: update meta properties, wording update-->
