@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/15/2017
-ms.date: 07/03/2017
+origin.date: 06/27/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 
 ---
@@ -25,10 +25,8 @@ There are two concepts to understand about policies:
 
 * policy definition - you describe when the policy is enforced and what action to take
 * policy assignment - you apply the policy definition to a scope (subscription or resource group)
-
-<!-- Not Available on resource-manager-policy-create-assign.md-->
-
-Azure provides some built-in policy definitions that may reduce the number of policies you have to define. If a built-in policy definition works for your scenario, use that definition when assigning to a scope.
+<!-- Not Available [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md)-->
+<!-- Not Available [Assign and manage policies through script](resource-manager-policy-create-assign.md)-->
 
 Policies are evaluated when creating and updating resources (PUT and PATCH operations).
 
@@ -46,6 +44,24 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 * `Microsoft.Authorization/policyassignments/write` permission to assign a policy 
 
 These permissions are not included in the **Contributor** role.
+
+## Built-in policies
+
+Azure provides some built-in policy definitions that may reduce the number of policies you have to define. Before proceeding with policy definitions, you should consider whether a built-in policy already provides the definition you need. The built-in policy definitions are:
+
+* Allowed locations
+* Allowed resource types
+* Allowed storage account SKUs
+* Allowed virtual machine SKUs
+* Apply tag and default value
+* Enforce tag and value
+* Not allowed resource types
+* Require SQL Server version 12.0
+* Require storage account encryption
+
+<!-- Not Available [portal](resource-manager-policy-portal.md) -->
+<!-- Not Available [PowerShell](resource-manager-policy-create-assign.md#powershell) -->
+<!-- Not Available [Azure CLI](resource-manager-policy-create-assign.md#azure-cli)-->
 
 ## Policy definition structure
 You use JSON to create a policy definition. The policy definition contains elements for:
@@ -332,124 +348,13 @@ You use property aliases to access specific properties for a resource type.
 The following topics contain policy examples:
 
 <!-- Not Available on  resource-manager-policy-tags.md -->
+<!-- Not Available on  resource-manager-policy-naming-convention.md -->
 <!-- Not Available on  resource-manager-policy-storage -->
 * For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
-
-### Allowed resource locations
-To specify which locations are allowed, see the example in the [Policy definition structure](#policy-definition-structure) section. To assign this policy definition, use the built-in policy with the resource ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### Not allowed resource locations
-To specify which locations are not allowed, use the following policy definition:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### Allowed resource types
-The following example shows a policy that permits deployments for only the Microsoft.Resources, Microsoft.Compute, Microsoft.Storage, Microsoft.Network resource types. All others are denied:
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### Set naming convention
-The following example shows the use of wildcard, which is supported by the **like** condition. The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-To specify that resource names match a pattern, use the match condition. The following example requires names to start with `contoso` and contain six additional letters:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-To require a date pattern of two digits, dash, three letters, dash, and four digits, use:
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## Next steps
 <!-- Not Available on resource-manager-policy-portal.md /  resource-manager-policy-create-assign.md-->
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 * The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
+
+<!--Update_Description: update meta properties, wording update-->

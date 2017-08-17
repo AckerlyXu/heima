@@ -6,7 +6,7 @@
 
     ![Show existing tags on resource and resource group blades](./media/resource-manager-tag-resources/existing-tags.png)
 
-3. To add a tag, type a key and value, or select an existing one from the dropdown menu. Select **Save**.
+3. To add a tag, type a name and value, or select an existing one from the dropdown menu. Select **Save**.
 
     ![Add new tag](./media/resource-manager-tag-resources/tag-resources.png)
     
@@ -29,3 +29,6 @@
 8. You can select the pinned tag from the dashboard to see the resources with that tag.
 
      ![Pin tags to the Dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+<!--Update_Description: wording update-->
+<!--ms.date: 08/21/2017-->

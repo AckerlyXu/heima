@@ -4,7 +4,7 @@ description: Prevent users from updating or deleting critical Azure resources by
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/05/2017
-ms.date: 06/05/2017
+origin.date: 06/27/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 ---
 
@@ -93,7 +93,7 @@ Get-AzureRmResourceLock
 To get all locks for a resource, use:
 
 ```powershell
-New-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
+Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
   -ResourceGroupName exampleresourcegroup
 ```
 
@@ -170,3 +170,5 @@ In the request, include a JSON object that specifies the properties for the lock
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
 * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: update meta properties, wording update-->
