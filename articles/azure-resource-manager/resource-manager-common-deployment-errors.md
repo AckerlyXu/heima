@@ -506,7 +506,7 @@ az policy definition show --name regionPolicyAssignment
 
 For more information, see the following articles:
 
-- [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+<!-- Not Avaialble - [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
 - [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## <a name="authorization-failed"></a>Authorization failed
