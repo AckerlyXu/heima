@@ -2,9 +2,9 @@
 title: Create your first reliable Azure microservice in Java | Azure
 description: Introduction to creating a Azure Service Fabric application with stateless and stateful services.
 services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: timlt
+documentationcenter: java
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
@@ -13,36 +13,33 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/10/2017
-ms.date: 03/03/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 
 # Get started with Reliable Services
 
 > [!div class="op_single_selector"]
->- [C# on Windows](./service-fabric-reliable-services-quick-start.md)
->- [Java on Linux](./service-fabric-reliable-services-quick-start-java.md)
+> * [C# on Windows](service-fabric-reliable-services-quick-start.md)
+> * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
+>
+>
 
-This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java. This Microsoft Virtual Academy video also shows you how to create a stateless Reliable service:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java.
+<!-- Not Available  This Microsoft Virtual Academy -->
 
 ## Installation and setup
 Before you start, make sure you have the Service Fabric development environment set up on your machine.
-If you need to set it up, go to [getting started on Mac](./service-fabric-get-started-mac.md) or [getting started on Linux](./service-fabric-get-started-linux.md).
+If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).
 
 ## Basic concepts
 To get started with Reliable Services, you only need to understand a few basic concepts:
 
- - **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
-
- - **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
-
- - **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
-
- - **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
+* **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
+* **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write.
+* **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
+* **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
 ## Create a stateless service
 Start by creating a Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
@@ -104,10 +101,10 @@ In this tutorial, we focus on the `runAsync()` entry point method. This is where
 ### RunAsync
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
-- The system moves your service instances for resource balancing.
-- Faults occur in your code.
-- The application or system is upgraded.
-- The underlying hardware experiences an outage.
+* The system moves your service instances for resource balancing.
+* Faults occur in your code.
+* The application or system is upgraded.
+* The underlying hardware experiences an outage.
 
 This orchestration is managed by Service Fabric to keep your service highly available and properly balanced.
 
@@ -158,14 +155,32 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## Run the application
-The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and undeploy the application. To run the application, first build the application with gradle:
+
+The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and remove the
+application. To run the application, first build the application with gradle:
 
 ```bash
 $ gradle
 ```
 
-This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Run the install.sh script to deploy:
+This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI.
+
+### Deploy with XPlat CLI
+
+If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
+package. Run the install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
+
+### Deploy with Azure CLI 2.0
+
+If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+## Related articles
+
+* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+
+<!--Update_Description: update meta properties, add reference feature on deploy with XPlat CLI and Azure CLI 2.0-->

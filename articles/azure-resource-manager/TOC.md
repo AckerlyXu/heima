@@ -31,6 +31,7 @@
 <!-- Not Availble ### [Use objects for parameters](resource-manager-objects-as-parameters.md) -->
 ### [Share state between linked templates](best-practices-resource-manager-state.md)
 ### [Patterns for designing templates](best-practices-resource-manager-design-templates.md)
+
 ## Deploy
 ### PowerShell
 #### [Deploy template](resource-group-template-deploy.md)
@@ -70,13 +71,15 @@
 <!-- Not Available ### [Use scripts to assign policy](resource-manager-policy-create-assign.md) -->
 ### Examples
 <!-- Not Available #### [Resource tags](resource-manager-policy-tags.md) -->
+<!-- Not Available #### [Naming conventions](resource-manager-policy-naming-convention.md) -->
+<!-- Not Available #### [Network](resource-manager-policy-network.md) -->
 <!-- Not Available #### [Storage](resource-manager-policy-storage.md) -->
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
 
 <!-- Not Available ## Use managed applications -->
-<!-- Not Available ### [Publish managed application](managed-application-publishing.md) -->
-<!-- Not Available ### [Consume managed application](managed-application-consumption.md) -->
+<!-- Not Available ### [Publish service catalog application](managed-application-publishing.md) -->
+<!-- Not Available ### [Consume service catalog application](managed-application-consumption.md) -->
 <!-- Not Available ### [Create UI definitions](managed-application-createuidefinition-overview.md) -->
 
 ## Audit
@@ -85,6 +88,7 @@
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
+### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
 
 # Reference
 <!-- Not Available ## [Template format](/templates/) -->
@@ -118,8 +122,8 @@
 ## [REST](https://docs.microsoft.com/rest/api/resources/)
 
 # Resources
+<!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->

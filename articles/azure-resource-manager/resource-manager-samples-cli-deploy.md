@@ -4,7 +4,7 @@ description: Sample script for deploying an Azure Resource Manager template.
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/19/2017
-ms.date: 06/05/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 
 ---
@@ -117,19 +117,14 @@ then
 fi
 
 #set the default subscription id
-az account set --name $subscriptionId
-
-set +e
+az account set --subscription $subscriptionId
 
 #Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
+if [ $(az group exists --name $resourceGroupName) == 'false' ]; then
     echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
     (
-        set -x
-        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
+		set -x
+		az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
     )
     else
     echo "Using existing resource group..."
@@ -162,7 +157,7 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group show](https://docs.microsoft.com/cli/azure/group#show) | Get a resource group. |
+| [az group exists](https://docs.microsoft.com/cli/azure/group#exists) | Checks whether resource group exists. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) | Start a deployment.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all its resources. |
@@ -172,3 +167,5 @@ This script uses the following commands to create the deployment. Each item in t
 * For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: wording update, update link-->

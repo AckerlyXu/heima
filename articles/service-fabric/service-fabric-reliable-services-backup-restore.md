@@ -1,10 +1,10 @@
 ---
-title: Service Fabric Backup and Restore | Microsoft Docs
+title: Service Fabric Backup and Restore | Azure
 description: Conceptual documentation for Service Fabric Backup and Restore
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: subramar,jessebenson
 
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: v-johch
-
+origin.date: 6/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 # Back up and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
@@ -44,11 +44,11 @@ For example, a replica that has 16 GB of state will have checkpoints that add up
 If we have an Recovery Point Objective of 5 minutes, the replica needs to be backed up every 5 minutes.
 Each time it backs up it will need to copy 16 GB of checkpoints in addition to 50 MB (configurable using **CheckpointThresholdInMB**) worth of logs.
 
-![Full Backup Example.](./media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
+![Full Backup Example.](media/service-fabric-reliable-services-backup-restore/FullBackupExample.PNG)
 
 The solution to this problem is incremental backups, where only the log records since the last backup are backed up.
 
-![Incremental Backup Example.](./media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
+![Incremental Backup Example.](media/service-fabric-reliable-services-backup-restore/IncrementalBackupExample.PNG)
 
 Since incremental backups are only changes since the last backup (does not include the checkpoints), they tend to be faster but they cannot be restored on their own.
 To restore an incremental backup, the entire backup chain is required.
@@ -174,11 +174,7 @@ Note that:
 * When you restore, there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this, you should restore only as a last resort to recover as much data as possible.
 * The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters, depending on the FabricDataRoot path and Application Type name's length. This can cause some .NET methods, like **Directory.Move**, to throw the **PathTooLongException** exception. One workaround is to directly call kernel32 APIs, like **CopyFile**.
 
-
-
-
 ## Backup and restore Reliable Actors
-
 
 Reliable Actors Framework is built on top of Reliable Services. The ActorService which hosts the actor(s) is a stateful reliable service. Hence, all the backup and restore functionality available in Reliable Services is also available to Reliable Actors (except behaviors that are state provider specific). Since backups will be taken on a per-partition basis, states for all actors in that partition will be backed up (and restoration is similar and will happen on a per-partition basis). To perform backup/restore, the service owner should create a custom actor service class that derives from ActorService class and then do backup/restore similar to Reliable Services as described above in previous sections.
 
@@ -189,7 +185,7 @@ class MyCustomActorService : ActorService
             : base(context, actorTypeInfo)
      {                  
      }
-    
+
     //
    // Method overrides and other code.
     //
@@ -212,7 +208,7 @@ class MyCustomActorService : ActorService
             : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
      {                  
      }
-    
+
     //
    // Method overrides and other code.
     //
@@ -236,7 +232,7 @@ When doing restore from a backup chain, similar to Reliable Services, the Backup
 It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the **Invoke-ServiceFabricPartitionDataLoss** cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well.
 
 > [!NOTE]
-> You can find a sample implementation of backup and restore functionality in the Web Reference App on Github. Please look at the Inventory.Service service for more details.
+> You can find a sample implementation of backup and restore functionality in the Web Reference App on GitHub. Please look at the Inventory.Service service for more details.
 > 
 > 
 
@@ -271,3 +267,4 @@ This step ensures that the recovered state is consistent.
 * [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
 * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
+<!--Update_Description: update meta properties-->
