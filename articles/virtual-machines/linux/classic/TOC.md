@@ -19,6 +19,7 @@
 ### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
+### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
 
 ## Use Storage

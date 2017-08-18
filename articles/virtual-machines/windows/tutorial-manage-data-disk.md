@@ -47,7 +47,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 6144 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D series | 6144 |
 
 ## Azure data disks
 
@@ -59,7 +59,7 @@ Additional data disks can be added for installing applications and storing data.
 |----|----|----|
 | [General purpose](sizes-general.md) | A and D series | 32 |
 | [Compute optimized](sizes-compute.md) | F series | 32 |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D and G series | 64 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D series | 64 |
 
 ## VM disk types
 
@@ -71,7 +71,7 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 
 ### Premium disk
 
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type will be P10, between 129 and 512 P20, and over 512 P30. 
+Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type will be P10, between 129 and 512 P20, and over 512 P30. 
 
 ### Premium disk performance
 

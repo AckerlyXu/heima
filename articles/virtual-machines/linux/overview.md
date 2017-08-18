@@ -14,12 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2016
-ms.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017, mvc
 ---
 # Azure and Linux
 Azure is a growing collection of integrated public cloud services including analytics, Virtual Machines, databases, mobile, networking, storage, and web&mdash;ideal for hosting your solutions.  Azure provides a scalable computing platform that allows you to only pay for what you use, when you want it - without having to invest in on-premises hardware.  Azure is ready when you are to scale your solutions up and out to whatever scale you require to service the needs of your clients.
+
+If you are familiar with the various features of Amazon's AWS, you can examine the Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 ## Availability
 We announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for our standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
@@ -71,7 +73,7 @@ Microsoft works closely with our partners to ensure the images available are upd
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://portal.azure.cn/#create/SUSE.SUSELinuxEnterpriseServer12SP2)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://portal.azure.cn/#create/Canonical.UbuntuServer1604LTS)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://portal.azure.cn/#create/credativ.Debian8)
-* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103)
+* FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 * CoreOS - [Azure Marketplace - CoreOS (Stable)](https://portal.azure.cn/#create/CoreOS.CoreOSStable)
 
 ## Getting started with Linux on Azure
@@ -117,3 +119,5 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!
 
 * [Explore our growing list of Sample Scripts for common tasks via AzureCLI](cli-samples.md)
+
+<!--Update_Description: wording update-->

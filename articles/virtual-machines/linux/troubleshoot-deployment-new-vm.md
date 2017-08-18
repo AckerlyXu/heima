@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/09/2016
-ms.date: 02/20/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 
 ---
@@ -24,6 +24,10 @@ ms.author: v-dazen
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## Top issues
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+For other VM deployment issues and questions, see [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md).
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
@@ -82,3 +86,5 @@ This error arises in situations when the new VM request is pinned to a cluster t
 
 ## Next steps
 If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: add section "Top Issues"-->
