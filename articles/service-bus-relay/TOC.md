@@ -4,6 +4,7 @@
 
 # Get Started
 ## [Create a namespace](relay-create-namespace-portal.md)
+## [Create a hybrid on-premises/cloud application](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybrid Connections
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
@@ -26,7 +27,9 @@
 ## [Port settings](relay-port-settings.md)
 
 # Resources
-## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
-## [Pricing](https://www.azure.cn/pricing/details/messaging/)
+
+
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Pricing](https://www.azure.cn/pricing/details/messaging/)
+## [Samples](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)
