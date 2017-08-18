@@ -114,7 +114,7 @@ You can use carriers like FedEx or the China Postal Service to ship your drives 
 
 **Shipping drives from the data center:**
 
-When creating an import or export job, you must provide a return address for Microsoft to use when shipping the drives back after your job is complete. Please make sure you provide a valid return address to avoid delays in processing.
+When creating an import or export job, you must provide a return address for 21Vainet to use when shipping the drives back after your job is complete. Please make sure you provide a valid return address to avoid delays in processing.
 
 You can use a carrier of your choice in order to forward ship the hard disk. The carrier should have appropriate tracking in order to maintain chain of custody. You must also provide a valid China Postal Service account number to be used by Microsoft for shipping the drives back. If you already have a carrier account number, please verify that it is valid.
 
@@ -437,7 +437,7 @@ One import or export job can reference only 10 drives in a single job for the Im
 
 No. All drives are encrypted with BitLocker.
 
-**Can I purchase drives for import/export jobs from Microsoft?**
+**Can I purchase drives for import/export jobs from 21Vianet?**
 
 No. You will need to ship your own drives for both import and export jobs.
 
@@ -463,9 +463,9 @@ Please ship only your hard drives. Do not include items like power supply cables
 
 You can ship drives to the data center using any known carrier like FedEx or China Postal Service. However, for shipping the drives back to you from the data center, you must provide a available address.
 
-**Are there any restrictions with shipping my drive internationally?**
+**Are there any restrictions with shipping my drive?**
 
-Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches 21Vianet in a timely manner.
 
 **When creating a job, the shipping address is a location that is different from my storage account location. What should I do?**
 
