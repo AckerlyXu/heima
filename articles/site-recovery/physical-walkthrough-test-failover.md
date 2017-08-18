@@ -26,8 +26,15 @@ This article describes how to run a test failover from on-premises physical serv
 
 Before you run a test failover we recommend that you verify the server properties, and make any changes you need to. you can access the VM properties in **Replicated items**. The **Essentials** blade shows information about machine settings and status.
 
-<!-- Not Available ## Managed disk considerations -->
+## Managed disk considerations
 
+[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
+
+- When you enable protection for a server, VM data replicates to a storage account. Managed disks are created and attached to the VM only when failover occurs.
+- Managed disks can be created only for Azure VMs deployed using the Resource Manager model.  
+- With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected.
+- [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) about managed disks and availability sets.
+- If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 ## Network considerations
 

@@ -103,6 +103,7 @@ To create the web server VM, complete the following steps:
 
     |**Setting**|**Value**|**Details**|
     |---|---|---|
+	|**Storage: Use managed disks**|*Yes*||
     |**Virtual network**| Select *MyVNet*|You can select any VNet that exists in the same location as the VM you're creating. To learn more about VNets and subnets, read the [Virtual network](virtual-networks-overview.md) article.|
     |**Subnet**|Select *Front-end*|You can select any subnet that exists within the VNet.|
     |**Public IP address**|Accept the default|A public IP address enables you to connect to the VM from the Internet. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.|
@@ -136,6 +137,7 @@ To create the database server VM, complete the following steps:
 
     |**Setting**|**Value**|**Details**|
     |----|----|---|
+	|**Storage: Use managed disks**|*Yes*||
     |**Virtual network**|Select *MyVNet*|You can select any VNet that exists in the same location as the VM you're creating.|
     |**Subnet**|Select *Back-end* by clicking the **Subnet** box, then selecting **Back-end** from the **Choose a subnet** blade|You can select any subnet that exists within the VNet.|
     |**Public IP address**|None - Click the default address, then click **None** from the **Choose public IP address** blade|Without a public IP address, you can only connect to the VM from another VM connected to the same VNet. You cannot connect to it directly from the Internet.|
