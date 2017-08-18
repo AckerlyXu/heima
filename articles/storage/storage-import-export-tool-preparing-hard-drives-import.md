@@ -33,8 +33,8 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 ### Preparing disk for import job
 
-- **BitLocker -** BitLocker must be enabled on the machine running the WAImportExport tool. See the [FAQ](#faq) for how to enable BitLocker.
-- **Disks** accessible from machine on which WAImportExport Tool is run. See [FAQ](#faq) for disk specification.
+- **BitLocker** - BitLocker must be enabled on the machine running the WAImportExport tool. See the [FAQ](#faq) for how to enable BitLocker.
+- **Disks** - accessible from machine on which WAImportExport Tool is run. See [FAQ](#faq) for disk specification.
 - **Source files** - The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
 ### Repairing a partially failed import job
@@ -313,7 +313,7 @@ If the data size is greater than the disk size, the WAImportExport tool will dis
 
 #### Where can I find previous version of WAImportExport tool?
 
-WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple sources and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
+WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple sources and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
 
 #### What is a session ID?
 

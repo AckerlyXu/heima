@@ -386,10 +386,6 @@ Also, you can refer to [Azure File storage Troubleshooting Article](storage-trou
 ## Next steps
 See these links for more information about Azure File storage.
 
-### Conceptual articles and videos
-* [Azure File storage: a frictionless cloud SMB file system for Windows and Linux](https://www.azure.cn/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md)
-
 ### Tooling support for File storage
 * [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
 * [How to use AzCopy with Azure Storage](storage-use-azcopy.md)
@@ -399,11 +395,5 @@ See these links for more information about Azure File storage.
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-
-### Blog posts
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Azure File storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 <!--Update_Description: wording update - only remain dotnet related-->
