@@ -110,11 +110,14 @@ The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
-
+* Availability sets with Virtual Machines with Managed Disks
 * Express Route
 * DevTest Labs - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
+* Images created from Managed Disks
+* Managed Disks
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
+* Snapshots created from Managed Disks
 * Virtual Machines with Managed Disks
 * Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 

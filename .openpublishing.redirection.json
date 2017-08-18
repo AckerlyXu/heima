@@ -461,6 +461,11 @@
       "redirect_document_id": "false"
     },
     {
+        "source_path": "articles/cosmos-db/welcome-documentdb-customers.md",
+        "redirect_url": "/cosmos-db/faq#moving-to-cosmos-db",
+        "redirect_document_id": "false"
+    },
+    {
       "source_path": "articles/event-hubs/event-hubs-availability-and-support-faq.md",
       "redirect_url": "/event-hubs/event-hubs-faq",
       "redirect_document_id": "false"
