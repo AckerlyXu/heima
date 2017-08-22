@@ -46,6 +46,9 @@
 ### [Configure using Git](./api-management-configuration-repository-git.md)
 ### [Monitor using Azure Monitor](./api-management-howto-use-azure-monitor.md)
 ### [Use role-based access control](./api-management-role-based-access-control.md)
+### Integrate with Service Fabric
+#### [Overview](../service-fabric/service-fabric-api-management-overview.md)
+#### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
 # Reference
 ## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
@@ -72,15 +75,13 @@
 ### [Page controls](./api-management-page-controls.md)
 ### [Template resources](./api-management-template-resources.md)
 # Resources
-## [Pricing](https://www.azure.cn/pricing/details/api-management/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
-## [Service updates](https://azure.microsoft.com/updates/?product=api-management)
-## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)
-## [Consume SOAP WCF services over HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
-## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
+## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
+## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
+## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [Consume SOAP WCF services over HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
+## [Pricing](https://www.azure.cn/pricing/details/api-management/)
 ## [Provide RBAC-like access using the REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Set up PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
-## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
