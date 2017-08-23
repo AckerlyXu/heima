@@ -28,7 +28,7 @@ For BCDR, it is recommended to add regions based on the region pairs described i
 
 <!--
 
-## <a id="selectwriteregion"></a>Select the write region
+## <a name="selectwriteregion"></a>Select the write region
 
 While all regions associated with your Cosmos DB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
 
