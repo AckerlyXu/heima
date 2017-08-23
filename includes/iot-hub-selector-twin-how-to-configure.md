@@ -1,6 +1,9 @@
 > [!div class="op_single_selector"]
->- [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
->- [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
+> 
+> 
 
 ## Introduction
 In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
@@ -9,7 +12,7 @@ In this tutorial, you will learn how to use the the device twin's *desired prope
 
 At a high level, using device twins enables the solution back end to specify the desired configuration for the managed devices, instead of sending specific commands. This puts the device in charge of setting up the best way to update its configuration (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the solution back end the current state and potential error conditions of the update process. This pattern is instrumental to the management of large sets of devices, as it enables the solution back end to have full visibility of the state of the configuration process across all devices.
 
-> [AUZRE.NOTE]
+> [!NOTE]
 > In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [direct methods][lnk-methods].
 > 
 > 

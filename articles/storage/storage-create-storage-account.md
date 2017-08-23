@@ -3,7 +3,7 @@ title: How to create, manage, or delete a storage account in the Azure portal | 
 description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
-author: forester123
+author: hayley244
 manager: digimobile
 editor: tysonn
 
@@ -13,11 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords: 
-  - "sql13.swb.windowsazurestorage.connect.f1"
 origin.date: 01/23/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
 # About Azure storage accounts
@@ -111,7 +109,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 > We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
 > 
 > 
-
+<a id="view-and-copy-storage-access-keys"/></a>
 #### View and copy storage access keys
 
 In the [Azure portal](https://portal.azure.cn), navigate to your storage account, click **All settings** and then click **Access keys** to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
@@ -170,3 +168,5 @@ For more information, see the [Azure Virtual Machine documentation](../virtual-m
 * [Configure Azure Storage Connection Strings](storage-configure-connection-string.md)
 * [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 * Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+
+<!--Update_Description: update link references - add a bookmark-->

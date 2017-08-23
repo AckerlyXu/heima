@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 05/08/2017
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -49,7 +49,7 @@ Site Recovery can replicate any app running on a supported machine. In addition 
 | System Center Operations Manager |Y |Y |Y |Y |
 | Sharepoint |Y |Y |Y |Y |
 | SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
-| Exchange (non-DAG) |Y |Coming soon |Y |Y |
+| Exchange (non-DAG) |Y |Y |Y |Y |
 | Remote Desktop/VDI |Y |Y |Y |N/A |
 | Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
 | Dynamics AX |Y |Y |Y |Y |
@@ -147,3 +147,5 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 
 ## Next steps
 [Check prerequisites](site-recovery-prereq.md) 
+
+<!--Update_Description: update meta properties, wording update-->

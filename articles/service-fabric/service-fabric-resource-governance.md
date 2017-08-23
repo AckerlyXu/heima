@@ -3,8 +3,8 @@ title: Azure Service Fabric Resource Governance for Containers and Services | Az
 description: Azure Service Fabric allows you to specify resource limits for services running inside or outside containers.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,8 +13,9 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 
 # Resource governance 
@@ -49,7 +50,7 @@ Capacity should be defined manually in each node type in the cluster as follows:
       </Capacities>
     </NodeType>
 ```
- 
+
 Resource governance is allowed only on user services and not on any system services. When specifying capacity, some cores and memory must be left unallocated for system services. For optimal performance, the following setting should also be turned on in the cluster manifest: 
 
 ```xml
@@ -58,7 +59,6 @@ Resource governance is allowed only on user services and not on any system servi
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
-
 
 ## Specifying resource governance 
 
@@ -83,7 +83,7 @@ Resource governance limits are specified in the application manifest (ServiceMan
     </Policies>
   </ServiceManifestImport>
 ```
-  
+
 In this example, service package ServicePackageA gets one core on the nodes where it is placed. This service package contains two code packages (CodeA1 and CodeA2), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. Thus, in this example, CodeA1 gets two-thirds of a core, and  CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). In case when CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
 
 Memory limits are absolute, so both code packages are limited to 1024 MB of memory (and a soft-guarantee reservation of the same). Code packages (containers or processes) are not able to allocate more memory than this limit, and attempting to do so results in an out-of-memory exception. For resource limit enforcement to work, all code packages within a service package should have memory limits specified.
@@ -92,3 +92,5 @@ Memory limits are absolute, so both code packages are limited to 1024 MB of memo
 ## Next steps
 * To learn more about Cluster Resource Manager, read this [article](service-fabric-cluster-resource-manager-introduction.md).
 * To learn more about application model, service packages, code packages and how replicas map to them read this [article](service-fabric-application-model.md).
+
+<!--Update_Description: update meta properties-->

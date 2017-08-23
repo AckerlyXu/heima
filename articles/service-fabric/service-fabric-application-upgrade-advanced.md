@@ -1,10 +1,10 @@
 ---
-title: Advanced Application Upgrade Topics | Microsoft Docs
+title: Advanced Application Upgrade Topics | Azure
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric application upgrade: advanced topics
@@ -96,3 +97,5 @@ Control how your application upgrades by using [Upgrade Parameters](service-fabr
 Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
+
+<!--Update_Description: update meta properties-->

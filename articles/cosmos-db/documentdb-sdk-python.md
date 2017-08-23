@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -22,15 +22,17 @@ ms.custom: H1Hack27Feb2017
 # DocumentDB Python SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/zh-cn/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/zh-cn/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [SQL](documentdb-sql-query-reference.md)
 > 
 > 
+<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -55,3 +57,5 @@ ms.custom: H1Hack27Feb2017
 
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
+
+<!--Update_Description: update link-->

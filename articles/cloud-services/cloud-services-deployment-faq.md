@@ -1,9 +1,9 @@
 ---
-title: Deployment issues for Microsoft Azure Cloud Services FAQ| Azure
+title: Deployment issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 07/31/2017
 
 ---
 # Deployment issues for Azure Cloud Services: Frequently asked questions (FAQs)
@@ -59,4 +59,6 @@ You cannot change the VM size of a deployed cloud service without redeploying it
 
 For more information, see [How to update a cloud service](./cloud-services-update-azure-service.md).
 
+
+<!--Update_Description: update meta data only -->
  

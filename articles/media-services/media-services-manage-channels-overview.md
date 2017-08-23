@@ -13,13 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 02/24/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 ---
-
 # Overview of Live Streaming using Azure Media Services
+
 ## Overview
+
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 
 * A camera that is used to broadcast an event.
@@ -54,7 +55,8 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 * **None** (pass-through) – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  
 * **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. This method is more economical for scaling up quickly for infrequent events. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
-##<a name="closed-captioning-and-ad-insertion"></a> Comparison of Channel Types
+## <a name="closed-captioning-and-ad-insertion"></a> Comparison of Channel Types
+
 Following table provides a guide to comparing the two Channel types supported in Media Services
 
 Feature|Pass-through Channel|Standard Channel
@@ -73,6 +75,7 @@ Support for variable frame rate input|Yes|No – input must be fixed frame rate.
 Auto-shutoff of Channels when input feed is lost|No|After 12 hours, if there is no Program running 
 
 ## Working with Channels that receive multi-bitrate live stream from on-premises encoders (pass-through)
+
 The following diagram shows the major parts of the AMS platform that are involved in the **pass-through** workflow.
 
 ![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -87,7 +90,9 @@ The following diagram shows the major parts of the AMS platform that are involve
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](./media-services-manage-live-encoder-enabled-channels.md).
 
 ## Description of a Channel and its related components
+
 ### Channel
+
 In Media Services, [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
 You can get the ingest URL and the preview URL when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data from a live transcoder into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream.
@@ -95,6 +100,7 @@ You can get the ingest URL and the preview URL when you create the channel. To g
 Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
 
 ### Program
+
 A [Program](https://docs.microsoft.com/rest/api/media/operations/program) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
 You can specify the number of hours you want to retain the recorded content for the program by setting the **ArchiveWindowLength** property. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. 
 
@@ -105,6 +111,7 @@ Each program is associated with an Asset. To publish the program you must create
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
 ## Billing Implications
+
 A channel begins billing as soon as it's state transitions to "Running" via the API.  
 
 The following table shows how Channel states map to billing states in the API and Azure portal. Note that the states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure portal, billing will be active.
@@ -116,6 +123,7 @@ You are responsible for stopping your channels when you are done with the channe
 >When working with Standard channels, AMS will auto shutoff any Channel that is still in “Running” state 12 hours after the input feed is lost, and there are no Programs running. However, you will still be billed for the time the Channel was in “Running” state.
 
 ### <a id="states"></a>Channel states and how they map to the billing mode
+
 The current state of a Channel. Possible values include:
 
 * **Stopped**. This is the initial state of the Channel after its creation (unless autostart was selected in the portal.) No billing occurs in this state. In this state, the Channel properties can be updated but streaming is not allowed.
@@ -134,6 +142,7 @@ Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
 ## Related topics
+
 [Azure Media Services Fragmented MP4 Live Ingest Specification](./media-services-fmp4-live-ingest-overview.md)
 
 [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](./media-services-manage-live-encoder-enabled-channels.md)
@@ -143,3 +152,5 @@ Stopped|Stopped|No
 [Quotas and limitations](./media-services-quotas-and-limitations.md).  
 
 [Media Services Concepts](./media-services-concepts.md)
+
+<!--Update_Description: update meta data-->

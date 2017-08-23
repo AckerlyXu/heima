@@ -3,8 +3,8 @@ title: Azure AD Connect Multiple Domains
 description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/07/2017
-ms.date: 03/07/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Multiple Domain Support for Federating with Azure AD
 The following documentation provides guidance on how to use multiple top-level domains and sub-domains when federating with Office 365 or Azure AD domains.
 
@@ -100,14 +100,14 @@ Use the following steps to remove the Microsoft Online trust and update your ori
 2. On the left, expand **Trust Relationships** and **Relying Party Trusts**
 3. On the right, delete the **Microsoft Office 365 Identity Platform** entry.
    ![Remove Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
-4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/zh-cn/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+4. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
 5. Enter the username and password of a global administrator for the Azure AD domain you are federating with
 6. In PowerShell enter `Connect-MsolService -Credential $cred`
 7. In PowerShell enter `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  This is for the original domain.  So using the above domains it would be:  `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Use the following steps to add the new top-level domain using PowerShell
 
-1. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/zh-cn/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
+1. On a machine that has [Azure Active Directory Module for Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) installed on it run the following: `$cred=Get-Credential`.  
 2. Enter the username and password of a global administrator for the Azure AD domain you are federating with
 3. In PowerShell enter `Connect-MsolService -Credential $cred`
 4. In PowerShell enter `New-MsolFederatedDomain -SupportMultipleDomain -DomainName`
@@ -167,3 +167,5 @@ Use the following steps to add a custom claim to support sub-domains.
     ![Replace claim](./media/active-directory-multiple-domains/sub2.png)
 
 5. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
+
+<!-- Update_Description: update meta properties -->

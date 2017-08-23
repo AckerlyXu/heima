@@ -34,7 +34,7 @@ This topic describes the scalability and performance topics for Azure Storage. F
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for information on volume pricing.
 
-##<a name="scalability-targets-for-premium-storage-accounts"></a><a name="scalability-targets-for-standard-storage-accounts"></a><a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="premium-storage-accounts"></a><a name="standard-storage-accounts"></a> Scalability targets for blobs, queues, tables, and files
+##<a name="scalability-targets-for-blobs-queues-tables-and-files"></a><a name="standard-storage-accounts"></a> Scalability targets for blobs, queues, tables, and files
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->

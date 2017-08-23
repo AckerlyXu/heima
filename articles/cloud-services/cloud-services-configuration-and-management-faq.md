@@ -3,7 +3,7 @@ title: Configuration and management issues for Azure Cloud Services FAQ| Azure
 description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/09/2017
+origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 07/31/2017
 ---
 # Configuration and management issues for Azure Cloud Services: Frequently asked questions (FAQs)
 
@@ -131,3 +131,6 @@ See the following guidance document:
 >[Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
 Please note that a CSR is just a text file. It does NOT have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
+
+
+<!--Update_Description: update meta data only -->

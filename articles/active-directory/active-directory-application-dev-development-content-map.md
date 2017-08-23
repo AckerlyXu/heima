@@ -3,15 +3,16 @@ title: Problems developing my application"
 description: Problems developing my application"
 services: active-directory
 documentationcenter: ''
-author: ajamess
-manager: kbrint
+author: alexchen2016
+manager: digimobile
 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+origin.date: 07/11/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
 
 ---
@@ -24,3 +25,5 @@ ms.author: v-junlch
 
   - [I am confused about how application consent works](application-dev-consent-framework.md)
   - [I don't understand the difference between delegated and application permissions](application-dev-delegated-and-app-perms.md)
+
+<!--Update_Description: update meta properties -->   

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/12/2017
-ms.date: 03/24/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-yiso
 ---
 
 # Verifying ExpressRoute Connectivity
-ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
+ExpressRoute, which extends an on-premises network into the Microsoft cloud over a private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
 - 	Customer Network
 -  	Provider Network
@@ -452,3 +452,4 @@ For more information or help, check out the following links:
 [CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
 [OldPortal]: https://manage.windowsazure.cn
 [ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+<!--Update_Description:update meta properties and wording-->

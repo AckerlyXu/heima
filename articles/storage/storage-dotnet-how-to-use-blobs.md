@@ -3,7 +3,7 @@ title: Get started with Azure Blob storage (object storage) using .NET | Azure
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: mmacy
+author: hayley244
 manager: timlt
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/27/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 ---
 # Get started with Azure Blob storage using .NET
 
@@ -46,7 +46,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 Add the following **using** directives to the top of the `Program.cs` file:
 
 ```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```
@@ -396,3 +396,5 @@ to learn more.
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 * [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
 * [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+
+<!--Update_Description: update code - update a namespace -->

@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/12/2017
+origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 08/21/2017
 ---
 # Connect a virtual network to an ExpressRoute circuit
 > [!div class="op_single_selector"]
@@ -56,8 +56,8 @@ You can share an ExpressRoute circuit across multiple subscriptions. The followi
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization can use their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization can use the ExpressRoute circuit.
 
->[!NOTE]
-> Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
+> [!NOTE]
+> Connectivity and bandwidth charges for the ExpressRoute circuit will be applied to the subscription owner. All virtual networks share the same bandwidth.
 > 
 > 
 
@@ -172,3 +172,7 @@ The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 ## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).
+
+
+
+<!--Update_Description:update meta properties and wording-->

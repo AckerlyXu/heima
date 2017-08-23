@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 04/17/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -118,3 +118,5 @@ This configuration incorporates:
 
 ## Next steps
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Ring Buffer target code for extended events in SQL Database
@@ -35,7 +35,7 @@ This topic presents a Transact-SQL code sample that:
    * Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 3. Starts the event session.
 4. Issues a couple of simple SQL UPDATE statements.
-5. Issues an SQL SELECT to retrieve event output from the Ring Buffer.
+5. Issues a SQL SELECT statement to retrieve event output from the Ring Buffer.
 
    * **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 6. Stops the event session.
@@ -340,3 +340,5 @@ Other code sample topics for extended events are available at the following link
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
+
+<!--Update_Description: wording update -->

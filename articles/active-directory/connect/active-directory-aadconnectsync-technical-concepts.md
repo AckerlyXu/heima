@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Technical concepts | Microsoft Docs'
 description: Explains the technical concepts of Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/24/2017
-ms.date: 06/12/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -89,3 +89,4 @@ Whenever a rule determines that a new connector space object needs to be created
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
+<!-- Update_Description: update meta properties -->

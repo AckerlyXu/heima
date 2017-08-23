@@ -30,7 +30,7 @@ Log Analytics collects data from managed resources, including an Azure storage t
 
 When OMS is configured, you will have access to a specific *OMS workspace*, from where data can be queried or visualized in dashboards.
 
-After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters.
+After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions . Each solution that you choose to use for a cluster will be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and visualization of data, and modifications to the data you want to collect, process, and analyze.
 <!-- Not Available [here](/operations-management-suite/operations-management-suite-solutions). -->
 
 ## Setting up an OMS workspace with the Service Fabric Solution
@@ -106,3 +106,5 @@ In the creation step, it requests an OMS workspace. Select the one that was crea
 <!-- Not Available * For on-premise clusters, OMS offers a Gateway (HTTP Forward Proxy) that can be used to send data to OMS. Read more about that in [Connecting computers without Internet access to OMS using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) -->
 <!-- Not Available * Configure OMS to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics -->
 <!-- Not Available * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics -->
+
+<!--Update_Description: update meta properties, wording update-->

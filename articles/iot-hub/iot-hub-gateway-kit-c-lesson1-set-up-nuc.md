@@ -4,7 +4,7 @@ description: Set up Intel NUC to work as an IoT gateway between a sensor and Azu
 services: iot-hub
 documentationcenter: ''
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: ''
 keywords: 'iot gateway, intel nuc, nuc computer, DE3815TYKE'
 
@@ -14,9 +14,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+origin.date: 03/21/2017
 ms.author: v-yiso
-
+ms.date: 08/14/2017
 ---
 # Set up Intel NUC as an IoT gateway
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -100,6 +100,12 @@ Follow these steps to install the package.
    ```
 
    > Enter 'y', when it prompts you to 'Include this channel?'
+   
+   If you receive an `import read failed(-1)` error, use the following commands to resolve the issue:
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
    The `rpm` command imports the rpm key. The `smart channel` command adds the rpm channel to the Smart Package Manager. Before you run the `smart update` command, you will see an output like below.
 
@@ -166,3 +172,4 @@ Congratulations! You've finished setting up Intel NUC as a gateway. Now you're r
 ## Next steps
 [Use an IoT gateway to connect a device to Azure IoT Hub](./iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
+<!--Update_Description: add some code-->

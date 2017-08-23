@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL Database by using Java | Azure
-description: Presents a Java code sample you can use to connect to and query Azure SQL Database.
+title: Use Java to query Azure SQL Database | Azure
+description: This topic shows you how to use Java to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
 author: Hayley244
@@ -14,82 +14,79 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-origin.date: 05/23/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+origin.date: 07/10/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
-# Azure SQL Database: Use Java to connect and query data
+# Use Java to query an Azure SQL database
 
-This quick start demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database; then use Transact-SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms.
+This quick start demonstrates how to use [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database and then use Transact-SQL statements to query data.
 
 ## Prerequisites
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+To complete this quick start tutorial, make sure you have the following prerequisites:
+
+- An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
 
 - [Create DB - Portal](sql-database-get-started-portal.md)
 - [Create DB - CLI](sql-database-get-started-cli.md)
 - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
-## Install Java software
+- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 
-The steps in this section assume that you are familiar with developing using Java and are new to working with Azure SQL Database. If you are new to developing with Java, go the [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) and select **Java** and then select your operating system.
+- You have installed Java and related software for your operating system.
 
-### **Mac OS**
-Open your terminal and navigate to a directory where you plan on creating your Java project. Install **brew** and **Maven** by entering the following commands: 
+    - **MacOS**: Install Homebrew and Java, and then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+    - **Ubuntu**:  Install the Java Development Kit, and install Maven. See [Step 1.2, 1.3, and 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+    - **Windows**: Install the Java Development Kit, and Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install maven
-```
-
-### **Linux (Ubuntu)**
-Open your terminal and navigate to a directory where you plan on creating your Java project. Install **Maven** by entering the following commands:
-
-```bash
-sudo apt-get install maven
-```
-
-### **Windows**
-Install [Maven](https://maven.apache.org/download.cgi) using the official installer. Use Maven to help manage dependencies, build, test and run your Java project. 
-
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
 1. Log in to the [Azure Portal](https://portal.azure.cn/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option. 
+3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image: You can hover over the server name to bring up the **Click to copy** option.  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
-5. Click **Show database connection strings**.
+4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name.  if necessary, reset the password.     
 
-6. Review the complete **JDBC** connection string.
+## **Create Maven project and dependencies**
+1. From the terminal, create a new Maven project called **sqltest**. 
 
-    ![JDBC connection string](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)	
-
-### **Create Maven project**
-From the terminal, create a new Maven project. 
 ```bash
-mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
 ```
 
-Add the **Microsoft JDBC Driver for SQL Server** to the dependencies in ***pom.xml***. 
+2. Enter **Y** when prompted.
+3. Change directory to **sqltest** and open ***pom.xml*** with your favorite text editor.  Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code:
 
 ```xml
 <dependency>
 	<groupId>com.microsoft.sqlserver</groupId>
 	<artifactId>mssql-jdbc</artifactId>
-	<version>6.1.0.jre8</version>
+       <version>6.2.1.jre8</version>
 </dependency>
 ```
 
-## Select data
+4. Also in ***pom.xml***, add the following properties to your project.  If you don't have a properties section, you can add it after the dependencies.
 
-Use the following code to query for the top 20 products by category using the [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) class with a [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+   ```xml
+   <properties>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+   ```
+
+5. Save and close ***pom.xml***.
+
+## Insert code to query SQL database
+
+1. You should already have a file called ***App.java*** in your Maven project located at:  ..\sqltest\src\main\java\com\sqlsamples\App.java
+
+2. Open the file and replace its contents with the following code and add the appropriate values for your server, database, user, and password.
 
 ```java
 package com.sqldbsamples;
@@ -109,7 +106,7 @@ public class App {
 		String dbName = "your_database";
 		String user = "your_username";
 		String password = "your_password";
-		String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
+		String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
 		Connection connection = null;
 
 		try {
@@ -144,160 +141,20 @@ public class App {
 }
 ```
 
-## Insert data
+## Run the code
 
-Use the following code to insert a new product into the SalesLT.Product table using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL statement. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
+1. At the command prompt, run the following commands:
 
-```java
-package com.sqldbsamples;
+   ```bash
+   mvn package
+   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-	public static void main(String[] args) {
-
-		// Connect to database
-		String hostName = "your_server.database.chinacloudapi.cn";
-		String dbName = "your_database";
-		String user = "your_username";
-		String password = "your_password";
-		String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-		Connection connection = null;
-
-		try {
-				connection = DriverManager.getConnection(url);
-				String schema = connection.getSchema();
-				System.out.println("Successful connection - Schema: " + schema);
-
-				System.out.println("Insert data example:");
-				System.out.println("=========================================");
-
-				// Prepared statement to insert data
-				String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
-					+ " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-
-				java.util.Date date = new java.util.Date();
-				java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
-
-				try (PreparedStatement prep = connection.prepareStatement(insertSql)) {
-						prep.setString(1, "BrandNewProduct");
-						prep.setInt(2, 200989);
-						prep.setString(3, "Blue");
-						prep.setDouble(4, 75);
-						prep.setDouble(5, 80);
-						prep.setTimestamp(6, sqlTimeStamp);
-
-						int count = prep.executeUpdate();
-						System.out.println("Inserted: " + count + " row(s)");
-				}
-		}
-		catch (Exception e) {
-		    	e.printStackTrace();
-		}
-	}
-}
-```
-## Update data
-
-Use the following code to update the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) class with an [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL statement to update data in your Azure SQL database. Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-	public static void main(String[] args) {
-
-		// Connect to database
-		String hostName = "your_server.database.chinacloudapi.cn";
-		String dbName = "your_database";
-		String user = "your_username";
-		String password = "your_password";
-		String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-		Connection connection = null;
-
-		try {
-				connection = DriverManager.getConnection(url);
-				String schema = connection.getSchema();
-				System.out.println("Successful connection - Schema: " + schema);
-
-				System.out.println("Update data example:");
-				System.out.println("=========================================");
-
-				// Prepared statement to update data
-				String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
-
-				try (PreparedStatement prep = connection.prepareStatement(updateSql)) {
-						prep.setString(1, "500");
-						prep.setString(2, "BrandNewProduct");
-
-						int count = prep.executeUpdate();
-						System.out.println("Updated: " + count + " row(s)")
-				}
-		}
-		catch (Exception e) {
-		    	e.printStackTrace();
-		}
-	}
-}
-```
-
-## Delete data
-
-Use the following code to delete the new product that you previously added using the [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) with a [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL statement . Replace the hostHame, dbName, user, and password parameters with the values that you specified when you created the database with the AdventureWorksLT sample data. 
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-	public static void main(String[] args) {
-
-		// Connect to database
-		String hostName = "your_server.database.chinacloudapi.cn";
-		String dbName = "your_database";
-		String user = "your_username";
-		String password = "your_password";
-		String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-		Connection connection = null;
-
-		try {
-				connection = DriverManager.getConnection(url);
-				String schema = connection.getSchema();
-				System.out.println("Successful connection - Schema: " + schema);
-
-				System.out.println("Delete data example:");
-				System.out.println("=========================================");
-
-				// Prepared statement to delete data
-				String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
-
-				try (PreparedStatement prep = connection.prepareStatement(deleteSql)) {
-						prep.setString(1, "BrandNewProduct");
-
-						int count = prep.executeUpdate();
-						System.out.println("Deleted: " + count + " row(s)");
-				}
-        }		
-		catch (Exception e) {
-		    	e.printStackTrace();
-		}
-	}
-}
-```
+2. Verify that the top 20 rows are returned and then close the application window.
 
 ## Next steps
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
+
+<!--Update_Description: update word & code : deleted insert, update, delete sample code-->

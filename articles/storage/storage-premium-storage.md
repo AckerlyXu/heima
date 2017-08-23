@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+origin.date: 06/27/2017
+ms.date: 08/17/2017
+ms.author: v-haiqya
 ---
-
+<!--with managed disk context!!!!!-->
 # High-performance Premium Storage and managed disks for VMs
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) with input/output (I/O)-intensive workloads. VM disks that use Premium Storage store data on solid-state drives (SSDs). To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium Storage.
 
@@ -56,13 +56,11 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
 
-
     Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
 * **Premium page blobs**
 
-    Premium Storage supports page blobs. Use page blobs to store persistent, unmanaged disks for VMs in Premium Storage. Unlike standard Azure Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues. Premium page blobs supports eight sizes from P4 to P50, and P60 (8191GiB). P60 Premium page blob is not supported to be attached as VM disks. 
-
+    Premium Storage supports page blobs. Use page blobs to store persistent, unmanaged disks for VMs in Premium Storage. Unlike standard Azure Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues. Premium page blobs supports six sizes from P10 to P50, and P60 (8191GiB). P60 Premium page blob is not supported to be attached as VM disks. 
 
     Any object placed in a premium storage account will be a page blob. The page blob snaps to one of the supported provisioned sizes. This is why a premium storage account is not intended to be used to store tiny blobs.
 
@@ -91,9 +89,7 @@ These are some of the features of the DS-series, DSv2-series and Fs-series VMs:
 
 * **Cloud service**
 
-
     You can add DS-series VMs to a cloud service that has only DS-series VMs. Do not add DS-series VMs to an existing cloud service that has any type other than DS-series VMs. You can migrate your existing VHDs to a new cloud service that runs only DS-series VMs. If you want to use the same virtual IP address for the new cloud service that hosts your DS-series VMs, use [reserved IP addresses](../virtual-network/virtual-networks-instance-level-public-ip.md).
-
 
 * **Operating system disk**
 
@@ -124,9 +120,7 @@ These are some of the features of the DS-series, DSv2-series and Fs-series VMs:
 
     For example, a STANDARD_DS1 VM has a dedicated bandwidth of 32 MB/s for premium storage disk traffic. A P10 premium storage disk can provide a bandwidth of 100 MB/s. If a P10 premium storage disk is attached to this VM, it can only go up to 32 MB/s. It cannot use the maximum 100 MB/s that the P10 disk can provide.
 
-
-    Currently, the largest VM in the DS-series is the Standard_DS15_v2. The Standard_DS15_v2 can provide up to 960 MB/s across all disks. 
-
+    Currently, the largest VM in the DS-series is the Standard_DS15_v2. The Standard_DS15_v2 can provide up to 960 MB/s across all disks.
 
     Note that these limits are for disk traffic only. These limits don't include cache hits and network traffic. A separate bandwidth is available for VM network traffic. Bandwidth for network traffic is different from the dedicated bandwidth used by premium storage disks.
 
@@ -155,7 +149,7 @@ For more information, see [Azure Storage scalability and performance targets](st
 If you are using premium storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, you might want to migrate to managed disks. If you don't want to migrate to managed disks, build your application to use multiple storage accounts. Then, partition your data across those storage accounts. For example, if you want to attach 51-TB disks across multiple VMs, spread them across two storage accounts. 35 TB is the limit for a single premium storage account. Make sure that a single premium storage account never has more than 35 TB of provisioned disks.
 
 ### Premium Storage disk limits
-When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers three types of premium storage disks: P10, P20, and P30. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
+When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers seven types of premium storage disks: P4(Managed Disks only), P6(Managed Disks only), P10, P20, P30, P40, and P50. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
 
 | Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -172,7 +166,6 @@ When you provision a premium storage disk, the size of the disk determines the m
 Here are some important things to know about Premium Storage scalability and performance targets:
 
 * **Provisioned capacity and performance**
-
 
     When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250 MB/s throughput for that disk. Your application can use all or part of the capacity and performance.
 
@@ -340,3 +333,5 @@ For more information about Premium Storage, see the following articles.
 ### Blog posts
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
+
+<!--Update_Description: wording update-->

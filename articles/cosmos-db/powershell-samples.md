@@ -11,11 +11,11 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ---
 
@@ -37,3 +37,6 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**High availability, disaster recovery, backup and restore**||
 |[Configure failover policy](scripts/ha-failover-policy-powershell.md)|Sets the failover priority of each region in which the account is replicated.|
 |||
+
+<!--Not Available for external TOC file ?toc=%2fpowershell%2fmodule%2ftoc.json -->
+<!--Update_Description: update meta properties-->

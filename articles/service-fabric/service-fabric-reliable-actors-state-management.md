@@ -13,12 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/10/2017
-ms.date: 07/17/2017
+origin.date: 06/29/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-
 ---
-
 # Reliable Actors state management
 Reliable Actors are single-threaded objects that can encapsulate both logic and state. Because actors run on Reliable Services, they can maintain state reliably by using the same persistence and replication mechanisms that Reliable Services uses. This way, actors don't lose their state after failures, upon reactivation after garbage collection, or when they are moved around between nodes in a cluster due to resource balancing or upgrades.
 
@@ -34,7 +32,6 @@ Even though actors are considered stateful, that does not mean they must store s
 Each level of persistence is simply a different *state provider* and *replication* configuration of your service. Whether or not state is written to disk depends on the state provider--the component in a reliable service that stores state. Replication depends on how many replicas a service is deployed with. As with Reliable Services, both the state provider and replica count can easily be set manually. The actor framework provides an attribute that, when used on an actor, automatically selects a default state provider and automatically generates settings for replica count to achieve one of these three persistence settings. The StatePersistence attribute is not inherited by derived class, each Actor type must provide its StatePersistence level.
 
 ### Persisted state
-
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
@@ -51,7 +48,6 @@ class MyActorImpl  extends FabricActor implements MyActor
 This setting uses a state provider that stores data on disk and automatically sets the service replica count to 3.
 
 ### Volatile state
-
 ```csharp
 [StatePersistence(StatePersistence.Volatile)]
 class MyActor : Actor, IMyActor
@@ -68,7 +64,6 @@ class MyActorImpl extends FabricActor implements MyActor
 This setting uses an in-memory-only state provider and sets the replica count to 3.
 
 ### No persisted state
-
 ```csharp
 [StatePersistence(StatePersistence.None)]
 class MyActor : Actor, IMyActor
@@ -109,7 +104,7 @@ You can change these parameters manually. But each time the `StatePersistence` a
 </ApplicationManifest>
 ```
 
-## State Manager
+## State manager
 Every actor instance has its own state manager: a dictionary-like data structure that reliably stores key/value pairs. The state manager is a wrapper around a state provider. You can use it to store data regardless of which persistence setting is used. It does not provide any guarantees that a running actor service can be changed from a volatile (in-memory-only) state setting to a persisted state setting through a rolling upgrade while preserving data. However, it is possible to change replica count for a running service.
 
 State manager keys must be strings. Values are generic and can be any type, including custom types. Values stored in the state manager must be data contract serializable because they might be transmitted over the network to other nodes during replication and might be written to disk, depending on an actor's state persistence setting.
@@ -140,7 +135,6 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl extends FabricActor implements  MyActor
@@ -179,7 +173,6 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
-
 ```Java
 class MyActorImpl extends FabricActor implements  MyActor
 {
@@ -201,7 +194,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ### Saving state
-
 The state manager retrieval methods return a reference to an object in local memory. Modifying this object in local memory alone does not cause it to be saved durably. When an object is retrieved from the state manager and modified, it must be reinserted into the state manager to be saved durably.
 
 You can insert state by using an unconditional *Set*, which is the equivalent of the `dictionary["key"] = value` syntax:
@@ -221,7 +213,6 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl extends FabricActor implements  MyActor
@@ -293,7 +284,6 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl extends FabricActor implements  MyActor
@@ -327,7 +317,6 @@ async Task IMyActor.SetCountAsync(int count)
     await this.SaveStateAsync();
 }
 ```
-
 ```Java
 interface MyActor {
     CompletableFuture setCountAsync(int count)
@@ -351,13 +340,13 @@ class MyActor : Actor, IMyActor
         : base(actorService, actorId)
     {
     }
+
     public Task RemoveCountAsync()
     {
         return this.StateManager.RemoveStateAsync("MyState");
     }
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl extends FabricActor implements  MyActor
@@ -396,7 +385,6 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl extends FabricActor implements  MyActor
@@ -419,9 +407,9 @@ class MyActorImpl extends FabricActor implements  MyActor
 ```
 
 ## Next steps
-* [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
-* [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
-* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# sample code](https://github.com/Azure/servicefabric-samples)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+
+State that's stored in Reliable Actors must be serialized before its written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+
+Next, learn more about [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md).
+
+<!--Update_Description: update meta properties, update link-->

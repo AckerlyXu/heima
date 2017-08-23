@@ -3,8 +3,8 @@ title: Stateful Reliable Services diagnostics | Azure
 description: Diagnostic functionality for Stateful Reliable Services
 services: service-fabric
 documentationcenter: .net
-author: AlanWarwick
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
@@ -13,31 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/04/2017
-ms.date: 02/20/2017
-ms.author: v-johch
+origin.date: 06/30/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
+
 ---
 
 # Diagnostic functionality for Stateful Reliable Services
-The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
+The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
 
 ## EventSource events
 The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services". Events from this event source appear in the
-[Diagnostics Events](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](./service-fabric-debugging-your-application.md).
+[Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
 Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567),
-[Microsoft Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
+[Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
 
-|Event name|Event ID|Level|Event description|
-|----------|--------|-----|-----------------|
-|StatefulRunAsyncInvocation|1|Informational|Emitted when service RunAsync task is started|
-|StatefulRunAsyncCancellation|2|Informational|Emitted when service RunAsync task is cancelled|
-|StatefulRunAsyncCompletion|3|Informational|Emitted when service RunAsync task is completed|
-|StatefulRunAsyncSlowCancellation|4|Warning|Emitted when service RunAsync task takes too long to complete cancellation|
-|StatefulRunAsyncFailure|5|Error|Emitted when service RunAsync task throws an exception|
+| Event name | Event ID | Level | Event description |
+| --- | --- | --- | --- |
+| StatefulRunAsyncInvocation |1 |Informational |Emitted when service RunAsync task is started |
+| StatefulRunAsyncCancellation |2 |Informational |Emitted when service RunAsync task is cancelled |
+| StatefulRunAsyncCompletion |3 |Informational |Emitted when service RunAsync task is completed |
+| StatefulRunAsyncSlowCancellation |4 |Warning |Emitted when service RunAsync task takes too long to complete cancellation |
+| StatefulRunAsyncFailure |5 |Error |Emitted when service RunAsync task throws an exception |
 
 ## Interpret events
 
@@ -54,3 +55,5 @@ the ability for the service to be quickly restarted on another node. This may im
 
 ## Next steps
 * [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+
+<!--Update_Description: update meta properties-->

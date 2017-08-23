@@ -3,7 +3,7 @@ title: Connectivity and networking issues for Azure Cloud Services FAQ| Azure
 description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: ''
 tags: top-support-issue
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 6/9/2017
+origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 07/31/2017
 
 ---
 # Connectivity and networking issues for Azure Cloud Services: Frequently asked questions (FAQs)
@@ -56,3 +56,6 @@ You now should be able to RDP to your machine.
 For information about how internal load balancer works, see [Azure Load Balancer new distribution mode](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/).
 
 The distribution algorithm used is a 5-tuple (source IP, source port, destination IP, destination port, protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same TCP or UDP session will be directed to the same datacenter IP (DIP) instance behind the load balanced endpoint. When the client closes and re-opens the connection or starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
+
+
+<!--Update_Description: update meta data only-->

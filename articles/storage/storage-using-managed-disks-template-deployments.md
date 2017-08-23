@@ -3,8 +3,8 @@ title: Using managed disks in Azure Resource Manager templates | Microsoft Docs
 description: Details how to use managed misks in Azure Resource Manager templates
 services: storage
 documentationcenter:
-author: forester123
-manager: digimobile
+author: hayley244
+manager: digimobile 
 
 ms.service: storage
 ms.devlang: na
@@ -12,10 +12,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 origin.date: 06/01/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 ---
-
+<!--with managed diak context!!!!!-->
 # Using Managed Disks in Azure Resource Manager Templates
 
 This document walks through the differences between managed and unmanaged disks when using Azure Resource Manager templates to provision virtual machines. This will help you to update existing templates that are using unmanaged Disks to managed disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
@@ -92,7 +92,7 @@ With Azure Managed Disks, the disk becomes a top-level resource and no longer re
 
 ### Default managed disk settings
 
-To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage]((storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
+To create a VM with managed disks, you no longer need to create the storage account resource and can update your virtual machine resource as follows. Specifically note that the `apiVersion` reflects `2016-04-30-preview` and the `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD. When deploying without specifying additional properties, the disk will use [Standard LRS storage](storage-redundancy.md). If no name is specified, it takes the format of `<VMName>_OsDisk_1_<randomstring>` for the OS disk and `<VMName>_disk<#>_<randomstring>` for each data disk. By default, Azure disk encryption is disabled; caching is Read/Write for the OS disk and None for data disks. You may notice in the example below there is still a storage account dependency, though this is only for storage of diagnostics and is not needed for disk storage.
 
 ```
 {
@@ -227,4 +227,5 @@ To find full information on the REST API specifications, please review the [crea
 * Visit the [Azure Managed Disks Overview](storage-managed-disks-overview.md) document to learn more about managed disks.
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/disks) document.
- 
+
+<!--Update_Description: wording update-->

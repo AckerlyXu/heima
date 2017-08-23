@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
 # Azure Storage Service Encryption for Data at Rest
@@ -35,7 +35,7 @@ SSE works by encrypting the data when it is written to Azure Storage, and can be
 
 To learn more, please refer to the FAQ.
 
-To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.cn) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
+To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://portal.azure.cn) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
 <br/>*Figure 1: Enable SSE for Blob Service (Step1)*
@@ -80,7 +80,7 @@ AzCopy is a Windows command-line utility designed for copying data to and from A
 To learn more, please visit [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
 #### Using SMB
-Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure Fileshare on Windows](storage-dotnet-how-to-use-files.md#mount-the-file-share) and [how to mount Azure File share on Linux](storage-how-to-use-files-linux.md#mount-the-file-share).
+Azure File storage offers file shares in the cloud using the standard SMB protocol. You can mount a file share from a client on premises or in Azure. Once mounted, tools such as Robocopy can be used to copy files over to Azure File shares. For more information, see [how to mount Azure File Share on Windows](storage-file-how-to-use-files-windows.md) and [how to mount Azure File share on Linux](storage-how-to-use-files-linux.md).
 
 
 #### Using the Storage Client Libraries
@@ -183,3 +183,4 @@ A: The SSE is available in all regions for Blob storage. Please check the Availa
 ## Next Steps
 Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. For more details, visit the [Storage Security Guide](storage-security-guide.md).
 
+<!--Update_Description: update link references - fix error link & add a bookmark-->

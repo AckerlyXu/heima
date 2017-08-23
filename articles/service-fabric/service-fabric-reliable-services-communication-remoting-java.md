@@ -3,8 +3,8 @@ title: Service remoting in Azure Service Fabric | Azure
 description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.
 services: service-fabric
 documentationcenter: java
-author: PavanKunapareddyMSFT
-manager: timlt
+author: rockboyfor
+manager: digimobile
 
 ms.assetid:
 ms.service: service-fabric
@@ -12,9 +12,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
-ms.author: v-johch
-
+origin.date: 06/30/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 # Service remoting with Reliable Services
 > [!div class="op_single_selector"]
@@ -83,5 +83,25 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 The remoting framework propagates exceptions thrown at the service to the client. So exception-handling logic at the client by using `ServiceProxyBase` can directly handle exceptions that the service throws.
 
+## Service Proxy Lifetime
+ServiceProxy creation is a lightweight operation, so user can create as many as they need it. Service Proxy can be re-used as long as user need it. User can re-use the same proxy in case of Exception. Each ServiceProxy contains communication client used to send messages over the wire. While invoking API, we have internal check to see if communication client used is valid. Based on that result, we re-create the communication client. Hence user do not need to recreate serviceproxy in case of Exception.
+
+### ServiceProxyFactory Lifetime
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) is a factory that creates proxy for different remoting interfaces. If you use API `ServiceProxyBase.create` for creating proxy, then framework creates a `FabricServiceProxyFactory`.
+It is useful to create one manually when you need to override [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) properties.
+Factory is an expensive operation. `FabricServiceProxyFactory` maintains cache of communication clients.
+Best practice is to cache `FabricServiceProxyFactory` for as long as possible.
+
+## Remoting Exception Handling
+All the remote exception thrown by service API, are sent back to the client either as RuntimeException or FabricException.
+
+ServiceProxy does handle all Failover Exception for the service partition it  is created for. It re-resolves the endpoints if there is Failover Exceptions(Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinite.
+In case of TransientExceptions, it only retries the call.
+
+Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings)
+User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
+
 ## Next steps
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+
+<!--Update_Description: update meta properties， add new feature of Service Proxy  and ServiceProxyFactory Lifetime and error handing.-->

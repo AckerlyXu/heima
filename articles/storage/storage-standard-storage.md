@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/18/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 
 ---
+<!--with storage context!!!!!-->
 # Cost-effective Standard Storage and unmanaged and managed Azure VM disks
 
 Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard storage disks for Dev/Test scenarios and less critical workloads, and premium storage disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
@@ -48,7 +49,7 @@ For information on how to create a VM with Managed Disks, please see one of the 
 Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
 Storage](storage-introduction.md).
 
-**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure File storage, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
 
 **Standard storage disks:** Standard storage disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 series. A standard storage disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we will describe the specifications in more detail. 
 
@@ -155,3 +156,5 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 
 * [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
+
+<!--Update_Description: wording update-->

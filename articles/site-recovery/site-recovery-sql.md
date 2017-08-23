@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2017
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -51,6 +51,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:
 
+* SQL Server 2016 Enterprise and Standard
 * SQL Server 2014 Enterprise and Standard
 * SQL Server 2012 Enterprise and Standard
 * SQL Server 2008 R2 Enterprise and Standard
@@ -143,11 +144,11 @@ Once you have added the script in the recovery plan and validated the recovery p
 
 If the SQL Server is using availability groups for high availability (or an FCI), we recommend using availability groups on the recovery site as well. Note that this applies to apps that don't use distributed transactions.
 
-1. [Configure databases](https://msdn.microsoft.com/zh-cn/library/hh213078.aspx) into availability groups.
+1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
 2. Create a virtual network on the secondary site.
 3. Set up a site-to-site VPN connection between the virtual network, and the primary site.
 4. Create a virtual machine on the recovery site, and install SQL Server on it.
-5. Extend the existing AlwaysOn availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
+5. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
 6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
 7. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
 <!-- Not Available site-recovery-vmware-to-vmware.md -->
@@ -155,13 +156,11 @@ If the SQL Server is using availability groups for high availability (or an FCI)
 ### Recovery plan considerations
 1. Add this sample script to the VMM library, on the primary and secondary sites.
 
-    ```
-    Param(
-    [string]$SQLAvailabilityGroupPath
-    )
-    import-module sqlps
-    Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
-    ```
+        Param(
+        [string]$SQLAvailabilityGroupPath
+        )
+        import-module sqlps
+        Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
 
 1. When you create a recovery plan for the application, add a pre action to Group-1 scripted step, that invokes the script to fail over availability groups.
 
@@ -195,3 +194,5 @@ For SQL Server Standard clusters, failback after an unplanned failover requires 
 
 ## Next steps
 [Learn more](site-recovery-components.md) about Site Recovery architecture.
+
+<!--Update_Description: wording update, add support version of SQL Server 2016 Enterprise and Standard-->

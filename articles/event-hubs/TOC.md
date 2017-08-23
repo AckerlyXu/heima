@@ -17,7 +17,7 @@
 <!-- Not Available ### [Apache Storm](event-hubs-storm-getstarted-receive.md)-->
 ## Capture events
 ### [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
-### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+<!-- Not Available ### [Use a Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) -->
 ## [Programming guide](event-hubs-programming-guide.md)
 
 # How to

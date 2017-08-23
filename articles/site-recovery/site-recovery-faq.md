@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 05/22/2017
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
 # Azure Site Recovery: Frequently asked questions (FAQ)
 
-This article includes frequently asked questions about Azure Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr).
+This article includes frequently asked questions about Azure Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
 
 ## General
 ### What does Site Recovery do?
@@ -45,11 +45,12 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 * [Replicating Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicating Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md)
 * [Replicating Hyper-V VMs to a secondary datacenter](site-recovery-vmm-to-vmm.md)
-* If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/zh-cn/library/mt126277.aspx).
-* If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868%28v=ws.10%29.aspx).
+* If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/library/mt126277.aspx).
+* If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
-No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](./site-recovery-vmware-to-azure.md).
+No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](site-recovery-vmware-to-azure.md).
+<!-- Not Available  [secondary datacenter](site-recovery-vmware-to-vmware.md) -->
 
 ### What workloads can I protect with Site Recovery?
 You can use Site Recovery to protect most workloads running on a supported VM or physical server. Site Recovery provides support for application-aware replication, so that apps can be recovered to an intelligent state. It integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](site-recovery-workload.md) about workload protection.
@@ -76,15 +77,15 @@ Yes. When you use Site Recovery to orchestrate replication and failover in your 
 ## Pricing
 
 ### What charges do I incur while using Azure Site Recovery?
-When you use Site Recovery, you incur charges for the Site Recovery license, Azure storage, storage transactions, and outbound data transfer. [Learn more](https://www.azure.cn/pricing/details/site-recovery).
+When you use Site Recovery, you incur charges for the Site Recovery license, Azure storage, storage transactions, and outbound data transfer. [Learn more](https://www.azure.cn/pricing/details/site-recovery/).
 
 The Site Recovery license is per protected instance, where an instance is a VM, or a physical server.
 
-- If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size  is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
+- If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
 - If a VM disk replicates to a premium storage account, the Azure storage charge is for the provisioned storage size, rounded out for the nearest premium storage disk option. For example, if the source disk size is 50 GB, Site Recovery creates a 50 GB disk in Azure, and Azure maps this to the nearest premium storage disk (P10).  Costs are calculated on P10, and not on the 50 GB disk size.  [Learn more](../storage/storage-premium-storage.md#pricing-and-billing).  If you're using premium storage, a standard storage account for replication logging is also required, and the amount of standard storage space used for these logs is also billed.
 - No disks are created till a test failover or a failover. In the replication state, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://www.azure.cn/zh-cn/pricing/calculator/) are incurred. These charges are based on the storage type of premium/standard and the data redundancy type -LRS, GRS,RA-GRS etc.
 <!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/storage-premium-storage.md#pricing-and-billing -->
-<!-- Not Available Managed disks content block -->
+<!-- Not Available Managed disks and premium storage content block -->
 - Storage transactions are charged during steady-state replication and for regular VM operations after a failover / test failover. But these charges are negligible.
 
 Costs are also incurred during test failover, where the VM, storage, egress, and storage transactions costs will be applied.
@@ -108,7 +109,7 @@ For virtual machines and physical servers, replicating between on-premises sites
 Azure Site Recovery replicates data to an Azure storage account, over a public endpoint. Replication isn't over a site-to-site VPN. You can create a site-to-site VPN, with an Azure virtual network. This doesn't interfere with Site Recovery replication.
 
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
-Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering) to use ExpressRoute for Site Recovery replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#private-peering) setup with the Azure virtual network. 
+Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering) to use ExpressRoute for Site Recovery replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#private-peering) setup with the Azure virtual network.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
@@ -154,8 +155,8 @@ Adding new machines to existing replication groups is supported. To do so, selec
 Yes. You can read more about throttling bandwidth in the deployment articles:
 
 <!-- Not Available for vmware feature -->
-- [Capacity planning for replicating Hyper-V VMs in VMM clouds](./site-recovery-vmm-to-azure.md#step-5-capacity-planning)
-- [Capacity planning for replicating Hyper-V VMs without VMM](./site-recovery-hyper-v-site-to-azure.md#step-5-capacity-planning) 
+* [Capacity planning for replicating Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#capacity-planning)
+* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure virtual machines after failover?
@@ -171,7 +172,7 @@ You can trigger an unplanned failover from the secondary site. Site Recovery doe
 
 ### Is failover automatic?
 
-Failover isn't automatic. You initiate failovers with single click in the portal, or you can use [Site Recovery PowerShell](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.siterecovery) to trigger a failover. Failing back is a simple action in the Site Recovery portal.
+Failover isn't automatic. You initiate failovers with single click in the portal, or you can use [Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) to trigger a failover. Failing back is a simple action in the Site Recovery portal.
 
 To automate you could use on-premises Orchestrator or Operations Manager to detect a virtual machine failure, and then trigger the failover using the SDK.
 
@@ -214,7 +215,7 @@ Yes.
 
 ### What platforms do you currently support?
 
-We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](https://technet.microsoft.com/zh-cn/library/dn850370.aspx)  about Azure Pack and Site Recovery integration.
+We support Azure Pack, Cloud Platform System, and System Center based (2012 and higher) deployments. [Learn more](https://technet.microsoft.com/library/dn850370.aspx) about Azure Pack and Site Recovery integration.
 
 ### Do you support single Azure Pack and single VMM server deployments?
 
@@ -224,3 +225,5 @@ Yes, you can replicate Hyper-V virtual machines to Azure, or between service pro
 
 * Read the [Site Recovery overview](site-recovery-overview.md)
 * Learn about [Site Recovery architecture](site-recovery-components.md)
+
+<!--Update_Description: update meta properties, wording update-->

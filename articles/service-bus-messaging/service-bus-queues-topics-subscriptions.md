@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
+origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ---
 # Service Bus queues, topics, and subscriptions
 Azure Service Bus supports a set of cloud-based, message-oriented-middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging fabric. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
@@ -160,3 +160,5 @@ See the following advanced topics for more information and examples of using Ser
 - [Service Bus brokered messaging REST tutorial](./service-bus-dotnet-get-started-with-queues.md)
 - [Topic Filters sample ](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
+
+<!--Update_Description:update meta properties only-->

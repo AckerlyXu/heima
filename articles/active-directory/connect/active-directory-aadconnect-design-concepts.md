@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Design concepts | Microsoft Docs'
 description: This topic details certain implementation design areas
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-origin.date: 06/07/2017
-ms.date: 06/21/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -190,3 +190,4 @@ Azure AD Connect detects if you are running in a non-routable domain environment
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!-- Update_Description: update meta properties -->

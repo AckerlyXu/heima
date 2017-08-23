@@ -1,10 +1,10 @@
 ---
-title: Reliable Services notifications | Microsoft Docs
+title: Reliable Services notifications | Azure
 description: Conceptual documentation for Service Fabric Reliable Services notifications
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: masnider,vturecek
 
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
-ms.author: v-johch
-
+origin.date: 6/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 
@@ -229,3 +229,4 @@ Here are some things to keep in mind:
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
 * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
+<!--Update_Description: update meta properties-->

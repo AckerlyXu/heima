@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 
@@ -82,3 +83,5 @@ Available presets:
  [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produces a single MP4 file with a bitrate of 56 kbps, and stereo AAC audio.  
   
  For more information related to Media Services encoders, see [Encoding On-Demand with Azure Media Services](media-services-encode-asset.md).
+
+<!--Update_Description: update metadata-->

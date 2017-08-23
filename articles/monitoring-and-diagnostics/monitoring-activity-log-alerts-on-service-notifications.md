@@ -15,15 +15,17 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 08/21/2017
 ---
 # Create Activity Log Alerts on Service Notifications
 ## Overview
 This article shows you how to set up activity log alerts for service health notifications using the Azure portal.  
 
-You can receive an alert based on service health notifications for your Azure subscription.  
+You can receive an alert when Azure sends service health notifications to your Azure subscription.  
 You can configure the alert based on:
 - The class of service health notification (Incident, Maintenance, Information, etc.)
+- The service(s) affected
+- The region(s) affected
 - The status of the notification (Active vs. Resolved)
 - The level of the notifications (Informational, Warning, Error)
 
@@ -49,15 +51,15 @@ You can configure and get information about service health notification alerts u
 
     ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
 
-5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
+5.	**Name** your activity log alert, and provide a **Description**.
 
     ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
 
-6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
+6.	The **Subscription** is the one the Activity log alert will be saved in. It will be auto filled to the subscription you are currently operating under. This is the subscription the alert resource will be deployed to and monitor.
 
-7.	Choose the **Resource Group** for this alert.
+7.	Choose the **Resource Group** this alert will be associated with in the **Subscription**.
 
-8.	Under **Event Category** select the ‘Service Health’ option. Choose for what **Type, Status** and **Level** of Service Health Notifications you would like to be notified.
+8.	Under **Event Category** select the ‘Service Health’ option. Choose for what **Service, Region, Type, Status** and **Level** of Service Health Notifications you would like to be notified.
 
 9.	Create a **New** Action Group by giving it **Name** and **Short Name**; the Short Name will be referenced in the notifications sent when this alert fires.
 
@@ -75,11 +77,11 @@ Within a few minutes, the alert is active and triggers as previously described.
 
 
 >[!NOTE]
->The action group defined in these steps will be reusable, as an existing action group, for all future alert definition.
+>The action group defined in these steps will be reusable, as an existing action group, for all future alert definitions.
 >
 >
 
-## Create an alert on a service health notification for an existing action group with the Azure Portal
+## Create an alert on a service health notification using an existing action group with the Azure Portal
 1.	In the [portal](https://portal.azure.cn), navigate to the **Monitor** service
 
     ![Monitor](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
@@ -91,16 +93,16 @@ Within a few minutes, the alert is active and triggers as previously described.
 4.	Select the **Add activity log alert** command and fill in the fields
 
     ![Add-Alert](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
-5.	**Name** your activity log alert, and choose a **Description**. These will appear in the notifications sent when this alert fires.
+5.	**Name** your activity log alert, and choose a **Description**.
 
     ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-existing-action-group.png)
-6.	The **Subscription** should be auto filled to the subscription you are currently operating under.
+6.	The **Subscription** is the one the Activity log alert will be saved in. It will be auto filled to the subscription you are currently operating under. This is the subscription the alert resource will be deployed to and monitor.
 
-7.	Choose the **Resource Group** for this alert.
+7.	Choose the **Resource Group** this alert will be associated with in the **Subscription**.
 
-8.	Under **Event Category** select the ‘Service Health’ option. Choose for what **Type, Status** and **Level** of Service Health Notifications you would like to be notified.
+8.	Under **Event Category** select the ‘Service Health’ option. Choose for what **Service, Region, Type, Status** and **Level** of Service Health Notifications you would like to be notified.
 
-9.	Choose to **Notify Via** an **Existing action group**. Select the respective action group.
+9.	Choose to **Notify Via** an **Existing action group**. Select the appropriate action group.
 
 10.	Select **OK** when done to create the alert.
 
@@ -116,3 +118,5 @@ Once you have created an alert, it will be visible in the Alerts section of the 
 ## Next Steps:
  - Learn about [Service Health Notifications](./monitoring-service-notifications.md)  
 
+
+<!--Update_Description:update meta properties and wording-->

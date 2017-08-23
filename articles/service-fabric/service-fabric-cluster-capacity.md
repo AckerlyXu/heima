@@ -3,8 +3,8 @@ title: Planning the Service Fabric cluster capacity | Azure
 description: Service Fabric cluster capacity planning considerations. Nodetypes, Durability and Reliability tiers
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2017
-ms.author: v-johch
+origin.date: 06/15/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric cluster capacity planning considerations
@@ -33,7 +34,7 @@ Establish the number of node types your cluster needs to start out with.  Each n
 
 * Does your application have multiple services, and do any of them need to be public or internet facing? Typical applications contain a front-end gateway service that receives input from a client, and one or more back-end services that communicate with the front-end services. So in this case, you end up having at least two node types.
 * Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? For example, let us assume that the application that you want to deploy contains a front-end service and a back-end service. The front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  The back-end service, however, is computation intensive and needs to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet facing.
-  
+
   In this example, although you can decide to put all the services on one node type, we recommended that you place them in a cluster with two node types.  This allows for each node type to have distinct properties such as internet connectivity or VM size. The number of VMs can be scaled independently, as well.  
 * Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
 
@@ -43,16 +44,13 @@ Virtual machine scale set is an Azure compute resource you can use to deploy and
 
 Read [this document](service-fabric-cluster-nodetypes.md) for more details on the relationship of Nodetypes to virtual machine scale set, how to RDP into one of the instances, open new ports etc.
 
-Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using a Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
+Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using a Resource Manager template, then look for a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
 
 ### Primary node type
 For a cluster with multiple node types, you need to choose one of them to be primary. Here are the characteristics of a primary node type:
 
 * The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 * The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take. 
-
- 
-
 * The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
 
 ![Screen shot of a cluster that has two Node Types ][SystemServices]
@@ -68,9 +66,37 @@ The durability tier is used to indicate to the system the privileges that your V
 
 This privilege is expressed in the following values:
 
-* Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
-* Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
-* Bronze - No privileges. This is the default.
+* Gold - The infrastructure Jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
+* Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
+* Bronze - No privileges. This is the default and is recommended if you are only running stateless workloads in your cluster.
+
+You get to choose durability level for each of your node-types.You can choose one node-type to have a durability level of Gold or silver and the other have Bronze in the same cluster. **You must maintain a minimum count of 5 nodes for any node-type that has a durability of Gold or silver**. 
+
+**Advantages of using Silver or Gold durability levels**
+
+1. Reduces the number of required steps in a scale-in operation (i.e. node deactivation and Remove-ServiceFabricNodeState is called automatically)
+2. Reduces the risk of data loss due to a customer-initiated in-place VM SKU change operation or Azure infrastructure operations.
+
+**Disadvantages of using Silver or Gold durability levels**
+
+1. Deployments to your Virtual Machine Scale Set and other related Azure resources) can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
+2. Increases the number of [replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (e.g. primary swaps) due to automated node deactivations during Azure infrastructure operations.
+
+### Recommendations on when to use Silver or Gold durability levels
+
+Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
+
+### Operational Recommendations for the node type that you have set to silver or gold durability level.
+
+1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
+2. Adopt safer ways to make a VM SKU change (Scale up/down):
+
+This is not an operation you should be performing often, since it is not safe.  Changing the VM SKU of a Virtual Machine Scale Set is inherently an unsafe operation. Here is the process you can follow to avoid common issues.
+	- For non-primary nodetypes: it is recommended that you create new Virtual Machine Scale Set, modify the service placement constraint to include the new Virtual Machine Scale Set/node type and then reduce the old Virtual Machine Scale Set instance count to 0, one node at a time (this is to make sure that removal of the nodes do not impact the reliability of the cluster).
+	- For the primary nodetype - Our recommendation is that you do not change VM SKU of the primary node type. If the reason for the new SKU is capacity, we recommend adding more instances or if possible, create a new cluster. If you have no choice, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than ten minutes (for Silver durability level).
+3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has MR enabled
+4. Do not delete random VM instances, always use Virtual Machine Scale Set scale down. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to proper load balancing amongst the service instances/Service replicas.
+5. If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. 
 
 ## The reliability characteristics of the cluster
 The reliability tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  
@@ -79,7 +105,7 @@ The reliability tier can take the following values:
 
 * Platinum - Run the System services with a target replica set count of 9
 * Gold - Run the System services with a target replica set count of 7
-* Silver - Run the System services with a target replica set count of 5
+* Silver - Run the System services with a target replica set count of 5 
 * Bronze - Run the System services with a target replica set count of 3
 
 > [!NOTE]
@@ -89,7 +115,6 @@ The reliability tier can take the following values:
 
  You can choose to update the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
-
 ## Primary node type - Capacity Guidance
 
 Here is the guidance for planning the primary node type capacity
@@ -98,16 +123,14 @@ Here is the guidance for planning the primary node type capacity
 2. **Number of VM instances to run test workloads in Azure** You can specify a minimum Primary Node type size of 1 or 3. The one node cluster, runs with a special configuration and so, scale out of that cluster is not supported. The one node cluster, has no reliability and so in your Resource Manager template, you have to remove/not specify that configuration (not setting the configuration value is not enough). If you set up the one node cluster set up via portal, then the configuration is automatically taken care of. 1 and 3 node clusters are not supported for running production workloads. 
 3. **VM SKU:** Primary node type is where the system services run, so the VM SKU you choose for it, must take into account the overall peak load you plan to place into the cluster. Here is an analogy to illustrate what I mean here - Think of the primary node type as your "Lungs", it is what provides oxygen to your brain, and so if the brain does not get enough oxygen, your body suffers. 
 
-The capacity needs of a cluster, is determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+The capacity needs of a cluster, is determined by workload you plan to run in the cluster, So we cannot provide you with qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
-
 
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent with a minimum of 14 GB of local SSD.
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent with a minimum of 14 GB of local SSD. 
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - Standard A1 SKU is not supported for production workloads for performance reasons.
-
 
 ## Non-Primary node type - Capacity Guidance for stateful workloads
 
@@ -115,9 +138,9 @@ Read the following for Workloads using Service fabric reliable collections or re
 
 1. **Number of VM instances:** For production workloads that are stateful, it is recommended that you run them with a minimum and target replica count of 5. This means that in steady state you end up with a replica (from a replica set) in each fault domain and upgrade domain. The whole reliability tier concept for the primary node type is a way to specify this setting for system services.
 
-    So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
+So for production workloads, the minimum recommended non-Primary Node type size is 5, if you are running stateful workloads in it.
 
-2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
+2. **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is determined by workload you plan to run in the cluster, so we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
 
@@ -126,7 +149,6 @@ For production workloads
 - Partial core VM SKUs like Standard A0 are not supported for production workloads.
 - Standard A1 SKU is specifically not supported for production workloads for performance reasons.
 
-
 ## Non-Primary node type - Capacity Guidance for stateless workloads
 
 Read the following for stateless Workloads
@@ -134,14 +156,13 @@ Read the following for stateless Workloads
 **Number of VM instances:** For production workloads that are stateless,the minimum supported non-Primary Node type size is 2. This allows you to run you two stateless instances of your application and allowing your service to survive the loss of a VM instance. 
 
 > [!NOTE]
-> If your cluster is running on a service fabric version less than 5.6, due to a defect in the runtime (this issue is fixed in 5.6), scaling down a non-primary node type to less than 5, results in cluster health turning unhealthy, till you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) with the appropriate node name.
+> If your cluster is running on a service fabric version less than 5.6, due to a defect in the runtime (this issue is fixed in 5.6), scaling down a non-primary node type to less than 5, results in cluster health turning unhealthy, till you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/servicefabric/vlatest/Remove-ServiceFabricNodeState) with the appropriate node name. Read [perform Service Fabric cluster in or out](service-fabric-cluster-scale-up-down.md) for more details
 > 
 >
 
 **VM SKU:** This is the node type where your application services are running, so the VM SKU you choose for it, must take into account the peak load you plan to place into each Node. The capacity needs of the nodetype, is absolutely determined by workload you plan to run in the cluster, So we cannot provide you with a qualitative guidance for your specific workload, however here is the broad guidance to help you get started
 
 For production workloads 
-
 
 - The recommended VM SKU is Standard D3 or Standard D3_V2 or equivalent. 
 - The minimum supported use VM SKU is Standard D1 or Standard D1_V2 or equivalent. 
@@ -159,3 +180,5 @@ Once you finish your capacity planning and set up a cluster, please read the fol
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
+
+<!--Update_Description: update meta properties, add new feature on advantage/disadvantage on sliver and golden and corresponding recommandation.-->

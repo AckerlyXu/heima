@@ -1,10 +1,10 @@
 ---
-title: Generic LDAP Connector | Azure
+title: Generic LDAP Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Generic LDAP Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/10/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Generic LDAP Connector technical reference
 This article describes the Generic LDAP Connector. The article applies to the following products:
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178).
+  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2, the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -138,7 +138,7 @@ Delta import is only available when a support directory has been detected. The f
 - LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 - LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - TimeStamp. For Novell/NetIQ eDirectory, the Connector uses last date/time to get created and updated objects. Novell/NetIQ eDirectory does not provide an equivalent means to retrieve deleted objects. This option can also be used if no other delta import method is active on the LDAP server. This option is not able to import deleted objects.
-- USNChanged. See: [https://msdn.microsoft.com/zh-cn/library/ms677627.aspx](https://msdn.microsoft.com/zh-cn/library/ms677627.aspx)
+- USNChanged. See: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### Not supported
 The following LDAP features are not supported:
@@ -266,3 +266,5 @@ For directories with a delta change log that is based on date/time, it is highly
 
 ## Troubleshooting
 - For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+
+<!-- Update_Description: update meta properties -->

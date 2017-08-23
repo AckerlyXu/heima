@@ -6,14 +6,14 @@ metadata:
   title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference
   meta.description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
   services: virtual-machines\windows
-  author: bbetstcw
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-windows
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 07/03/2017
+  ms.date: 08/21/2017
   ms.author: v-dazen
 abstract:
   description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
@@ -45,6 +45,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/virtual-machines/windows/tutorial-manage-vm">Create and manage Windows VMs</a>
+    - html: <a href="/virtual-machines/windows/tutorial-manage-data-disk">Create and manage VM disks</a>
     - html: <a href="/virtual-machines/windows/tutorial-automate-vm-deployment">Automate VM configuration</a>
     - html: <a href="/virtual-machines/windows/tutorial-custom-images">Create custom VM images</a>
     - html: <a href="/virtual-machines/windows/tutorial-availability-sets">Create highly available VMs</a>
@@ -52,6 +53,7 @@ sections:
     - html: <a href="/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a>
     - html: <a href="/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a>
     - html: <a href="/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
+    - html: <a href="/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
 - title: Samples
   items:
   - type: paragraph

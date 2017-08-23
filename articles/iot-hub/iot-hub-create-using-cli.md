@@ -13,8 +13,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+origin.date: 06/16/2017
 ms.author: v-yiso
+ms.date: 08/14/2017
 ---
 # Create an IoT hub using the Azure CLI 2.0
 
@@ -121,3 +122,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-portal]: ./iot-hub-create-through-portal.md
+
+<!--Update_Description: update meta data only-->

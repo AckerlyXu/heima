@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/23/2017
-ms.date: 07/17/2017
+origin.date: 06/28/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 
 ---
@@ -103,3 +103,5 @@ Development tooling is also different between Windows and Linux. VisualStudio, P
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
+
+<!--Update_Description: update meta properties-->

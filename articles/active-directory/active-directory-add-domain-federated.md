@@ -3,8 +3,8 @@ title: Add your custom domain name and set up federated sign-in to Azure Active 
 description: How to add your company's domain names to Azure Active Directory to set up federated sign-in between Azure Active Directory and your on-premises federation solution
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d
@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 05/16/2016
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
-ms.date: 06/21/2017
+
 ---
 # Add your custom domain name to Azure Active Directory
 You can configure a custom domain name, such as ‘contoso.com,’ so that users in contoso.com can have a federated single sign-on experience from your corporate network. If you already have Active Directory Federation Services (AD FS) or a different federation server running on your corporate network, you can configure Azure AD to use your custom domain name using the Azure AD Connect tool. You can also use Azure AD Connect to deploy a new AD FS environment, and configure that for federated single sign-on to Azure AD.
@@ -29,7 +30,7 @@ If you do not have and do not plan to deploy AD FS or another federation server,
 4. Select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox.
 5. Select **Add**.
 
-Run the Azure AD Connect tool to get the DNS entry that Azure AD will use to verify the domain. You will see the DNS entry in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
+Run the Azure AD Connect tool to get the DNS entry that Azure AD will use to verify the domain. You will see the DNS entry in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## Add the DNS entry at the domain name registrar for the domain
 The next step to use your custom domain name with Azure AD is to update the DNS zone file for the domain. This enables Azure AD to verify that your organization owns the custom domain name.
@@ -62,3 +63,4 @@ If your organization uses multiple custom domain names, such as ‘contoso.com�
 - [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
 
+<!--Update_Description: update meta properties -->   
