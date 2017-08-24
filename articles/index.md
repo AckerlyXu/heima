@@ -1833,13 +1833,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
+                                                    <a href="/java/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure">Get started</a>
+                                                    <a href="/java/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/overview/azure">API reference</a>
+                                                    <a href="/java/api/overview/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
