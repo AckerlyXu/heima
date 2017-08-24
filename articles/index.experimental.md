@@ -1821,13 +1821,13 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/azure/java-sdk-azure-install">Get the Azure libraries for Java</a>
+                                                    <a target="_blank" href="/java/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
                                                     <a target="_blank" href="/develop/java/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/java/api/">API reference</a>
+                                                    <a target="_blank" href="/java/api/overview">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
