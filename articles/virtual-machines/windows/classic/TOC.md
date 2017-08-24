@@ -83,7 +83,7 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java](https://docs.microsoft.com/java/api)
+## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
 ## [Author Resource Manager templates](../../../resource-group-authoring-templates.md)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
