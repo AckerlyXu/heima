@@ -132,7 +132,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/app-service-web/">Web Apps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                                                        <li><a class="barLink" href="/azure/service-fabric/">Microservices with Service Fabric</a></li>
+                                                        <li><a class="barLink" href="/service-fabric/">Microservices with Service Fabric</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
