@@ -76,8 +76,6 @@
       href: ../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Custom domains
       href: storage-custom-domain-name.md
-    - name: Searching Blob storage with Azure Search
-      href: ../../search/search-blob-storage-integration.md?toc=%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell
