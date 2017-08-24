@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 04/18/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -146,4 +146,4 @@ function init() {
 
 ```
 
-<!--Update_Description: new articles on connect analysis serices with Excel odc file-->
+<!--Update_Description: update meta properties -->

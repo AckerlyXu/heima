@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -43,4 +43,4 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016. Co
 [Client libraries](analysis-services-data-providers.md)   
 [Manage your server](analysis-services-manage.md)
 
-<!--Update_Description: new articles on how to connect analysis serices server with Excel -->
+<!--Update_Description: update meta properties-->

@@ -13,8 +13,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -34,4 +34,5 @@ In either case, if your primary server experiences an outage, you must change th
 ## Related information
 [Backup and restore](analysis-services-backup.md)   
 [Manage Azure Analysis Services](analysis-services-manage.md)
-<!--Update_Description: new articles on analysis serices high availablility -->
+
+<!--Update_Description: update meta properties -->
