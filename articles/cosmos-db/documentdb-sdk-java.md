@@ -38,7 +38,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb)</td></tr>
+<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb)</td></tr>
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
