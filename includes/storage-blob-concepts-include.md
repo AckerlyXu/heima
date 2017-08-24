@@ -1,3 +1,4 @@
+<!--ms.date: 08/28/2017-->
 ## What is Blob Storage?
 
 Azure Blob storage is a service for storing large amounts of unstructured object data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
@@ -15,7 +16,7 @@ The Blob service contains the following components:
 
 ![Blob architecture](./media/storage-blob-concepts-include/blob1.png)
 
-* **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. See [About Azure storage accounts](../articles/storage/storage-create-storage-account.md) for more information.
+* **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. See [About Azure storage accounts](../articles/storage/common/storage-create-storage-account.md) for more information.
 * **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
 * **Blob:** A file of any type and size. Azure Storage offers three types of blobs: block blobs, page blobs, and append blobs.
   

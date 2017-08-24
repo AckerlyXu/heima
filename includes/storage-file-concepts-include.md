@@ -1,3 +1,4 @@
+<!--ms.date: 08/28/2017-->
 ## What is Azure File storage?
 
 File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
@@ -20,7 +21,7 @@ File storage contains the following components:
 ![files-concepts][files-concepts]
 
 -   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+    through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity.
 
 -   **Share:** A File storage share is an SMB file share in Azure. 
     All directories and files must be created in a parent share. An account can contain an
