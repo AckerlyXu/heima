@@ -119,7 +119,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 
 7. The following steps help you **install mobility service and enable replication**.
 
-    7a. You can choose to [push installation](../../site-recovery/vmware-walkthrough-overview.md) to your source VMs or to [manually install mobility service](../../site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md) on your source VMs. You can find the requirement of pushing installation and the path of the manual installer in the link provided. If you are doing a manual installation, you might need to use an internal IP address to find the configuration server.
+    7a. You can choose to [push installation](../../site-recovery/vmware-walkthrough-overview.md) to your source VMs or to manually install mobility service on your source VMs. You can find the requirement of pushing installation and the path of the manual installer in the link provided. If you are doing a manual installation, you might need to use an internal IP address to find the configuration server.
 
     ![][12]
 
