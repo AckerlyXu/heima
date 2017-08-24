@@ -4,7 +4,7 @@ description: Use Visual Studio to create a Azure resource group project and depl
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/10/2017
-ms.date: 01/25/2017
+origin.date: 07/10/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 ---
 
 # Creating and deploying Azure resource groups through Visual Studio
-With Visual Studio and the [Azure SDK](/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virtual Machine. The **Azure Resource Group** deployment project enables you to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](./resource-group-overview.md).
+With Visual Studio and the [Azure SDK](/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virtual Machine. The **Azure Resource Group** deployment project enables you to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](resource-group-overview.md).
 
-Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the resources that you deploy to Azure. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md). Visual Studio enables you to edit these templates, and provides tools that simplify working with templates.
+Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the resources that you deploy to Azure. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). Visual Studio enables you to edit these templates, and provides tools that simplify working with templates.
 
 In this article, you deploy a web app and SQL Database. However, the steps are almost the same for any type resource. You can as easily deploy a Virtual Machine and its related resources. Visual Studio provides many different starter templates for deploying common scenarios.
 
@@ -60,7 +60,7 @@ In this procedure, you create an Azure Resource Group project with a **Web app +
     All resource group deployment projects contain these basic files. Other projects may contain additional files to support other functionality.
 
 ## Customize the Resource Manager template
-You can customize a deployment project by modifying the JSON templates that describe the resources you want to deploy. JSON stands for JavaScript Object Notation, and is a serialized data format that is easy to work with. The JSON files use a schema that you reference at the top of each file. If you want to understand the schema, you can download and analyze it. The schema defines what elements are valid, the types and formats of fields, the possible values of enumerated values, and so on. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+You can customize a deployment project by modifying the JSON templates that describe the resources you want to deploy. JSON stands for JavaScript Object Notation, and is a serialized data format that is easy to work with. The JSON files use a schema that you reference at the top of each file. If you want to understand the schema, you can download and analyze it. The schema defines what elements are valid, the types and formats of fields, the possible values of enumerated values, and so on. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 To work on your template, open **WebSiteSQLDatabase.json**.
 
@@ -86,7 +86,7 @@ Notice that not only was the resource added, but also a parameter for the type s
 
 The **storageType** parameter is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you do not want anyone to deploy a **Premium_LRS** storage account through this template, remove it from the allowed types. 
 
-```
+```json
 "storageType": {
   "type": "string",
   "defaultValue": "Standard_LRS",
@@ -105,7 +105,7 @@ Visual Studio also provides intellisense to help you understand what properties 
 
 You can set **numberOfWorkers** to 1.
 
-```
+```json
 "properties": {
   "name": "[parameters('hostingPlanName')]",
   "numberOfWorkers": 1
@@ -219,5 +219,7 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
      ![show deployed app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Next steps
-* To learn about managing your resources through the portal, see [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md).
-* To learn more about templates, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+* To learn about managing your resources through the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
+* To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+
+<!--Update_Description: update meta properties, wording update-->

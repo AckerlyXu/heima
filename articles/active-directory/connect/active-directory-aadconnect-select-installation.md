@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Select your installation type | Microsoft Docs'
 description: This topic walks you through how to select the installation type to use for Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -71,3 +72,4 @@ If you are currently using Forefront Identity Manager 2010 or Microsoft Identity
 ## Next steps
 Depending on the option you have selected to use, use the table of content to the left to find your article with the detailed steps.
 
+<!-- Update_Description: update meta properties -->

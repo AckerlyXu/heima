@@ -13,10 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/09/2017
-ms.date: 07/17/2017
+origin.date: 5/9/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
-
 ---
 
 # Patch the Windows operating system in your Service Fabric cluster
@@ -56,7 +55,7 @@ The patch orchestration app is composed of the following subcomponents:
 #### Azure clusters
 The patch orchestration app must be run on Azure clusters that have Service Fabric runtime version v5.5 or later.
 
-#### Standalone On-Premise Clusters
+#### Standalone on-premises Clusters
 The patch orchestration app must be run on Standalone clusters that have Service Fabric runtime version v5.6 or later.
 
 ### Enable the repair manager service (if it's not running already)
@@ -124,7 +123,7 @@ To enable the repair manager service:
         ],
     ```
 
-3. Update you cluster manifest with these changes, using the updated cluster manifest [create a new cluster](/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
+3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
 ### Disable automatic Windows Update on all nodes
 
@@ -146,10 +145,9 @@ Logs for the patch orchestration app are generated on the following fixed provid
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Inside the `WadCfg` section in the Resource Manager template, add the following section: 
+In Resource Manager template goto `EtwEventSourceProviderConfiguration` section under `WadCfg` and add the following entries:
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -177,8 +175,7 @@ Inside the `WadCfg` section in the Resource Manager template, add the following 
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]
@@ -292,7 +289,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 ### Collect patch orchestration app logs
 
 Patch orchestration app logs are collected as part of Service Fabric logs from runtime version `5.6.220.9494` and above.
-For clusters running Service Fabric runtime version less than `5.6.220.9494`, Logs can be collected by using one of the following methods.
+For clusters running Service Fabric runtime version less than `5.6.220.9494`, logs can be collected by using one of the following methods.
 
 #### Locally on each node
 
@@ -394,3 +391,5 @@ In such a case, a warning-level health report is generated against the Node Agen
 A faulty Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
+
+<!--Update_Description: update meta properties, wording update-->

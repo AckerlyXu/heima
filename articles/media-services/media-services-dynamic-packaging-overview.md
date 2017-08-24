@@ -13,13 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 ---
-
 # Dynamic packaging
+
 ## Overview
+
 Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS, XBOX, Silverlight, Windows 8). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) V4 format and Silverlight and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand MPEG DASH, HLS or Smooth Streaming, you should take advantage of Media Services dynamic packaging.
 
 With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
@@ -43,14 +44,18 @@ The following diagram shows the dynamic packaging workflow.
 1. Build the streaming URLs to access and stream your content.
 
 ## Preparing assets for dynamic streaming
+
 To prepare your asset for dynamic streaming you have two options:
 
 1. [Upload a master file](./media-services-dotnet-upload-files.md).
-2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](./media-services-dotnet-encode-with-media-encoder-standard.md).
-3. [Stream your content](./media-services-deliver-content-overview.md).
+1. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](./media-services-dotnet-encode-with-media-encoder-standard.md).
+1. [Stream your content](./media-services-deliver-content-overview.md).
 
 ## <a id="unsupported_formats"></a>Formats that are not supported by dynamic packaging
+
 The following source file formats are not supported by dynamic packaging.
 
 * Dolby digital mp4 files.
 * Dolby digital smooth files.
+
+<!--Update_Description: update meta data-->

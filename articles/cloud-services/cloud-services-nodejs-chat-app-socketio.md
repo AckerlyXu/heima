@@ -2,15 +2,19 @@
 title: Node.js application using Socket.io | Azure
 description: Learn how to use socket.io in a node.js application hosted on Azure.
 services: cloud-services
-documentationCenter: nodejs
-authors: rmcmurray
-manager: wpickett
+documentationcenter: nodejs
+author: rmcmurray
+manager: erikre
 editor: ''
 
+ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/11/2016
-ms.date: 05/22/2017
+origin.date: 04/25/2017
+ms.date: 07/31/2017
 ms.author: v-yiso
 ---
 
@@ -29,7 +33,7 @@ A screenshot of the completed application is below:
 
 Ensure that the following products and versions are installed to successfully complete the example in this article:
 
-* Install [Visual Studio 2013](https://www.visualstudio.com/zh-cn/downloads/download-visual-studio-vs.aspx)
+* Install [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
 * Install [Node.js](https://nodejs.org/download/)
 * Install [Python version 2.7.10](https://www.python.org/)
 
@@ -101,7 +105,7 @@ server.js file:
     //, sio = require('..//..//lib//socket.io'); //Original
       , sio = require('socket.io');                //Updated
     ```
-
+         var port = process.env.PORT || 3000;         //Updated
 3.  To ensure the application listens on the correct port, open
     server.js in Notepad or your favorite editor, and then change the
     following line by replacing **3000** with **process.env.port** as shown below:
@@ -145,12 +149,19 @@ Azure emulator:
 
     ```
     PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   > [!NOTE]
+   > If you encounter issues with launching emulator, eg.:
+      Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+   
+      reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
+   >
+   >
     ```
 
 2.  Open a browser and navigate to **http://127.0.0.1**.
 
 3.  When the browser window opens, enter a nickname and then hit enter.
-    This will all you to post messages as a specific nickname. To test
+   This will allow you to post messages as a specific nickname. To test
     multi-user functionality, open additional browser windows using the
     same URL and enter different nicknames.
 
@@ -211,3 +222,5 @@ For more information, see also the [Node.js Developer Center](https://www.azure.
   [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
   [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+
+  <!--Update_Description: update wording-->

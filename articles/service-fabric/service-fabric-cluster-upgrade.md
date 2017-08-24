@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/22/2017
-ms.date: 07/17/2017
+origin.date: 06/22/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -203,14 +203,14 @@ You can specify the custom health policies or review the current settings under 
 Refer to [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md) on what and how you can customize them.
 
 ### OS patches on the VMs that make up the cluster
-Refer to [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) which can be deployed on your cluster to install patches from Windows Update in an orchestrated manner, keeping the services availble all the time. 
+Refer to [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) which can be deployed on your cluster to install patches from Windows Update in an orchestrated manner, keeping the services available all the time. 
 
 ### OS upgrades on the VMs that make up the cluster
 If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-<!-- Not Available * Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md) -->
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->
@@ -221,3 +221,5 @@ If you must upgrade the OS image on the virtual machines of the cluster, you mus
 [ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
+
+<!--Update_Description: update meta properties-->

@@ -69,8 +69,6 @@
       href: preserving-maintenance.md
     - name: Restarting maintenance
       href: impactful-maintenance.md
-    - name: Schedule
-      href: planned-maintenance-schedule.md
   - name: VM sizes
     href: sizes.md
     items:
@@ -114,12 +112,18 @@
       href: create-vm-specialized.md
     - name: Create VM with a template
       href: ps-template.md
-    - name: Create VM with C#
+    - name: Create / Manage VM with C#
       href: csharp.md
     - name: Create VM with C# and template
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
+    - name: Create VM with Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md      
     - name: Create VM running popular application frameworks
       href: app-frameworks.md
     - name: Move a VM between subscriptions
@@ -143,8 +147,6 @@
       href: cli-manage.md
     - name: Manage VMs using CLI
       href: cli-deploy-templates.md
-    - name: Manage VMs using C#
-      href: csharp-manage.md
   - name: Connect with RDP
     items:
     - name: Log on to a VM
@@ -153,6 +155,8 @@
     items:
     - name: Find marketplace VM images
       href: cli-ps-findimage.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Prepare a VHD for upload
       href: prepare-for-upload-vhd-image.md
     - name: Create a Managed Disk image
@@ -288,8 +292,8 @@
       items:
       - name: Migrate from Amazon Web Services (AWS) to Azure
         href: aws-to-azure.md
-    - name: Upload and create VM from generalized VHD
-      href: upload-generalized-managed.md
+      - name: Upload and create VM from generalized VHD
+        href: upload-generalized-managed.md
     - name: Migrate from Classic to Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
@@ -307,6 +311,8 @@
         href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: Remote Desktop connections
       href: troubleshoot-rdp-connection.md
       items:
@@ -316,14 +322,20 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Reset RDP password
       href: reset-rdp.md
+    - name: Reset NIC
+      href: reset-network-interface.md
     - name: Boot diagnostics 
       href: boot-diagnostics.md
     - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Deployment issues 
+      href: troubleshoot-deploy-vm.md
     - name: Restarting or resizing a VM
       href: restart-resize-error-troubleshooting.md
     - name: Application access
       href: troubleshoot-app-connection.md
+    - name: Activation problems
+      href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
     - name: Redeploy a VM
@@ -345,7 +357,7 @@
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute
   - name: Java
-    href: https://docs.microsoft.com/java/api
+    href: https://docs.azure.cn/zh-cn/java/api/overview/
   - name: Node.js
     href: /develop/nodejs/#azure-sdk
   - name: Python

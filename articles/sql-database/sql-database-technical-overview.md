@@ -15,14 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 06/19/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+origin.date: 06/30/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 ---
 # What is the Azure SQL Database service? 
 
-Azure SQL Database is a fully managed, relational Database-As-A-Service (DBaaS) in the Microsoft cloud ("Azure"). With this platform-as-a-service offering, Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). 
-SQL Database is a general-purpose relational database that supports structures such as relational data, JSON, spatial, and XML. It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. 
+SQL Database is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. It delivers [dynamically scalable performance](sql-database-service-tiers.md) and provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure. 
 SQL Database delivers predictable performance at multiple service levels that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. 
 
 > [!NOTE]
@@ -85,7 +84,7 @@ There are two automatic tuning aspects that are available in SQL Database:
 
 ### Adaptive query processing
 
-We are also adding the adaptive query processing family of features to SQL Database, including [interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-interleaved-execution-for-multi-statement-table-valued-functions/), and [batch mode adaptive joins](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/19/introducing-batch-mode-adaptive-joins/). Each of these adaptive query processing features applies similar "learn and adapt" techniques, helping further address performance issues related to historically intractable query optimization problems.
+We are also adding the [adaptive query processing](https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing.md) family of features to SQL Database, including interleaved execution for multi-statement table-valued functions, batch mode memory grant feedback, and batch mode adaptive joins. Each of these adaptive query processing features applies similar "learn and adapt" techniques, helping further address performance issues related to historically intractable query optimization problems.
 
 ### Intelligent threat detection
 
@@ -147,3 +146,5 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 - For a set of Azure CLI and PowerShell samples, see:
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell samples for SQL Database](sql-database-powershell-samples.md)
+
+<!--Update_Description: update word & link references-->

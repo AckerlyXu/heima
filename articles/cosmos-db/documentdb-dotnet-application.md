@@ -13,9 +13,9 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 origin.date: 12/25/2016
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -563,7 +563,7 @@ If you receive the "An error occurred while processing your request" while tryin
 ## <a name="_Toc395637775"></a>Next steps
 Congratulations! You just built your first ASP.NET MVC web application using Azure Cosmos DB and published it to Azure Websites. The source code for the complete application, including the detail and delete functionality that were not included in this tutorial can be downloaded or cloned from [GitHub][GitHub]. So if you're interested in adding that to your app, grab the code and add it to this app.
 
-To add additional functionality to your application, review the APIs available in the [DocumentDB .NET Library](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx) and feel free to contribute to the DocumentDB .NET Library on [GitHub][GitHub]. 
+To add additional functionality to your application, review the APIs available in the [DocumentDB .NET Library](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) and feel free to contribute to the DocumentDB .NET Library on [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -571,3 +571,5 @@ To add additional functionality to your application, review the APIs available i
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
+
+<!--Update_Description: update meta properties, wording update-->

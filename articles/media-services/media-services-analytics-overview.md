@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Azure Media Services Analytics Overview
@@ -119,3 +120,5 @@ Response:
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+<!--Update_Description: update meta properties-->

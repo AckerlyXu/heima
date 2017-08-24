@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/11/2017
-ms.date: 02/10/2017
+origin.date: 07/11/2017
+ms.date: 08/14/2017
 ms.author: v-yiso
 ---
 
@@ -47,3 +47,5 @@ To learn more about planning your IoT Hub deployment, see:
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-devguide]: ./iot-hub-devguide.md
+
+<!--Update_Description:update meta properties only-->

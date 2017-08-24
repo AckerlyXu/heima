@@ -1,5 +1,5 @@
 In addition to automatically connecting clients to the primary replica, a listener can be used to redirect read-only workloads to the secondaries. This use can improve the performance and scalability of your overall solution. For more information, see
-[Use ReadIntent Routing with Azure Always On availability group listener](https://blogs.msdn.microsoft.com/alwaysonpro/2014/03/31/use-readintent-routing-with-azure-alwayson-availability-group-listener/).
+[Use ReadIntent Routing with Azure Always On availability group listener](http://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]
 > For troubleshooting tips on Azure listeners, see [Troubleshooting availability group listener in Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) in the AlwaysOn Support Team [blog](http://blogs.msdn.com/b/alwaysonpro/).

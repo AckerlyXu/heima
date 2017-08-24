@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Availability set overview
 
@@ -111,3 +111,5 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 
 > [!div class="nextstepaction"]
 > [Create a VM scale set](tutorial-create-vmss.md)
+
+<!--Update_Description: wording update-->

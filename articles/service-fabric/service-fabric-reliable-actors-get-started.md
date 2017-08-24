@@ -1,10 +1,10 @@
 ---
-title: Create your first actor-based Azure microservice in C# | Microsoft Docs
+title: Create your first actor-based Azure microservice in C# | Azure
 description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/06/2017
-ms.author: v-johch
-
+origin.date: 06/29/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 # Getting started with Reliable Actors
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ To get started with Reliable Actors, you only need to understand a few basic con
 * **Actor registration**. As with Reliable Services, a Reliable Actor service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
 * **Actor interface**. The actor interface is used to define a strongly typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
 * **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface. The ActorProxy class provides two important functionalities:
-  
+
   * Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
   * Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
 
@@ -137,11 +137,7 @@ During the deployment process, you can see the progress in the **Output** window
 ![Service Fabric debugging output window][3]
 
 ## Next steps
-* [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-* [Actor state management](service-fabric-reliable-actors-state-management.md)
-* [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Sample code](https://github.com/Azure/servicefabric-samples)
+Learn more about [how Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md).
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG
@@ -149,3 +145,5 @@ During the deployment process, you can see the progress in the **Output** window
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
+
+<!--Update_Description: update meta properties, update link-->

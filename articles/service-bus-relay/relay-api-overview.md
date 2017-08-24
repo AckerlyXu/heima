@@ -3,7 +3,7 @@ title: Azure Relay API overview | Azure
 description: Overview of available Azure Relay APIs
 services: event-hubs
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+origin.date: 07/03/2017
 ms.author: v-yiso
+ms.date: 08/21/2017
 ---
 
 # Available Relay APIs
 
 ## Runtime APIs
 
-The following is a listing of all currently available Relay runtime clients.
+The following table lists all currently available Relay runtime clients.
 
-See [additional information](#additional-information) for more details on the status of each runtime library.
+The [additional information](#additional-information) section contains more information about the status of each runtime library.
 
 | Language/Platform | Available feature | Client package | Repository |
 | --- | --- | --- | --- |
 | .NET Standard | Hybrid Connections | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF Relay | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| Node | Hybrid Connections | [hyco-ws](https://www.npmjs.com/package/hyco-ws)<br/>[hyco-websocket](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Node | Hybrid Connections | [`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a> Additional information
 
@@ -40,3 +41,6 @@ The .NET ecosystem has multiple runtimes, hence there are multiple .NET librarie
 To learn more about Azure Relay, visit these links:
 * [What is Azure Relay?](./relay-what-is-it.md)
 * [Relay FAQ](./relay-faq.md)
+
+
+<!--Update_Description:update meta properties only-->

@@ -1,10 +1,10 @@
 ---
-title: Capacity planning for Service Fabric apps | Microsoft Docs
+title: Capacity planning for Service Fabric apps | Azure
 description: Describes how to identify the number of compute nodes required for a Service Fabric application
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: markfuss
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
+origin.date: 6/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Capacity planning for Service Fabric applications
@@ -38,7 +39,6 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 
 ```
 
-
 ## Account for growth
 You may want to compute the number of nodes based on the DB_Size that you expect your service to grow to, in addition to the DB_Size that you began with. Then, grow the number of nodes as your service grows so that you are not over-provisioning the number of nodes. But the number of partitions should be based on the number of nodes that are needed when you're running your service at maximum growth.
 
@@ -47,7 +47,7 @@ It is good to have some extra machines available at any time so that you can han
 The preceding assumes a single stateful service. If you have more than one stateful service, you have to add the DB_Size associated with the other services into the equation. Alternatively, you can compute the number of nodes separately for each stateful service.  Your service may have replicas or partitions that aren't balanced. Keep in mind that partitions may also have more data than others. For more information on partitioning, see [partitioning article on best practices](service-fabric-concepts-partitioning.md). However, the preceding equation is partition and replica agnostic, because Service Fabric ensures that the replicas are spread out among the nodes in an optimized manner.
 
 ## Use a spreadsheet for cost calculation
-Now let's put some real numbers in the formula. An [example spreadsheet](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) shows how to plan the capacity for an application that contains three types of data objects. For each object, we approximate its size and how many objects we expect to have. We also select how many replicas we want of each object type. The spreadsheet calculates the total amount of memory to be stored in the cluster.
+Now let's put some real numbers in the formula. An [example spreadsheet](https://servicefabricsdkstorage.blob.core.chinacloudapi.cn/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) shows how to plan the capacity for an application that contains three types of data objects. For each object, we approximate its size and how many objects we expect to have. We also select how many replicas we want of each object type. The spreadsheet calculates the total amount of memory to be stored in the cluster.
 
 Then we enter a VM size and monthly cost. Based on the VM size, the spreadsheet tells you the minimum number of partitions you must use to split your data to physically fit on the nodes. You may desire a larger number of partitions to accommodate your application's specific computation and network traffic needs. The spreadsheet shows the number of partitions that are managing the user profile objects has increased from one to six.
 
@@ -63,3 +63,5 @@ Check out [Partitioning Service Fabric services][10] to learn more about partiti
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
+
+<!--Update_Description: update meta properties, update reference link-->

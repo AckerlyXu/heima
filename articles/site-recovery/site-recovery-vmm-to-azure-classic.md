@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 02/06/2017
-ms.date: 07/10/2017
+origin.date: 06/23/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -152,21 +152,15 @@ The Azure Site Recovery Provider can also be installed using the following comma
 2. Stop the System Center Virtual Machine Manager service
 3. From an elevated command prompt, extract the Provider installer with these commands:
 
-    ```
-    C:\Windows\System32> CD C:\ASR
-    C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-    ```
+        C:\Windows\System32> CD C:\ASR
+        C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 4. Install the provider as follows:
 
-    ```
-    C:\ASR> setupdr.exe /i
-    ```
+        C:\ASR> setupdr.exe /i
 5. Register the Provider as follows:
 
-    ```
-    CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
-    ```
+        CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
 Where parameters are as follows:
 
@@ -208,9 +202,7 @@ Install the Azure Recovery Services agent on each Hyper-V host server in the VMM
 
 You can also install the Azure Recovery Services Agent from the command line using this command:
 
-```
-marsagentinstaller.exe /q /nu
-```
+    marsagentinstaller.exe /q /nu
 
 ## Step 6: Configure cloud protection settings
 After the VMM server is registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
@@ -314,7 +306,7 @@ Test failover simulates your failover and recovery mechanism in an isolated netw
     ![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 2. In the **Select Virtual Machines** page, select virtual machines to add to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. A maximum of 100 virtual machines in a single recovery plan have been tested.
 
-* If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located. You can also configure the virtual machine properties in the VMM console.
+* If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it's located. You can also configure the virtual machine properties in the VMM console.
 * All of the virtual machines that are displayed have been enabled for protection. The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending. Only virtual machines with initial replication completed can fail over as part of a recovery plan.
 
     ![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
@@ -352,3 +344,5 @@ To run a test failover do the following:
 
 ## Next steps
 Learn about [setting up recovery plans](site-recovery-create-recovery-plans.md) and [failover](site-recovery-failover.md).
+
+<!--Update_Description: update meta properties, wording update-->

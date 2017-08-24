@@ -5,7 +5,6 @@ documentationcenter: ''
 services: multi-factor-authentication
 author: alexchen2016
 manager: digimobile
-editor: yossib
 
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication
@@ -13,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/23/2017
-ms.date: 06/27/2017
+origin.date: 06/23/2017
+ms.date: 08/02/2017
 ms.author: v-junlch
-
+ms.reviewer: yossib
+ms.custom: it-pro
 ---
 # Manage user settings with Azure Multi-Factor Authentication in the cloud
 As an administrator, you can manage the following user and device settings:
@@ -63,3 +63,4 @@ This setting deletes all of the app passwords that a user has created. Non-brows
 
 - If your users need support, point them towards the [User guide for two-step verification](./end-user/multi-factor-authentication-end-user.md)
 
+<!-- Update_Description: update meta properties -->

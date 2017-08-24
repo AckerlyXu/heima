@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2017
-ms.date: 06/30/2017
+origin.date: 07/06/2017
+ms.date: 08/01/2017
 ms.author: v-junlch
 
 ---
@@ -49,7 +49,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Validation failed as virtual machine is encrypted with BEK alone. Backups can be enabled only for virtual machines encrypted with both BEK and KEK. |Virtual machine should be encrypted using both BitLocker Encryption Key and Key Encryption Key. After that, backup should be enabled. |
 | Azure Backup Service does not have sufficient permissions to Key Vault for Backup of Encrypted Virtual Machines. |Backup service should be provided these permissions in PowerShell using steps mentioned in **Enable Backup** section of [PowerShell documentation](backup-azure-vms-automation.md). |
 |Installation of snapshot extension failed with error - COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | Please try to start windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). <br>If it fails while starting, please follow below steps:<ol><li> Validate that the Logon account of service "Distributed Transaction Coordinator" is "Network Service". If it is not, please change it to "Network Service", restart this service and then try to start service "COM+ System Application".'<li>If it still fails to start, uninstall/install service "Distributed Transaction Coordinator" by following below steps:<br> - Stop the MSDTC service<br> - Open a command prompt (cmd) <br> - Run command “msdtc -uninstall” <br> - Run command “msdtc -install” <br> - Start the MSDTC service<li>Start windows service "COM+ System Application" and after it is started, trigger backup from portal.</ol> |
-| Snapshot operation failed due to COM+ error | The recommended action is to restart windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). If the issue persists, restart the VM. If restarting the VM doesn't help, try [removing the VMSnapshot Extension](/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load/) and trigger the backup manually |
+|  Snapshot operation failed due to COM+ error | The recommended action is to restart windows service "COM+ System Application" (from an elevated command prompt - _net start COMSysApp_). If the issue persists, restart the VM. If restarting the VM doesn't help, try [removing the VMSnapshot Extension](/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) and trigger the backup manually |
 | Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot | <ol><li>Check the file-system state of all mounted devices using _'tune2fs'_ command.<br> Eg: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Unmount the devices for which filesystem state is not clean using _'umount'_ command <li> Run FileSystemConsistency Check on these devices using _'fsck'_ command <li> Mount the devices again and try backup.</ol> |
 | Snapshot operation failed due to failure in creating secure network communication channel | <ol><Li> Open Registry Editor by running regedit.exe in an elevated mode. <li> Identify all versions of .NetFramework present in system. They are present under the hierarchy of registry key "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> For each .NetFramework present in registry key, add following key: <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | Snapshot operation failed due to failure in installation of Visual C++ Redistributable for Visual Studio 2012 | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Make sure that registry key value for allowing this service installation is set to correct value i.e. value of registry key  _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ is set to 3 and not 4. If you are still facing issues with installation, restart installation service by running _MSIEXEC /UNREGISTER_ followed by _MSIEXEC /REGISTER_ from an elevated command prompt.  |
@@ -85,17 +85,17 @@ If you see your backup(>12 hours) or restore taking time(>6 hours):
 
 ## VM Agent
 ### Setting up the VM Agent
-Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+Typically, the VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly.
 
 For Windows VMs:
 
 - Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation.
-- for classic virtual machines, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+- For Classic virtual machines, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. This step is not required for Resource Manager virtual machines.
 
 For Linux VMs:
 
 - Install latest from distribution repository. We **strongly recommend** installing agent only through distribution repository. For details on package name, please refer to [Linux agent repository](https://github.com/Azure/WALinuxAgent) 
-- For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
+- For classic VMs, [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. This step is not required for Resource Manager virtual machines.
 
 ### Updating the VM Agent
 For Windows VMs:
@@ -156,3 +156,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 >
 >
 
+<!-- Update_Description: wording update -->

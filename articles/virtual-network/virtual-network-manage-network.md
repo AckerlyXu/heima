@@ -186,11 +186,11 @@ You can delete a virtual network only if there are no resources connected to it.
 |Tool|Command|
 |---|---|
 |Azure CLI|[azure network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps
 
 - To create a VM and then connect it to a virtual network, see [Create a virtual network and connect VMs](virtual-network-get-started-vnet-subnet.md#create-vms).
 - To filter network traffic between subnets within a virtual network, see [Create network security groups](virtual-networks-create-nsg-arm-pportal.md).
 - To peer a virtual network to another virtual network, see [Create a virtual network peering](virtual-network-create-peering.md#portal).
-- To learn about options for connecting a virtual network to an on-premises network, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#diagrams).
+- To learn about options for connecting a virtual network to an on-premises network, see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#about-vpn-gateway).

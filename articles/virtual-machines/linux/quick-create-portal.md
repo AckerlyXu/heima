@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 07/03/2017
+origin.date: 07/15/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
@@ -44,7 +44,7 @@ Log in to the Azure portal at http://portal.azure.cn.
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Compute**, select **Ubuntu Server 16.04 LTS**, and ensure that **Resource Manager** is the selected deployment model. Click the **Create** button. 
+2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**. 
 
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key**. When pasting in your SSH public key, take care to remove any leading or trailing white space. When complete, click **OK**.
 
@@ -54,7 +54,7 @@ Log in to the Azure portal at http://portal.azure.cn.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. On the settings blade, keep the defaults for the rest of the settings, and click **OK**.
+5. On the settings blade, keep the defaults and click **OK**.
 
 6. On the summary page, click **Ok** to start the virtual machine deployment.
 
@@ -117,3 +117,5 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+
+<!--Update_Description: wording update-->

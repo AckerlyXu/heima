@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 origin.date: 04/13/2017
-ms.date: '07/03/2017'
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Explaining Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs)
@@ -41,7 +41,7 @@ You can [change service tiers](sql-database-service-tiers.md) at any time with m
 ![Intro to SQL Database: Single database DTUs by tier and level](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## What are elastic Database Transaction Units (eDTUs)
-Rather than provide a dedicated set of resources (DTUs) to a SQL Database that is always available regardless of whether needed not, you can place databases into an [elastic pool](sql-database-elastic-pool.md) on a SQL Database server that shares a pool of resources among those database. The shared resources in an elastic pool measured by elastic Database Transaction Units or eDTUs. Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. In an elastic pool, you can guarantee that no one database uses all of the resources in the pool and also that a minimum amount of resources is always available to a database in an elastic pool. See [elastic pools and service tiers](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) for more information.
+Rather than provide a dedicated set of resources (DTUs) to a SQL Database that is always available regardless of whether needed not, you can place databases into an [elastic pool](sql-database-elastic-pool.md) on a SQL Database server that shares a pool of resources among those database. The shared resources in an elastic pool measured by elastic Database Transaction Units or eDTUs. Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. In an elastic pool, you can guarantee that no one database uses all of the resources in the pool and also that a minimum amount of resources is always available to a database in an elastic pool. See [elastic pools](sql-database-elastic-pool.md) for more information.
 
 ![Intro to SQL Database: eDTUs by tier and level](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -63,3 +63,5 @@ Performance levels are calibrated and governed to provide the needed resources t
 * See [Azure SQL Database resource limits](sql-database-resource-limits.md) for information on limit on resources other than CPU, memory, data I/O, and transaction log I/O.
 * See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
 * See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
+
+<!--Update_Description: update link references-->

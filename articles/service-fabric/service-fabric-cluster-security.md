@@ -1,10 +1,10 @@
 ---
-title: Secure a Service Fabric cluster | Microsoft Docs
+title: Secure a Service Fabric cluster | Azure
 description: Describes the security scenarios for a Service Fabric cluster and the different technologies used to implement those scenarios.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
-ms.author: v-johch
+origin.date: 06/28/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric cluster security scenarios
@@ -36,7 +37,7 @@ Clusters running on Azure or standalone clusters running on Windows can use eith
 ### Node-to-node certificate security
 Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
 
-Certificate security is configured while creating the cluster either through the Azure Portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node-security).
+Certificate security is configured while creating the cluster either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node-security).
 
 For Azure read [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster.
 
@@ -105,14 +106,14 @@ Client certificates are not typically issued by a third-party certificate author
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-
 ## Next steps
 This article provides conceptual information about cluster security. Next,
 
-
 1.  [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) 
-2.  [Azure Portal](service-fabric-cluster-creation-via-portal.md).
+2.  [Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
+
+<!--Update_Description: update meta properties-->

@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/01/2017
-ms.date: 07/10/2017
+origin.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
 # Overview of Windows virtual machines in Azure
+
 Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
@@ -146,3 +147,5 @@ A [Recovery Services vault](../../backup/backup-introduction-to-azure-backup.md)
 * If your intent is to work with Linux VMs, look at [Azure and Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 * Learn more about the guidelines around setting up your infrastructure in the [Example Azure infrastructure walkthrough](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * Make sure you follow the [Best Practices for running a Windows VM on Azure](guidance-compute-single-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!--Update_Description: update meta data-->

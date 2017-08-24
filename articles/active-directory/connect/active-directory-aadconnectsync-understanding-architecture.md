@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect sync: Understanding the architecture | Azure'
+title: 'Azure AD Connect sync: Understanding the architecture | Microsoft Docs'
 description: This topic describes the architecture of Azure AD Connect sync and explains the terms used.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Azure AD Connect sync: Understanding the architecture
 This topic covers the basic architecture for Azure AD Connect sync. In many aspects, it is similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Azure AD Connect sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Azure AD Connect sync (called sync engine in this topic).
 
@@ -255,3 +255,6 @@ For example, if sync engine exports attribute C, which has a value of 5, to a co
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+
+<!-- Update_Description: update meta properties -->

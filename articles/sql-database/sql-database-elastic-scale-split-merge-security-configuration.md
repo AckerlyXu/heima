@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/27/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Split-merge security configuration
@@ -98,7 +98,7 @@ A certificate is required to encrypt the credentials that are stored in the meta
 
 ### Use a new self-signed certificate
 1. [Create a Self-Signed Certificate](#create-a-self-signed-certificate)
-2. [Create PFX file for Self-Signed Encryption Certificate](#create-pfx-file-for-self-signed-encryption-certificate)
+2. [Create PFX file for Self-Signed Encryption Certificate](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Upload Encryption Certificate to Cloud Service](#upload-encryption-certificate-to-cloud-service)
 4. [Update Encryption Certificate in Service Configuration File](#update-encryption-certificate-in-service-configuration-file)
 
@@ -502,3 +502,5 @@ The SSL settings described in this document encrypt communication between the se
 Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+<!--Update_Description: update bookmark link-->

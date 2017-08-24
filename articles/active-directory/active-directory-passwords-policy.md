@@ -4,8 +4,9 @@ description: Azure AD self-service password reset policy options
 services: active-directory
 keywords: Active directory password management, password management, Azure AD self service password reset
 documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: femila
+author: alexchen2016
+manager: digimobile
+ms.reviewer: gahug
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,9 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/26/2017
-ms.date: 06/12/2017
+origin.date: 07/17/2017
+ms.date: 07/18/2017
 ms.author: v-junlch
+ms.custom: it-pro
 
 ---
 # Password policies and restrictions in Azure Active Directory
@@ -60,7 +62,7 @@ A global administrator for a Microsoft cloud service can use the Azure Active Di
 
 ## Set or check password policies using PowerShell
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Once you have it installed, you can follow the steps below to configure each field.
+To get started, you need to [download and install the Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Once you have it installed, you can follow the steps below to configure each field.
 
 ### How to check expiration policy for a password
 1. Connect to Windows PowerShell using your company administrator credentials.
@@ -85,3 +87,4 @@ To get started, you need to [download and install the Azure AD PowerShell module
    - To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    - To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+<!--Update_Description: wording update-->   

@@ -14,15 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/02/2017
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: v-yeche
 
 ---
 
 # Service Fabric terminology overview
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric to understand the terms used in the documentation.
-
-The concepts listed in this section are also discussed in the following Microsoft Virtual Academy videos: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Core concepts</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Design-time concepts</a>, and <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Run-time concepts</a>.
+<!-- Not Available  Microsoft Virtual Academy videos -->
 
 ## Infrastructure concepts
 **Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
@@ -44,7 +43,7 @@ Read the [Application Model](service-fabric-application-model.md) article for mo
 
 There are two types of services:
 
-* **Stateless:** Use a stateless service when the service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure DocumentDB. Use a stateless service when the service has no persistent storage at all. For example, a calculator service where values are passed to the service, a computation is performed using these values, and a result is returned.
+* **Stateless:** Use a stateless service when the service's persistent state is stored in an external storage service such as Azure Storage, Azure SQL Database, or Azure Cosmos DB. Use a stateless service when the service has no persistent storage at all. For example, a calculator service where values are passed to the service, a computation is performed using these values, and a result is returned.
 * **Stateful:** Use a stateful service when you want Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. Specify how many partitions you want to spread your state over (for scalability) when creating a named service. Also specify how many times to replicate your state across nodes (for reliability). Each named service has a single primary replica and multiple secondary replicas. You modify your named service's state by writing to the primary replica. Service Fabric then replicates this state to all the secondary replicas keeping your state in sync. Service Fabric automatically detects when a primary replica fails and promotes an existing secondary replica to a primary replica. Service Fabric then creates a new secondary replica.  
 
 **Service Package**: A disk directory containing the service type's `ServiceManifest.xml` file. This file references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's `ApplicationManifest.xml` file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
@@ -69,7 +68,7 @@ Read the [Partition Service Fabric reliable services](service-fabric-concepts-pa
 ## System services
 There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
-**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Applications mov within the cluster for example due to failures, resource balancing, or the resizing of the cluster. You can develop services and clients which resolve the current network location. Clients obtain the actual machine IP address and port where it is currently running.
+**Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Applications move within the cluster for example due to failures, resource balancing, or the resizing of the cluster. You can develop services and clients which resolve the current network location. Clients obtain the actual machine IP address and port where it is currently running.
 
 Read [Communicate with services](service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 
@@ -95,3 +94,5 @@ To learn more about Service Fabric:
 * [Overview of Service Fabric](service-fabric-overview.md)
 * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 * [Application scenarios](service-fabric-application-scenarios.md)
+
+<!--Update_Description: update meta properties, wording update-->

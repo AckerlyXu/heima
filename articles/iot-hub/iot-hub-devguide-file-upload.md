@@ -14,9 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/04/2017
-ms.date: 05/08/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ---
 
 # File uploads with IoT Hub
@@ -167,3 +166,5 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
+
+<!--Update_Description: update meta data only-->

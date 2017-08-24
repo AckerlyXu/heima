@@ -13,8 +13,8 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/05/2017
-ms.date: 07/03/2017
+origin.date: 06/28/2017
+ms.date: 08/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -44,8 +44,10 @@ If you plan to run production workloads in Batch, you may need to increase one o
 | [Applications](batch-application-packages.md) per Batch account |20 |
 | Application packages per application |40 |
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
+| Maximum start task size | 32768 characters<sup>2</sup> |
 
-<sup>1</sup> Azure Storage limit for maximum block blob size
+<sup>1</sup> Azure Storage limit for maximum block blob size<br />
+<sup>2</sup> Includes resource files and environment variables
 
 ## View Batch quotas
 View your Batch account quotas in the [Azure portal][portal].
@@ -100,3 +102,4 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
+<!-- Update_Description: wording update -->

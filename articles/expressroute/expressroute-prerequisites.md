@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/12/2017
+origin.date: 06/30/2017
+ms.date: 08/21/2017
 ms.author: v-yiso
 ms.date: ''
 ---
@@ -47,3 +48,5 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
     - [Create an ExpressRoute circuit](./expressroute-howto-circuit-classic.md)
     - [Configure routing](./expressroute-howto-routing-classic.md)
     - [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md)
+    
+<!--Update_Description:update meta properties only-->    

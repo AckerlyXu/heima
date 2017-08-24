@@ -1,10 +1,10 @@
 ---
-title: Lotus Domino Connector | Azure
+title: Lotus Domino Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Lotus Domino Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/10/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Lotus Domino Connector technical reference
 This article describes the Lotus Domino Connector. The article applies to the following products:
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178).
+  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2, the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -492,3 +492,5 @@ There are several ways in Domino to extend the schema so it appears as a custom 
 
 ## Troubleshooting
 - For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+
+<!-- Update_Description: update meta properties -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -63,13 +63,13 @@ A database account consists of a set of databases, each containing multiple coll
 
 ## <a name="develop"></a> How can I develop apps with the DocumentDB API?
 
-Azure Cosmos DB exposes resources through the DocumentDB REST API that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the DocumentDB API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms:  
+Azure Cosmos DB exposes resources through the REST APIs that can be called by any language capable of making HTTP/HTTPS requests. Additionally, we offer programming libraries for several popular languages for the DocumentDB API. The client libraries simplify many aspects of working with the API by handling details such as address caching, exception management, automatic retries and so forth. Libraries are currently available for the following languages and platforms:  
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx) |
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.documentdb) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
 | n/a |[Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](http://azure.github.io/azure-documentdb-python/) |
@@ -84,7 +84,7 @@ The DocumentDB API supports querying documents using a SQL language, which is ro
 
 User Defined Functions (UDFs) can be registered with the DocumentDB API and referenced as part of a SQL query, thereby extending the grammar to support custom application logic. These UDFs are written as JavaScript programs and executed within the database. 
 
-For .NET developers, the DocumentDB [.NET SDK](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.aspx) also offers a LINQ query provider. 
+For .NET developers, the DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) also offers a LINQ query provider. 
 
 ### Transactions and JavaScript execution
 The DocumentDB API allows you to write application logic as named programs written entirely in JavaScript. These programs are registered for a collection and can issue database operations on the documents within a given collection. JavaScript can be registered for execution as a trigger, stored procedure or user defined function. Triggers and stored procedures can create, read, update, and delete documents whereas user defined functions execute as part of the query execution logic without write access to the collection.
@@ -97,3 +97,5 @@ JavaScript execution within the DocumentDB API is modeled after the concepts sup
 Already have an Azure account? Then you can get started with Azure Cosmos DB by following our [quick starts](../cosmos-db/create-documentdb-dotnet.md), which will walk you through creating an account and getting started with Cosmos DB.
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
+
+<!--Update_Description: update meta properties, update link-->

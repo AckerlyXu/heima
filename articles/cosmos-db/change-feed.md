@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
 origin.date: 03/23/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -257,7 +257,7 @@ Changes are ordered by time within each partition key value within the partition
 > [!NOTE]
 > With change feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
 
-The .NET SDK provides the [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) and [ChangeFeedOptions](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
+The .NET SDK provides the [CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) and [ChangeFeedOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.changefeedoptions.aspx) helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
     private async Task<Dictionary<string, string>> GetChanges(
         DocumentClient client,
@@ -399,4 +399,6 @@ In this article, we provided a walkthrough of Azure Cosmos DB's change feed supp
 
 ## Next steps
 * Try the [Azure Cosmos DB Change feed code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
-* Get started coding with the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx)
+* Get started coding with the [Azure Cosmos DB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://docs.microsoft.com/rest/api/documentdb/)
+
+<!--Update_Description: update link-->

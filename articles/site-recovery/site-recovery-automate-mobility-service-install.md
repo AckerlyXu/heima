@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/06/2017
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 
 ---
@@ -472,7 +472,7 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-If you want to instantiate your own DSC pull server on your corporate network to mimic the capabilities that you can get from Automation DSC, see [Setting up a DSC web pull server](https://msdn.microsoft.com/zh-cn/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
+If you want to instantiate your own DSC pull server on your corporate network to mimic the capabilities that you can get from Automation DSC, see [Setting up a DSC web pull server](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
 
 ## Optional: Deploy a DSC configuration by using an Azure Resource Manager template
 This article has focused on how you can create your own DSC configuration to automatically deploy the Mobility service and the Azure VM Agent--and ensure that they are running on the machines that you want to protect. We also have an Azure Resource Manager template that will deploy this DSC configuration to a new or existing Azure Automation account. The template will use input parameters to create Automation assets that will contain the variables for your environment.
@@ -510,4 +510,6 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## Next steps
-After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md#enable-replication) for the virtual machines.
+After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md) for the virtual machines.
+
+<!--Update_Description: update link-->

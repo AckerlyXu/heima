@@ -6,14 +6,14 @@ metadata:
   title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: bbetstcw
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 06/20/2017
+  ms.date: 08/21/2017
   ms.author: v-dazen
 abstract:
   description: Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice. Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.
@@ -45,6 +45,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a>
+    - html: <a href="/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
     - html: <a href="/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a>
     - html: <a href="/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a>
     - html: <a href="/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a>
@@ -52,6 +53,7 @@ sections:
     - html: <a href="/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
     - html: <a href="/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
+    - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
 - title: Samples
   items:
   - type: paragraph

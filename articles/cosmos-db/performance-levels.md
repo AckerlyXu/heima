@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -157,12 +157,12 @@ Here is a code snippet for changing the collection throughput to 5,000 request u
     await client.ReplaceOfferAsync(offer);
 ```
 
-Visit [MSDN](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods:
+Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods:
 
-* [**ReadOfferAsync**](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
-* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
-* [**ReplaceOfferAsync**](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-* [**CreateOfferQuery**](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+* [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
+* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
+* [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
+* [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
 <a name="ea-customer"></a>
 
@@ -176,3 +176,5 @@ To learn more about pricing and managing data with Azure Cosmos DB, explore thes
 1.	[Partitioning data in Cosmos DB](documentdb-partition-data.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
 2.	[Cosmos DB pricing](https://www.azure.cn/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.
+
+<!--Update_Description: update link-->

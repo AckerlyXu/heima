@@ -4,9 +4,8 @@ description: This document will provide users information on what to do if they 
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: yossib
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -14,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/15/2017
-ms.date: 05/15/2017
+origin.date: 07/06/2017
+ms.date: 08/02/2017
 ms.author: v-junlch
+ms.reviewer: yossib
 ms.custom: end-user
 ---
 # Having trouble with two-step verification
@@ -88,3 +88,4 @@ Including this information helps us to solve your problem as quickly as possible
 - [Manage your settings for two-step verification](./multi-factor-authentication-end-user-manage-settings.md)  
 - [Microsoft Authenticator application FAQ](./microsoft-authenticator-app-faq.md)
 
+<!-- Update_Description: update meta properties -->

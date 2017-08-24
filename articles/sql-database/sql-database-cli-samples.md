@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples for SQL Database | Azure
-description: Azure CLI Samples - Create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
+title: Azure CLI script examples for SQL Database | Azure
+description: Azure CLI script examples to Create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -15,21 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 03/07/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 ---
 
 # Azure CLI samples for Azure SQL Database
 
-The following table includes links to sample Azure CLI scripts for Azure SQL Database.
+The following table includes links to Azure CLI script examples for Azure SQL Database.
 
 | |  |
 |---|---|
 |**Create a single database and an elastic pool**||
-| [Create a single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) | Creates a single Azure SQL database and configures a server-level firewall rule. |
-| [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-cli.md) | Creates elastic pools, and moves pooled Azure SQL databases, and changes performance levels.|
+| [Create a single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) | This CLI script example Creates a single Azure SQL database and configures a server-level firewall rule. |
+| [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-cli.md) | This CLI script example Creates SQL elastic pools, and moves pooled Azure SQL databases, and changes performance levels.|
 |**Scale a single database and an elastic pool**||
-| [Scale a single database](scripts/sql-database-monitor-and-scale-database-cli.md) | Scales a single Azure SQL database to a different performance level after querying the size information for the database. |
-| [Scale an elastic pool](scripts/sql-database-scale-pool-cli.md) | Scales an elastic pool to a different performance level.  |
+| [Scale a single database](scripts/sql-database-monitor-and-scale-database-cli.md) | This CLI script example Scales a single Azure SQL database to a different performance level after querying the size information for the database. |
+| [Scale an elastic pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a SQL elastic pool to a different performance level.  |
 |||
+
+<!--Update_Description: wording update-->

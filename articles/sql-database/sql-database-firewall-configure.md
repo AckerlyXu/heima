@@ -17,8 +17,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 04/10/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Azure SQL Database server-level and database-level firewall rules 
@@ -149,7 +149,7 @@ The following example sets a server-level firewall rule using PowerShell:
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.1"
+    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```
 
 > [!TIP]
@@ -169,7 +169,7 @@ The following example sets a server-level firewall rule using the Azure CLI:
 
 ```azurecli
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
+	-n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]
@@ -224,3 +224,5 @@ Consider the following points when access to the Azure SQL Database service does
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+
+<!--Update_Description: update code-->

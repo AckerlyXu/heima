@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/02/2017
-ms.date: 07/17/2017
+origin.date: 6/28/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -192,3 +192,5 @@ For more information about other features supported by application manifests, re
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 [13]: service-fabric-hosting-model.md
+
+<!--Update_Description: update meta properties-->

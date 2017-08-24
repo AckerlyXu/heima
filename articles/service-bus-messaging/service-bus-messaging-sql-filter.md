@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/23/2017
+origin.date: 06/27/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ---
 
 # SQLFilter syntax
@@ -83,7 +83,7 @@ An attempt to access a non-existent system property is an error, while an attemp
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
-This means any string that starts with a letter and is followed by one or more underscore/letter/digit.  
+This grammar means any string that starts with a letter and is followed by one or more underscore/letter/digit.  
   
 `[:IsLetter:]` means any Unicode character that is categorized as a Unicode letter. `System.Char.IsLetter(c)` returns `true` if `c` is a Unicode letter.  
   
@@ -144,7 +144,7 @@ A `<regular_identifier>` cannot be a reserved keyword.
   
 -   `<integer_constant>` is a string of numbers that are not enclosed in quotation marks and do not contain decimal points. The values are stored as `System.Int64` internally, and follow the same range.  
   
-     The following are examples of long constants:  
+     These are examples of long constants:  
   
     ```  
     1894  
@@ -220,7 +220,7 @@ Consider the following [SqlFilter](https://doc.microsoft.com/dotnet/api/microsof
   
 ### Property evaluation semantics  
   
--   An attempt to evaluate a non-existent system property will throw a [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
+-   An attempt to evaluate a non-existent system property throws a [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
 -   A property that does not exist is internally evaluated as **unknown**.  
   
@@ -236,11 +236,11 @@ Consider the following [SqlFilter](https://doc.microsoft.com/dotnet/api/microsof
   
  Unknown evaluation in `[NOT] LIKE`:  
   
--   If any operand is evaluated as **unknown** then the result is **unknown**.  
+-   If any operand is evaluated as **unknown**, then the result is **unknown**.  
   
  Unknown evaluation in `[NOT] IN`:  
   
--   If the left operand is evaluated as **unknown** then the result is **unknown**.  
+-   If the left operand is evaluated as **unknown**, then the result is **unknown**.  
   
  Unknown evaluation in **AND** operator:  
   

@@ -5,8 +5,8 @@ description: Make sure your environment is prepared for backing up virtual machi
 
 services: backup
 documentationcenter: ''
-author: markgalioto
-manager: carmonm
+author: alexchen2016
+manager: digimobile
 editor: ''
 keywords: backups; backing up;
 
@@ -16,14 +16,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+origin.date: 07/10/2017
+ms.date: 08/01/2017
 ms.author: v-junlch
 
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
 > [!div class="op_single_selector"]
-> * [Resource Manager model](./backup-azure-arm-vms-prepare.md)
-> * [Classic model](./backup-azure-vms-prepare.md)
+> * [Resource Manager model](backup-azure-arm-vms-prepare.md)
+> * [Classic model](backup-azure-vms-prepare.md)
 >
 >
 
@@ -32,7 +33,7 @@ This article provides the steps for preparing your environment to back up a Reso
 The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects **both Classic-deployed or Resource Manager-deployed VMs**. You must use a Recovery Services vault to protect a Resource Manager-deployed VM.
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](./backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 >
 >
 
@@ -42,17 +43,19 @@ Before you can protect or back up a Resource Manager-deployed virtual machine (V
 - Select a scenario, define the backup policy, and define items to protect.
 - Check the installation of VM Agent on virtual machine.
 - Check network connectivity
+- For Linux VMs, in case you want to customize your backup environment for application consistent backups please follow the [steps to configure pre-snapshot and post-snapshot scripts](/backup/backup-azure-linux-app-consistent)
 
-If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](./backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
+If you know these conditions already exist in your environment then proceed to the [Back up your VMs article](backup-azure-vms.md). If you need to set up, or check, any of these prerequisites, this article leads you through the steps to prepare that prerequisite.
 
-##Supported operating system for backup
- - **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
+## Supported operating system for backup
+ - **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/linux/endorsed-distros.md) except Core OS Linux. _Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists. However, we do not endorse those distributions for backup._
  - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 ## Limitations when backing up and restoring a VM
 Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
+- Backing up virtual machines with data disk sizes greater than 1023GB is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 - Backup of VMs encrypted using just BEK is not supported. Backup of Linux VMs encrypted using LUKS encryption is not supported.
 - Backup of Linux virtual machines with Docker extension is not supported.
@@ -60,8 +63,8 @@ Before you prepare your environment, please understand the limitations.
 - Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 - Cross-region backup and restore are not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
-- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](./backup-azure-restore-vms.md#restoring-domain-controller-vms).
-- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](./backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+- Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
+- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
   - Virtual machines under load balancer configuration (internal and external)
   - Virtual machines with multiple reserved IP addresses
   - Virtual machines with multiple network adapters
@@ -72,14 +75,14 @@ A recovery services vault is an entity that stores the backups and recovery poin
 Azure Portal does not support Recovery Services in Azure China yet. To create a recovery services vault, follow the PowerShell steps [here](./backup-azure-vms-automation.md#create-a-recovery-services-vault)
 
 ## Install the VM Agent on the virtual machine
-The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine. Learn about the [VM Agent](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. If your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. This information is provided for the situations where you are *not* using a VM created from the Azure gallery - for example you migrated a VM from an on-premises datacenter. In such a case, the VM Agent needs to be installed in order to protect the virtual machine. Learn about the [VM Agent](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
 
 If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). The following table provides additional information about the VM Agent for Windows and Linux VMs.
 
 | **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installing the VM Agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. |<li> Install the latest [Linux agent](../virtual-machines/virtual-machines-linux-agent-user-guide.md). You will need Administrator privileges to complete the installation. We recommend installing agent from your distribution repository. We **do not recommend** installing Linux VM agent directly from github.  |
-| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fvirtual-machines%2flinux%2ftoc.json/). We recommend updating agent from your distribution repository. We **do not recommend** updating Linux VM agent directly from github.<br>Ensure that no backup operation is running while the VM Agent is being updated. |
+| Installing the VM Agent |Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. |<li> Install the latest [Linux agent](../virtual-machines/linux/agent-user-guide.md). You will need Administrator privileges to complete the installation. We recommend installing agent from your distribution repository. We **do not recommend** installing Linux VM agent directly from github.  |
+| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent](../virtual-machines/linux/update-agent.md). We recommend updating agent from your distribution repository. We **do not recommend** updating Linux VM agent directly from github.<br>Ensure that no backup operation is running while the VM Agent is being updated. |
 | Validating the VM Agent installation |<li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
 
 ### Backup extension
@@ -200,7 +203,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 *These steps use specific names and values for this example. Please use the names and values for your deployment when entering, or cutting and pasting details into your code.*
 
-Now that you know you have network connectivity, you are ready to back up your VM. 
+Now that you know you have network connectivity, you are ready to back up your VM. See [Back up Resource Manager-deployed VMs](backup-azure-vms.md).
 
 ## Questions?
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
@@ -208,6 +211,8 @@ If you have questions, or if there is any feature that you would like to see inc
 ## Next steps
 Now that you have prepared your environment for backing up your VM, your next logical step is to create a backup. The planning article provides more detailed information about backing up VMs.
 
-- [Back up virtual machines](./backup-azure-vms.md)
-- [Plan your VM backup infrastructure](./backup-azure-vms-introduction.md)
+- [Back up virtual machines](backup-azure-vms.md)
+- [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 - [Manage virtual machine backups](./backup-azure-manage-vms-classic.md)
+
+<!-- Update_Description: wording update -->

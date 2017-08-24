@@ -3,7 +3,7 @@ title: Migrating VMs to Azure Premium Storage | Azure
 description: Migrate your existing VMs to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: storage
 documentationcenter: na
-author: forester123
+author: hayley244
 manager: digimobile
 editor: tysonn
 
@@ -13,16 +13,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+origin.date: 06/27/2017
+ms.date: 08/14/2017
+ms.author: v-haiqya
+
 ---
 # Migrating to Azure Premium Storage (Unmanaged Disks)
-
+<!--
 > [!NOTE]
 > This article discusses how to migrate a VM that uses unmanaged standard disks to a VM that uses unmanaged premium disks. We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks. Managed Disks handle the underlying storage accounts so you don't have to. For more information, please see our [Managed Disks Overview](storage-managed-disks-overview.md).
 >
-
+-->
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating your application's VM disks to Azure Premium Storage.
 
 The purpose of this guide is to help new users of Azure Premium Storage better prepare to make a smooth transition from their current system to Premium Storage. The guide addresses three of the key components in this process:
@@ -54,13 +55,13 @@ An Azure VM supports attaching several Premium Storage disks so that your applic
 The Azure VM size specifications are listed in [Sizes for virtual machines](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 #### Disk sizes
-There are three types of disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
+There are five types of disks that can be used with your VM and each has specific IOPs and throughput limits. Take into consideration these limits when choosing the disk type for your VM based on the needs of your application in terms of capacity, performance, scalability, and peak loads.
 
-| Premium Disks Type  | P4    | P6    | P10   | P20   | P30            | P40            | P50            | 
-|:-------------------:|:-----:|:-----:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Disk size           | 128 GB| 512 GB| 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| IOPS per disk       | 120   | 240   | 500   | 2300  | 5000           | 7500           | 7500           | 
-| Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second |
+| Premium Disks Type  | P10   | P20   | P30            | P40            | P50            | 
+|:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
+| Disk size           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| IOPS per disk       | 500   | 2300  | 5000           | 7500           | 7500           | 
+| Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second |
 
 Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. (See what is Disk Striping [here](storage-premium-storage-performance.md#disk-striping).) If you stripe Premium Storage data disks using [Storage Spaces][4], you should configure it with one column for each disk that is used. Otherwise, the overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use the *mdadm* utility to achieve the same. See article [Configure Software RAID on Linux](../virtual-machines/linux/configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for details.
 
@@ -231,7 +232,7 @@ If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first e
 ##### Copy a VHD from other non-Azure cloud
 If you are migrating VHD from non-Azure Cloud Storage to Azure, you must first export the VHD to a local directory. Copy the complete source path of the local directory where VHD is stored.
 
-##### Copy a VHD from on-premise
+##### Copy a VHD from on-premises
 If you are migrating VHD from an on-premises environment, you will need the complete source path where VHD is stored. The source path could be a server location or file share.
 
 #### Step 2. Create the destination for your VHD
@@ -252,7 +253,7 @@ Now that you have your VHD in the local directory, you can use AzCopy or AzurePo
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-An example <Uri> might be ***"https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd"***. An example <FileInfo> might be ***"C:\path\to\upload.vhd"***.
+An example <Uri> might be ***"https://storagesample.blob.core.chinacloudapi.cn/mycontainer/blob1.vhd"*** . An example <FileInfo> might be ***"C:\path\to\upload.vhd"*** .
 
 ##### Option 2: Using AzCopy to upload the .vhd file
 Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.
@@ -358,7 +359,7 @@ Follow the step by step PowerShell cmdlets below to create the new VM. First, se
 
 ```powershell
 $serviceName = "yourVM"
-$location = "location-name" (e.g., China East) 
+$location = "location-name" (e.g., China East)
 $vmSize ="Standard_DS2"
 $adminUser = "youradmin"
 $adminPassword = "yourpassword"
@@ -439,291 +440,291 @@ The automation script is provided below. Replace text with your information and 
 >
 
 ```
-    <#
-    .Synopsis
-    This script is provided as an EXAMPLE to show how to migrate a VM from a standard storage account to a premium storage account. You can customize it according to your specific requirements.
+<#
+.Synopsis
+This script is provided as an EXAMPLE to show how to migrate a VM from a standard storage account to a premium storage account. You can customize it according to your specific requirements.
 
-    .Description
-    The script will copy the vhds (page blobs) of the source VM to the new storage account.
-    And then it will create a new VM from these copied vhds based on the inputs that you specified for the new VM.
-    You can modify the script to satisfy your specific requirement, but please be aware of the items specified
-    in the Terms of Use section.
+.Description
+The script will copy the vhds (page blobs) of the source VM to the new storage account.
+And then it will create a new VM from these copied vhds based on the inputs that you specified for the new VM.
+You can modify the script to satisfy your specific requirement, but please be aware of the items specified
+in the Terms of Use section.
 
-    .Terms of Use
-    Copyright © 2015 Microsoft Corporation.  All rights reserved.
+.Terms of Use
+Copyright © 2015 Microsoft Corporation.  All rights reserved.
 
-    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
-    EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
-    AND/OR FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK OF USE, INABILITY TO USE, OR
-    RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
+THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND/OR FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK OF USE, INABILITY TO USE, OR
+RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
 
-    .Example (Save this script as Migrate-AzureVM.ps1)
+.Example (Save this script as Migrate-AzureVM.ps1)
 
-    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location “China East”
+.\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location “China East”
 
-    .Link
-    To find more information about how to set up Azure PowerShell, refer to the following links.
-    https://www.azure.cn/documentation/articles/powershell-install-configure/
-    https://www.azure.cn/documentation/articles/storage-powershell-guide-full/
-    http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
+.Link
+To find more information about how to set up Azure PowerShell, refer to the following links.
+https://www.azure.cn/documentation/articles/powershell-install-configure/
+https://www.azure.cn/documentation/articles/storage-powershell-guide-full/
+http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
 
-    #>
+#>
 
-    Param(
-    # the cloud service name of the VM.
-    [Parameter(Mandatory = $true)]
-    [string] $SourceServiceName,
+Param(
+# the cloud service name of the VM.
+[Parameter(Mandatory = $true)]
+[string] $SourceServiceName,
 
-    # The VM name to copy.
-    [Parameter(Mandatory = $true)]
-    [String] $SourceVMName,
+# The VM name to copy.
+[Parameter(Mandatory = $true)]
+[String] $SourceVMName,
 
-    # The destination storage account name.
-    [Parameter(Mandatory = $true)]
-    [String] $DestStorageAccount,
+# The destination storage account name.
+[Parameter(Mandatory = $true)]
+[String] $DestStorageAccount,
 
-    # The destination cloud service name
-    [Parameter(Mandatory = $true)]
-    [String] $DestServiceName,
+# The destination cloud service name
+[Parameter(Mandatory = $true)]
+[String] $DestServiceName,
 
-    # the destination vm name
-    [Parameter(Mandatory = $true)]
-    [String] $DestVMName,
+# the destination vm name
+[Parameter(Mandatory = $true)]
+[String] $DestVMName,
 
-    # the destination vm size
-    [Parameter(Mandatory = $true)]
-    [String] $DestVMSize,
+# the destination vm size
+[Parameter(Mandatory = $true)]
+[String] $DestVMSize,
 
-    # the location of destination VM.
-    [Parameter(Mandatory = $true)]
-    [string] $Location,
+# the location of destination VM.
+[Parameter(Mandatory = $true)]
+[string] $Location,
 
-    # whether or not to copy the os disk, the default is only copy data disks
-    [Parameter(Mandatory = $false)]
-    [Bool] $DataDiskOnly = $true,
+# whether or not to copy the os disk, the default is only copy data disks
+[Parameter(Mandatory = $false)]
+[Bool] $DataDiskOnly = $true,
 
-    # how frequently to report the copy status in sceconds
-    [Parameter(Mandatory = $false)]
-    [Int32] $CopyStatusReportInterval = 15,
+# how frequently to report the copy status in sceconds
+[Parameter(Mandatory = $false)]
+[Int32] $CopyStatusReportInterval = 15,
 
-    # the name suffix to add to new created disks to avoid conflict with source disk names
-    [Parameter(Mandatory = $false)]
-    [String]$DiskNameSuffix = "-prem"
+# the name suffix to add to new created disks to avoid conflict with source disk names
+[Parameter(Mandatory = $false)]
+[String]$DiskNameSuffix = "-prem"
 
-    ) #end param
+) #end param
 
-    #######################################################################
-    #  Verify Azure PowerShell module and version
-    #######################################################################
+#######################################################################
+#  Verify Azure PowerShell module and version
+#######################################################################
 
-    #import the Azure PowerShell module
-    Write-Host "`n[WORKITEM] - Importing Azure PowerShell module" -ForegroundColor Yellow
-    $azureModule = Import-Module Azure -PassThru
+#import the Azure PowerShell module
+Write-Host "`n[WORKITEM] - Importing Azure PowerShell module" -ForegroundColor Yellow
+$azureModule = Import-Module Azure -PassThru
 
-    if ($azureModule -ne $null)
+if ($azureModule -ne $null)
+{
+    Write-Host "`tSuccess" -ForegroundColor Green
+}
+else
+{
+    #show module not found interaction and bail out
+    Write-Host "[ERROR] - PowerShell module not found. Exiting." -ForegroundColor Red
+    Exit
+}
+
+#Check the Azure PowerShell module version
+Write-Host "`n[WORKITEM] - Checking Azure PowerShell module verion" -ForegroundColor Yellow
+If ($azureModule.Version -ge (New-Object System.Version -ArgumentList "0.8.14"))
+{
+    Write-Host "`tSuccess" -ForegroundColor Green
+}
+Else
+{
+    Write-Host "[ERROR] - Azure PowerShell module must be version 0.8.14 or higher. Exiting." -ForegroundColor Red
+    Exit
+}
+
+#Check if there is an azure subscription set up in PowerShell
+Write-Host "`n[WORKITEM] - Checking Azure Subscription" -ForegroundColor Yellow
+$currentSubs = Get-AzureSubscription -Current
+if ($currentSubs -ne $null)
+{
+    Write-Host "`tSuccess" -ForegroundColor Green
+    Write-Host "`tYour current azure subscription in PowerShell is $($currentSubs.SubscriptionName)." -ForegroundColor Green
+}
+else
+{
+    Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article http://www.azure.cn/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
+    Exit
+}
+
+#######################################################################
+#  Check if the VM is shut down
+#  Stopping the VM is a required step so that the file system is consistent when you do the copy operation.
+#  Azure does not support live migration at this time..
+#######################################################################
+
+if (($sourceVM = Get-AzureVM –ServiceName $SourceServiceName –Name $SourceVMName) -eq $null)
+{
+    Write-Host "[ERROR] - The source VM doesn't exist in the current subscription. Exiting." -ForegroundColor Red
+    Exit
+}
+
+# check if VM is shut down
+if ( $sourceVM.Status -notmatch "Stopped" )
+{
+    Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you'd like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
+    $ContinueAnswer = Read-Host "`n`tDo you wish to stop $SourceVMName now? Input 'N' if you want to shut down the VM manually and come back later.(Y/N)"
+    If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
+    $sourceVM | Stop-AzureVM
+
+    # wait until the VM is shut down
+    $VMStatus = (Get-AzureVM –ServiceName $SourceServiceName –Name $vmName).Status
+    while ($VMStatus -notmatch "Stopped")
     {
-        Write-Host "`tSuccess" -ForegroundColor Green
-    }
-    else
-    {
-        #show module not found interaction and bail out
-        Write-Host "[ERROR] - PowerShell module not found. Exiting." -ForegroundColor Red
-        Exit
-    }
-
-    #Check the Azure PowerShell module version
-    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module verion" -ForegroundColor Yellow
-    If ($azureModule.Version -ge (New-Object System.Version -ArgumentList "0.8.14"))
-    {
-        Write-Host "`tSuccess" -ForegroundColor Green
-    }
-    Else
-    {
-        Write-Host "[ERROR] - Azure PowerShell module must be version 0.8.14 or higher. Exiting." -ForegroundColor Red
-        Exit
-    }
-
-    #Check if there is an azure subscription set up in PowerShell
-    Write-Host "`n[WORKITEM] - Checking Azure Subscription" -ForegroundColor Yellow
-    $currentSubs = Get-AzureSubscription -Current
-    if ($currentSubs -ne $null)
-    {
-        Write-Host "`tSuccess" -ForegroundColor Green
-        Write-Host "`tYour current azure subscription in PowerShell is $($currentSubs.SubscriptionName)." -ForegroundColor Green
-    }
-    else
-    {
-        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article http://www.azure.cn/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
-        Exit
-    }
-
-    #######################################################################
-    #  Check if the VM is shut down
-    #  Stopping the VM is a required step so that the file system is consistent when you do the copy operation.
-    #  Azure does not support live migration at this time..
-    #######################################################################
-
-    if (($sourceVM = Get-AzureVM –ServiceName $SourceServiceName –Name $SourceVMName) -eq $null)
-    {
-        Write-Host "[ERROR] - The source VM doesn't exist in the current subscription. Exiting." -ForegroundColor Red
-        Exit
-    }
-
-    # check if VM is shut down
-    if ( $sourceVM.Status -notmatch "Stopped" )
-    {
-        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you'd like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
-        $ContinueAnswer = Read-Host "`n`tDo you wish to stop $SourceVMName now? Input 'N' if you want to shut down the VM manually and come back later.(Y/N)"
-        If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
-        $sourceVM | Stop-AzureVM
-
-        # wait until the VM is shut down
+        Write-Host "`n[Status] - Waiting VM $vmName to shut down" -ForegroundColor Green
+        Sleep -Seconds 5
         $VMStatus = (Get-AzureVM –ServiceName $SourceServiceName –Name $vmName).Status
-        while ($VMStatus -notmatch "Stopped")
-        {
-            Write-Host "`n[Status] - Waiting VM $vmName to shut down" -ForegroundColor Green
-            Sleep -Seconds 5
-            $VMStatus = (Get-AzureVM –ServiceName $SourceServiceName –Name $vmName).Status
-        }
     }
+}
 
-    # exporting the sourve vm to a configuration file, you can restore the original VM by importing this config file
-    # see more information for Import-AzureVM
-    $workingDir = (Get-Location).Path
-    $vmConfigurationPath = $env:HOMEPATH + "\VM-" + $SourceVMName + ".xml"
-    Write-Host "`n[WORKITEM] - Exporting VM configuration to $vmConfigurationPath" -ForegroundColor Yellow
-    $exportRe = $sourceVM | Export-AzureVM -Path $vmConfigurationPath
+# exporting the sourve vm to a configuration file, you can restore the original VM by importing this config file
+# see more information for Import-AzureVM
+$workingDir = (Get-Location).Path
+$vmConfigurationPath = $env:HOMEPATH + "\VM-" + $SourceVMName + ".xml"
+Write-Host "`n[WORKITEM] - Exporting VM configuration to $vmConfigurationPath" -ForegroundColor Yellow
+$exportRe = $sourceVM | Export-AzureVM -Path $vmConfigurationPath
 
-    #######################################################################
-    #  Copy the vhds of the source vm
-    #  You can choose to copy all disks including os and data disks by specifying the
-    #  parameter -DataDiskOnly to be $false. The default is to copy only data disk vhds
-    #  and the new VM will boot from the original os disk.
-    #######################################################################
+#######################################################################
+#  Copy the vhds of the source vm
+#  You can choose to copy all disks including os and data disks by specifying the
+#  parameter -DataDiskOnly to be $false. The default is to copy only data disk vhds
+#  and the new VM will boot from the original os disk.
+#######################################################################
 
-    $sourceOSDisk = $sourceVM.VM.OSVirtualHardDisk
-    $sourceDataDisks = $sourceVM.VM.DataVirtualHardDisks
+$sourceOSDisk = $sourceVM.VM.OSVirtualHardDisk
+$sourceDataDisks = $sourceVM.VM.DataVirtualHardDisks
 
-    # Get source storage account information, not considering the data disks and os disks are in different accounts
-    $sourceStorageAccountName = $sourceOSDisk.MediaLink.Host -split "\." | select -First 1
-    $sourceStorageKey = (Get-AzureStorageKey -StorageAccountName $sourceStorageAccountName).Primary
-    $sourceContext = New-AzureStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
+# Get source storage account information, not considering the data disks and os disks are in different accounts
+$sourceStorageAccountName = $sourceOSDisk.MediaLink.Host -split "\." | select -First 1
+$sourceStorageKey = (Get-AzureStorageKey -StorageAccountName $sourceStorageAccountName).Primary
+$sourceContext = New-AzureStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
 
-    # Create destination context
-    $destStorageKey = (Get-AzureStorageKey -StorageAccountName $DestStorageAccount).Primary
-    $destContext = New-AzureStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
+# Create destination context
+$destStorageKey = (Get-AzureStorageKey -StorageAccountName $DestStorageAccount).Primary
+$destContext = New-AzureStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
 
-    # Create a container of vhds if it doesn't exist
-    if ((Get-AzureStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
+# Create a container of vhds if it doesn't exist
+if ((Get-AzureStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
+{
+    Write-Host "`n[WORKITEM] - Creating a container vhds in the destination storage account." -ForegroundColor Yellow
+    New-AzureStorageContainer -Context $destContext -Name vhds
+}
+
+$allDisksToCopy = $sourceDataDisks
+# check if need to copy os disk
+$sourceOSVHD = $sourceOSDisk.MediaLink.Segments[2]
+if ($DataDiskOnly)
+{
+    # copy data disks only, this option requires deleting the source VM so that dest VM can boot
+    # from the same vhd blob.
+    $ContinueAnswer = Read-Host "`n`t[Warning] You chose to copy data disks only. Moving VM requires removing the original VM (the disks and backing vhd files will NOT be deleted) so that the new VM can boot from the same vhd. This is an irreversible action. Do you wish to proceed right now? (Y/N)"
+    If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
+    $destOSVHD = Get-AzureStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
+    Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
+    Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
+
+    Write-Host "`n[WORKITEM] - Waiting utill the OS disk is released by source VM. This may take up to several minutes."
+    $diskAttachedTo = (Get-AzureDisk -DiskName $sourceOSDisk.DiskName).AttachedTo
+    while ($diskAttachedTo -ne $null)
     {
-        Write-Host "`n[WORKITEM] - Creating a container vhds in the destination storage account." -ForegroundColor Yellow
-        New-AzureStorageContainer -Context $destContext -Name vhds
-    }
-
-    $allDisksToCopy = $sourceDataDisks
-    # check if need to copy os disk
-    $sourceOSVHD = $sourceOSDisk.MediaLink.Segments[2]
-    if ($DataDiskOnly)
-    {
-        # copy data disks only, this option requires deleting the source VM so that dest VM can boot
-        # from the same vhd blob.
-        $ContinueAnswer = Read-Host "`n`t[Warning] You chose to copy data disks only. Moving VM requires removing the original VM (the disks and backing vhd files will NOT be deleted) so that the new VM can boot from the same vhd. This is an irreversible action. Do you wish to proceed right now? (Y/N)"
-        If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
-        $destOSVHD = Get-AzureStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
-        Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
-        Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
-
-        Write-Host "`n[WORKITEM] - Waiting utill the OS disk is released by source VM. This may take up to several minutes."
+        Start-Sleep -Seconds 10
         $diskAttachedTo = (Get-AzureDisk -DiskName $sourceOSDisk.DiskName).AttachedTo
-        while ($diskAttachedTo -ne $null)
+    }
+
+}
+else
+{
+    # copy the os disk vhd
+    Write-Host "`n[WORKITEM] - Starting copying os disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
+    $allDisksToCopy += @($sourceOSDisk)
+    $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
+    $destOSVHD = $targetBlob
+}
+
+# Copy all data disk vhds
+# Start all async copy requests in parallel.
+foreach($disk in $sourceDataDisks)
+{
+    $blobName = $disk.MediaLink.Segments[2]
+    # copy all data disks
+    Write-Host "`n[WORKITEM] - Starting copying data disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
+    $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
+    # update the media link to point to the target blob link
+    $disk.MediaLink = $targetBlob.ICloudBlob.Uri.AbsoluteUri
+}
+
+# Wait until all vhd files are copied.
+$diskComplete = @()
+do
+{
+    Write-Host "`n[WORKITEM] - Waiting for all disk copy to complete. Checking status every $CopyStatusReportInterval seconds." -ForegroundColor Yellow
+    # check status every 30 seconds
+    Sleep -Seconds $CopyStatusReportInterval
+    foreach ( $disk in $allDisksToCopy)
+    {
+        if ($diskComplete -contains $disk)
         {
-            Start-Sleep -Seconds 10
-            $diskAttachedTo = (Get-AzureDisk -DiskName $sourceOSDisk.DiskName).AttachedTo
+            Continue
         }
-
-    }
-    else
-    {
-        # copy the os disk vhd
-        Write-Host "`n[WORKITEM] - Starting copying os disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
-        $allDisksToCopy += @($sourceOSDisk)
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
-        $destOSVHD = $targetBlob
-    }
-
-    # Copy all data disk vhds
-    # Start all async copy requests in parallel.
-    foreach($disk in $sourceDataDisks)
-    {
         $blobName = $disk.MediaLink.Segments[2]
-        # copy all data disks
-        Write-Host "`n[WORKITEM] - Starting copying data disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
-        # update the media link to point to the target blob link
-        $disk.MediaLink = $targetBlob.ICloudBlob.Uri.AbsoluteUri
-    }
-
-    # Wait until all vhd files are copied.
-    $diskComplete = @()
-    do
-    {
-        Write-Host "`n[WORKITEM] - Waiting for all disk copy to complete. Checking status every $CopyStatusReportInterval seconds." -ForegroundColor Yellow
-        # check status every 30 seconds
-        Sleep -Seconds $CopyStatusReportInterval
-        foreach ( $disk in $allDisksToCopy)
+        $copyState = Get-AzureStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
+        if ($copyState.Status -eq "Success")
         {
-            if ($diskComplete -contains $disk)
+            Write-Host "`n[Status] - Success for disk copy $($disk.DiskName) at $($copyState.CompletionTime)" -ForegroundColor Green
+            $diskComplete += $disk
+        }
+        else
+        {
+            if ($copyState.TotalBytes -gt 0)
             {
-                Continue
-            }
-            $blobName = $disk.MediaLink.Segments[2]
-            $copyState = Get-AzureStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
-            if ($copyState.Status -eq "Success")
-            {
-                Write-Host "`n[Status] - Success for disk copy $($disk.DiskName) at $($copyState.CompletionTime)" -ForegroundColor Green
-                $diskComplete += $disk
-            }
-            else
-            {
-                if ($copyState.TotalBytes -gt 0)
-                {
-                    $percent = ($copyState.BytesCopied / $copyState.TotalBytes) * 100
-                    Write-Host "`n[Status] - $('{0:N2}' -f $percent)% Complete for disk copy $($disk.DiskName)" -ForegroundColor Green
-                }
+                $percent = ($copyState.BytesCopied / $copyState.TotalBytes) * 100
+                Write-Host "`n[Status] - $('{0:N2}' -f $percent)% Complete for disk copy $($disk.DiskName)" -ForegroundColor Green
             }
         }
     }
-    while($diskComplete.Count -lt $allDisksToCopy.Count)
+}
+while($diskComplete.Count -lt $allDisksToCopy.Count)
 
-    #######################################################################
-    #  Create a new vm
-    #  the new VM can be created from the copied disks or the original os disk.
-    #  You can ddd your own logic here to satisfy your specific requirements of the vm.
-    #######################################################################
+#######################################################################
+#  Create a new vm
+#  the new VM can be created from the copied disks or the original os disk.
+#  You can ddd your own logic here to satisfy your specific requirements of the vm.
+#######################################################################
 
-    # Create a VM from the existing os disk
-    if ($DataDiskOnly)
-    {
-        $vm = New-AzureVMConfig -Name $DestVMName -InstanceSize $DestVMSize -DiskName $sourceOSDisk.DiskName
-    }
-    else
-    {
-        $newOSDisk = Add-AzureDisk -OS $sourceOSDisk.OS -DiskName ($sourceOSDisk.DiskName + $DiskNameSuffix) -MediaLocation $destOSVHD.ICloudBlob.Uri.AbsoluteUri
-        $vm = New-AzureVMConfig -Name $DestVMName -InstanceSize $DestVMSize -DiskName $newOSDisk.DiskName
-    }
-    # Attached the copied data disks to the new VM
-    foreach ($dataDisk in $sourceDataDisks)
-    {
-        # add -DiskLabel $dataDisk.DiskLabel if there are labels for disks of the source vm
-        $diskLabel = "drive" + $dataDisk.Lun
-        $vm | Add-AzureDataDisk -ImportFrom -DiskLabel $diskLabel -LUN $dataDisk.Lun -MediaLocation $dataDisk.MediaLink
-    }
+# Create a VM from the existing os disk
+if ($DataDiskOnly)
+{
+    $vm = New-AzureVMConfig -Name $DestVMName -InstanceSize $DestVMSize -DiskName $sourceOSDisk.DiskName
+}
+else
+{
+    $newOSDisk = Add-AzureDisk -OS $sourceOSDisk.OS -DiskName ($sourceOSDisk.DiskName + $DiskNameSuffix) -MediaLocation $destOSVHD.ICloudBlob.Uri.AbsoluteUri
+    $vm = New-AzureVMConfig -Name $DestVMName -InstanceSize $DestVMSize -DiskName $newOSDisk.DiskName
+}
+# Attached the copied data disks to the new VM
+foreach ($dataDisk in $sourceDataDisks)
+{
+    # add -DiskLabel $dataDisk.DiskLabel if there are labels for disks of the source vm
+    $diskLabel = "drive" + $dataDisk.Lun
+    $vm | Add-AzureDataDisk -ImportFrom -DiskLabel $diskLabel -LUN $dataDisk.Lun -MediaLocation $dataDisk.MediaLink
+}
 
-    # Edit this if you want to add more custimization to the new VM
-    # $vm | Add-AzureEndpoint -Protocol tcp -LocalPort 443 -PublicPort 443 -Name 'HTTPs'
-    # $vm | Set-AzureSubnet "PubSubnet","PrivSubnet"
+# Edit this if you want to add more custimization to the new VM
+# $vm | Add-AzureEndpoint -Protocol tcp -LocalPort 443 -PublicPort 443 -Name 'HTTPs'
+# $vm | Set-AzureSubnet "PubSubnet","PrivSubnet"
 
-    New-AzureVM -ServiceName $DestServiceName -VMs $vm -Location $Location
+New-AzureVM -ServiceName $DestServiceName -VMs $vm -Location $Location
 ```
 
 #### <a name="optimization"></a>Optimization
@@ -763,3 +764,5 @@ Also, see the following resources to learn more about Azure Storage and Azure Vi
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-2.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png 
 [4]: http://technet.microsoft.com/library/hh831739.aspx
+
+<!--Update_Description: wording update - update disk-size table -->

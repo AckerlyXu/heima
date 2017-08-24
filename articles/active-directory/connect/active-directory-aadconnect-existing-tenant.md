@@ -3,8 +3,8 @@ title: 'Azure AD Connect: When you already have Azure AD | Microsoft Docs'
 description: This topic describes how to use Connect when you have an existing Azure AD tenant.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ---
 
@@ -56,3 +57,4 @@ Some customers start with a cloud-only solution with Azure AD and they do not ha
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!-- Update_Description: update meta properties -->

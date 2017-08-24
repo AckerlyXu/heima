@@ -1,5 +1,5 @@
 ---
-title: Designing Cloud Solutions for Disaster Recovery Using SQL Database Geo-Replication | Azure
+title: Design disaster recovery solutions - Azure SQL Database | Azure
 description: Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern.
 services: sql-database
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/07/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools
@@ -166,6 +166,7 @@ This article focuses on the disaster recovery strategies for the database tier u
 * To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 * To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+* To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 * To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
+<!--Update_Description: update meta properties-->

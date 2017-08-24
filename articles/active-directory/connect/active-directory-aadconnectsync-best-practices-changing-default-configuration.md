@@ -1,23 +1,22 @@
 ---
-title: 'Azure AD Connect sync: Changing the default configuration | Azure'
+title: 'Azure AD Connect sync: Changing the default configuration | Microsoft Docs'
 description: Provides best practices for changing the default configuration of Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
-
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 03/07/2017
----
 
+---
 # Azure AD Connect sync: Best practices for changing the default configuration
 The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
 
@@ -68,3 +67,5 @@ On this cloned rule, make any necessary changes to scope, join, and transformati
 
 - [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+<!-- Update_Description: update meta properties -->

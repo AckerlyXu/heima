@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 
@@ -1025,3 +1025,5 @@ You can use the value "0" to indicate to the encoder to ignore rotation metadata
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)
+
+<!--Update_Description: update meta properties-->

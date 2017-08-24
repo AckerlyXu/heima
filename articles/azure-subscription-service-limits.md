@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 07/13/2017
+origin.date: 06/27/2017
+ms.date: 08/01/2017
 ms.author: v-junlch
 
 ---
@@ -27,7 +27,7 @@ Please visit [Azure Pricing Overview](https://www.azure.cn/pricing/) to learn mo
 > [!NOTE]
 > If you want to raise the limit or quota above the **Default Limit**, open an online customer support request at no charge. The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
 > 
-> 1rmb-trial subscriptions are not eligible for limit or quota increases. If you have a 1rmb-trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. 
+> 1rmb-trial subscriptions are not eligible for limit or quota increases. If you have a 1rmb-trial, you can upgrade to a Pay-As-You-Go subscription. 
 > 
 
 ## Limits and the Azure Resource Manager
@@ -53,7 +53,6 @@ In the limits below, a new table has been added to reflect any differences in li
 - [CDN](#cdn-limits)
 - [Cloud Services](#cloud-services-limits)
 - [DNS](#dns-limits)
-- [DocumentDB](#documentdb-limits)
 - [Event Hubs](#event-hubs-limits)
 - [IoT Hub](#iot-hub-limits)
 - [Key Vault](#key-vault-limits)
@@ -75,7 +74,7 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Virtual Machines](#virtual-machines-limits)
 - [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
-### Subscription limits
+### Subscription limits <a name="subscription-limits"></a>
 #### Subscription limits
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
@@ -86,10 +85,10 @@ For information about handling limits on Resource Manager requests, see [Throttl
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### Resource Group limits
+### Resource Group limits <a name="resource-group-limits"></a>
 [!INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-### Virtual Machines limits
+### Virtual Machines limits <a name="virtual-machines-limits"></a>
 #### Virtual Machine limits
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
@@ -116,7 +115,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 #### DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-### Storage limits
+### Storage limits <a name="storage-limits"></a>
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### Storage Service limits
@@ -155,9 +154,6 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 ### Batch limits
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### DocumentDB limits
-DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale DocumentDB provides, please send email to askdocdb@microsoft.com.
-
 ### Media Services limits
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
@@ -185,7 +181,7 @@ DocumentDB is a global scale database in which throughput and storage can be sca
 ### Stream Analytics limits
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
-### Active Directory limits
+### Active Directory limits <a name="active-directory-limits"></a>
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 ### Backup limits
@@ -206,7 +202,7 @@ DocumentDB is a global scale database in which throughput and storage can be sca
 ### Automation limits
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
-### SQL Database limits
+### SQL Database limits <a name="sql-database-limits"></a>
 For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
 
 ## See also
@@ -216,4 +212,4 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
 
-
+<!-- Update_Description: wording update -->

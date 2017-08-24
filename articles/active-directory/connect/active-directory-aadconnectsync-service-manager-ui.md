@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect sync: Synchronization Service Manager UI | Azure'
+title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
 description: Understand Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
@@ -13,12 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2017
-ms.date: 04/05/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
-
 # Introduction to the Azure AD Connect Synchronization Service Manager UI
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
@@ -34,3 +33,5 @@ Click the links at the top of this topic to learn more about the different tabs 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+<!-- Update_Description: update meta properties -->

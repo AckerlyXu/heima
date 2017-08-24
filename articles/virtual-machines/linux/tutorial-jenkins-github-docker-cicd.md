@@ -1,6 +1,6 @@
 ---
-title: Create a CI/CD pipeline in Azure with Jenkins | Azure
-description: Learn how to create a Jenkins instance in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
+title: Create a development pipeline in Azure with Jenkins | Azure
+description: Learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 07/24/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: mvc
 ---
 
-# Create a CI/CD infrastructure on a Linux VM in Azure that uses Jenkins, GitHub, and Docker
+# How to create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
 To automate the build and test phase of application development, you can use a continuous integration and deployment (CI/CD) pipeline. In this tutorial, you create a CI/CD pipeline on an Azure VM including how to:
 
 > [!div class="checklist"]
@@ -31,9 +31,9 @@ To automate the build and test phase of application development, you can use a c
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. 
@@ -228,3 +228,5 @@ Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
 > [Linux virtual machine script samples](./cli-samples.md)
+
+<!--Update_Description: wording update-->

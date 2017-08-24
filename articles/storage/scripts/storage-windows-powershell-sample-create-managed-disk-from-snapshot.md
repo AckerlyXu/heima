@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell Script Sample - Create a managed disk from a snapshot | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a managed disk from a snapshot
-services: managed-disks-windows
+services: managed-disks
 documentationcenter: storage
 author: forester123
 manager: digimobile
@@ -15,10 +15,10 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 06/26/2017
-ms.author: v-johch
+ms.date: 08/14/2017
+ms.author: v-haiqya
 ---
-
+<!--Not applicable-->
 # Create a managed disk from a snapshot with PowerShell
 
 This script creates a managed disk from a snapshot. Use it to restore a virtual machine from snapshots of OS and data disks. Create OS and data managed disks from respective snapshots and then create a new virtual machine by attaching managed disks. You can also restore data disks of an existing VM by attaching data disks created from snapshots.
@@ -84,3 +84,5 @@ This script uses following commands to create a managed disk from a snapshot. Ea
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!--Update_Description: update meta properties - changed services into managed-disks-->

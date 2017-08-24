@@ -28,12 +28,9 @@ ms.author: v-yeche
 |**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 <!-- Not Available [Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md) -->
 
-## Release notes
-
-* Initial preview release.
-
-## Release & Retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+<!-- Not Avaialble ## Release notes -->
+## Release & Retirement
+Microsoft will provide notification at least in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
