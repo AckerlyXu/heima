@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/14/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
 ---
 # Create an ASP.NET web app in Azure
 
-[Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
+[Azure Web Apps](./app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
 ![ASP.NET web app in Azure App Service](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
@@ -28,7 +28,7 @@ ms.custom: mvc
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workloads:
+* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
     - **ASP.NET and web development**
     - **Azure development**
 
@@ -72,7 +72,7 @@ This opens the **Create App Service** dialog, which helps you create all the nec
 
 ## Sign in to Azure
 
-In the **Create App Service** dialog, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, make sure that the account has your Azure subscription. You can select the signed-in account to add the correct account.
+In the **Create App Service** dialog, select **Add an account**, and sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
 
 > [!NOTE]
 > If you're already signed in, don't select **Create** yet.
@@ -80,8 +80,6 @@ In the **Create App Service** dialog, select **Add an account**, and then sign i
 >
 
 ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
-
-Once signed in, you're ready to create all the necessary resources for an Azure web app in this dialog.
 
 ## Create a resource group
 
@@ -111,9 +109,7 @@ Select **OK**.
 
 ## Create and publish the web app
 
-In **Web App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`). The URL of the web app is `http://<app_name>.chinacloudsites.cn`, where `<app_name>` is your web app name. 
-
-You can accept the automatically generated name, which is unique.
+In **Web App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `http://<app_name>.chinacloudsites.cn`, where `<app_name>` is your web app name.
 
 Select **Create** to start creating the Azure resources.
 
@@ -123,7 +119,7 @@ Once the wizard completes, it publishes the ASP.NET web app to Azure, and then l
 
 ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-The URL uses the web app name that you specified earlier, with the format `http://<app_name>.chinacloudsites.cn`. 
+The web app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `http://<app_name>.chinacloudsites.cn`.
 
 Congratulations, your ASP.NET web app is running live in Azure App Service.
 

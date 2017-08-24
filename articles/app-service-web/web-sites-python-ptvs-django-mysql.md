@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: get-started-article
 origin.date: 07/07/2016
-ms.date: 03/17/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 
 ---
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio
@@ -71,12 +71,13 @@ For the database, you'll create a ClearDB MySQL hosted database on Azure.
 
 As an alternative, you can create your own Virtual Machine running in Azure, then install and administer MySQL yourself.
 
-You can create a database by following these steps.
+You can create a database with a free plan by following these steps.
 
-1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
-1.  At the bottom of the navigation pane. 
-1.  Click **DATA SERVICE**, then **MYSQL DATABASE ON AZURE**, then **QUICK CREATE**.
-1.  Filled in with name, version, and so on, then click **CREATE**.
+1. Log in to the [Azure Portal].
+2. At the Top of the navigation pane, click **NEW**, then click **Data + Storage**, and then click **MySQL Database**.
+3. Configure the new MySQL database by creating a new resource group and select the appropriate location for it.
+4. Once the MySQL database is created, click **Properties** in the database blade.
+5. Use the copy button to put the value of **CONNECTION STRING** on the clipboard.
 
 ## Configure the Project
 In this section, you'll configure our web app to use the MySQL database you just created. You'll also install additional Python packages required to use MySQL databases with Django. Then you'll run the web app locally.

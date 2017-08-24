@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
 ---
 
@@ -23,7 +23,7 @@ ms.custom: mvc
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
+[Azure Web Apps](./app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and connected to SQL Database.
 
 ![Published ASP.NET application in Azure web app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workloads:
+* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **ASP.NET and web development**
   - **Azure development**
 
