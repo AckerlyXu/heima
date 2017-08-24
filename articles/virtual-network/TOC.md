@@ -134,7 +134,7 @@
 ## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.network)
 ## [PowerShell (Classic)](https://docs.microsoft.com/powershell/module/azure/)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
-## [Java](https://docs.microsoft.com/java/api/)
+## [Java](https://docs.azure.cn/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
 
