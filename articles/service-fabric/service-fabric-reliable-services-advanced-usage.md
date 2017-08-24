@@ -40,7 +40,7 @@ Although `RunAsync` should be sufficient in almost all cases, the open, close, a
 * `void OnAbort() - C# / void onAbort() - Java`
     OnAbort is called when the stateless service instance is being forcefully shut down. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
 
-## Stateful service replica lifecycle
+## <a name="stateful-service-replica-lifecycle" ></a>Stateful service replica lifecycle
 
 > [!NOTE]
 > Stateful reliable services are not supported in Java yet.
