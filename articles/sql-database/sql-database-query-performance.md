@@ -12,7 +12,7 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-
+---
 # Azure SQL Database Query Performance Insight
 
 Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:​

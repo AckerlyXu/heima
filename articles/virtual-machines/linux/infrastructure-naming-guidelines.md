@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/17/2017
-ms.date: 04/24/2017
+origin.date: 06/26/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 
@@ -103,3 +103,5 @@ This section does not apply to [Azure Managed Disks](../../storage/storage-manag
 
 ## Next steps
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+
+<!--Update_Description: update meta data-->

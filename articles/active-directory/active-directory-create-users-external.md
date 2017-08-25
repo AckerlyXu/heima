@@ -3,8 +3,8 @@ title: Add users from other directories or partner companies in Azure Active Dir
 description: Explains how to add users or change user information in Azure Active Directory, including external and guest users.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
@@ -13,14 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/14/2017
-ms.date: 06/12/2017
+origin.date: 07/25/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
 
 ---
 # Add users from other directories or partner companies in Azure Active Directory
 
-This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). 
+
+Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn) with an account that's a global admin for the directory.
@@ -71,3 +76,4 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - [Administering Azure AD](active-directory-administer.md)
 - [Manage passwords in Azure AD](active-directory-manage-passwords.md)
 
+<!--Update_Description: wording update -->

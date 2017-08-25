@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Features in preview | Azure'
+title: 'Azure AD Connect: Features in preview | Microsoft Docs'
 description: This topic describes in more detail features which are in preview in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/07/2017
-ms.date: 03/07/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # More details about features in preview
 This topic describes how to use features currently in preview.
 
@@ -50,3 +50,5 @@ An Office 365 group is represented as a distribution group in on-premises AD DS.
 Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+<!-- Update_Description: update meta properties -->

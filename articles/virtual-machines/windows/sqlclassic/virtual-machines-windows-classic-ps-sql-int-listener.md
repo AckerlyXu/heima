@@ -23,12 +23,12 @@ ms.author: v-dazen
 > [!div class="op_single_selector"]
 > * [Internal listener](../classic/ps-sql-int-listener.md)
 > * [External listener](../classic/ps-sql-ext-listener.md)
-> 
-> 
+>
+>
 
 ## Overview
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers the use of the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 
 To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
@@ -82,7 +82,7 @@ Create a load-balanced endpoint for each VM that hosts an Azure replica. If you 
 
 12. Copy the following PowerShell script to a text editor, and set the variable values to suit your environment. Defaults have been provided for some parameters.  
 
-    Existing deployments that use affinity groups cannot add an ILB. For more information about ILB requirements, see [Internal load balancer overview](../../../load-balancer/load-balancer-internal-overview.md). 
+    Existing deployments that use affinity groups cannot add an ILB. For more information about ILB requirements, see [Internal load balancer overview](../../../load-balancer/load-balancer-internal-overview.md).
 
     Also, if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
 
@@ -103,11 +103,6 @@ Create a load-balanced endpoint for each VM that hosts an Azure replica. If you 
         }
 
 13. After you have set the variables, copy the script from the text editor to your PowerShell session to run it. If the prompt still shows **>>**, press Enter again to make sure the script starts running.
-
-> [!NOTE]
-> Because the Azure Classic Management Portal does not currently support the ILB, it doesn't display the ILB or the endpoints. However, if the load balancer is running on the Classic Management Portal,`Get-AzureEndpoint` returns an internal IP address. Otherwise, it returns null.
-> 
-> 
 
 ## Verify that KB2854082 is installed if necessary
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]

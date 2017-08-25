@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 06/07/2017
-ms.date: 07/10/2017
+origin.date: 07/12/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 ---
 
@@ -52,3 +52,5 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
+
+<!--Update_Description: update meta data-->

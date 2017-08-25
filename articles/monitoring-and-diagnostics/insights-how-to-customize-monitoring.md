@@ -72,6 +72,4 @@ You can also see usage quotas on the blade for resources that have quotas:
 Like with metrics, you can use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931963.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to access the full set of usage quotas programmatically.
 
 ## Next steps
-
-* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Scale instance count automatically](./insights-how-to-scale.md) to make sure your service is available and responsive.

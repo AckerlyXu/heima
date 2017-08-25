@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/03/2017
-ms.date: 07/17/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-yiso
 ---
 
 # Service Bus management libraries
 
-The Service Bus management libraries can dynamically provision Service Bus namespaces and entities. This allows for complex deployments and messaging scenarios, enabling you to programmatically determine what entities to provision. These libraries are currently available for .NET.
+The Azure Service Bus management libraries can dynamically provision Service Bus namespaces and entities. This enables complex deployments and messaging scenarios, and makes it possible to programmatically determine what entities to provision. These libraries are currently available for .NET.
 
 ## Supported functionality
 
@@ -31,7 +31,7 @@ The Service Bus management libraries can dynamically provision Service Bus names
 
 ## Prerequisites
 
-To get started using the Service Bus management libraries, you must authenticate with Azure Active Directory (AAD). AAD requires that you authenticate as a service principal which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
+To get started using the Service Bus management libraries, you must authenticate with the Azure Active Directory (AAD) service. AAD requires that you authenticate as a service principal, which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
 * [Use the Azure Portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
@@ -48,7 +48,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
-        "https://management.core.windows.net/",
+        "https://management.core.chinacloudapi.cn/",
         new ClientCredential(clientId, clientSecret)
     );
     ```
@@ -78,4 +78,4 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus Reference](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Microsoft.Azure.Management.ServiceBus API Reference](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)

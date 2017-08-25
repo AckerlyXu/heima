@@ -2,18 +2,17 @@
 title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On | Microsoft Docs'
 description: This topic describes using a SAML 2.0 compliant Idp for single sign on.
 services: active-directory
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
-ms.date: 06/21/2017
-
 ---
 
 #  Use a SAML 2.0 Identity Provider (IdP) for Single Sign On
@@ -177,7 +176,6 @@ The following procedure walks you through converting an existing standard domain
 
 1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService .
 2.	Configure your desired Office 365 domain to use federation with SAML 2.0:
-
 	`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  You can obtain the signing certificate base64 encoded string from your IDP metadata file. An example of this location has been provided but may differ slightly based on your implementation.
@@ -203,7 +201,6 @@ This procedure shows how to add a single user to Azure AD.
 
 1. Connect to your Azure AD Directory as a tenant administrator: Connect-MsolService.
 2.	Create a new user principal:
-
 	` New-MsolUser
 		-UserPrincipalName elwoodf1@contoso.com
 		-ImmutableId ABCDEFG1234567890
@@ -275,3 +272,4 @@ To verify that single sign-on has been set up correctly, complete the following 
 - [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)
 - [Azure AD Connect Custom Installation](active-directory-aadconnect-get-started-custom.md)
 
+<!-- Update_Description: update meta properties -->

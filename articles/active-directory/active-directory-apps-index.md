@@ -3,8 +3,8 @@ title: Article Index for Application Management in Azure Active Directory | Azur
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory
@@ -50,9 +51,9 @@ Single sign-on allows users to access a variety of apps and services using only 
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](./active-directory-appssoaccess-whatis.md) |
 | Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)|
 | More than 150 app tutorials on how to configure single sign-on for apps |
-| How to manually set up and customize your single sign-on configuration |How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery <br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./develop/active-directory-saml-claims-customization.md) |
+| How to manually set up and customize your single sign-on configuration |How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](./develop/active-directory-saml-debugging.md) |
-| How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](./active-directory-sso-certs.md) |
+| How to configure your app's certificate's expiration date, and how to renew your certificates | Managing Certificates for Federated Single Sign-On in Azure Active Directory |
 
 Federated single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) supports unlimited applications. If your organization has [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) or [Azure AD Premium](https://www.azure.cn/pricing/details/identity/), then you can [use groups to assign access to federated applications](#managing-access-to-applications).
 
@@ -88,7 +89,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Article Guide |  |
 |:---:| --- |
 | Configure how information is mapped between Azure AD and your SaaS app | Customizing Attribute Mappings <br><br> Writing Expressions for Attribute Mappings |
-| How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
+| How to enable automated provisioning to any app that supports the SCIM protocol | Set up Automated User Provisioning to any SCIM-Enabled App |
 | Limit who gets provisioned to an application based on their attribute values | |
 
 Automated user provisioning is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) supports unlimited applications. If your organization has [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) or [Azure AD Premium](https://www.azure.cn/pricing/details/identity/), then you can [use groups to manage which users get provisioned](#managing-access-to-applications).
@@ -116,7 +117,9 @@ The Azure AD Access Panel is where end-users can launch their apps and access th
 
 Access Panel is available for [all editions of Azure Active Directory](https://www.azure.cn/pricing/details/identity/).
 
-##See also
+## See also
+[What is Azure Active Directory?](active-directory-whatis.md)
 
 [Azure Multi-Factor Authentication](https://www.azure.cn/home/features/multi-factor-authentication/)
 
+<!--Update_Description: wording update -->  

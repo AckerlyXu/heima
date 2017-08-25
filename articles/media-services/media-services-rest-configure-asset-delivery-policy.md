@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 04/10/2017
-ms.author: v-johch
----
+origin.date: 07/13/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
+---
 # Configuring asset delivery policies
 
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -27,7 +27,7 @@ If you plan to deliver dynamically encrypted assets, one of the steps in the Med
 This topic discusses why and how to create and configure asset delivery policies.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 >
 >Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
@@ -59,7 +59,7 @@ MPEG DASH
 
 For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](./media-services-deliver-streaming-content.md).
 
-##Considerations
+## Considerations
 
 - You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
 - A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
@@ -70,14 +70,16 @@ For instructions on how to publish an asset and build a streaming URL, see [Buil
 > When working with the Media Services REST API, the following considerations apply:
 >
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
-
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](./media-services-rest-connect-programmatically.md). 
+>
+>After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md).
 
 ## Clear asset delivery policy
-### <a id="create_asset_delivery_policy"></a>Create asset delivery policy
-The following HTTP request creates an asset delivery policy that specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. 
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
+### <a id="create_asset_delivery_policy"></a>Create asset delivery policy
+
+The following HTTP request creates an asset delivery policy that specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.
+
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
 Request:
 
@@ -91,12 +93,14 @@ Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
 x-ms-version: 2.11
 x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn 
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
-{"Name":"Clear Policy",
-"AssetDeliveryProtocol":7,
-"AssetDeliveryPolicyType":2,
-"AssetDeliveryConfiguration":null}
+{
+    "Name":"Clear Policy",
+    "AssetDeliveryProtocol":7,
+    "AssetDeliveryPolicyType":2,
+    "AssetDeliveryConfiguration":null
+}
 ```
 
 Response:
@@ -117,17 +121,19 @@ X-Powered-By: ASP.NET
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Sun, 08 Feb 2015 06:21:27 GMT
 
-{"odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
-"Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
-"Name":"Clear Policy",
-"AssetDeliveryProtocol":7,
-"AssetDeliveryPolicyType":2,
-"AssetDeliveryConfiguration":null,
-"Created":"2015-02-08T06:21:27.6908329Z",
-"LastModified":"2015-02-08T06:21:27.6908329Z"}
+{
+    "odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
+    "Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
+    "Name":"Clear Policy",
+    "AssetDeliveryProtocol":7,
+    "AssetDeliveryPolicyType":2,
+    "AssetDeliveryConfiguration":null,
+    "Created":"2015-02-08T06:21:27.6908329Z",
+    "LastModified":"2015-02-08T06:21:27.6908329Z"
+}
 ```
 
-###<a id="link_asset_with_asset_delivery_policy"></a>Link asset with asset delivery policy
+### <a id="link_asset_with_asset_delivery_policy"></a>Link asset with asset delivery policy
 
 The following HTTP request links the specified asset to the asset delivery policy to.
 
@@ -154,13 +160,13 @@ Response:
 HTTP/1.1 204 No Content
 ```
 
-##DynamicEnvelopeEncryption asset delivery policy 
+## DynamicEnvelopeEncryption asset delivery policy
 
-###Create content key of the EnvelopeEncryption type and link it to the asset
+### Create content key of the EnvelopeEncryption type and link it to the asset
 
 When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
 
-###<a id="get_delivery_url"></a>Get delivery URL
+### <a id="get_delivery_url"></a>Get delivery URL
 
 Get the delivery URL for the specified delivery method of the content key created in the previous step. A client uses the returned URL to request an AES key or a PlayReady license in order to playback the protected content.
 
@@ -199,14 +205,17 @@ DataServiceVersion: 3.0;
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Sun, 08 Feb 2015 21:42:30 GMT
 
-{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
+{
+    "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String",
+    "value":"https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"
+    }
 ```
 
-###Create asset delivery policy
+### Create asset delivery policy
 
 The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to the **HLS** protocol (in this example, other protocols will be blocked from streaming). 
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
 Request:
 
@@ -246,25 +255,25 @@ Date: Mon, 09 Feb 2015 05:24:38 GMT
 {"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 ```
 
-###Link asset with asset delivery policy
+### Link asset with asset delivery policy
 
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
-##DynamicCommonEncryption asset delivery policy 
+## DynamicCommonEncryption asset delivery policy 
 
-###Create content key of the CommonEncryption type and link it to the asset
+### Create content key of the CommonEncryption type and link it to the asset
 
 When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
 
-###Get Delivery URL
+### Get Delivery URL
 
 Get the delivery URL for the PlayReady delivery method of the content key created in the previous step. A client uses the returned URL to request a PlayReady license in order to playback the protected content. For more information, see [Get Delivery URL](#get_delivery_url).
 
-###Create asset delivery policy
+### Create asset delivery policy
 
-The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to the **Smooth Streaming** protocol (in this example, other protocols will be blocked from streaming). 
+The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to the **Smooth Streaming** protocol (in this example, other protocols will be blocked from streaming).
 
-For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
+For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.
 
 Request:
 
@@ -284,18 +293,16 @@ Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
 ```
 
-###Link asset with asset delivery policy
+### Link asset with asset delivery policy
 
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
-##<a id="types"></a>Types used when defining AssetDeliveryPolicy
+## <a id="types"></a>Types used when defining AssetDeliveryPolicy
 
-###AssetDeliveryProtocol 
+### AssetDeliveryProtocol
 
+The following enum describes values you can set for the asset delivery protocol.
 ```
-/// <summary>
-/// Delivery protocol for an asset delivery policy.
-/// </summary>
 [Flags]
 public enum AssetDeliveryProtocol
 {
@@ -319,6 +326,8 @@ public enum AssetDeliveryProtocol
     /// </summary>
     HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+
     /// <summary>
     /// Include all protocols.
     /// </summary>
@@ -326,12 +335,10 @@ public enum AssetDeliveryProtocol
 }
 ```
 
-###AssetDeliveryPolicyType
+### AssetDeliveryPolicyType
 
+The following enum describes values you can set for the asset delivery policy type.
 ```
-/// <summary>
-/// Policy type for dynamic encryption of assets.
-/// </summary>
 public enum AssetDeliveryPolicyType
 {
     /// <summary>
@@ -340,15 +347,15 @@ public enum AssetDeliveryPolicyType
     None,
 
     /// <summary>
-    /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+    /// The Asset should not be delivered via this AssetDeliveryProtocol.
     /// </summary>
-    Blocked, 
+    Blocked,
 
     /// <summary>
     /// Do not apply dynamic encryption to the asset.
     /// </summary>
     /// 
-    NoDynamicEncryption,  
+    NoDynamicEncryption,
 
     /// <summary>
     /// Apply Dynamic Envelope encryption.
@@ -362,13 +369,10 @@ public enum AssetDeliveryPolicyType
     }
 ```
 
-###ContentKeyDeliveryType
+### ContentKeyDeliveryType
 
+The following enum describes values you can use to configure the delivery method of the content key to the client.
 ```
-/// <summary>
-/// Delivery method of the content key to the client.
-///
-</summary>
 public enum ContentKeyDeliveryType
 {
     /// <summary>
@@ -392,13 +396,10 @@ public enum ContentKeyDeliveryType
 }
 ```
 
-###AssetDeliveryPolicyConfigurationKey
+### AssetDeliveryPolicyConfigurationKey
 
+The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.
 ```
-/// <summary>
-/// Keys used to get specific configuration for an asset delivery policy.
-/// </summary>
-
 public enum AssetDeliveryPolicyConfigurationKey
 {
     /// <summary>
@@ -437,3 +438,5 @@ public enum AssetDeliveryPolicyConfigurationKey
     EnvelopeEncryptionIV
 }
 ```
+
+<!--Update_Description: update code-->

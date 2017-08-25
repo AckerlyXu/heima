@@ -3,8 +3,8 @@ title: 'Azure AD Connect: How to recover from LocalDB 10GB limit issue | Microso
 description: This topic describes how to recover Azure AD Connect Synchronization Service when it encounters LocalDB 10GB limit issue.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+origin.date: 07/17/2017
+ms.date: 08/23/2017
 ms.author: v-junlch
 
 ---
@@ -101,3 +102,4 @@ In general, the issue is indicative that 10-GB database size is no longer suffic
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
+<!--Update_Description: update metadata properties -->

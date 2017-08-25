@@ -3,8 +3,8 @@ title: Azure Virtual Machine Scale Sets Attached Data Disks | Azure
 description: Learn how to use attached data disks with virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 04/25/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 08/28/2017
+ms.author: v-haiqya
 
 ---
 # Azure VM scale sets and attached data disks
@@ -101,6 +101,16 @@ Then select _PUT_ to apply the changes to your scale set. This example would wor
 > [!NOTE]
 > When you make a change to a scale set definition such as adding or removing a data disk, it applies to all newly created VMs, but only applies to existing VMs if the _upgradePolicy_ property is set to "Automatic". If it is set to "Manual", you need to manually apply the new model to existing VMs. You can do this in the portal, using the _Update-AzureRmVmssInstance_ PowerShell command, or using the _az vmss update-instances_ CLI command.
 
+## Adding pre-populated data disks to an existent scale set 
+When you add disks to an existent scale set model, by design, the disk will always be created empty. This scenario also includes new instances created by the scale set. This behaviour is because the scaleset definition has an empty data disk. In order to create pre-populated data drives for an existent scale set model, you can choose either of next two options:
+
+* Copy data from the instance 0 VM to the data disk(s) in the other VMs by running a custom script.
+* Create a managed image with the OS disk plus data disk (with the required data) and create a new scaleset with the image. This way every new VM created will have a data disk that that is provided in the definition of the scaleset. Since this definition will refer to an image with a data disk that has customized data, every virtual machine on the scaleset will automatically come up with these changes.
+
+The way to create a custom image can be found here: [Create a managed image of a generalized VM in Azure](/virtual-machines/windows/capture-image-resource/) 
+
+The user needs to capture the instance 0 VM which has the required data, and then use that vhd for the image definition.
+
 ## Removing a data disk from a scale set
 You can remove a data disk from a VM scale set using Azure CLI _az vmss disk detach_ command. For example the following command removes the disk defined at lun 2:
 ```bash
@@ -115,4 +125,4 @@ In the initial implementation of attached disk support for scale sets, you canno
 
 Azure portal support for attached data disks in scale sets is initially limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update add Adding pre-populated data disks to an existent scale set-->

@@ -3,8 +3,8 @@ title: Deploy an app on virtual machine scale sets
 description: Use extensions to depoy an app on Azure Virtual Machine Scale Sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: thraka
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
-ms.date: 07/24/2017
+ms.date: 08/28/2017
 ms.author: v-dazen
 ---
 
@@ -43,7 +43,7 @@ Do the following steps:
 
 4. Create a [Virtual Machine Scale Set][vmss-create] with the image URI you captured in the previous step.
 
-For more information about disks, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md).
+For more information about disks, see [Managed Disks Overview](../virtual-machines/windows/managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md).
 
 ## Install when the scale set is provisioned
 
@@ -221,3 +221,5 @@ Suppose you want to update your OS image while keeping the virtual machine scale
 [linux-vm-capture]: ../virtual-machines/linux/capture-image.md
 [windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
 [vmss-create]: virtual-machine-scale-sets-create.md
+
+<!--Update_Description: update link-->

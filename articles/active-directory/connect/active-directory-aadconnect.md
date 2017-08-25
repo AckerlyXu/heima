@@ -4,8 +4,8 @@ description: Azure AD Connect will integrate your on-premises directories with A
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -59,9 +60,9 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 |Topic |Link|  
 | --- | --- |
 |Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
-|Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md)|
-|Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md)|
-|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Install using Express settings | [Express installation of Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Install using Customized settings | [Custom installation of Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 |After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)|
 
 ### Learn more about Install Azure AD Connect
@@ -71,7 +72,7 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | --- | --- |
 |Supported topologies | [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md)|
 |Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md)|
-|Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md)|
+|Accounts used for installation | [More about Azure AD Connect credentials and permissions](./active-directory-aadconnect-accounts-permissions.md)|
 |Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md)|
 |User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md)|
 
@@ -131,9 +132,12 @@ if your ADFS server has not been configured to automatically update certificates
 | --- | --- |
 |Version history | [Version history](active-directory-aadconnect-version-history.md)|
 |Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)|
+|Configuring a SAML 2.0 Idp|[Using a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)|
 |Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)|
 
 **Additional Resources**
 
 Ignite 2015 presentation on extending your on-premises directories to the cloud.
+
+<!-- Update_Description: wording update -->

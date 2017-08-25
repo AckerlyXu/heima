@@ -3,8 +3,8 @@ title: Understanding resource access in Azure | Microsoft Docs
 description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2017
-ms.date: 06/12/2017
+origin.date: 07/24/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+
+ms.custom: oldportal;it-pro;
 
 ---
 # Understanding resource access in Azure
-> [!NOTE]
-> This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Management portal provides [role-based access control](role-based-access-control-configure.md) so Azure resources can be managed more precisely.
-> 
-> 
 
 In October 2013, the Azure Classic Management Portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Azure resources. Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control. Naturally, these should also be made available for managing Azure resources across-the-board.
 
@@ -63,3 +61,4 @@ Operations such as moving resources between subscriptions can be more difficult 
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
+<!--Update_Description: wording update -->

@@ -3,8 +3,8 @@ title: Azure Active Directory for developers | Microsoft Docs
 description: A list of all guides and reference articles in the Azure Active Directory developer guide.
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
@@ -13,11 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/07/2017
+origin.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.date: 06/12/2017
-
 ---
 
 # Articles in the Azure AD developer guide
@@ -31,9 +30,9 @@ These articles describe specific concepts and features of Azure Active Directory
 | [Multi-tenant apps](active-directory-devhowto-multi-tenant-overview.md)                                                         | How to sign in any Microsoft work account |
 | [OAuth & OpenID Connect](active-directory-protocols-openid-connect-code.md)                                                     | How to sign-in users and call web APIs using our modern auth protocols |
 | [SAML 2.0](active-directory-saml-protocol-reference.md)                                                                         | How to sign-in users using the SAML authentication protocol |
+| [App Registration](active-directory-integrating-applications.md)                                                                | How to register an app in Azure AD |
 | [Branding Guidelines](active-directory-branding-guidelines.md)                                                                  | The text, styling, and terminology to use when integrating Microsoft sign-in |
 | [Mobile & Desktop SSO](active-directory-sso-android.md)                                                                         | How to get single-sign on working in native applications |
-| [User Provisioning with SCIM 2.0](../active-directory-scim-provisioning.md)                                                     | How to use the SCIM protocol to sync users from Azure AD tenants |
 | [Azure AD Graph API](active-directory-graph-api.md)                                                                             | How to query user, group, and other data using Microsoft REST APIs |
 | [AppSource Certification](active-directory-devhowto-appsource-certified.md)                                                     | How to publish an application on Microsoft AppSource |
 | [Office 365 Seller Dashboard](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | How to publish an application on the O365 seller dashboard |
@@ -54,3 +53,4 @@ These articles provide a foundation for REST and authentication library APIs, pr
 | [Service Limits & Restrictions](../active-directory-service-limits-restrictions.md) | Limitations of Azure AD entities and objects |
 | [Code Samples](active-directory-code-samples.md)                                    | A list of all Azure AD code samples |
 
+<!--Update_Description: wording update -->

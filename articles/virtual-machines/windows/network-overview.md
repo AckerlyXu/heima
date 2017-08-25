@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/01/2017
-ms.date: 04/27/2017
+origin.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 
 ---
@@ -179,3 +179,5 @@ This table lists the methods that you can use to create a VM in a VNet.
 - Learn how to configure [user-defined routes and IP forwarding](../../virtual-network/virtual-networks-udr-overview.md). 
 - Learn how to configure [VNet to VNet connections](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+
+<!--Update_Description: update meta data-->

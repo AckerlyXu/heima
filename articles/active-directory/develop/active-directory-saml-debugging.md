@@ -1,20 +1,25 @@
 ---
-title: How to debug SAML-based single sign-on to applications in Azure Active Directory | Azure
-description: Learn how to debug SAML-based single sign-on to applications in Azure Active Directory 
+title: How to debug SAML-based single sign-on to applications in Azure Active Directory | Microsoft Docs
+description: 'Learn how to debug SAML-based single sign-on to applications in Azure Active Directory '
 services: active-directory
-authors: asmalser-msft
-documentationCenter: na
-manager: stevenpo
+author: alexchen2016
+documentationcenter: na
+manager: digimobile
 
+ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
+ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2016
-ms.date: 02/06/2017
+ms.tgt_pltfrm: na
+ms.workload: identity
+origin.date: 07/20/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
+ms.custom: aaddev
+ms.reviewer: dastrock
+
 ---
-
-#How to debug SAML-based single sign-on to applications in Azure Active Directory
-
+# How to debug SAML-based single sign-on to applications in Azure Active Directory
 When debugging a SAML-based application integration, it is often helpful to use a tool like [Fiddler](http://www.telerik.com/fiddler) to see the SAML request, the SAML response, and the actual SAML token that is issued to the application. By examining the SAML token, you can ensure that all of the required attributes, the username in the SAML subject, and the issuer URI are coming through as expected.
 
 ![][1]
@@ -28,7 +33,8 @@ You can view the SAML token by selecting this line and then selecting the **Insp
 ## Related Articles
 
 - [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
-- [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./active-directory-saml-claims-customization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
+
+<!--Update_Description: update metadata properties -->

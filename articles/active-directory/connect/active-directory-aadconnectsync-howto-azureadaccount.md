@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect sync: How to manage the Azure AD service account | Azure'
+title: 'Azure AD Connect sync: How to manage the Azure AD service account | Microsoft Docs'
 description: This topic documents how to restore the Azure AD service account.
 services: active-directory
 keywords: AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Azure AD Connect sync: How to manage the Azure AD service account
 The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
 
@@ -50,3 +50,5 @@ AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for
 
 - [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+<!-- Update_Description: update meta properties -->

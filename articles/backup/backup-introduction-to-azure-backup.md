@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/14/2017
-ms.date: 06/30/2017
+ms.date: 08/18/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -102,6 +102,15 @@ While backing up Premium Storage VMs, the Backup service creates a temporary sta
 
 ### Restore Premium Storage VMs
 Premium Storage VMs can be restored to either Premium Storage or to normal storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process of restoration. However, it can be cost effective to restore a Premium Storage VM recovery point to standard storage. This type of restoration can be used if you need a subset of files from the VM.
+
+## Using managed disk VMs with Azure Backup <a name="using-managed-disk-vms-with-azure-backup"></a>
+Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning.
+
+### Back up managed disk VMs <a name="back-up-managed-disk-vms"></a>
+Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
+
+### Restore managed disk VMs <a name="restore-managed-disk-vms"></a>
+Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.

@@ -54,7 +54,7 @@ You can use the following cmdlets to obtain information about available extensio
         CompanyName                 :
 
 ### Azure Command Line Interface (Azure CLI)
-Some extensions have Azure CLI commands that are specific to them, which may make their configuration easier; but the following commands work for all VM extensions.
+Some extensions have Azure CLI commands that are specific to them (the Docker VM Extension is one example), which may make their configuration easier; but the following commands work for all VM extensions.
 
 You can use the **azure vm extension list** command to obtain information about available extensions, and use the **--json** option to display all available information about one or more extensions. If you do not use an extension name, the command returns a JSON description of all available extensions.
 

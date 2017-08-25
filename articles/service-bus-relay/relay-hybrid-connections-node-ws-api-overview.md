@@ -3,7 +3,7 @@ title: Overview of the Azure Relay Node APIs | Azure
 description: Relay Node API overview
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+origin.date: 07/05/2017
 ms.author: v-yiso
+ms.date: 08/21/2017
 ---
 
-# Relay Hybrid Connections hyco-ws Node API overview
+# Relay Hybrid Connections Node API overview
 
 ## Overview
 
@@ -32,17 +33,15 @@ and via Hybrid Connections, all at the same time.
   
 ## Documentation
 
-The APIs are [documented in the main 'ws' package](https://github.com/websockets/ws/blob/master/doc/ws.md). This document describes how this package differs from that baseline. 
+The APIs are [documented in the main 'ws' package](https://github.com/websockets/ws/blob/master/doc/ws.md). This article describes how this package differs from that baseline. 
 
-The key differences between the base package and this 'hyco-ws' is that it adds 
-a new server class, exported via `require('hyco-ws').RelayedServer`,
-and a few helper methods.
+The key differences between the base package and this 'hyco-ws' is that it adds a new server class, exported via `require('hyco-ws').RelayedServer`, and a few helper methods.
 
-### Package Helper methods
+### Package helper methods
 
 There are several utility methods available on the package export that you can reference as follows:
 
-``` JavaScript
+```JavaScript
 const WebSocket = require('hyco-ws');
 
 var listenUri = WebSocket.createRelayListenUri('namespace.servicebus.windows.net', 'path');
@@ -65,14 +64,12 @@ var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 Creates a valid Azure Relay Hybrid Connection listener URI for the given namespace and path. This 
 URI can then be used with the relay version of the WebSocketServer class.
 
-- **namespaceName** (required) - the domain-qualified name of the Azure Relay namespace to use
-- **path** (required) - the name of an existing Azure Relay Hybrid Connection in that namespace
-- **token** (optional) - a previously-issued Relay access token that is embedded in
-                         the listener URI (see the following example)
-- **id** (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests
+- `namespaceName` (required) - the domain-qualified name of the Azure Relay namespace to use.
+- `path` (required) - the name of an existing Azure Relay Hybrid Connection in that namespace.
+- `token` (optional) - a previously issued Relay access token that is embedded in the listener URI (see the following example).
+- `id` (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests.
 
-The **token** value is optional and should only be used when it is not possible to send HTTP 
-headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                  
+The `token` value is optional and should only be used when it is not possible to send HTTP headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                  
 
 
 #### createRelaySendUri 
@@ -83,14 +80,12 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 Creates a valid Azure Relay Hybrid Connection send URI for the given namespace and path. This 
 URI can be used with any WebSocket client.
 
-- **namespaceName** (required) - the domain-qualified name of the Azure Relay namespace to use
-- **path** (required) - the name of an existing Azure Relay Hybrid Connection in that namespace
-- **token** (optional) - a previously-issued Relay access token that is embedded in
-                         the send URI (see the following example)
-- **id** (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests
+- `namespaceName` (required) - the domain-qualified name of the Azure Relay namespace to use.
+- `path` (required) - the name of an existing Azure Relay Hybrid Connection in that namespace.
+- `token` (optional) - a previously issued Relay access token that is embedded in the send URI (see the following example).
+- `id` (optional) - a tracking identifier that enables end-to-end diagnostics tracking of requests.
 
-The **token** value is optional and should only be used when it is not possible to send HTTP 
-headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                   
+The `token` value is optional and should only be used when it is not possible to send HTTP headers along with the WebSocket handshake, as is the case with the W3C WebSocket stack.                   
 
 
 #### createRelayToken 
@@ -100,15 +95,12 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 Creates an Azure Relay Shared Access Signature (SAS) token for the given target URI, SAS rule, 
 and SAS rule key that is valid for the given number of seconds or for an hour from the current 
-instant if the expiry argunent is omitted.
+instant if the expiry argument is omitted.
 
-- **uri** (required) - the URI for which the token is to be issued. The URI is normalized to 
-                       use the HTTP scheme, and query string information will be stripped.
-- **ruleName** (required) - SAS rule name for either the entity represented by the given URI, or 
-                            for the namespace represented by the URI host portion.
-- **key** (required) - valid key for the SAS rule. 
-- **expirationSeconds** (optional) - the number of seconds until the generated token should expire. 
-                            The default is 1 hour (3600) if not specified.
+- `uri` (required) - the URI for which the token is to be issued. The URI is normalized to use the HTTP scheme, and query string information is stripped.
+- `ruleName` (required) - SAS rule name for either the entity represented by the given URI, or for the namespace represented by the URI host portion.
+- `key` (required) - valid key for the SAS rule. 
+- `expirationSeconds` (optional) - the number of seconds until the generated token should expire. If not specified, the default is 1 hour (3600).
 
 The issued token confers the rights associated with the specified SAS rule for the given duration.
 
@@ -117,17 +109,14 @@ The issued token confers the rights associated with the specified SAS rule for t
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-This method is functionally equivalent to the **createRelayToken** method documented previously, but
+This method is functionally equivalent to the `createRelayToken` method documented previously, but
 returns the token correctly appended to the input URI.
 
 ### Class ws.RelayedServer
 
-The `hycows.RelayedServer` class is an alternative to the `ws.Server`
-class that does not listen on the local network, but delegates listening to the Azure Relay service.
+The `hycows.RelayedServer` class is an alternative to the `ws.Server` class that does not listen on the local network, but delegates listening to the Azure Relay service.
 
-The two classes are mostly contract compatible, meaning that an existing application using 
-the `ws.Server` class can be changed to use the relayed version quite easily. The 
-main differences are in the constructor and in the available options.
+The two classes are mostly contract compatible, meaning that an existing application using the `ws.Server` class can easily be changed to use the relayed version. The main differences are in the constructor and in the available options.
 
 #### Constructor  
 
@@ -142,40 +131,30 @@ var wss = new server(
     });
 ```
 
-The `RelayedServer` constructor supports a different set of arguments than the 
-`Server`, because it is neither a standalone listener nor embeddable into an existing HTTP
-listener framework. There are also fewer options available since the WebSocket management is 
-largely delegated to the Relay service.
+The `RelayedServer` constructor supports a different set of arguments than the `Server`, because it is not a standalone listener, or able to be embedded into an existing HTTP listener framework. There are also fewer options available since the WebSocket management is largely delegated to the Relay service.
 
 Constructor arguments:
 
-- **server** (required) - the fully qualified URI for a Hybrid Connection name on which to listen, usually
-                          constructed with the WebSocket.createRelayListenUri() helper method.
-- **token** (required) - this argument holds either a previously issued token string or a callback
-                         function that can be called to obtain such a token string. The callback option
-                         is preferred, as it enables token renewal.
+- `server` (required) - the fully qualified URI for a Hybrid Connection name on which to listen, usually constructed with the WebSocket.createRelayListenUri() helper method.
+- `token` (required) - this argument holds either a previously issued token string or a callback function that can be called to obtain such a token string. The callback option is preferred, as it enables token renewal.
 
 #### Events
 
-`RelayedServer` instances emit three events that enable you to handle incoming requests, establish 
-connections, and detect error conditions. You must subscribe to the 'connect' event to handle 
-messages. 
+`RelayedServer` instances emit three events that enable you to handle incoming requests, establish connections, and detect error conditions. You must subscribe to the `connect` event to handle messages. 
 
 ##### headers
 ``` JavaScript 
 function(headers)
 ```
 
-The 'headers' event is raised just before an incoming connection is accepted, enabling
-modification of the headers to send to the client. 
+The `headers` event is raised just before an incoming connection is accepted, enabling modification of the headers to send to the client. 
 
 ##### connection
 ``` JavaScript
 function(socket)
 ```
 
-Emitted when a new WebSocket connection is accepted. The object is of type `ws.WebSocket`, 
-same as with the base package.
+Emitted when a new WebSocket connection is accepted. The object is of type `ws.WebSocket`, same as with the base package.
 
 
 ##### error
@@ -187,8 +166,7 @@ If the underlying server emits an error, it is forwarded here.
 
 #### Helpers
 
-To simplify starting a relayed server and immediately subscribing to incoming connections,
-the package exposes a simple helper function, which is also used in the samples, as follows:
+To simplify starting a relayed server and immediately subscribing to incoming connections, the package exposes a simple helper function, which is also used in the examples, as follows:
 
 ##### createRelayedListener
 
@@ -211,17 +189,17 @@ the package exposes a simple helper function, which is also used in the samples,
     });
 ``` 
 
-var server = createRelayedServer([options], [connectCallback] )
+##### createRelayedServer
 
-This method calls the constructor to create a new 
-instance of the RelayedServer and then subscribes the provided callback 
-to the 'connection' event.
+```javascript
+var server = createRelayedServer([options], [connectCallback] )
+```
+
+This method calls the constructor to create a new instance of the RelayedServer and then subscribes the provided callback to the 'connection' event.
  
 ##### relayedConnect
 
-Simply mirroring the `createRelayedServer` helper in function, `relayedConnect`
-creates a client connection and subscribes to the 'open' event on the 
-resulting socket.
+Simply mirroring the `createRelayedServer` helper in function, `relayedConnect` creates a client connection and subscribes to the 'open' event on the resulting socket.
 
 ``` JavaScript
     var uri = WebSocket.createRelaySendUri(ns, path);
@@ -238,3 +216,6 @@ resulting socket.
 To learn more about Azure Relay, visit these links:
 * [What is Azure Relay?](./relay-what-is-it.md)
 * [Available Relay APIs](./relay-api-overview.md)
+
+
+<!--Update_Description:update meta properties and wording-->

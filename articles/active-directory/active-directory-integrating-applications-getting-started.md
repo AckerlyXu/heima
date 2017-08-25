@@ -4,8 +4,8 @@ title: Get started integrating Azure AD with apps | Microsoft Docs
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: asteen
 
 ---
 # Integrating Azure Active Directory with applications getting started guide
@@ -62,7 +63,7 @@ Maybe you don't have the answers to all of these questions up front but that's o
 As mentioned above, there may be applications that haven't been managed by your organization until now.  As part of the inventory process, it is possible to find unsanctioned cloud applications. See
 
 ### Authentication Types
-Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) and [Password based single sign on](active-directory-appssoaccess-whatis.md).
+Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Password based single sign on](active-directory-appssoaccess-whatis.md).
 
 ### Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
@@ -86,3 +87,4 @@ If you want to add your custom application to the Azure Application Gallery, see
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 
+<!--Update_Description: update metadata properties -->

@@ -130,6 +130,8 @@ azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
+**Data encryption.** Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
+
 ## Solution deployment
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps:
@@ -142,12 +144,12 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Select **windows** in the **Os Type** drop down box.
-   * Select **Legal terms**, review the terms and conditions, then click the **Purchase** button.
-   * Click on the **Create** button.
+   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
+   * Click on the **Purchase** button.
 3. Wait for the deployment to complete.
 4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
-For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] GitHub folder. 
+For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] GitHub folder.
 
 ## Customize the deployment
 If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder].
@@ -166,6 +168,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/windows/portal-create-fqdn.md
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm

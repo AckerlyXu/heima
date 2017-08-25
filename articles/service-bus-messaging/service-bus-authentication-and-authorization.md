@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus Authentication and Authorization | Azure
-description: Overview of Shared Access Signature (SAS) authentication.
+title: Azure Service Bus authentication and authorization | Microsoft Docs
+description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
 services: service-bus
 documentationcenter: na
 author: sethmanheim
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/21/2017
+origin.date: 06/27/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ---
 # Service Bus authentication and authorization
 Applications can authenticate to Azure Service Bus using either Shared Access Signature (SAS) authentication, or through Azure Active Directory Access Control (also known as Access Control Service or ACS). Shared Access Signature authentication enables applications to authenticate to Service Bus using an access key configured on the namespace, or on the entity with which specific rights are associated. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to Service Bus.
@@ -24,12 +24,11 @@ Applications can authenticate to Azure Service Bus using either Shared Access Si
 > SAS is recommended over ACS, as it provides a simple, flexible, and easy-to-use authentication scheme for Service Bus. Applications can use SAS in scenarios in which they do not need to manage the notion of an authorized "user." 
 
 ## Shared Access Signature authentication
-
-[SAS authentication](./service-bus-sas.md) enables you to grant a user access to Service Bus resources with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token which consists of the resource URI being accessed and an expiry signed with the configured key.
+[SAS authentication](service-bus-sas.md) enables you to grant a user access to Service Bus resources with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.
 
 You can configure keys for SAS on a Service Bus namespace. The key applies to all messaging entities in that namespace. You can also configure keys on Service Bus queues and topics. SAS is also supported on [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
 
-To use SAS, you can configure a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a namespace, queue, or topic that consists of the following:
+To use SAS, you can configure a [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a namespace, queue, or topic. This rule consists of the following elements:
 
 - *KeyName* that identifies the rule.
 

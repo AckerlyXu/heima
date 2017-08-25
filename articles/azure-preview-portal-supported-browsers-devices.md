@@ -1,33 +1,38 @@
 ---
-title: Supported browsers and devices
-description: ''
+title: Supported browsers and devices for Azure portal | Microsoft Docs
+description: Describes the browsers and devices on which the Azure portal will work.
 services: ''
-documentationCenter: ''
-authors: flanakin
+documentationcenter: ''
+author: alexchen2016
 writer: flanakin
-manager: lwelicki
+manager: digimobile
 editor: ''
 
+ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
 ms.topic: article
-origin.date: 07/23/2015
-ms.date: 05/13/2016
+origin.date: 06/28/2017
+ms.date: 08/01/2017
 ms.author: v-junlch
----
 
-#Supported browsers and devices
-The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
+---
+# Supported browsers and devices for the Azure portal
+You can run the [Azure portal](https://portal.azure.cn) on all modern desktop, tablet devices, and browsers.
 
 ### Supported devices
-The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
+The Azure portal runs great on modern PCs, Macs, and tablets. If you need to manage your Azure resources from a mobile device, try the Azure app that's available for preview on iPhone and Android. For more information, see the blog post [Introducing the Azure app public preview](https://azure.microsoft.com/blog/azure-app-preview/).
 
 ### Supported browsers
-The latest versions of the following browsers are supported:
+We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
 
-- Edge (latest)
-- Internet Explorer (11 and up)
-- Safari (7 and up)
-- Chrome (latest)
-- Firefox (latest)
+- Microsoft Edge (latest version)
+- Internet Explorer 11
+- Safari (latest version, Mac only)
+- Chrome (latest version)
+- Firefox (latest version)
 
-*Safari 6 and lower are not supported. If you're using OS X, you can either use Chrome, Firefox, or upgrade to OS X Mavericks to get Safari 7.*
+
+<!-- Update_Description: wording update -->

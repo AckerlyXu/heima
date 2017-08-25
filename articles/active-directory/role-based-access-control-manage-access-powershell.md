@@ -1,11 +1,10 @@
----
-title: Manage Role-Based Access Control (RBAC) with Azure PowerShell | Azure
+﻿---
+title: Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Docs
 description: How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: ''
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
@@ -13,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 03/02/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: rqureshi
 ---
-
 # Manage Role-Based Access Control with Azure PowerShell
 > [!div class="op_single_selector"]
->- [PowerShell](./role-based-access-control-manage-access-powershell.md)
->- [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
->- [REST API](./role-based-access-control-manage-access-rest.md)
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
 
 You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Management API to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 Before you can use PowerShell to manage RBAC, you need the following prerequisites:
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [how to install and configure Azure PowerShell](../powershell-install-configure.md).
-- Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/zh-cn/library/mt125356.aspx) in PowerShell.
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [how to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+- Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/azure/overview) in PowerShell.
 
 ## List roles
 ### List all available roles
@@ -69,6 +68,7 @@ To list all the roles that are assigned to a specified user and the roles that a
 
 ```
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
+
 Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
@@ -85,7 +85,7 @@ Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ### Search for object IDs
 To assign a role, you need to identify both the object (user, group, or application) and the scope.
 
-If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. To learn how to query for the subscription ID, see [Get-AzureSubscription](https://msdn.microsoft.com/zh-cn/library/dn495302.aspx) on MSDN.
+If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. To learn how to query for the subscription ID, see [Get-AzureSubscription](https://docs.microsoft.com/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) on MSDN.
 
 To get the object ID for an Azure AD group, use:
 
@@ -138,7 +138,7 @@ Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role nam
 ## Create a custom role
 To create a custom role, use the ```New-AzureRmRoleDefinition``` command. There are two methods of structuring the role, using PSRoleDefinitionObject or a JSON template. 
 
-## Get Actions from Particular Resource Provider
+## Get Actions for a Resource Provider
 When You are creating custom roles from scratch, it is important to know all the possible operations from the resource providers.
 Use the ```Get-AzureRMProviderOperation``` command to get this information.
 For example, if you want to check all the available operations for virtual Machine use this command:
@@ -148,7 +148,7 @@ Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT Operatio
 ```
 
 ### Create role with PSRoleDefinitionObject
-When you use PowerShell to create a custom role, you can start from scratch or use one of the [built-in roles](./role-based-access-built-in-roles.md) as a starting point. The example in this section starts with a built-in role and then customizes it with more privileges. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
+When you use PowerShell to create a custom role, you can start from scratch or use one of the [built-in roles](role-based-access-built-in-roles.md) as a starting point. The example in this section starts with a built-in role and then customizes it with more privileges. Edit the attributes to add the *Actions*, *notActions*, or *scopes* that you want, and then save the changes as a new role.
 
 The following example starts with the *Virtual Machine Contributor* role and uses that to create a custom role called *Virtual Machine Operator*. The new role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
 
@@ -176,7 +176,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### Create role with JSON template
-A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support, and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following content. The Id should be set to `null` on initial role creation as a new ID is generated automatically. 
+A JSON template can be used as the source definition for the custom role. The following example creates a custom role that allows read access to storage and compute resources, access to support, and adds that role to two subscriptions. Create a new file `C:\CustomRoles\customrole1.json` with the following example. The Id should be set to `null` on initial role creation as a new ID is generated automatically. 
 
 ```
 {
@@ -197,9 +197,7 @@ A JSON template can be used as the source definition for the custom role. The fo
   ]
 }
 ```
-
 To add the role to the subscriptions, run the following PowerShell command:
-
 ```
 New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
@@ -217,6 +215,7 @@ $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
 $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
 Set-AzureRmRoleDefinition -Role $role
 ```
+
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
 
 The following example adds an Azure subscription to the assignable scopes of the *Virtual Machine Operator* custom role.
@@ -256,7 +255,6 @@ Using the previous JSON template, you can easily modify an existing custom role 
 ```
 
 To update the existing role, run the following PowerShell command:
-
 ```
 Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
@@ -292,3 +290,5 @@ In the following example, the *Virtual Machine Operator* custom role isn’t ava
 ## See also
 - [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
+<!--Update_Description: wording update -->

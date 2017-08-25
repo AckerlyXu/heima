@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/08/2016
-ms.date: 01/03/2017
-ms.author: v-dazen
+origin.date: 08/07/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
 
 ---
 # Starting a runbook in Azure Automation
@@ -26,7 +26,7 @@ The following table will help you determine the method to start a runbook in Azu
 | [Azure Classic Management Portal](#starting-a-runbook-with-the-azure-portal) | <li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure logon. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated solution with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
 | [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163849.aspx) | <li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state. |
-| [Schedule](automation-schedules.md) | <li>Automatically start runbook on hourly, daily, or weekly schedule.<br> <li>Manipulate schedule through Azure Classic Management Portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |
+| [Schedule](automation-schedules.md) | <li>Automatically start runbook on hourly, daily, weekly, or monthly schedule.<br> <li>Manipulate schedule through Azure Classic Management Portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |
 | [From Another Runbook](automation-child-runbooks.md) |<li>Use a runbook as an activity in another runbook.<br> <li>Useful for functionality used by multiple runbooks.<br> <li>Provide parameter values to child runbook and use output in parent runbook. |
 
 The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook is started in Azure Automation, components required for an on-premises machine to execute Azure Automation runbooks and interactions between different components.
@@ -175,3 +175,5 @@ jsmith
 
 ## Next steps
 * To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).
+
+<!--Update_Description: wording update-->

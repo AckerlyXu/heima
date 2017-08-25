@@ -13,11 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
-ms.author: v-johch
+origin.date: 07/09/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Quotas and Limitations
+
 This topic describes quotas and limitations associated with Azure Media Services.
 
 [!INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
+
+<!--Update_Description:update metadata-->

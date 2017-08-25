@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
 origin.date: 06/13/2017
-ms.date: 07/24/2017
+ms.date: 08/07/2017
 ms.author: v-dazen
 
 ---
@@ -27,9 +27,10 @@ This quickstart shows how to create an [Express](http://expressjs.com/) framewor
 
 * [Git](https://git-scm.com/)
 * [Node.js and NPM](https://nodejs.org/)
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Prepare your environment
 
@@ -209,17 +210,23 @@ In this section, you use the Azure CLI 2.0 to create the resources to host the A
     az login
     ```
 
-2. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+2. If you have multiple Azure subscriptions, change the default subscription to the desired one.
 
-3. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+    ````azurecli
+    az account set --subscription <name or id>
+    ````
 
-4. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
+3. [!INCLUDE [Create resource group](../../includes/app-service-api-create-resource-group.md)] 
+
+4. [!INCLUDE [Create app service plan](../../includes/app-service-api-create-app-service-plan.md)]
+
+5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 ## Deploy the API with Git
 
 Deploy your code to the API app by pushing commits from your local Git repository to Azure App Service.
 
-1. [!INCLUDE [Configure your deployment credentials](../../includes/app-service-api-configure-local-git.md)] 
+1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
 2. Initialize a new repo in the *ContactList* directory. 
 
@@ -281,3 +288,5 @@ az group delete --name myResourceGroup
 ## Next step 
 > [!div class="nextstepaction"]
 > [Consume API apps from JavaScript clients with CORS](app-service-api-cors-consume-javascript.md)
+
+<!--Update_Description: add note about Azure CLI 2.0 version-->

@@ -5,7 +5,7 @@ This article outlines a set of proven practices for running a Linux virtual mach
 > 
 > 
 
-We don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set].
+We don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. 
 
 ## Architecture diagram
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
@@ -143,6 +143,8 @@ A user can be assigned to multiple roles, and you can create custom roles for ev
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
+Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+
 ## Solution deployment
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
@@ -155,8 +157,8 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Select **linux** in the **Os Type** drop down box.
-   * Select **Legal terms**, review the terms and conditions, then click the **Purchase** button.
-   * Click on the **Create** button.
+   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
+   * Click on the **Purchase** button.
 3. Wait for the deployment to complete.
 4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 

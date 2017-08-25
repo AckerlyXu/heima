@@ -12,15 +12,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 05/04/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.topic: quickstart
+origin.date: 07/21/2017
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
 ---
 # Create a PHP web app in Azure
 
-[Azure Web Apps](/app-service-web/app-service-web-overview) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample PHP code to the web app.
+[Azure Web Apps](./app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -35,21 +35,12 @@ To complete this quickstart:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+## Download the sample locally
 
-## Download the sample
-
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
-```
-
-You use this terminal window to run all the commands in this quickstart.
-
-Change to the directory that contains the sample code.
-
-```bash
 cd php-docs-hello-world
 ```
 
@@ -112,7 +103,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## Browse to the app
+## Browse to the app locally
 
 Browse to the deployed application using your web browser.
 
@@ -126,7 +117,7 @@ The PHP sample code is running in an Azure App Service web app.
 
 **Congratulations!** You've deployed your first PHP app to App Service.
 
-## Update and redeploy the code
+## Update locally and redeploy the code
 
 Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
 

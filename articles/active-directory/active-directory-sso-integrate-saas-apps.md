@@ -5,8 +5,8 @@ description: Enable single sign-on authentication and user provisioning centrali
 services: active-directory
 keywords: integrate Azure AD with SaaS apps
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 53b9d341-d1fc-4bbb-ac7c-3f4c68fcf00a
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 08/17/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: aaronsm
 
 ---
 
@@ -28,7 +29,7 @@ ms.author: v-junlch
 To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory (Azure AD). You can use an Azure AD directory that you obtain through Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
 
 ## Authentication
-For applications that support the SAML 2.0, WS-Federation, or OpenID Connect protocols, Azure Active Directory uses signing certificates to establish trust relationships. For more information about this, see [Managing certificates for federated single sign-on](active-directory-sso-certs.md).
+For applications that support the SAML 2.0, WS-Federation, or OpenID Connect protocols, Azure Active Directory uses signing certificates to establish trust relationships. 
 
 For applications that support only HTML forms-based sign-in, Azure Active Directory uses ‘password vaulting’ to establish trust relationships. This enables the users in your organization to be automatically signed in to a SaaS application by Azure AD using the user account information from the SaaS application. Azure AD collects and securely stores the user account information and the related password. For more information, see [Password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
@@ -62,11 +63,9 @@ Another valuable resource is *Suppressing user consent* in the [Guiding develope
 
 ## Next steps
 
-If app is not in App Gallery, you can [add it to the Azure AD App Gallery as a custom
-application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
-
 There is much more detail on all of these issues in the Azure.com library,
-beginning with [What is application access and single sign-on with Azure Active Directory.](active-directory-appssoaccess-whatis.md).
+beginning with [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 Plus, don't miss the [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md).
 
+<!--Update_Description: wording update -->

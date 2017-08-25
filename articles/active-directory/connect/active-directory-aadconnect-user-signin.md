@@ -3,8 +3,8 @@ title: 'Azure AD Connect: User sign-in | Microsoft Docs'
 description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/09/2017
-ms.date: 06/12/2017
+origin.date: 07/12/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
 
 ---
@@ -23,8 +23,6 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 
 If you’re already familiar with the Azure AD identity model and want to learn more about a specific method, see the appropriate link:
 
-- [Password synchronization](#password-synchronization) with [single sign-on (SSO)](active-directory-aadconnect-sso.md)
-- [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md)
 - [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## Choosing the user sign-in method for your organization
@@ -41,29 +39,12 @@ Enable on-premises multi-factor authentication solutions.|||x|
 
 *Through a lightweight connector.
 
->[!NOTE]
-> Pass-through authentication currently has some limitations with rich clients. See [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) for more details.
-
 ### Password synchronization
 With password synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new passwords are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password synchronization together with password write-back to enable self-service password reset in Azure AD.
-
-In addition, you can enable [SSO](active-directory-aadconnect-sso.md) for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
 
 ![Password synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
 For more information, see the [password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) article.
-
-### Pass-through authentication
-With pass-through authentication, the user’s password is validated against the on-premises Active Directory controller. The password doesn't need to be present in Azure AD in any form. This allows for on-premises policies, such as sign-in hour restrictions, to be evaluated during authentication to cloud services.
-
-Pass-through authentication uses a simple agent on a Windows Server 2012 R2 domain-joined machine in the on-premises environment. This agent listens for password validation requests. It doesn't require any inbound ports to be open to the Internet.
-
-In addition, you can also enable single sign-on for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
-![Pass-through authentication](./media/active-directory-aadconnect-user-signin/pta.png)
-
-For more information, see:
-- [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md)
-- [Single sign-on](active-directory-aadconnect-sso.md)
 
 ### Federation that uses a new or existing farm with AD FS in Windows Server 2012 R2
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
@@ -82,7 +63,7 @@ If you're deploying a new farm or using an existing farm, you need:
 
 - Local administrator credentials on your federation servers.
 - Local administrator credentials on any workgroup servers (not domain-joined) that you intend to deploy the Web Application Proxy role on.
-- The machine that you run the wizard on to be able to connect to any other machines that you want to install AD FS on by using Windows Remote Management.
+- The machine that you run the wizard on to be able to connect to any other machines that you want to install AD FS or Web Application Proxy on by using Windows Remote Management.
 
 For more information, see [Configuring SSO with AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 
@@ -177,3 +158,4 @@ On the **User sign-in** page, select the desired user sign-in.
 - Learn more about [integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 - Learn more about [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md).
 
+<!-- Update_Description: wording update -->
