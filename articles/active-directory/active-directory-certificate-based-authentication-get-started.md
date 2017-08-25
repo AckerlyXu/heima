@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory certificate-based authentication - Get started  | Microsoft Docs
 description: Learn how to configure certificate-based authentication in your environment
-author: MarkusVi
+author: alexchen2016
 documentationcenter: na
-manager: femila
+manager: digimobile
 
 ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
@@ -11,9 +11,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/17/2017
-ms.date: 06/21/2017
+origin.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: nigu
 
 ---
 # Get started with certificate-based authentication in Azure Active Directory
@@ -36,6 +37,8 @@ This topic:
 ## Requirements
 
 To configure certificate-based authentication, the following must be true:  
+
+- Certificate-based authentication (CBA) is only supported for Federated environments for browser applications or native clients using modern authentication (ADAL). The one exception is Exchange Active Sync (EAS) for EXO which can be used for both, federated and managed accounts. 
 
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
@@ -218,4 +221,4 @@ An EAS profile can be configured and placed on the device through the utilizatio
 1. Configure an EAS profile in the application that satisfies the requirements above.  
 2. Open the application, and verify that mail is synchronizing. 
 
-
+<!--Update_Description: wording update -->

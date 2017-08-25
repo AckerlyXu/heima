@@ -38,4 +38,5 @@ Capture can be configured on existing event hubs that are in Event Hubs namespac
 
 ## Next steps
 
-You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+You can also configure Event Hubs Capture using Azure Resource Manager templates.
+<!-- Not Avialble [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md). -->

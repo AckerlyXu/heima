@@ -35,6 +35,7 @@ This article covers basic commands you will want to use with Azure CLI to manage
 | Remove a data disk from a VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Add a generic extension to a VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
 | Add VM Access extension to a VM |`azure vm reset-access [options] <resource-group> <name>` |
+| Add Docker extension to a VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
 | Remove a VM extension |`azure  vm extension set [options] -u <resource-group> <vm-name> <name> <publisher-name> <version>` |
 | Get usage of VM resources |`azure vm list-usage [options] <location>` |
 | Get all available VM sizes |`azure vm sizes [options]` |

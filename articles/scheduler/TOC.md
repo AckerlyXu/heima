@@ -1,5 +1,3 @@
-
-
 # Overview
 ## [What is Scheduler?](scheduler-intro.md)
 
@@ -26,7 +24,6 @@
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/scheduler/)
-
-
+## [Service updates](https://www.azure.cn/what-is-new/)
 
 

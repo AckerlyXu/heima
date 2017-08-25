@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2016
-ms.date: 01/13/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 ---
 
 # Azure Media Services Telemetry
@@ -206,3 +206,5 @@ Telemetric data can be processed and visualized with the following tools:
 ### How to manage data retention?
 
 The telemetry system does not provide data retention management or auto deletion of old records. Thus, you need to manage and delete old records manually from the storage table. You can refer to storage SDK for how to do it.
+
+<!--Update_Description: update metadata-->

@@ -45,7 +45,7 @@ The following table provides the name and description of each available media pr
 > 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
-> You must make subsequent calls to the URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md). 
+> You must make subsequent calls to the URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
 > 
 > 
 

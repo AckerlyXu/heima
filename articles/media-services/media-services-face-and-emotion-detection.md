@@ -13,58 +13,45 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/17/2017
-ms.author: v-johch
+origin.date: 07/11/2017
+ms.date: 08/07/2017
+ms.author: v-haiqya
 
 ---
 # Detect Face and Emotion with Azure Media Analytics
+
 ## Overview
-The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
+
+The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features:
 
 * **Face detection**
-  
+
     Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it will attempt to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
-  
+
   > [!NOTE]
   > This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
-  > 
-  > 
+
 * **Emotion detection**
-  
-    Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more. 
+
+    Emotion Detection is an optional component of the Face Detection Media Processor that returns analysis on multiple emotional attributes from the faces detected, including happiness, sadness, fear, anger, and more.
 
 The **Azure Media Face Detector** MP is currently in Preview.
 
 This topic gives details about  **Azure Media Face Detector** and shows how to use it with Media Services SDK for .NET.
 
 ## Face Detector input files
+
 Video files. Currently, the following formats are supported: MP4, MOV, and WMV.
 
 ## Face Detector output files
+
 The face detection and tracking API provides high precision face location detection and tracking that can detect up to 64 human faces in a video. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) might not be as accurate.
 
 The detected and tracked faces are returned with coordinates (left, top, width, and height) indicating the location of faces in the image in pixels, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
-### <a id="output_elements"></a>Elements of the output JSON file
-For the face detection and tracking operation, the output result contains the metadata from the faces within the given file in JSON format.
+## <a id="output_elements"></a>Elements of the output JSON file
 
-The face detection and tracking JSON includes the following attributes:
-
-| Element | Description |
-| --- | --- |
-| Version |This refers to the version of the Video API. |
-| Timescale |"Ticks" per second of the video. |
-| Offset |This is the time offset for timestamps. In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
-| Framerate |Frames per second of the video. |
-| Fragments |The metadata is chunked up into different segments called fragments. Each fragment contains a start, duration, interval number, and event(s). |
-| Start |The start time of the first event in ‘ticks’. |
-| Duration |The length of the fragment, in “ticks”. |
-| Interval |The interval of each event entry within the fragment, in “ticks”. |
-| Events |Each event contains the faces detected and tracked within that time duration. It is an array of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time. An empty bracket [] means no faces were detected. |
-| ID |The ID of the face that is being tracked. This number may inadvertently change if a face becomes undetected. A given individual should have the same ID throughout the overall video, but this cannot be guaranteed due to limitations in the detection algorithm (occlusion, etc.) |
-| X, Y |The upper left X and Y coordinates of the face bounding box in a normalized scale of 0.0 to 1.0. <br/>-X and Y coordinates are relative to landscape always, so if you have a portrait video (or upside-down, in the case of iOS), you'll have to transpose the coordinates accordingly. |
-| Width, Height |The width and height of the face bounding box in a normalized scale of 0.0 to 1.0. |
-| facesDetected |This is found at the end of the JSON results and summarizes the number of faces that the algorithm detected during the video. Because the IDs can be reset inadvertently if a face becomes undetected (e.g. face goes off screen, looks away), this number may not always equal the true number of faces in the video. |
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 Face Detector uses techniques of fragmentation (where the metadata can be broken up in time-based chunks and you can download only what you need), and segmentation (where the events are broken up in case they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and framerate of 29.97 (frames/sec), then:
 
@@ -72,10 +59,13 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 * Seconds x Framerate = 63 frames
 
 ## Face detection input and output example
+
 ### Input video
+
 [Input Video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### Task configuration (preset)
+
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset is just for face detection.
 
     {
@@ -86,12 +76,13 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
     }
 
 #### Attribute descriptions
+
 | Attribute name | Description |
 | --- | --- |
 | Mode |Fast - fast processing speed, but less accurate (default).|
 
-
 ### JSON output
+
 The following example of JSON output was truncated.
 
     {
@@ -139,13 +130,16 @@ The following example of JSON output was truncated.
             }
             ],
 
-        . . . 
+        . . .
 
 ## Emotion detection input and output example
+
 ### Input video
+
 [Input Video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### Task configuration (preset)
+
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset specifies to create JSON based on the emotion detection.
 
     {
@@ -157,8 +151,8 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
       }
     }
 
-
 #### Attribute descriptions
+
 | Attribute name | Description |
 | --- | --- |
 | Mode |Faces: Only face detection.<br/>PerFaceEmotion: Return emotion independently for each face detection.<br/>AggregateEmotion: Return average emotion values for all faces in frame. |
@@ -166,6 +160,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 | AggregateEmotionIntervalMs |Use if AggregateEmotion mode selected. Specifies with what frequency to produce aggregate results. |
 
 #### Aggregate defaults
+
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
 || Defaults(s) | Min(s) | Max(s) |
@@ -174,6 +169,7 @@ Below are recommended values for the aggregate window and interval settings. Agg
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
 
 ### JSON output
+
 JSON output for aggregate emotion (truncated):
 
     {
@@ -327,26 +323,28 @@ JSON output for aggregate emotion (truncated):
                  "disgust": 0,
                  "fear": 0,
 
-
 ## Limitations
+
 * The supported input video formats include MP4, MOV, and WMV.
 * The detectable face size range is 24x24 to 2048x2048 pixels. The faces out of this range will not be detected.
 * For each video, the maximum number of faces returned is 64.
 * Some faces may not be detected due to technical challenges; e.g. very large face angles (head-pose), and large occlusion. Frontal and near-frontal faces have the best results.
 
 ## Sample code
+
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Create a job with a face detection task based on a configuration file that contains the following json preset. 
-
-        {
-            "version": "1.0"
-        }
-	
-3. Download the output JSON files. 
+1. Create a job with a face detection task based on a configuration file that contains the following json preset.
 
     ```
+    {
+        "version": "1.0"
+    }
+    ```
+
+1. Download the output JSON files.
+    ```.net
     using System;
     using System.Configuration;
     using System.IO;
@@ -364,36 +362,35 @@ The following program shows how to:
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
                 ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
+            private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
 
-        // Azure China uses a different API server and a different ACS Base Address from the Global.
-        private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-        private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+            // Azure China uses a different API server and a different ACS Base Address from the Global.
+            private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
+            private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
 
             // Field for service context.
             private static CloudMediaContext _context = null;
             private static MediaServicesCredentials _cachedCredentials = null;
-        private static Uri _apiServer = null;
+            private static Uri _apiServer = null;
 
             static void Main(string[] args)
             {
 
                 // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                            _mediaServicesAccountName,
-                            _mediaServicesAccountKey,
-                            _defaultScope,
-                            _chinaAcsBaseAddressUrl);
+                _cachedCredentials = new MediaServicesCredentials(
+                        _mediaServicesAccountName,
+                        _mediaServicesAccountKey,
+                        _defaultScope,
+                        _chinaAcsBaseAddressUrl);
 
-            // Create the API server Uri
-            _apiServer = new Uri(_chinaApiServerUrl);
+                // Create the API server Uri
+                _apiServer = new Uri(_chinaApiServerUrl);
 
-                    // Used the chached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                // Used the chached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
 
                 // Run the FaceDetection job.
-                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
-                                            @"C:\supportFiles\FaceDetection\config.json");
+                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4", @"C:\supportFiles\FaceDetection\config.json");
 
                 // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
@@ -482,8 +479,7 @@ The following program shows how to:
                     .LastOrDefault();
 
                 if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor",
-                                                               mediaProcessorName));
+                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
                 return processor;
             }
@@ -524,6 +520,8 @@ The following program shows how to:
     ```
 
 ## Related links
-[Azure Media Services Analytics Overview](./media-services-analytics-overview.md)
 
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)  
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+
+<!--Update_Description: wording update add a include link-->

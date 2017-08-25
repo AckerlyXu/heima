@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/24/2016
-ms.date: 07/10/2017
+ms.date: 07/31/2017
 ms.author: v-yeche
 ---
 

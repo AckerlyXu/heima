@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 07/17/2017
+origin.date: 07/14/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -42,11 +42,7 @@ Cosmos DB databases can be used as the data store for apps written for [MongoDB]
 **Automatic indexing**: By default, Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices.
 
 **Enterprise grade** - Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
-
-Learn more in this Azure Friday video with Scott Hanselman and Azure Cosmos DB Principal Engineering Manager, Kirill Gavrylyuk.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
-> 
+<!-- Not Available [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player] -->
 
 ## How to get started
 
@@ -66,3 +62,5 @@ Information about Azure Cosmos DB's MongoDB API is integrated into the overall A
 * Connect to an API for MongoDB account using [Robomongo](mongodb-robomongo.md).
 * Learn how many RUs your operations are using with the [GetLastRequestStatistics command and the Azure portal metrics](request-units.md#GetLastRequestStatistics).
 * Learn how to [configure read preferences for globally distributed apps](../cosmos-db/tutorial-global-distribution-mongodb.md).
+
+<!--Update_Description: update meta properties, update link-->

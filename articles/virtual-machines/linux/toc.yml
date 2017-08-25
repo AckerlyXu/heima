@@ -33,6 +33,8 @@
     href: tutorial-virtual-network.md
   - name: 9 - Monitor virtual machines
     href: tutorial-monitoring.md
+  - name: 10 - Deploy Jenkins
+    href: tutorial-jenkins-github-docker-cicd.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -108,16 +110,20 @@
     items:
     - name: VM creation overview
       href: creation-choices.md
-    - name: Create a VM with CLI
-      href: quick-create-cli-nodejs.md
+    - name: Create complete VM
+      href: create-cli-complete.md
     - name: Create a VM with template
       href: create-ssh-secured-vm-from-template.md
     - name: Copy a VM
       href: copy-vm.md
     - name: Move a VM between subscriptions
       href: move-vm.md
-    - name: Create highly available VMs
-      href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: Install and configure
+        href: ../terraform-install-configure.md
+      - name: Create basic infrastructure
+        href: ../terraform-create-complete-vm.md
     - name: Deploy an app with VM template
       items:
       - name: Tutorial overview
@@ -164,10 +170,14 @@
       href: cli-ps-findimage.md
     - name: Create custom VM images
       href: create-upload-generic.md
+    - name: Download a VHD
+      href: download-vhd.md
     - name: Upload custom VM images
       href: upload-vhd.md
     - name: Capture an existing VM into an image
       href: capture-image.md
+    - name: Create image with Packer
+      href: build-image-with-packer.md
     - name: Create Azure images
       items:
       - name: Ubuntu
@@ -180,6 +190,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Manage VM storage
     items:
     - name: Azure Managed Disks
@@ -275,6 +287,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Deploy LAMP stack
@@ -285,6 +299,14 @@
       href: jupyter-notebook.md
     - name: Deploy application frameworks from a template
       href: app-frameworks.md
+  - name: Docker on VMs
+    items:
+    - name: Create Docker hosts with the Azure Docker VM extension
+      href: dockerextension.md
+    - name: Use Docker Machine with Azure
+      href: docker-machine.md
+    - name: Use Docker Compose with Azure
+      href: docker-compose-quickstart.md
   - name: Migrate VMs
     items:
     - name: Overview of migration
@@ -303,17 +325,27 @@
       href: migration-classic-resource-manager-faq.md
   - name: Troubleshoot
     items:
+    - name: Reset Linux VM password
+      href: virtual-machines-linux-reset-password.md
+    - name: Understand a system reboot
+      href: understand-vm-reboot.md
     - name: SSH connections
       href: troubleshoot-ssh-connection.md
       items:
       - name: Detailed troubleshooting steps
         href: detailed-troubleshoot-ssh-connection.md
-    - name: access to applications
+    - name: Boot diagnostics 
+      href: boot-diagnostics.md
+    - name: Access to applications
       href: troubleshoot-app-connection.md
-    - name: allocation failures
+    - name: Allocation failures
       href: allocation-failure.md
-    - name: deployment issues
+    - name: Deployment issues
+      href: troubleshoot-deploy-vm.md
+    - name: Creating a VM
       href: troubleshoot-deployment-new-vm.md
+    - name: Device names are changed
+      href: troubleshoot-device-names-problems.md
     - name: Redeploy VM to a new Azure node
       href: redeploy-to-new-node.md
     - name: Common error messages
@@ -333,7 +365,7 @@
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute
   - name: Java
-    href: https://docs.microsoft.com/java/api
+    href: https://docs.azure.cn/zh-cn/java/api/overview/
   - name: Node.js
     href: /develop/nodejs/#azure-sdk
   - name: Python

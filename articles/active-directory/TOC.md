@@ -44,8 +44,6 @@
 #### [Require assignment](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
 #### [Develop LoB apps](./active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Manage access to apps](./active-directory-managing-access-to-apps.md)
-#### [Certificates for SSO](./active-directory-sso-certs.md)
-### [Use SCIM provision users](./active-directory-scim-provisioning.md)
 ### [Document library](active-directory-apps-index.md)
 
 
@@ -60,7 +58,6 @@
 ##### [Classic portal](./active-directory-add-manage-domain-names.md)
 ### Customize the sign-in page
 ### [Administer your directory](./active-directory-administer.md)
-### [O365 directories](./active-directory-manage-o365-subscription.md)
 ### [Self-service signup](./active-directory-self-service-signup.md)
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
@@ -94,7 +91,7 @@
 
 # Reference
 ## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
-## [Java API Reference](http://docs.microsoft.com/java/api)
+## [Java API Reference](/java/api/overview)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](./active-directory-service-limits-restrictions.md)
 

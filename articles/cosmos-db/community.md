@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/07/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -53,7 +53,7 @@ Check it out on [GitHub](https://github.com/jcormont/documentdb-typescript) and 
 ### Swagger REST API for DocumentDB
 *by Howard Edidin*
 
-An Azure Cosmos DB DocumentDB REST API Swagger file that can be easily deployed as an API App.
+An Azure Cosmos DB REST API Swagger file for the DocumentDB API that can be easily deployed as an API App.
 
 Check it out on [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
@@ -102,6 +102,7 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 |[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)|  Santosh Hari |Sanford, FL|April 8, 2017|
 |[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| Josh Lane |Atlanta, GA|April 22, 2017|
 |[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)| Josh Lane |Olso, Norway|June 14, 2017|
+<!-- Not Available on Hashtag about https://twitter.com/ -->
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askcosmosdb@microsoft.com) how we can help!*
 
@@ -216,3 +217,5 @@ Azure Cosmos DB Wizards are community leaders who've demonstrated an exemplary c
 |  Matías Quaranta | ![Matías Quaranta](./media/community/wizard-matias-quaranta.jpg) |
 
 Want to become an Azure Cosmos DB Wizard? While there is no benchmark for becoming a Wizard, some of the criteria we evaluate include the impact of a nominee's contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askcosmosdb@microsoft.com).
+
+<!--Update_Description: wording update-->

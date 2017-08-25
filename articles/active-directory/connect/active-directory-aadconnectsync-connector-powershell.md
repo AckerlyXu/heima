@@ -1,10 +1,10 @@
 ---
-title: PowerShell Connector | Azure
+title: PowerShell Connector | Microsoft Docs
 description: This article describes how to configure Microsoft's Windows PowerShell Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Windows PowerShell Connector technical reference
 This article describes the Windows PowerShell Connector. The article applies to the following products:
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/zh-cn/kb/3092178).
+  - Must use hotfix 4.1.3671.0 or later [KB3092178](https://support.microsoft.com/kb/3092178).
 
 For MIM2016 and FIM2010R2, the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
 ## Overview of the PowerShell Connector
-The PowerShell Connector enables you to integrate the synchronization service with external systems that offer Windows PowerShell based APIs. The connector provides a bridge between the capabilities of the call-based extensible connectivity management agent 2 (ECMA2) framework and Windows PowerShell. For more information about the ECMA framework, see the [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/zh-cn/library/windows/desktop/hh859557.aspx).
+The PowerShell Connector enables you to integrate the synchronization service with external systems that offer Windows PowerShell based APIs. The connector provides a bridge between the capabilities of the call-based extensible connectivity management agent 2 (ECMA2) framework and Windows PowerShell. For more information about the ECMA framework, see the [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
 ### Prerequisites
 Before you use the Connector, make sure you have the following on the synchronization server:
@@ -286,7 +286,6 @@ The password script is not expected to return any results to the Windows PowerSh
 For a complete overview of the available sample connectors, see [Windows PowerShell Connector Sample Connector Collection][samp].
 
 ## Other notes
-
 ### Additional Configuration for Impersonation
 Grant the user that is impersonated the following permissions on the Synchronization Service server:
 
@@ -314,32 +313,34 @@ Substitute the name of the Windows PowerShell connector for the {ConnectorName} 
 - For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[cpp]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
-[keyk]: https://msdn.microsoft.com/zh-cn/library/ms132438.aspx
-[cp]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx
-[pscred]: https://msdn.microsoft.com/zh-cn/library/system.management.automation.pscredential.aspx
-[schema]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.schema.aspx
-[schemaT]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.schematype.aspx
-[schemaA]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.schemaattribute.aspx
-[dnstyle]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.madistinguishednamestyle.aspx
-[exportT]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.maexporttype.aspx
-[DataNorm]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.manormalizations.aspx
-[oconf]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.maobjectconfirmation.aspx
-[dw]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/aa378184.aspx
-[part]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.partition.aspx
-[hn]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.hierarchynode.aspx
-[oicrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionrunstep.aspx
-[cecrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
-[oicres]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionresults.aspx
-[cecrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
-[cicres]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.closeimportconnectionresults.aspx
-[oecrs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.openexportconnectionrunstep.aspx
-[irs]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.importrunstep.aspx
-[cse]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.csentry.aspx
-[csec]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.csentrychange.aspx
-[peeres]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.putexportentriesresults.aspx
-[pwdopt]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordoptions.aspx
-[pwdex1]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordpolicyviolationexception.aspx
-[pwdex2]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
-[pwdex3]: https://msdn.microsoft.com/zh-cn/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
+[cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
+[keyk]: https://msdn.microsoft.com/library/ms132438.aspx
+[cp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx
+[pscred]: https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx
+[schema]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schema.aspx
+[schemaT]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schematype.aspx
+[schemaA]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.schemaattribute.aspx
+[dnstyle]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.madistinguishednamestyle.aspx
+[exportT]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maexporttype.aspx
+[DataNorm]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.manormalizations.aspx
+[oconf]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.maobjectconfirmation.aspx
+[dw]: https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx
+[part]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.partition.aspx
+[hn]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.hierarchynode.aspx
+[oicrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionrunstep.aspx
+[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
+[oicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openimportconnectionresults.aspx
+[cecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeexportconnectionrunstep.aspx
+[cicres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.closeimportconnectionresults.aspx
+[oecrs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.openexportconnectionrunstep.aspx
+[irs]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.importrunstep.aspx
+[cse]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentry.aspx
+[csec]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.csentrychange.aspx
+[peeres]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.putexportentriesresults.aspx
+[pwdopt]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordoptions.aspx
+[pwdex1]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordpolicyviolationexception.aspx
+[pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
+[pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
+
+<!-- Update_Description: link update -->

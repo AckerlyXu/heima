@@ -954,7 +954,7 @@ ms.date: 06/13/2017
     </ul>
 </div>
 
-### [Java](https://docs.microsoft.com/java/api)
+### [Java](/java/api/overview/)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -966,25 +966,25 @@ ms.date: 06/13/2017
                     <h3>Compute</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/virtualmachines" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/virtualmachines" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
                                 <p>Virtual Machine</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/appservice" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/appservice" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
                                 <p>App Service</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/batch" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/batch" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
                                 <p>Batch</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/servicefabric" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/servicefabric" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
                                 <p>Service Fabric</p>
                             </a>
@@ -1004,13 +1004,13 @@ ms.date: 06/13/2017
                     <h3>Database</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/sql" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/sql" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
                                 <p>SQL Database</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/rediscache" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/rediscache" data-linktype="relative-path">
                                 <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
                                 <p>Redis Cache</p>
                             </a>
@@ -1030,7 +1030,7 @@ ms.date: 06/13/2017
                     <h3>Enterprise Integration</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/servicebus" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/servicebus" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ServiceBus.svg" data-linktype="relative-path">
                                 <p>Service Bus</p>
                             </a>
@@ -1049,12 +1049,12 @@ ms.date: 06/13/2017
                     <h3>Networking</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/networking" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/networking" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
                                 <p>Virtual Network</p>
                             </a>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/trafficmanager" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/trafficmanager" data-linktype="relative-path">
                                 <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
                                 <p>Traffic Manager</p>
                             </a>
@@ -1073,7 +1073,7 @@ ms.date: 06/13/2017
                     <h3>Storage</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/storage" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/azure/storage" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
                                 <p>Storage</p>
                             </a>
@@ -1093,19 +1093,19 @@ ms.date: 06/13/2017
                     <h3>Internet of Things</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/iot" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/iot" data-linktype="relative-path">
                                 <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
                                 <p>IoT Hubs</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/eventhub" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/eventhub" data-linktype="relative-path">
                                 <img alt = "" src="media/index/EventHubs.svg" data-linktype="relative-path">
                                 <p>Event Hubs</p>
                             </a>
                             <ul>
-                                <li><a class="barLink" href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></li>
-                                <li><a class="barLink" href="https://docs.microsoft.com/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></li>
+                                <li><a class="barLink" href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></li>
+                                <li><a class="barLink" href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -1122,13 +1122,13 @@ ms.date: 06/13/2017
                     <h3>Security + Identity</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/keyvault" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
                                 <p>Key Vault</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/activedirectory" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/activedirectory" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
                                 <p>Azure Active Directory</p>
                             </a>
@@ -1147,7 +1147,7 @@ ms.date: 06/13/2017
                     <h3>Monitoring + Management</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/java/api/overview/azure/resources" data-linktype="relative-path">
+                            <a class="barLink" href="/java/api/overview/resources" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
                                 <p>Azure Resource Manager</p>
                             </a>

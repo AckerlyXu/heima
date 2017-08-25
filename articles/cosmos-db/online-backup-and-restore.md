@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 07/17/2017
+origin.date: 06/23/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -47,7 +47,9 @@ The following image illustrates periodic full backups of all Cosmos DB entities 
 ![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 
 ## Retention period for a given snapshot
-As described above, we periodically take snapshots of your data and per our compliance regulations, we retain the latest snapshot up to 90 days before it eventually gets purged. If a container or account is deleted, Cosmos DB stores the last backup for 90 days.
+As described above, we take snapshots of your data every 4 hours and retain the last two snapshots for 30 days. Per our compliance regulations, snapshots are purged after 90 days.
+
+If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups. 
 
 ## Restore database from the online backup
 In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://www.azure.cn/support/contact/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
@@ -57,3 +59,5 @@ In case you accidentally delete your data, you can [file a support ticket](https
 To replicate your database in multiple data centers, see [distribute your data globally with Cosmos DB](distribute-data-globally.md). 
 
 To file contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+<!--Update_Description: update meta properties, wording update-->

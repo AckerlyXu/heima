@@ -2,22 +2,22 @@
 title: Get Started with authentication for Mobile Apps in Xamarin iOS
 description: Learn how to use Mobile Apps to authenticate users of your Xamarin iOS app through a variety of identity providers, including AAD and Microsoft.
 services: app-service\mobile
-documentationCenter: xamarin
-authors: adrianhall
-manager: dwrede
+documentationcenter: xamarin
+author: dhei
+manager: panarasi
 editor: ''
 
+ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+orgin.date: 07/05/2017
 ms.author: v-yiso
+ms.date: 07/31/2017
 ---
-
 # Add authentication to your Xamarin.iOS app
-
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the Xamarin.iOS quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed and you will be able to access restricted table data.
@@ -28,8 +28,21 @@ You must first complete the tutorial [Create a Xamarin.iOS app]. If you do not u
 
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-##Restrict permissions to authenticated users
+## Add your app to the Allowed External Redirect URLs
 
+Secure authentication requires that you define a new URL scheme for your app. This allows the authentication system to redirect back to your app once the authentication process is complete. In this tutorial, we use the URL scheme _appname_ throughout. However, you can use any URL scheme you choose. It should be unique to your mobile application. To enable the redirection on the server side:
+
+1. In the [Azure portal], select your App Service.
+
+2. Click the **Authentication / Authorization** menu option.
+
+3. In the **Allowed External Redirect URLs**, enter `url_scheme_of_your_app://easyauth.callback`.  The **url_scheme_of_your_app** in this string is the URL Scheme for your mobile application.  It should follow normal URL specification for a protocol (use letters and numbers only, and start with a letter).  You should make a note of the string that you choose as you will need to adjust your mobile application code with the URL Scheme in several places.
+
+4. Click **OK**.
+
+5. Click **Save**.
+
+## Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 &nbsp;&nbsp;4. In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. The failure is logged to the console of the debugger. So in Visual Studio, you should see the failure in the output window.
@@ -61,7 +74,8 @@ In this section, you will modify the app to display a login screen before displa
     {
         try
         {
-            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Microsoft);
+                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
+                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccout, "{url_scheme_of_your_app}");
         }
         catch (Exception ex)
         {
@@ -71,7 +85,7 @@ In this section, you will modify the app to display a login screen before displa
     ```
 
     >[!NOTE]
-    > If you are using an identity provider other than a Microsoft, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_ or _WindowsAzureActiveDirectory_.
+    > If you are using an identity provider other than a MicrosoftAccount, change the value passed to **LoginAsync** above to the following:  _WindowsAzureActiveDirectory_.
 
 3. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** removing the call to **RefreshAsync()** near the end:
 
@@ -105,7 +119,16 @@ In this section, you will modify the app to display a login screen before displa
     }
     // rest of RefreshAsync method
     ```
+    
+5. Open **AppDelegate.cs**, add the following method:
 
+        public static Func<NSUrl, bool> ResumeWithURL;
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            return ResumeWithURL != null && ResumeWithURL(url);
+        }
+6. Open **Info.plist** file, navigate to **URL Types** in the **Advanced** section. Now configure the **Identifier** and the **URL Schemes** of your URL Type and click **Add URL Type**. **URL Schemes** should be the same as your {url_scheme_of_your_app}.
 5. In Visual Studio or Xamarin Studio connected to your Xamarin Build Host on your Mac, run the client project targeting a device or emulator. Verify that the app displays no data.
 
     Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
@@ -114,3 +137,5 @@ In this section, you will modify the app to display a login screen before displa
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Create a Xamarin.iOS app]: ./app-service-mobile-xamarin-ios-get-started.md
+
+<!--Update_Description: update wording and code-->

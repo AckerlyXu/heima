@@ -1,11 +1,11 @@
 ---
-title: Re-running the Azure AD Connect install wizard | Azure
+title: 'Re-running the Azure AD Connect install wizard | Microsoft Docs'
 description: Explains how the installation wizard works the second time you run it.
 keywords: The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Azure AD Connect sync: Running the installation wizard a second time
 The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
 
@@ -34,8 +35,8 @@ Select one of the tasks and click **Next** to continue.
 
 > [!IMPORTANT]
 > While you have the installation wizard open, all operations in the sync engine are suspended. Make sure you close the installation wizard as soon as you have completed your configuration changes.
-> 
-> 
+>
+>
 
 ## View current configuration
 This option gives you a quick view of your currently configured options.
@@ -86,3 +87,5 @@ For more information on this option, see [user sign-in](active-directory-aadconn
 
 - [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+<!-- Update_Description: wording update -->

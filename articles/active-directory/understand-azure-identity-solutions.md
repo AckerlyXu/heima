@@ -2,12 +2,12 @@
 title: Understand Azure Identity | Microsoft Docs
 description: Get a basic understanding of Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
 keywords:
-author: jeffgilb
-manager: femila
-editor: jsnow
+author: alexchen2016
+manager: digimobile
+ms.reviewer: jsnow
 ms.author: v-junlch
-origin.date: 06/06/2017
-ms.date: 06/21/2017
+origin.date: 07/17/2017
+ms.date: 07/28/2017
 ms.topic: article
 ms.prod:
 ms.service: azure
@@ -56,25 +56,32 @@ Now that you know the basic Azure identity terms, you should learn more about th
 
 |Concept to understand |Description|
 |-----|-----|
-|[How Azure subscriptions are associated with Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory/) |Every Azure subscription has a trust relationship with an Azure AD directory to authenticate users, services, and devices. *Multiple subscriptions can trust the same Azure AD directory, but a subscription will only trust a single Azure AD directory*. This trust relationship is unlike the relationship that a subscription has with other Azure resources (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to resources associated with the subscription other than Azure AD also stops. However, the Azure AD directory remains in Azure, so that you can associate another subscription with that directory and continue to manage tenant resources.|
-|[Role-Based Access Control in the Azure portal](/active-directory/role-based-access-control-what-is/)|Azure Role-Based Access Control (RBAC) helps provide fine-grained access management for Azure resources. Too many permissions can expose and account to attackers. Too few permissions means that employees can’t get their work done efficiently. Using RBAC, you can give employees the exact permissions they need based on three basic roles that apply to all resource groups: owner, contributor, reader. You can also create up to 2,000 of your own [custom RBAC roles](/active-directory/role-based-access-control-custom-roles/) to meet your specific needs. |
+|[How Azure subscriptions are associated with Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory) |Every Azure subscription has a trust relationship with an Azure AD directory to authenticate users, services, and devices. *Multiple subscriptions can trust the same Azure AD directory, but a subscription will only trust a single Azure AD directory*. This trust relationship is unlike the relationship that a subscription has with other Azure resources (websites, databases, and so on), which are more like child resources of a subscription. If a subscription expires, then access to resources associated with the subscription other than Azure AD also stops. However, the Azure AD directory remains in Azure, so that you can associate another subscription with that directory and continue to manage tenant resources.|
+|[Role-Based Access Control in the Azure portal](/active-directory/role-based-access-control-what-is)|Azure Role-Based Access Control (RBAC) helps provide fine-grained access management for Azure resources. Too many permissions can expose and account to attackers. Too few permissions means that employees can’t get their work done efficiently. Using RBAC, you can give employees the exact permissions they need based on three basic roles that apply to all resource groups: owner, contributor, reader. You can also create up to 2,000 of your own [custom RBAC roles](/active-directory/role-based-access-control-custom-roles) to meet your specific needs. |
 
 
 ### The difference between Windows Server AD DS and Azure AD
-If you are already familiar with on-premises Windows Server Active Directory Domain Services (AD DS), first introduced with Windows 2000 Server, then you probably understand the basic concept of an identity service. However, it’s also important to understand that Azure AD is not just a domain controller in the cloud. It is an entirely new way of providing identity as a service (IDaaS) in Azure that requires an entirely new way of thinking to fully embrace cloud-based capabilities and protect your organization from modern threats. IT has protected their security perimeter for years using AD DS, but modern, perimeter-less enterprises supporting identity needs for employees, customers, and partners require a new control plane. Azure AD is that identity control plane.
+Both Azure Active Directory (Azure AD) and on-premises Active Directory (Active Directory Domain Services or AD DS) are systems that store directory data and manage communication between users and resources, including user logon processes, authentication, and directory searches.
 
-Security has moved beyond the corporate firewall to the cloud where Azure AD protects company resources and access by providing one common identity for users (either on-premises or in the cloud). This gives your users the flexibility to securely access the apps they need to get their work done from almost any device. Seamless risk-based data protection controls, backed by machine-learning capabilities and in-depth reporting, are also provided that IT needs to keep company data secure.
+If you are already familiar with on-premises Windows Server Active Directory Domain Services (AD DS), first introduced with Windows 2000 Server, then you probably understand the basic concept of an identity service. However, it’s also important to understand that Azure AD is not just a domain controller in the cloud. It is an entirely new way of providing identity as a service (IDaaS) in Azure that requires an entirely new way of thinking to fully embrace cloud-based capabilities and protect your organization from modern threats. 
+
+AD DS is a server role on Windows Server, which means that it can be deployed on physical or virtual machines. It has a hierarchical structure based on X.500. It uses DNS for locating objects, can be interacted with using LDAP, and it primarily uses Kerberos for authentication. Active Directory enables organizational units (OUs) and Group Policy Objects (GPOs) in addition to joining machines to the domain, and trusts are created between domains.
+
+IT has protected their security perimeter for years using AD DS, but modern, perimeter-less enterprises supporting identity needs for employees, customers, and partners require a new control plane. Azure AD is that identity control plane. Security has moved beyond the corporate firewall to the cloud where Azure AD protects company resources and access by providing one common identity for users (either on-premises or in the cloud). This gives your users the flexibility to securely access the apps they need to get their work done from almost any device. Seamless risk-based data protection controls, backed by machine-learning capabilities and in-depth reporting, are also provided that IT needs to keep company data secure.
+
+Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
 
 ### Extend Office 365 management and security capabilities
-Already using Office 365? You can accelerate your digital transformation by extending built-in Office 365 capabilities with Azure AD to secure all your resources, enabling secure productivity for your entire workforce. When you use Azure AD, in addition to Office 365 capabilities, you can secure your entire application portfolio with one identity that enables single sign-on for all apps. You’ll gain additional oversight of user privileges and provide on-demand, just-in-time administrative access. Your users will be more productive, and create fewer helpdesk tickets, thanks to the self-service capabilities Azure AD provides like resetting forgotten passwords, application access requests.
+Already using Office 365? You can accelerate your digital transformation by extending built-in Office 365 capabilities with Azure AD to secure all your resources, enabling secure productivity for your entire workforce. When you use Azure AD, in addition to Office 365 capabilities, you can secure your entire application portfolio with one identity that enables single sign-on for all apps. You can expand your conditional access capabilities based not just on device state, but user, location, application, and risk as well. Multi-factor authentication (MFA) capabilities provide even more protection when you need it. You’ll gain additional oversight of user privileges and provide on-demand, just-in-time administrative access. Your users will be more productive, and create fewer helpdesk tickets, thanks to the self-service capabilities Azure AD provides like resetting forgotten passwords, application access requests, and creating and managing groups.
 
 > [!TIP]
 > Want to learn more about using Azure AD identity management with Office 365? [Get the e-book](https://info.microsoft.com/Extend-Office-365-security-with-EMS.html).
 
-## Microsoft identity solutions
+## Azure identity solutions
 
 Azure offers several ways to manage your users’ identities whether they are maintained fully on-premises, only in the cloud, or even somewhere in between. These options include: do-it-yourself (DIY) AD DS in Azure, Azure Active Directory (Azure AD), Hybrid Identity, and Azure AD Domain Services.
 
+### Do-it-yourself (DIY) AD DS
 For companies that need only a small footprint in the cloud, **do-it-yourself (DIY) AD DS** in Azure can be used. This option supports many Windows Server AD DS scenarios that are well-suited for deployment as virtual machines (VMs) on Azure. For example, you can create an Azure VM as a domain controller running in a faraway datacenter that is connected to the remote network. From there, the VM would be able to support authentication requests from remote users and improve authentication performance. This option is also well-suited as a relatively low-cost substitute to otherwise costly disaster recovery sites by hosting a small number of domain controllers and a single virtual network on Azure. Finally, you might need to deploy an application on Azure, such as SharePoint, that requires Windows Server AD DS, but has no dependency on the on-premises network or the corporate Windows Server Active Directory. In this case, you could deploy an isolated forest on Azure to meet the SharePoint server farm’s requirements. It’s also supported to deploy network applications that do require connectivity to the on-premises network and the on-premises Active Directory.
 
 **Azure Active Directory (Azure AD)** standalone is a fully cloud-based Identity and access management as a Service (IDaaS) solution. Azure AD gives you a robust set of capabilities to manage users and groups. It helps secure access to on-premises and cloud applications, including Microsoft web services like Office 365, and many non-Microsoft software as a service (SaaS) applications. Azure AD comes in three editions: Free, Basic, and Premium. Azure AD boosts organizational effectiveness and extends security beyond the perimeter firewall to a new control plane protected by Azure machine learning and other advanced security features.
@@ -83,10 +90,10 @@ For companies that need only a small footprint in the cloud, **do-it-yourself (D
 
 Here are some common identity and access scenarios with recommendations as to which Azure identity option might be most appropriate for each.
 
-  |Identity scenario| Recommendation|
-  |-----|-----|
-  |I need to support a few virtual machines in Azure, but my company is still heavily invested in on-premises Active Directory (AD DS).|Use [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) to use Azure VMs when you need to support a few virtual machines and have large AD DS investments on-premises. |
-  |My business was born in the cloud and we have no investments in on-premises identity solutions.| [Azure Active Directory](active-directory-whatis.md) is the best choice for cloud-only businesses with no on-premises investments.|
+|Identity scenario| Recommendation|
+|-----|-----|
+|I need to support a few virtual machines in Azure, but my company is still heavily invested in on-premises Active Directory (AD DS).|Use [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) to use Azure VMs when you need to support a few virtual machines and have large AD DS investments on-premises. |
+
 
 ## Next steps
 
@@ -97,3 +104,4 @@ Now that you understand Azure identity concepts and the options available to you
 
 [Deploy Azure AD in production](https://aka.ms/aad-onboard)
 
+<!-- Update_Description: wording update -->

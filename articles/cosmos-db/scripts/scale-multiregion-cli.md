@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 ---
 
@@ -27,6 +27,8 @@ This sample replicates any kind of Azure Cosmos DB database account in multiple 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 <!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
 ## Sample script
 
 ```azurecli-interactive
@@ -34,7 +36,7 @@ This sample replicates any kind of Azure Cosmos DB database account in multiple 
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='southcentralus'
+location='chinaeast'
 name='docdb-test'
 
 # Create a resource group
@@ -54,15 +56,13 @@ az cosmosdb create \
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "South Central US"=0 "North Central US"=1 "East US"=2 "West US"=3
+    --locations "China East"=0 "China North"=1
 
 # Modify regional failover priorities
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "South Central US"=3 "North Central US"=2 "East US"=1 "West US"=0
-
-
+    --locations "China East"=1 "China North"=0
 
 ```
 
@@ -80,12 +80,14 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/zh-cn/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb update](https://docs.microsoft.com/zh-cn/cli/azure/cosmosdb/name#update) | Updates an Azure Cosmos DB account. |
-| [az group delete](https://docs.microsoft.com/zh-cn/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Updates an Azure Cosmos DB account. |
+| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/zh-cn/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).
+
+<!--Update_Description: update link, wording update-->

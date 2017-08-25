@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Active Directory FAQ | Microsoft Docs
 description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/24/2017
-ms.date: 06/12/2017
+origin.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
 
 ---
@@ -32,7 +32,6 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 For more information, see:
 
 - [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-- [Manage the directory for your Office 365 subscri  ption in Azure](active-directory-manage-o365-subscription.md)
 
 - - -
 **Q: What’s the relationship between Azure AD, Office 365, and Azure?**
@@ -141,10 +140,6 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 **A:** With Azure AD Premium, you can add and configure any application that you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
 
-For more information, see:
-
-- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](./active-directory-scim-provisioning.md) 
-
 - - -
 **Q: How do users sign in to applications by using Azure AD?**
 
@@ -155,7 +150,7 @@ For more information, see:
 - Direct sign-in to federated apps
 - Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](./active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
@@ -166,7 +161,7 @@ For more information, see:
 
 - [Authentication Scenarios for Azure AD](./develop/active-directory-authentication-scenarios.md)
 - [Active Directory authentication protocols](./develop/active-directory-developers-guide.md)
-- [How does single sign-on with Azure Active Directory work?](./active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+- [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 
@@ -177,5 +172,6 @@ For more information, see:
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No.  Azure AD does not support the LDAP protocol.
+**A:**  No. Azure AD does not support the LDAP protocol.
 
+<!--Update_Description: update metadata properties -->  

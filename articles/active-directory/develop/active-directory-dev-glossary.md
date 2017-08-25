@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory Developer Glossary | Azure
+title: Azure Active Directory Developer Glossary | Microsoft Docs
 description: A list of terms for commonly used Azure Active Directory developer concepts and features.
 services: active-directory
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 03/20/2017
-ms.date: 04/17/2017
+origin.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Azure Active Directory developer glossary
 This article contains definitions for some of the core Azure Active Directory (AD) developer concepts, which are helpful when learning about application development for Azure AD.
 
@@ -45,6 +46,8 @@ In order to allow an application to integrate with and delegate Identity and Acc
 - Robust management of Single Sign-On using Azure AD Identity Management and [OpenID Connect][OpenIDConnect] protocol implementation
 - Brokered access to [protected resources](#resource-server) by [client applications](#client-application), via Azure AD's OAuth 2.0 [authorization server](#authorization-server) implementation
 - [Consent framework](#consent) for managing client access to protected resources, based on resource owner authorization.
+
+See [Integrating applications with Azure Active Directory][AAD-Integrating-Apps] for more details.
 
 ## authentication
 The act of challenging a party for legitimate credentials, providing the basis for creation of a security principal to be used for identity and access control. During an [OAuth2 authorization grant](#authorization-grant) for example, the party authenticating is filling the role of either [resource owner](#resource-owner) or [client application](#client-application), depending on the grant used.
@@ -176,18 +179,19 @@ Please use the following comments section to provide feedback and help us refine
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:./active-directory-application-manifest.md
-[AAD-App-SP-Objects]:./active-directory-application-objects.md
-[AAD-Auth-Scenarios]:./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]:./active-directory-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
+[AAD-App-Manifest]: ./active-directory-application-manifest.md
+[AAD-App-SP-Objects]: ./active-directory-application-objects.md
+[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
+[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]:../active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]: active-directory-how-to-integrate.md
-[AAD-How-To-Tenant]:./active-directory-howto-tenant.md
-[AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
+[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
+[AAD-How-To-Tenant]: active-directory-howto-tenant.md
+[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
+[AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn
@@ -203,3 +207,5 @@ Please use the following comments section to provide feedback and help us refine
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+
+<!--Update_Description: wording update -->

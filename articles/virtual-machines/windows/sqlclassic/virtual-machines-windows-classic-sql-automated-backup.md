@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/18/2017
-ms.date: 03/20/2017
+origin.date: 07/05/2017
+ms.date: 08/21/2017
 ms.author: v-dazen
 
 ---
@@ -38,6 +38,7 @@ To use Automated Backup, consider the following prerequisites:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **SQL Server version/edition**:
 
@@ -111,3 +112,5 @@ You can find additional backup and restore guidance for SQL Server on Azure VMs 
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](../classic/sql-server-agent-extension.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+
+<!--Update_Description: add sql server 2016-->

@@ -3,8 +3,8 @@ title: Azure AD federation compatibility list
 description: This page has non-Microsoft identity providers that can be used to implement single sign-on.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/09/2017
-ms.date: 06/21/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
 
 ---
@@ -374,4 +374,4 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about see [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-
+<!-- Update_Description: update meta properties -->

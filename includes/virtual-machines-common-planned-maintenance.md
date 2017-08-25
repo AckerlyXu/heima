@@ -67,7 +67,6 @@ See the following table for current region pairs:
 | Region 1 | Region 2 |
 |:--- | ---:|
 | China East |China North |
-| China North |China East |
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png

@@ -44,12 +44,14 @@
 ### [Using multiple IP configurations (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md)
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
+## Troubleshoot
+### [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/network/lb)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/lb)
 ## [.NET](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.azure.management.network.models)
-## [Java](https://docs.microsoft.com/zh-cn/java/api/com.microsoft.azure.management.network)
+## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html)
@@ -67,3 +69,5 @@
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/load-balancer/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)
+
+<!--Update_Description: update link of load-balancer-troubleshoot.md -->

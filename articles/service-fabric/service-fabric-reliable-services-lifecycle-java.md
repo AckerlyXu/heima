@@ -3,8 +3,8 @@ title: Overview of the lifecycle of Azure Service Fabric Reliable Services | Azu
 description: Learn about the different lifecycle events in Service Fabric reliable services
 services: Service-Fabric
 documentationcenter: java
-author: PavanKunapareddyMSFT
-manager: timlt
+author: rockboyfor
+manager: digimobile
 
 ms.assetid:
 ms.service: Service-Fabric
@@ -12,8 +12,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/09/2017
-ms.author: v-johch
+origin.date: 06/30/2017
+ms.date: 08/21/2017
+ms.author: v-yeche
 ---
 
 # Reliable services lifecycle overview
@@ -75,3 +76,5 @@ When shutting down a stateless service, the same pattern is followed, just in re
 * [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
+
+<!--Update_Description: update meta properties-->

@@ -3,8 +3,8 @@ title: Convert Azure Cloud Services apps to microservices | Azure
 description: This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
@@ -13,9 +13,9 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/10/2017
-ms.date: 03/03/2017
-ms.author: v-johch
+origin.date: 06/29/2017
+ms.date: 08/14/2017
+ms.author: v-yeche
 ---
 
 # Guide to converting Web and Worker Roles to Service Fabric stateless services
@@ -24,7 +24,7 @@ This article describes how to migrate your Cloud Services Web and Worker Roles t
 ## Cloud Service project to Service Fabric application project
  A Cloud Service project and a Service Fabric Application project have a similar structure and both represent the deployment unit for your application - that is, they each define the complete package that is deployed to run your application. A Cloud Service project contains one or more Web or Worker Roles. Similarly, a Service Fabric Application project contains one or more services. 
 
-The difference is that the Cloud Service project couples the application deployment with a VM deployment and thus contains VM configuration settings in it, whereas the Service Fabric Application project only defines an application that will be deployed to a set of existing VMs in a Service Fabric cluster. The Service Fabric cluster itself is only deployed once, either through an ARM template or through the Azure Portal, and multiple Service Fabric applications can be deployed to it.
+The difference is that the Cloud Service project couples the application deployment with a VM deployment and thus contains VM configuration settings in it, whereas the Service Fabric Application project only defines an application that will be deployed to a set of existing VMs in a Service Fabric cluster. The Service Fabric cluster itself is only deployed once, either through an Resource Manager template or through the Azure portal, and multiple Service Fabric applications can be deployed to it.
 
 ![Service Fabric and Cloud Services project comparison][3]
 
@@ -36,7 +36,7 @@ Conceptually, a Worker Role represents a stateless workload, meaning every insta
 ## Web Role to stateless service
 Similar to Worker Role, a Web Role also represents a stateless workload, and so conceptually it too can be mapped to a Service Fabric stateless service. However, unlike Web Roles, Service Fabric does not support IIS. To migrate a web application from a Web Role to a stateless service requires first moving to a web framework that can be self-hosted and does not depend on IIS or System.Web, such as ASP.NET Core 1.
 
-| **Application ** | **Supported** | **Migration path** |
+| **Application** | **Supported** | **Migration path** |
 | --- | --- | --- |
 | ASP.NET Web Forms |No |Convert to ASP.NET Core 1 MVC |
 | ASP.NET MVC |With Migration |Upgrade to ASP.NET Core 1 MVC |
@@ -105,29 +105,28 @@ Both have a primary "Run" override in which to begin processing. Service Fabric 
 
 There are several key differences between the lifecycle and lifetime of Worker Roles and Service Fabric services:
 
- - **Lifecycle:** The biggest difference is that a Worker Role is a VM and so its lifecycle is tied to the VM, which includes events for when the VM starts and stops. A Service Fabric service has a lifecycle that is separate from the VM lifecycle, so it does not include events for when the host VM or machine starts and stop, as they are not related.
-
- - **Lifetime:** A Worker Role instance will recycle if the `Run` method exits. The `RunAsync` method in a Service Fabric service however can run to completion and the service instance will stay up. 
+* **Lifecycle:** The biggest difference is that a Worker Role is a VM and so its lifecycle is tied to the VM, which includes events for when the VM starts and stops. A Service Fabric service has a lifecycle that is separate from the VM lifecycle, so it does not include events for when the host VM or machine starts and stop, as they are not related.
+* **Lifetime:** A Worker Role instance will recycle if the `Run` method exits. The `RunAsync` method in a Service Fabric service however can run to completion and the service instance will stay up. 
 
 Service Fabric provides an optional communication setup entry point for services that listen for client requests. Both the RunAsync and communication entry point are optional overrides in Service Fabric services - your service may choose to only listen to client requests, or only run a processing loop, or both - which is why the RunAsync method is allowed to exit without restarting the service instance, because it may continue to listen for client requests.
 
 ## Application API and environment
 The Cloud Services environment API provides information and functionality for the current VM instance as well as information about other VM role instances. Service Fabric provides information related to its runtime and some information about the node a service is currently running on. 
 
-**Environment Task** | **Cloud Services** | **Service Fabric**
---- | --- | ---
-Configuration Settings and change notification | `RoleEnvironment` | `CodePackageActivationContext`
-Local Storage | `RoleEnvironment` | `CodePackageActivationContext`
-Endpoint Information | `RoleInstance` <ul><li>Current instance: `RoleEnvironment.CurrentRoleInstance`</li><li>Other roles and instance: `RoleEnvironment.Roles`</li> | <ul><li>`NodeContext` for current Node address</li><li>`FabricClient` and `ServicePartitionResolver` for service endpoint discovery</li> 
-Environment Emulation | `RoleEnvironment.IsEmulated` | N/A
-Simultaneous change event | `RoleEnvironment` | N/A
+| **Environment Task** | **Cloud Services** | **Service Fabric** |
+| --- | --- | --- |
+| Configuration Settings and change notification |`RoleEnvironment` |`CodePackageActivationContext` |
+| Local Storage |`RoleEnvironment` |`CodePackageActivationContext` |
+| Endpoint Information |`RoleInstance` <ul><li>Current instance: `RoleEnvironment.CurrentRoleInstance`</li><li>Other roles and instance: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` for current Node address</li><li>`FabricClient` and `ServicePartitionResolver` for service endpoint discovery</li> |
+| Environment Emulation |`RoleEnvironment.IsEmulated` |N/A |
+| Simultaneous change event |`RoleEnvironment` |N/A |
 
 ## Configuration settings
 Configuration settings in Cloud Services are set for a VM role and apply to all instances of that VM role. These settings are key-value pairs set in ServiceConfiguration.*.cscfg files and can be accessed directly through RoleEnvironment. In Service Fabric, settings apply individually to each service and to each application, rather than to a VM, because a VM can host multiple services and applications. A service is composed of three packages:
 
- - **Code:** contains the service executables, binaries, DLLs, and any other files a service needs to run.
- - **Config:** all configuration files and settings for a service.
- - **Data:** static data files associated with the service.
+* **Code:** contains the service executables, binaries, DLLs, and any other files a service needs to run.
+* **Config:** all configuration files and settings for a service.
+* **Data:** static data files associated with the service.
 
 Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to the app settings section of an App.config file. However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
 
@@ -239,10 +238,11 @@ Both Cloud Services and Service Fabric are integrated with Visual Studio with pr
 ## Next steps
 Read more about Service Fabric Reliable Services and the fundamental differences between Cloud Services and Service Fabric application architecture to understand how to take advantage of the full set of Service Fabric features.
 
- - [Getting started with Service Fabric Reliable Services](./service-fabric-reliable-services-quick-start.md)
-
- - [Conceptual guide to the differences between Cloud Services and Service Fabric](./service-fabric-cloud-services-migration-differences.md)
+* [Getting started with Service Fabric Reliable Services](service-fabric-reliable-services-quick-start.md)
+* [Conceptual guide to the differences between Cloud Services and Service Fabric](service-fabric-cloud-services-migration-differences.md)
 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
+
+<!--Update_Description: update meta properties-->

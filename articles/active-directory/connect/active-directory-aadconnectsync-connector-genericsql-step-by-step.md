@@ -1,10 +1,10 @@
 ---
-title: Generic SQL Connector step-by step | Azure
+title: Generic SQL Connector step-by step | Microsoft Docs
 description: This article is walking you through a simple HR system step-by-step using the Generic SQL Connector.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/12/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Generic SQL Connector step-by-step
 This topic is a step-by-step guide. It creates a simple sample HR database and use it for importing some users and their group membership.
 
@@ -200,3 +200,4 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
+<!-- Update_Description: update meta properties -->

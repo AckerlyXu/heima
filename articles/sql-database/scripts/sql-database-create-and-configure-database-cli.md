@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-Create a SQL database | Azure
-description: Azure CLI Script Sample - Create a SQL database using the Azure CLI
+title: CLI example-create an Azure SQL database | Azure
+description: Azure CLI example script to create a SQL database
 services: sql-database
 documentationcenter: sql-database
 author: Hayley244
@@ -15,16 +15,17 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 04/24/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 06/23/2017
+ms.date: 07/31/2017
+ms.author: v-haiqya
 ---
 
-# Create a single SQL database and configure a firewall rule using the Azure CLI
+# Use CLI to create a single Azure SQL database and configure a firewall rule
 
-This sample CLI script creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
+This Azure CLI script example creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -95,3 +96,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
 
+<!--Update_Description: wording update-->

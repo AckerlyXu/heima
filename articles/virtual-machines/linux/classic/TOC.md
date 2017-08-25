@@ -19,6 +19,7 @@
 ### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
+### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
 
 ## Use Storage
@@ -55,7 +56,7 @@
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java](https://docs.microsoft.com/java/api)
+## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
 ## [Compute REST](https://docs.microsoft.com/rest/api/compute)

@@ -3,8 +3,8 @@ title: Conceptual overview of custom domain names in Azure Active Directory | Mi
 description: Explains the conceptual framework for using custom domain names in Azure Active directory, including federation for single sign-on
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -13,14 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
+origin.date: 07/25/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
+
 ---
 # Conceptual overview of custom domain names in Azure Active Directory
-A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified to be owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
+A domain name can be an important identifier for many directory resources, as part of:
 
-Domain names in Azure AD are globally unique. A domain name can be used by a single Azure AD. If one Azure AD directory has verified a domain name, then no other Azure AD directory can verify or use that same domain name.
+- A user name or email address for a user
+- The app ID URI for an application
+
+A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified to be owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
+
+Domain names in Azure AD are globally unique. A custom domain name can be used by only one Azure AD tenant at a time. If one Azure AD directory has verified a domain name, then no other Azure AD directory can verify or use that same domain name.
 
 ## Initial and custom domain names
 Every domain name in Azure AD is either an initial domain name, or a custom domain name.
@@ -59,4 +65,4 @@ Domain management tasks can be completed from the Azure Classic Management Porta
 - [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 - [Using the Azure AD Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-
+<!--Update_Description: wording update -->   

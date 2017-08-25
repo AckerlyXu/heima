@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -172,5 +172,7 @@ var query = client.CreateDocumentQuery<Book>(
 In this article, we've described how partitioning works in Azure Cosmos DB, how you can create partitioned collections, and how you can pick a good partition key for your application.
 
 * Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
-* Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn781481.aspx).
+* Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://docs.microsoft.com/rest/api/documentdb/).
 * Learn about [provisioned throughput](request-units.md) in Azure Cosmos DB
+
+<!--Update_Description: wording update, update link-->

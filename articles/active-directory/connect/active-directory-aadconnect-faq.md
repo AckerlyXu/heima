@@ -1,20 +1,21 @@
 ---
-title: 'Azure Active Directory Connect: FAQ - | Azure'
+title: 'Azure Active Directory Connect: FAQ - | Microsoft Docs'
 description: This page has frequently asked questions about Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+origin.date: 07/13/2017
+ms.date: 07/31/2017
 ms.author: v-junlch
----
 
+---
 # Frequently asked questions for Azure Active Directory Connect
 
 ## General installation
@@ -57,8 +58,8 @@ No. Changing the server name will cause the sync engine to not be able to connec
 **Q: The UPN (userPrincipalName) attribute in Azure AD does not match the on-prem UPN - why?**  
 See these articles:
 
-- [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/zh-cn/kb/2523192)
-- [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/zh-cn/kb/2669550)
+- [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192)
+- [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/kb/2669550)
 
 You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
@@ -68,15 +69,7 @@ No, this is currently not supported.
 **Q: Is it supported to manually set ImmutableId attribute on existing Azure AD Group/Contact objects to hard match it to on-premises AD Group/Contact objects?**  
 No, this is currently not supported.
 
-## Security
-**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**</br>
-We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
-**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**</br>
-This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
-
-**Q: Will a sign-in request from dubious sources (botnets, tor endpoint) be blocked in a B2C tenant or does this require a Basic or Premium edition tenant?**</br>
-We do have a gateway that filters requests and provides some protection from botnets, and is applied for all B2C tenants. 
 
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  
@@ -94,6 +87,8 @@ We currently do not support modifying the HTML attributes of the sign-in page. W
 **Q: Is there a way to prevent concurrent sessions?**</br>
 No.
 
+
+
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
 
@@ -108,3 +103,6 @@ No.
 [Azure AD Connect customer support](https://manage.windowsazure.cn/?getsupport=true)
 
 - Use this link to get support through the Azure portal.
+
+
+<!-- Update_Description: update meta properties -->

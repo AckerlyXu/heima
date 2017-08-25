@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/02/2017
-ms.date: 07/17/2017
+origin.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: v-yeche
 
 ---
@@ -207,8 +207,10 @@ Technically, two options are supported:
 
 ## Next steps
 * Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-<!-- Not Available * Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md). -->
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
 * Learn about [application upgrades](service-fabric-application-upgrade.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
+
+<!--Update_Description: update meta properties-->

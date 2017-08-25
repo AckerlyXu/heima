@@ -17,8 +17,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/26/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 07/31/2017
+ms.author: v-haiqya
 
 ---
 # Azure SQL Database: Use SQL Server Management Studio to connect and query data
@@ -35,7 +35,7 @@ This quick start uses as its starting point the resources created in one of thes
 
 Before you start, make sure you have installed the newest version of [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
@@ -43,7 +43,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.
 
-   ![connection information](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![connection information](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
@@ -160,6 +160,7 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
+- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
 - For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
@@ -168,3 +169,5 @@ Use the following code to delete the new product that you previously added using
 - To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
 - To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
 - To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
+
+<!--Update_Description: update word & link-->

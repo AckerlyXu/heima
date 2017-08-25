@@ -12,9 +12,9 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
-ms.topic: hero-article
+ms.topic: article
 origin.date: 12/25/2016
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: v-yeche
 
 ---
@@ -285,3 +285,5 @@ To build the GetStarted solution that contains all the samples in this article, 
 * Learn more about the programming model in the Develop section of the [Azure Cosmos DB documentation page](/documentdb/).
 
 [create-account]: create-documentdb-dotnet.md#create-account
+
+<!--Update_Description: update meta properties-->
