@@ -75,7 +75,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
 [What's New in the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: /java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Azure Project Properties]:./azure-toolkit-for-eclipse-azure-project-properties.md

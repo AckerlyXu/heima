@@ -101,33 +101,36 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
-												<div class="cols cols2">
-													<div>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
-															<img src="media/index/logo_NET.svg" alt="">
-															.NET</a>
-													</div>
-													<div>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/python/azure/">
-															<img src="media/index/logo_python.svg" alt="">
-															Python</a>
-													</div>
-													<div>
-														<a class="barLink" href="/java/">
-															<img src="media/index/logo_java.svg" alt="">
-															Java</a>
-													</div>
-													<div>
-														<a class="barLink" href="/app-service-web/app-service-web-get-started-php">
-															<img src="media/index/logo_PHP.svg" alt="">
-															PHP</a>
-													</div>
-													<div>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
-															<img src="media/index/logo_nodejs.svg" alt="">
-															Node.js</a>
-													</div>
-												</div>
+                                                <div class="ico48Link">
+                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
+                                                        <img src="media/index/logo_NET.svg" alt="">
+                                                        <span>.NET</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
+                                                        <img src="media/index/logo_nodejs.svg" alt="">
+                                                        <span>Node.js</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a href="/app-service-web/app-service-web-get-started-php">
+                                                        <img src="media/index/logo_PHP.svg" alt="">
+                                                        <span>PHP</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a target="_blank" href="/java/">
+                                                        <img src="media/index/logo_java.svg" alt="">
+                                                        <span>Java</span>
+                                                    </a>
+                                                </div>
+                                                <div class="ico48Link">
+                                                    <a target="_blank" href="https://docs.microsoft.com/python/azure/">
+                                                        <img src="media/index/logo_python.svg" alt="">
+                                                        <span>Python</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>App Models</h4>
                                                     <ul class="noBullet">
@@ -1833,13 +1836,13 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/java/java-sdk-azure-install">Get the Azure libraries for Java</a>
+                                                    <a target="_blank" href="/java/java-sdk-azure-install">Get the Azure libraries for Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/java/">Get started</a>
+                                                    <a target="_blank" href="/java">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/overview/">API reference</a>
+                                                    <a target="_blank" href="/java/api/overview">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
