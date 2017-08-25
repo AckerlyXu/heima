@@ -3,8 +3,8 @@ title: How Azure subscriptions are associated with Azure Active Directory | Micr
 description: Signing in to Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
@@ -13,9 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2017
-ms.date: 06/12/2017
+origin.date: 08/17/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
 
 ---
 # How Azure subscriptions are associated with Azure Active Directory
@@ -37,6 +40,8 @@ For example, here a user with a Microsoft account signs in to the Azure Classic 
 
 > [!NOTE]
 > To sign in to the Azure Classic Management Portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
+>
+>
 
 ![][1]
 
@@ -100,6 +105,8 @@ To manage both of the directories in the Azure Classic Management Portal, comple
 
 > [!NOTE]
 > These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
+>
+>
 
 1. Sign in to the Azure Classic Management Portal using your Microsoft account.
 2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
@@ -112,10 +119,10 @@ To manage both of the directories in the Azure Classic Management Portal, comple
 ## Next Steps
 - To learn more about how resource access is controlled in Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
 - For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
-- [Sign up for Azure as an organization](sign-up-organization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
+<!--Update_Description: wording update -->

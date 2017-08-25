@@ -4,8 +4,8 @@ description: AD FS management with Azure AD Connect and customization of user AD
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -14,7 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2016
+origin.date: 07/18/2017
+ms.date: 08/23/2017
 ms.author: v-junlch
 
 ---
@@ -49,7 +50,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 
 3. On the **Remote access credentials** page, enter the credentials for the domain administrator.
 
-	![Remote access credentials](./media/active-directory-aadconnect-federation-management/RepairADTrust3.PNG)
+   ![Remote access credentials](./media/active-directory-aadconnect-federation-management/RepairADTrust3.PNG)
 
     After you click **Next**, Azure AD Connect checks for certificate health and shows any issues.
 
@@ -73,9 +74,9 @@ Configuring alternate login ID for AD FS consists of two main steps:
 1. **Configure the right set of issuance claims**: The issuance claim rules in the Azure AD relying party trust are modified to use the selected UserPrincipalName attribute as the alternate ID of the user.
 2. **Enable alternate login ID in the AD FS configuration**: The AD FS configuration is updated so that AD FS can look up users in the appropriate forests using the alternate ID. This configuration is supported for AD FS on Windows Server 2012 R2 (with KB2919355) or later. If the AD FS servers are 2012 R2, Azure AD Connect checks for the presence of the required KB. If the KB is not detected, a warning will be displayed after configuration completes, as shown below:
 
-![Warning for missing KB on 2012R2](./media/active-directory-aadconnect-federation-management/kbwarning.png)
+    ![Warning for missing KB on 2012R2](./media/active-directory-aadconnect-federation-management/kbwarning.png)
 
-To rectify the configuration in case of missing KB, install the required [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
+    To rectify the configuration in case of missing KB, install the required [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
 
 > [!NOTE]
 > For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
@@ -87,29 +88,29 @@ To rectify the configuration in case of missing KB, install the required [KB2919
 
 1. Select **Deploy an additional Federation Server**, and click **Next**.
 
-	![Additional federation server](./media/active-directory-aadconnect-federation-management/AddNewADFSServer1.PNG)
+   ![Additional federation server](./media/active-directory-aadconnect-federation-management/AddNewADFSServer1.PNG)
 
 2. On the **Connect to Azure AD** page, enter your global administrator credentials for Azure AD, and click **Next**.
 
-	![Connect to Azure AD](./media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
+   ![Connect to Azure AD](./media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
 3. Provide the domain administrator credentials.
 
-	![Domain administrator credentials](./media/active-directory-aadconnect-federation-management/AddNewADFSServer3.PNG)
+   ![Domain administrator credentials](./media/active-directory-aadconnect-federation-management/AddNewADFSServer3.PNG)
 
 4. Azure AD Connect asks for the password of the PFX file that you provided while configuring your new AD FS farm with Azure AD Connect. Click **Enter Password** to provide the password for the PFX file.
 
-	![Certificate password](./media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
+   ![Certificate password](./media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
     ![Specify SSL certificate](./media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
 
 5. On the **AD FS Servers** page, enter the server name or IP address to be added to the AD FS farm.
 
-	![AD FS servers](./media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
+   ![AD FS servers](./media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
 
 6. Click **Next**, and go through the final **Configure** page. After Azure AD Connect has finished adding the servers to the AD FS farm, you will be given the option to verify the connectivity.
 
-	![Ready to configure](./media/active-directory-aadconnect-federation-management/AddNewADFSServer7.PNG)
+   ![Ready to configure](./media/active-directory-aadconnect-federation-management/AddNewADFSServer7.PNG)
 
     ![Installation complete](./media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
@@ -120,32 +121,32 @@ To rectify the configuration in case of missing KB, install the required [KB2919
 
 1. Select **Deploy Web Application Proxy** from the list of available tasks.
 
-	![Deploy Web Application Proxy](./media/active-directory-aadconnect-federation-management/WapServer1.PNG)
+   ![Deploy Web Application Proxy](./media/active-directory-aadconnect-federation-management/WapServer1.PNG)
 
 2. Provide the Azure global administrator credentials.
 
-	![Connect to Azure AD](./media/active-directory-aadconnect-federation-management/wapserver2.PNG)
+   ![Connect to Azure AD](./media/active-directory-aadconnect-federation-management/wapserver2.PNG)
 
 3. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when you configured the AD FS farm with Azure AD Connect.
-	![Certificate password](./media/active-directory-aadconnect-federation-management/WapServer3.PNG)
+   ![Certificate password](./media/active-directory-aadconnect-federation-management/WapServer3.PNG)
 
     ![Specify SSL certificate](./media/active-directory-aadconnect-federation-management/WapServer4.PNG)
 
 4. Add the server to be added as a WAP server. Because the WAP server might not be joined to the domain, the wizard asks for administrative credentials to the server being added.
 
-	![Administrative server credentials](./media/active-directory-aadconnect-federation-management/WapServer5.PNG)
+   ![Administrative server credentials](./media/active-directory-aadconnect-federation-management/WapServer5.PNG)
 
 5. On the **Proxy trust credentials** page, provide administrative credentials to configure the proxy trust and access the primary server in the AD FS farm.
 
-	![Proxy trust credentials](./media/active-directory-aadconnect-federation-management/WapServer6.PNG)
+   ![Proxy trust credentials](./media/active-directory-aadconnect-federation-management/WapServer6.PNG)
 
 6. On the **Ready to configure** page, the wizard shows the list of actions that will be performed.
 
-	![Ready to configure](./media/active-directory-aadconnect-federation-management/WapServer7.PNG)
+   ![Ready to configure](./media/active-directory-aadconnect-federation-management/WapServer7.PNG)
 
 7. Click **Install** to finish the configuration. After the configuration is complete, the wizard gives you the option to verify the connectivity to the servers. Click **Verify** to check connectivity.
 
-	![Installation complete](./media/active-directory-aadconnect-federation-management/WapServer8.PNG)
+   ![Installation complete](./media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
 ## Add a federated domain <a name=addfeddomain></a>
 
@@ -153,25 +154,28 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 
 1. To add a federated domain, select the task **Add an additional Azure AD domain**.
 
-	![Additional Azure AD domain](./media/active-directory-aadconnect-federation-management/AdditionalDomain1.PNG)
+   ![Additional Azure AD domain](./media/active-directory-aadconnect-federation-management/AdditionalDomain1.PNG)
 
 2. On the next page of the wizard, provide the global administrator credentials for Azure AD.
 
-	![Connect to Azure AD](./media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
+   ![Connect to Azure AD](./media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
 
 3. On the **Remote access credentials** page, provide the domain administrator credentials.
 
-	![Remote access credentials](./media/active-directory-aadconnect-federation-management/additionaldomain3.PNG)
+   ![Remote access credentials](./media/active-directory-aadconnect-federation-management/additionaldomain3.PNG)
 
 4. On the next page, the wizard provides a list of Azure AD domains that you can federate your on-premises directory with. Choose the domain from the list.
 
-	![Azure AD domain](./media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
+   ![Azure AD domain](./media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
     After you choose the domain, the wizard provides you with appropriate information about further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard provides you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md) for more details.
 
 5. Click **Next**. The **Ready to configure** page shows the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
 
-	![Ready to configure](./media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+   ![Ready to configure](./media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+
+> [!NOTE]
+> Users from the added federated domain must be synchronized before they will be able to login to Azure AD.
 
 ## AD FS customization
 The following sections provide details about some of the common tasks that you might have to perform when you customize your AD FS sign-in page.
@@ -266,3 +270,4 @@ To have only the root domain in the issuer claim value, change the claim rule to
 ## Next steps
 Learn more about [user sign-in options](active-directory-aadconnect-user-signin.md).
 
+<!--Update_Description: wording update -->

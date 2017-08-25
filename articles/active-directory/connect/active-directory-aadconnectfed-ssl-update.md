@@ -4,7 +4,7 @@ description: This document details the steps to update the SSL certificate of an
 services: active-directory
 keywords: azure ad connect, adfs ssl update, adfs certificate update, change adfs certificate, new adfs certificate, adfs certificate, update adfs ssl certificate, update ssl certificate adfs, configure adfs ssl certificate, adfs, ssl, certificate, adfs service communication certificate, update federation, configure federation, aad connect
 authors: anandyadavmsft
-manager: femila
+manager: digimobile
 editor: billmath
 
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+origin.date: 08/02/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
 
 ---    
@@ -21,7 +22,9 @@ ms.author: v-junlch
 # Update the SSL certificate for an Active Directory Federation Services (AD FS) farm
 
 ## Overview
-This article describes how you can use Azure AD Connect to update the SSL certificate for an Active Directory Federation Services (AD FS) farm. If the sign-in method in Azure AD Connect is set as AD FS, you can use the Azure AD Connect tool to easily update the SSL certificate for the AD FS farm. You can do this across all federation and Web Application Proxy (WAP) servers in three simple steps:
+This article describes how you can use Azure AD Connect to update the SSL certificate for an Active Directory Federation Services (AD FS) farm. You can use the Azure AD Connect tool to easily update the SSL certificate for the AD FS farm even if the user sign-in method selected is not AD FS.
+
+You can perform the whole operation of updating SSL certificate for the AD FS farm across all federation and Web Application Proxy (WAP) servers in three simple steps:
 
 ![Three steps](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 
@@ -103,3 +106,4 @@ After you complete the configuration, Azure AD Connect displays the message that
 - [Azure AD Connect and federation](active-directory-aadconnectfed-whatis.md)
 - [Active Directory Federation Services management and customization with Azure AD Connect](active-directory-aadconnect-federation-management.md)
 
+<!--Update_Description: wording update -->

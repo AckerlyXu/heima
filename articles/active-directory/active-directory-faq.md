@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/12/2017
-ms.date: 07/18/2017
+origin.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
 
 ---
@@ -140,10 +140,6 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 **A:** With Azure AD Premium, you can add and configure any application that you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
 
-For more information, see:
-
-- [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
-
 - - -
 **Q: How do users sign in to applications by using Azure AD?**
 
@@ -176,6 +172,6 @@ For more information, see:
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No.  Azure AD does not support the LDAP protocol.
+**A:**  No. Azure AD does not support the LDAP protocol.
 
-<!--Update_Description: wording update-->   
+<!--Update_Description: update metadata properties -->  

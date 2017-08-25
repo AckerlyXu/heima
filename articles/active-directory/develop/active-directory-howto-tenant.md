@@ -1,22 +1,26 @@
 ---
-title: How to get an Azure AD tenant | Windows Azure
+title: How to get an Azure AD tenant | Microsoft Docs
 description: How to get an Azure Active Directory tenant for registering and building applications.
 services: active-directory
-documentationCenter: ''
-authors: dstrockis
-manager: terrylan
+documentationcenter: ''
+author: alexchen2016
+manager: digimobile
 editor: ''
 
+ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
-ms.topic: article
-origin.date: 09/28/2015
-ms.date: 01/03/2017
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+origin.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
+ms.custom: aaddev
+
 ---
-
 # How to get an Azure Active Directory tenant
-
-In Azure Active Directory (Azure AD), a [tenant](https://msdn.microsoft.com/zh-cn/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) is representative of an organization.  It is a dedicated instance of the Azure AD service that an organization receives and owns when it signs up for a Microsoft cloud service such as Azure, InTune, or Office 365.  Each Azure AD tenant is distinct and separate from other Azure AD tenants.  
+In Azure Active Directory (Azure AD), a [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) is representative of an organization.  It is a dedicated instance of the Azure AD service that an organization receives and owns when it signs up for a Microsoft cloud service such as Azure, Microsoft Intune, or Office 365.  Each Azure AD tenant is distinct and separate from other Azure AD tenants.  
 
 A tenant houses the users in a company and the information about them - their passwords, user profile data, permissions, and so on.  It also contains groups, applications, and other information pertaining to an organization and its security.
 
@@ -51,7 +55,7 @@ To do so, follow these steps.  Alternatively, you may wish to create a new tenan
     - Optional: Enable Multi-Factor Authentication
     - Lastly, click on the green “CREATE” button to finalize user creation (and display the temporary password).
 7. When you have completed the Add User Form, and receive the temporary password for the new administrative user, be sure to record this password as you will need to login with this new user in order to change the password. You can also send the password directly to the user, using an alternative e-mail.
-8. To change the temporary password, log into https://login.microsoftonline.com with this new user account and change the password when requested.
+8. To change the temporary password, log into https://login.partner.microsoftonline.cn with this new user account and change the password when requested.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Use an organizational Azure subscription
 If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure Management Portal](https://manage.windowsazure.cn), you should find a tenant listed under "All Items" and "Active Directory."  You are free to use this tenant as you see fit.  You may also wish to create a new tenant using the "New" button in the bottom left hand corner of the portal.
@@ -60,3 +64,5 @@ If you have previously signed up for an Azure subscription with your organizatio
 If all of the above is gibberish to you, don't worry.  Simply visit [https://account.windowsazure.cn/organization](https://account.windowsazure.cn/organization) to sign up for Azure with a new organization.  Once you've completed the process, you will have your very own Azure AD tenant with the domain name you chose during sign up.  In the [Azure Management Portal](https://manage.windowsazure.cn), you can find your tenant by navigating to "Active Directory" in the left hand nav.
 
 As part of the process of signing up for Azure, you will be required to provide credit card details.  You can proceed with confidence - you will not be charged for publishing applications in Azure AD or creating new tenants.
+
+<!--Update_Description: wording update -->

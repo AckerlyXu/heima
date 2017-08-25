@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/07/2017
-ms.date: 06/23/2017
+origin.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
 
 ---
@@ -178,3 +178,4 @@ If you have problems with password synchronization, see [Troubleshoot password s
 - [Azure AD Connect sync: Customizing synchronization options](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
+<!--Update_Description: update metadata properties -->
