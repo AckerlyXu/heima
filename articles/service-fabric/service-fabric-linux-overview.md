@@ -21,8 +21,8 @@ ms.author: v-yeche
 # Service Fabric on Linux
 The preview of Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux in addition to C# (.NET Core).  You can also build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. In addition, the preview also supports orchestrating Docker containers. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks.
 
-Service Fabric on Linux is conceptually equivalent to Service Fabric on Windows (except for OS specifics and programming language support). Thus, most of our [existing documentation](./index.md) applies in helping you get familiar with the technology.
-<!-- http://aka.ms/servicefabricdocs match to ./index.md -->
+Service Fabric on Linux is conceptually equivalent to Service Fabric on Windows (except for OS specifics and programming language support). Thus, most of our [existing documentation](./index.yml) applies in helping you get familiar with the technology.
+<!-- http://aka.ms/servicefabricdocs match to ./index.yml -->
 
 ## Supported operating systems and programming languages
 The limited preview supports the creation of one-box development clusters in addition to multi-machine clusters in Azure running Ubuntu Server 16.04. The preview supports the Reliable Actors and the Reliable Stateless Services frameworks in Java and C# in addition to guest executables and orchestrating Docker containers.  

@@ -307,7 +307,8 @@ For more information about using Spring Boot applications on Azure, see the foll
 
 * [Deploy a Spring Boot Application to the Azure App Service](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
 
-* [Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* Running a Spring Boot Application on a Kubernetes Cluster in the Azure Container Service
+<!-- Not Available (../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md) -->
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 
