@@ -3,8 +3,8 @@ title: Create an Azure virtual machine scale set | Azure
 description: Create and deploy a Linux or Windows Azure virtual machine scale set with Azure CLI, PowerShell, a template, or Visual Studio.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: Thraka
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 05/23/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 07/21/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
 ---
 
 # Create and deploy a virtual machine scale set
@@ -179,6 +179,12 @@ Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
+### Using a custom virtual machine image
+If you are creating a scale set from your own custom image, instead of referencing a virtual machine image from the gallery, the _Set-AzureRmVmssStorageProfile_ command would look like this:
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
+```
+
 ## Create from a template
 
 You can deploy a virtual machine scale set by using an Azure Resource Manager template. You can create your own template or use one from the [template repository](https://github.com/Azure/azure-quickstart-templates/?term=vmss). These templates can be deployed directly to your Azure subscription.
@@ -202,4 +208,4 @@ Learn more about [data disks](virtual-machine-scale-sets-attached-disks.md).
 
 Learn how to [manage your apps](virtual-machine-scale-sets-deploy-app.md).
 
-<!--Update_Description: update sample code-->
+<!--Update_Description: Add Using a custom virtual machine image-->

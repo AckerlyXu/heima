@@ -3,8 +3,8 @@ title: Networking for Azure virtual machine scale sets | Azure
 description: Configuration networking properties for Azure virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 07/17/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
 
 ---
 # Networking for Azure virtual machine scale sets
@@ -112,7 +112,17 @@ Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quic
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using CLI 2.0, use the **az vmss list-instance-public-ips** command.
 
-You can also query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version **2017-03-30** or higher.
+To list scale set public IP addresses using PowerShell, use the _Get-AzureRmPublicIpAddress_ command. For example:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+```
+
+You can also query the public IP addresses by referencing the resource id of the public IP address configuration directly. For example:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```
+
+To query the public IP addresses assigned to scale set virtual machines using the [Azure Resource Explorer](https://resources.azure.com), or the Azure REST API with version **2017-03-30** or higher.
 
 To view public IP addresses for a scale set using the Resource Explorer, look at the **publicipaddresses** section under your scale set. For example:
 https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
@@ -277,3 +287,4 @@ For example:
 
 ## Next steps
 For more information about Azure virtual networks, refer to [this documentation](../virtual-network/virtual-networks-overview.md).
+<!--Update_Description: update list & query scale set public IP addresses sample code-->
