@@ -25,7 +25,7 @@ The Azure AD Connect installation wizard offers two different paths:
 - In Custom Settings, the wizard offers you more choices and options. However, there are some situations in which you need to ensure you have the correct permissions yourself.
 
 ## Related documentation
-If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md), the following table provides links to related topics.
+If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md), the following table provides links to related topics.
 
 |Topic |Link|  
 | --- | --- |
@@ -186,6 +186,6 @@ There is a limit of 20 sync service accounts in Azure AD. To get the list of exi
 To remove unused Azure AD service accounts, run the following Azure AD PowerShell cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 <!--Update_Description: wording update -->
