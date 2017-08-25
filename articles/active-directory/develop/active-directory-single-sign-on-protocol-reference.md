@@ -1,10 +1,10 @@
 ---
-title: Azure Single Sign On SAML Protocol | Azure
+title: Azure Single Sign On SAML Protocol | Microsoft Docs
 description: This article describes the Single Sign On SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Single Sign-On SAML protocol
 This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 
@@ -38,11 +39,12 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
+
 | Parameter |  | Description |
 | --- | --- | --- |
 | ID |required |Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
 | Version |required |This should be **2.0**. |
-| IssueInstant |required |This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/zh-cn/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but does not evaluate or use the value. |
+| IssueInstant |required |This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but does not evaluate or use the value. |
 | AssertionConsumerServiceUrl |optional |If provided, this must match the `RedirectUri` of the cloud service in Azure AD. |
 | ForceAuthn |optional | This is a boolean value. If true, this means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
 | IsPassive |optional |This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
@@ -97,7 +99,7 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+  <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
   <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
     ...
   </ds:Signature>
@@ -105,7 +107,7 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
     <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
   </samlp:Status>
   <Assertion ID="_bf9c623d-cc20-407a-9a59-c2d0aee84d12" IssueInstant="2013-03-18T07:38:15.144Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
-    <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+    <Issuer>https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
     <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
       ...
     </ds:Signature>
@@ -145,12 +147,12 @@ The `Response` element includes the result of the authorization request. Azure A
 - `InResponseTo`: This is set to the `ID` attribute of the `AuthnRequest` element that initiated the response.
 
 ### Issuer
-Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where <TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets the `Issuer` element to `https://login.partner.microsoftonline.cn/<TenantIDGUID>/` where <TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a sample response with Issuer element could look like this:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### Status
@@ -180,7 +182,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 This is set to `https://sts.chinacloudapi.cn/<TenantIDGUID>/`where <TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### Signature
@@ -248,20 +250,23 @@ This contains claims about the subject or user. The following excerpt contains a
       </Attribute>
       ...
 </AttributeStatement>
-```
+```        
 
 - **Name Claim** : The value of the `Name` attribute (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is the user principal name of the authenticated user, such as `testuser@managedtenant.com`.
 - **ObjectIdentifier Claim** : The value of the `ObjectIdentifier` attribute (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is the `ObjectId` of the directory object that represents the authenticated user in Azure AD. `ObjectId` is an immutable, globally unique, and re-use safe identifier of the authenticated user.
 
 #### AuthnStatement
-
 This element asserts that the assertion subject was authenticated by a particular means at a particular time.
 
 - The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
 - The `AuthnContext` element specifies the authentication context used to authenticate the user.
 
-	    <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
-	          <AuthnContext>
-	            <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
-	          </AuthnContext>
-	    </AuthnStatement>
+```
+<AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
+      <AuthnContext>
+        <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+      </AuthnContext>
+</AuthnStatement>
+```
+
+<!--Update_Description: wording update -->

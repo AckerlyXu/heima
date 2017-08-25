@@ -4,8 +4,8 @@ description: In this document you will learn how to federate multiple Azure AD w
 keywords: federate, ADFS, AD FS, multiple tenants, single AD FS, one ADFS, multi-tenant federation, multi-forest adfs, aad connect, federation, cross-tenant federation
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/09/2017
+origin.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
 ---
 
@@ -66,3 +67,4 @@ The above operation will federate the domain fabrikam.com with the same AD FS. Y
 ## Next steps
 [Connect Active Directory with Azure Active Directory](active-directory-aadconnect.md)
 
+<!--Update_Description: update metadata properties -->

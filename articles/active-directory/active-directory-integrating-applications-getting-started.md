@@ -4,8 +4,8 @@ title: Get started integrating Azure AD with apps | Microsoft Docs
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: asteen
 
 ---
 # Integrating Azure Active Directory with applications getting started guide
@@ -86,3 +87,4 @@ If you want to add your custom application to the Azure Application Gallery, see
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 
+<!--Update_Description: update metadata properties -->

@@ -3,8 +3,8 @@ title: Article Index for Application Management in Azure Active Directory | Azur
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
-ms.date: 06/12/2017
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: asteen
 
 ---
 # Article Index for Application Management in Azure Active Directory
@@ -88,7 +89,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Article Guide |  |
 |:---:| --- |
 | Configure how information is mapped between Azure AD and your SaaS app | Customizing Attribute Mappings <br><br> Writing Expressions for Attribute Mappings |
-| How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
+| How to enable automated provisioning to any app that supports the SCIM protocol | Set up Automated User Provisioning to any SCIM-Enabled App |
 | Limit who gets provisioned to an application based on their attribute values | |
 
 Automated user provisioning is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) supports unlimited applications. If your organization has [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) or [Azure AD Premium](https://www.azure.cn/pricing/details/identity/), then you can [use groups to manage which users get provisioned](#managing-access-to-applications).
@@ -116,7 +117,9 @@ The Azure AD Access Panel is where end-users can launch their apps and access th
 
 Access Panel is available for [all editions of Azure Active Directory](https://www.azure.cn/pricing/details/identity/).
 
-##See also
+## See also
+[What is Azure Active Directory?](active-directory-whatis.md)
 
 [Azure Multi-Factor Authentication](https://www.azure.cn/home/features/multi-factor-authentication/)
 
+<!--Update_Description: wording update -->  

@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2016
-ms.date: 06/23/2017
+origin.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
 
 ---
@@ -50,3 +50,4 @@ This topic is the home for information on federation-related functionalities for
 - [AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 - [High-availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
+<!--Update_Description: update metadata properties -->

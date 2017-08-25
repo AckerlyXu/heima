@@ -1,25 +1,23 @@
 ---
-title: Active Directory Federation Services in Azure | Azure
+title: Active Directory Federation Services in Azure | Microsoft Docs
 description: In this document you will learn how to deploy AD FS in Azure for high availablity.
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
-
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/27/2017
-ms.date: 04/05/2017
+origin.date: 07/17/2017
+ms.date: 08/23/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
-
 # Deploying Active Directory Federation Services in Azure
 AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
 There are several advantages of deploying AD FS in Azure, a few of them are listed below:
@@ -95,7 +93,7 @@ We will need a connection to on-premises in order to deploy the domain controlle
 - ExpressRoute
 
 It is recommended to use ExpressRoute. ExpressRoute lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. ExpressRoute connections do not go over the public Internet. They offer more reliability, faster speeds, lower latencies and higher security than typical connections over the Internet.
-While it is recommended to use ExpressRoute, you may choose any connection method best suited for your organization. To learn more about ExpressRoute and the various connectivity options using ExpressRoute, read [ExpressRoute technical overview](https://aka.ms/Azure/ExpressRoute).
+While it is recommended to use ExpressRoute, you may choose any connection method best suited for your organization. To learn more about ExpressRoute and the various connectivity options using ExpressRoute, read [ExpressRoute technical overview](/expressroute/expressroute-introduction/).
 
 ### 2. Create storage accounts
 In order to maintain high availability and avoid dependence on a single storage account, you can create two storage accounts. Divide the machines in each availability set into two groups and then assign each group a separate storage account.
@@ -118,8 +116,8 @@ Create the following availability sets
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### 4.    Deploy virtual machines
-The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create six virtual machines for the basic deployment.
+### 4. Deploy virtual machines
+The next step is to deploy virtual machines that will host the different roles in your infrastructure. A minimum of two machines are recommended in each availability set. Create four virtual machines for the basic deployment.
 
 | Machine | Role | Subnet | Availability set | Storage account | IP Address |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -128,7 +126,7 @@ The next step is to deploy virtual machines that will host the different roles i
 | contosowap1 |WAP |DMZ |contosowapset |contososac1 |Static |
 | contosowap2 |WAP |DMZ |contosowapset |contososac2 |Static |
 
-As you might have noticed, no NSG has been specified. This is because azure lets you use NSG at the subnet level. Then, you can control machine network traffic by using the individual NSG associated with either the subnet or else the NIC object. Read more on [What is a Network Security Group (NSG)](https://aka.ms/Azure/NSG).
+As you might have noticed, no NSG has been specified. This is because azure lets you use NSG at the subnet level. Then, you can control machine network traffic by using the individual NSG associated with either the subnet or else the NIC object. Read more on [What is a Network Security Group (NSG)](/virtual-network/virtual-networks-nsg/).
 Static IP address is recommended if you are managing the DNS. You can use Azure DNS and instead in the DNS records for your domain, refer to the new machines by their Azure FQDNs.
 Your virtual machine pane should look like below after the deployment is completed:
 
@@ -145,8 +143,8 @@ Your virtual machine pane should look like below after the deployment is complet
 - Promote the two servers as replica domain controllers with DNS
 - Configure the AD FS servers by installing the AD FS role using the server manager.
 
-### 6.    Deploying Internal Load Balancer (ILB)
-**6.1.    Create the ILB**
+### 6. Deploying Internal Load Balancer (ILB)
+**6.1. Create the ILB**
 
 To deploy an ILB, select Load Balancers in the Azure portal and click on add (+).
 
@@ -161,7 +159,7 @@ To deploy an ILB, select Load Balancers in the Azure portal and click on add (+)
 - **Scheme**: Since this load balancer will be placed in front of the AD FS servers and is meant for internal network connections ONLY, select “Internal”
 - **Virtual Network**: Choose the virtual network where you are deploying your AD FS
 - **Subnet**: Choose the internal subnet here
-- **IP Address assignment**: Dynamic
+- **IP Address assignment**: Static
 
 ![Internal load balancer](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 
@@ -171,7 +169,7 @@ After you click create and the ILB is deployed, you should see it in the list of
 
 Next step is to configure the backend pool and the backend probe.
 
-**6.2.    Configure ILB backend pool**
+**6.2. Configure ILB backend pool**
 
 Select the newly created ILB in the Load Balancers panel. It will open the settings panel. 
 
@@ -182,7 +180,7 @@ Select the newly created ILB in the Load Balancers panel. It will open the setti
 
 ![Configure ILB backend pool](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    Configuring probe**
+**6.3. Configuring probe**
 
 In the ILB settings panel, select Probes.
 
@@ -196,7 +194,7 @@ In the ILB settings panel, select Probes.
 
 ![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    Create load balancing rules**
+**6.4. Create load balancing rules**
 
 In order to effectively balance the traffic, the ILB should be configured with load balancing rules. In order to create a load balancing rule, 
 
@@ -212,24 +210,24 @@ In order to effectively balance the traffic, the ILB should be configured with l
 
 ![Configure ILB balancing rules](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    Update DNS with ILB**
+**6.5. Update DNS with ILB**
 
 Go to your DNS server and create a CNAME for the ILB. The CNAME should be for the federation service with the IP address pointing to the IP address of the ILB. For example if the ILB DIP address is 10.3.0.8, and the federation service installed is fs.contoso.com, then create a CNAME for fs.contoso.com pointing to 10.3.0.8.
 This will ensure that all communication regarding fs.contoso.com end up at the ILB and are appropriately routed.
 
-### 7.    Configuring the Web Application Proxy server
-**7.1.    Configuring the Web Application Proxy servers to reach AD FS servers**
+### 7. Configuring the Web Application Proxy server
+**7.1. Configuring the Web Application Proxy servers to reach AD FS servers**
 
 In order to ensure that Web Application Proxy servers are able to reach the AD FS servers behind the ILB, create a record in the %systemroot%\system32\drivers\etc\hosts for the ILB. Note that the distinguished name (DN) should be the federation service name, for example fs.contoso.com. And the IP entry should be that of the ILB’s IP address (10.3.0.8 as in the example).
 
-**7.2.    Installing the Web Application Proxy role**
+**7.2. Installing the Web Application Proxy role**
 
 After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. 
 Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
-For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/zh-cn/library/dn383662.aspx).
+For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
-### 8.    Deploying the Internet Facing (Public) Load Balancer
-**8.1.    Create Internet Facing (Public) Load Balancer**
+### 8.  Deploying the Internet Facing (Public) Load Balancer
+**8.1.  Create Internet Facing (Public) Load Balancer**
 
 In the Azure portal, select Load balancers and then click on Add. In the Create load balancer panel, enter the following information
 
@@ -243,38 +241,38 @@ After deployment, the load balancer will appear in the Load balancers list.
 
 ![Load balancer list](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    Assign a DNS label to the public IP**
+**8.2. Assign a DNS label to the public IP**
 
 Click on the newly created load balancer entry in the Load balancers panel to bring up the panel for configuration. Follow below steps to configure the DNS label for the public IP:
 
 1. Click on the public IP address. This will open the panel for the public IP and its settings
 2. Click on Configuration
-3. Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.chinanorth.cloudapp.azure.com. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.chinanorth.cloudapp.azure.com).
+3. Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.westus.cloudapp.azure.com. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.westus.cloudapp.azure.com).
 
 ![Configure internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
 ![Configure internet facing load balancer (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Configure backend pool for Internet Facing (Public) Load Balancer** 
+**8.3. Configure backend pool for Internet Facing (Public) Load Balancer** 
 
 Follow the same steps as in creating the internal load balancer, to configure the backend pool for Internet Facing (Public) Load Balancer as the availability set for the WAP servers. For example, contosowapset.
 
 ![Configure backend pool of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    Configure probe**
+**8.4. Configure probe**
 
 Follow the same steps as in configuring the internal load balancer  to configure the probe for the backend pool of WAP servers.
 
 ![Configure probe of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    Create load balancing rule(s)**
+**8.5. Create load balancing rule(s)**
 
 Follow the same steps as in ILB to configure the load balancing rule for TCP 443.
 
 ![Configure balancing rules of Internet Facing Load Balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### 9.    Securing the network
-**9.1.    Securing the internal subnet**
+### 9. Securing the network
+**9.1. Securing the internal subnet**
 
 Overall, you need the following rules to efficiently secure your internal subnet (in the order as listed below)
 
@@ -285,7 +283,7 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
-**9.2.    Securing the DMZ subnet**
+**9.2. Securing the DMZ subnet**
 
 | Rule | Description | Flow |
 |:--- |:--- |:---:|
@@ -299,7 +297,7 @@ Overall, you need the following rules to efficiently secure your internal subnet
 > 
 > 
 
-### 10.    Test the AD FS sign-in
+### 10. Test the AD FS sign-in
 The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
@@ -361,3 +359,5 @@ You can use an existing virtual network or create a new VNET while deploying thi
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 - [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 - [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+
+<!--Update_Description: wording update -->
