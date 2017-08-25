@@ -128,8 +128,7 @@ scaling out, see [Scale instance count manually or automatically](../monitoring-
 
 ## Receive alerts for your app
 Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)?
-You can set up an alert (further reading at [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md))
-to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
+You can set up an alert to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
 1. In the portal blade of your app, click **Tools** > **Alerts**.  
     ![Alerts - settings blade](./media/app-service-web-get-started/alert-settings.png)
@@ -153,10 +152,6 @@ You should see that **Subscription admins** are already the **Owner** of the app
 Azure subscription (e.g. your trial subscription). For more information on Azure role-based access control, see
 [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
-> [!NOTE]
-> Alert rules is an Azure feature. For more information, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
-> 
-> 
 
 ## Next Steps
 On your way to configure the alert, you may have noticed a rich set of tools in the **Tools** blade. Here, you can troubleshoot issues,
