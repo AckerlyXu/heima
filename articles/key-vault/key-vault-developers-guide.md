@@ -63,7 +63,7 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 #### Java
 
-- [Java SDK for Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+- [Java SDK for Key Vault](/java/api/com.microsoft.azure.keyvault)
 
 #### Node.js
 

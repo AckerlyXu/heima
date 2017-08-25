@@ -91,7 +91,7 @@
 
 # Reference
 ## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
-## [Java API Reference](http://docs.microsoft.com/java/api)
+## [Java API Reference](/java/api/overview)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](./active-directory-service-limits-restrictions.md)
 
