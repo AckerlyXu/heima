@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 05/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -49,8 +49,7 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 * If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
-No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](site-recovery-vmware-to-azure.md).
-<!-- Not Available  [secondary datacenter](site-recovery-vmware-to-vmware.md) -->
+No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](site-recovery-vmware-to-azure.md) or a [secondary datacenter](site-recovery-vmware-to-vmware.md).
 
 ### What workloads can I protect with Site Recovery?
 You can use Site Recovery to protect most workloads running on a supported VM or physical server. Site Recovery provides support for application-aware replication, so that apps can be recovered to an intelligent state. It integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](site-recovery-workload.md) about workload protection.
@@ -84,6 +83,8 @@ The Site Recovery license is per protected instance, where an instance is a VM, 
 - If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
 - If a VM disk replicates to a premium storage account, the Azure storage charge is for the provisioned storage size, rounded out for the nearest premium storage disk option. For example, if the source disk size is 50 GB, Site Recovery creates a 50 GB disk in Azure, and Azure maps this to the nearest premium storage disk (P10).  Costs are calculated on P10, and not on the 50 GB disk size.  [Learn more](../storage/storage-premium-storage.md#pricing-and-billing).  If you're using premium storage, a standard storage account for replication logging is also required, and the amount of standard storage space used for these logs is also billed.
 - No disks are created till a test failover or a failover. In the replication state, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://www.azure.cn/zh-cn/pricing/calculator/) are incurred. These charges are based on the storage type of premium/standard and the data redundancy type -LRS, GRS,RA-GRS etc.
+- If the option to use managed disks on a failover is selected, [charges for managed disks](https://azure.microsoft.com/en-inhttps://www.azure.cn/pricing/details/managed-disks/) apply after a failover/test failover. Managed disks charges do not apply during replication.
+- If the option to use managed disks on a failover is not selected, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) are incurred after failover. These charges are based on the storage type of premium/standard and the data redundancy type -LRS,GRS,RA-GRS etc.
 <!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/storage-premium-storage.md#pricing-and-billing -->
 <!-- Not Available Managed disks and premium storage content block -->
 - Storage transactions are charged during steady-state replication and for regular VM operations after a failover / test failover. But these charges are negligible.
@@ -101,7 +102,7 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the proc
 Yes. When you create a Site Recovery vault in a region, we ensure that all metadata that we need to enable and orchestrate replication and failover remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
-For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and encryption-at-rest (in Azure) are supported.
+For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](/storage/storage-service-encryption) are supported.
 
 ## Replication
 
@@ -129,7 +130,7 @@ Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or
 * [Replicate Hyper-V VMs without VMM to Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### If I replicate to Azure what kind of storage account do I need?
-* **Azure Classic Management Portal**: If you're deploying Site Recovery in the Azure Classic Management Portal, you'll need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). Premium storage isn't currently supported. The account must be in the same region as the Site Recovery vault.
+* **Azure Classic Management Portal**: If you're deploying Site Recovery in the Azure Classic Management Portal, you'll need a [standard geo-redundant storage account](../storage/common/storage-redundancy.md#geo-redundant-storage). Premium storage isn't currently supported. The account must be in the same region as the Site Recovery vault.
 * **Azure portal**: If you're deploying Site Recovery in the Azure portal, you'll need an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is now supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal.
 
 ### How often can I replicate data?
@@ -142,6 +143,8 @@ Extended or chained replication isn't supported.
 ### Can I do an offline replication the first time I replicate to Azure?
 This isn't supported.
 
+### Can I exclude specific disks from replication?
+This is supported when you're [replicating VMware VMs and Hyper-V VMs](site-recovery-exclude-disk.md) to Azure, using the Azure portal.
 
 ### Can I replicate virtual machines with dynamic disks?
 Dynamic disks are supported when replicating Hyper-V virtual machines. They are also supported when replicating VMware VMs and physical machines to Azure. The operating system disk must be a basic disk.

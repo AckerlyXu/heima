@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/10/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -117,10 +117,10 @@ VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machin
 
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
-Maximum OS disk size | 1023 GB | Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-Maximum data disk size | 1023 GB | Refer to [Disks used by VMs.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Maximum OS disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximum data disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
-Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) for more details.
+Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) for more details.
 Data change rate on the disk | Maximum of 6 MBps per disk | If the average data change rate on the disk is beyond 6 MBps continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 6 MBps for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
 Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
@@ -134,11 +134,11 @@ Exclude disk | Not supported|	Temporary disk is excluded by default.
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Supported |  
+ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 
 >[!IMPORTANT]
-> Ensure that you follow the [storage guidance](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required storage accounts based on the source configuration. If you customize and select your own settings, ensure you follow the (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) as your source VMs.
+> Ensure that you follow the [storage guidance](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required storage accounts based on the source configuration. If you customize and select your own settings, ensure you follow the (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) as your source VMs.
 
 ## Support for Network configuration
 **Configuration** | **Supported/Not supported** | **Remarks**
@@ -164,4 +164,4 @@ VNET to VNET connection	| Supported | Refer to [networking guidance document.](s
 - Learn more about [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md)
 <!-- Not Available [replicating Azure VMs](site-recovery-azure-to-azure.md) -->
 
-<!--Update_Description: update meta properties, add Linux version support list -->
+<!--Update_Description: update meta properties, update reference link -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2017
-ms.date: 07/10/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -58,8 +58,8 @@ Make sure you have these prerequisites in place:
 
 ### Azure prerequisites
 * You'll need a [Azure](https://www.azure.cn/) account. If you don't have one, start with a [free account](https://www.azure.cn/pricing/1rmb-trial). In addition, you can read about the [Azure Site Recovery Manager pricing](https://www.azure.cn/pricing/details/site-recovery/).
-* You'll need a CSP subscription if you are trying out the replication to a CSP subscription scenario. Learn more about the CSP program in [how to enroll in the CSP program](https://msdn.microsoft.com/zh-cn/library/partnercenter/mt156995.aspx).
-* You'll need an Azure v2 storage (Resource Manager) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Azure Storage](../storage/storage-introduction.md) for reference.
+* You'll need a CSP subscription if you are trying out the replication to a CSP subscription scenario. Learn more about the CSP program in [how to enroll in the CSP program](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
+* You'll need an Azure v2 storage (Resource Manager) account to store data replicated to Azure. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery service, and be associated with the same subscription or the CSP subscription. To learn more about setting up Azure storage, see the [Introduction to Azure Storage](../storage/common/storage-introduction.md) for reference.
 * You'll need to make sure that virtual machines you want to protect comply with the [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
@@ -75,8 +75,9 @@ Make sure you have these prerequisites in place:
     * One or more Hyper-V host servers or clusters in each host group.
     * One or more virtual machines on the source Hyper-V server.
 * Learn more about setting up VMM clouds:
-    * Learn about [Configuring the VMM cloud fabric](site-recovery-support-matrix-to-azure.md)
-    * After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](https://technet.microsoft.com/zh-cn/library/jj860425.aspx) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](https://blogs.technet.microsoft.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
+    * Read more about private VMM clouds in [What's New in Private Cloud with System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) and in [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
+  * Learn about [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
+  * After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
 
 ### Hyper-V prerequisites
 
@@ -104,9 +105,9 @@ Learn more about network mapping in
 * [How to configure and monitor virtual networks in Azure](https://www.azure.cn/home/features/virtual-network)
 
 ###PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://docs.microsoft.com/zh-cn/powershell/azure/overview). 
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see the [Guide to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://docs.microsoft.com/powershell/azure/overview).
 
-To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](https://docs.microsoft.com/zh-cn/powershell/azure/get-started-azureps).
+To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see the [Guide to get Started with Azure Cmdlets](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## Step 1: Set the subscription 
 
@@ -117,7 +118,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
     $Password = "<password>"
     $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
     $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-    Login-AzureRmAccount -EnvironmentName ChinaAzureCloud #-Credential $Cred 
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud #-Credential $Cred 
     ```
 
 2. Get a list of your subscriptions. This will also list the subscriptionIDs for each of the subscriptions. Note down the subscriptionID of the subscription in which you wish to create the recovery services vault	
@@ -129,7 +130,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 3. Set the subscription in which the recovery services vault is to be created by mentioning the subscription ID
 
     ```
-    Set-AzureRmContext –SubscriptionID <subscriptionId>
+    Set-AzureRmContext -SubscriptionID <subscriptionId>
     ```
 
 ## Step 2: Create a Recovery Services vault
@@ -200,7 +201,7 @@ If you don't have an Azure storage account, create a geo-replication enabled acc
     $StorageAccountName = "teststorageacc1"	#StorageAccountname
     $StorageAccountGeo  = "China East" 	
     $ResourceGroupName =  "myRG" 			#ResourceGroupName 
-    $RecoveryStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Type “StandardGRS” -Location $StorageAccountGeo
+    $RecoveryStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Type "StandardGRS" -Location $StorageAccountGeo
     ```
 
 Note that the storage account must be in the same region as the Azure Site Recovery service, and be associated with the same subscription.
@@ -340,7 +341,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run a test failover
 
-1. Start the test failover by running the following command:
+- Start the test failover by running the following command:
 
     ```
     $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
@@ -350,7 +351,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run a planned failover
 
-1. Start the planned failover by running the following command:
+- Start the planned failover by running the following command:
 
     ```
     $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
@@ -360,7 +361,7 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
 
 ### Run an unplanned failover
 
-1. Start the unplanned failover by running the following command:
+- Start the unplanned failover by running the following command:
 
     ```
     $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
@@ -391,4 +392,6 @@ if($isJobLeftForProcessing)
 
 ## Next steps
 
-[Read more](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.recoveryservices.backup/#recovery) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+[Read more](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/#recovery) about Azre Site Recovery with Azure Resource Manager PowerShell cmdlets.
+
+<!--Update_Description: wording update-->

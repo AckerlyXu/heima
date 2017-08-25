@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/25/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -73,6 +73,6 @@ Site Recovery can manage replication for:
 ## Next steps
 <!-- Not Available site-recovery-azure-to-azure.md -->
 * Read more about [workload support](site-recovery-workload.md)
-* Get started [Hyper-V replication to Azure](hyper-v-site-walkthrough-overview.md).
+* Get started with [VMware replication to Azure](vmware-walkthrough-overview.md), or [Hyper-V replication to Azure](hyper-v-site-walkthrough-overview.md).
 
-<!--Update_Description: update meta properties, add the description between BCDR and Azure Recovery Services-->
+<!--Update_Description: update meta properties, update reference link -->

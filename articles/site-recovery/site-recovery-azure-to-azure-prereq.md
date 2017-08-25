@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 03/27/2017
-ms.date: 07/31/2017
+origin.date: 08/01/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 ---
 
@@ -38,10 +38,10 @@ Post any comments at the bottom of the article, or ask technical questions on th
 
 **Requirement** | **Details**
 --- | ---
-**Azure account** | A [Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
+**Azure account** | A Azure account.<br/><br/> You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 **Site Recovery service** | For more about Site Recovery pricing, see [Site Recovery pricing](https://www.azure.cn/pricing/details/site-recovery/). We recommend that you create a Recovery Services vault in the target Azure region that you want to use as a disaster recovery location. For example, if your source VMs are running in China East, and you want to replicate to China North, we recommend that you create the vault in China North.|
 **Azure capacity** | For the target Azure region that you want to use as your disaster recovery location, you need to have a subscription with sufficient capacity for virtual machines, storage accounts, and network components. You can contact support to add more capacity.
-**Storage guidance** | Ensure that you follow the [storage guidance](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery creates the required storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the [scalability targets for virtual machine disks](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Storage guidance** | Ensure that you follow the [storage guidance](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery creates the required storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the [scalability targets for virtual machine disks](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 **Networking guidance** | You need to whitelist the outbound connectivity from your Azure VM for specific URLs or IP ranges. For more details, refer to the [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md) article.
 **Azure VM** | Ensure that all the latest root certificates are present on the Windows or Linux VM. If the latest root certificates are not present, the VM cannot be registered to Site Recovery due to security constraints.
 
@@ -52,4 +52,4 @@ Post any comments at the bottom of the article, or ask technical questions on th
 - Learn more about [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
 <!-- Not Available [replicating Azure virtual machines.](site-recovery-azure-to-azure.md) -->
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta preperties -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/25/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ Make sure you've read the [prerequisites](physical-walkthrough-prerequisites.md)
 
 ## Set up an Azure account
 
-- Get a [Azure account](http://azure.microsoft.com/).
+- Get a [Azure account](https://www.azure.cn/pricing/1rmb-trial-full/).
 - You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 - Check the supported regions for Site Recovery, under **Geographic Availability** in [Azure Site Recovery Pricing Details](https://www.azure.cn/pricing/details/site-recovery/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get the [pricing details](https://www.azure.cn/pricing/details/site-recovery/).
@@ -46,13 +46,13 @@ Make sure you've read the [prerequisites](physical-walkthrough-prerequisites.md)
 ## Set up an Azure storage account
 
 - Site Recovery replicates on-premises servers to Azure storage. Azure VMs are created from the storage after failover occurs.
-- Set up an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for replicated data.
+- Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for replicated data.
 - Site Recovery in the Azure portal can use storage accounts set up in Resource Manager, or in classic mode.
-- The storage account can be standard or [premium](../storage/storage-premium-storage.md).
+- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
 
 ## Next steps
 
 Go to [Step 6: Set up a vault](physical-walkthrough-create-vault.md)
 
-<!--Update_Description: new article about walkthrought prepare azure from physical to azure -->
+<!--Update_Description: update reference link -->
