@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -55,4 +55,4 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
 [Client libraries](analysis-services-data-providers.md)
 
-<!--Update_Description: new articles on how to connect analysis serices server with Power BI-->
+<!--Update_Description: update meta properties-->

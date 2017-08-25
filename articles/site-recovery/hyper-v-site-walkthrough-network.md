@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/21/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -29,17 +29,14 @@ Post any comments at the bottom of this article, or ask questions in the [Azure 
 
 When planning your replication and failover strategy, one of the key questions is how to connect to the Azure VM after failover. There are a couple of choices when designing your network strategy for replica Azure VMs:
 
-- **Different IP address**: You can select to use a different IP address range for the replicated Azure VM network. In this scenario the VM gets a new IP address after failover, and a DNS update is required.
-- **Same IP address**: You might want to use the same IP address range in Azure after failover, as you have in your primary on-premises site. In a normal scenario, you would have to update routes with the new location of the IP addresses. However, if you have a stretched VLAN deployed between the primary site and Azure, retaining the IP addresses for the virtual machines becomes a valid option. Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover.
-<!-- Not Available  [Learn more](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover) -->
+- **Different IP address**: You can select to use a different IP address range for the replicated Azure VM network. In this scenario the VM gets a new IP address after failover, and a DNS update is required. [Learn more](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)
+- **Same IP address**: You might want to use the same IP address range as that in your primary on-premises network, for the Azure network after failover.  Keeping the same IP addresses simplifies the recovery by reducing network related issues after failover. However, when you're replicating to Azure, you will need to update routes with the new location of the IP addresses after failover.
 
 ## Retain IP addresses
 
-From a disaster recovery perspective, using fixed IP addresses seems to be the simplest method, but there are a number of potential challenges. Site Recovery provides the capability to retain the IP addresses when failing over to Azure, with subnet failover.
+Site Recovery provides the capability to retain fixed IP addresses when failing over to Azure, with a subnet failover.
 
-### Subnet failover
-
-In this scenario, a specific subnet is present at Site 1 or Site 2, but never at both sites simultaneously. In order to maintain the IP address space in the event of a failover, you programmatically arrange for the router infrastructure to move the subnets from one site to another. During failover, the subnets move with the associated protected VMs. The main drawback to this approach is in the event of a failure you have to move the whole subnet, which might affect failover granularity considerations.
+With subnet failover, a specific subnet is present at Site 1 or Site 2, but never at both sites simultaneously. In order to maintain the IP address space in the event of a failover, you programmatically arrange for the router infrastructure to move the subnets from one site to another. During failover, the subnets move with the associated protected VMs. The main drawback is that in the event of a failure, you have to move the whole subnet.
 
 ### Failover example
 
@@ -52,7 +49,7 @@ Let's look at an example for failover to Azure.
  - Woodgrove has to deal with applications and configurations which depend on hard-coded IP addresses, and thus need to retain IP addresses for their applications after failover to Azure.
  - Woodgrove has assigned IP addresses from range 172.16.1.0/24, 172.16.2.0/24 to its resources running in Azure.
 
-For Woodgrove to be able to replicate its VMS to Azure while retaining the IP addresses, here's what the company needs to do:
+For Woodgrove to be able to replicate its VMs to Azure while retaining the IP addresses, here's what the company needs to do:
 
 1. Create an Azure virtual network. It should be an extension of the on-premises network, so that applications can fail over
 seamlessly.
@@ -89,4 +86,4 @@ This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastru
 
 Go to [Step 5: Prepare Azure](hyper-v-site-walkthrough-prepare-azure.md)
 
-<!--Update_Description: new article about walkthrought network from hyper-v to azure  -->
+<!--Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: Review the architecture for Hyper-V replication (without System Center VMM) to Azure with Azure Site Recovery? | Azure
+title: Review the architecture for Hyper-V replication (without System Center VMM) to Azure with Azure Site Recovery | Azure
 description: This article provides an overview of components and architecture used when replicating on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 services: site-recovery
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 ---
 
@@ -78,7 +78,7 @@ Learn about the deployment prerequisites and requirements for each of these comp
 2.  Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines, and sending only the delta data. Resynchronization uses a fixed-block chunking algorithm where source and target files are divided into fixed chunks. Checksums for each chunk are generated and then compared to determine which blocks from the source need to be applied to the target.
 3. After resynchronization finishes, normal delta replication should resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually. For example, you can resume resynchronization if a network outage or another outage occurs. To do this, select the VM in the portal > **Resynchronize**.
 
-    ![Manual resynchronization](media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Manual resynchronization](./media/hyper-v-site-walkthrough-architecture/image4.png)
 
 ### Retry logic
 
@@ -101,4 +101,4 @@ If a replication error occurs, there's a built-in retry. This logic can be class
 
 Go to [Step 2: Review the deployment prerequisites](hyper-v-site-walkthrough-prerequisites.md)
 
-<!--Update_Description: new article about walkthrought architecture from hyper-v to azure  -->
+<!--Update_Description: update meta properties  -->

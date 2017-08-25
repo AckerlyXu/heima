@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/23/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-yeche
 # Replicate Hyper-V virtual machines in VMM clouds to Azure
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](site-recovery-vmm-to-azure.md)
+> * [Azure portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Classic Management Portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
@@ -48,7 +48,7 @@ Here's what you'll need in Azure.
 | **Prerequisite** | **Details** |
 | --- | --- |
 | **Azure account** |You'll need a [Azure](https://www.azure.cn/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing. |
-| **Azure storage** |You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must be in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage. |
+| **Azure storage** |You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/common/storage-redundancy.md#geo-redundant-storage). The account must be in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/common/storage-introduction.md) Azure storage. |
 | **Azure network** |You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault. |
 
 ## On-premises prerequisites

@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/26/2016
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,7 @@ Client applications like Excel and Power BI Desktop, and tools like SSMS and SSD
  Depending on the client application or tool you use, the type of authentication and how you sign in may be different. Each application may support different features for connecting to cloud services like Azure Analysis Services.
 
 ### SQL Server Management Studio (SSMS)
-Azure Analysis Services servers support connections from [SSMS V17.1](/sql/ssms/download-sql-server-management-studio-ssms) and higher by using Windows Authentication, Active Directory Password Authentication, and Active Directory Universal Authentication. In general, it's recommended you use Active Directory Universal Authentication because:
+Azure Analysis Services servers support connections from [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and higher by using Windows Authentication, Active Directory Password Authentication, and Active Directory Universal Authentication. In general, it's recommended you use Active Directory Universal Authentication because:
 
 *  Supports interactive and non-interactive authentication methods.
 
@@ -77,4 +77,4 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 [Manage server administrators](analysis-services-server-admins.md)  
 [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: new articles on manage user and role in analysis serices -->
+<!--Update_Description: update meta properties, update reference link -->

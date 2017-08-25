@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 ---
 
@@ -26,7 +26,7 @@ After reading this article, post any comments at the bottom, or ask technical qu
 
 ## Prepare hosts
 
-- Make sure that the Hyper-V hosts meet the [prerequisites](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager).
+- Make sure that the Hyper-V hosts meet the [prerequisites](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm).
 - Make sure that the hosts can access the required URLs:
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
@@ -41,4 +41,4 @@ During Site Recovery deployment, you add Hyper-V hosts that contain VMs you want
 
 Go to [Step 7: Create a vault](hyper-v-site-walkthrough-create-vault.md)
 
-<!--Update_Description: new article about walkthrought prepare hyper-v from hyper-v to azure  -->
+<!--Update_Description: update reference link -->

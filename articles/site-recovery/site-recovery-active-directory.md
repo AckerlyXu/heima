@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 03/17/2017
-ms.date: 07/10/2017
+origin.date: 07/20/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -46,11 +46,10 @@ The following sections explain how to enable protection for a domain controller 
 
 ## Enable protection using Site Recovery
 ### Protect the virtual machine
-Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V). The domain controller replicated using Site Recovery is used for [test failover](#test-failover-considerations). Make sure it meets the following requirements:
+Enable protection of the domain controller/DNS virtual machine in Site Recovery. Configure Site Recovery settings based on the virtual machine type (Hyper-V or VMware). The domain controller replicated using Site Recovery is used for [test failover](#test-failover-considerations). Make sure it meets the following requirements:
 
 1. The domain controller is a global catalog server
-2. The domain controller should be the FSMO role owner for roles that will be needed during a test failover (else these roles will need to be [seized](https://support.microsoft.com/zh-cn/help/255504/using-ntdsutil.exe-to-transfer-or-seize-fsmo-roles-to-a-domain-controller) after the failover)
-<!--Match Key [seized](http://aka.ms/ad_seize_fsmo)  [seized](https://support.microsoft.com/zh-cn/help/255504/using-ntdsutil.exe-to-transfer-or-seize-fsmo-roles-to-a-domain-controller) -->
+2. The domain controller should be the FSMO role owner for roles that will be needed during a test failover (else these roles will need to be [seized](http://aka.ms/ad_seize_fsmo) after the failover)
 
 ### Configure virtual machine network settings
 For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the virtual machine will be attached to the right network after failover. 
@@ -59,7 +58,7 @@ For the domain controller/DNS virtual machine, configure network settings in Sit
 
 ## Protect Active Directory with Active Directory replication
 ### Site-to-site protection
-Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. For more information, see [Scheduling Replication Between Sites](https://technet.microsoft.com/zh-cn/library/cc731862.aspx).
+Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. For more information, see [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### Site-to-Azure protection
 Follow the instructions to [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
@@ -75,8 +74,7 @@ Test failover occurs in a network that's isolated from production network so tha
 
 Most applications also require the presence of a domain controller and a DNS server to function. Therefore, before the application is failed over, a domain controller needs to be created in the isolated network to be used for test failover. The easiest way to do this is to replicate a domain controller/DNS virtual machine with Site Recovery. Then run a test failover of the domain controller virtual machine before running a test failover of the recovery plan for the application. Here's how you do that:
 
-1. Replicate the domain controller/DNS virtual machine using Site Recovery.
-<!-- Not Available [Replicate](site-recovery-replicate-vmware-to-azure.md) -->
+1. [Replicate](site-recovery-replicate-vmware-to-azure.md) the domain controller/DNS virtual machine using Site Recovery.
 1. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
 1. Provide a DNS IP address in the network created, as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that is used on failover in **Target IP** setting in **Compute and Network** settings. 
 
@@ -98,7 +96,7 @@ Most applications also require the presence of a domain controller and a DNS ser
 1. After testing is complete, **Cleanup test failover** on the domain controller virtual machine. This step deletes the domain controller that was created for test failover.
 
 ### Removing reference to other domain controllers
-When you are doing a test failover, you don't bring all the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](https://support.microsoft.com/zh-cn/help/255504/using-ntdsutil.exe-to-transfer-or-seize-fsmo-roles-to-a-domain-controller) and do [metadata cleanup](https://technet.microsoft.com/zh-cn/library/cc816907.aspx) for missing domain controllers. 
+When you are doing a test failover, you don't bring all the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers. 
 
 > [!IMPORTANT]
 > Some of the configurations described in the following section are not the standard/default domain controller configurations. If you don't want to make these changes to a production domain controller, then you can create a domain controller dedicated to be used for Site Recovery test failover and make these changes to that.  
@@ -148,15 +146,11 @@ Any DFSR databases are deleted
 
 On a command prompt, run the following command to check whether SYSVOL and NETLOGON folders are shared:
 
-```
-NET SHARE
-```
+    NET SHARE
 
 On the command prompt, run the following command to ensure that the domain controller is functioning properly.
 
-```
-dcdiag /v > dcdiag.txt
-```
+    dcdiag /v > dcdiag.txt
 
 In the output log, look for following text to confirm that the domain controller is functioning well. 
 
@@ -167,20 +161,16 @@ In the output log, look for following text to confirm that the domain controller
 If the preceding conditions are satisfied, it is likely that the domain controller is functioning well. If not, try following steps.
 
 * Do an authoritative restore of the domain controller.
-    * Although it is [not recommended to use FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), but if you are still using it then follow the steps provided [here](https://support.microsoft.com/zh-cn/kb/290762) to do an authoritative restore. You can read more about Burflags talked about in the previous link [here](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * If you are using DFSR replication, then follow the steps available [here](https://support.microsoft.com/zh-cn/kb/2218556) to do an authoritative restore. You can also use Powershell functions available on this [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) for this purpose. 
+    * Although it is [not recommended to use FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), but if you are still using it then follow the steps provided [here](https://support.microsoft.com/kb/290762) to do an authoritative restore. You can read more about Burflags talked about in the previous link [here](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+    * If you are using DFSR replication, then follow the steps available [here](https://support.microsoft.com/kb/2218556) to do an authoritative restore. You can also use Powershell functions available on this [link](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/) for this purpose. 
 
-* Bypass initial synchronization requirement by setting following registry key to 0 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Parameters'. You can read more about it [here](https://support.microsoft.com/zh-cn/kb/2001093)
+* Bypass initial synchronization requirement by setting following registry key to 0 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Parameters'. You can read more about it [here](https://support.microsoft.com/kb/2001093)
 
-    ```
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
-    ```
+        HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations
 
-* Disable the requirement that a global catalog server is available to validate user logon by setting following registry key to 1 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Lsa'. You can read more about it [here](http://support.microsoft.com/zh-cn/kb/241789)
+* Disable the requirement that a global catalog server is available to validate user logon by setting following registry key to 1 in the on-premises domain controller. If this DWORD doesn't exist, then you can create it under node 'Lsa'. You can read more about it [here](http://support.microsoft.com/kb/241789)
 
-    ```
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
-    ```
+        HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures
 
 ### DNS and domain controller on different machines
 If DNS isn't on the same virtual machine as the domain controller, you need to create a DNS VM for the test failover. If they're on the same VM, you can skip this section.
@@ -198,12 +188,12 @@ You can use a fresh DNS server and create all the required zones. For example, i
     `nltest /dsregdns`
 3. Add a zone on the DNS server, allow non-secure updates, and add an entry for it to DNS:
 
-    ```
-    dnscmd /zoneadd contoso.com  /Primary
-    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
-    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
-    dnscmd /config contoso.com /allowupdate 1
-    ```
+        dnscmd /zoneadd contoso.com  /Primary
+        dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
+        dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
+        dnscmd /config contoso.com /allowupdate 1
 
 ## Next steps
 Read [What workloads can I protect?](site-recovery-workload.md) to learn more about protecting enterprise workloads with Azure Site Recovery.
+
+<!--Update_Description: update meta properties, update link-->

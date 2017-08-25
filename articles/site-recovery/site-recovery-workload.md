@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 05/08/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -118,9 +118,10 @@ Site Recovery helps protect Exchange, as follows:
 ## Protect SAP
 Use Site Recovery to protect your SAP deployment, as follows:
 
-* Enable protection of the entire SAP deployment, by replicating different deployment layers to Azure, or to a secondary site.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running on-premises, by replicating components to Azure.
+* Enable protection of SAP NetWeaver and non-NetWeaver Production applications running Azure, by replicating components to another Azure datacenter.
 * Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
-* Simplify SAP development and testing, by creating a production-like copy on-demand for testing and debugging applications.
+* Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
 
 [Learn more](http://aka.ms/asr-sap) about protecting SAP.
 
@@ -144,7 +145,6 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 * Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
 * Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
 * This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure.
-
 ## Next steps
 [Check prerequisites](site-recovery-prereq.md) 
 

@@ -10,8 +10,22 @@
 ### [On-premises to Azure support](site-recovery-support-matrix-to-azure.md)
 ### [On-premises to secondary site support](site-recovery-support-matrix-to-sec-site.md)
 ## [FAQ](site-recovery-faq.md)
+## [Watch an introduction](https://www.azure.cn/video-center/)
 
 # Get Started
+## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
+### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
+### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
+### [Step 3: Plan capacity](vmware-walkthrough-capacity.md)
+### [Step 4: Plan networking](vmware-walkthrough-network.md)
+### [Step 5: Prepare Azure](vmware-walkthrough-prepare-azure.md)
+### [Step 6: Prepare VMware](vmware-walkthrough-prepare-vmware.md)
+### [Step 7: Create a vault](vmware-walkthrough-create-vault.md)
+### [Step 8: Set up the source and target](vmware-walkthrough-source-target.md)
+### [Step 9: Create a replication policy](vmware-walkthrough-replication.md)
+### [Step 10: Install the Mobility service](vmware-walkthrough-install-mobility.md)
+### [Step 11: Enable replication](vmware-walkthrough-enable-replication.md)
+### [Step 12: Run a test failover](vmware-walkthrough-test-failover.md)
 ## [Replicate Hyper-V VMs to Azure](hyper-v-site-walkthrough-overview.md)
 ### [Step 1: Review the architecture](hyper-v-site-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](hyper-v-site-walkthrough-prerequisites.md)
@@ -24,7 +38,19 @@
 ### [Step 9: Create a replication policy](hyper-v-site-walkthrough-replication.md)
 ### [Step 10: Enable replication](hyper-v-site-walkthrough-enable-replication.md)
 ### [Step 11: Run a test failover](hyper-v-site-walkthrough-test-failover.md)
-## [Replicate Hyper-V VMs to Azure (with VMM)](site-recovery-vmm-to-azure.md)
+## [Replicate Hyper-V VMs to Azure (with VMM)](vmm-to-azure-walkthrough-overview.md)
+### [Step 1: Review the architecture](vmm-to-azure-walkthrough-architecture.md)
+### [Step 2: Review prerequisites and limitations](vmm-to-azure-walkthrough-prerequisites.md)
+### [Step 3: Plan capacity](vmm-to-azure-walkthrough-capacity.md)
+### [Step 4: Plan networking](vmm-to-azure-walkthrough-network.md)
+### [Step 5: Prepare Azure](vmm-to-azure-walkthrough-prepare-azure.md)
+### [Step 6: Prepare VMM and Hyper-V](vmm-to-azure-walkthrough-vmm-hyper-v.md)
+### [Step 7: Create a vault](vmm-to-azure-walkthrough-create-vault.md)
+### [Step 8: Set up the source and target](vmm-to-azure-walkthrough-source-target.md)
+### [Step 9: Configure network mapping](vmm-to-azure-walkthrough-network-mapping.md)
+### [Step 10: Create a replication policy](vmm-to-azure-walkthrough-replication.md)
+### [Step 11: Enable replication](vmm-to-azure-walkthrough-enable-replication.md)
+### [Step 12: Run a test failover](vmm-to-azure-walkthrough-test-failover.md)
 ## [Replicate physical servers to Azure](physical-walkthrough-overview.md)
 ### [Step 1: Review the architecture](physical-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](physical-walkthrough-prerequisites.md)
@@ -39,6 +65,7 @@
 ### [Step 11: Run a test failover](physical-walkthrough-test-failover.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
 
+## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # How To
 ## Plan
@@ -62,7 +89,9 @@
 #### [Run a test failover to Azure](site-recovery-test-failover-to-azure.md)
 #### [Run a test failover between VMM clouds](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Fail over protected machines](site-recovery-failover.md)
-
+### Reprotect machines after failover
+#### [Reprotect from an Azure secondary region to primary](site-recovery-how-to-reprotect-azure-to-azure.md)
+#### [Reprotect from Azure to on-premises](site-recovery-how-to-reprotect.md)
 ### Fail back from Azure
 #### [Fail back from Azure to Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)
 ## Migrate
@@ -74,14 +103,14 @@
 ### [Replicate SQL Server](site-recovery-sql.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
-### [SAP](site-recovery-workload.md#protect-sap)
+
 ### [Other workloads](site-recovery-workload.md#workload-summary)
 ## Automate replication
 ### [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to Azure (with VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
-
+### [Upgrade your Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ### [Delete Recovery Services vault](delete-vault.md)
 ## Monitor and troubleshoot
@@ -97,7 +126,10 @@
 ## [Azure Automation](https://docs.azure.cn/zh-cn/automation/)
 
 # Resources
-
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
+## [Learning path](https://www.azure.cn/documentation/learning-paths/site-recovery/)
 ## [Pricing](https://www.azure.cn/pricing/details/site-recovery/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Service updates](https://www.azure.cn/what-is-new/)

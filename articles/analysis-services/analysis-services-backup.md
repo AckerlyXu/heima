@@ -13,20 +13,21 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
 
 # Backup and restore
 
-Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
+Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 
 > [!NOTE]
 > Creating a storage account can result in a new billable service. To learn more, see [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/).
 > 
 > 
+<!-- Valid Storage Price: https://www.azure.cn/pricing/details/storage/-->
 
 Backups are saved with an abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose. 
 
@@ -73,10 +74,10 @@ Before backing up, you need to configure storage settings for your server.
 5. Click **OK** to create and save the backup file.
 
 ### PowerShell
-Use [Backup-ASDatabase](/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
+Use [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
 
 ## Restore
-When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Azure Storage Explorer](/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/storage-use-azcopy.md) command-line utility. 
+When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Azure Storage Explorer](/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/common/storage-use-azcopy.md) command-line utility. 
 
 > [!NOTE]
 > If you're restoring from an on-premises server, you must remove all the domain users from the model's roles and add them back to the roles as Azure Active Directory users.
@@ -97,12 +98,12 @@ When restoring, your backup file must be in the storage account you've configure
 
 ### PowerShell
 
-Use [Restore-ASDatabase](/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
+Use [Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
 
 ## Related information
 
-[Azure storage accounts](../storage/storage-create-storage-account.md)  
+[Azure storage accounts](../storage/common/storage-create-storage-account.md)  
 [High availability](analysis-services-bcdr.md)     
 [Manage Azure Analysis Services](analysis-services-manage.md)
 
-<!--Update_Description: new articles on analysis services back up  -->
+<!--Update_Description: update reference link-->

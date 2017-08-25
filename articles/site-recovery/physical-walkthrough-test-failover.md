@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -28,13 +28,13 @@ Before you run a test failover we recommend that you verify the server propertie
 
 ## Managed disk considerations
 
-[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
+[Managed disks](../virtual-machines/windows/managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
 
 - When you enable protection for a server, VM data replicates to a storage account. Managed disks are created and attached to the VM only when failover occurs.
 - Managed disks can be created only for Azure VMs deployed using the Resource Manager model.  
 - With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected.
-- [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) about managed disks and availability sets.
-- If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+- [Learn more](/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set) about managed disks and availability sets.
+- If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 ## Network considerations
 
@@ -50,7 +50,8 @@ You can set the target IP address for an Azure VM created after failover.
      - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
    - If the virtual machine has multiple network adapters they will all connect to the same network.
    - If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
-<!-- Not Available [Learn more](vmware-walkthrough-network.md) -->
+ - [Learn more](vmware-walkthrough-network.md) about IP addressing.
+
 ## View and modify VM settings
 
 We recommend that you verify the properties of the source server before you run a failover.
@@ -59,9 +60,9 @@ We recommend that you verify the properties of the source server before you run 
 2. In the **Replicated item** pane, you can see a summary of machine information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, you can:
     - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - Specify a post-failover [resource group].
     - Specify a target size for the Azure VM
-    - Select an [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specify whether to use [managed disks](#managed-disk-considerations). Select **Yes**, if you want to attach managed disks to your machine on migration to Azure.
     - View or modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 4. In **Disks**, you can see information about the operating system and data disks on the VM.
@@ -73,6 +74,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 - If you want to connect to Azure VMs using RDP after failover, [prepare to connect](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
  - To fully test you need to copy of Active Directory and DNS in your test environment. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
  - For full information about test failover, read [this article](site-recovery-test-failover-to-azure.md) article.
+- Get a quick video overview before you start:
 
 <!-- Not Available VIDEO -->
 Now, run a failover:
@@ -101,10 +103,10 @@ Now, run a failover:
 
 If you completed the test failover successfully, your physical servers are replicating and you've checked that they can fail over to Azure. Now, you can run failovers in accordance with your organizational requirements. 
 
-Remember that you can't currently fail back from Azure to a physical server. You have to fail back to a VMware VM. This means you need an on-premises VMware infrastructure in order to fail back. 
-<!-- Not Availabe [Learn more](site-recovery-failback-azure-to-vmware.md) -->
+Remember that you can't currently fail back from Azure to a physical server. You have to fail back to a VMware VM. This means you need an on-premises VMware infrastructure in order to fail back. [Learn more](site-recovery-failback-azure-to-vmware.md) about failing back Azure VMs to VMware.
+
 ## Next steps
 
 - [Run failovers](site-recovery-failover.md) as needed.
 
-<!--Update_Description: new article about walkthrought test failover from physical to azure -->
+<!--Update_Description: update reference link -->

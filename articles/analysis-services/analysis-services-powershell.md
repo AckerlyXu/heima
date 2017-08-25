@@ -13,8 +13,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 08/07/2017
+origin.date: 07/19/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -35,6 +35,7 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 
 |Cmdlet|Description| 
 |------------|-----------------| 
+|[Export-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exports log to file.| 
 |[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Gets details of a server instance.|  
 |[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a server instance.|
 |[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Removes a server instance.|  
@@ -68,4 +69,4 @@ The SqlServer module provides task-specific database management cmdlets as well 
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)
 
-<!--Update_Description: new articles on manage analysis serices with powershell-->
+<!--Update_Description: add cmdlet of Export-AzureAnalysisServicesInstance -->

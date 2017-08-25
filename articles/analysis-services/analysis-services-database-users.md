@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/26/2016
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -83,7 +83,7 @@ To add roles and users to a deployed model database, you must be connected to th
 5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. 
 
 ## To add roles and users by using a TMSL script
-You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) command and the [Roles](/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) object.
+You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) object.
 
 **Sample TMSL script**
 
@@ -146,5 +146,6 @@ Row filters apply to the specified rows and related rows. When a table has multi
 ## Next steps
   [Manage server administrators](analysis-services-server-admins.md)   
   [Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)  
-  [Tabular Model Scripting Language (TMSL) Reference](/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
-<!--Update_Description: new articles on adding users and roles in analysis serices -->
+  [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+
+<!--Update_Description: update reference -->

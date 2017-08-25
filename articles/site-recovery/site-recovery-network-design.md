@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 07/04/2017
-ms.date: 07/31/2017
+origin.date: 07/20/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -154,7 +154,7 @@ After failing-over the replica virtual machine might have an IP address that isn
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### Changing the IP addresses – DR to Azure
+### Changing the IP addresses - DR to Azure
 
 The [Networking Infrastructure Setup for Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) blog post explains how to setup the required Azure networking infrastructure when retaining IP addresses isn't a requirement. It starts with describing the application and then look at how to setup networking on-premises and on Azure and then concluding with how to do a test failover and a planned failover.
 

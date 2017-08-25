@@ -15,11 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
-
+ms.date: 08/28/2017
 ms.author: v-yeche
 ---
-# Lesson 1: Create a new tabular model project
+# Lesson 1: Create a tabular model project
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -52,7 +51,7 @@ This topic is the first lesson in a tabular model authoring tutorial. To complet
 
     ![aas-lesson1-tmd](../tutorials/media/aas-lesson1-tmd.png)
 
-    If you don't see SQL Server 2017 / Azure Analysis Services (1400) in the Compatibility level listbox, you're not using the latest version of SQL Server Data Tools. To get the latest version, see [Install SQL Server Data tools](/sql/ssdt/download-sql-server-data-tools-ssdt).  
+    If you don't see SQL Server 2017 / Azure Analysis Services (1400) in the Compatibility level listbox, you're not using the latest version of SQL Server Data Tools. To get the latest version, see [Install SQL Server Data tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
 ## Understanding the SSDT tabular model authoring environment  
 Now that you've created a new tabular model project, let's take a moment to explore the tabular model authoring environment in SSDT.  
@@ -79,3 +78,5 @@ Explore some of the dialogs and locations for various features specific to autho
 
 ## What's next?
 [Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md).
+
+<!--Update_Description: wording update-->

@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/14/2016
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -42,4 +42,4 @@ Use the following client libraries if you are in a production environment and re
 [Connect with Excel](analysis-services-connect-excel.md)    
 [Connect with Power BI](analysis-services-connect-pbi.md)
 
-<!--Update_Description: new articles on download of analysis serices data providers -->
+<!--Update_Description: update meta properties -->

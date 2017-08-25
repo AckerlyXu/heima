@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/22/2016
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -41,4 +41,4 @@ Server administrators must be a valid user or group in the Azure Active Director
 [Manage database roles and users](analysis-services-database-users.md)  
 [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: new articles on manage admin of analysis serices-->
+<!--Update_Description: update meta properties-->

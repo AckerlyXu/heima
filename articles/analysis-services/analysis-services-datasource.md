@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 08/07/2017
+origin.date: 08/15/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -100,4 +100,4 @@ For cloud data sources:
 If you have on-premises data sources, be sure to install the [On-premises gateway](analysis-services-gateway.md).   
 To learn more about managing your server in SSDT or SSMS, see [Manage your server](analysis-services-manage.md).
 
-<!--Update_Description: new articles about connection datasource in analysis serices -->
+<!--Update_Description: update meta properties -->

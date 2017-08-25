@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/21/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 ---
 
@@ -30,7 +30,7 @@ Make sure you've read the [prerequisites](hyper-v-site-walkthrough-prerequisites
 
 ## Set up an Azure account
 
-- Get a [Azure account](http://azure.microsoft.com/).
+- Get a [Azure account](https://www.azure.cn/pricing/1rmb-trial-full/).
 - You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 - Check the supported regions for Site Recovery, Under Geographic Availability in [Azure Site Recovery Pricing Details](https://www.azure.cn/pricing/details/site-recovery/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get the [pricing details](https://www.azure.cn/pricing/details/site-recovery/).
@@ -46,10 +46,10 @@ Make sure you've read the [prerequisites](hyper-v-site-walkthrough-prerequisites
 ## Set up an Azure storage account
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
-- Set up a standard/premium [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to hold data replicated to Azure.
-- [Premium storage](../storage/storage-premium-storage.md) is typically used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads.
+- Set up a standard/premium [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) to hold data replicated to Azure.
+- [Premium storage](../storage/common/storage-premium-storage.md) is typically used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads.
 - If you want to use a premium account to store replicated data, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.
-- Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/storage-create-storage-account.md), or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
+- Depending on the resource model you want to use for failed over Azure VMs, you set up an account in [Resource Manager mode](../storage/common/storage-create-storage-account.md), or [classic mode](../storage/common/storage-create-storage-account.md).
 - We recommend that you set up a storage account before you begin. If you don't you need to do it during Site Recovery deployment. The accounts must be in the same region as the Recovery Services vault.
 - You can't move storage accounts used by Site Recovery across resource groups within the same subscription, or across different subscriptions.
 
@@ -57,4 +57,4 @@ Make sure you've read the [prerequisites](hyper-v-site-walkthrough-prerequisites
 
 Go to [Step 6: Prepare Hyper-V resources](hyper-v-site-walkthrough-prepare-hyper-v.md)
 
-<!--Update_Description: new article about walkthrought prepare azure from hyper-v to azure  -->
+<!--Update_Description: update reference link -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 07/10/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -37,7 +37,7 @@ This article shows you how to use PowerShell to automate common tasks you need t
 
 The article includes prerequisites for the scenario, and shows you how to set up a Site Recovery vault, install the Azure Site Recovery Provider on the source VMM server, register the server in the vault, add an Azure storage account, install the Azure Recovery Services agent on Hyper-V host servers, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines. Finish up by testing the failover to make sure everything's working as expected.
 
-If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr).
+If you run into problems setting up this scenario, post your questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model.
@@ -50,7 +50,7 @@ Make sure you have these prerequisites in place:
 ### Azure prerequisites
 
 * You'll need a [Azure](https://azure.microsoft.com/) account. You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
-* You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md).
+* You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/common/storage-introduction.md).
 * You'll need to make sure that virtual machines you want to protect comply with [Azure virtual machine prerequisites](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### VMM prerequisites
@@ -78,10 +78,10 @@ If you want to deploy network mapping you'll need the following:
 * The virtual machines you want to protect on the source VMM server should be connected to a VM network. That network should be linked to a logical network that is associated with the cloud.
 * An Azure network to which replicated virtual machines can connect after failover. You'll select this network at the time of failover. The network should be in the same region as your Azure Site Recovery subscription.
 
-###PowerShell prerequisites
-Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://docs.microsoft.com/zh-cn/powershell/azure/overview).
+### PowerShell prerequisites
+Make sure you have Azure PowerShell ready to go. If you are already using PowerShell, you'll need to upgrade to version 0.8.10 or later. For information about setting up PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). Once you have set up and configured PowerShell, you can view all of the available cmdlets for the service [here](https://docs.microsoft.com/powershell/azure/overview).
 
-To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see [Get Started with Azure Cmdlets](https://docs.microsoft.com/zh-cn/powershell/azure/get-started-azureps).
+To learn about tips that can help you use the cmdlets, such as how parameter values, inputs, and outputs are typically handled in Azure PowerShell, see [Get Started with Azure Cmdlets](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## Step 1: Set the subscription
 In PowerShell, run these cmdlets:
@@ -126,11 +126,11 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
     ```
 
-   $VaultName = "<testvault123>"
-   $VaultGeo  = "<China North>"
-   $OutputPathForSettingsFile = "<c:\>"
+    $VaultName = "<testvault123>"
+    $VaultGeo  = "<China North>"
+    $OutputPathForSettingsFile = "<c:\>"
 
-   $VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
+    $VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 
     ```
 
@@ -425,4 +425,6 @@ Do
 
 ## Next steps
 
-[Read more](https://docs.microsoft.com/zh-cn/powershell/azure/overview) about Azure Site Recovery PowerShell cmdlets. </a>.
+[Read more](https://docs.microsoft.com/powershell/azure/overview) about Azure Site Recovery PowerShell cmdlets.
+
+<!--Update_Description: update meta properties, wording update-->

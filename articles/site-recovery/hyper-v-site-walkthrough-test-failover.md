@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/22/2017
-ms.date: 07/31/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 ---
 
@@ -30,13 +30,13 @@ Before you run a test failover we recommend that you verify the VM properties, a
 
 ## Managed disk considerations
 
-[Managed disks](../storage/storage-managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
+[Managed disks](../virtual-machines/windows/managed-disks-overview.md) simplify disk management for Azure VMs, by managing the storage accounts associated with the VM disks. 
 
 - Managed disks are created and attached to the VM only when a failover to Azure occurs. When you enable protection, data from on-premises VMs replicates to storage accounts.
 - Managed disks can be created only for VMs that are deployed using the Resource manager deployment model.
 - Failback from Azure to an on-premises Hyper-V environment is not currently supported for machines with managed disks. You should only set **Use managed disks** to **Yes** if you're doing a migration only (failover to Azure without failback)
-- With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
-- If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+- With this setting enabled, only availability sets in Resource Groups that have **Use managed disks** enabled can be selected. VMs with managed disks must be in availability sets with **Use managed disks** set to **Yes**. If the setting isn't enabled for VMs, then only availability sets in Resource Groups without managed disks enabled can be selected. [Learn more](/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+- If the storage account you use for replication has been encrypted with Storage Service Encryption, managed disks can't be created during failover. In this case either don't enable use of managed disks, or disable protection for the VM, and reenable it to use a storage account that doesn't have encryption enabled. [Learn more](/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
  
 ## Network considerations
@@ -61,9 +61,9 @@ We recommend that you verify the properties of the source machine before you run
     ![Enable replication](./media/hyper-v-site-walkthrough-test-failover/test-failover2.png)
 3. In **Compute and Network**, you can:
     - Modify the Azure VM name. The name must meet [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specify a post-failover [resource group](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - Specify a post-failover [resource group].
     - Specify a target size for the Azure VM
-    - Select an [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specify whether to use [managed disks](#managed-disk-considerations). Select **Yes**, if you want to attach managed disks to your machine on migration to Azure.
     - View or modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 
@@ -93,4 +93,4 @@ Now, run a test failover to make sure everything's working as expected.
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
 - [Read about failback](site-recovery-failback-from-azure-to-hyper-v.md), to fail back and replicate Azure VMs back to the primary on-premises Hyper-V site.
 
-<!--Update_Description: new article about walkthrought test failover from hyper-v to azure  -->
+<!--Update_Description: update reference link -->

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 03/31/2017
-ms.date: 07/10/2017
+origin.date: 08/11/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -87,3 +87,5 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 Once you have completed the failback job, **Commit** the virtual machine. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 
 After **Commit**, you can initiate the *Reverse Replicate*. This will start protecting the virtual machine from on-premises back to Azure. Note that this will only replicate the changes since the VM has been turned off in Azure and hence sends differential changes only.
+
+<!--Update_Description: update meta properties-->

@@ -13,8 +13,8 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 02/06/2017
-ms.date: 07/10/2017
+origin.date: 08/11/2017
+ms.date: 08/28/2017
 ms.author: v-yeche
 
 ---
@@ -26,10 +26,13 @@ can orchestrate recovery of your virtual machines protected using Azure Site Rec
 recovery plans and gives you capability to execute runbooks, thus allowing powerful automation tasks.
 
 If you have not heard about Azure Automation yet, sign up
-[here](https://www.azure.cn/home/features/automation/). Read more about [Azure Site
+[here](https://www.azure.cn/home/features/automation/) and
+download their sample scripts
+[here](https://www.azure.cn/documentation/scripts/). Read
+more about [Azure Site
 Recovery](https://www.azure.cn/home/features/site-recovery/) and
 how to orchestrate recovery to Azure using recovery plans
-[here](https://www.auzre.cn/blog/?p=166264).
+[here](https://www.azure.cn/blog/?p=166264).
 
 In this short tutorial, we will look at how you can integrate Azure Automation
 runbooks into recovery plans. We will automate simple tasks that earlier required manual intervention and see how to convert a multi step recovery into a single-click recovery action. We will also look at how you can troubleshoot a simple script if it goes wrong.
@@ -57,7 +60,7 @@ Create a Recovery Plan that looks like below.
 
 ![](media/site-recovery-runbook-automation/12.png)
 
-To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/zh-cn/library/azure/dn788799.aspx "here").
+To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/library/azure/dn788799.aspx "here").
 
 Next, let's create the necessary artifacts in Azure Automation.
 
@@ -108,7 +111,7 @@ Now both these settings are available in your assets.
 
 More information about how to connect to your subscription via
 PowerShell is given
-[here](../powershell-install-configure.md).
+[here](https://docs.microsoft.com/powershell/azure/overview).
 
 Next, you will create a runbook in Azure Automation that can add an
 endpoint for the front-end virtual machine after failover.
@@ -181,11 +184,11 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 
        # Connect to Azure
        $AzureAccount = Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred
-       $AzureSubscriptionName = Get-AutomationVariable –Name 'AzureSubscriptionName'
+       $AzureSubscriptionName = Get-AutomationVariable -Name 'AzureSubscriptionName'
        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
     ```
 
-   Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
+   Note that you use the Azure assets - **AzureCredential** and **AzureSubscriptionName** here.
 5. Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint. In this case the front-end virtual machine.
 
     ```
@@ -236,7 +239,7 @@ The complete script is given below for your reference
 
     # Connect to Azure
     $AzureAccount = Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred
-    $AzureSubscriptionName = Get-AutomationVariable –Name 'AzureSubscriptionName'
+    $AzureSubscriptionName = Get-AutomationVariable -Name 'AzureSubscriptionName'
     Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
     # Specify the parameters to be used by the script
@@ -272,7 +275,7 @@ Once the script is ready, you can add it to the recovery plan that you created e
 1. In the recovery plan you created, choose to add a script after the
     group 2. ![](media/site-recovery-runbook-automation/15.png)
 2. Specify a script name. This is just a friendly name for this script for showing within the Recovery plan.
-3. In the failover to Azure script – Select the Azure Automation
+3. In the failover to Azure script - Select the Azure Automation
    Account name.
 4. In the Azure Runbooks, select the runbook you authored.
 
@@ -308,6 +311,8 @@ there are no errors.
 While we walked through automating one commonly used task of adding an endpoint to an Azure virtual machine in this tutorial, you could do a number of other powerful automation tasks using Azure automation. Microsoft and the Azure Automation community provide sample runbooks which can help you get started creating your own solutions, and utility runbooks, which you can use as building blocks for larger automation tasks. Start using them from the gallery and build  powerful one-click recovery plans for your applications using Azure Site Recovery.
 
 ## Additional Resources
-[Azure Automation Overview](http://msdn.microsoft.com/zh-cn/library/azure/dn643629.aspx "Azure Automation Overview")
+[Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
 [Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
+
+<!--Update_Description: update link-->
