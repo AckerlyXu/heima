@@ -3,8 +3,8 @@ title: Using Managed Disks With Azure Virtual Machine Scale Sets | Azure
 description: Learn why and how to use managed disks with virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/01/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 08/28/2017
+ms.author: v-haiqya
 
 ---
 # Azure VM scale sets and managed disks
@@ -42,7 +42,7 @@ Alternatively, you could look in the [Azure Quickstart Templates GitHub repo](ht
 
 ## Next steps
 
-For more information on managed disks in general, see [this article](../storage/storage-managed-disks-overview.md).
+For more information on managed disks in general, see [this article](../virtual-machines/windows/managed-disks-overview.md).
 
 To see how to convert a Resource Manager template to provision scale sets with managed disks, see [this article](./virtual-machine-scale-sets-convert-template-to-md.md). The same modifications to the Resource Manager templates apply to the Azure REST API as well.
 

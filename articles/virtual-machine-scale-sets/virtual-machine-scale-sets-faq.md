@@ -3,8 +3,8 @@ title: Azure virtual machine scale sets FAQs | Azure
 description: Get answers to frequently asked questions about virtual machine scale sets.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/03/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 07/20/2017
+ms.date: 08/28/2017
+ms.author: v-haiqya
 ms.custom: na
 
 ---
@@ -422,7 +422,7 @@ Yes. A Network Security Group can be applied directly to a scale set by referenc
 
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
-If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. Another option is to host your application with [Azure App service](https://www.azure.cn/home/features/app-service/) which provides support for fast switching between staging and production slots.
+If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](https://www.azure.cn/home/features/app-service/) which provides support for fast switching between staging and production slots.
 
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -459,6 +459,10 @@ To create a VM scale set that assigns a public IP address to each VM, make sure 
         }
     }
 ```
+
+### Can I configure a scale set to work with multiple Application Gateways?
+
+Yes. You can add the resource id's for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
 
 ## Scale
 
@@ -543,4 +547,4 @@ The main difference between deleting a VM in a virtual machine scale set and dea
   - Related to this scenario, you might have created your own scale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
 
-<!--Update_Description: add question "How can I configure the DNS servers used by a scale set?" and "How can I configure a scale set to assign a public IP address to each VM?"-->
+<!--Update_Description: add question "Can I configure a scale set to work with multiple Application Gateways?"-->
