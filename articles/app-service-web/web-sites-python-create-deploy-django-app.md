@@ -443,7 +443,7 @@ For information on using SQL Database and MySQL:
 For more information, see the [Python Developer Center](/develop/python/).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
 
 <!--Link references-->
 [Django and MySQL on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-django-mysql.md

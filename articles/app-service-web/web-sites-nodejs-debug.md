@@ -14,13 +14,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
+origin.date: 08/17/2017
+ms.date: 09/04/2017
+ms.author: v-yiso
 
 ---
 # How to debug a Node.js web app in Azure App Service
-Azure provides built-in diagnostics to assist with debugging Node.js applications hosted in [Azure App Service](/app-service-web/app-service-changes-existing-services) Web Apps. In this article, you will learn how to enable logging of stdout and stderr, display error information in the browser, and how to download and view log files.
+Azure provides built-in diagnostics to assist with debugging Node.js applications hosted in [Azure App Service](./app-service-changes-existing-services.md) Web Apps. In this article, you will learn how to enable logging of stdout and stderr, display error information in the browser, and how to download and view log files.
 
 Diagnostics for Node.js applications hosted on Azure is provided by [IISNode]. While this article discusses the most common settings for gathering diagnostics information, it does not provide a complete reference for working with IISNode. For more information on working with IISNode, see the [IISNode Readme] on GitHub.
 

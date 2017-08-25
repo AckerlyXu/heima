@@ -3,8 +3,8 @@ title: Configure a custom domain name for a web app in Azure App Service that us
 description: Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing.
 services: app-service\web
 documentationcenter: ''
-author: rmcmurray
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
+origin.date: 08/17/2017
+ms.date: 09/04/2017
+ms.author: v-yiso
 
 ---
 # Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
@@ -43,6 +43,7 @@ This article provides generic instructions for using a custom domain name with A
 
 ## Add a DNS record for your custom domain
 
+
 To associate your custom domain with a web app in Azure App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by the domain registrar that you purchased your domain name from. Use the following steps to locate and use the DNS tools.
 
 1. Sign in to your account at your domain registrar, and look for a page for managing DNS records. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**. Often a link to this page can be found be viewing your account information, and then looking for a link such as **My domains**.
@@ -68,5 +69,6 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+
 
 <!-- URL List -->

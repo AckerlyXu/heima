@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 03/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yiso
 ms.custom: mvc
 ---
 # Create a Python web app in Azure
@@ -53,6 +53,12 @@ cd Python-docs-hello-world
 ```
 
 ## Run the app locally
+
+Install the required packages using `pip`.
+
+```bash
+pip install -r requirements.txt
+```
 
 Run the application locally by opening a terminal window and using the `Python` command to launch the built-in Python web server.
 

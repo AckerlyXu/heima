@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
+origin.date: 08/17/2017
+ms.date: 09/04/2017
+ms.author: v-yiso
 
 ---
 # How to use io.js with Azure App Service Web Apps
 The popular Node fork [io.js] features various differences to Joyent's Node.js project, including a more open governance model, a faster release cycle and a faster adoption of new and experimental JavaScript features.
 
-While [Azure App Service](/app-service-web/app-service-changes-existing-services) Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
+While [Azure App Service](./app-service-changes-existing-services.md) Web Apps has many Node.js versions preinstalled, it also allows for an user-provided Node.js binary. This article discusses two methods enabling the use of io.js on App Service Web Apps: The use of an extended deployment script, which automatically configures Azure to use the latest available io.js version, as well as the manual upload of a io.js binary. 
 
 <a id="deploymentscript"></a>
 
@@ -57,7 +57,7 @@ In this article you learned how to use io.js with App Service Web Apps, using bo
 > 
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
 
 [io.js]: https://iojs.org
 [io.js distribution]: https://iojs.org/dist/
