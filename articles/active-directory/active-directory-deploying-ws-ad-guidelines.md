@@ -3,8 +3,8 @@ title: Guidelines for Deploying Windows Server Active Directory on Azure Virtual
 description: If you know how to deploy AD Domain Services and AD Federation Services on premises, learn how they work on Azure virtual machines.
 services: active-directory
 documentationcenter: ''
-author: femila
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/16/2017
-ms.date: 06/21/2017
+origin.date: 07/26/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
 
 ---
@@ -121,7 +121,7 @@ Finally, you may want to deploy a network application on Azure, such as SharePoi
 
 ## Contrasts between deploying Windows Server Active Directory domain controllers on Azure Virtual Machines versus on-premises
 - For any Windows Server Active Directory deployment scenario that includes more than a single VM, it is necessary to use an Azure virtual network for IP address consistency. Note that this guide assumes that DCs are running on an Azure virtual network.
-- As with on-premises DCs, static IP addresses are recommended. A static IP address can only be configured by using Azure PowerShell. See [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) for more details. If you have monitoring systems or other solutions that check for static IP address configuration within the guest operating system, you can assign the same static IP address to the network adapter properties of the VM. But be aware that the network adapter will be discarded if the VM undergoes service healing or is shut down in the Classic Management Portal and has its address deallocated. In that case, the static IP address within the guest will need to be reset.
+- As with on-premises DCs, static IP addresses are recommended. A static IP address can only be configured by using Azure PowerShell. See [Static internal IP address for VMs](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) for more details. If you have monitoring systems or other solutions that check for static IP address configuration within the guest operating system, you can assign the same static IP address to the network adapter properties of the VM. But be aware that the network adapter will be discarded if the VM undergoes service healing or is shut down in the portal and has its address deallocated. In that case, the static IP address within the guest will need to be reset.
 - Deploying VMs on a virtual network does not imply (or require) connectivity back to an on-premises network; the virtual network merely enables that possibility. You must create a virtual network for private communication between Azure and your on-premises network. You need to deploy a VPN endpoint on the on-premises network. The VPN is opened from Azure to the on-premises network. For more information, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) and [Configure a Site-to-Site VPN in the Azure Portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]
@@ -494,4 +494,4 @@ See [AD FS 2.0 deployment topology considerations](https://technet.microsoft.com
 > 
 > 
 
-
+<!--Update_Description: wording update -->

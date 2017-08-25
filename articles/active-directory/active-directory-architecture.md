@@ -3,9 +3,9 @@ title: Understand Azure Active Directory architecture | Microsoft Docs
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: alexchen2016
 writer: v-lorisc
-manager: femila
+manager: digimobile
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/16/2017
-ms.date: 06/21/2017
+origin.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
 
 ---
 # Understand Azure Active Directory architecture
-Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](active-directory-whatis.md)
+Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](/active-directory/active-directory-whatis)
 
-With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](fundamentals-identity.md).
+With Azure AD, you can create and manage users, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](/active-directory/fundamentals-identity).
 
 ## Azure AD architecture
 Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities enable us to deliver enterprise-level availability and performance to our customers.
@@ -114,6 +114,7 @@ If any Azure AD service is not working as expected, we immediately take action t
 We employ operational controls such as multi-factor authentication (MFA) for any operation, as well as auditing of all operations. In addition, we use a just-in-time elevation system to grant necessary temporary access for any operational task-on-demand on an ongoing basis. For more information, see [The Trusted Cloud](https://azure.microsoft.com/en-us/support/trust-center).
 
 ## Next steps
-[Azure Active Directory developer's guide](./develop/active-directory-developers-guide.md)
+[Azure Active Directory developer's guide](/active-directory/develop/active-directory-developers-guide)
 
 
+<!--Update_Description: wording update -->   

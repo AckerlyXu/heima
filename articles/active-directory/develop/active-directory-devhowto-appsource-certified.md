@@ -1,10 +1,10 @@
 ---
-title: How to get AppSource certified for Azure Active Directory| Azure
+title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
 description: Details on how to get your application AppSource certified for Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: skwan
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/28/2017
-ms.date: 04/17/2017
+origin.date: 08/03/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
+ms.custom: aaddev
+
 ---
 
 # How to get AppSource Certified for Azure Active Directory (AD)
@@ -45,3 +47,5 @@ Please use the Disqus comments section following this article to provide feedbac
 [AAD-QuickStart-Web-Apps]:./active-directory-developers-guide.md
 
 <!--Image references-->
+
+<!--Update_Description: update metadata properties -->

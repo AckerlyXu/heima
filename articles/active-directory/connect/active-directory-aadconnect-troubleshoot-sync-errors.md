@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Troubleshooting Errors during synchronization | Azure'
+title: 'Azure AD Connect: Troubleshooting Errors during synchronization | Microsoft Docs'
 description: Explains how to troubleshoot errors encountered during synchronization with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/31/2017
-ms.date: 04/05/2017
+origin.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: v-junlch
----
 
+---
 # Troubleshooting Errors during synchronization
 Errors could occur when identity data is synchronized from Windows Server Active Directory (AD DS) to Azure Active Directory (Azure AD). This article provides an overview of different types of sync errors, some of the possible scenarios that cause those errors and potential ways to fix the errors. This article includes the common error types and may not cover all the possible errors.
 
@@ -102,7 +102,7 @@ Note that Sync error report within Azure AD Connect Health for sync is updated e
 >
 
 #### Related Articles
-- [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/zh-cn/kb/2647098)
+- [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ### ObjectTypeMismatch
 #### Description
@@ -163,7 +163,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
 
 #### Related Articles
--[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/zh-cn/kb/2647098)
+-[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ## Data Validation Failures
 ### IdentityDataValidationFailed
@@ -180,9 +180,9 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 #### Related Articles
 - [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### DataValidationFailed
+### FederatedDomainChangeError
 #### Description
-This is a specific case that results in a **"DataValidationFailed"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
+This is a specific case that results in a **"FederatedDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
 For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
@@ -191,7 +191,7 @@ For a synchronized user, the UserPrincipalName suffix was changed from one feder
 1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
 2. Bob moves to a different division of Contoso.com called Fabrikam.com and his UserPrincipalName is changed to bob@fabrikam.com
 3. Both contoso.com and fabrikam.com domains are federated domains with Azure Active Directory.
-4. Bob's userPrincipalName does not get updated and results in a "DataValidationFailed" sync error.
+4. Bob's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
 
 #### How to fix
 If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
@@ -201,7 +201,7 @@ If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob
 2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
 
 #### Related Articles
-- [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/zh-cn/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+- [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## LargeObject
 ### Description
@@ -213,14 +213,16 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 - proxyAddresses
 
 ### Possible Scenarios
-1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
+1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates. For more information on how to handle LargeObject errors with userCertificate attribute, please refer to article [Handling LargeObject errors caused by userCertificate attribute](active-directory-aadconnectsync-largeobjecterror-usercertificate.md).
 2. Bob's userSMIMECertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
 3. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
-4. During automatic population of the ProxyAddresses attribute in Active Directory, an object got assigned >500 ProxyAddresses.
+4. During automatic population of the ProxyAddresses attribute in Active Directory, an object has too many ProxyAddresses assigned.
 
 ### How to fix
 1. Ensure that the attribute causing the error is within the allowed limitation.
 
 ## Related links
-- [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/zh-cn/library/dd560661.aspx)
-- [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/zh-cn/library/azure/jj151815.aspx)
+- [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx)
+- [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+
+<!--Update_Description: wording update -->

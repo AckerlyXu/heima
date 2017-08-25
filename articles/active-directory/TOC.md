@@ -44,7 +44,6 @@
 #### [Require assignment](./active-directory-applications-guiding-developers-requiring-user-assignment.md)
 #### [Develop LoB apps](./active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Manage access to apps](./active-directory-managing-access-to-apps.md)
-### [Use SCIM provision users](./active-directory-scim-provisioning.md)
 ### [Document library](active-directory-apps-index.md)
 
 

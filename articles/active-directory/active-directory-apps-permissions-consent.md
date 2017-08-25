@@ -1,22 +1,24 @@
 ---
-title: Apps, permissions, and consent in Azure Active Directory.| Azure
+title: 'Apps, permissions, and consent in Azure Active Directory.| Microsoft Docs'
 description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for Office 365, Azure, and SaaS applications integrated with Azure AD.
 keywords: introduction to Azure AD, apps, what is Azure AD Connect, install active directory
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
-
 ms.assetid: 25897cc4-7687-49b6-b0d5-71f51302b6b1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/17/2016
+origin.date: 07/31/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
-ms.date: 01/05/2017
+ms.reviewer: jesakowi
+ms.custom: oldportal;it-pro;
+
 ---
 
 # Apps, permissions, and consent in Azure Active Directory
@@ -74,14 +76,14 @@ In the Classic Management Portal, select **Users may give applications permissio
 In the Classic Management Portal select **Users may add integrated applications.**
 ![](./media/active-directory-apps-permissions-consent/apps9.png)
 
->[!NOTE]
->Even if you do allow users to register single-tenant LOB apps, there are limits to what can be registered.  
->For example, developers who are not directory admins.
->
->- Users cannot make a single-tenant app a multi-tenant app.
->- When registering single-tenant LOB apps, users cannot request app-only permissions to other apps.
->- When registering single-tenant LOB apps, users cannot request delegated permissions to other apps if those permissions require admin consent.
->- Users cannot make changes to apps that they are not owners of.
+    >[!NOTE]
+    >Even if you do allow users to register single-tenant LOB apps, there are limits to what can be registered.  
+    >For example, developers who are not directory admins.
+    >
+    >- Users cannot make a single-tenant app a multi-tenant app.
+    >- When registering single-tenant LOB apps, users cannot request app-only permissions to other apps.
+    >- When registering single-tenant LOB apps, users cannot request delegated permissions to other apps if those permissions require admin consent.
+    >- Users cannot make changes to apps that they are not owners of.
 
 - You can control whether users can themselves add pre-integrated apps that use password SSO (aka “password vaulting”)
 ![](./media/active-directory-apps-permissions-consent/apps10.png)
@@ -98,6 +100,7 @@ In the Classic Management Portal select **Users may add integrated applications.
 As an example, let’s take the “FabrikamMail for Office 365” app, which you’ve noticed users in your tenant are signing in to. “FabrikamMail” is a mail reader app for Android, published by “Fabrikam, Inc.”. This falls into the “multi-tenant apps other develop, which Contoso can consent to”.
 
 If users are allowed to consent, they get a consent prompt the first time they sign in:
+
 ![](./media/active-directory-apps-permissions-consent/apps14.png)
 
 “Access your mailboxes” is the user-facing consent string for the “Access mailboxes as the signed-in user” permission exposed by “Office 365 Exchange Online” (that is, Exchange).
@@ -195,3 +198,5 @@ StartTime   : 01/01/0001 12:00:00 AM
 (**ClientId** is FabrikamMail’s service principal object ID (the one that just got created), **PrincipalId** is the user object ID (of the user who consented), **ResourceId** is Exchange’s service principal object ID, Scope is the permission in Exchange that was consented to).
 
 If users are not allowed to consent, they will see a screen that says that permission is required.
+
+<!--Update_Description: update metadata properties -->  

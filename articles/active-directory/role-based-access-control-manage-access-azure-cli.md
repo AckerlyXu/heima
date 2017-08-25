@@ -1,11 +1,10 @@
 ---
-title: Manage Role-Based Access Control (RBAC) with Azure CLI | Azure
+title: Manage Role-Based Access Control (RBAC) with Azure CLI | Microsoft Docs
 description: Learn how to manage Role-Based Access Control (RBAC) with the Azure command-line interface by listing roles and role actions and by assigning roles to the subscription and application scopes.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: ''
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -13,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/22/2017
-ms.date: 04/05/2017
+origin.date: 07/12/2017
+ms.date: 08/22/2017
 ms.author: v-junlch
+ms.reviewer: rqureshi
 ---
-
 # Manage Role-Based Access Control with the Azure command-line interface
 > [!div class="op_single_selector"]
->- [PowerShell](./role-based-access-control-manage-access-powershell.md)
->- [Azure CLI](./role-based-access-control-manage-access-azure-cli.md)
->- [REST API](./role-based-access-control-manage-access-rest.md)
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
 
 You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
@@ -215,7 +214,10 @@ In the following example, the *Virtual Machine Operator* custom role isn’t ava
 ```
 azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
+
 ![RBAC Azure command line - azure role list for custom roles - screenshot](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## RBAC Topics
+## Next steps
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+
+<!--Update_Description: wording update -->
