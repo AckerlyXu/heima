@@ -110,7 +110,7 @@ Now we'll update the connection string information so your app can talk to Azure
 3. Paste the value into the app.config file as the value of the PremiumStorageConnectionString. 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />`    
 
     You can leave the StandardStorageConnectionString as is.
 

@@ -104,7 +104,7 @@ Now go back to the Azure portal to get your connection string information and co
 3. Copy your URI value from the portal (using the copy button) and make it the value of the account-key in app.config. Use the account name created earlier for account-name in app.config.
 
 ```
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;TableEndpoint=https://account-name.documents.azure.cn" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;TableEndpoint=https://account-name.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />
 ```
 
 > [!NOTE]
@@ -126,7 +126,7 @@ You can now go back to Data Explorer and see query, modify, and work with this t
 
 > [!NOTE]
 > To use this app with an Azure Cosmos DB Emulator, you just need to change the connection string in `app.config file`. Use the below value for emulator. <br>
->`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost -->`
+>`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost;EndpointSuffix=core.chinacloudapi.cn />`
 > 
 >
 
@@ -154,7 +154,7 @@ To change the default value, open the `app.config` file from Solution Explorer i
     </startup>
     <appSettings>
       <!-- Client options -->
-      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.cn" />
+      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />
       <add key="TableConnectionMode" value="Direct"/>
       <add key="TableConnectionProtocol" value="Tcp"/>
       <add key="TablePreferredLocations" value="China East, China North"/>
