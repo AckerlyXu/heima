@@ -55,7 +55,8 @@ An Azure storage client uses a storage connection string to store endpoints and 
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
-    "AccountKey=your_storage_account_key";
+    "AccountKey=your_storage_account_key;" +
+    "EndpointSuffix=core.chinacloudapi.cn";
 ```
 
 In an application running within a role in Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
