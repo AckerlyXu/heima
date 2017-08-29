@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 08/01/2017
+origin.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: v-junlch
 
 ---
@@ -47,6 +47,7 @@ In the limits below, a new table has been added to reflect any differences in li
 - [App Service](#app-service-limits)
 - [Application Gateway](#application-gateway-limits)
 - [Automation](#automation-limits)
+- [Azure Cosmos DB](#azure-cosmos-db-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Backup](#backup-limits)
 - [Batch](#batch-limits)
@@ -116,7 +117,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### Storage limits <a name="storage-limits"></a>
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/storage-scalability-targets.md).
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](storage/common/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### Storage Service limits
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -153,6 +154,9 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 
 ### Batch limits
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+### Azure Cosmos DB limits
+Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale Azure Cosmos DB provides, please send email to askcosmosdb@microsoft.com.
 
 ### Media Services limits
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
