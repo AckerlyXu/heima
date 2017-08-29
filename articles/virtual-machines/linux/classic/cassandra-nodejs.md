@@ -3,8 +3,8 @@ title: Run Cassandra with Linux on Azure | Azure
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 08/17/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) and [Spark cluster and Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. 
 
 ## Overview
 Azure is an open cloud platform that runs both Microsoft as well as non-Microsoft software which  includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra's distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org; Cassandra is written in Java and hence runs on both on Windows as well as Linux platforms.
@@ -45,7 +45,7 @@ Cassandra can be deployed to a single Azure region or to multiple regions based 
 ### Single Region Deployment
 We will start with a single region deployment and harvest the learnings in creating a multi-region model. Azure virtual networking will be used to create isolated subnets so that the network security requirements mentioned above can be met.  The process described in creating the single region deployment uses Ubuntu 14.04 LTS and Cassandra 2.08; however, the process can easily be adopted to the other Linux variants. The following are some of the systemic characteristics of the single region deployment.  
 
-**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains.  Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time.
+**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains.  Azure uses the concept of fault domain to manage unplanned down time (e.g. hardware or software failures) while the concept of upgrade domain (e.g. host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time. Please see [Disaster Recovery and High Availability for Azure Applications](http://msdn.microsoft.com/library/dn251004.aspx) for the role of fault and upgrade domains in attaining high availability.
 
 ![Single region deployment](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -116,7 +116,7 @@ The following software versions are used during the deployment:
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://archive.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn) </td><td>14.04 LTS</td></tr>
 </table>
 

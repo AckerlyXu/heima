@@ -3,8 +3,8 @@ title: Use Remote Desktop to a Linux VM in Azure | Azure
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
@@ -137,4 +137,3 @@ For more information about creating and using SSH keys with Linux VMs, see [Crea
 
 For information on using SSH from Windows, see [How to use SSH keys with Windows](ssh-from-windows.md).
 
-<!--Update_Description: wording update-->

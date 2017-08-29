@@ -3,8 +3,8 @@ title: Use the Azure Docker VM extension | Azure
 description: Learn how to use the Docker VM extension to quickly and securely deploy a Docker environment in Azure using Resource Manager templates and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create a Docker environment in Azure using the Docker VM extension

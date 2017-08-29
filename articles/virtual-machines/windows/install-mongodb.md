@@ -3,8 +3,8 @@ title: Install MongoDB on a Windows VM in Azure | Azure
 description: Learn how to install MongoDB on an Azure VM running Windows Server 2012 R2 created with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Install and configure MongoDB on a Windows VM in Azure
@@ -25,7 +25,7 @@ ms.author: v-dazen
 Before you install and configure MongoDB, you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
 
 * Create a Windows Server VM using [the Azure portal](quick-create-portal.md) or [Azure PowerShell](quick-create-powershell.md).
-* Attach a data disk to a Windows Server VM using [the Azure portal](attach-disk-portal.md) or [Azure PowerShell](attach-disk-ps.md).
+* Attach a data disk to a Windows Server VM using [the Azure portal](attach-managed-disk-portal.md) or [Azure PowerShell](attach-disk-ps.md).
 
 To begin installing and configuring MongoDB, [log on to your Windows Server VM](connect-logon.md) by using Remote Desktop.
 

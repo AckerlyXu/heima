@@ -3,8 +3,8 @@ title: Manage the availability of Windows VMs in Azure | Azure
 description: Learn how to use multiple virtual machines to ensure high availability for your Windows application in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -31,4 +31,4 @@ For instructions on creating and using availability sets when using the classic 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## Next steps
-To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](load-balance.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+To learn more about load balancing your virtual machines, see [Load Balancing virtual machines](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).

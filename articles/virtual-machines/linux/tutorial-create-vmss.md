@@ -3,8 +3,8 @@ title: Create a Virtual Machine Scale Sets for Linux in Azure | Azure
 description: Create and deploy a highly available application on Linux VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Create a Virtual Machine Scale Set and deploy a highly available app on Linux
@@ -100,14 +100,15 @@ Now create a virtual machine scale set with [az vmss create](https://docs.micros
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
   --generate-ssh-keys      
 ```
 
-It takes a few minutes to create and configure all the scale set resources and VMs.
+It takes a few minutes to create and configure all the scale set resources and VMs. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app.
+
 
 ## Allow web traffic
 A load balancer was created automatically as part of the virtual machine scale set. The load balancer distributes traffic across a set of defined VMs using load balancer rules. You can learn more about load balancer concepts and configuration in the next tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md).
@@ -206,7 +207,7 @@ To create a scale set and attach data disks, add the `--data-disk-sizes-gb` para
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
@@ -251,5 +252,3 @@ Advance to the next tutorial to learn more about load balancing concepts for vir
 
 > [!div class="nextstepaction"]
 > [Load balance virtual machines](tutorial-load-balancer.md)
-
-<!--Update_Description: wording update-->

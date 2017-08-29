@@ -3,8 +3,8 @@ title: Upload a custom Linux image with Azure CLI 1.0 | Azure
 description: Create and upload a virtual hard disk (VHD) to Azure with a custom Linux image using the Resource Manager deployment model and the Azure CLI 1.0.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2016
-ms.date: 04/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0
@@ -72,7 +72,7 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
     --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+You can now create a VM from your uploaded virtual disk [using a Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd). You can also use the CLI by specifying the URI to your disk (`--image-urn`). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```azurecli
 azure vm create myVM -l "ChinaNorth" --resource-group myResourceGroup \
@@ -133,7 +133,7 @@ azure group create myResourceGroup --location "ChinaNorth"
 ```
 
 ## Create a storage account
-VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../../storage/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
+VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../../storage/common/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 
@@ -143,7 +143,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
 
 View the access keys for the storage account you created:
 

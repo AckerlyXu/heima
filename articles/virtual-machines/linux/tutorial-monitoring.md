@@ -3,8 +3,8 @@ title: Monitor Linux virtual machines in Azure | Azure
 description: Learn how to monitor boot diagnostics and performance metrics on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 # How to monitor a Linux virtual machine in Azure
@@ -142,9 +142,3 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Enable diagnostics extension on the VM
 > * Create alerts based on diagnostic metrics
 
-Follow this link to see pre-built virtual machine script samples.
-
-> [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)
-
-<!--Update_Description: wording update-->

@@ -3,8 +3,8 @@ title: Common PowerShell commands for Azure Virtual Networks | Azure
 description: Common PowerShell commands to get you started creating a virtual network and its associated resources for VMs.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
+origin.date: 07/17/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Common PowerShell commands for Azure Virtual Networks
@@ -27,16 +27,16 @@ See [How to install and configure Azure PowerShell](https://docs.microsoft.com/p
 
 Some variables might be useful for you if running more than one of the commands in this article:
 
-- $location - The location of the network resources. You can use [Get-AzureRmLocation](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/get-azurermlocation) to find a geographical region that works for you.
+- $location - The location of the network resources. You can use [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) to find a geographical region that works for you.
 - $myResourceGroup - The name of the resource group where the network resources are located.
 
 ## Create network resources
 
 | Task | Command |
 | ---- | ------- |
-| Create subnet configurations |$subnet1 = [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.4.0/New-AzureRmVirtualNetworkSubnetConfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>A typical network might have a subnet for an [internet facing load balancer](../../load-balancer/load-balancer-internet-overview.md) and a separate subnet for an [internal load balancer](../../load-balancer/load-balancer-internal-overview.md). |
+| Create subnet configurations |$subnet1 = [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>A typical network might have a subnet for an [internet facing load balancer](../../load-balancer/load-balancer-internet-overview.md) and a separate subnet for an [internal load balancer](../../load-balancer/load-balancer-internal-overview.md). |
 | Create a virtual network |$vnet = [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
-| Test for a unique domain name |[Test-AzureRmDnsAvailability](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.4.0/Test-AzureRmDnsAvailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>You can specify a DNS domain name for a [public IP resource](../../virtual-network/virtual-network-ip-addresses-overview-arm.md), which creates a mapping for domainname.location.chinacloudapp.cn to the public IP address in the Azure-managed DNS servers. The name can contain only letters, numbers, and hyphens. The first and last character must be a letter or number and the domain name must be unique within its Azure location. If **True** is returned, your proposed name is globally unique. |
+| Test for a unique domain name |[Test-AzureRmDnsAvailability](https://docs.microsoft.com/powershell/module/azurerm.network/test-azurermdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>You can specify a DNS domain name for a [public IP resource](../../virtual-network/virtual-network-ip-addresses-overview-arm.md), which creates a mapping for domainname.location.chinacloudapp.cn to the public IP address in the Azure-managed DNS servers. The name can contain only letters, numbers, and hyphens. The first and last character must be a letter or number and the domain name must be unique within its Azure location. If **True** is returned, your proposed name is globally unique. |
 | Create a public IP address |$pip = [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) -Name "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Location $location -AllocationMethod Dynamic<BR><BR>The public IP address uses the domain name that you previously tested and is used by the frontend configuration of the load balancer. |
 | Create a frontend IP configuration |$frontendIP = [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>The frontend configuration includes the public IP address that you previously created for incoming network traffic. |
 | Create a backend address pool |$beAddressPool = [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>Provides internal addresses for the backend of the load balancer that are accessed through a network interface. |
@@ -73,3 +73,4 @@ Some variables might be useful for you if running more than one of the commands 
 ## Next Steps
 * Use the network interface that you just created when you [create a VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * Learn about how you can [create a VM with multiple network interfaces](../../virtual-network/virtual-networks-multiple-nics.md).
+<!--Update_Description: update two links-->

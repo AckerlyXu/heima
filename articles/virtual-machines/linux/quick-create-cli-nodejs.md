@@ -3,8 +3,8 @@ title: Create a Linux VM using the Azure CLI 1.0 | Azure
 description: Create a Linux VM on Azure by using the Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: vlivech
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 05/15/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create a Linux VM using the Azure CLI 1.0
@@ -23,7 +23,7 @@ ms.author: v-dazen
 This article shows how to quickly deploy a Linux virtual machine (VM) on Azure by using the `azure vm quick-create` command in the Azure command-line interface (CLI). The `quick-create` command deploys a VM inside a basic, secure infrastructure that you can use to prototype or test a concept rapidly.
 
 > [!NOTE]
-To create a VM using the Azure CLI 2.0, see [Create a VM with the Azure CLI](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+To create a VM using the Azure CLI 2.0, see [Create a VM with the Azure CLI](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 You can also quickly deploy a Linux VM by using the [Azure portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -198,7 +198,6 @@ myAdminUser@myVM:~$
 ## Next steps
 The `azure vm quick-create` command is the way to quickly deploy a VM so you can log in to a bash shell and get working. However, using `vm quick-create` does not give you extensive control nor does it enable you to create a more complex environment.  To deploy a Linux VM that's customized for your infrastructure, you can follow any of these articles:
 
-* [Use an Azure Resource Manager template to create a specific deployment](cli-deploy-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create your own custom environment for a Linux VM using Azure CLI commands directly](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create an SSH Secured Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 

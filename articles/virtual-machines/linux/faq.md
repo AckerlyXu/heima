@@ -3,8 +3,8 @@ title: Frequently asked questions for Linux VMs in Azure | Azure
 description: Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Frequently asked question about Linux Virtual Machines
@@ -46,10 +46,10 @@ Yes. For instructions, see [How to create a copy of a Linux virtual machine in t
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
+Yes. The computer name can be a maximum of 64 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Infrastructure resource group guidelines](infrastructure-resource-groups-guidelines.md) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 Usernames must be 1 - 64 characters in length.
@@ -109,3 +109,4 @@ The following passwords are not allowed:
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
+<!--Update_Description: update two links-->

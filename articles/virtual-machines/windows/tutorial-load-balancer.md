@@ -3,8 +3,8 @@ title: How to load balance Windows virtual machines in Azure | Azure
 description: Learn how to use the Azure load balancer to create a highly available and secure application across three Windows VMs
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -350,5 +350,3 @@ Advance to the next tutorial to learn how to manage VM networking.
 
 > [!div class="nextstepaction"]
 > [Manage VMs and virtual networks](./tutorial-virtual-network.md)
-
-<!--Update_Description: wording update-->

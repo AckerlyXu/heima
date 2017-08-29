@@ -3,8 +3,8 @@ title: Download a Linux VHD from Azure | Azure
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Download a Linux VHD from Azure
 
-In this article, you learn how to download a [Linux virtual hard disk (VHD)](../../storage/storage-about-disks-and-vhds-linux.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal. 
+In this article, you learn how to download a [Linux virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal. 
 
-Virtual machines (VMs) in Azure use [disks](../../storage/storage-managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks - a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
+Virtual machines (VMs) in Azure use [disks](../windows/managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
 
 If you haven't already done so, install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
@@ -67,7 +67,7 @@ To use the VHD as a disk for a new instance of an existing VM or data disk, comp
 
 ## Generate SAS URL
 
-To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
 1.	On the menu of the blade for the VM, click **Disks**.
 2.	Select the operating system disk for the VM, and then click **Export**.

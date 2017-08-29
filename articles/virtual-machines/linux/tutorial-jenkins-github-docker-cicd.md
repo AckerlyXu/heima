@@ -3,8 +3,8 @@ title: Create a development pipeline in Azure with Jenkins | Azure
 description: Learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -109,6 +109,8 @@ View the `initialAdminPassword` for your Jenkins install and copy it:
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
+If the file isn't available yet, wait a couple more minutes for cloud-init to complete the Jenkins and Docker install.
+
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
 - Enter the *initialAdminPassword* obtained from the VM in the previous step.
@@ -135,11 +137,11 @@ To have Jenkins respond to an event in GitHub such as committing code, create a 
 
 In your Jenkins website, click **Create new jobs** from the home page:
 
-- Enter *HelloWorld* as job name. Select **Freestyle project**, then click **OK**.
+- Enter *HelloWorld* as job name. Choose **Freestyle project**, then select **OK**.
 - Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-- Under the **Build** section, click **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in to command window.
+- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in to command window.
 - Click **Save** at the bottom of the jobs window.
 
 ## Test GitHub integration
@@ -164,7 +166,7 @@ From the SSH connection to your VM, change to the Jenkins workspace directory na
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Create a file named `Dockerfile` in this workspace directory and paste the following contents:
+Create a file with in this workspace directory with `sudo sensible-editor Dockerfile` and paste the following contents. Make sure that the whole Dockerfile is copied correctly, especially the first line:
 
 ```yaml
 FROM node:alpine
@@ -186,7 +188,7 @@ Back in your Jenkins instance, select the job you created in a previous step. Cl
 
 - Remove your existing `echo "Test"` build step. Click the red cross on the top right-hand corner of the existing build step box.
 - Click **Add build step**, then select **Execute shell**
-- In the **Command** box, enter the following Docker commands:
+- In the **Command** box, enter the following Docker commands, then select **Save**:
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -224,9 +226,7 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn more about how to integrate Jenkins with Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)
-
-<!--Update_Description: wording update-->
+> [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)

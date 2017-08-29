@@ -3,8 +3,8 @@ title: Windows Virtual Machines Overview | Azure
 description: Learn about creating and managing Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 # Overview of Windows virtual machines in Azure
@@ -34,7 +34,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
-There are always a multitude of [design considerations](infrastructure-virtual-machine-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+There are always a multitude of [design considerations](https://docs.microsoft.com/architecture/reference-architectures/virtual-machines-linux?toc=%2fvirtual-machines%2fwindows%2ftoc.json) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -45,7 +45,7 @@ There are always a multitude of [design considerations](infrastructure-virtual-m
 * The related resources that the VM needs
 
 ### Naming
-A virtual machine has a [name](infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
+A virtual machine has a [name](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
 
 If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](upload-generalized-managed.md) that contains a previously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
 
@@ -69,7 +69,7 @@ Azure charges an [hourly price](https://www.azure.cn/pricing/details/virtual-mac
 Your subscription has default [quota limits](../../azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
 
 ### Operating system disks and images
-Virtual machines use [virtual hard disks (VHDs)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
+Virtual machines use [virtual hard disks (VHDs)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
 
 Azure provides many marketplace images to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
 
@@ -98,11 +98,11 @@ The resources in this table are used by the VM and need to exist or be created w
 | Resource | Required | Description |
 | --- | --- | --- |
 | [Resource group](../../azure-resource-manager/resource-group-overview.md) |Yes |The VM must be contained in a resource group. |
-| [Storage account](../../storage/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
+| [Storage account](../../storage/common/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
-| [Data disks](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
+| [Data disks](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
 
 ## How do I create my first VM?
 You have several choices for creating your VM. The choice that you make depends on the environment you are in. 
@@ -138,7 +138,7 @@ You use the Connect button in the Azure portal to [start a Remote Desktop (RDP) 
 ### Manage availability
 It's important for you to understand how to [ensure high availability](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for your application. This configuration involves creating multiple VMs to ensure that at least one is running.
 
-In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](infrastructure-availability-sets-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This configuration ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
+In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](tutorial-availability-sets.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This configuration ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
 ### Back up the VM
 A [Recovery Services vault](../../backup/backup-introduction-to-azure-backup.md) is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to [deploy and manage backups for Resource Manager-deployed VMs using PowerShell](../../backup/backup-azure-vms-automation.md). 
@@ -146,6 +146,5 @@ A [Recovery Services vault](../../backup/backup-introduction-to-azure-backup.md)
 ## Next steps
 * If your intent is to work with Linux VMs, look at [Azure and Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 * Learn more about the guidelines around setting up your infrastructure in the [Example Azure infrastructure walkthrough](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-* Make sure you follow the [Best Practices for running a Windows VM on Azure](guidance-compute-single-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: update storage and managed disk links-->

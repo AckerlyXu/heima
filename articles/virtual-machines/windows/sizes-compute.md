@@ -3,8 +3,8 @@ title: Azure Windows VM sizes - Compute optimized | Azure
 description: Lists the different compute optimized sizes available for Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 03/17/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
+origin.date: 07/28/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 

@@ -2,7 +2,7 @@
 title: Monitoring a Linux VM with a VM extension | Azure
 description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
 services: virtual-machines-linux
-author: NingKuang
+author: hayley244
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -14,12 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: ''
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
 
 This document describes version 2.3 of the Linux Diagnostic Extension.
+
+> [!IMPORTANT]
+> This version is deprecated, and it may be unpublished any time after June 30, 2018. It has been replaced by version 3.0. For more information, see the [documentation for version 3.0 of the Linux Diagnostic Extension](../diagnostic-extension.md).
 
 ## Introduction
 
@@ -145,7 +148,7 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 
 ## Review your data
 
-The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) to learn how to access the data in the storage table by using Azure CLI scripts.
+The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) to learn how to access the data in the storage table by using Azure CLI scripts.
 
 In addition, you can use following UI tools to access the data:
 
@@ -159,3 +162,4 @@ If you've enabled fileCfg or perfCfg (as described in Scenarios 2 and 3), you ca
 ## Known issues
 
 * The Rsyslog information and customer-specified log file can only be accessed via scripting.
+<!--Update_Description: update storage table link to cosmosdb link-->

@@ -3,8 +3,8 @@ title: Linux Azure VM sizes - Memory | Azure
 description: Lists the different memory optimized sizes available for Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 06/06/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 07/28/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 

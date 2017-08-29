@@ -3,8 +3,8 @@ title: Azure Virtual Networks and Windows Virtual Machines | Azure
 description: Tutorial - Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -242,7 +242,7 @@ $backendVM = Set-AzureRmVMOperatingSystem `
 $backendVM = Set-AzureRmVMSourceImage `
   -VM $backendVM `
   -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016-WS2016 `
+  -Offer SQL2016SP1-WS2016 `
   -Skus Enterprise `
   -Version latest
 $backendVM = Set-AzureRmVMOSDisk `
@@ -272,7 +272,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Control network traffic with Network Security Groups
 > * View traffic rules in action
 
-Advance to the next tutorial to learn about monitoring virtual machines.
 
-> [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)

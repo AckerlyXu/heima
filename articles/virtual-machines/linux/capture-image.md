@@ -3,8 +3,8 @@ title: Capture an image of a Linux VM in Azure using CLI 2.0 | Azure
 description: Capture an image of an Azure VM to use for mass deployments using the Azure CLI 2.0.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 07/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # How to create an image of a virtual machine or VHD
@@ -32,7 +32,7 @@ You can also use **Packer** to create your custom configuration. For more inform
 ## Before you begin
 Ensure that you meet the following prerequisites:
 
-* You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](cli-deploy-templates.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
+* You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
 * You also need to have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
@@ -61,7 +61,7 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 ## Step 2: Create VM image
 Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-1. Deallocate the VM that you deprovisioned with [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
+1. Deallocate the VM that you deprovisioned with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
     ```azurecli
     az vm deallocate \

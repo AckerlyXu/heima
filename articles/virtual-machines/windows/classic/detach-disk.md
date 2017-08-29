@@ -3,8 +3,8 @@ title: Detach a disk from a Windows VM | Azure
 description: Learn to detach a disk from a virtual machine in Azure using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # How to detach a disk from a Windows virtual machine
@@ -26,6 +26,6 @@ ms.author: v-dazen
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Additional resources
-[About disks and VHDs for virtual machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+[About disks and VHDs for virtual machines](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to attach a data disk to a Windows virtual machine](attach-disk.md)

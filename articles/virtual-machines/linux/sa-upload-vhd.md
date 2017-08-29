@@ -3,8 +3,8 @@ title: Upload a custom Linux disk with Azure CLI 2.0 | Azure
 description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Upload and create a Linux VM from custom disk with the Azure CLI 2.0
@@ -140,7 +140,7 @@ az storage account create --resource-group myResourceGroup --location chinanorth
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list).
 
 View the access keys for the storage account you created:
 

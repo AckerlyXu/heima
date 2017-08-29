@@ -3,8 +3,8 @@ title: Overview of SQL Server on Azure Virtual Machines | Azure
 description: Learn about how to run full SQL Server editions on Azure Virtual machines. Get direct links to all SQL Server VM images and related content.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 06/27/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+orgin.date: 08/07/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Overview of SQL Server on Azure Virtual Machines
@@ -108,4 +108,3 @@ For questions about pricing, see [Pricing guidance for SQL Server Azure VMs](vir
 
 More question? First, see the [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md). But also add your questions or comments to the bottom of any SQL VM topics to interact with Azure.cn and the community.
 
-<!--Update_Description: wording update-->

@@ -3,8 +3,8 @@ title: Create and upload a VM image using Powershell | Azure
 description: Learn to create and upload a generalized Windows Server image (VHD) using the classic deployment model and Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create and upload a Windows Server VHD to Azure
-This article shows you how to upload your own generalized VM image as a virtual hard disk (VHD) so you can use it to create virtual machines. For more details about disks and VHDs in Azure, see [About Disks and VHDs for Virtual Machines](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+This article shows you how to upload your own generalized VM image as a virtual hard disk (VHD) so you can use it to create virtual machines. For more details about disks and VHDs in Azure, see [About Disks and VHDs for Virtual Machines](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [upload](../upload-generalized-managed.md) a virtual machine using the Resource Manager model.

@@ -3,8 +3,8 @@ title: Host a Ruby on Rails website on a Linux VM | Azure
 description: Set up and host a Ruby on Rails-based website on Azure using a Linux virtual machine.
 services: virtual-machines-linux
 documentationcenter: ruby
-author: rmcmurray
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Ruby on Rails Web application on an Azure VM
@@ -137,9 +137,9 @@ To use Azure services from your Ruby application, see:
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 <!-- WA.com links -->
-[blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
+[blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:/develop/ruby/app-services/
-[tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
+[tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
 [vm-instructions]:createportal.md
 
 <!-- External Links -->
@@ -154,4 +154,4 @@ To use Azure services from your Ruby application, see:
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!--Update_Description: update new portal instead of classic portal-->
+<!--Update_Description: update storage links-->

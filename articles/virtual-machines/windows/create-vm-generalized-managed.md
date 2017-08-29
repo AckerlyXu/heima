@@ -3,8 +3,8 @@ title: Create VM from a managed VM image in Azure | Azure
 description: Create a Windows virtual machine from a generalized managed VM image using Azure PowerShell, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create a VM from a managed image
@@ -27,10 +27,10 @@ You can create multiple VMs from a managed VM image in Azure. A managed VM image
 
 You need to have already [created a managed VM image](capture-image-resource.md) to use for creating the new VM. 
 
-Make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
+Make sure that you have the latest versions of the AzureRM.Compute and AzureRM.Network PowerShell modules. Open a PowerShell prompt as an Administrator and run the following command to install them.
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
 For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azure/overview).
 

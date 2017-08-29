@@ -3,8 +3,8 @@ title: Django web app on a Windows Server Azure VM | Azure
 description: Learn how to host a Django-based website in Azure using a Windows Server 2012 R2 Datacenter VM with the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: python
-author: huguesv
-manager: wpickett
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,21 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Django Hello World web app on a Windows Server VM
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and the classic deployment model](../../../resource-manager-deployment-model.md). This article describes the classic deployment model. We recommend that most new deployments use the Resource Manager model. For a Resource Manager template that you can use to deploy Django, see [Deploy a Django app](https://github.com/Azure/azure-quickstart-templates/tree/master/django-app/).
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and the classic deployment model](../../../resource-manager-deployment-model.md). This article describes the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 
 This tutorial shows you how to host a Django-based website in Windows Server in Azure Virtual Machines. In the tutorial, we assume no prior experience with Azure. When you finish the tutorial, you can have a Django-based application up and running in the cloud.
 
@@ -182,4 +175,4 @@ When you're done with this tutorial, we recommend that you shut down or remove t
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!--Update_Description: wording update-->
+<!--Update_Description: remove selector-->

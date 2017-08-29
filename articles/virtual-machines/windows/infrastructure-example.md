@@ -3,8 +3,8 @@ title: Example Azure Infrastructure Walkthrough | Azure
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -115,8 +115,3 @@ This configuration incorporates:
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
-
-## Next steps
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-<!--Update_Description: update meta data-->

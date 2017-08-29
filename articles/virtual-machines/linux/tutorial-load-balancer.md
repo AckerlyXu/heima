@@ -3,8 +3,8 @@ title: How to load balance Linux virtual machines in Azure | Azure
 description: Learn how to use the Azure load balancer to create a highly available and secure application across three Linux VMs
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -212,9 +212,7 @@ Create an availability set with [az vm availability-set create](https://docs.mic
 ```azurecli 
 az vm availability-set create \
     --resource-group myResourceGroupLoadBalancer \
-    --name myAvailabilitySet \
-    --platform-fault-domain-count 3 \
-    --platform-update-domain-count 2
+    --name myAvailabilitySet
 ```
 
 Now you can create the VMs with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates three VMs and generates SSH keys if they do not already exist:
@@ -226,7 +224,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+        --image UbuntuLTS \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
@@ -234,7 +232,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-It takes a few minutes to create and configure all three VMs. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
+There are background tasks that continue to run after the Azure CLI returns you to the prompt. The `--no-wait` parameter does not wait for all the tasks to complete. It may be another couple of minutes before you can access the app. The load balancer health probe automatically detects when the app is running on each VM. Once the app is running, the load balancer rule starts to distribute traffic.
 
 ## Test load balancer
 Obtain the public IP address of your load balancer with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#show). The following example obtains the IP address for *myPublicIP* created earlier:
@@ -247,7 +245,7 @@ az network public-ip show \
     --output tsv
 ```
 
-You can then enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
+You can then enter the public IP address in to a web browser. Remember - it takes a few minutes the the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running Node.js app](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -298,5 +296,3 @@ Advance to the next tutorial to learn more about Azure virtual network component
 
 > [!div class="nextstepaction"]
 > [Manage VMs and virtual networks](tutorial-virtual-network.md)
-
-<!--Update_Description: wording update-->

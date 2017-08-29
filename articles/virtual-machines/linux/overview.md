@@ -3,8 +3,8 @@ title: Overview of Linux VMs in Azure | Azure
 description: Describes Azure Compute, Storage, and Networking services with Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: rickstercdn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2016
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017, mvc
 ---
 # Azure and Linux
@@ -28,12 +28,12 @@ We announced an industry leading single instance virtual machine Service Level A
 
 ## Managed Disks
 
-Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../../storage/storage-managed-disks-overview.md).
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../windows/managed-disks-overview.md).
 
 ## Azure Virtual Machines & Instances
-Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You will find distributions such as CentOS, Debian, Ubuntu, CoreOS, FreeBSD, and more in the Azure Marketplace. We actively work with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) list.
+Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You will find distributions such as CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD, and more in the Azure Marketplace. We actively work with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) list.
 
 If your preferred Linux distro of choice is not currently present in the gallery, you can "Bring your own Linux" VM by [creating and uploading a Linux VHD in Azure](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -49,15 +49,15 @@ Here are some basic guidelines for selecting a VM size from one of our series (A
 
 Note: DS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see:
 
-* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/storage-premium-storage.md)
+* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/common/storage-premium-storage.md)
 
 ## Automation
-To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
+To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hats RHEL, CentOS, and Fedora support cloud-init.
+Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  CentOS, and Fedora support cloud-init.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -101,11 +101,9 @@ Creating a Linux VM in the Azure web portal is a way to easily point and click t
 ### Login using SSH without a password
 The VM is now running on Azure and you are ready to log in.  Using passwords to log in via SSH is insecure and time consuming.  Using SSH keys is the most secure way and also the quickest way to login.  When you create you Linux VM via the portal or the CLI, you have two authentication choices.  If you choose a password for SSH, Azure configures the VM to allow logins via passwords.  If you chose to use an SSH public key, Azure configures the VM to only allow logins via SSH keys and disables password logins. To secure your Linux VM by only allowing SSH key logins, use the SSH public key option during the VM creation in the portal or CLI.
 
-* [Disable SSH passwords on your Linux VM by configuring SSHD](mac-disable-ssh-password-usage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## Related Azure components
 ## Storage
-* [Introduction to Azure Storage](../../storage/storage-introduction.md)
+* [Introduction to Azure Storage](../../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [How to attach a data disk to a Linux VM in the Azure portal](attach-disk-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -119,5 +117,3 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!
 
 * [Explore our growing list of Sample Scripts for common tasks via AzureCLI](cli-samples.md)
-
-<!--Update_Description: wording update-->

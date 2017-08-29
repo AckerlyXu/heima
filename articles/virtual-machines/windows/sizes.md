@@ -3,8 +3,8 @@ title: Windows VM sizes in Azure | Azure
 description: Lists the different sizes available for Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/12/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 07/28/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Sizes for Windows virtual machines in Azure
@@ -55,4 +55,5 @@ Learn more about the different VM sizes that are available:
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 
-<!--Update_Description: update meta data-->
+
+

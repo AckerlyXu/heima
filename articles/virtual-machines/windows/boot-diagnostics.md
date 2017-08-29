@@ -1,23 +1,24 @@
 ---
-title: Boot diagnostics for Linux virtual machines in Azure | Microsoft Doc
-description: Overview of the two debugging features for Linux virtual machines in Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
-author: Deland-Han
-manager: timlt
+title: Boot diagnostics for Windows virtual machines in Azure | Microsoft Doc
+description: Overview of the two debugging features for Windows virtual machines in Azure
+services: virtual-machines-windows
+documentationcenter: virtual-machines-windows
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid:
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-# How to use boot diagnostics to troubleshoot Linux virtual machines in Azure
+# How to use boot diagnostics to troubleshoot Windows virtual machines in Azure
 
 [!INCLUDE [virtual-machines-common-boot-diagnostics](../../../includes/virtual-machines-common-boot-diagnostics.md)]
+<!--Update_Description: update from Linux to Windows-->

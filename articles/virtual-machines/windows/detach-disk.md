@@ -3,8 +3,8 @@ title: Detach a data disk from a Windows VM - Azure| Azure
 description: Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # How to detach a data disk from a Windows virtual machine
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../../storage/storage-premium-storage.md#pricing-and-billing).
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../../storage/common/storage-premium-storage.md#pricing-and-billing).
 >
 >
 
@@ -56,4 +56,5 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 For more information, see [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!--Update_Description: update storage links-->

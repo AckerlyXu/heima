@@ -3,8 +3,8 @@ title: Availability sets tutorial for Linux VMs in Azure | Azure
 description: Learn about the Availability Sets for Linux VMs in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -89,7 +89,7 @@ One thing you may encounter as you add VMs is that a particular VM size is no lo
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/vm/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
+You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [az vm availability-set list-sizes](https://docs.microsoft.com/cli/azure/availability-set#list-sizes) to list all the available sizes on the hardware cluster for the availability set.
 
 ```azurecli 
 az vm availability-set list-sizes \
@@ -112,4 +112,3 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 > [!div class="nextstepaction"]
 > [Create a VM scale set](tutorial-create-vmss.md)
 
-<!--Update_Description: wording update-->

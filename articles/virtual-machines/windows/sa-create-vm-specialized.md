@@ -3,8 +3,8 @@ title: Create VM from a specialized disk in Azure | Azure
 description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create a VM from a specialized VHD in a storage account
@@ -112,7 +112,7 @@ You can copy a VHD to another storage account to use when creating a new, duplic
 Make sure that you:
 
 * Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add) or using the [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet. 
-* Have downloaded and installed the [AzCopy tool](../../storage/storage-use-azcopy.md). 
+* Have downloaded and installed the [AzCopy tool](../../storage/common/storage-use-azcopy.md). 
 
 ### Deallocate the VM
 Deallocate the VM, which frees up the VHD to be copied. 
@@ -139,7 +139,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## Get the storage access keys
-Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/storage-create-storage-account.md).
+Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
 * **Portal**: Click **More services** > **Storage accounts** > *storage account* > **Access keys**. Copy the key labeled as **key1**.
 * **Powershell**: Use [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) to get the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled **key1**.

@@ -3,8 +3,8 @@ title: Azure Virtual Networks and Linux Virtual Machines | Azure
 description: Tutorial - Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -304,9 +304,4 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure incoming internet traffic
 > * Secure VM to VM traffic
 
-Advance to the next tutorial to learn about monitoring virtual machines.
 
-> [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
-
-<!--Update_Description: wording update-->
