@@ -2,10 +2,10 @@
 title: Use the CustomScript Extension on a Linux VM | Azure
 description: Learn how to use the CustomScript extension to deploy applications on Linux Virtual Machines in Azure created using the classic deployment model.
 editor: tysonn
-manager: timlt
+manager: digimobile
 documentationcenter: ''
 services: virtual-machines-linux
-author: gbowerman
+author: hayley244
 tags: azure-service-management
 
 ms.assetid: e535241d-feca-4412-b07a-67c936ba88a0
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Deploy a LAMP app using the Azure CustomScript Extension for Linux
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about deploying a LAMP stack using the Resource Manager model, see [here](../create-lamp-stack.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about deploying a LAMP stack using the Resource Manager model, see [here](../tutorial-lamp-stack.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 The Azure CustomScript Extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (for example, Python, and Bash). This provides a very flexible way to automate application deployment to multiple machines.
 
@@ -100,5 +100,4 @@ Additional resources for Azure CLI, Linux and the CustomScript Extension are lis
 [Automate Linux VM Customization Tasks Using CustomScript Extension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
-
-[Linux and Open-Source Computing on Azure](../opensource-links.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+<!--Update_Description: update links-->

@@ -3,8 +3,8 @@ title: Create a managed image in Azure | Azure
 description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/27/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create a managed image of a generalized VM in Azure
@@ -42,6 +42,28 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. When Sysprep completes, it shuts down the virtual machine. Do not restart the VM.
+
+
+## Create a managed image in the portal 
+
+1. Open the [portal](https://portal.azure.cn).
+2. Click the plus sign to create a new resource.
+3. In the filter search, type **Image**.
+4. Select **Image** from the results.
+5. In the **Image** blade, click **Create**.
+6. In **Name**, type a name for the image.
+7. If you have more than one subscription, select the correct one from the **Subscription** drop-down.
+7. In **Resource Group** either select **Create new** and type in a name, or select **From existing** and select a resource group to use from the drop-down list.
+8. In **Location**, choose the location of your resource group.
+9. In **OS type** select the type of operating system, either Windows or Linux.
+11. In **Storage blob**, click **Browse** to look for the VHD in your Azure storage.
+12. In **Account type** choose Standard_LRS or Premium_LRS. Standard uses hard-disk drives and Premium uses solid-state drives. Both use locally-redundant storage.
+13. In **Disk caching** select the appropriate disk caching option. The options are **None**, **Read-only** and **Read\write**.
+14. Optional: You can also add an existing data disk to the image by clicking **+ Add data disk**.  
+15. When you are done making your selections, click **Create**.
+16. After the image is created, you will see it as an **Image** resource in the list of resources in the resource group you chose.
+
+
 
 ## Create a managed image of a VM using Powershell
 
@@ -155,3 +177,4 @@ You can also create a managed image from a snapshot of the VHD from a generalize
 
 ## Next steps
 - Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!--Update_Description: add section "Create a managed image in the portal"-->

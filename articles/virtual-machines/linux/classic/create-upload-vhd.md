@@ -3,8 +3,8 @@ title: Create and upload a Linux VHD to Azure | Azure
 description: Create and upload an Azure virtual hard disk (VHD) that contains the Linux operating system using the Classic deployment model
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2016
-ms.date: 01/20/2017
-ms.author: v-dazen
+ms.date: 09/04/2016
+ms.author: v-haiqya
 
 ---
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
@@ -69,7 +69,7 @@ azure login -e AzureChinaCloud
 <a id="upload"> </a>
 
 ## Step 3: Upload the image to Azure
-You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/storage-create-storage-account.md).
+You need a storage account to upload your VHD file to. You can either pick an existing storage account or [create a new one](../../../storage/common/storage-create-storage-account.md).
 
 Use the Azure CLI to upload the image by using the following command:
 
@@ -110,3 +110,4 @@ For more information, see [Azure CLI reference for the Azure classic deployment 
 [Step 1: Prepare the image to be uploaded]:#prepimage
 [Step 2: Prepare the connection to Azure]:#connect
 [Step 3: Upload the image to Azure]:#upload
+<!--Update_Description: update storage link-->

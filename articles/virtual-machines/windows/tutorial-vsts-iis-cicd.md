@@ -3,8 +3,8 @@ title: Create a CI/CD pipeline in Azure with Team Services | Azure
 description: Learn how to create a Visual Studio Team Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -218,7 +218,7 @@ In this tutorial, you created an ASP.NET web application in Team Services and co
 > * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
-Follow this link to see pre-built virtual machine script samples.
+Advance to the next tutorial to learn how to secure a web server with SSL certificates.
 
 > [!div class="nextstepaction"]
-> [Windows virtual machine script samples](./powershell-samples.md)
+> [Secure web server with SSL](tutorial-secure-web-server.md)

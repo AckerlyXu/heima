@@ -3,8 +3,8 @@ title: Desired State Configuration Resource Manager Template | Azure
 description: Resource Manager Template definition for Desired State Configuration in Azure with examples and troubleshooting
 services: virtual-machines-windows
 documentationcenter: ''
-author: zjalexander
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
 keywords: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 09/15/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates
@@ -53,6 +53,7 @@ The following snippet goes into the Resource section of the template.
                   "protectedSettings": {
                       "configurationUrlSasToken": "[parameters('_artifactsLocationSasToken')]"
                   }
+              }
 
 ```
 
@@ -86,6 +87,7 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
                     }
                 }
             ]
+        }
 ```
 
 ## Detailed Settings Information

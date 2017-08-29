@@ -3,8 +3,8 @@ title: FAQ about Windows VMs in Azure | Azure
 description: Provides answers to some of the common questions about Windows virtual machines created with the Resource Manager model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 
@@ -71,10 +71,10 @@ Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure us
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 15 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
+Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Infrastructure resource group guidelines](infrastructure-resource-groups-guidelines.md) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 
@@ -133,7 +133,4 @@ The following passwords are not allowed:
         <td>iloveyou! </td>
     </tr>
 </table>
-
-## Why my Windows Virtual Machines restart automatically?
-
-Answer: According to the best practice scenario, the Windows Virtual Machines deployed through Azure Platform, enable Windows automatic updates by default to ensure the system updates and security. When there is a significant update, the virtual machines will restart automatically to active the update. If you don't this affect your Virtual Machine, you can choose automatic download updates but manual installation after the VM Deployment is completed.
+<!--Update_Description: update two links-->

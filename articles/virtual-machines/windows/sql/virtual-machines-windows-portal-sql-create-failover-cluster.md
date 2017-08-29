@@ -3,8 +3,8 @@ title: SQL Server FCI - Azure Virtual Machines | Azure
 description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+authors: hayley244
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/17/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 
@@ -84,7 +84,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. Log in to the [Azure portal](http://portal.azure.cn) with your subscription.
 
-1. [Create an Azure availability set](../create-availability-set.md).
+1. [Create an Azure availability set](../tutorial-availability-sets.md).
 
    The availability set groups virtual machines across fault domains and update domains. The availability set makes sure that your application is not affected by single points of failure, like the network switch or the power unit of a rack of servers.
 
@@ -156,7 +156,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../../../storage/storage-premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../../../storage/common/storage-premium-storage.md).
 
    Both virtual machines need at least two data disks.
 

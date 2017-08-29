@@ -3,8 +3,8 @@ title: Virtual machines in an Azure Resource Manager template | Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+origin.date: 07/18/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 
@@ -44,7 +44,7 @@ This example shows a typical resource section of a template for creating a speci
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -59,10 +59,10 @@ This example shows a typical resource section of a template for creating a speci
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -76,10 +76,10 @@ This example shows a typical resource section of a template for creating a speci
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
@@ -231,7 +231,7 @@ Also, notice in the example that the loop index is used when specifying some of 
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -271,7 +271,7 @@ How do you know if a dependency is required? Look at the values you set in the t
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 To set this property, the network interface must exist. Therefore, you need a dependency. You also need to set a dependency when one resource (a child) is defined within another resource (a parent). For example, the diagnostic settings and custom script extensions are both defined as child resources of the virtual machine. They cannot be created until the virtual machine exists. Therefore, both resources are marked as dependent on the virtual machine.
@@ -281,15 +281,15 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
 
 - [size](sizes.md)
-- [name](../linux/infrastructure-naming-guidelines.md) and credentials
+- [name](https://docs.microsoft.com/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
 
 ## Disks and images
-
-In Azure, vhd files can represent [disks or images](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
-
+   
+In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+    
 ### Create new virtual machines and new disks from a platform image
 
 When you create a VM, you must decide what operating system to use. The imageReference element is used to define the operating system of a new VM. The example shows a definition for a Windows Server operating system:
@@ -321,7 +321,7 @@ Configuration settings for the operating system disk are assigned with the osDis
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
 ### Create new virtual machines from existing managed disks
@@ -336,7 +336,7 @@ If you want to create virtual machines from existing disks, remove the imageRefe
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
 ### Create new virtual machines from a managed image
@@ -354,7 +354,7 @@ If you want to create a virtual machine from a managed image, change the imageRe
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
 ### Attach data disks
@@ -370,7 +370,7 @@ You can optionally add data disks to the VMs. The [number of disks](sizes.md) de
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
 ## Extensions

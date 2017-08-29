@@ -3,8 +3,8 @@ title: Use Docker Compose on a Linux VM in Azure | Azure
 description: How to use Docker and Compose on Linux virtual machines with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Get started with Docker and Compose to define and run a multi-container application in Azure
@@ -49,7 +49,7 @@ az group deployment create --resource-group myResourceGroup \
     "adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-file /path/to/azuredeploy.json
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
 It takes a few minutes for the deployment to finish. Once the deployment is finished, [move to next step](#verify-that-compose-is-installed) to SSH to your VM. 
@@ -85,7 +85,7 @@ You see output similar to *docker-compose 1.6.2, build 4d72027*.
 > If you used another method to create a Docker host and need to install Compose yourself, see the [Compose documentation](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
 
 ## Create a docker-compose.yml configuration file
-Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](http://docs.docker.com/compose/yml/).
+Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](https://docs.docker.com/compose/compose-file/).
 
 Create the *docker-compose.yml* file as follows:
 
@@ -156,3 +156,4 @@ You can now connect to WordPress directly on the VM on port 80. Open a web brows
 <!--Image references-->
 
 [wordpress_start]: media/docker-compose-quickstart/WordPress.png
+<!--Update_Description: update cli sample-->

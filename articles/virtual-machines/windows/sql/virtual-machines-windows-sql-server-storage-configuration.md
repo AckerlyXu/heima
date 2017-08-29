@@ -3,8 +3,8 @@ title: Storage configuration for SQL Server VMs | Azure
 description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: jhubbard
+author: hayley244
+manager: digimobile
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Storage configuration for SQL Server VMs
@@ -30,7 +30,7 @@ To use the automated storage configuration settings, your virtual machine requir
 
 * Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
 * Uses the [Resource Manager deployment model](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Uses [Premium Storage](../../../storage/storage-premium-storage.md).
+* Uses [Premium Storage](../../../storage/common/storage-premium-storage.md).
 
 ## New VMs
 The following sections describe how to configure storage for new SQL Server virtual machines.
@@ -102,7 +102,7 @@ This section provides a reference for the storage configuration changes that Azu
 
 * If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
 * If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
-* Automatic storage configuration always uses [premium storage](../../../storage/storage-premium-storage.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
+* Automatic storage configuration always uses [premium storage](../../../storage/common/storage-premium-storage.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
 
 For pricing information, see the [Storage pricing](https://www.azure.cn/pricing/details/storage/) page on the **Disk Storage** tab.
 
@@ -141,3 +141,4 @@ The following table describes the three workload type options available and thei
 
 ## Next steps
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+<!--Update_Description: update storage links-->

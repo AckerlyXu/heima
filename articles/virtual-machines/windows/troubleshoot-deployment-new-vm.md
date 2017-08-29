@@ -3,8 +3,8 @@ title: Troubleshoot Windows VM deployment in Azure | Azure
 description: Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
-manager: willchen
+author: hayley244
+manager: digimobile
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -61,7 +61,7 @@ To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](ht
 
 **Resolution**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](vhd-copy.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](create-vm-specialized.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/gallery/marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
@@ -89,4 +89,4 @@ This error arises in situations when the new VM request is pinned to a cluster t
 ## Next steps
 If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--Update_Description: add section "Top Issues"-->
+<!--Update_Description: update one link-->

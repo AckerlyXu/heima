@@ -3,8 +3,8 @@ title: Upload or copy a custom Linux VM with Azure CLI 2.0 | Azure
 description: Upload or copy a customized virtual machine using the Resource Manager deployment model and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/06/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Create a Linux VM from custom disk with the Azure CLI 2.0
@@ -89,7 +89,7 @@ You can upload a customized VHD that you have running on a local machine or that
 Before uploading your custom disk and creating VMs, you first need to create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create).
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
-[Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md)
+[Azure Managed Disks overview](../windows/managed-disks-overview.md)
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list).
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, like carrying out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You view the access keys with [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list).
 
 View the access keys for the storage account you created:
 
@@ -225,4 +225,3 @@ You should be able to SSH into the VM using the credentials from the source VM.
 ## Next steps
 After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: wording update-->

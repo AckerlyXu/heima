@@ -3,8 +3,8 @@ title: Create a Virtual Machine Scale Sets for Windows in Azure | Azure
 description: Create and deploy a highly available application on Windows VMs using a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang:
 ms.topic: article
-origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -194,7 +194,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
+for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -232,7 +232,7 @@ Rather than manually scaling the number of instances in your scale set, you defi
 
 ```powershell
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
+$mySubscriptionId = (Get-AzureRmSubscription).Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "China North"

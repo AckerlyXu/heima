@@ -4,19 +4,20 @@
 ## [Availability](configure-availability.md)
 ## [FAQ](faq.md)
 
-# [Get Started](../opensource-links.md)
+# Get Started
 ## [Create a Linux VM with the portal](createportal.md)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 ## [Create SSH keys](../mac-create-ssh-keys.md)
 
 # How to
-## [Compute](../intro-on-azure.md)
+## Compute
 ### [Create a custom VM](create-custom.md)
 ### [Capture a VM](capture-image.md)
 ### [Use Remote Desktop with a Linux VM](remote-desktop.md)
 ### [Manage VM extensions](manage-extensions.md)
 ### [Manage VMs with Visual Studio](manage-visual-studio.md)
 ### [Monitor VMs using the Diagnostic VM Extension](../diagnostic-extension.md)
+### [Monitor VMs using v2.x of the Diagnostic VM Extension](diagnostic-extension-v2.md)
 ### [Inject custom data](inject-custom-data.md)
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
 ### [Maintenance](planned-maintenance-schedule.md)
@@ -52,13 +53,13 @@
 ## Troubleshoot
 ### [VM deployments](troubleshoot-deployment-new-vm.md)
 ### [Restart or resize a VM](restart-resize-error-troubleshooting.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-## [Community templates](https://github.com/Azure/azure-quickstart-templates)
 ## [Compute REST](https://docs.microsoft.com/rest/api/compute)
 ## [Network REST](https://docs.microsoft.com/rest/api)
 ## [Storage REST](https://docs.microsoft.com/rest/api/storageservices)

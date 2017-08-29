@@ -3,8 +3,8 @@ title: Virtual machine extensions and features for Windows in Azure | Azure
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/06/2017
-ms.date: 04/27/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -36,7 +36,6 @@ There are many different Azure VM extensions available, each with a specific use
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -124,9 +123,6 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 
 For more information, see the [full Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
->[!NOTE]
-> Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
-
 ```json
 {
     "apiVersion": "2015-06-15",
@@ -157,7 +153,7 @@ For more information, see the [full Resource Manager template](https://github.co
 }
 ```
 
-For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](extensions-authoring-templates.md).
+For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](template-description.md#extensions).
 
 ## Secure VM extension data
 

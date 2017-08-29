@@ -3,8 +3,8 @@ title: Azure Custom Script Extension for Windows | Azure
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 documentationcenter: ''
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Custom Script Extension for Windows
@@ -59,7 +59,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 	"properties": {
 		"publisher": "Microsoft.Compute",
 		"type": "CustomScriptExtension",
-		"typeHandlerVersion": "1.8",
+		"typeHandlerVersion": "1.9",
 		"autoUpgradeMinorVersion": true,
 		"settings": {
 			"fileUris": [
@@ -82,7 +82,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | extensions |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (e.g) | examplestorageacct |
@@ -154,4 +154,4 @@ Path information after the first URI segment is retained for files downloaded vi
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update typeHandlerVersion-->

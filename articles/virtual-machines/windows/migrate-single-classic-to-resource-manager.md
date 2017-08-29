@@ -3,8 +3,8 @@ title: Migrate a Classic VM to an ARM Managed Disk VM | Azure
 description: Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 
 # Manually migrate a Classic VM to a new ARM Managed Disk VM from the VHD 
 
-This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
+This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](managed-disks-overview.md) in the Resource Manager deployment model.
 
 ## Plan for the migration to Managed Disks
 
@@ -45,7 +45,7 @@ There are seven types of premium Managed disks that can be used with your VM and
 
 | Premium Disks Type  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Disk size           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS per disk       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
 | Throughput per disk | 25 MB per second  | 50 MB per second  | 100 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 
 
@@ -55,7 +55,7 @@ There are seven types of Standard Managed disks that can be used with your VM. E
 
 | Standard Disk Type  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Disk size           | 32 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| Disk size           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
 | IOPS per disk       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
 | Throughput per disk | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
 

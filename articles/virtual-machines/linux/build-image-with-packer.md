@@ -3,8 +3,8 @@ title: How to create Linux Azure VM Images with Packer | Azure
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: heyley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,18 +14,19 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/12/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+origin.date: 08/18/2017
+ms.date: 09/04/2017
+ms.author: iainfou
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Linux distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common distributions and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
-## Create supporting Azure resources
-During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group and storage account. The output from the Packer build process is stored in this resource group and storage account.
 
-First, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
+## Create Azure resource group
+During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
+
+Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -33,14 +34,6 @@ First, create a resource group with [az group create](https://docs.microsoft.com
 az group create -n myResourceGroup -l chinaeast
 ```
 
-Next, create a storage account with [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create). Storage account names must be unique, between 3 and 24 characters in length, and contain numbers and lowercase letters only. The following example creates a storage account named *mystorageaccount*:
-
-```azurecli
-az storage account create \
-    --resource-group myResourceGroup \
-    --name mystorageaccount \
-    --sku Standard_LRS
-```
 
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
@@ -72,14 +65,15 @@ To build images, you create a template as a JSON file. In the template, you defi
 
 Create a file named *ubuntu.json* and paste the following content. Enter your own values for the following:
 
-| Parameter       | Where to obtain |
-|-----------------|----------------------------------------------------|
-| *client_id*      | First line of output from `az ad sp` create command - *appId* |
-| *client_secret*  | Second line of output from `az ad sp` create command - *password* |
-| *tenant_id*      | Third line of output from `az ad sp` create command - *tenant* |
-| *subscription_id* | Output from `az account show` command |
-| *storage_account* | Name you specified in `az storage account create` |
-| *cloud_environment_name* | It's `AzureChinaCloud` |
+| Parameter                           | Where to obtain |
+|-------------------------------------|----------------------------------------------------|
+| *client_id*                         | First line of output from `az ad sp` create command - *appId* |
+| *client_secret*                     | Second line of output from `az ad sp` create command - *password* |
+| *tenant_id*                         | Third line of output from `az ad sp` create command - *tenant* |
+| *subscription_id*                   | Output from `az account show` command |
+| *managed_image_resource_group_name* | Name of resource group you created in the first step |
+| *managed_image_name*                | Name for the managed disk image that is created |
+
 
 ```json
 {
@@ -91,16 +85,13 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
 
-    "resource_group_name": "myResourceGroup",
-    "storage_account": "mystorageaccount",
-
-    "capture_container_name": "images",
-    "capture_name_prefix": "packer",
+    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_name": "myPackerImage",
 
     "os_type": "Linux",
     "image_publisher": "Canonical",
     "image_offer": "UbuntuServer",
-    "image_sku": "16.04.0-LTS",
+    "image_sku": "16.04-LTS",
 
     "azure_tags": {
         "dept": "Engineering",
@@ -132,6 +123,7 @@ This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovision
 > If you expand on this template to provision user credentials, adjust the provisioner command that deprovisions the Azure agent to read `-deprovision` rather than `deprovision+user`.
 > The `+user` flag removes all user accounts from the source VM.
 
+
 ## Build Packer image
 If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
 
@@ -149,85 +141,68 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
 ==> azure-arm:  -> Location          : 'China East'
 ==> azure-arm:  -> Tags              :
-==> azure-arm:  ->> dept : engineering
-==> azure-arm:  ->> task : image deployment
+==> azure-arm:  ->> dept : Engineering
+==> azure-arm:  ->> task : Image deployment
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> DeploymentName    : 'pkrdphlz1xtcy8n'
-==> azure-arm: Getting the VM's IP address ...
-==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
-==> azure-arm:  -> NicName             : 'packerNic'
-==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
-==> azure-arm:  -> IP Address          : '13.90.250.248'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
+==> azure-arm: Getting the VM’s IP address ...
+==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
+==> azure-arm:  -> NicName             : ‘packerNic’
+==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
+==> azure-arm:  -> IP Address          : ‘40.76.218.147’
 ==> azure-arm: Waiting for SSH to become available...
 ==> azure-arm: Connected to SSH!
-==> azure-arm: Provisioning with shell script: /tmp/packer-shell529418469
-    azure-arm: Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
-    azure-arm: Hit:2 http://azure.archive.ubuntu.com/ubuntu xenial InRelease
-    azure-arm: Get:3 http://azure.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
-    azure-arm: Get:4 http://azure.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
-    [snip]
+==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-shell868574263
     azure-arm: WARNING! The waagent service will be stopped.
     azure-arm: WARNING! Cached DHCP leases will be deleted.
     azure-arm: WARNING! root password will be disabled. You will not be able to login as root.
     azure-arm: WARNING! /etc/resolvconf/resolv.conf.d/tail and /etc/resolvconf/resolv.conf.d/original will be deleted.
     azure-arm: WARNING! packer account and entire home directory will be deleted.
-==> azure-arm: Querying the machine's properties ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
-==> azure-arm:  -> OS Disk           : 'https://mystorageaccount.blob.core.chinacloudapi.cn/images/pkroshlz1xtcy8n.vhd'
+==> azure-arm: Querying the machine’s properties ...
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-swtxmqm7ly/providers/Microsoft.Compute/disks/osdisk’
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
-==> azure-arm:  -> ComputeName       : 'pkrvmhlz1xtcy8n'
+==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> Compute Name              : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> Compute Location          : ‘China East’
+==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
+==> azure-arm:  -> Image Name                : ‘myPackerImage’
+==> azure-arm:  -> Image Location            : ‘chinaeast’
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-hlz1xtcy8n'
+==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
 ==> azure-arm: Deleting the temporary OS disk ...
-==> azure-arm:  -> OS Disk : 'https://mystorageaccount.blob.core.chinacloudapi.cn/images/pkroshlz1xtcy8n.vhd'
-Build 'azure-arm' finished.
+==> azure-arm:  -> OS Disk : skipping, managed disk was used...
+Build ‘azure-arm’ finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
 
-StorageAccountLocation: chinaeast
-OSDiskUri: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-OSDiskUriReadOnlySas: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd?se=2017-07-08T20%3A57%3A53Z&sig=yl1yl3I2gKnO0I%2B7paw%2FQzKT5dawf5i%2B
-LPmATMt5ot4%3D&sp=r&sr=b&sv=2015-02-21
-TemplateUri: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json
-TemplateUriReadOnlySas: https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-vmTemplate.643f37d7-5a5d-43bf-96ed-2d598ada6e65.json?se=2017-07-08T20%3A57%3A53Z&sig=GB1iSl0hhw1ZYG4nl%2BCfR9WEaquCF
-OEhNtKlvp%2B5TdE%3D&sp=r&sr=b&sv=2015-02-21
+ManagedImageResourceGroupName: myResourceGroup
+ManagedImageName: myPackerImage
+ManagedImageLocation: chinaeast
 ```
 
-## Create Azure Image
-The output from the Packer build process is a virtual hard disk (VHD) in the specified storage account. Create an Azure Image from this VHD with [az image create](https://docs.microsoft.com/cli/azure/image#create) and specify the `OSDiskUri` path noted at the end of the Packer build output. The following example creates an Image named `myImage`:
-
-```azurecli
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --os-type linux \
-    --source https://mystorageaccount.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/images/packer-osDisk.643f37d7-5a5d-43bf-96ed-2d598ada6e65.vhd
-```
-
-This Image can be used to create VMs across your Azure subscription. You are not limited to creating a VM in the same resource group as your source Image.
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
 
 ```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image myImage \
+    --image myPackerImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -248,7 +223,9 @@ Now you can open a web browser and enter `http://publicIpAddress` in the address
 
 ![NGINX default site](./media/build-image-with-packer/nginx.png) 
 
+
 ## Next steps
-In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Chef or Puppet.
+In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Ansible, Chef, or Puppet.
 
 For additional example Packer templates for other Linux distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
+<!--Update_Description: update scripts for managed disks-->

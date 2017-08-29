@@ -3,8 +3,8 @@ title: Create and manage a Windows VM in Azure using Python | Azure
 description: Learn to use Python to create and manage a Windows VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Create and manage Windows VMs in Azure using Python
@@ -342,7 +342,7 @@ Now that you created all the supporting resources, you can create a virtual mach
             VM_NAME, 
             vm_parameters
         )
-
+    
         return creation_result.result()
     ```
 
@@ -497,7 +497,7 @@ Many aspects of deployment should be considered when deciding on a size for your
 
 ### Add a data disk to the VM
 
-Virtual machines can have one or more [data disks](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
+Virtual machines can have one or more [data disks](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
 
 1. To add a data disk to the virtual machine, add this function after the variables in the .py file: 
 
@@ -530,7 +530,7 @@ Virtual machines can have one or more [data disks](../../storage/storage-about-d
             vm)
 
         return add_result.result()
-        ```
+    ```
 
 2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
 
@@ -573,4 +573,4 @@ Because you are charged for resources used in Azure, it's always a good practice
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
 - Learn more about the [Azure Python Library](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 
-<!--Update_Description: add section "Perform management tasks"-->
+<!--Update_Description: update storage links-->

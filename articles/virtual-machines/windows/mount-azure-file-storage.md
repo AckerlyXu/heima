@@ -2,8 +2,8 @@
 title: Mount Azure file storage from an Azure Windows VM | Azure
 description: Store file in the cloud with Azure file storage, and mount your cloud file share from an Azure virtual machine (VM).
 documentationcenter: 
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 
@@ -69,4 +69,4 @@ This section assumes you already have a file share that you want to connect to. 
 
 ## Next steps
 
-You can also create and manage file shares using PowerShell. For more information, see [Get started with Azure File storage on Windows](../../storage/storage-dotnet-how-to-use-files.md).
+You can also create and manage file shares using PowerShell. For more information, see [Get started with Azure File storage on Windows](../../storage/files/storage-dotnet-how-to-use-files.md).

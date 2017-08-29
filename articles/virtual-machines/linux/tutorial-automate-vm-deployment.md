@@ -3,8 +3,8 @@ title: Customize a Linux VM on first boot in Azure | Azure
 description: Learn how to use cloud-init and Key Vault to customze Linux VMs the first time they boot in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 08/11/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -37,14 +37,16 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## Cloud-init overview
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
-Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install and cloud-init automatically uses the native package management tool for the distro you select.
+Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
 We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
 
 | Alias | Publisher | Offer | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |latest |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
 | CoreOS |CoreOS |CoreOS |Stable |latest |
+
 
 ## Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
@@ -108,13 +110,13 @@ Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#crea
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVM \
-    --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
 ```
 
-It takes a few minutes for the VM to be created, the packages to install, and the app to start. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
+It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
 
 To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
 
@@ -143,7 +145,7 @@ The following steps show how you can:
 First, create a Key Vault with [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
 ```azurecli 
-keyvault_name=<mykeyvault>
+keyvault_name=mykeyvault
 az keyvault create \
     --resource-group myResourceGroupAutomate \
     --name $keyvault_name \
@@ -161,7 +163,7 @@ az keyvault certificate create \
 ```
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret](https://docs.microsoft.com/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm format-secret](https://docs.microsoft.com/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -172,7 +174,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
 ### Create cloud-init config to secure NGINX
-When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can expand on the cloud-init config from the previous example.
+When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can use an updated cloud-init config from the previous example.
 
 Create a file named *cloud-init-secured.txt* and paste the following configuration:
 
@@ -232,14 +234,14 @@ Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#crea
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
-    --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+    --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-secured.txt \
     --secrets "$vm_secret"
 ```
 
-It takes a few minutes for the VM to be created, the packages to install, and the app to start. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
+It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the Node.js app via a web browser.
 
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
 
@@ -273,5 +275,3 @@ Advance to the next tutorial to learn how to create custom VM images.
 
 > [!div class="nextstepaction"]
 > [Create custom VM images](./tutorial-custom-images.md)
-
-<!--Update_Description: wording update-->

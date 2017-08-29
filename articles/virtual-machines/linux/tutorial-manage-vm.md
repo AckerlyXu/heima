@@ -3,8 +3,8 @@ title: Create and Manage Linux VMs with the Azure CLI | Azure
 description: Tutorial - Create and Manage Linux VMs with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ms.custom: mvc
 ---
 
@@ -312,5 +312,3 @@ Advance to the next tutorial to learn about VM disks.
 
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
-
-<!--Update_Description: wording update-->

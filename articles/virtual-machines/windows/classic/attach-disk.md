@@ -3,8 +3,8 @@ title: Attach a disk to a classic Azure VM | Azure
 description: Attach a data disk to a Windows virtual machine created with the classic deployment model and initialize it.
 services: virtual-machines-windows, storage
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2017
-ms.date: 04/24/2017
+ms.date: 09/04/2017
 ms.author: v-dazen
 
 ---
@@ -33,14 +33,14 @@ Before you attach a disk, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../../storage/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you need a DS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
 You can also [attach a data disk using Powershell](../../virtual-machines-windows-attach-disk-ps.md).
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).
 
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
@@ -49,7 +49,7 @@ You can also [attach a data disk using Powershell](../../virtual-machines-window
 
     ![Open disk settings](./media/attach-disk/virtualmachinedisks.png)
 
-Continue by following instructions for attaching either a [new disk](#option-1-attach-and-initialize-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
+Continue by following instructions for attaching either a [new disk](#option-1-attach-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
 
 ## Option 1: Attach and initialize a new disk
 
@@ -112,3 +112,4 @@ If your application needs to use the D: drive to store data, you can [change the
 
 ## Additional resources
 [About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md)
+<!--Update_Description: update two links-->

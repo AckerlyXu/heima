@@ -3,8 +3,8 @@ title: SQL Server availability groups - Azure virtual machines - Prereqs | Azure
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure VMs."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+authors: hayley244
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 
@@ -346,13 +346,13 @@ Now that you've finished configuring Active Directory and the user objects, crea
 
 ## Create SQL Server VMs
 
-Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), however for consistency with previous operating systems this document uses a virtual machine for a witness.  
+Create three additional virtual machines. The solution requires two virtual machines with SQL Server instances. A third virtual machine will function as a witness. Windows Server 2016 can use a [cloud witness](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), however for consistency with previous operating systems this document uses a virtual machine for a witness.  
 
 Before you proceed consider the following deisign decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Azure recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../storage/storage-managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   For the virtual machine storage, use Azure Managed Disks. Azure recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Network - Private IP addresses in production**
 

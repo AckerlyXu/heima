@@ -1,6 +1,6 @@
 # Overview
 ## [About virtual machines](../../virtual-machines-windows-about.md)
-## [Disks and VHDs](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Disks and VHDs](../about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Virtual Networks](../../../virtual-network/virtual-networks-overview.md)
 ## [FAQ](faq.md)
 ## [Compare VMs, websites, and cloud services](../../../app-service-web/choose-web-site-cloud-service-vm.md)
@@ -66,9 +66,6 @@
 #### [Submit jobs from on-premises to Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configure Oracle Data Guard for Azure](configure-oracle-data-guard.md)
-####[Configure Oracle GoldenGate for Azure](configure-oracle-goldengate.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -78,7 +75,8 @@
 ### [Access to an application](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Classic deployment issues with creating a new VM](troubleshoot-deployment-new-vm.md)
 ### [Classic deployment issues with restarting or resizing an existing VM](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reset RDP password](reset-rdp.md)
+### [Reset RDP password](reset-rdp.md)
+### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)

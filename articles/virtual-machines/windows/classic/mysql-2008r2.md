@@ -3,8 +3,8 @@ title: Create a classic Azure VM running MySQL | Azure
 description: Create an Azure virtual machine running Windows Server 2012 R2 and the MySQL database using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Install MySQL on a virtual machine created with the classic deployment model running Windows Server 2016
@@ -33,7 +33,7 @@ If you don't already have a VM running Windows Server 2016, you can use this [tu
 ## Attach a data disk
 After the virtual machine is created, you can optionally attach a data disk. Adding a data disk is recommended for production workloads and to avoid running out of space on the OS drive (C:), which includes the operating system.
 
-See [How to attach a data disk to a Windows virtual machine](../attach-disk-portal.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+See [How to attach a data disk to a Windows virtual machine](../attach-managed-disk-portal.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
 Next, you'll [log on to the virtual machine](./connect-logon.md) so you can install MySQL.

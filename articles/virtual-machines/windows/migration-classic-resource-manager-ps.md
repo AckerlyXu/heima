@@ -3,8 +3,8 @@ title: Migrate to Resource Manager with PowerShell | Azure
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
@@ -74,13 +74,13 @@ Sign in to your account for the Resource Manager model.
 Get the available subscriptions by using the following command:
 
 ```powershell
-    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort Name | Select Name
 ```
 
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.
 
 ```powershell
-    Select-AzureRmSubscription -SubscriptionName "My Azure Subscription"
+    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -348,4 +348,3 @@ If the prepared configuration looks good, you can move forward and commit the re
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--Update_Description: use the new portal instead of the classic portal-->

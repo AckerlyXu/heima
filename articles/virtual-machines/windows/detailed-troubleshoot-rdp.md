@@ -3,8 +3,8 @@ title: Detailed remote desktop troubleshooting in Azure | Azure
 description: Review detailed troubleshooting steps for remote desktop errors where you cannot to a Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: genlin
-manager: timlt
+author: hayley244
+manager: digimobile
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: cannot connect to remote desktop, troubleshoot remote desktop, remote desktop cannot connect, remote desktop errors, remote desktop troubleshooting, remote desktop problems
@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 07/25/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Detailed troubleshooting steps for remote desktop connection issues to Windows VMs in Azure
@@ -106,16 +106,9 @@ If you can connect via Remote Desktop to a virtual machine in the same cloud ser
 To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152-65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Source 4: Network Security Groups
-Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network. Check your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed:
+Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network.
 
-* In the Azure portal, select your VM
-* Click **All settings** | **Network interfaces** and select your network interface.
-* Click **All settings** | **Network security group** and select your network security group.
-* Click **All settings** | **Inbound security rules** and ensure you have a rule allowing RDP on TCP port 3389.
-  * If you do not have a rule, click **Add** to create a rule. Enter **TCP** for the protocol and then **3389** for the destination port range.
-  * Make sure the action is set to **Allow** and click OK to save your new inbound rule.
-
-For more information, see [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
+You can review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

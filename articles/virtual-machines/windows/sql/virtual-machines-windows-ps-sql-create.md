@@ -3,8 +3,8 @@ title: Create a SQL Server Virtual Machine in Azure PowerShell (Resource Manager
 description: Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/17/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Provision a SQL Server virtual machine using Azure PowerShell (Resource Manager)
@@ -65,7 +65,7 @@ Modify as desired and then execute the following cmdlets to initialize these var
 ### Storage properties
 Use the following variables to define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../../../storage/storage-premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../../../storage/common/storage-premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
     $StorageName = $ResourceGroupName + "storage"
     $StorageSku = "Premium_LRS"
