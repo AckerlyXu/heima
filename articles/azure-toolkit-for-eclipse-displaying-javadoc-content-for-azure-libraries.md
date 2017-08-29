@@ -3,8 +3,8 @@ title: Displaying Javadoc Content in Eclipse for the Azure Libraries Package for
 description: How to display the Javadoc content for the Azure Libraries in Eclipse.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 30f8b6a1-1d76-4d1c-861b-1db478c46e6b
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/14/2017
+ms.date: 08/25/2017
 ms.author: v-junlch
----
 
+---
 # Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
 The Javadoc content for the Azure Libraries for Java can be viewed within your Eclipse environment by associating the Javadoc content to the Azure Libraries for Java. The following steps show you how to use this functionality within Eclipse.
 
@@ -25,14 +25,23 @@ This procedure assumes you have already added the Azure Library for Java to your
 
 ## To display Javadoc content in Eclipse for the Azure Libraries for Java
 - Within Eclipse's Project Explorer, in the **Referenced Libraries** section of your project, open the context menu for the Azure Library for Java JAR. For example, **microsoft-windowsazure-api-0.1.0.jar** (the version number may be different, dependent upon which version you have installed).
+
 - Click **Properties**.
+
 - Within the **Properties** dialog, in the left-hand pane, click **Javadoc Location**. The **Javadoc Location** dialog is displayed.
+
 - You can specify a **Javadoc URL**, or a **Javadoc in archive**.
-  - If you choose to specify a **Javadoc URL**, use the URLs such as **http://dl.azure.cn/javadoc** or **http://dl.azure.cn/storage/javadoc**.
-  - If you choose to use **Javadoc in archive**, you can specify an external file, or a workspace file.
-    Make your choice and browse/validate as needed. The following example associates the Azure Libraries for Java with the corresponding Javadoc JAR that has been downloaded locally to a folder named **c:\MyAzureJARs**.
-    ![][ic553487]
-- *Optional*: Click **Validate**. Potential issues with the Javadoc JAR could be displayed here.
+
+   - If you choose to specify a **Javadoc URL**, use the URLs such as **http://dl.azure.cn/javadoc** or **http://dl.azure.cn/storage/javadoc**.
+
+   - If you choose to use **Javadoc in archive**, you can specify an external file, or a workspace file.
+
+   Make your choice and browse/validate as needed. The following example associates the Azure Libraries for Java with the corresponding Javadoc JAR that has been downloaded locally to a folder named **c:\MyAzureJARs**.
+
+   ![][ic553487]
+
+- *Optional Step*: Click **Validate**. Potential issues with the Javadoc JAR could be displayed here.
+
 - Click **OK**.
 
 Once associated with the library, the Javadoc content should display within your Eclipse IDE. For example, if `blob` is defined of type `CloudBlockBlob` within your code, the following is an example of Javadoc content that appears when you type `blob.acquireLease` in code:
@@ -50,14 +59,15 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Java Developer Center]:/develop/java/
-[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
-[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Azure Java Developer Center]: /develop/java
+[Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse
+[Creating a Hello World Application for Azure in Eclipse]: /app-service-web/app-service-web-eclipse-create-hello-world-web-app
+[Installing the Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse-installation/
 
 <!-- IMG List -->
 
 [ic553487]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553487.png
 [ic553488]: ./media/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/ic553488.png
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/hh698319.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh698319.aspx -->
+
