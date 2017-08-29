@@ -231,8 +231,7 @@ When you have an on-premise license, you can save the license fee on your virtua
 ```
 
 ## Next steps
-* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md). To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource.
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
 
 <!--Update_Description: add section "Images for Virtual Machines", section "Virtual Machine extensions" and "Azure Hybrid Use Benefit"-->
