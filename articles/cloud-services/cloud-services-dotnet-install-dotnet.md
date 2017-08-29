@@ -12,9 +12,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/24/2016
+origin.date: 07/24/2017
 ms.author: v-yiso
-ms.date: 04/24/2017
+ms.date: 09/11/2017
 ---
 
 # Install .NET on a Cloud Service Role 
@@ -29,23 +29,28 @@ This article describes how to install different versions of .NET framework on Cl
 The process of installing .NET on your web and worker roles involves including the .NET installer package as part of your Cloud Project and launching the installer as part of the role's startup tasks.  
 
 ## Add the .NET installer to your project
-- Download the the web installer for the .NET framework you want to install
-    - [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
-- For a Web Role
-  1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add>New Folder**. Create a folder named *bin*
-  2. Right click on the **bin** folder and select **Add>Existing Item**. Select the .NET installer and add it to the bin folder.
-- For a Worker Role
-  1. Right click on your role and select **Add>Existing Item**. Select the .NET installer and add it to the role. 
+* Download the web installer for the .NET framework you want to install
+  * [.NET 4.7 Web Installer](http://go.microsoft.com/fwlink/?LinkId=825298)
+  * [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 
-Files added this way to the Role Content Folder will automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
+* For a Web Role
+  1. In **Solution Explorer**, under In **Roles** in the cloud service project right click on your role and select **Add > New Folder**. Create a folder named *bin*
+  2. Right click on the **bin** folder and select **Add > Existing Item**. Select the .NET installer and add it to the bin folder.
+  
+* For a Worker Role
+  1. Right click on your role and select **Add > Existing Item**. Select the .NET installer and add it to the role. 
+
+Files added this way to the Role Content Folder are automatically be added to the cloud service package and deployed to a consistent location on the virtual machine. Repeat this process for all web and worker roles in your Cloud Service so all roles have a copy of the installer.
 
 > [!NOTE]
 > You should install .NET 4.6.1 on your Cloud Service role even if your application targets .NET 4.6. The Azure Guest OS includes updates [3098779](https://support.microsoft.com/zh-cn/kb/3098779) and [3097997](https://support.microsoft.com/zh-cn/kb/3097997). Installing .NET 4.6 on top of these updates may cause issues when running your .NET applications, so you should directly install .NET 4.6.1 instead of .NET 4.6. For more information, see [KB 3118750](https://support.microsoft.com/zh-cn/kb/3118750).
+> 
+> 
 
 ![Role Contents with installer files][1]
 
 ## Define startup tasks for your roles
-Startup tasks allow you to perform operations before a role starts. Installing the .NET Framework as part of the startup task will ensure that the framework is installed before any of your application code is run. For more information on startup tasks see: [Run Startup Tasks in Azure](./cloud-services-startup-tasks.md). 
+Startup tasks allow you to perform operations before a role starts. Installing the .NET Framework as part of the startup task ensures that the framework is installed before any of your application code is run. For more information on startup tasks, see: [Run Startup Tasks in Azure](cloud-services-startup-tasks.md). 
 
 1. Add the following to the *ServiceDefinition.csdef* file under the **WebRole** or **WorkerRole** node for all roles:
 
@@ -66,25 +71,28 @@ Startup tasks allow you to perform operations before a role starts. Installing t
       </Task>
     </Startup>
     ```
-
-    The above configuration will run the console command *install.cmd* with administrator privileges so it can install the .NET framework. The configuration also creates a LocalStorage with the name *NETFXInstall*. The startup script will set the temp folder to use this local storage resource so that the .NET framework installer will be downloaded and installed from this resource. It is important to set the size of this resource to at least 1024MB to ensure the framework will install correctly. For more information about startup tasks see: [Common Cloud Service startup tasks](./cloud-services-startup-tasks-common.md) 
+   
+    The preceding configuration runs the console command *install.cmd* with administrator privileges to install the .NET framework. The configuration also creates a *LocalStorage* with the name *NETFXInstall*. The startup script sets the temp folder to use this local storage resource. It is important to set the size of this resource to at least 1024 MB to ensure the framework installs correctly. For more information about startup tasks, see [Common Cloud Service startup tasks](cloud-services-startup-tasks-common.md) 
 
 2. Create a file **install.cmd** and add it to all roles by right click on the role and selecting **Add>Existing Item...**. So all roles should now have the .NET installer file as well as the install.cmd file.
 
     ![Role Contents with all files][2]
 
     > [!NOTE]
-    > Use a simple text editor like notepad to create this file. If you use Visual Studio to create a text file and then rename it to '.cmd' the file may still contain a UTF-8 Byte Order Mark and running the first line of the script will result in an error. If you were to use Visual Studio to create the file leave add a REM (Remark) to the first line of the file so that it is ignored when run. 
+    > Use a basic text editor like notepad to create this file. If you use Visual Studio to create a text file and then rename it to '.cmd', the file may still contain a UTF-8 Byte Order Mark and running the first line of the script will result in an error. Make sure the first line of the file is a REM command, this may skip the UTF-8 Byte Order Mark processing. 
+    > 
+    > 
 
 3. Add the following script to the **install.cmd** file:
-
-    ```
+   
+    ```cmd
     REM Set the value of netfx to install appropriate .NET Framework. 
     REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    set netfx="NDP461"
+    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
+    set netfx="NDP47"
 
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
@@ -99,6 +107,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     set TEMP=%PathToNETFXInstall%
 
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
     if %netfx%=="NDP46" goto NDP46
@@ -119,6 +128,10 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
+
+    :NDP47
+    set "netfxinstallfile=NDP47-KB3186500-Web.exe"
+    set netfxregkey="0x707FE"
 
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
@@ -165,11 +178,13 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 
     > [!NOTE]
     > The script still shows you how to install .NET 4.5.2 or .NET 4.6 for continuity. There is no need to install .NET 4.5.2 manually as it is already available on Azure Guest OS. Instead of installing .NET 4.6 you should directly install .NET 4.6.1 due to [KB 3118750](https://support.microsoft.com/zh-cn/kb/3118750).
+    > 
+    > 
 
 ## Configure diagnostics to transfer the startup task logs to blob storage 
-To simplify troubleshooting any install issues you can configure Azure Diagnostics to transfer any log files generated by the startup script or the .NET installer to blob storage. With this approach you can view the logs by simply downloading the log files from blob storage rather than having to remote desktop into the role.
+To simplify troubleshooting any install issues you can configure Azure Diagnostics to transfer any log files generated by the startup script or the .NET installer to blob storage. With this approach, you can view the logs by simply downloading the log files from blob storage rather than having to remote desktop into the role.
 
-To configure diagnostics open the *diagnostics.wadcfgx* and add the following under the **Directories** node: 
+To configure diagnostics, open the *diagnostics.wadcfgx* and add the following under the **Directories** node: 
 
 ```xml 
 <DataSources>
@@ -179,16 +194,15 @@ To configure diagnostics open the *diagnostics.wadcfgx* and add the following un
 </DataSources>
 ```
 
-This will configure azure diagnostics to transfer all files in the *log* directory under the *NETFXInstall* resource to the diagnostics storage account in the *netfx-install* blob container.
+This xml configures azure diagnostics to transfer all files in the *log* directory under the *NETFXInstall* resource to the diagnostics storage account in the *netfx-install* blob container.
 
-## Deploying your service 
-When you deploy your service the startup tasks will run and install the .NET framework if it is not already installed. Your roles will be in the busy state while the framework is installing and may even restart if the framework install requires it. 
+## Deploying your service
+When you deploy your service, the startup tasks install the .NET framework if it is not already installed. Your roles are in the *busy* state while the framework is installing, and may even restart if the framework install requires it. 
 
 ## Additional Resources
-
-- [Installing the .NET Framework][]
-- [How to: Determine Which .NET Framework Versions Are Installed][]
-- [Troubleshooting .NET Framework Installations][]
+* [Installing the .NET Framework][Installing the .NET Framework]
+* [How to: Determine Which .NET Framework Versions Are Installed][How to: Determine Which .NET Framework Versions Are Installed]
+* [Troubleshooting .NET Framework Installations][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/zh-cn/library/hh925568.aspx
 [Installing the .NET Framework]: https://msdn.microsoft.com/zh-cn/library/5a4x27ek.aspx

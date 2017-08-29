@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yiso
 ---
 
@@ -33,7 +33,7 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Azure target environments.
 
-You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services] .
+You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. 
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you
