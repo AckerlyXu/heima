@@ -3,8 +3,8 @@ title: Azure Role Properties
 description: Learn how to use the Azure Toolkit for Eclipse to configure Azure role settings.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 5c0ec412-5702-465a-8f47-87a8ce99a267
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/14/2017
+ms.date: 08/25/2017
 ms.author: v-junlch
----
 
+---
 # Azure Role Properties
 Various configuration settings for your Azure role can be set within the Azure Toolkit for Eclipse.
 
@@ -30,17 +30,17 @@ The various properties that can be set from the **Properties** dialogs are descr
 
 The following property pages are available for Azure roles.
 
-* [Virtual machine properties](#virtual_machine_properties)
-* [Caching properties](#caching_properties)
-* [Certificates properties](#certificates_properties)
-* [Components properties](#components_properties)
-* [Debugging properties](#debugging_properties)
-* [Endpoints properties](#endpoints_properties)
-* [Environment variables properties](#environment_variables_properties)
-* [Load balancing / session affinity (a.k.a "sticky sessions") properties](#session_affinity_properties)
-* [Local storage properties](#local_storage_properties)
-* [Server configuration properties](#server_configuration_properties)
-* [SSL offloading properties](#ssl_offloading_properties)
+- [Virtual machine properties](#virtual_machine_properties)
+- [Caching properties](#caching_properties)
+- [Certificates properties](#certificates_properties)
+- [Components properties](#components_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
+- [Endpoints properties](#endpoints_properties)
+- [Environment variables properties](#environment_variables_properties)
+- [Load balancing / session affinity (a.k.a "sticky sessions") properties](#session_affinity_properties)
+- [Local storage properties](#local_storage_properties)
+- [Server configuration properties](#server_configuration_properties)
+- [SSL offloading properties](#ssl_offloading_properties)
 
 <a name="virtual_machine_properties"></a>
 
@@ -49,8 +49,10 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 
 ![][ic719499]
 
->[!NOTE]
+> [!NOTE]
 > Windows only: when you set the number of instances to a value greater than 1 and you also configure an application server, the toolkit will allow only 1 role instance to run in the emulator, regardless of this setting. This is to avoid port binding conflicts between the different server instances (for example, all trying to bind to port 8080) when they run on the same computer. Your desired instance count setting is preserved, but it goes into effect only when you deploy to the cloud.
+> 
+> 
 
 <a name="caching_properties"></a> 
 
@@ -61,25 +63,27 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 
 Within the **Caching** property page, you can specify global settings for the following:
 
-* whether co-located caching is enabled.
-* the cache size as a percent of memory.
-* the storage account name for saving the cache state when your application runs as a cloud service, or none if you do not want to save the cache state. (The storage account name is not used when you run your application in the compute emulator.) If you set the storage account name to **(auto)** (which is the default), your caching configuration will automatically use the same storage account as the one you select in the **Publish to Azure** dialog.
+- whether co-located caching is enabled.
+- the cache size as a percent of memory.
+- the storage account name for saving the cache state when your application runs as a cloud service, or none if you do not want to save the cache state. (The storage account name is not used when you run your application in the compute emulator.) If you set the storage account name to **(auto)** (which is the default), your caching configuration will automatically use the same storage account as the one you select in the **Publish to Azure** dialog.
 
->[!NOTE]
-> The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][], the deployment will not function properly.
+> [!NOTE]
+> The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][Azure Management Portal], the deployment will not function properly.
+> 
+> 
 
 The following dialog shows the properties for a cache.
 
 ![][ic719501]
 
-* **Name:** The name of the co-located cache.
-* **Port number:** The port number to use for the cache.
-* **Expiration policy:** One of the following values that specifies when a key in the cache expires.
-  * **Absolute:** The key expires when the time specified by **Minutes to live** is reached.
-  * **NeverExpires:** The key does not have an expiration time.
-  * **SlidingWindow:** The key expires if it has not been accessed for the amount of time specified by **Minutes to live**; each time it is accessed, the expiration clock is reset.
-* **Minutes to live:** Maximum number of minutes for a memcached key to live, subject to the expiration policy.
-* **High availability with replicated backups on different role instances:** If enabled, helps provide high availability utilizing replicated backups on different role instances. Note that at least two role instances must be in effect for your deployment for this feature to work.
+- **Name:** The name of the co-located cache.
+- **Port number:** The port number to use for the cache.
+- **Expiration policy:** One of the following values that specifies when a key in the cache expires.
+  - **Absolute:** The key expires when the time specified by **Minutes to live** is reached.
+  - **NeverExpires:** The key does not have an expiration time.
+  - **SlidingWindow:** The key expires if it has not been accessed for the amount of time specified by **Minutes to live**; each time it is accessed, the expiration clock is reset.
+- **Minutes to live:** Maximum number of minutes for a memcached key to live, subject to the expiration policy.
+- **High availability with replicated backups on different role instances:** If enabled, helps provide high availability utilizing replicated backups on different role instances. Note that at least two role instances must be in effect for your deployment for this feature to work.
 
 To add a new cache, click the **Add** button in the **Caching** property page, and a **Configure Named Cache** dialog will be opened. Provide values for the properties which are described above.
 
@@ -111,36 +115,39 @@ The components feature enables you to add dependencies to your Azure deployment 
 
 For each component, you can specify:
 
-* The step to be taken when importing the component into your Azure deployment project when it is built.
-* The step to be taken when deploying that component in the Azure cloud.
+- The step to be taken when importing the component into your Azure deployment project when it is built.
+- The step to be taken when deploying that component in the Azure cloud.
 
->[!NOTE]
+> [!NOTE]
 > When specifying component files or command lines, keep in mind that your deployment will be published to a Windows virtual machine, so your custom steps must be valid for a Windows-based operating system. 
+> 
+> 
 
 Components have the following properties:
 
-* **Import:** Method that indicates how the component will be imported into the project when the project is built. This can be one of the following values:
-  * **copy:** The component is copied from the local path specified by the **From** property into the role's **approot** directory.
-  * **EAR:** The component is a Java enterprise archive (EAR) imported from an Enterprise Application Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
-  * **JAR:** The component is a Java archive (JAR) and is imported from a Java project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
-  * **none:** No action is taken to import the component. This is applicable when the component is assumed to already be present in the role's **approot** directory, or when the component is merely an executable command line statement, as specified in the **As** property when the **Deploy** method is **exec**.
-  * **WAR:** The component is a Java web application archive (WAR) and is imported from a Dynamic Web Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
-  * **zip:** The component is a zip file and is imported by zipping the directory or file specified by the **From** property.
-* **From:** Source path on your local machine to the folder or file that represents the item(s) to import to your deployment. Windows environment variables can be used in this property. All importable components will be imported into the role's **approot** directory when the project is built.
-
+- **Import:** Method that indicates how the component will be imported into the project when the project is built. This can be one of the following values:
+  - **copy:** The component is copied from the local path specified by the **From** property into the role's **approot** directory.
+  - **EAR:** The component is a Java enterprise archive (EAR) imported from an Enterprise Application Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
+  - **JAR:** The component is a Java archive (JAR) and is imported from a Java project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
+  - **none:** No action is taken to import the component. This is applicable when the component is assumed to already be present in the role's **approot** directory, or when the component is merely an executable command line statement, as specified in the **As** property when the **Deploy** method is **exec**.
+  - **WAR:** The component is a Java web application archive (WAR) and is imported from a Dynamic Web Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
+  - **zip:** The component is a zip file and is imported by zipping the directory or file specified by the **From** property.
+- **From:** Source path on your local machine to the folder or file that represents the item(s) to import to your deployment. Windows environment variables can be used in this property. All importable components will be imported into the role's **approot** directory when the project is built.
+  
     Note that you have the ability to deploy a component from a download when deploying to the cloud (not the compute emulator). See related information below about adding a component.    
-* **As:** File name under which the component will be imported into the role's **approot** directory and ultimately deployed in the Azure cloud. Leave this property blank to keep the name the same as it is on the local machine. (For executable components, that is, those whose **Deploy** method is set to **exec**, this can be an arbitrary Windows command line statement.)
-
-    >[!IMPORTANT]
-    > If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
-
-* **Deploy:** Method that indicates the action applied to the component when the deployment is started. This can be one of the following values:
-
-  * **copy:** The component is copied to the destination path specified by the **To** property.
-  * **exec:** The component is an executable Windows command line statement executed in the context of the path specified by the **To** property, at the time the deployment starts.
-  * **none:** No action is applied to the component when the deployment starts.
-  * **zip:** The component is unzipped to the destination path specified by the **To** property. This method is available only when the **Import** property is **zip**.
-* **To:** Destination path on the virtual machine where the component will be deployed. Windows environment variables can be used in this property, and file paths are relative to **approot**.
+- **As:** File name under which the component will be imported into the role's **approot** directory and ultimately deployed in the Azure cloud. Leave this property blank to keep the name the same as it is on the local machine. (For executable components, that is, those whose **Deploy** method is set to **exec**, this can be an arbitrary Windows command line statement.)
+  
+  > [!IMPORTANT]
+  > If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
+  > 
+  > 
+- **Deploy:** Method that indicates the action applied to the component when the deployment is started. This can be one of the following values:
+  
+  - **copy:** The component is copied to the destination path specified by the **To** property.
+  - **exec:** The component is an executable Windows command line statement executed in the context of the path specified by the **To** property, at the time the deployment starts.
+  - **none:** No action is applied to the component when the deployment starts.
+  - **zip:** The component is unzipped to the destination path specified by the **To** property. This method is available only when the **Import** property is **zip**.
+- **To:** Destination path on the virtual machine where the component will be deployed. Windows environment variables can be used in this property, and file paths are relative to **approot**.
 
 To add a new component, click the **Add** button in the **Components** property page, and an **Azure Role Component** dialog will be opened. Provide values for the properties which are described above. 
 
@@ -150,9 +157,9 @@ The following shows an example for adding a new WAR component.
 
 When deploying to the cloud (not the compute emulator), if you want to deploy the component from a download, ensure that **When in cloud, instead of including in the package, deploy from** is checked. If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your component in the **URL** field. Specify one of the following methods:
 
-* **copy:** The download component is copied to the destination path specified by the **To Directory** path.
-* **same:** The same method used for **Deploy from download** as for **Deploy from package**.
-* **zip:** The download component is unzipped to the destination path specified by the **To Directory** path.
+- **copy:** The download component is copied to the destination path specified by the **To Directory** path.
+- **same:** The same method used for **Deploy from download** as for **Deploy from package**.
+- **zip:** The download component is unzipped to the destination path specified by the **To Directory** path.
 
 To modify a component, select the component and click the **Edit** button in the **Components** property page. A dialog will be opened allowing you to modify the component properties. Press **OK** to save the component values.
 
@@ -160,17 +167,19 @@ To delete a component, select the component and click the **Remove** button in t
 
 Components are processed in the order listed. Use the **Move Up** and **Move Down** buttons to arrange the order.
 
->[!NOTE]
+> [!NOTE]
 > The server configuration feature relies on components as well. Those components cannot be removed or edited without removing the corresponding server configuration. You will be prompted about that when attempting to make changes to such components.
+> 
+> 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### Debugging properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse].
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -187,21 +196,21 @@ Enter a name for the endpoint, select the type (either **Input**, **Internal**, 
 
 Depending on the type of endpoint, you may use port ranges as follows:
 
-* For an input instance endpoint, the public port can be a range of ports (for example **2000-2010**) and the private port is a fixed value.
-* For an internal endpoint, the public port is not used, and the private port can be a range, or left blank or set to an asterisk to indicate it is automatically set by Azure.
-* For input endpoints, the public port can only be a fixed value, and the private port can be a fixed value, or left blank or set to an asterisk to indicate it is automatically set by Azure.
+- For an input instance endpoint, the public port can be a range of ports (for example **2000-2010**) and the private port is a fixed value.
+- For an internal endpoint, the public port is not used, and the private port can be a range, or left blank or set to an asterisk to indicate it is automatically set by Azure.
+- For input endpoints, the public port can only be a fixed value, and the private port can be a fixed value, or left blank or set to an asterisk to indicate it is automatically set by Azure.
 
 If you want to use a single port number instead of a range, leave the text box for the end of the range blank.
 
 For ports that are set to automatic, if you need to determine which port is actually used during runtime, your application can use the Azure Service Runtime API, which is documented in the [com.microsoft.windowsazure.serviceruntime package summary][com.microsoft.windowsazure.serviceruntime package summary].
 
-To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment].
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 To modify an endpoint, select the endpoint and click the **Edit** button in the **Endpoints** property page. A dialog will be opened allowing you to modify the endpoint name, type, and public and private ports. Press **OK** to save the modified endpoint values.
 
 To delete an endpoint, select the endpoint and click the **Remove** button in the **Endpoints** property page, and then click **Yes** to confirm the deletion.
 
-In order to properly configure some of the features (such as Caching, Remote Debugging, Session Affinity, or SSL offloading) enabled by the user on a role, the toolkit may automatically configure special endpoints that will be listed along with user-defined endpoints. The toolkit prevents the user from editing or deleting such automatically generated endpoints as long as the associated feature is enabled.
+In order to properly configure some of the features (such as Caching, Session Affinity, or SSL offloading) enabled by the user on a role, the toolkit may automatically configure special endpoints that will be listed along with user-defined endpoints. The toolkit prevents the user from editing or deleting such automatically generated endpoints as long as the associated feature is enabled.
 
 <a name="environment_variables_properties"></a> 
 
@@ -212,8 +221,10 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 
 Environment variables are available to your startup script when the role starts.
 
->[!NOTE]
+> [!NOTE]
 > When specifying environment variables, keep in mind that your deployment will be published to a Windows virtual machine, so your environment variables must be valid for a Windows-based operating system.
+> 
+> 
 
 As an example of an environment variable being available when the role starts, create a new environment variable by clicking the **Add** button. The following shows an environment variable named **MyRoleVersion** being created and assigned the value **1.0**.
 
@@ -221,12 +232,10 @@ As an example of an environment variable being available when the role starts, c
 
 Within your jsp code, you could display the value using the `System.getenv` method:
 
-```
-<body>
-  <b> Hello World!</b>
-  <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
-</body>
-```
+    <body>
+      <b> Hello World!</b>
+      <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
+    </body>
 
 Resulting in this output when your application runs:
 
@@ -284,8 +293,8 @@ Note: On non-Windows operating systems, the **Emulator deployment** settings and
 
 Regardless of the operating system you are on, you have the following two **Cloud deployment** options for the source and type of your JDK package:
 
-* **Deploy a 3rd party JDK package available on Azure** 
-* **Deploy from a custom download** 
+- **Deploy a 3rd party JDK package available on Azure** 
+- **Deploy from a custom download** 
 
 If you are using the **Deploy a 3rd party JDK package available from Azure** option:
 
@@ -348,9 +357,9 @@ If you are using the **Deploy my local server (auto-upload to cloud storage)** o
 
 Select a server installation path on your computer in the **Local server path** text box if any of the following conditions are true:
 
-* You want to test your deployment in the emulator (applies to Windows only).
-* You want to deploy your locally installed server to the cloud.
-* You want to use a custom server download of your own in the cloud, in which case, also ensure the **Deploy my local server (auto-upload to cloud storage)** option is selected above.
+- You want to test your deployment in the emulator (applies to Windows only).
+- You want to deploy your locally installed server to the cloud.
+- You want to use a custom server download of your own in the cloud, in which case, also ensure the **Deploy my local server (auto-upload to cloud storage)** option is selected above.
 
 If none of the preceding options apply to your situation, the local server setting is optional.
 
@@ -368,11 +377,11 @@ Changes made through the **Server configuration** property page are reflected in
 
 When you use the **Automatically upload...** or **Deploy from download...** options for either the JDK or application server, and you are building for the cloud (not the compute emulator), and you are connected to the network, you may notice build messages such as the following in the Console output, as the Ant builder verifies the download's availability:
 
-`[windowsazurepackage] Verifying blob availability (https://example.blob.core.windows.net/temp/tomcat6.zip)...` 
+`[windowsazurepackage] Verifying blob availability (https://example.blob.core.chinacloudapi.cn/temp/tomcat6.zip)...` 
 
 If you selected the **Deploy from download...** option, the following warning may be shown, but the build will continue:
 
-`[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).` 
+`[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.chinacloudapi.cn/temp/tomcat6.zip).` 
 
 This warning is the only indication that the download's availability hasn't been verified. So if a deployment fails in the cloud for some reason, check to see if you received this warning.
 
@@ -406,21 +415,21 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Java Developer Center]:/develop/java/
+[Azure Java Developer Center]: /develop/java
 [Azure Management Portal]: https://manage.windowsazure.cn
-[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
-[Azure Project Properties]:./azure-toolkit-for-eclipse-azure-project-properties.md
-[Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
+[Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse
+[Azure Project Properties]: /azure-toolkit-for-eclipse-azure-project-properties
+[Azure Storage Account List]: /azure-toolkit-for-eclipse-azure-storage-account-list/
 [com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Debugging a specific role instance in a multi-instance deployment]:./azure-toolkit-for-eclipse-debugging-azure-applications.md#debugging_specific_role_instance
-[Debugging Azure Applications in Eclipse]:./azure-toolkit-for-eclipse-debugging-azure-applications.md
-[Deploying Large Deployments]:./azure-toolkit-for-eclipse-deploying-large-deployments.md
-[How to Use Co-located Caching]: /develop/java/
-[How to Use SSL Offloading]: /develop/java/
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Session Affinity]:./azure-toolkit-for-eclipse-enable-session-affinity.md
-[SSL Offloading]: /develop/java/
+[Creating a Hello World Application for Azure in Eclipse]: /app-service-web/app-service-web-eclipse-create-hello-world-web-app
+[Debugging a specific role instance in a multi-instance deployment]: /azure-toolkit-for-eclipse-debugging-azure-applications#debugging_specific_role_instance
+[Debugging Azure Applications in Eclipse]: /azure-toolkit-for-eclipse-debugging-azure-applications
+[Deploying Large Deployments]: /azure-toolkit-for-eclipse-deploying-large-deployments
+[How to Use Co-located Caching]: /develop/java
+[How to Use SSL Offloading]: /develop/java
+[Installing the Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse-installation/
+[Session Affinity]: /azure-toolkit-for-eclipse-enable-session-affinity
+[SSL Offloading]: /develop/java
 
 <!-- IMG List -->
 
@@ -447,4 +456,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/hh690945.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
+

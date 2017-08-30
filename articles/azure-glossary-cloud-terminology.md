@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure glossary - Azure dictionary | Microsoft Docs
 description: Use the Azure glossary to understand cloud terminology on the Azure platform. This short Azure dictionary provides definitions for common cloud terms for Azure.
 keywords: Azure dictionary, cloud terminology, Azure glossary, terminology definitions, cloud terms
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 08/01/2017
+origin.date: 08/16/2017
+ms.date: 08/29/2017
 ms.author: v-junlch
 
 ---
@@ -27,8 +27,8 @@ The Azure glossary is a short dictionary of cloud terminology for the Azure plat
 - [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
 
 ## <a name="account"></a>Account
-A work or school, or personal Microsoft account that is used to access and manage an Azure subscription.  
-See [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [trial](https://www.azure.cn/pricing/1rmb-trial).  
+See [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in).
 
 ## API app
 Another name for [App Service app](#app-service-app).
@@ -102,16 +102,16 @@ See [Azure Resource Manager overview](azure-resource-manager/resource-group-over
 A means for controlling access that can be assigned to users, groups, and services. Roles are able to perform actions such as create, manage, and read on Azure resources.  
 See [RBAC: Built-in roles](active-directory/role-based-access-built-in-roles.md)
 
-## <a name="sla"></a>Service Level Agreement (SLA)
+## <a name="sla"></a>service level agreement (SLA)
 The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
 See [Service Level Agreements](https://www.azure.cn/support/legal/sla/)
 
-## <a name="sas"></a>Shared Access Signature (SAS)
-A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
+## <a name="sas"></a>shared access signature (SAS)
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
 
 ## <a name="storage-account"></a>Storage Account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  
-See [About Azure storage accounts](storage/storage-create-storage-account.md)
+See [About Azure storage accounts](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>Subscription
 A customer's agreement with Microsoft that enables them to obtain Azure services. The subscription pricing and related terms are governed by the offer chosen for the subscription.
@@ -125,15 +125,15 @@ See [Using tags to organize your Azure resources](resource-group-using-tags.md)
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  
 See [Manage the availability of Windows virtual machines](virtual-machines/windows/manage-availability.md) and [Manage the availability of Linux virtual machines](virtual-machines/linux/manage-availability.md)
 
-## <a name="vm"></a>Virtual Machine
+## <a name="vm"></a>virtual machine
 The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes.  
 See [Virtual Machines documentation](/virtual-machines/)
 
-## <a name="vm-extension"></a>Virtual Machine Extension
+## <a name="vm-extension"></a>virtual machine extension
 A resource that implements behaviors or features that either help other programs work or provide the ability for you to interact with a running computer. For example, you could use the VM Access extension to reset or modify remote access values on an Azure virtual machine.
 See [About virtual machine extensions and features (Windows)](virtual-machines/windows/extensions-features.md) or [About virtual machine extensions and features (Linux)](virtual-machines/linux/extensions-features.md)
 
-## <a name="vnet"></a>Virtual Network
+## <a name="vnet"></a>virtual network
 A network that provides connectivity between your Azure resources that is isolated from all other Azure tenants. An [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) lets you establish connections between virtual networks and [between a virtual network and an on-premises network](vpn-gateway/vpn-gateway-plan-design.md). You can fully control the IP address blocks, DNS settings, security policies, and route tables within a virtual network.  
 See [Virtual Network Overview](virtual-network/virtual-networks-overview.md)  
 

@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 07/13/2017
+origin.date: 08/17/2016
+ms.date: 08/29/2017
 ms.author: v-junlch
 
 ---
@@ -96,3 +96,4 @@ For more information, see the [Node.js Developer Center](/develop/nodejs/).
 [work with modules]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
 
+<!--Update_Description: update metadata properties -->  
