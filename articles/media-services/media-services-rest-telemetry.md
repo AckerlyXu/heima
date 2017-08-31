@@ -3,8 +3,8 @@ title: Configuring Azure Media Services telemetry with REST| Azure
 description: This article shows you how to use the Azure Media Services telemetry using REST API..
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/12/2017
-ms.date: 02/24/2017
-ms.author: v-johch
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Configuring Azure Media Services telemetry with REST
@@ -23,7 +23,7 @@ ms.author: v-johch
 This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using REST API. 
 
 >[!NOTE]
->For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](./media-services-telemetry-overview.md) topic.
+>For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
 
 The steps described in this topic are:
 
@@ -233,10 +233,6 @@ Date: Wed, 02 Dec 2015 05:10:43 GMT
 {"d":{"__metadata":{"id":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbjbclus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
 ```
 
-## Consuming telemetry information
-
-For information about consuming telemetry information, see [this](./media-services-telemetry-overview.md) topic.
-
 ## Stop telemetry
 
 ###Request
@@ -251,3 +247,7 @@ Authorization: (redacted)
 Content-Type: application/json; charset=utf-8
 Host: wamsbjbclus001rest-hs.chinacloudapp.cn
 ```
+## Consuming telemetry information
+
+For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.
+

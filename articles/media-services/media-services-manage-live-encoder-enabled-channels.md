@@ -3,8 +3,8 @@ title: Live streaming using Azure Media Services to create multi-bitrate streams
 description: 'This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
-author: anilmur
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 02/24/2017
-ms.author: v-johch
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 # Live streaming using Azure Media Services to create multi-bitrate streams
 
@@ -23,23 +23,23 @@ ms.author: v-johch
 
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
-- An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
-
-- An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
-
+* An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTP (MPEG-TS), RTMP, or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+  
     >[!NOTE]
     > Using a pass-through method is the most economical way to do live streaming.
 
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
 
-- **None** - Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Live streaming with on-premise encoders that create multi-bitrate streams](./media-services-live-streaming-with-onprem-encoders.md).
+* **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream (a pass-through stream). In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+* **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
 
-- **Standard** – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges.
-
->[!NOTE]
->This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Live streaming with on-premise encoders that create multi-bitrate streams](./media-services-live-streaming-with-onprem-encoders.md).
->
->Make sure to review the [Considerations](./media-services-manage-live-encoder-enabled-channels.md#Considerations) section.
+> [!NOTE]
+> This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Live streaming with on-premises encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md).
+> 
+> Make sure to review the [Considerations](media-services-manage-live-encoder-enabled-channels.md#Considerations) section.
+> 
+> 
 
 ## Billing Implications
 
@@ -61,12 +61,12 @@ The current state of a Channel. Possible values include:
 
 The following table shows how Channel states map to the billing mode.
 
-Channel state|Portal UI Indicators|Is it Billing?
----|---|---
-Starting|Starting|No (transient state)
-Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|YES
-Stopping|Stopping|No (transient state)
-Stopped|Stopped|No
+| Channel state | Portal UI Indicators | Is it Billing? |
+| --- | --- | --- |
+| Starting |Starting |No (transient state) |
+| Running |Ready (no running programs)<br/>or<br/>Streaming (at least one running program) |YES |
+| Stopping |Stopping |No (transient state) |
+| Stopped |Stopped |No |
 
 ### Automatic shut-off for unused Channels
 
@@ -150,19 +150,9 @@ Considerations:
   * MPEG Audio (Layer II and III)
     * Mono, Stereo
 * Recommended broadcast encoders include:
-  * Ateme AM2102
-  * Ericsson AVP2000
-  * eVertz 3480
-  * Ericsson RX8200
+  
   * Imagine Communications Selenio ENC 1
   * Imagine Communications Selenio ENC 2
-  * AdTec EN-30
-  * AdTec EN-91P
-  * AdTec EN-100
-  * Harmonic ProStream 1000
-  * Thor H-2 4HD-EM
-  * eVertz 7880 SLKE
-  * Cisco Spinnaker
   * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>Single bitrate RTMP
@@ -184,7 +174,6 @@ Considerations:
 * Recommended encoders include:
 * Telestream Wirecast
 * Flash Media Live Encoder
-* Tricaster
 
 #### Single bitrate Fragmented MP4 (Smooth Streaming)
 
@@ -194,7 +183,7 @@ Use on-premises live encoders from vendors like Elemental Technologies, Ericsson
 
 Considerations:
 
-Same as for [single bitrate RTMP](./media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
+Same as for [single bitrate RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
 #### Other considerations
 
@@ -236,8 +225,10 @@ You can define the IP addresses that are allowed to connect to the preview endpo
 
 This section describes how the settings for the live encoder within the Channel can be adjusted, when the **Encoding Type** of a Channel is set to **Standard**.
 
->[!NOTE]
->When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](./media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+> [!NOTE]
+> When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+> 
+> 
 
 ### Ad marker source
 
@@ -315,8 +306,7 @@ The duration, in seconds, of the commercial break. This has to be a non-zero pos
 A Unique ID for the commercial break, to be used by downstream application to take appropriate action(s). Needs to be a positive integer. You can set this value to any random positive integer or use an upstream system to track the Cue Ids. Make certain to normalize any ids to positive integers before submitting through the API.
 
 ### Show slate
-
-Optional. Signals the live encoder to switch to the [default slate](./media-services-manage-live-encoder-enabled-channels.md#default_slate) image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**.
+Optional. Signals the live encoder to switch to the [default slate](media-services-manage-live-encoder-enabled-channels.md#default_slate) image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**. 
 
 The image used will be the one specified via the default slate asset Id property at the time of the channel creation. 
 The slate will be stretched to fit the display image size. 
@@ -397,38 +387,37 @@ The following table shows how Channel states map to the billing mode.
 
 ## <a id="Considerations"></a>Considerations
 
-- When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
-- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
-- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
-- By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](./media-services-quotas-and-limitations.md).
-- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
-- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](./media-services-manage-live-encoder-enabled-channels.md#states) section.
-- Currently, the max recommended duration of a live event is 8 hours. 
-- Make sure to have the streaming endpoint from which you want to stream content in the **Running** state.
-- When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](./media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
-- The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
-- Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
+* When a Channel of **Standard** encoding type experiences a loss of input source/contribution feed, it compensates for it by replacing the source video/audio with an error slate and silence. The Channel will continue to emit a slate until the input/contribution feed resumes. We recommend that a live channel not be left in such a state for longer than 2 hours. Beyond that point, the behavior of the Channel on input reconnection is not guaranteed, neither is its behavior in response to a Reset command. You will have to stop the Channel, delete it and create a new one.
+* You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+* Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
+* A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
+* By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+* You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+* You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
+* Currently, the max recommended duration of a live event is 8 hours. 
+* Make sure to have the streaming endpoint from which you want to stream content in the **Running** state.
+* When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+* The encoding preset uses the notion of "max frame rate" of 30 fps. So if the input is 60fps/59.97i, the input frames are dropped/de-interlaced to 30/29.97 fps. If the input is 50fps/50i, the input frames are dropped/de-interlaced to 25 fps. If the input is 25 fps, output remains at 25 fps.
+* Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue.
 
 ## Known Issues
-
-- Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
-- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
-- Slate images should conform to restrictions described [here](./media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
-- Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
+* Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
+* RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+* Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
+* Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
 ## Related topics
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
-[Delivering Live Streaming Events with Azure Media Services](./media-services-overview.md)
+[Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 
-[Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with Portal](./media-services-portal-creating-live-encoder-enabled-channel.md)
-
-[Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](./media-services-dotnet-creating-live-encoder-enabled-channel.md)
+[Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+ 
+[Media Services Concepts](media-services-concepts.md)
 
-[Media Services Concepts](./media-services-concepts.md)
-
-[Azure Media Services Fragmented MP4 Live Ingest Specification](./media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
+<!--Update_Description: remove several recommended encoder-->

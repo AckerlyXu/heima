@@ -3,8 +3,8 @@ title: Configuring asset delivery policies using Media Services REST API | Azure
 description: This topic shows how to configure different asset delivery policies using Media Services REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: dwrede
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 08/07/2017
+origin.date: 08/10/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -27,7 +27,7 @@ If you plan to deliver dynamically encrypted assets, one of the steps in the Med
 This topic discusses why and how to create and configure asset delivery policies.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 >
 >Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
@@ -41,37 +41,32 @@ The following list shows the formats that you use to stream Smooth, HLS, DASH.
 
 Smooth Streaming:
 
-```
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
-```
 
 HLS:
 
-```
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-```
 
 MPEG DASH
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](./media-services-deliver-streaming-content.md).
+
+For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](media-services-deliver-streaming-content.md).
 
 ## Considerations
-
-- You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
-- A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
-- You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
-- If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
+* You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
+* A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
+* You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
+* If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
 >[!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
->
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
->
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md).
+
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## Clear asset delivery policy
 
@@ -84,7 +79,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
 Request:
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
 Content-Type: application/json
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -110,7 +105,7 @@ HTTP/1.1 201 Created
 Cache-Control: no-cache
 Content-Length: 363
 Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Location: https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
+Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
 Server: Microsoft-IIS/8.5
 x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
 request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
@@ -122,7 +117,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Sun, 08 Feb 2015 06:21:27 GMT
 
 {
-    "odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
+    "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
     "Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
     "Name":"Clear Policy",
     "AssetDeliveryProtocol":7,
@@ -140,7 +135,7 @@ The following HTTP request links the specified asset to the asset delivery polic
 Request:
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
@@ -151,7 +146,7 @@ x-ms-version: 2.11
 x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
 Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
-{"uri":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
+{"uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 ```
 
 Response:
@@ -164,7 +159,7 @@ HTTP/1.1 204 No Content
 
 ### Create content key of the EnvelopeEncryption type and link it to the asset
 
-When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
+When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Get delivery URL
 
@@ -175,7 +170,7 @@ Specify the type of the URL to get in the body of the HTTP request. If you are p
 Request:
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
 Content-Type: application/json
 MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
@@ -220,7 +215,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
 Request:
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
 Content-Type: application/json
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -256,14 +251,11 @@ Date: Mon, 09 Feb 2015 05:24:38 GMT
 ```
 
 ### Link asset with asset delivery policy
-
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
-## DynamicCommonEncryption asset delivery policy 
-
+## DynamicCommonEncryption asset delivery policy
 ### Create content key of the CommonEncryption type and link it to the asset
-
-When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
+When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).
 
 ### Get Delivery URL
 
@@ -278,7 +270,7 @@ For information on what values you can specify when creating an AssetDeliveryPol
 Request:
 
 ```
-POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
 Content-Type: application/json
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -439,4 +431,3 @@ public enum AssetDeliveryPolicyConfigurationKey
 }
 ```
 
-<!--Update_Description: update code-->

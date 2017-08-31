@@ -3,8 +3,8 @@ title: Get started with delivering content on demand using REST | Azure
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: v-johch
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Get started with delivering content on demand using REST
@@ -34,13 +35,13 @@ Click the image to view it full size.
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
 * An Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
 * An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler).
 
 The following tasks are shown in this quickstart.
 
-1. Start streaming endpoint (using the Azure Classic Management portal).
+1. Start streaming endpoint (using the Azure portal).
 2. Connect to the Media Services account with REST API.
 3. Create a new asset and upload a video file with REST API.
 4. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
@@ -50,10 +51,12 @@ The following tasks are shown in this quickstart.
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
+For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
 
-For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](./media-services-concepts.md).
+>[!NOTE]
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
-## Start streaming endpoints using the Azure Classic Management portal
+## Start streaming endpoints using the Azure portal
 
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
@@ -62,9 +65,9 @@ When working with Azure Media Services one of the most common scenarios is deliv
 
 To start the streaming endpoint, do the following:
 
-1. Log in at the [Azure Classic Management portal](https://manage.windowsazure.cn/).
-2. Click Streaming endpoints. 
-3. Click the default streaming endpoint. 
+1. Log in at the [Azure portal](https://portal.azure.cn/).
+2. In the Settings window, click Streaming endpoints.
+3. Click the default streaming endpoint.
 
     The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
@@ -72,119 +75,8 @@ To start the streaming endpoint, do the following:
 5. Click the Save button to save your changes.
 
 ## <a id="connect"></a>Connect to the Media Services account with REST API
-Two things are required when accessing Azure Media Services: an access token provided by Azure Access Control Services (ACS), and the URI of Media Services itself. You can use any means you want when creating these requests as long as you specify the correct header values and pass in the access token correctly when calling into Media Services.
 
-The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:
-
-1. Getting an access token.
-2. Connecting to the Media Services URI.  
-	
-	>[!NOTE] 
-	>- Shanghai DC URL(China East): https://wamsshaclus001rest-hs.chinacloudapp.cn/API/
-	>- Beijing DC URL(China North): https://wamsbjbclus001rest-hs.chinacloudapp.cn/API/
-
-3. Posting your API calls directly to the URL above where your Media Service is created. 
-
-
-
-### Getting an access token
-To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service. You do not need any other prerequisites before directly connecting to Media Services.
-
-The following example shows the HTTP request header and body used to retrieve a token.
-
-**Header**:
-
-```
-POST https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn/v2/OAuth2-13 HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
-Host: wamsprodglobal001acs.accesscontrol.chinacloudapi.cn
-Content-Length: 120
-Expect: 100-continue
-Connection: Keep-Alive
-Accept: application/json
-```
-
-**Body**:
-
-You need to provide the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account.
-
-The AccountKey for your Media Services account must be URL-encoded when using it as the client_secret value in your access token request.
-
-```
-grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
-```
-
-For example: 
-
-```
-grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
-```
-
-The following example shows the HTTP response that contains the access token in the response body.
-
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache, no-store
-Pragma: no-cache
-Content-Type: application/json; charset=utf-8
-Expires: -1
-request-id: a65150f5-2784-4a01-a4b7-33456187ad83
-X-Content-Type-Options: nosniff
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Thu, 15 Jan 2015 08:07:20 GMT
-Content-Length: 670
-
-{  
-   "token_type":"http://schemas.xmlsoap.org/ws/2009/11/swt-token-profile-1.0",
-   "access_token":"http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421330840&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=uf69n82KlqZmkJDNxhJkOxpyIpA2HDyeGUTtSnq1vlE%3d",
-   "expires_in":"21600",
-   "scope":"urn:WindowsAzureMediaServices"
-}
-```
-
-> [!NOTE]
-> It is recommended to cache the "access_token " and "expires_in" (how long the access token is valid, in seconds) values to an external storage. The token data could later be retrieved from the storage and re-used in your Media Services REST API calls. This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.
->
->
-
-Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.
-
-### Connecting to the Media Services URI
-
-
-The root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.chinacloudapi.cn/ where the storage account name is the same one you used during your Media Services account setup.
-
-The following example demonstrates HTTP request to the Media Services in China East region (https://wamsshaclus001rest-hs.chinacloudapp.cn/API/). 
-
-**HTTP Request**:
-
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ HTTP/1.1
-Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
-x-ms-version: 2.11
-Accept: application/json
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
-
-**HTTP Response**:
-
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Content-Length: 1250
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Server: Microsoft-IIS/8.5
-request-id: 5f52ea9d-177e-48fe-9709-24953d19f84a
-x-ms-request-id: 5f52ea9d-177e-48fe-9709-24953d19f84a
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Sat, 17 Jan 2015 07:44:52 GMT
-
-{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata","value":[{"name":"AccessPolicies","url":"AccessPolicies"},{"name":"Locators","url":"Locators"},{"name":"ContentKeys","url":"ContentKeys"},{"name":"ContentKeyAuthorizationPolicyOptions","url":"ContentKeyAuthorizationPolicyOptions"},{"name":"ContentKeyAuthorizationPolicies","url":"ContentKeyAuthorizationPolicies"},{"name":"Files","url":"Files"},{"name":"Assets","url":"Assets"},{"name":"AssetDeliveryPolicies","url":"AssetDeliveryPolicies"},{"name":"IngestManifestFiles","url":"IngestManifestFiles"},{"name":"IngestManifestAssets","url":"IngestManifestAssets"},{"name":"IngestManifests","url":"IngestManifests"},{"name":"StorageAccounts","url":"StorageAccounts"},{"name":"Tasks","url":"Tasks"},{"name":"NotificationEndPoints","url":"NotificationEndPoints"},{"name":"Jobs","url":"Jobs"},{"name":"TaskTemplates","url":"TaskTemplates"},{"name":"JobTemplates","url":"JobTemplates"},{"name":"MediaProcessors","url":"MediaProcessors"},{"name":"EncodingReservedUnitTypes","url":"EncodingReservedUnitTypes"},{"name":"Operations","url":"Operations"},{"name":"StreamingEndpoints","url":"StreamingEndpoints"},{"name":"Channels","url":"Channels"},{"name":"Programs","url":"Programs"}]}
-```
-
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
 ## <a id="upload"></a>Create a new asset and upload a video file with REST API
@@ -454,7 +346,7 @@ Once you have the AccessPolicy and Locator set, the actual file is uploaded to a
 >[!NOTE]
 > You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### Update the AssetFile
 Now that you've uploaded your file, update the FileAsset size (and other) information. For example:
@@ -533,7 +425,7 @@ HTTP/1.1 204 No Content
 
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [Task](https://docs.microsoft.com/en-us/rest/api/media/operations/task) descriptions). 
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](https://docs.microsoft.com/rest/api/media/services/job), [Task](https://docs.microsoft.com/rest/api/media/services/task) descriptions).
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
@@ -974,7 +866,7 @@ Once you have the AccessPolicy and Locator set, you can download files using the
 >[!NOTE]
 > You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 As a result of the encoding job that you performed earlier (encoding into Adaptive MP4 set), you have multiple MP4 files that you can progressively download. For example:    
 
@@ -1081,3 +973,4 @@ http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-
 To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
+<!--Update_Description: remove ACS related content-->

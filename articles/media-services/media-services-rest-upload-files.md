@@ -3,8 +3,8 @@ title: Upload files into a Media Services account using REST  | Azure
 description: Learn how to get media content into Media Services by creating and uploading assets.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f
@@ -13,63 +13,66 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/13/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Upload files into a Media Services account using REST
-
- > [!div class="op_single_selector"]
- >- [.NET](./media-services-dotnet-upload-files.md)
- >- [REST](./media-services-rest-upload-files.md)
+> [!div class="op_single_selector"]
+> * [.NET](media-services-dotnet-upload-files.md)
+> * [REST](media-services-rest-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
+> 
+> 
 
 In Media Services, you upload your digital files into an asset. The [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
->[!NOTE]
->The following considerations apply when choosing an asset file name:
->
+> [!NOTE]
+> The following considerations apply:
+> 
 > * Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://zh.wikipedia.org/wiki/百分号编码#.E4.BF.9D.E7.95.99.E5.AD.97.E7.AC.A6.E7.9A.84.E7.99.BE.E5.88.86.E5.8F.B7.E7.BC.96.E7.A0.81): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 > * The length of the name should not be greater than 260 characters.
-> * There is a limit to the maximum file size supported for processing in Media Services. Please see [this](./media-services-quotas-and-limitations.md) topic for details about the file size limitation.
+> * There is a limit to the maximum file size supported for processing in Media Services. Please see [this](media-services-quotas-and-limitations.md) topic for details about the file size limitation.
 > 
 
 The basic workflow for uploading Assets is divided into the following sections:
 
-- Create an Asset
-- Encrypt an Asset (Optional)
-- Upload a file to blob storage
+* Create an Asset
+* Encrypt an Asset (Optional)
+* Upload a file to blob storage
 
-AMS also enables you to upload assets in bulk. For more information, see [this](./media-services-rest-upload-files.md#upload_in_bulk) section.
+AMS also enables you to upload assets in bulk. For more information, see [this](media-services-rest-upload-files.md#upload_in_bulk) section.
 
-##Upload assets
+> [!NOTE]
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> 
 
-###Create an asset
+## Connect to Media Services
 
->[!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
->
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
+
+## Upload assets
+
+### Create an asset
 
 An asset is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
 
 One of the properties that you can specify when creating an asset is **Options**. **Options** is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values. 
 
-- **None** = **0**: No encryption will be used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
+* **None** = **0**: No encryption will be used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
     If you plan to deliver an MP4 using progressive download, use this option. 
+* **StorageEncrypted** = **1**: Specify if you want for your files to be encrypted with AES-256 bit encryption for upload and storage.
+  
+    If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
+* **CommonEncryptionProtected** = **2**: Specify if you are uploading files protected with a common encryption method (such as PlayReady). 
+* **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. Note that the files must have been encoded and encrypted by Transform Manager.
 
-- **StorageEncrypted** = **1**: Specify if you want for your files to be encrypted with AES-256 bit encryption for upload and storage.
-
-    If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](./media-services-rest-configure-asset-delivery-policy.md).
-
-- **CommonEncryptionProtected** = **2**: Specify if you are uploading files protected with a common encryption method (such as PlayReady). 
-
-- **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. Note that the files must have been encoded and encrypted by Transform Manager.
-
->[!NOTE]
->If your asset will use encryption, you must create a **ContentKey** and link it to your asset as described in the following topic:[How to create a ContentKey](./media-services-rest-create-contentkey.md). Note that after you upload the files into the asset, you need to update the encryption properties on the **AssetFile** entity with the values you got during the **Asset** encryption. Do it by using the **MERGE** HTTP request. 
+> [!NOTE]
+> If your asset will use encryption, you must create a **ContentKey** and link it to your asset as described in the following topic:[How to create a ContentKey](media-services-rest-create-contentkey.md). Note that after you upload the files into the asset, you need to update the encryption properties on the **AssetFile** entity with the values you got during the **Asset** encryption. Do it by using the **MERGE** HTTP request. 
+> 
+> 
 
 The following example shows how to create an asset.
 
@@ -121,8 +124,7 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 }
 ```
 
-###Create an AssetFile
-
+### Create an AssetFile
 The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 Note that the **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
@@ -189,6 +191,10 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ```
 
 ### Creating the AccessPolicy with write permission.
+
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 The following example shows how to create an AccessPolicy:
@@ -249,9 +255,9 @@ A SAS URL has the following format:
 
 Some considerations apply:
 
-- You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
-- If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").	
-- There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
+* You cannot have more than five unique Locators associated with a given Asset at one time. For more information, see Locator.
+* If you need to upload your files immediately, you should set your StartTime value to five minutes before the current time. This is because there may be clock skew between your client machine and Media Services. Also, your StartTime value must be in the following DateTime format: YYYY-MM-DDTHH:mm:ssZ (for example, "2014-05-23T17:53:50Z").    
+* There may be a 30-40 second delay after a Locator is created to when it is available for use. This issue applies to both SAS URL and Origin Locators.
 
 The following example shows how to create a SAS URL Locator, as defined by the Type property in the request body ("1" for a SAS locator and "2" for an On-Demand origin locator). The **Path** property returned contains the URL that you must use to upload your file.
 
@@ -346,8 +352,7 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 If successful, the following is returned:
     HTTP/1.1 204 No Content
 
-### Delete the Locator and AccessPolicy 
-
+### Delete the Locator and AccessPolicy
 **HTTP Request**
 
 ```
@@ -392,10 +397,8 @@ HTTP/1.1 204 No Content
 ...
 ```
 
-##<a id="upload_in_bulk"></a>Upload assets in bulk
-
-###Create the IngestManifest
-
+## <a id="upload_in_bulk"></a>Upload assets in bulk
+### Create the IngestManifest
 The IngestManifest is a container for a set of assets, asset files, and statistic information that can be used to determine the progress of bulk ingesting for the set.
 
 **HTTP Request**
@@ -415,8 +418,7 @@ Expect: 100-continue
 { "Name" : "ExampleManifestREST" }
 ```
 
-###Create assets
-
+### Create assets
 Before creating the IngestManifestAsset, you need to create the Asset that will be completed using bulk ingesting. An asset is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending a HTTP POST request to Microsoft Azure Media Services and placing any property information about your asset in the request body.In this example, the Asset is created using the StorageEncrption(1) option included with the request body.
 
 **HTTP Response**
@@ -436,8 +438,7 @@ Expect: 100-continue
 { "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
 ```
 
-###Create the IngestManifestAssets
-
+### Create the IngestManifestAssets
 IngestManifestAssets represent Assets within an IngestManifest that are used with bulk ingesting. The basically link the asset to the manifest. Azure Media Services watches internally for the file upload based on IngestManifestFiles collection associated to the IngestManifestAsset. Once these files are uploaded, the asset is completed. You can create a new IngestManifestAsset with a HTTP POST request. In the request body, include the IngestManifest Id and the Asset Id that the IngestManifestAsset should link together for bulk ingesting.
 
 **HTTP Response**
@@ -456,8 +457,7 @@ Expect: 100-continue
 { "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
 ```
 
-###Create the IngestManifestFiles for each Asset
-
+### Create the IngestManifestFiles for each Asset
 An IngestManifestFile represents an actual video or audio blob object that will be uploaded as part of bulk ingesting for an asset. Encryption related properties are not required unless the asset is using an encryption option. The example used in this section demonstrates creating an IngestManifestFile that uses StorageEncryption for the Asset previously created.
 
 **HTTP Response**
@@ -477,26 +477,23 @@ Expect: 100-continue
 { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
 ```
 
-###Upload the Files to Blob Storage
+### Upload the Files to Blob Storage
+You can use any high speed client application capable of uploading the asset files to the blob storage container Uri provided by the BlobStorageUriForUpload property of the IngestManifest. 
 
-You can use any high speed client application capable of uploading the asset files to the blob storage container Uri provided by the BlobStorageUriForUpload property of the IngestManifest. One notable high speed upload service is [Aspera On Demand for Azure Application](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6).
-
-###Monitor Bulk Ingest Progress
-
+### Monitor Bulk Ingest Progress
 You can monitor the progress of bulk ingesting operations for an IngestManifest by polling the Statistics property of the IngestManifest. That property is a complex type, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). To poll the Statistics property, submit a HTTP GET request passing the IngestManifest Id.
 
-##Create ContentKeys used for encryption
-
+## Create ContentKeys used for encryption
 If your asset will use encryption, you must create the ContentKey to be used for encryption before creating the asset files. For storage encryption, the following properties should be included in the request body.
 
-Request body property	| Description
----|---
-Id | The ContentKey Id which we generate ourselves using the following format, “nb:kid:UUID:<NEW GUID>”.
-ContentKeyType | This is the content key type as an integer for this content key. We pass the value 1 for storage encryption.
-EncryptedContentKey | We create a new content key value which is a 256-bit (32 byte) value. The key is encrypted using the storage encryption X.509 certificate which we retrieve from Microsoft Azure Media Services by executing a HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods.
-ProtectionKeyId | This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key.
-ProtectionKeyType | This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example.
-Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum.
+| Request body property | Description |
+| --- | --- |
+| Id |The ContentKey Id which we generate ourselves using the following format, “nb:kid:UUID:<NEW GUID>”. |
+| ContentKeyType |This is the content key type as an integer for this content key. We pass the value 1 for storage encryption. |
+| EncryptedContentKey |We create a new content key value which is a 256-bit (32 byte) value. The key is encrypted using the storage encryption X.509 certificate which we retrieve from Azure Media Services by executing a HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. |
+| ProtectionKeyId |This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key. |
+| ProtectionKeyType |This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example. |
+| Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum. |
 
 **HTTP Response**
 
@@ -548,7 +545,9 @@ x-ms-version: 2.11
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
+## Next steps
 
-You can now encode your uploaded assets.
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 
-[How to Get a Media Processor]: ./media-services-get-media-processor.md
+
+[How to Get a Media Processor]: media-services-get-media-processor.md

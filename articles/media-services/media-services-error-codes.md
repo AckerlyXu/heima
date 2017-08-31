@@ -1,8 +1,8 @@
 ﻿---
 title: Azure Media Services error codes | Azure
 description: The topic gives an overview of Azure Media Services error codes.
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 02/24/2017
-ms.author: v-johch
+origin.date: 07/31/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Azure Media Services error codes
@@ -24,8 +24,8 @@ When using Azure Media Services, you may receive HTTP error codes from the servi
 ## 400 Bad Request
 The request contains invalid information and is rejected due to one of the following reasons:
 
-* An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
-* The API version of Media Services is not specified. For information on how to specify the API version, see [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md).
+* An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+* The API version of Media Services is not specified. For information on how to specify the API version, see [Media Services Operations REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
   > [!NOTE]
   >If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
@@ -44,8 +44,8 @@ The request could not be authenticated (before it can be authorized) due to one 
 
 * Missing authentication header.
 * Bad authentication header value.
-  * The token has expired. If using the REST APIs directly, see [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md) to learn how to generate a new authentication token. If you are using the .NET or Java SDKs, create a CloudMediaContext or MediaContract object to generate the token. For more information on how to do this, see [Access Azure Media Services API with .NET](./media-services-dotnet-get-started-with-aad.md).
-  * The token contains an invalid signature.</li></ul></li></ul>
+  * The token has expired. 
+  * The token contains an invalid signature.
 
 ## 403 Forbidden
 The request is not allowed due to one of the following reasons:
@@ -59,7 +59,7 @@ The request is not allowed due to one of the following reasons:
   * An attempt was made to update a JobTemplate defined by Media Services.
   * An attempt was made to overwrite some other Media Services account's Locator.
   * An attempt was made to overwrite some other Media Services account's ContentKey.
-* The resource could not be created due to a service quota that was reached for the Media Services account. For more information on the service quotas, see [Quotas and Limitations](./media-services-quotas-and-limitations.md).
+* The resource could not be created due to a service quota that was reached for the Media Services account. For more information on the service quotas, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 
 ## 404 Not Found
 The request is not allowed on a resource due to one of the following reasons:
@@ -103,10 +103,10 @@ Possible status descriptions are:
 * "Server is busy. More than {0} requests per second can be throttled."
 * "Server is busy. More than {0} requests within {1} seconds can be throttled."
 
-To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](https://msdn.microsoft.com/zh-cn/library/hh680905.aspx).
+To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680905.aspx).
 
 > [!NOTE]
 >If you are using [Azure Media Services SDK for .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), the retry logic for the 503 error has been implemented by the SDK.  
 
 ## See Also
-[Media Services Management Error Codes](http://msdn.microsoft.com/zh-cn/library/windowsazure/dn167016.aspx)
+[Media Services Management Error Codes](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
