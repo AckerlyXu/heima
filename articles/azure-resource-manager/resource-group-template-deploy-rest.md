@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Resource Manager REST API to deploy 
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/10/2017
-ms.date: 06/05/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -75,7 +75,7 @@ Your template can be either a local file or an external file that is available t
     If you want to log response content, request content, or both, include **debugSetting** in the request.
 
         "debugSetting": {
-            "detailLevel": "requestContent, responseContent"
+          "detailLevel": "requestContent, responseContent"
         }
    
     You can set up your storage account to use a shared access signature (SAS) token. For more information, see [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
@@ -94,4 +94,5 @@ Your template can be either a local file or an external file that is available t
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
 * For guidance on deploying your solution to different environments, see [Development and test environments in Azure](solution-dev-test-environments.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
+
+<!--Update_Description: update link-->

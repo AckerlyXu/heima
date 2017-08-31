@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/13/2017
-ms.date: 07/03/2017
+origin.date: 08/01/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -23,12 +23,10 @@ ms.author: v-yeche
 Resource Manager provides several functions for making comparisons in your templates.
 
 * [equals](#equals)
-* [less](#less)
-* [lessOrEquals](#lessorequals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-
-<a id="equals" />
+* [less](#less)
+* [lessOrEquals](#lessorequals)
 
 ## equals
 `equals(arg1, arg2)`
@@ -139,139 +137,27 @@ The output from the preceding example with the default values is:
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-<a id="less" />
-
-## less
-`less(arg1, arg2)`
-
-Checks whether the first value is less than the second value.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |int or string |The first value for the less comparison. |
-| arg2 |Yes |int or string |The second value for the less comparison. |
-
-### Return value
-
-Returns **True** if the first value is less than the second value; otherwise, **False**.
-
-### Example
-
-The example template checks whether the one value is less than the other.
+The following example uses [not](resource-group-template-functions-logical.md#not) with **equals**.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
-    },
     "resources": [
     ],
     "outputs": {
-        "checkInts": {
+        "checkNotEquals": {
             "type": "bool",
-            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+            "value": "[not(equals(1, 2))]"
         }
     }
-}
 ```
 
-The output from the preceding example with the default values is:
+The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
-
-<a id="lessorequals" />
-
-## lessOrEquals
-`lessOrEquals(arg1, arg2)`
-
-Checks whether the first value is less than or equal to the second value.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |int or string |The first value for the less or equals comparison. |
-| arg2 |Yes |int or string |The second value for the less or equals comparison. |
-
-### Return value
-
-Returns **True** if the first value is less than or equal to the second value; otherwise, **False**.
-
-### Example
-
-The example template checks whether the one value is less than or equal to the other.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
-    }
-}
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
-
-<a id="greater" />
+| checkNotEquals | Bool | True |
 
 ## greater
 `greater(arg1, arg2)`
@@ -337,8 +223,6 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-<a id="greaterorequals" />
-
 ## greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
 
@@ -403,8 +287,138 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-## Next Steps
+## less
+`less(arg1, arg2)`
+
+Checks whether the first value is less than the second value.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |int or string |The first value for the less comparison. |
+| arg2 |Yes |int or string |The second value for the less comparison. |
+
+### Return value
+
+Returns **True** if the first value is less than the second value; otherwise, **False**.
+
+### Example
+
+The example template checks whether the one value is less than the other.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
+
+## lessOrEquals
+`lessOrEquals(arg1, arg2)`
+
+Checks whether the first value is less than or equal to the second value.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |int or string |The first value for the less or equals comparison. |
+| arg2 |Yes |int or string |The second value for the less or equals comparison. |
+
+### Return value
+
+Returns **True** if the first value is less than or equal to the second value; otherwise, **False**.
+
+### Example
+
+The example template checks whether the one value is less than or equal to the other.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
+
+## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+
+<!--Update_Description: update list sequence, add equals sample and output content-->
