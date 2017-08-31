@@ -3,8 +3,8 @@ title: Creating Filters with Azure Media Services REST API | Azure
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: dwrede
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 01/10/2017
-ms.date: 02/24/2017
-ms.author: v-johch
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-
-#Creating Filters with Azure Media Services REST API
-
+# Creating Filters with Azure Media Services REST API
 > [!div class="op_single_selector"]
->- [.NET](./media-services-dotnet-dynamic-manifest.md)
->- [REST](./media-services-rest-dynamic-manifest.md)
+> * [.NET](media-services-dotnet-dynamic-manifest.md)
+> * [REST](media-services-rest-dynamic-manifest.md)
+> 
+> 
 
 Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](./media-services-dynamic-manifest-overview.md).
+For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
 
 This topic shows how to use REST APIs to create, update, and delete filters. 
 
@@ -38,21 +38,16 @@ The following types are used when creating filters:
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
->[!NOTE]
+> [!NOTE]
 > When working with the Media Services REST API, the following considerations apply:
->
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
+> 
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
-
-##Create filters
-
-###Create global Filters
-
+## Create filters
+### Create global Filters
 To create a global Filter, use the following HTTP requests:  
 
-####HTTP Request
-
+#### HTTP Request
 Request Headers
 
 ```
@@ -106,12 +101,10 @@ Request body
 HTTP/1.1 201 Created 
 ```
 
-###Create local AssetFilters
-
+### Create local AssetFilters
 To create a local AssetFilter, use the following HTTP requests:  
 
-####HTTP Request
-
+#### HTTP Request
 Request Headers
 
 ```
@@ -167,10 +160,8 @@ HTTP/1.1 201 Created
 . . . 
 ```
 
-##List filters
-
-###Get all global **Filter**s in the AMS account
-
+## List filters
+### Get all global **Filter**s in the AMS account
 To list filters, use the following HTTP requests: 
 
 ####HTTP Request
@@ -217,18 +208,15 @@ x-ms-version: 2.11
 x-ms-client-request-id: 00000000
 ```
 
-##Update filters
-
-Use PATCH, PUT or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](http://msdn.microsoft.com/zh-cn/library/dd541276.aspx).
+## Update filters
+Use PATCH, PUT or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
 
 If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter.  
 
-###Update global Filters
-
+### Update global Filters
 To update a global filter, use the following HTTP requests: 
 
-####HTTP Request
-
+#### HTTP Request
 Request headers: 
 
 ```
@@ -380,6 +368,6 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 ```
 
-##See Also 
+## See Also
+[Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
 
-[Dynamic manifests overview](./media-services-dynamic-manifest-overview.md)

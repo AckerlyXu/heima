@@ -2,78 +2,80 @@
 title: Use Azure Queue storage to monitor Media Services job notifications with .NET | Azure
 description: Learn how to use Azure Queue storage to monitor Media Services job notifications. The code sample is written in C# and uses the Media Services SDK for .NET.
 services: media-services
-documentationCenter: ''
-authors: juliako
-manager: erikre
+documentationcenter: ''
+author: hayley244
+manager: digimobile
 editor: ''
 
+ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/19/2016
-ms.date: 10/10/2016
-ms.author: v-johch
+origin.date: 08/14/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+
 ---
-
 # Use Azure Queue storage to monitor Media Services job notifications with .NET
+When you run encoding jobs, you often require a way to track job progress. You can configure Media Services to deliver notifications to [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). You can monitor job progress by getting notifications from the Queue storage. 
 
-When you run jobs, you often require a way to track job progress. You can check the progress by using Azure Queue storage to monitor Media Services job notifications (as described in this topic) or defining a StateChanged event handler (as described in [this](./media-services-check-job-progress.md) topic.  
+Messages delivered to Queue storage can be accessed from anywhere in the world. The Queue storage messaging architecture is reliable and highly scalable. Polling Queue storage for messages is recommended over using other methods.
 
-## Use Azure Queue storage to monitor Media Services job notifications
+One common scenario for listening to Media Services notifications is if you are developing a content management system that needs to perform some additional task after an encoding job completes (for example, to trigger the next step in a workflow, or to publish content).
 
-Azure Media Services has the ability to deliver notification messages to the [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md#what-is) when processing media jobs. This topic shows how to get these notification messages from Queue storage.
+This topic shows how to get notification messages from Queue storage.  
 
-Messages delivered to Queue storage can be accessed from anywhere in the world. The Azure Queue messaging architecture is reliable and highly scalable. Polling Queue storage is recommended over using other methods. 
+## Considerations
+Consider the following when developing Media Services applications that use Queue storage:
 
-One common scenario for listening to Media Services notifications is if you are developing a content management system that needs to perform some additional task after an encoding job completes (for example, trigger the next step in a workflow, or publish content). 
+* Queue storage does not provide a guarantee of first-in-first-out (FIFO) ordered delivery. For more information, see [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Queue storage is not a push service. You have to poll the queue.
+* You can have any number of queues. For more information, see [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
+* Queue storage has some limitations and specifics to be aware of. These are described in [Azure Queues and Azure Service Bus Queues Compared and Contrasted](/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
-###Considerations
-
-Consider the following when developing Media Services applications that use Azure storage queue.
-
-- The Queues service does not provide a guarantee of first-in-first-out (FIFO) ordered delivery. For more information, see [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/zh-cn/library/azure/hh767287.aspx).
-- Azure Storage Queues is not a push service; you have to poll the queue. 
-- You can have any number of queues. For more information, see [Queue Service REST API](https://msdn.microsoft.com/zh-cn/library/azure/dd179363.aspx).
-- Azure Storage Queues has some limitations and specifics that are described in the following article: [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/zh-cn/library/azure/hh767287.aspx).
-
-###Code Example
+## .NET code example
 
 The code example in this section does the following:
 
 1. Defines the **EncodingJobMessage** class that maps to the notification message format. The code deserializes messages received from the queue into objects of the **EncodingJobMessage** type.
-1. Loads the Media Services and Storage account information from the app.config file. Uses this information to create the **CloudMediaContext** and **CloudQueue** objects.
-1. Creates the queue that receives notification messages about the encoding job.
-1. Creates the notification end point that is mapped to the queue.
-1. Attaches the notification end point to the job and submits the encoding job. You can have multiple notification end points attached to a job.
-1. In this example, we are only interested in final states of the job processing, so we pass **NotificationJobState.FinalStatesOnly** to the **AddNew** method. 
+2. Loads the Media Services and Storage account information from the app.config file. The code example uses this information to create the **CloudMediaContext** and **CloudQueue** objects.
+3. Creates the queue that receives notification messages about the encoding job.
+4. Creates the notification end point that is mapped to the queue.
+5. Attaches the notification end point to the job and submits the encoding job. You can have multiple notification end points attached to a job.
+6. Passes **NotificationJobState.FinalStatesOnly** to the **AddNew** method. (In this example, we are only interested in final states of the job processing.)
 
     ```
     job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
     ```
-1. If you pass NotificationJobState.All, you should expect to get all state change notifications: Queued -> Scheduled -> Processing -> Finished. However, as noted earlier, the Azure Storage Queues service does not guarantee ordered delivery. You can use the Timestamp property (defined on the EncodingJobMessage type in the example below) to order messages. It is possible that you get duplicate notification messages. Use the ETag property (defined on the EncodingJobMessage type) to check for duplicates. It is also possible that some state change notifications will be skipped. 
-1. Waits for the job to get to the Finished state by checking the queue every 10 seconds. Deletes messages after they have been processed.
-1. Deletes the queue and the notification end point.
+7. If you pass **NotificationJobState.All**, you get all of the following state change notifications: queued, scheduled, processing, and finished. However, as noted earlier, Queue storage does not guarantee ordered delivery. To order messages, use the **Timestamp** property (defined on the **EncodingJobMessage** type in the example below). Duplicate messages are possible. To check for duplicates, use the **ETag property** (defined on the **EncodingJobMessage** type). It is also possible that some state change notifications get skipped.
+8. Waits for the job to get to the finished state by checking the queue every 10 seconds. Deletes messages after they have been processed.
+9. Deletes the queue and the notification end point.
 
->[!NOTE]
->The recommended way to monitor a job’s state is by listening to notification messages, as shown in the following example.
+> [!NOTE]
+> The recommended way to monitor a job’s state is by listening to notification messages, as shown in the following example.
 >
->Alternatively, you could check on a job’s state by using the **IJob.State** property.  A notification message about a job’s completion may arrive before the State on **IJob** is set to **Finished**. The **IJob.State**  property reflects the accurate state with a slight delay.
+> Alternatively, you could check on a job’s state by using the **IJob.State** property.  A notification message about a job’s completion may arrive before the state on **IJob** is set to **Finished**. The **IJob.State**  property reflects the accurate state with a slight delay.
+>
+>
+
+### Create and configure a Visual Studio project
+
+1. Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+2. Create a new folder (folder can be anywhere on your local drive) and copy an .mp4 file that you want to encode and stream or progressively download. In this example, the "C:\Media" path is used.
+
+### Code
 
 ```
 using System;
 using System.Linq;
 using System.Configuration;
 using System.IO;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.WindowsAzure.MediaServices.Client;
-using System.Web;
 using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System.Runtime.Serialization.Json;
 
@@ -81,14 +83,14 @@ namespace JobNotification
 {
     public class EncodingJobMessage
     {
-        // MessageVersion is used for version control. 
+        // MessageVersion is used for version control.
         public String MessageVersion { get; set; }
 
-        // Type of the event. Valid values are 
+        // Type of the event. Valid values are
         // JobStateChange and NotificationEndpointRegistration.
         public String EventType { get; set; }
 
-        // ETag is used to help the customer detect if 
+        // ETag is used to help the customer detect if
         // the message is a duplicate of another message previously sent.
         public String ETag { get; set; }
 
@@ -105,9 +107,9 @@ namespace JobNotification
         //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
 
         // For the NotificationEndpointRegistration event the values are:
-        //     NotificationEndpointId- Id of the NotificationEndpoint 
+        //     NotificationEndpointId- Id of the NotificationEndpoint
         //          that triggered the notification.
-        //     State- The state of the Endpoint. 
+        //     State- The state of the Endpoint.
         //          Valid values are: Registered and Unregistered.
 
         public IDictionary<string, object> Properties { get; set; }
@@ -115,32 +117,40 @@ namespace JobNotification
 
     class Program
     {
+
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+        private static readonly string _StorageConnectionString = 
+            ConfigurationManager.AppSettings["StorageConnectionString"];
+
         private static CloudMediaContext _context = null;
         private static CloudQueue _queue = null;
         private static INotificationEndPoint _notificationEndPoint = null;
 
         private static readonly string _singleInputMp4Path =
-            Path.GetFullPath(@"C:\supportFiles\multifile\BigBuckBunny.mp4");
+            Path.GetFullPath(@"C:\Media\BigBuckBunny.mp4");
 
         static void Main(string[] args)
         {
-            // Get the values from app.config file.
-            string mediaServicesAccountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            string mediaServicesAccountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-            string storageConnectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
             string endPointAddress = Guid.NewGuid().ToString();
 
-            // Create the context. 
-            _context = new CloudMediaContext(mediaServicesAccountName, mediaServicesAccountKey);
+            // Create the context.
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
             // Create the queue that will be receiving the notification messages.
-            _queue = CreateQueue(storageConnectionString, endPointAddress);
+            _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
             // Create the notification point that is mapped to the queue.
-            _notificationEndPoint = 
+            _notificationEndPoint =
                     _context.NotificationEndPoints.Create(
                     Guid.NewGuid().ToString(), NotificationEndPointType.AzureQueue, endPointAddress);
+
 
             if (_notificationEndPoint != null)
             {
@@ -149,9 +159,10 @@ namespace JobNotification
             }
 
             // Clean up.
-            _queue.Delete();      
+            _queue.Delete();
             _notificationEndPoint.Delete();
-       }
+        }
+
 
         static public CloudQueue CreateQueue(string storageAccountConnectionString, string endPointAddress)
         {
@@ -169,23 +180,24 @@ namespace JobNotification
             return queue;
         }
 
+
         public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
         {
             // Declare a new job.
             IJob job = _context.Jobs.Create("My MP4 to Smooth Streaming encoding job");
 
-            //Create an encrypted asset and upload the mp4. 
-            IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, 
+            //Create an encrypted asset and upload the mp4.
+            IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted,
                 inputMediaFilePath);
 
-            // Get a media processor reference, and pass to it the name of the 
+            // Get a media processor reference, and pass to it the name of the
             // processor to use for the specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Create a task with the conversion details, using a configuration file. 
+            // Create a task with the conversion details, using a configuration file.
             ITask task = job.Tasks.AddNew("My encoding Task",
                 processor,
-                "H264 Multiple Bitrate 720p",
+                "Adaptive Streaming",
                 Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 
             // Specify the input asset to be encoded.
@@ -196,7 +208,7 @@ namespace JobNotification
                 AssetCreationOptions.None);
 
             // Add a notification point to the job. You can add multiple notification points.  
-            job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, 
+            job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly,
                 _notificationEndPoint);
 
             job.Submit();
@@ -239,7 +251,7 @@ namespace JobNotification
                             Console.WriteLine("    {0}: {1}", property.Key, property.Value);
                         }
 
-                        // We are only interested in messages 
+                        // We are only interested in messages
                         // where EventType is "JobStateChange".
                         if (encodingJobMsg.EventType == "JobStateChange")
                         {
@@ -256,7 +268,7 @@ namespace JobNotification
 
                                 if (newJobState == (JobState)expectedState)
                                 {
-                                    Console.WriteLine("job with Id: {0} reached expected state: {1}", 
+                                    Console.WriteLine("job with Id: {0} reached expected state: {1}",
                                         jobId, newJobState);
                                     jobReachedExpectedState = true;
                                     break;
@@ -273,7 +285,7 @@ namespace JobNotification
                 bool timedOut = (timeDiff.TotalSeconds > timeOutInSeconds);
                 if (timedOut)
                 {
-                    Console.WriteLine(@"Timeout for checking job notification messages, 
+                    Console.WriteLine(@"Timeout for checking job notification messages,
                                         latest found state ='{0}', wait time = {1} secs",
                         jobState,
                         timeDiff.TotalSeconds);
@@ -285,7 +297,7 @@ namespace JobNotification
 
         static private IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
-            var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(), 
+            var asset = _context.Assets.Create("UploadSingleFile_" + DateTime.UtcNow.ToString(),
                 assetCreationOptions);
 
             var fileName = Path.GetFileName(singleFilePath);
@@ -314,32 +326,31 @@ namespace JobNotification
     }
 }
 ```
+The preceding example produced the following output. Your values will vary.
 
-The example above produced the following output. You values will vary.
+    Created assetFile BigBuckBunny.mp4
+    Upload BigBuckBunny.mp4
+    Done uploading of BigBuckBunny.mp4
 
-```
-Created assetFile BigBuckBunny.mp4
-Upload BigBuckBunny.mp4
-Done uploading of BigBuckBunny.mp4
+    EventType: NotificationEndPointRegistration
+    MessageVersion: 1.0
+    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+    TimeStamp: 2013-05-14T20:22:37
+        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+        State: Registered
+        Name: dde957b2-006e-41f2-9869-a978870ac620
+        Created: 2013-05-14T20:22:35
 
-EventType: NotificationEndPointRegistration
-MessageVersion: 1.0
-ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-TimeStamp: 2013-05-14T20:22:37
-    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-    State: Registered
-    Name: dde957b2-006e-41f2-9869-a978870ac620
-    Created: 2013-05-14T20:22:35
+    EventType: JobStateChange
+    MessageVersion: 1.0
+    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+    TimeStamp: 2013-05-14T20:24:40
+        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+        JobName: My MP4 to Smooth Streaming encoding job
+        NewState: Finished
+        OldState: Processing
+        AccountName: westeuropewamsaccount
+    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+    State: Finished
 
-EventType: JobStateChange
-MessageVersion: 1.0
-ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-TimeStamp: 2013-05-14T20:24:40
-    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-    JobName: My MP4 to Smooth Streaming encoding job
-    NewState: Finished
-    OldState: Processing
-    AccountName: westeuropewamsaccount
-job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
-State: Finished
-```
+<!--Update_Description: update code to use AAD token instead of ACS-->

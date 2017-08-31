@@ -3,8 +3,8 @@ title: Live stream with on-premises encoders using the Azure portal | Azure
 description: This tutorial walks you through the steps of creating a Channel that is configured for a pass-through delivery.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/23/2017
-ms.date: 08/07/2017
+origin.date: 08/09/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -144,4 +144,3 @@ To manage your assets, select **Setting** and click **Assets**.
 
 ![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-<!--Update_Description:new file-->

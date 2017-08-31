@@ -2,31 +2,33 @@
 title: Create ContentKeys with REST | Azure
 description: Learn how to create content keys that provide secure access to Assets.
 services: media-services
-documentationCenter: ''
-authors: Juliako
-manager: erikre
+documentationcenter: ''
+author: hayley244
+manager: digimobile
 editor: ''
 
+ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
+origin.date: 09/26/2016
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-
-#Create ContentKeys with REST
-
+# Create ContentKeys with REST
 > [!div class="op_single_selector"]
->- [REST](./media-services-rest-create-contentkey.md)
->- [.NET](./media-services-dotnet-create-contentkey.md)
+> * [REST](media-services-rest-create-contentkey.md)
+> * [.NET](media-services-dotnet-create-contentkey.md)
+> 
+> 
 
 Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
-When you create a new asset (for example, before you [upload files](./media-services-rest-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
+When you create a new asset (for example, before you [upload files](media-services-rest-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
-When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](./media-services-rest-configure-asset-delivery-policy.md) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
+When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](media-services-rest-configure-asset-delivery-policy.md) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
 Encrypted assets have to be associated with **ContentKey**s. This article describes how to create a content key.
 
@@ -35,7 +37,7 @@ The following are general steps for generating content keys that you will associ
 1. Randomly generate a 16-byte AES key (for common and envelope encryption) or a 32-byte AES key (for storage encryption). 
 
     This will be the content key for your asset, which means all files associated with that asset will need to use the same content key during decryption. 
-2. Call the [GetProtectionKeyId](https://msdn.microsoft.com/zh-cn/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/zh-cn/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
+2. Call the [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3. Encrypt your content key with the public key of the X.509 Certificate. 
 
     Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -67,15 +69,13 @@ The following are general steps for generating content keys that you will associ
 
 Note that examples that generate an AES key, encrypt the key, and calculate the checksum have been omitted from this topic. Only the examples that show how to interact with Media Services are provided.
 
->[!NOTE]
+> [!NOTE]
 > When working with the Media Services REST API, the following considerations apply:
->
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
+> 
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
 
-##Retrieve the ProtectionKeyId 
-
+## Retrieve the ProtectionKeyId
 The following example shows how to retrieve the ProtectionKeyId, a certificate thumbprint, for the certificate you must use when encrypting your content key. Do this step to make sure that you already have the appropriate certificate on your machine.
 
 Request:

@@ -1,61 +1,56 @@
 ---
-title: How to Create a Media Processor | Azure
+title: How to Create a media processor using the Azure Media Services SDK for .NET| Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
-documentationCenter: ''
-authors: juliako
-manager: erikre
+documentationcenter: ''
+author: hayley244
+manager: digimobile
 editor: ''
 
+ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
+origin.date: 07/31/2017
+ms.date: 09/04/2017
+ms.author: juliako
+
 ---
-
-#How to: Get a Media Processor Instance
-
+# How to: Get a Media Processor Instance
 > [!div class="op_single_selector"]
->- [.NET](./media-services-get-media-processor.md)
->- [REST](./media-services-rest-get-media-processor.md)
+> * [.NET](media-services-get-media-processor.md)
+> * [REST](media-services-rest-get-media-processor.md)
+> 
+> 
 
-##Overview
-
+## Overview
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 
-The following table provides the name and description of each available media processor.
+## Azure media processors 
 
-Media Processor Name|Description|More Information
----|---|---
-Media Encoder Standard|Provides standard capabilities for on-demand encoding. |[Overview and Comparison of Azure On Demand Media Encoders](./media-services-encode-asset.md)
-Media Encoder Premium Workflow|Lets you run encoding tasks using Media Encoder Premium Workflow.|[Overview and Comparison of Azure On Demand Media Encoders](./media-services-encode-asset.md)
-Azure Media Indexer| Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.|[Azure Media Indexer](./media-services-index-content.md).
-Azure Media Hyperlapse (preview)|Enables you to smooth out the "bumps" in your video with video stabilization. Also allows you to speed up your content into a consumable clip.|[Azure Media Hyperlapse](./media-services-hyperlapse-content.md)
-Azure Media Encoder|Depreciated
-Storage Decryption| Depreciated|
-Azure Media Packager|Depreciated|
-Azure Media Encryptor|Depreciated|
+The following topic provides lists of media processors:
 
-##Get Media Processor
+* [Encoding media processors](scenarios-and-availability.md#encoding-media-processors)
+* [Analytics media processors](scenarios-and-availability.md#analytics-media-processors)
 
-The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [Access Azure Media Services API with .NET](./media-services-dotnet-get-started-with-aad.md).
+## Get Media Processor
 
-```
-private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-{
-    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically](media-services-use-aad-auth-to-access-ams-api.md).
 
-    if (processor == null)
-    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+    private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+        ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-    return processor;
-}
-```
+        if (processor == null)
+        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-##Next Steps
+        return processor;
+    }
 
-Now that you know how to get a media processor instance, go to the [How to Encode an Asset](./media-services-dotnet-encode-with-media-encoder-standard.md) topic which will show you how to use the Media Encoder Standard to encode an asset.
+
+## Next Steps
+Now that you know how to get a media processor instance, go to the [How to Encode an Asset](media-services-dotnet-encode-with-media-encoder-standard.md) topic which will show you how to use the Media Encoder Standard to encode an asset.
+<!--Update_Description: udpate two links-->

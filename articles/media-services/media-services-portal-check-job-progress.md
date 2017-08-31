@@ -2,27 +2,28 @@
 title: Monitor encoding job progress with the Azure portal
 description: This tutorial walks you through the steps of monitoring your job progress using the Azure portal.
 services: media-services
-documentationCenter: ''
-authors: juliako
-manager: erikre
+documentationcenter: ''
+author: hayley244
+manager: digimobile
 editor: ''
 
+ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/29/2016
-ms.date: 10/10/2016
-ms.author: v-johch
+origin.date: 07/20/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-
-#Monitor encoding job progress with the Azure portal
-
+# Monitor encoding job progress with the Azure portal
 > [!div class="op_single_selector"]
->- [Portal](./media-services-portal-check-job-progress.md)
->- [.NET](./media-services-check-job-progress.md)
->- [REST](./media-services-rest-check-job-progress.md)
+> * [Portal](media-services-portal-check-job-progress.md)
+> * [.NET](media-services-check-job-progress.md)
+> * [REST](media-services-rest-check-job-progress.md)
+> 
+> 
 
 ## Overview
 
@@ -39,8 +40,6 @@ You can click the job to see more details.
 
 ![Jobs](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-##Next steps
+## Next steps
+After your encoding job is one, you can publish and play your assets, as described [here](media-services-portal-publish.md).
 
-After your encoding job is one, you can publish and play your assets, as described [here](/documentation/artmedia-services-portal-publish.md).
-
-[checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png

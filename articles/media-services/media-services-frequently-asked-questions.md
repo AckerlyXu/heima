@@ -3,8 +3,8 @@ title: Azure Media Services frequently asked questions | Azure
 description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
@@ -13,9 +13,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+origin.date: 07/31/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+
 ---
 
 # Frequently asked questions
@@ -25,7 +26,7 @@ This article addresses frequently asked questions raised by the Azure Media Serv
 ## General AMS FAQs
 Q: How do you scale indexing?
 
-A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](./media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.
+A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.
 
 Q: I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
 
@@ -37,11 +38,11 @@ A: Compositing on live streams is currently not offered in Azure Media Services,
 
 Q: Can I use Azure CDN with Live Streaming?
 
-A: Media Services supports integration with Azure CDN.  You can use Live streaming with CDN. Azure Media Services provides Smooth Streaming, HLS and MPEG-DASH outputs. All these formats use HTTP for transferring data and get benefits of HTTP caching. In live streaming actual video/audio data is divided to fragments and this individual fragments get cached in CDN. Only data needs to be refreshed is the manifest data. CDN periodically refreshes manifest data.
+A: Media Services supports integration with Azure CDN (for more information, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)).  You can use Live streaming with CDN. Azure Media Services provides Smooth Streaming, HLS and MPEG-DASH outputs. All these formats use HTTP for transferring data and get benefits of HTTP caching. In live streaming actual video/audio data is divided to fragments and this individual fragments get cached in CDN. Only data needs to be refreshed is the manifest data. CDN periodically refreshes manifest data.
 
 Q: Does Azure Media services support storing images?
 
-A: If you are just looking to store JPEG or PNG images, you should keep those in Azure Blob Storage. There is no benefit to putting them in your Media Services account unless you want to keep them associated with your Video or Audio Assets. Or if you might have a need to use the images as overlays in the video encoder.Media Encoder Standard supports overlaying images on top of videos, and that is what it lists JPEG and PNG as supported input formats. For more information, see [Creating Overlays](./media-services-advanced-encoding-with-mes.md#overlay).
+A: If you are just looking to store JPEG or PNG images, you should keep those in Azure Blob Storage. There is no benefit to putting them in your Media Services account unless you want to keep them associated with your Video or Audio Assets. Or if you might have a need to use the images as overlays in the video encoder.Media Encoder Standard supports overlaying images on top of videos, and that is what it lists JPEG and PNG as supported input formats. For more information, see [Creating Overlays](media-services-advanced-encoding-with-mes.md#overlay).
 
 Q: How can I copy assets from one Media Services account to another.
 
@@ -53,23 +54,23 @@ A: Media Services uses the value of the IAssetFile.Name property when building U
 
 Q: How to connect using REST?
 
-A: After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
+A: For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. 
 
 Q: How can I rotate a video during the encoding process.
 
-A: The [Media Encoder Standard](./media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](./media-services-mes-presets-overview.md):
+A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](media-services-mes-presets-overview.md):
 
-```
-"Version": 1.0,
-"Sources": [
-{
-  "Streams": [],
-  "Filters": {
-    "Rotation": "90"
-  }
-}
-],
-"Codecs": [
+    "Version": 1.0,
+    "Sources": [
+    {
+      "Streams": [],
+      "Filters": {
+        "Rotation": "90"
+      }
+    }
+    ],
+    "Codecs": [
 
-...
-```
+    ...
+
+

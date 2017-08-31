@@ -3,8 +3,8 @@ title: Get started with delivering content on demand using REST | Azure
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: v-johch
+origin.date: 03/01/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Get started with delivering content on demand using REST
@@ -34,13 +35,13 @@ Click the image to view it full size.
 The following prerequisites are required to start developing with Media Services with REST APIs.
 
 * An Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
 * An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler).
 
 The following tasks are shown in this quickstart.
 
-1. Start streaming endpoint (using the Azure Classic Management portal).
+1. Start streaming endpoint (using the Azure portal).
 2. Connect to the Media Services account with REST API.
 3. Create a new asset and upload a video file with REST API.
 4. Encode the source file into a set of adaptive bitrate MP4 files with REST API.
@@ -53,7 +54,7 @@ The following tasks are shown in this quickstart.
 
 For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](./media-services-concepts.md).
 
-## Start streaming endpoints using the Azure Classic Management portal
+## Start streaming endpoints using the Azure portal
 
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
@@ -62,9 +63,9 @@ When working with Azure Media Services one of the most common scenarios is deliv
 
 To start the streaming endpoint, do the following:
 
-1. Log in at the [Azure Classic Management portal](https://manage.windowsazure.cn/).
-2. Click Streaming endpoints. 
-3. Click the default streaming endpoint. 
+1. Log in at the [Azure portal](https://portal.azure.cn/).
+2. In the Settings window, click Streaming endpoints.
+3. Click the default streaming endpoint.
 
     The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 

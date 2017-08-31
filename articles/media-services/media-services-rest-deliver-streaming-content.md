@@ -1,31 +1,32 @@
 ---
 title: Publish Azure Media Services content using REST
 description: Learn how to create a locator that is used to build a streaming URL. The code uses REST API.
-authors: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 services: media-services
-documentationCenter: ''
+documentationcenter: ''
 
+ms.assetid: ff332c30-30c6-4ed1-99d0-5fffd25d4f23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/30/2016
-ms.date: 12/16/2016
-ms.author: v-johch
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-
 # Publish Azure Media Services content using REST
-
 > [!div class="op_single_selector"]
->- [.NET](./media-services-deliver-streaming-content.md)
->- [REST](./media-services-rest-deliver-streaming-content.md)
+> * [.NET](media-services-deliver-streaming-content.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [Portal](media-services-portal-publish.md)
+> 
+> 
 
-##Overview
-
-You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](./media-services-rest-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. If your content is encrypted, configure asset delivery policy (as described in [this](./media-services-rest-configure-asset-delivery-policy.md) topic) before creating a locator. 
+## Overview
+You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming locator and building a streaming URL. The [encoding an asset](media-services-rest-encode-asset.md) topic shows how to encode into an adaptive bitrate MP4 set. If your content is encrypted, configure asset delivery policy (as described in [this](media-services-rest-configure-asset-delivery-policy.md) topic) before creating a locator. 
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
 
@@ -33,19 +34,21 @@ This topic shows how to create an OnDemand streaming locator in order to publish
 
 The [following](#types) section shows the enum types whose values are used in the REST calls.   
 
-##Create an OnDemand streaming locator
-
+## Create an OnDemand streaming locator
 To create the OnDemand streaming locator and get URLs you need to do the following:
 
-   1. If the content is encrypted, define an access policy.
-   2. Create an OnDemand streaming locator.
-   3. If you plan to stream, get the streaming manifest file (.ism) in the asset. 
+1. If the content is encrypted, define an access policy.
+2. Create an OnDemand streaming locator.
+3. If you plan to stream, get the streaming manifest file (.ism) in the asset. 
+   
+   If you plan to progressively download, get the names of MP4 files in the asset. 
+4. Build URLs to the manifest file or MP4 files. 
+5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 
-    If you plan to progressively download, get the names of MP4 files in the asset. 
-   4. Build URLs to the manifest file or MP4 files. 
-   5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
+### Create an access policy
 
-###Create an access policy
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
 Request:
 
@@ -190,6 +193,6 @@ public enum LocatorType
 }
 ```
 
-##See also
+## See also
+[Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md)
 
-[Configure asset delivery policy](./media-services-rest-configure-asset-delivery-policy.md)

@@ -3,8 +3,8 @@ title: Using PlayReady dynamic common encryption | Microsoft Docs
 description: Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. 
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/16/2017
-ms.author: v-johch
+origin.date: 03/16/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Using PlayReady dynamic common encryption

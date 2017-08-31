@@ -3,8 +3,8 @@ title: Get started with delivering content on demand using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 07/16/2017
-ms.date: 08/07/2017
+origin.date: 07/31/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -28,7 +28,7 @@ This tutorial walks you through the steps of implementing a basic Video-on-Deman
 The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure 1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * .NET Framework 4.0 or later.
 * Visual Studio.
 
@@ -84,67 +84,58 @@ To start the streaming endpoint, do the following:
 
 When using Media Services with .NET, you must use the **CloudMediaContext** class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.
 
-Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information about connecting to Media Services, see [Access Azure Media Services API with .NET](./media-services-dotnet-get-started-with-aad.md).
+Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information, see [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
 
 Make sure to update the file name and path to where you have your media file.
 
 The **Main** function calls methods that will be defined further in this section.
 
 > [!NOTE]
->You will be getting compilation errors until you add definitions for all the functions.
+> You will be getting compilation errors until you add definitions for all the functions.
 
-```
-class Program
-{
-    // Read values from the App.config file.
-    private static readonly string _AADTenantDomain =
-    private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-    // Azure China uses a different API server and a different ACS Base Address from the Global.
-    private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-    private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
-
+	class Program
+	{
+	    // Read values from the App.config file.
+	    private static readonly string _AADTenantDomain =
 	    ConfigurationManager.AppSettings["AADTenantDomain"];
 	    private static readonly string _RESTAPIEndpoint =
 	    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-    private static CloudMediaContext _context = null;
-    private static Uri _apiServer = null;
+	    private static CloudMediaContext _context = null;
 
-    static void Main(string[] args)
-    {
-        try
-        {
+	    static void Main(string[] args)
+	    {
+		try
+		{
 		    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
 		    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
 		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Add calls to methods defined in this section.
-    // Make sure to update the file name and path to where you have your media file.
-            IAsset inputAsset =
-                UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
+		    // Add calls to methods defined in this section.
+		    // Make sure to update the file name and path to where you have your media file.
+		    IAsset inputAsset =
+			UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
-            IAsset encodedAsset =
-                EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
+		    IAsset encodedAsset =
+			EncodeToAdaptiveBitrateMP4s(inputAsset, AssetCreationOptions.None);
 
-            PublishAssetGetURLs(encodedAsset);
-        }
-        catch (Exception exception)
-        {
-            // Parse the XML error message in the Media Services response and create a new
-            // exception with its content.
-            exception = MediaServicesExceptionParser.Parse(exception);
+		    PublishAssetGetURLs(encodedAsset);
+		}
+		catch (Exception exception)
+		{
+		    // Parse the XML error message in the Media Services response and create a new
+		    // exception with its content.
+		    exception = MediaServicesExceptionParser.Parse(exception);
 
-            Console.Error.WriteLine(exception.Message);
-        }
-        finally
-        {
-            Console.ReadLine();
-        }
-    }
-}
-```
+		    Console.Error.WriteLine(exception.Message);
+		}
+		finally
+		{
+		    Console.ReadLine();
+		}
+	    }
+	}
 
 ## Create a new asset and upload a video file
 
@@ -166,25 +157,23 @@ In the following example, we specify **None** for the asset options.
 
 Add the following method to the Program class.
 
-```
-static public IAsset UploadFile(string fileName, AssetCreationOptions options)
-{
-    IAsset inputAsset = _context.Assets.CreateFromFile(
-        fileName,
-        options,
-        (af, p) =>
-        {
-            Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
-        });
+    static public IAsset UploadFile(string fileName, AssetCreationOptions options)
+    {
+        IAsset inputAsset = _context.Assets.CreateFromFile(
+            fileName,
+            options,
+            (af, p) =>
+            {
+                Console.WriteLine("Uploading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
 
-    Console.WriteLine("Asset {0} created.", inputAsset.Id);
+        Console.WriteLine("Asset {0} created.", inputAsset.Id);
 
-    return inputAsset;
-}
-```
+        return inputAsset;
+    }
 
-##Encode the source file into a set of adaptive bitrate MP4 files
 
+## Encode the source file into a set of adaptive bitrate MP4 files
 After ingesting assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs, and each Job is composed of atomic Tasks that do the actual work on the Asset file.
 
 As was mentioned earlier, when working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG DASH.
@@ -197,42 +186,41 @@ Once the job is completed, you would be able to stream your asset or progressive
 
 Add the following method to the Program class.
 
-```
-static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
-{
+    static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
+    {
 
-    // Prepare a job with a single task to transcode the specified asset
-    // into a multi-bitrate asset.
+        // Prepare a job with a single task to transcode the specified asset
+        // into a multi-bitrate asset.
 
-    IJob job = _context.Jobs.CreateWithSingleTask(
-        "Media Encoder Standard",
-        "Adaptive Streaming",
-        asset,
-        "Adaptive Bitrate MP4",
-        options);
+        IJob job = _context.Jobs.CreateWithSingleTask(
+            "Media Encoder Standard",
+            "Adaptive Streaming",
+            asset,
+            "Adaptive Bitrate MP4",
+            options);
 
-    Console.WriteLine("Submitting transcoding job...");
+        Console.WriteLine("Submitting transcoding job...");
 
-    // Submit the job and wait until it is completed.
-    job.Submit();
 
-    job = job.StartExecutionProgressTask(
-        j =>
-        {
-            Console.WriteLine("Job state: {0}", j.State);
-            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
-        },
-        CancellationToken.None).Result;
+        // Submit the job and wait until it is completed.
+        job.Submit();
 
-    Console.WriteLine("Transcoding job finished.");
+        job = job.StartExecutionProgressTask(
+            j =>
+            {
+                Console.WriteLine("Job state: {0}", j.State);
+                Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
+            },
+            CancellationToken.None).Result;
 
-    IAsset outputAsset = job.OutputMediaAssets[0];
+        Console.WriteLine("Transcoding job finished.");
 
-    return outputAsset;
-}
-```
+        IAsset outputAsset = job.OutputMediaAssets[0];
 
-##Publish the asset and get URLs for streaming and progressive download
+        return outputAsset;
+    }
+
+## Publish the asset and get URLs for streaming and progressive download
 
 To stream or download an asset, you first need to "publish" it by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files (for more information about SAS locators see [this](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
 
@@ -270,72 +258,72 @@ The following code uses .NET SDK Extensions to create locators and to get stream
 
 Add the following method to the Program class.
 
-```
-static public void PublishAssetGetURLs(IAsset asset)
-{
-    // Publish the output asset by creating an Origin locator for adaptive streaming,
-    // and a SAS locator for progressive download.
-
-    _context.Locators.Create(
-        LocatorType.OnDemandOrigin,
-        asset,
-        AccessPermissions.Read,
-        TimeSpan.FromDays(30));
-
-    _context.Locators.Create(
-        LocatorType.Sas,
-        asset,
-        AccessPermissions.Read,
-        TimeSpan.FromDays(30));
-
-    IEnumerable<IAssetFile> mp4AssetFiles = asset
-            .AssetFiles
-            .ToList()
-            .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
-
-    // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
-    // and the Progressive Download URL.
-    Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
-    Uri hlsUri = asset.GetHlsUri();
-    Uri mpegDashUri = asset.GetMpegDashUri();
-
-    // Get the URls for progressive download for each MP4 file that was generated as a result
-    // of encoding.
-    List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
-
-    // Display  the streaming URLs.
-    Console.WriteLine("Use the following URLs for adaptive streaming: ");
-    Console.WriteLine(smoothStreamingUri);
-    Console.WriteLine(hlsUri);
-    Console.WriteLine(mpegDashUri);
-    Console.WriteLine();
-
-    // Display the URLs for progressive download.
-    Console.WriteLine("Use the following URLs for progressive download.");
-    mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
-    Console.WriteLine();
-
-    // Download the output asset to a local folder.
-    string outputFolder = "job-output";
-    if (!Directory.Exists(outputFolder))
+    static public void PublishAssetGetURLs(IAsset asset)
     {
-        Directory.CreateDirectory(outputFolder);
+        // Publish the output asset by creating an Origin locator for adaptive streaming,
+        // and a SAS locator for progressive download.
+
+        _context.Locators.Create(
+            LocatorType.OnDemandOrigin,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
+
+        _context.Locators.Create(
+            LocatorType.Sas,
+            asset,
+            AccessPermissions.Read,
+            TimeSpan.FromDays(30));
+
+
+        IEnumerable<IAssetFile> mp4AssetFiles = asset
+                .AssetFiles
+                .ToList()
+                .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
+
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
+        // and the Progressive Download URL.
+        Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
+        Uri hlsUri = asset.GetHlsUri();
+        Uri mpegDashUri = asset.GetMpegDashUri();
+
+        // Get the URls for progressive download for each MP4 file that was generated as a result
+        // of encoding.
+        List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
+
+        // Display  the streaming URLs.
+        Console.WriteLine("Use the following URLs for adaptive streaming: ");
+        Console.WriteLine(smoothStreamingUri);
+        Console.WriteLine(hlsUri);
+        Console.WriteLine(mpegDashUri);
+        Console.WriteLine();
+
+        // Display the URLs for progressive download.
+        Console.WriteLine("Use the following URLs for progressive download.");
+        mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
+        Console.WriteLine();
+
+        // Download the output asset to a local folder.
+        string outputFolder = "job-output";
+        if (!Directory.Exists(outputFolder))
+        {
+            Directory.CreateDirectory(outputFolder);
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Downloading output asset files to a local folder...");
+        asset.DownloadToFolder(
+            outputFolder,
+            (af, p) =>
+            {
+                Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
+            });
+
+        Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-    Console.WriteLine();
-    Console.WriteLine("Downloading output asset files to a local folder...");
-    asset.DownloadToFolder(
-        outputFolder,
-        (af, p) =>
-        {
-            Console.WriteLine("Downloading '{0}' - Progress: {1:0.##}%", af.Name, p.Progress);
-        });
-
-    Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
-}
-```
-
 ## Test by playing your content
+
 Once you run the program defined in the previous section, the URLs similar to the following will be displayed in the console window.
 
 Adaptive streaming URLs:
@@ -378,15 +366,18 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 ```
 
-To stream you video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+To stream your video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
 For more information, see the following topics:
 
-- [Playing your content with existing players](./media-services-playback-content-with-existing-players.md)
-- [Develop video player applications](./media-services-develop-video-players.md)
-- [Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js](./media-services-embed-mpeg-dash-in-html5.md)
+- [Playing your content with existing players](media-services-playback-content-with-existing-players.md)
+- [Develop video player applications](media-services-develop-video-players.md)
+- [Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+
+## Download sample
+The following code sample contains the code that you created in this tutorial: [sample](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 <!-- Anchors. -->
 
@@ -394,4 +385,4 @@ For more information, see the following topics:
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.cn/
 
-<!--Update_Description: update word & code-->
+<!--Update_Description: update code to use AAD token instead of ACS-->

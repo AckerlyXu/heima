@@ -1,8 +1,8 @@
 ﻿---
 title: Retry logic in the Media Services SDK for .NET | Azure
 description: The topic gives an overview of retry logic in the Media Services SDK for .NET.
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/25/2016
-ms.date: 12/12/2016
-ms.author: v-johch
+ms.date: 09/04/2016
+ms.author: v-haiqya
 ---
 
 # Retry logic in the Media Services SDK for .NET
@@ -35,10 +35,10 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 
 | Exception | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>For more information, see the [WebException status codes](./media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) section. |Yes |Yes |Yes |Yes |
-| DataServiceClientException<br/> For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
-| DataServiceQueryException<br/> For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
-| DataServiceRequestException<br/> For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| WebException<br/>For more information, see the [WebException status codes](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) section. |Yes |Yes |Yes |Yes |
+| DataServiceClientException<br/> For more information, see [HTTP error status codes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceQueryException<br/> For more information, see [HTTP error status codes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceRequestException<br/> For more information, see [HTTP error status codes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
 | DataServiceTransportException |No |No |Yes |Yes |
 | TimeoutException |Yes |Yes |Yes |No |
 | SocketException |Yes |Yes |Yes |Yes |
@@ -46,7 +46,7 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 | IOException |No |Yes |No |No |
 
 ### <a name="WebExceptionStatus"></a> WebException status codes
-The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](http://msdn.microsoft.com/zh-cn/library/system.net.webexceptionstatus.aspx) enumeration defines the status codes.  
+The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) enumeration defines the status codes.  
 
 | Status | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -61,7 +61,7 @@ The following table shows for which WebException error codes the retry logic is 
 | ReceiveFailure |Yes |Yes |Yes |No |
 | RequestCanceled |Yes |Yes |Yes |No |
 | Timeout |Yes |Yes |Yes |No |
-| ProtocolError <br/>The retry on ProtocolError is controlled by the HTTP status code handling. For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Yes |Yes |Yes |Yes |
+| ProtocolError <br/>The retry on ProtocolError is controlled by the HTTP status code handling. For more information, see [HTTP error status codes](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Yes |Yes |Yes |Yes |
 
 ### <a name="HTTPStatusCode"></a> HTTP error status codes
 When Query and SaveChanges operations throw DataServiceClientException, DataServiceQueryException, or DataServiceQueryException, the HTTP error status code is returned in the StatusCode property.  The following table shows for which error codes the retry logic is implemented.  

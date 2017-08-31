@@ -3,8 +3,8 @@ title: Use Azure Media Video Thumbnails to Create a Video Summarization | Azure
 description: Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/16/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-
-#Use Azure Media Video Thumbnails to Create a Video Summarization
-##Overview
-
+# Use Azure Media Video Thumbnails to Create a Video Summarization
+## Overview
 The **Azure Media Video Thumbnails** media processor (MP) enables you to create a summary of a video that is useful to customers who just want to preview a summary of a long video. For example, customers might want to see a short "summary video" when they hover over a thumbnail. By tweaking the parameters of **Azure Media Video Thumbnails** through a configuration preset, you can use the MP's powerful shot detection and concatenation technology to algorithmically generate a descriptive subclip.  
 
 The **Azure Media Video Thumbnail** MP is currently in Preview.
@@ -34,16 +32,13 @@ In some cases, if your video is not comprised of different scenes, the output wi
 ## Video summary example
 Here are some examples of what the Azure Media Video Thumbnails media processor can do:
 
-###Original video
-
+### Original video
 [Original video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
-###Video thumbnail result
-
+### Video thumbnail result
 [Video thumbnail result](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##Task configuration (preset)
-
+## Task configuration (preset)
 When creating a video thumbnail task with **Azure Media Video Thumbnails**, you must specify a configuration preset. The above thumbnail sample was created with the following basic JSON configuration:
 
 ```
@@ -52,11 +47,11 @@ When creating a video thumbnail task with **Azure Media Video Thumbnails**, you 
 
 Currently, you can change the following parameters:
 
-Param|Description
----|---
-outputAudio|Specifies whether or not the resultant video contains any audio. <br/>Allowed values are: True or False. Default is True.
-fadeInFadeOut|Specifies whether or not fade transitions are used between the separate motion thumbnails.  <br/>Allowed values are: True or False.  Default is True.
-maxMotionThumbnailDurationInSecs|Integer that specifies how long the entire resultant video shall be.  Default depends on original video duration.
+| Param | Description |
+| --- | --- |
+| outputAudio |Specifies whether or not the resultant video contains any audio. <br/>Allowed values are: True or False. Default is True. |
+| fadeInFadeOut |Specifies whether or not fade transitions are used between the separate motion thumbnails.  <br/>Allowed values are: True or False.  Default is True. |
+| maxMotionThumbnailDurationInSecs |Integer that specifies how long the entire resultant video shall be.  Default depends on original video duration. |
 
 The following table describes the default duration, when **maxMotionThumbnailInSecs** is not used.
 
@@ -83,7 +78,7 @@ The following JSON sets available parameters.
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-1. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset. 
+2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset. 
 
     ```
     {				
@@ -96,10 +91,9 @@ The following program shows how to:
     }
     ```
 
-1. Downloads the output files. 
+3. Downloads the output files. 
 
-###.NET code
-
+### .NET code
 ```
 using System;
 using System.Configuration;
@@ -265,12 +259,11 @@ namespace VideoSummarization
 }
 ```
 
-###Video thumbnail output
+### Video thumbnail output
 
 [Video thumbnail output](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.chinacloudapi.cn%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-##Related links
-
-[Azure Media Services Analytics Overview](./media-services-analytics-overview.md)
+## Related links
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/02/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Use Azure Media Analytics to convert text content in video files into digital text
@@ -44,8 +44,8 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 |AdvancedOutput| If you set AdvancedOutput to true, the JSON output will contain positional data for every single word (in addition to phrases and regions). If you do not want to see these details, set the flag to false. The default value is false. For more information, see [this blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
 | Language |(optional) describes the language of text for which to look. One of the following: AutoDetect (default), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German,  Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish. |
 | TextOrientation |(optional) describes the orientation of text for which to look.  "Left" means that the top of all letters are pointed towards the left.  Default text (like that which can be found in a book) can be called "Up" oriented.  One of the following: AutoDetect (default), Up, Right, Down, Left. |
-| TimeInterval |(optional) describes the sampling rate.  Default is every 1/2 second.<br/>JSON format - HH:mm:ss.SSS (default 00:00:00.500)<br/>XML format - W3C XSD duration primitive (default PT0.5) |
-| DetectRegions |(optional) An array of DetectRegion objects specifying regions within the video frame in which to detect text.<br/>A DetectRegion object is made of the following four integer values:<br/>Left - pixels from the left-margin<br/>Top - pixels from the top-margin<br/>Width - width of the region in pixels<br/>Height - height of the region in pixels |
+| TimeInterval |(optional) describes the sampling rate.  Default is every 1/2 second.<br/>JSON format – HH:mm:ss.SSS (default 00:00:00.500)<br/>XML format – W3C XSD duration primitive (default PT0.5) |
+| DetectRegions |(optional) An array of DetectRegion objects specifying regions within the video frame in which to detect text.<br/>A DetectRegion object is made of the following four integer values:<br/>Left – pixels from the left-margin<br/>Top – pixels from the top-margin<br/>Width – width of the region in pixels<br/>Height – height of the region in pixels |
 
 #### JSON preset example
 

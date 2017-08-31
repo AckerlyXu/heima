@@ -3,7 +3,7 @@
 ## [Concepts](media-services-concepts.md)
 
 # Get started
-## [Create and manage account](media-services-create-account.md)
+## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
@@ -15,20 +15,22 @@
 ### [Use PowerShell to create and configure AAD app](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Deliver video on demand
+### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Perform live streaming
+### [Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # How To
 ## Manage
-### Accounts
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 ### Entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
+### [Streaming endpoints](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Storage
 #### [Update Media Services after rolling storage access keys](media-services-roll-storage-access-keys.md)
 #### [Manage assets across multiple storage accounts](meda-services-managing-multiple-storage-accounts.md)
@@ -36,6 +38,7 @@
 
 ## Upload content
 ### Upload files into an account
+#### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
@@ -46,6 +49,7 @@
 #### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
 #### [Use MES to auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Encode with Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
@@ -95,7 +99,6 @@
 ### [on-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -108,6 +111,7 @@
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 
 ## [Protect](media-services-content-protection-overview.md)
+### [Configure content protection in the portal](media-services-portal-protect-content.md)
 ### [Configure AES-128 clear key for your stream](media-services-protect-with-aes128.md)
 ### [Use REST to encrypt your content with storage encryption](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady license template overview](media-services-playready-license-template-overview.md)
@@ -126,7 +130,9 @@
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [Analyze](media-services-analytics-overview.md)
+### [Analyze media using the portal](media-services-portal-analyze.md)
 ### [Process with Indexer](media-services-index-content.md)
+#### [Task preset](indexer-task-preset.md)
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
@@ -141,9 +147,10 @@
 
 ## Scale
 ### [Media Processing](media-services-scale-media-processing-overview.md)
+#### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-
+### Streaming Endpoints
+#### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Deliver content](media-services-deliver-content-overview.md)
 ### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
@@ -151,6 +158,7 @@
 #### [Create filters with .NET](media-services-dotnet-dynamic-manifest.md)
 #### [Create filters with REST](media-services-rest-dynamic-manifest.md)
 ### Publish content
+#### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Deliver by Download](media-services-deliver-asset-download.md)

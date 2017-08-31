@@ -3,8 +3,8 @@ title: How to Create a Media Processor | Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
-ms.author: v-johch
+origin.date: 02/20/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # How to: Get a Media Processor Instance
@@ -44,9 +45,6 @@ The following table provides the name and description of each available media pr
 > When working with the Media Services REST API, the following considerations apply:
 > 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-> 
-> You must make subsequent calls to the URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
-> 
 > 
 
 The following REST call shows how to get a media processor instance by name (in this case, **Media Encoder Standard**). 

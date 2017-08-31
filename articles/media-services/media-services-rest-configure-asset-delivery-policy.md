@@ -3,8 +3,8 @@ title: Configuring asset delivery policies using Media Services REST API | Azure
 description: This topic shows how to configure different asset delivery policies using Media Services REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: dwrede
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -41,37 +41,30 @@ The following list shows the formats that you use to stream Smooth, HLS, DASH.
 
 Smooth Streaming:
 
-```
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
-```
 
 HLS:
 
-```
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-```
 
 MPEG DASH
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](./media-services-deliver-streaming-content.md).
+
+For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](media-services-deliver-streaming-content.md).
 
 ## Considerations
-
-- You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
-- A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
-- You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
-- If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
+* You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
+* A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.  If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.
+* You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
+* If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
 >[!NOTE]
 > When working with the Media Services REST API, the following considerations apply:
 >
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 >
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md).
 
 ## Clear asset delivery policy
 
@@ -164,7 +157,7 @@ HTTP/1.1 204 No Content
 
 ### Create content key of the EnvelopeEncryption type and link it to the asset
 
-When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
+When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Get delivery URL
 
@@ -439,4 +432,3 @@ public enum AssetDeliveryPolicyConfigurationKey
 }
 ```
 
-<!--Update_Description: update code-->
