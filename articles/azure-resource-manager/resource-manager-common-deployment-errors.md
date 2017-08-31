@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2017
-ms.date: 08/21/2017
+origin.date: 08/17/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
@@ -59,7 +59,25 @@ Message: The requested tier for resource '<resource>' is currently not available
 for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
 ```
 
-You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. To resolve this issue, you need to determine which SKUs are available in a region. You can use either the portal or a REST operation to find available SKUs.
+You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. To resolve this issue, you need to determine which SKUs are available in a region. You can use PowerShell, the portal, or a REST operation to find available SKUs.
+
+- For PowerShell, use [Get-AzureRmComputeResourceSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) and filter by location. You must have the latest version of PowerShell for this command.
+
+  ```powershell
+  Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("chinaeast")}
+  ```
+
+  The results include a list of SKUs for the location and any restrictions for that SKU.
+
+  ```powershell
+  ResourceType                Name      Locations Restriction                      Capability Value
+  ------------                ----      --------- -----------                      ---------- -----
+  availabilitySets         Classic chinaeast             MaximumPlatformFaultDomainCount     3
+  availabilitySets         Aligned chinaeast             MaximumPlatformFaultDomainCount     3
+  virtualMachines      Standard_A0 chinaeast
+  virtualMachines      Standard_A1 chinaeast
+  virtualMachines      Standard_A2 chinaeast
+  ```
 
 - To use the [portal](https://portal.azure.cn), log in to the portal and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
@@ -240,7 +258,8 @@ This error can result from several different types of errors.
 
     You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.
 
-### <a name="notfound"></a><a name="notfound-and-resourcenotfound"></a>NotFound and ResourceNotFound
+<a id="notfound"></a>
+### <a name="notfound-and-resourcenotfound"></a>NotFound and ResourceNotFound
 When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
 
 ```
@@ -308,7 +327,8 @@ But, if you do not specify a dependency on the parent resource, the child resour
 ]
 ```
 
-## <a id="storagenamenotunique"></a><a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a> StorageAccountAlreadyExists and StorageAccountAlreadyTaken
+<a name="storagenamenotunique"></a>
+## <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a> StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
 ```
@@ -332,7 +352,9 @@ You see the **AccountNameInvalid** error when attempting to give a storage accou
 
 You may encounter a BadRequest status when you provide an invalid value for a property. For example, if you provide an incorrect SKU value for a storage account, the deployment fails. To determine valid values for property, look at the [REST API](https://docs.microsoft.com/rest/api) for the resource type you are deploying.
 
-## <a id="noregisteredproviderfound"></a> NoRegisteredProviderFound and MissingSubscriptionRegistration
+<a id="noregisteredproviderfound" />
+
+## NoRegisteredProviderFound and MissingSubscriptionRegistration
 When deploying resource, you may receive the following error code and message:
 
 ```
@@ -414,7 +436,8 @@ To see the supported locations and API versions for a resource type, use:
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-## <a name="quotaexceeded"></a><a name="operationnotallowed"></a>QuotaExceeded and OperationNotAllowed
+<a id="quotaexceeded"></a>
+## <a name="operationnotallowed"></a>QuotaExceeded and OperationNotAllowed
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
@@ -498,7 +521,7 @@ In **PowerShell**, provide that policy identifier as the **Id** parameter to ret
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-In **Azure CLI 2.0**, provide the name of the policy definition:
+In **Azure CLI**, provide the name of the policy definition:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -506,7 +529,7 @@ az policy definition show --name regionPolicyAssignment
 
 For more information, see the following articles:
 
-<!-- Not Avaialble - [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
+<!-- Not Avaialble [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
 - [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## <a name="authorization-failed"></a>Authorization failed
@@ -518,4 +541,4 @@ For more information about role-based access control, see [Azure Role-Based Acce
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 
-<!--Update_Description: wording update, remove the troubleshoot tips-->
+<!--Update_Description: wording update, add Get-AzureRmComputeResourceSku sample code -->

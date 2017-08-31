@@ -4,7 +4,7 @@ description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: b33b7303-3330-4af8-8329-c80ac7e9bc7f
@@ -14,10 +14,9 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
-ms.date: 06/05/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
-
 # Manage resources with Azure PowerShell and Resource Manager
 > [!div class="op_single_selector"]
 > * [Portal](resource-group-portal.md)
@@ -248,8 +247,10 @@ The following topics show you how to use Azure Automation, Resource Manager, and
 <!-- Not Available - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md). -->
 <!-- Not Available - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md). -->
 
-## Next Steps
+## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 * To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: wording update-->
