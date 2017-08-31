@@ -92,7 +92,7 @@ Your template can be either a local file or an external file that is available t
 * To learn about handling asynchronous REST operations, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
 * For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
-* For guidance on deploying your solution to different environments, see [Development and test environments in Azure](solution-dev-test-environments.md).
+<!-- Redirect URL Not available (solution-dev-test-environments.md).-->
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
 <!--Update_Description: update link-->
