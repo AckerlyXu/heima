@@ -3,7 +3,7 @@ title: Media Services Operations REST API overview | Azure
 description: Media Services REST API overview
 services: media-services
 documentationcenter: ''
-author: hayley2
+author: hayley244
 manager: digimobile
 editor: ''
 
