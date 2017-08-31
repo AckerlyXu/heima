@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
+origin.date: 08/10/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
@@ -35,20 +35,28 @@ Each job can have one or more tasks depending on the type of processing that you
 * Tasks can be defined inline through the Tasks navigation property on Job entities.
 * Use OData batch processing.
 
-We recommend that you always encode your mezzanine files into an adaptive bitrate MP4 set, and then convert the set to the desired format by using [dynamic packaging](media-services-dynamic-packaging-overview.md).
+We recommend that you always encode your source files into an adaptive bitrate MP4 set, and then convert the set to the desired format by using [dynamic packaging](media-services-dynamic-packaging-overview.md).
 
 If your output asset is storage encrypted, you must configure the asset delivery policy. For more information, see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
 
-> [!NOTE]
-> Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get media processors](media-services-rest-get-media-processor.md).
->
->
+## Considerations
+
+When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+
+Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get media processors](media-services-rest-get-media-processor.md).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
 
 ## Create a job with a single encoding task
 > [!NOTE]
 > When you're working with the Media Services REST API, the following considerations apply:
 >
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API development](media-services-rest-how-to-use.md).
+>
+> For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 >
 > When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object), you must set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
@@ -265,3 +273,5 @@ Now that you know how to create a job to encode an asset, see [How to check job 
 
 ## See also
 [Get Media Processors](media-services-rest-get-media-processor.md)
+
+<!--Update_Description: add section "Considerations" and "Connect to Media Services"-->

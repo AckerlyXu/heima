@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/06/2017
+origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 
@@ -102,6 +102,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technoly Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -126,6 +127,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
 * Homecast Co.,Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
@@ -147,6 +149,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.

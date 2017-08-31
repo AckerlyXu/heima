@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2016
+origin.date: 08/10/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
-# Create ContentKeys with REST
+# Create content keys with REST
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -43,7 +43,7 @@ The following are general steps for generating content keys that you will associ
     Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Create a checksum value (based on the PlayReady AES key checksum algorithm) calculated using the key identifier and content key. For more information, see the “PlayReady AES Key Checksum Algorithm” section of the PlayReady Header Object document located [here](http://www.microsoft.com/playready/documents/).
 
-    The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
+    The following is a .NET example that calculates the checksum using the GUID part of the key identifier and the clear content key.
 
     ```
     public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -67,12 +67,15 @@ The following are general steps for generating content keys that you will associ
 5. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
 6. Associate the **ContentKey** entity with your **Asset** entity through the $links operation.
 
-Note that examples that generate an AES key, encrypt the key, and calculate the checksum have been omitted from this topic. Only the examples that show how to interact with Media Services are provided.
+Note that this topic does not show how to generate an AES key, encrypt the key, and calculate the checksum. 
 
-> [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
-> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+>[!NOTE]
+
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
 ## Retrieve the ProtectionKeyId
@@ -110,8 +113,7 @@ Date: Wed, 04 Feb 2015 02:42:52 GMT
 {"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 ```
 
-##Retrieve the ProtectionKey for the ProtectionKeyId
-
+## Retrieve the ProtectionKey for the ProtectionKeyId
 The following example shows how to retrieve the X.509 certificate using the ProtectionKeyId you received in the previous step.
 
 Request:
@@ -149,8 +151,7 @@ Date: Thu, 05 Feb 2015 07:52:30 GMT
 "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 ```
 
-##Create the ContentKey 
-
+## Create the ContentKey
 After you have retrieved the X.509 certificate and used its public key to encrypt your content key, create a **ContentKey** entity and set its property values accordingly.
 
 One of the values that you must set when create the content key is the type. Choose from one of the following values.
@@ -234,8 +235,7 @@ Date: Wed, 04 Feb 2015 02:37:46 GMT
 "Checksum":"calculated checksum"}
 ```
 
-##Associate the ContentKey with an Asset
-
+## Associate the ContentKey with an Asset
 After creating the ContentKey, associate it with your Asset using the $links operation, as shown in the following example:
 
 Request:

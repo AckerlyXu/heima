@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 07/31/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
@@ -54,6 +54,10 @@ For more information, see
 > When working with the Media Services REST API, the following considerations apply:
 > 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> 
+> For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+> 
+> 
 
 ### Open Restriction
 Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.

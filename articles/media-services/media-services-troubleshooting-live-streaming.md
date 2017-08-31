@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/12/2016
+origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---

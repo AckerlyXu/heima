@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 01/10/2017
+origin.date: 08/10/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
@@ -38,10 +38,15 @@ The following types are used when creating filters:
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
-> [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
-> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+>[!NOTE]
+
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+
 
 ## Create filters
 ### Create global Filters
@@ -370,4 +375,4 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 ## See Also
 [Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-
+<!--Update_Description: add section "Connect to Media Services"-->

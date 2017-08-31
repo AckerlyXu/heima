@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2017
+origin.date: 08/10/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
@@ -25,20 +25,21 @@ ms.author: v-haiqya
 > 
 > 
 
-Microsoft Azure Media Services is a REST-based service built on OData v3. Because of this, you can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](http://www.odata.org/documentation/).
+Azure Media Services is a REST-based service built on OData v3. You can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](http://www.odata.org/documentation/).
 
 This topic shows you how to manage Azure Media Services entities with REST.
 
 >[!NOTE]
 > Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
 
-## Considerations when working with AMS REST
+## Considerations  
 
-When working with the Media Services REST API, the following considerations apply:
+When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
-> [!NOTE]
-> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-> 
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
 
 
 ## Adding entities
@@ -182,3 +183,4 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 0
 ```
+<!--Update_Description: add "Connect to Media Services" section-->

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/13/2017
+origin.date: 08/10/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
@@ -44,13 +44,18 @@ The basic workflow for uploading Assets is divided into the following sections:
 
 AMS also enables you to upload assets in bulk. For more information, see [this](media-services-rest-upload-files.md#upload_in_bulk) section.
 
-## Upload assets
-### Create an asset
 > [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+
+## Upload assets
+
+### Create an asset
 
 An asset is a container for multiple types or sets of objects in Media Services, including video, audio, images, thumbnail collections, text tracks, and closed caption files. In the REST API, creating an Asset requires sending POST request to Media Services and placing any property information about your asset in the request body.
 

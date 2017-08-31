@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 03/02/2017
+origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 
@@ -41,6 +41,13 @@ These release notes summarize changes from previous releases and known issues.
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+## June 2017 Release
+
+Media Services now supports [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
 
 ## March 2017 Release
 
@@ -605,4 +612,4 @@ The following functionality was new in the November release of the SDK.
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Managing Media Services Assets across Multiple Storage Accounts]: ./meda-services-managing-multiple-storage-accounts.md
 [Handling Media Services Job Notifications]: ./media-services-check-job-progress.md
-<!--Update_Description: update several links-->
+<!--Update_Description: add support note for aad token-->
