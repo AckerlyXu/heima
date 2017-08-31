@@ -1,6 +1,6 @@
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| [Storage accounts](../articles/storage/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
+| [Storage accounts](../articles/storage/common/storage-create-storage-account.md) per subscription |200 |200<sup>2</sup> |
 | [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |800 |800 |
 | [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
 | Resource Manager API Reads |15,000 per hour |15,000 per hour |
@@ -26,3 +26,4 @@
 > 
 
 
+<!--ms.date: 08/29/2017-->

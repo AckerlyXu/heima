@@ -1,51 +1,55 @@
 ---
-title: Upload an Azure Management API Certificate | Azure Microsoft
-description: Learn how to upload athe Management API certficate for the Azure Classic Portal.
+title: Upload an Azure Management API Certificate | Microsoft Docs
+description: Learn how to upload athe Management API certificate for the Azure Classic Management Portal.
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
-manager: timlt
+documentationcenter: .net
+author: alexchen2016
+manager: digimobile
 editor: ''
 
+ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-origin.date: 04/18/2016
-ms.date: 06/13/2016
+origin.date: 08/01/2017
+ms.date: 08/29/2017
 ms.author: v-junlch
+
 ---
-
 # Upload an Azure Management API Management Certificate
+Management certificates allow you to authenticate with the classic deployment model provided by Azure. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. 
 
-Management certificates allow you to authenticate with the Service Management API provided by Azure. Many programs and tools (such as Visual Studio or the Azure SDK) will use these certficates to automate configuration and deployment of various Azure services. **This only applies to the Azure classic portal**. 
+> [!WARNING]
+> Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with.
+>
+>
 
->[!WARNING]
-> Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with. 
+If you'd like more information about Azure certificates (including creating a self-signed certificate), see [Certificates overview for Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-More information about Azure certificates (including creating a self-signed certificate) is [available](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) to you if you need it.
-
-You can also use [Azure Active Directory](/services/active-directory/) to authenticate client-code for automation purposes.
+You can also use [Azure Active Directory](/active-directory/) to authenticate client-code for automation purposes.
 
 ## Upload a management certificate
+Once you have a management certificate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certificate (private key) can connect through the Management API and access the resources for the associated subscription.
 
-Once you have a management certficate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certficiate (private key) can connect through the Management API and access the resources for the associated subscription.
+1. Log in to the [Azure portal](http://portal.azure.cn).
+2. Click **More services** at the bottom Azure service list, then select **Subscriptions** in the _General_ service group.
 
-1. Log into the [Azure Management Portal](http://manage.windowsazure.cn).
-2. Click **Settings** on the left side of the portal (you may need to scroll down). 
+    ![Subscription menu](./media/azure-api-management-certs/subscriptions_menu.png)
 
-    ![Settings](./media/azure-api-management-certs/settings.png)
+3. Make sure to select the correct subscription that you want to associate with the certificate.     
+4. After you have selected the correct subscription, press **Management certificates** in the _Settings_ group.
 
-3. Click the **Management Certificates** tab.
+    ![Settings](./media/azure-api-management-certs/mgmtcerts_menu.png)
 
-    ![Settings](./media/azure-api-management-certs/certificates-tab.png)
+5. Press the **Upload** button.
 
-4. Click the **Upload** button.
+    ![Upload on certificates page](./media/azure-api-management-certs/certificates_page.png)
+6. Fill out the dialog information and press **Upload**.
 
-    ![Settings](./media/azure-api-management-certs/upload.png)
-
-5. Fill out the dialog information and click the done **Checkmark**.
-
-    ![Settings](./media/azure-api-management-certs/upload-dialog.png)
+    ![Settings](./media/azure-api-management-certs/certificate_details.png)
 
 ## Next steps
+Now that you have a management certificate associated with a subscription, you can (after you have installed the matching certificate locally) programmatically connect to the [classic deployment model REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) and automate the various Azure resources that are also associated with that subscription.
 
-Now that you have a management certficate associated with a subscription, you can (after you have installed the matching certificate locally) programatically connect to the [Service Management REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) and automate the various Azure resources that are also associated with that subscription.
