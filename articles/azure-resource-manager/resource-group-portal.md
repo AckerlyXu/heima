@@ -1,10 +1,10 @@
 ---
-title: Use Azure Portal to manage Azure resources | Azure
-description: Use Azure Portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources.
+title: Use Azure portal to manage Azure resources | Azure
+description: Use Azure portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 0725bbf2-5913-4c07-af6e-24e11d957fbc
@@ -14,20 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/19/2016
-ms.date: 01/25/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
 # Manage Azure resources through portal
 > [!div class="op_single_selector"]
->- [Azure PowerShell](./powershell-azure-resource-manager.md)
->- [Azure CLI](./xplat-cli-azure-resource-manager.md)
->- [Portal](./resource-group-portal.md)
->- [REST API](./resource-manager-rest-api.md)
+> * [Azure PowerShell](powershell-azure-resource-manager.md)
+> * [Azure CLI](xplat-cli-azure-resource-manager.md)
+> * [Portal](resource-group-portal.md) 
+> * [REST API](resource-manager-rest-api.md)
+> 
+> 
 
-This topic shows how to use the [Azure Portal](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure Portal](./resource-group-template-deploy-portal.md).
+This topic shows how to use the [Azure portal](https://portal.azure.cn) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [Classic Management Portal](https://manage.windowsazure.cn). For the status of each service, see [Azure Portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [Classic Management Portal](https://manage.windowsazure.cn). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## <a name="create-resource-group-and-resources"></a> Manage resource groups
 
@@ -53,7 +55,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 6. Select the columns to add, and then select **Update**.
 
     ![add columns](./media/resource-group-portal/add-columns.png)
-7. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure Portal](./resource-group-template-deploy-portal.md).
+7. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 8. For quick access to a resource group, you can pin the blade to your dashboard.
 
     ![pin resource group](./media/resource-group-portal/pin-group.png)
@@ -62,7 +64,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
     ![pin resource group](./media/resource-group-portal/show-resource-group-dashboard.png)
 
 ## Tag resources
-You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
+You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
@@ -95,12 +97,12 @@ In the blade for a resource, you see the options for managing the resource. The 
 From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
 
 ## Move resources
-If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](./resource-group-move-resources.md).
+If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 ## Lock resources
-You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](./resource-group-lock-resources.md).
-<!-- Not translate the [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md) -->
-<!-- [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)] -->
+You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+
+[!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## View your subscription and costs
 You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
@@ -121,16 +123,18 @@ After setting up your resource group, you may want to view the Resource Manager 
 1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
 2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](./resource-manager-export-template.md).
+For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 ## Delete resource group or resources
 Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
 
 ![delete group](./media/resource-group-portal/delete-group.png)
 
-## Next Steps
-* To view activity logs, see [Audit operations with Resource Manager](./resource-group-audit.md).
-* To view details about a deployment, see [View deployment operations](./resource-manager-deployment-operations.md).
-* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure Portal](./resource-group-template-deploy-portal.md).
+## Next steps
+* To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
+* To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
+* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 * To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: wording update, update reference link-->

@@ -7,10 +7,11 @@
 
 # Get started
 ## [Export template](resource-manager-export-template.md)
-## [Create your first template](resource-manager-create-first-template.md)
+## [Create and deploy template](resource-manager-create-first-template.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Deploy template](resource-manager-samples-powershell-deploy.md)
 
@@ -89,6 +90,10 @@
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
 ### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
+### [RequestDisallowedByPolicy error](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Virtual Machine deployment errors
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Reference
 <!-- Not Available ## [Template format](/templates/) -->
@@ -96,6 +101,7 @@
 ### [Array and object functions](resource-group-template-functions-array.md)
 ### [Comparison functions](resource-group-template-functions-comparison.md)
 ### [Deployment functions](resource-group-template-functions-deployment.md)
+### [Logical functions](resource-group-template-functions-logical.md)
 ### [Numeric functions](resource-group-template-functions-numeric.md)
 ### [Resource functions](resource-group-template-functions-resource.md)
 ### [String functions](resource-group-template-functions-string.md)
@@ -123,6 +129,8 @@
 
 # Resources
 <!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Service updates](https://www.azure.cn/what-is-new/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Throttling requests](resource-manager-request-limits.md)
 ## [Track asynchronous operations](resource-manager-async-operations.md)

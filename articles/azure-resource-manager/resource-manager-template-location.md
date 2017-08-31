@@ -4,18 +4,19 @@ description: Shows how to set a location for a resource in an Azure Resource Man
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: azure-resource-manager
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
-ms.date: 03/03/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
+
 ---
 
 # Set resource location in Azure Resource Manager templates
@@ -23,7 +24,7 @@ When deploying a template, you must provide a location for each resource. This t
 
 ## Determine supported locations
 
-For a complete list of supported locations for each resource type, see [Products available by region](https://azure.microsoft.com/regions/services/). However, your subscription might not have access to all the locations in that list. To see a customized list of locations that are available to your subscription, use Azure PowerShell or Azure CLI. 
+For a complete list of supported locations for each resource type, see [Products available by region](https://www.azure.cn/support/service-dashboard). However, your subscription might not have access to all the locations in that list. To see a customized list of locations that are available to your subscription, use Azure PowerShell or Azure CLI. 
 
 The following example uses PowerShell to get the locations for the `Microsoft.Web\sites` resource type:
 
@@ -45,12 +46,12 @@ The following example shows a storage account that is deployed to the same locat
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "variables": {
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"variables": {
       "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
     },
-    "resources": [
+	"resources": [
     {
       "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
@@ -66,7 +67,7 @@ The following example shows a storage account that is deployed to the same locat
       "kind": "Storage",
       "properties": { }
     }
-    ]
+	]
 }
 ```
 
@@ -74,9 +75,9 @@ If you need to hardcode the location in your template, provide the name of one o
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"resources": [
     {
       "apiVersion": "2016-01-01",
       "type": "Microsoft.Storage/storageAccounts",
@@ -92,9 +93,11 @@ If you need to hardcode the location in your template, provide the name of one o
       "kind": "Storage",
       "properties": { }
     }
-    ]
+	]
 }
 ```
 
-## Next Steps
-* For recommendations about how to create templates, see [Best practices for creating Azure Resource Manager templates](./resource-manager-template-best-practices.md).
+## Next steps
+* For recommendations about how to create templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
+
+<!--Update_Description: update link-->

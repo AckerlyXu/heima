@@ -4,7 +4,7 @@ description: Shows how to apply tags to resources in an Azure Resource Manager t
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2017
-ms.date: 06/05/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -25,6 +25,8 @@ ms.author: v-yeche
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
-## Next Steps
+## Next steps
 * For information about managing tags, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: wording update-->

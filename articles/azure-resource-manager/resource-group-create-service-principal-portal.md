@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/15/2017
-ms.date: 07/03/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -32,7 +32,7 @@ This topic shows you how to perform those steps through the portal. It focuses o
 To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
 ### Check Azure Active Directory permissions
-1. Log in to your Azure Account through the [Azure Portal](https://portal.azure.cn).
+1. Log in to your Azure Account through the [Azure portal](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -77,7 +77,7 @@ To check your subscription permissions:
     ![show permissions](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## Create an Azure Active Directory application
-1. Log in to your Azure Account through the [Azure Portal](https://portal.azure.cn).
+1. Log in to your Azure Account through the [Azure portal](https://portal.azure.cn).
 2. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -157,45 +157,21 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 ## Log in as the application
 
-Your application is now set up in Azure Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. 
+Your application is now set up in Azure Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. For information about logging in as the application through different platforms, see:
 
-To log in through PowerShell, see [Provide credentials through PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
-
-To log in through Azure CLI, see [Provide credentials through Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
-
-To get the access token for REST operations, see [Create the request](https://docs.microsoft.com/rest/api/#create-the-request).
-
-Look at the following sample applications to learn about logging in through application code.
-
-### <a name="sample-applications"></a>Sample applications
-The following sample applications show how to log in as the AD application.
-
-**.NET**
-
+* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [REST](https://docs.microsoft.com/rest/api/#create-the-request)
 * [Deploy an SSH Enabled VM with a Template with .NET](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
 * [Manage Azure resources and resource groups with .NET](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
+* [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
-**Java**
-
-* [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
-* [Getting Started with Resources - Manage Resource Group - in Java](https://github.com/Azure-Samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Deploy an SSH Enabled VM with a Template in Python](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
-* [Managing Azure Resource and Resource Groups with Python](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
-
-**Node.js**
-
-* [Deploy an SSH Enabled VM with a Template in Node.js](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
-* [Manage Azure resources and resource groups with Node.js](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Deploy an SSH Enabled VM with a Template in Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
-* [Managing Azure Resource and Resource Groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
-
-## Next Steps
+## Next steps
 * To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
-* To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+* To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).
+
+<!--Update_Description: wording update, update referecne link-->

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/13/2017
-ms.date: 07/03/2017
+origin.date: 08/01/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,6 @@ Resource Manager provides the following functions for working with strings:
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [bool](#bool)
 * [concat](#concat)
 * [contains](#contains)
 * [dataUri](#datauri)
@@ -250,61 +249,6 @@ The output from the preceding example with the default values is:
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
-
-<a id="bool" />
-
-## bool
-`bool(arg1)`
-
-Converts the parameter to a boolean.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or int |The value to convert to a boolean. |
-
-### Return value
-A boolean of the converted value.
-
-### Examples
-
-The following example shows how to use bool with a string or integer.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
-    }
-}
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
 
 <a id="concat" />
 
@@ -1422,21 +1366,21 @@ The following example extracts a substring from a parameter.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "substringOutput": {
-            "value": "[substring(parameters('testString'), 4, 3)]",
-            "type": "string"
-        }
-    }
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"testString": {
+			"type": "string",
+			"defaultValue": "one two three"
+		}
+	},
+	"resources": [],
+	"outputs": {
+		"substringOutput": {
+			"value": "[substring(parameters('testString'), 4, 3)]",
+			"type": "string"
+		}
+	}
 }
 ```
 
@@ -1538,25 +1482,25 @@ The following example converts a parameter value to lower case and to upper case
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "toLowerOutput": {
-            "value": "[toLower(parameters('testString'))]",
-            "type": "string"
-        },
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"testString": {
+			"type": "string",
+			"defaultValue": "One Two Three"
+		}
+	},
+	"resources": [],
+	"outputs": {
+		"toLowerOutput": {
+			"value": "[toLower(parameters('testString'))]",
+			"type": "string"
+		},
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-    }
+	}
 }
 ```
 
@@ -1590,25 +1534,25 @@ The following example converts a parameter value to lower case and to upper case
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testString": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "toLowerOutput": {
-            "value": "[toLower(parameters('testString'))]",
-            "type": "string"
-        },
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"testString": {
+			"type": "string",
+			"defaultValue": "One Two Three"
+		}
+	},
+	"resources": [],
+	"outputs": {
+		"toLowerOutput": {
+			"value": "[toLower(parameters('testString'))]",
+			"type": "string"
+		},
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-    }
+	}
 }
 ```
 
@@ -1920,8 +1864,10 @@ The output from the preceding example with the default values is:
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-## Next Steps
+## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+
+<!--Update_Description: remove the bool function content -->

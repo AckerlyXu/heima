@@ -4,7 +4,7 @@ description: Use Azure portal and Azure Resource Manage to deploy your resources
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 2c98a4aa-8d9f-4a0a-b764-214dbe8ed009
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/19/2016
-ms.date: 05/02/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
@@ -27,10 +27,10 @@ ms.author: v-yeche
 > 
 > 
 
-This topic shows how to use the [Azure portal](https://portal.azure.cn) with [Azure Resource Manager](./resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./resource-group-portal.md).
+This topic shows how to use the [Azure portal](https://portal.azure.cn) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
 
 Currently, not every service supports the portal or Resource Manager. For those services, you need to use
-the [classic portal](https://manage.windowsazure.cn).  For the status of each service, see [Azure portal availability chart](/support/service-dashboard/).
+the [Classic Management Portal](https://manage.windowsazure.cn).  For the status of each service, see [Azure portal availability chart](https://www.azure.cn/support/service-dashboard/).
 
 ## <a name="create-resource-group"></a>Create resource group
 1. To create an empty resource group, select **New** > **Management** > **Resource Group**.
@@ -64,7 +64,7 @@ After you create a resource group, you can deploy resources to it from the Marke
     ![add resource](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## <a name="deploy-resources-from-custom-template"></a>Deploy resources from custom template
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 1. To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
 
@@ -76,7 +76,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     ![create template](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](./resource-manager-create-first-template.md).
+    In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).
 
     ![edit template](./media/resource-group-template-deploy-portal/edit-template.png)
 4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
@@ -90,6 +90,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 ## Deploy resources from a template saved to your account
 The portal enables you to save a template to your Azure account, and redeploy it later.
+<!-- Not Available [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md) -->
 
 1. To find your saved templates, select **Browse** > **Templates**.
 
@@ -101,9 +102,10 @@ The portal enables you to save a template to your Azure account, and redeploy it
 
     ![deploy saved template](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## Next Steps
-* To view audit logs, see [Audit operations with Resource Manager](./resource-group-audit.md).
-* To troubleshoot deployment errors, see [View deployment operations](./resource-manager-deployment-operations.md).
-* To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](./resource-manager-export-template.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
+## Next steps
+* To view audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
+* To troubleshoot deployment errors, see [View deployment operations](resource-manager-deployment-operations.md).
+* To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: wording update, update reference link-->
