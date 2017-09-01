@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 06/16/2017
-ms.date: 07/24/2017
+origin.date: 08/08/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -23,11 +23,12 @@ ms.author: v-yeche
 
 Azure Stream Analytics is a fully managed event-processing engine that lets you set up real-time analytic computations on streaming data. The data can come from devices, sensors, web sites, social media feeds, applications, infrastructure systems, and more. 
 
-## What can I use Stream Analytics for?
+## What can I do with Stream Analytics?
 
-Using Stream Analytics, you can examine high volumes of data flowing from devices or processes, extract information from the data stream, and look for patterns, trends, and relationships. Based on what's in the data, you can then perform application tasks. For example, you might raise alerts, kick off automation workflows, feed information to a reporting tool such as store data for later investigation. 
+Use Stream Analytics to examine high volumes of data flowing from devices or processes, extract information from the data stream, and look for patterns, trends, and relationships. Based on what's in the data, you can then perform application tasks. For example, you might raise alerts, kick off automation workflows, feed information to a reporting tool such as store data for later investigation. 
+<!-- Not Available Power BI output -->
 
-Examples of Streaming Analytics scenarios include:
+Examples:
 
 * Personalized, real-time stock-trading analysis and alerts offered by financial services companies.
 * Real-time fraud detection based on examining transaction data. 
@@ -38,13 +39,13 @@ Examples of Streaming Analytics scenarios include:
 
 ## How does Stream Analytics work?
 
-The following diagram illustrates the Streaming Analytics pipeline, showing how data is ingested, analyzed, and then sent for presentation or action. 
+This diagram illustrates the Stream Analytics pipeline, showing how data is ingested, analyzed, and then sent for presentation or action. 
 
 ![Stream Analytics pipeline](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
 Stream Analytics starts with a source of streaming data. The data can be ingested into Azure from a device using an Azure event hub or IoT hub. The data can also be pulled from a data store like Azure Blob Storage. 
 
-To examine the stream, you create a Streaming Analytics *job* that specifies where the data is coming from. The job also specifies a *transformation*&mdash;how to look for data, patterns, or relationships. For this task, Streaming Analytics supports a SQL-like query language that lets you filter, sort, aggregate, and join streaming data over a time period.
+To examine the stream, you create a Stream Analytics *job* that specifies where the data is coming from. The job also specifies a *transformation*&mdash;how to look for data, patterns, or relationships. For this task, Stream Analytics supports a SQL-like query language that lets you filter, sort, aggregate, and join streaming data over a time period.
 
 Finally, the job specifies an output to send the transformed data to. This lets you control what to do in response to the information you've analyzed. For example, in response to analysis, you might:
 
@@ -54,7 +55,7 @@ Finally, the job specifies an output to send the transformed data to. This lets 
 * Send data to storage like SQL Server database, or Azure Blob or Table storage.
 <!-- Not Available Data Lake Store in Azure.CN-->
 
-While a job is running, you can monitor it and adjust how many events it processes per second. You can also have jobs produce diagnostic logs for troubleshooting.
+You can monitor it and adjust how many events it processes per second while a job is running. You can also have jobs produce diagnostic logs for troubleshooting.
 
 ## Key capabilities and benefits
 
@@ -62,12 +63,12 @@ Stream Analytics is designed to be easy to use, flexible, scalable to any job si
 
 ### Connectivity to many inputs and outputs
 
-Stream Analytics connects directly to [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure IoT Hubs](https://www.azure.cn/home/features/iot-hub/) for stream ingestion, and the [Azure Blob storage service](/storage/storage-introduction#blob-storage-accounts) to ingest historical data. If you get data from event hubs, you can combine Stream Analytics with other data sources and processing engines.
+Stream Analytics connects directly to [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/) for stream ingestion, and the [Azure Blob storage service](/storage/storage-introduction#blob-storage-accounts) to ingest historical data. If you get data from event hubs, you can combine Stream Analytics with other data sources and processing engines.
 
 Job input can also include reference data (static or slow-changing data). You can join streaming data to this reference data to perform lookup operations the same way you would with database queries.
 
-The output of a Stream Analytics job can be routed in many directions. It can be written to storage, such as Azure Storage blobs or tables, Azure SQL DB. From there, the data might go for batch analytics via Azure HDInsight. You might send the output to another service for consumption by another process, such as event hubs, Azure Service Bus topics, or queues. You might send the output to Power BI for visualization.
-<!-- Not Available Data Lake Store, Azure Cosmos Db-->
+Route Stream Analytics job output in many directions. You can write to storage, such as Azure Storage blobs or tables, Azure SQL DB. From there, the data might go for batch analytics via Azure HDInsight. You might send the output to another service for consumption by another process, such as event hubs, Azure Service Bus topics, or queues. You might send the output to Power BI for visualization.
+<!-- Not Available Data Lake Store, Azure Cosmos Db as output-->
 
 ### Ease of use
 
@@ -77,6 +78,8 @@ To define transformations, you use a simple, declarative [Stream Analytics query
 
 You can extend the capabilities of the query language by defining and invoking additional functions. You can also integrate JavaScript user-defined functions (UDFs) in order to perform complex calculations as part a Stream Analytics query.
 <!-- Not Available Azure Machine Learning --> 
+
+<!--Update_Description: update meta properties, wording update-->
 
 ### Scalability
 

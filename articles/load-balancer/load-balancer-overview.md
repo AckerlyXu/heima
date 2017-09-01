@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/24/2016
-ms.date: 07/31/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
@@ -122,10 +122,12 @@ Load Balancer backend pools can contain any VM SKU except Basic tier.
 
 ## Next steps
 
-[Internet-facing load balancer overview](load-balancer-internet-overview.md)
+- Learn more about [Internet-facing load balancer](load-balancer-internet-overview.md)
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
+- Learn more about [Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](load-balancer-get-started-internet-arm-ps.md)
+- Create an [Internet-facing load balancer](load-balancer-get-started-internet-portal.md)
 
-<!--Update_Description: wording update; add Limitations of Load Balancer backend pools-->
+<!-- Not Available [networking capabilities](../networking/networking-overview.md) -->
+
+<!--Update_Description: wording update -->

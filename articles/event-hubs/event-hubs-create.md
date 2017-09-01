@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/03/2017
-ms.date: 07/03/2017
+origin.date: 08/01/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -31,33 +31,32 @@ ms.author: v-yeche
 
     ![](./media/event-hubs-create/create-event-hub1.png)
 4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
+5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
+6. In the portal list of namespaces, click the newly created namespace.
+7. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
-5. Click **Create** to create the namespace.
+    ![](./media/event-hubs-create/create-event-hub7.png)
 
-6. In the Event Hubs namespace list, click the newly-created namespace.      
+8. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
 
-    ![](./media/event-hubs-create/create-event-hub2.png)
-7. In the namespace blade, click **Event Hubs**.
-
-    ![](./media/event-hubs-create/create-event-hub3.png)
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## Create an event hub
 
-1. At the top of the blade, click **Add Event Hub**.
+1. In the Event Hubs namespace list, click the newly created namespace.      
+
+    ![](./media/event-hubs-create/create-event-hub2.png) 
+
+2. In the namespace blade, click **Event Hubs**.
+
+    ![](./media/event-hubs-create/create-event-hub3.png)
+
+3. At the top of the blade, click **Add Event Hub**.
 
     ![](./media/event-hubs-create/create-event-hub4.png)
-2. Type a name for your event hub, then click **Create**.
+4. Type a name for your event hub, then click **Create**.
 
     ![](./media/event-hubs-create/create-event-hub5.png)
-3. In the list of event hubs, click the newly created event hub name.  
-
-     ![](./media/event-hubs-create/create-event-hub6.png)
-4. Back in the namespace blade (not the specific event hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
-
-     ![](./media/event-hubs-create/create-event-hub7.png)
-5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
-
-     ![](./media/event-hubs-create/create-event-hub8.png)
 
 Your event hub is now created, and you have the connection strings you need to send and receive events.
 
@@ -68,3 +67,5 @@ To learn more about Event Hubs, visit these links:
 * [Event Hubs API overview](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.cn/
+
+<!--Update_Description: update meta properties, wording update-->

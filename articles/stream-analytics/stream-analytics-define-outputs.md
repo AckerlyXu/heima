@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -45,7 +45,7 @@ In order to enable a variety of application patterns, Azure Stream Analytics has
 > 
 
 ## Blob storage
-Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/storage-dotnet-how-to-use-blobs.md).
+Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud.  For an introduction on Azure Blob storage and its usage, see the documentation at [How to use Blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 The table below lists the property names and their description for creating a blob output.
 
@@ -123,7 +123,7 @@ There are a few parameters that are needed to configure Event Hub data streams a
 <!-- Not Available ## Power BI-->
 
 ## Table Storage
-[Azure Table storage](../storage/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
+[Azure Table storage](../storage/common/storage-introduction.md)  offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 
 The table below lists the property names and their description for creating a table output.
 
@@ -172,9 +172,9 @@ The table below lists the property names and their description for creating a ta
 | Encoding |If CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab and vertical bar. |
 
-<!-- Not Available ## Cosmos DB -->
+<!-- Not Available ## Cosmos DB till 1st Sep 2017-->
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:
