@@ -3,8 +3,8 @@ title: Azure Virtual Network FAQ | Azure
 description: Answers to the most frequently asked questions about Azure virtual networks.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/18/2017
-ms.date: 03/24/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
@@ -58,7 +58,7 @@ You can use the following tools to create or configure a VNet:
 * Azure CLI (for classic and Resource Manager VNets).
 
 ### What address ranges can I use in my VNets?
-You can use public IP address ranges and any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918).
+Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
 
 ### Can I have public IP addresses in my VNets?
 Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.
@@ -177,9 +177,10 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ## Azure services that connect to VNets
 
 ### Can I use Azure App Service Web Apps with a VNet?
-Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following article:
+Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following articles:
 
 * [Integrate your app with an Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md)
+* [Using VNet Integration and Hybrid Connections with Web Apps](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
@@ -212,5 +213,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msd
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) and [classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) and [classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.
+
+<!--Update_Description: wording update, update reference link-->

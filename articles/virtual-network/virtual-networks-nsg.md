@@ -3,8 +3,8 @@ title: Network security groups in Azure | Azure
 description: Learn how to isolate and control traffic flow within your virtual networks using the distributed firewall in Azure using Network Security Groups.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 # Filter network traffic with network security groups
@@ -46,7 +46,7 @@ NSG rules contain the following properties:
 | --- | --- | --- | --- |
 | **Name** |Name for the rule. |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |You may have several rules within an NSG, so make sure you follow a naming convention that allows you to identify the function of your rule. |
 | **Protocol** |Protocol to match for the rule. |TCP, UDP, or * |Using * as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP, and may reduce the number of rules you need.<br/>At the same time, using * might be too broad an approach, so it's recommended that you use * only when necessary. |
-| **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65635), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
+| **Source port range** |Source port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or * (for all ports). |Source ports could be ephemeral. Unless your client program is using a specific port, use * in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Destination port range** |Destination port range to match for the rule. |Single port number from 1 to 65535, port range (example: 1-65535), or \* (for all ports). |Try to use port ranges as much as possible to avoid the need for multiple rules.<br/>Multiple ports or port ranges cannot be grouped by a comma. |
 | **Source address prefix** |Source address prefix or tag to match for the rule. |Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
 | **Destination address prefix** |Destination address prefix or tag to match for the rule. | Single IP address (example: 10.10.10.10), IP subnet (example: 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses). |Consider using ranges, default tags, and * to reduce the number of rules. |
@@ -258,3 +258,5 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md).
 * [Manage NSG logs](virtual-network-nsg-manage-log.md).
 * [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)
+
+<!--Update_Description: wording update-->

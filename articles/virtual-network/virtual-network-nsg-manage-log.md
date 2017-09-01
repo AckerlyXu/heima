@@ -3,8 +3,8 @@ title: Monitor operations, events, and counters for NSGs | Azure
 description: Learn how to enable counters, events, and operational logging for NSGs
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/31/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 # Log analytics for network security groups (NSGs)
@@ -41,6 +41,7 @@ Read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/moni
 ## Enable diagnostic logging
 
 Diagnostic logging must be enabled for *each* NSG you want to collect data for. If you don't have an existing NSG, complete the steps in the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the following methods:
+<!-- Not Avaialble [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) -->
 
 ### Azure portal
 
@@ -117,3 +118,7 @@ This log contains information about each rule applied to resources. The followin
 		}
 }
 ```
+
+<!-- Not Avaialble ## View and analyze logs -->
+
+<!--Update_Description: wording update-->

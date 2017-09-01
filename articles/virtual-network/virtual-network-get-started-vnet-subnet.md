@@ -3,8 +3,8 @@ title: Create your first Azure Virtual Network | Azure
 description: Learn how to create an Azure Virtual Network (VNet), connect two virtual machines (VM) to the VNet, and connect to the VMs.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2016
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 
@@ -103,7 +103,7 @@ To create the web server VM, complete the following steps:
 
     |**Setting**|**Value**|**Details**|
     |---|---|---|
-	|**Storage: Use managed disks**|*Yes*||
+    |**Storage: Use managed disks**|*Yes*||
     |**Virtual network**| Select *MyVNet*|You can select any VNet that exists in the same location as the VM you're creating. To learn more about VNets and subnets, read the [Virtual network](virtual-networks-overview.md) article.|
     |**Subnet**|Select *Front-end*|You can select any subnet that exists within the VNet.|
     |**Public IP address**|Accept the default|A public IP address enables you to connect to the VM from the Internet. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.|
@@ -137,7 +137,7 @@ To create the database server VM, complete the following steps:
 
     |**Setting**|**Value**|**Details**|
     |----|----|---|
-	|**Storage: Use managed disks**|*Yes*||
+    |**Storage: Use managed disks**|*Yes*||
     |**Virtual network**|Select *MyVNet*|You can select any VNet that exists in the same location as the VM you're creating.|
     |**Subnet**|Select *Back-end* by clicking the **Subnet** box, then selecting **Back-end** from the **Choose a subnet** blade|You can select any subnet that exists within the VNet.|
     |**Public IP address**|None - Click the default address, then click **None** from the **Choose public IP address** blade|Without a public IP address, you can only connect to the VM from another VM connected to the same VNet. You cannot connect to it directly from the Internet.|
@@ -157,7 +157,7 @@ Though you created one VNet and two VMs, the Azure portal created several additi
 
     ![Resource group contents](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
+To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json), [Disk](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fvirtual-network%2ftoc.json), and [Storage account](../storage/common/storage-introduction.md?toc=%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
 
 ## <a name="connect-to-from-vms"></a>Connect to the VMs
 
@@ -250,3 +250,5 @@ In this exercise, you created a VNet and two VMs. You specified come custom sett
 - [Network interfaces](virtual-network-network-interface.md)
 - [Network security groups](virtual-networks-nsg.md)
 - [Virtual machines](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)
+
+<!--Update_Description: update reference link-->
