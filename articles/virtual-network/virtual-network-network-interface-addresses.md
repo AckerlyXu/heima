@@ -110,7 +110,7 @@ You can remove [private](#private) and [public](#public) IP addresses from a net
 Each network interface is assigned one primary IP configuration. A primary IP configuration:
 
 - Has a [private](#private) [IPv4](#ipv4) address assigned to it. You cannot assign a private [IPv6](#ipv6) address to a primary IP configuration.
-- May also have a [public](#public) IPv4 address assigned to it. You cannot assign a public IPv6 address to a primary or secondary IP configuration. You can however, assign a public IPv6 address to an Azure load balancer, which can load balance traffic to a virtual machine's private IPv6 address. For more information, see [details and limitations for IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fvirtual-network%2ftoc.json#details-and-limitations).
+- May also have a [public](#public) IPv4 address assigned to it.
 
 ### Secondary
 
@@ -121,7 +121,7 @@ In addition to a primary IP configuration, a network interface may have zero or 
     - Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
     - A virtual machine serving as a network virtual appliance, such as a firewall or load balancer.
     - The ability to add any of the private IPv4 addresses for any of the network interfaces to an Azure Load Balancer back-end pool. In the past, only the primary IPv4 address for the primary network interface could be added to a back-end pool. To learn more about how to load balance multiple IPv4 configurations, see the [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md?toc=%2fvirtual-network%2ftoc.json) article. 
-    - The ability to load balance one IPv6 address assigned to a network interface. To learn more about how to load balance to a private IPv6 address, see the [Load balance IPv6 addresses](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fvirtual-network%2ftoc.json) article.
+    - The ability to load balance one IPv6 address assigned to a network interface.
 
 ## Address types
 
@@ -129,7 +129,7 @@ You can assign the following types of IP addresses to an [IP configuration](#ip-
 
 ### Private
 
-Private [IPv4](#ipv4) addresses enable a virtual machine to communicate with other resources in a virtual network or other connected networks. A virtual machine cannot be communicated inbound to, nor can the virtual machine communicate outbound with a private [IPv6](#ipv6) address, with one exception. A virtual machine can communicate with the Azure load balancer using an IPv6 address. For more information, see [details and limitations for IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fvirtual-network%2ftoc.json#details-and-limitations). 
+Private [IPv4](#ipv4) addresses enable a virtual machine to communicate with other resources in a virtual network or other connected networks.
 
 By default, the Azure DHCP servers assign the private IPv4 address for the [primary IP configuration](#primary) of the network interface to the network interface within the virtual machine operating system. Unless necessary, you should never manually set the IP address of a network interface within the virtual machine's operating system. 
 

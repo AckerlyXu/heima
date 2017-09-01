@@ -39,7 +39,7 @@ Complete the following tasks before completing any steps in any section of this 
 
 Public IP addresses have a nominal charge. To view the pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. 
 
-## <a name="create"></a>Create a public IP address
+## <a name="create-a-public-ip-address"></a>Create a public IP address
 
 1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address*. When **Public IP addresses** appears in the search results, click it.

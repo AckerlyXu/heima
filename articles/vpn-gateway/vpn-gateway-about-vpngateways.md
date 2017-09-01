@@ -62,7 +62,7 @@ The following sections contain tables which list:
 
 Use the diagrams and descriptions to help select the connection topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline.
 
-## Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
+## <a name="s2smulti"></a>Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
 
 ### <a name="S2S"></a>Site-to-Site
 

@@ -37,6 +37,7 @@ Complete the following tasks before completing any steps in any section of this 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
+<a name="create-a-network-interface"></a>
 ## <a name="create-nic"></a>Create a network interface
 When creating a virtual machine using the Azure portal, the portal creates a network interface with default settings for you. If you'd rather specify all your network interface settings, you can create a network interface with custom settings and attach the network interface to a virtual machine when creating the virtual machine (using PowerShell or the Azure CLI). You can also create a network interface and add it to an existing virtual machine (using PowerShell or the Azure CLI). To learn how to create a virtual machine with an existing network interface or to add to, or remove network interfaces from existing virtual machines, read the [Add or remove network interfaces](virtual-network-network-interface-vm.md) article. Before creating a network interface, you must have an existing [virtual network](virtual-networks-create-vnet-arm-pportal.md) in the same location and subscription you create a network interface in.
 
