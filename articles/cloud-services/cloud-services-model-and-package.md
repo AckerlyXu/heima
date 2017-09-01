@@ -1,24 +1,25 @@
 ---
-title: What is a Cloud Service model and package | Azure
+title: What is a Cloud Service model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
-documentationCenter: ''
-authors: Thraka
+documentationcenter: ''
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2016
+origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 01/03/2017
+ms.date: 09/11/2017
 ---
 
 # What is the Cloud Service model and how do I package it?
-A cloud service is created from three components, the service definition _(.csdef)_, the service config _(.cscfg)_, and a service package _(.cspkg)_. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all of the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
+A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and how it's configured; collectively called the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 
 Once the cloud service is running in Azure, you can reconfigure it through the **ServiceConfig.cscfg** file, but you cannot alter the definition.
 
@@ -149,8 +150,10 @@ Configures the certificates that are used by the service. The previous code exam
 
 <p/>
 
- >[!NOTE]
- > The thumbprint for the certificate can be added to the configuration file by using a text editor, or the value can be added on the **Certificates** tab of the **Properties** page of the role in Visual Studio.
+> [!NOTE]
+> The thumbprint for the certificate can be added to the configuration file by using a text editor. Or, the value can be added on the **Certificates** tab of the **Properties** page of the role in Visual Studio.
+> 
+> 
 
 ## Defining ports for role instances
 Azure allows only one entry point to a web role. Meaning that all traffic occurs through one IP address. You can configure your websites to share a port by configuring the host header to direct the request to the correct location. You can also configure your applications to listen to well-known ports on the IP address.
@@ -179,7 +182,7 @@ The following sample shows the configuration for a web role with a website and w
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.chinacloudapp.cn"</mark> />
+      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.cn" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -205,9 +208,9 @@ You can only update a certificate when a role instance is offline. If a certific
 The [Azure Runtime Library](https://msdn.microsoft.com/zh-cn/library/azure/mt419365.aspx) includes the [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.aspx) namespace, which provides classes for interacting with the Azure environment from code running in an instance of a role. The [RoleEnvironment](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) class defines the following events that are raised before and after a configuration change:
 
 - **[Changing](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) event**  
-This occurs before the configuration change is applied to a specified instance of a role giving you a chance to take down the role instances if required.
+  This occurs before the configuration change is applied to a specified instance of a role giving you a chance to take down the role instances if necessary.
 - **[Changed](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) event**  
-Occurs after the configuration change is applied to a specified instance of a role.
+  Occurs after the configuration change is applied to a specified instance of a role.
 
 > [!NOTE]
 > Because certificate changes always take the instances of a role offline, they do not raise the RoleEnvironment.Changing or RoleEnvironment.Changed events.
@@ -224,7 +227,7 @@ To deploy an application as a cloud service in Azure, you must first package the
 >[!NOTE]
 CSPack.exe (on windows) is available by running the **Azure Command Prompt** shortcut that is installed with the SDK.  
 >  
->Run the CSPack.exe program by itself to see documentation about all of the possible switches and commands.
+> Run the CSPack.exe program by itself to see documentation about all the possible switches and commands.
 
 <p />
 

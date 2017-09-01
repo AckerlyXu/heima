@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ---
 
 # How to configure auto scaling for a Cloud Service in the classic portal
@@ -26,7 +26,7 @@ ms.date: 07/17/2017
 On the Scale page of the Azure classic portal, you can configure automatic scale settings for your web role or worker role. Alternatively, you can configure manual scaling instead of rules-based automatic scaling.
 
 >[!NOTE]
-> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
+> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 You should consider the following information before you configure scaling for your application:
 
@@ -34,7 +34,7 @@ You should consider the following information before you configure scaling for y
 
     Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, say your subscription has a limit of 20 cores. If you run an application with two medium-sized cloud services (a total of 4 cores), you can only scale up other cloud service deployments in your subscription by the remaining 16 cores. For more information about sizes, see [Cloud Service Sizes](cloud-services-sizes-specs.md).
 
-- You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
+* You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 - You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](./cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 

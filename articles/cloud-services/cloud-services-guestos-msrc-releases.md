@@ -13,12 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/07/2017
+origin.date: 08/03/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
+ms.date: 09/11/2017
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## July Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Windows 10 updates |5.9 |July 11, 2017 |
+| Rel 17-07 | [4025337] |Windows Security only |2.64 |July 11, 2017 |
+| Rel 17-07 | [4025333] |Windows Security only |4.44 |July 11, 2017 |
+| Rel 17-07 | [4025343] |Windows Security only |3.51 |July 11, 2017 |
+| Rel 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |July 11, 2017 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |July 11, 2017 |
+| N/A | [4020322] |Timezone Update |2.64, 3.51, 4.44 |July 11, 2017 |
+| N/A | [4022719] |June non-security rollup |2.64 |July 11, 2017 |
+| N/A | [4022724] |June non-security rollup |3.51 |July 11, 2017 |
+| N/A | [4022726] |June non-security rollup |4.44 |July 11, 2017 |
 
 ## June Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -493,6 +507,16 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4025339]: http://support.microsoft.com/zh-cn/kb/4025337
+[4025337]: http://support.microsoft.com/zh-cn/kb/4025333
+[4025333]: http://support.microsoft.com/zh-cn/kb/4025343
+[4025343]: http://support.microsoft.com/zh-cn/kb/4025376
+[4025252]: http://support.microsoft.com/zh-cn/kb/4025252
+[4025376]: http://support.microsoft.com/zh-cn/kb/4025376
+[4020322]: http://support.microsoft.com/zh-cn/kb/4020322
+[4022719]: http://support.microsoft.com/zh-cn/kb/4022719
+[4022724]: http://support.microsoft.com/zh-cn/kb/4022724
+[4022726]: http://support.microsoft.com/zh-cn/kb/4022726
 [4022722]: http://support.microsoft.com/zh-cn/kb/4022722
 [4022717]: http://support.microsoft.com/zh-cn/kb/4022717
 [4022718]: http://support.microsoft.com/zh-cn/kb/4022718

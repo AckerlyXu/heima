@@ -31,7 +31,7 @@ You can examine performance counter data
 
 For more information on monitoring the performance of your application in the [Azure portal](http://portal.azure.cn/), see [How to Monitor Cloud Services](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
-For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems and optimize Azure applications, see [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/zh-cn/library/azure/hh771389.aspx).
+For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems and optimize Azure applications, see [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/zh-cn/library/azure/hh771389.aspx).
 
 ## Enable performance counter monitoring
 
@@ -99,7 +99,7 @@ Use the following procedure to enable performance counters in your Azure applica
 
 ## Prerequisites
 
-This section assumes that you have imported the Diagnostics monitor into your application and added the diagnostics configuration file to your Visual Studio solution (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above). See steps 1 and 2 in [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services-dotnet-diagnostics.md)) for more information.
+This section assumes that you have imported the Diagnostics monitor into your application and added the diagnostics configuration file to your Visual Studio solution (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above). See steps 1 and 2 in [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services-dotnet-diagnostics.md)) for more information.
 
 ## Step 1: Collect and store data from performance counters
 
@@ -109,7 +109,7 @@ After you have added the diagnostics file to your Visual Studio solution, you ca
 
 There are many counters you can use. The following example shows several performance counters that are recommended for web and worker role monitoring.
 
-Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration element:
+Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration element:
 
 ```xml
 <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -138,11 +138,11 @@ Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostic
     </PerformanceCounters>
 ```
 
-The bufferQuotaInMB attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Azure logs, IIS logs, etc.). The default is 0. When the quota is reached, the oldest data is deleted as new data is added. The sum of all the bufferQuotaInMB properties must be greater than the value of the OverallQuotaInMB attribute. For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/zh-cn/library/windowsazure/hh771389.aspx).
+The bufferQuotaInMB attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Azure logs, IIS logs, etc.). The default is 0. When the quota is reached, the oldest data is deleted as new data is added. The sum of all the bufferQuotaInMB properties must be greater than the value of the OverallQuotaInMB attribute. For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/zh-cn/library/windowsazure/hh771389.aspx).
 
 The scheduledTransferPeriod attribute, which specifies the interval between scheduled transfers of data, rounded up to the nearest minute. In the following examples, it is set to PT30M (30 minutes). Setting the transfer period to a small value, such as 1 minute, will adversely impact your application's performance in production but can be useful for seeing diagnostics working quickly when you are testing. The scheduled transfer period should be small enough to ensure that diagnostic data is not overwritten on the instance, but large enough that it will not impact the performance of your application.
 
-The counterSpecifier attribute specifies the performance counter to collect.The sampleRate attribute specifies the rate at which the performance counter should be sampled, in this case 30 seconds.
+The counterSpecifier attribute specifies the performance counter to collect.The sampleRate attribute specifies the rate at which the performance counter should be sampled, in this case 30 seconds.
 
 Once you've added the performance counters that you want to collect, save your changes to the diagnostics file. Next, you need to specify the storage account that the diagnostics data will be persisted to.
 
@@ -168,7 +168,7 @@ To set the connection strings:
     ```
 2. Save the ServiceConfiguration.Cloud.cscfg file.
 
-3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
+3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
 
     ```xml
     <ConfigurationSettings>
@@ -187,13 +187,13 @@ The Azure diagnostics agent refreshes the performance counter configuration from
 Perform the following steps to create a simple custom performance counter named "\MyCustomCounterCategory\MyButton1Counter":
 
 1. Open the service definition file (CSDEF) for your application.
-2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
+2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
 
     ```xml
     <runtime executioncontext="elevated"/>
     ```
 3. Save the file.
-4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
+4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
 
     ```xml
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -201,7 +201,7 @@ Perform the following steps to create a simple custom performance counter named 
     </PerformanceCounters>
     ```
 5. Save the file.
-6. Create the custom performance counter category in the OnStart method of your role, before invoking base.OnStart. The following C# example creates a custom category, if it does not already exist:
+6. Create the custom performance counter category in the OnStart method of your role, before invoking base.OnStart. The following C# example creates a custom category, if it does not already exist:
 
     ```csharp
     public override bool OnStart()
@@ -231,7 +231,7 @@ Perform the following steps to create a simple custom performance counter named 
     return base.OnStart();
     }
     ```
-7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
+7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
 
     ```csharp
     protected void Button1_Click(object sender, EventArgs e)
@@ -251,8 +251,7 @@ Perform the following steps to create a simple custom performance counter named 
 Custom performance counter data will now be collected by the Azure diagnostics monitor.
 
 ## Step 3: Query performance counter data
-
-Once your application is deployed and running, the Diagnostics monitor will begin collecting performance counters and persisting that data to Azure storage. You use tools such as Server Explorer in Visual Studio,  [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), or [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) by Cerebrata to view the performance counters data in the WADPerformanceCountersTable table. You can also programmatically query the Table service using [C#](../storage/storage-dotnet-how-to-use-tables.md),  [Java](../storage/storage-java-how-to-use-table-storage.md),  [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md), or [PHP](../storage/storage-php-how-to-use-table-storage.md).
+Once your application is deployed and running, the Diagnostics monitor will begin collecting performance counters and persisting that data to Azure storage. You use tools such as Server Explorer in Visual Studio,  [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), or [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) by Cerebrata to view the performance counters data in the WADPerformanceCountersTable table. You can also programmatically query the Table service using [C#](../cosmos-db/table-storage-how-to-use-dotnet.md),  [Java](../cosmos-db/table-storage-how-to-use-java.md),  [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md), or [PHP](../cosmos-db/table-storage-how-to-use-php.md).
 
 The following C# example shows a basic query against the WADPerformanceCountersTable table and saves the diagnostics data to a CSV file. Once the performance counters are saved to a CSV file, you can use the graphing capabilities in Microsoft Excel or some other tool to visualize the data. Be sure to add a reference to Microsoft.WindowsAzure.Storage.dll, which is included in the Azure SDK for .NET October 2012 and later. The assembly is installed to the %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\ directory.
 
@@ -314,7 +313,7 @@ using Microsoft.WindowsAzure.Storage.Table;
     sw.Close();
 ```
 
-Entities map to C# objects using a custom class derived from **TableEntity**. The following code defines an entity class that represents a performance counter in the **WADPerformanceCountersTable** table.
+Entities map to C# objects using a custom class derived from **TableEntity**. The following code defines an entity class that represents a performance counter in the **WADPerformanceCountersTable** table.
 
 ```csharp
 public class PerformanceCountersEntity : TableEntity
@@ -328,5 +327,3 @@ public class PerformanceCountersEntity : TableEntity
 }
 ```
 
-## Next Steps
-[View additional articles on Azure Diagnostics](../azure-diagnostics.md)

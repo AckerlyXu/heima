@@ -2,15 +2,19 @@
 title: How to monitor a cloud service | Microsoft Azure
 description: Learn how to monitor cloud services by using the Azure classic portal.
 services: cloud-services
-documentationCenter: ''
-authors: rboucher
+documentationcenter: ''
+author: thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 origin.date: 12/07/2015
-ms.date: 01/03/2017
+ms.date: 09/11/2017
 ms.author: v-yiso
 ---
 
@@ -36,8 +40,7 @@ Enabling verbose monitoring increases your storage costs related to data storage
 Use the following procedures to configure verbose or minimal monitoring in the Azure classic portal. 
 
 ### Before you begin
-
-* Create a *classic* storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see [How to create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Create a *classic* storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see [How to create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 * Enable Azure Diagnostics for your cloud service roles. See [Configuring Diagnostics for Cloud Services](./cloud-services-dotnet-diagnostics.md).
 
@@ -97,7 +100,8 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
     > [!TIP]
     > In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.
-
+    > 
+    > 
     ![Add metrics search](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 
 3. After you finish selecting metrics, click OK (checkmark).
