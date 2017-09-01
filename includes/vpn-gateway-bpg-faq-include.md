@@ -10,10 +10,15 @@ Yes, you can use your own public ASNs or private ASNs for both your on-premises 
 ### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:
 
-* Public ASNs: 8075, 8076, 12076
-* Private ASNs: 65515, 65517, 65518, 65519, 65520
+- Public ASNs: 8075, 8076, 12076
+- Private ASNs: 65515, 65517, 65518, 65519, 65520
 
 You cannot specify these ASNs for your on premises VPN devices when connecting to Azure VPN gateways.
+
+### Are there any other ASNs that I can't use?
+Yes, the following ASNs are [reserved by IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) and can't be configured on your Azure VPN Gateway:
+
+23456, 64496-64511, 65535-65551 and 429496729
 
 ### Can I use the same ASN for both on-premises VPN networks and Azure VNets?
 No, you must assign different ASNs between your on-premises networks and your Azure VNets if you are connecting them together with BGP. Azure VPN Gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when creating the VPN gateway, or change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure Local Network Gateways.
@@ -21,9 +26,9 @@ No, you must assign different ASNs between your on-premises networks and your Az
 ### What address prefixes will Azure VPN gateways advertise to me?
 Azure VPN gateway will advertise the following routes to your on-premises BGP devices:
 
-* Your VNet address prefixes
-* Address prefixes for each Local Network Gateways connected to the Azure VPN gateway
-* Routes learned from other BGP peering sessions connected to the Azure VPN gateway, **except default route or routes overlapped with any VNet prefix**.
+- Your VNet address prefixes
+- Address prefixes for each Local Network Gateways connected to the Azure VPN gateway
+- Routes learned from other BGP peering sessions connected to the Azure VPN gateway, **except default route or routes overlapped with any VNet prefix**.
 
 ### Can I advertise default route (0.0.0.0/0) to Azure VPN gateways?
 Yes.
@@ -67,3 +72,5 @@ Azure Local Network Gateway specifies the initial address prefixes for the on-pr
 
 ### What should I add to my on-premises VPN device for the BGP peering session?
 You should add a host route of the Azure BGP Peer IP address on your VPN device pointing to the IPsec S2S VPN tunnel. For example, if the Azure VPN Peer IP is "10.12.255.30", you should add a host route for "10.12.255.30" with a nexthop interface of the matching IPsec tunnel interface on your VPN device.
+
+<!-- ms.date: 09/01/2017 -->

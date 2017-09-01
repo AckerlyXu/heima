@@ -1,10 +1,10 @@
 ---
-title: 'Connect an Azure virtual network to another VNet: PowerShell | Azure'
+title: 'Connect an Azure virtual network to another VNet: PowerShell | Microsoft Docs'
 description: This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
@@ -26,10 +26,10 @@ This article shows you how to create a VPN gateway connection between virtual ne
 The steps in this article apply to the Resource Manager deployment model and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Classic - Azure portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -45,13 +45,13 @@ VNet-to-VNet communication can be combined with multi-site configurations. This 
 
 You may want to connect virtual networks for the following reasons:
 
-* **Cross region geo-redundancy and geo-presence**
+- **Cross region geo-redundancy and geo-presence**
 
-  * You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
-  * With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
-* **Regional multi-tier applications with isolation or administrative boundary**
+  - You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
+  - With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
+- **Regional multi-tier applications with isolation or administrative boundary**
 
-  * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
+  - Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
 For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
@@ -77,34 +77,35 @@ We use the following values in the examples:
 
 **Values for TestVNet1:**
 
-* VNet Name: TestVNet1
-* Resource Group: TestRG1
-* Location: China East
-* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
-* FrontEnd: 10.11.0.0/24
-* BackEnd: 10.12.0.0/24
-* GatewaySubnet: 10.12.255.0/27
-* GatewayName: VNet1GW
-* Public IP: VNet1GWIP
-* VPNType: RouteBased
-* Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
-* ConnectionType: VNet2VNet
+- VNet Name: TestVNet1
+- Resource Group: TestRG1
+- Location: China East
+- TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+- FrontEnd: 10.11.0.0/24
+- BackEnd: 10.12.0.0/24
+- GatewaySubnet: 10.12.255.0/27
+- GatewayName: VNet1GW
+- Public IP: VNet1GWIP
+- VPNType: RouteBased
+- Connection(1to4): VNet1toVNet4
+- Connection(1to5): VNet1toVNet5
+- ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
 
-* VNet Name: TestVNet4
-* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
-* FrontEnd: 10.41.0.0/24
-* BackEnd: 10.42.0.0/24
-* GatewaySubnet: 10.42.255.0/27
-* Resource Group: TestRG4
-* Location: China North
-* GatewayName: VNet4GW
-* Public IP: VNet4GWIP
-* VPNType: RouteBased
-* Connection: VNet4toVNet1
-* ConnectionType: VNet2VNet
+- VNet Name: TestVNet4
+- TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+- FrontEnd: 10.41.0.0/24
+- BackEnd: 10.42.0.0/24
+- GatewaySubnet: 10.42.255.0/27
+- Resource Group: TestRG4
+- Location: China North
+- GatewayName: VNet4GW
+- Public IP: VNet4GWIP
+- VPNType: RouteBased
+- Connection: VNet4toVNet1
+- ConnectionType: VNet2VNet
+
 
 ### <a name="Step2"></a>Step 2 - Create and configure TestVNet1
 
@@ -186,7 +187,7 @@ We use the following values in the examples:
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### Step 3 - Create and configure TestVNet4
@@ -248,7 +249,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### Step 4 - Create the connections
@@ -291,18 +292,18 @@ It is important to make sure that the IP address space of the new virtual networ
 
 **Values for TestVNet5:**
 
-* VNet Name: TestVNet5
-* Resource Group: TestRG5
-* Location: China East
-* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
-* FrontEnd: 10.51.0.0/24
-* BackEnd: 10.52.0.0/24
-* GatewaySubnet: 10.52.255.0.0/27
-* GatewayName: VNet5GW
-* Public IP: VNet5GWIP
-* VPNType: RouteBased
-* Connection: VNet5toVNet1
-* ConnectionType: VNet2VNet
+- VNet Name: TestVNet5
+- Resource Group: TestRG5
+- Location: China East
+- TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
+- FrontEnd: 10.51.0.0/24
+- BackEnd: 10.52.0.0/24
+- GatewaySubnet: 10.52.255.0.0/27
+- GatewayName: VNet5GW
+- Public IP: VNet5GWIP
+- VPNType: RouteBased
+- Connection: VNet5toVNet1
+- ConnectionType: VNet2VNet
 
 ### Step 7 - Create and configure TestVNet5
 
@@ -380,7 +381,7 @@ This step must be done in the context of the new subscription. This part may be 
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
-  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
+  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### Step 8 - Create the connections
@@ -463,7 +464,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/#pivot=services&panel=Compute) for more information.
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+- Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/#pivot=services&panel=Compute) for more information.
+- For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
 <!--Update_Description: wording update-->

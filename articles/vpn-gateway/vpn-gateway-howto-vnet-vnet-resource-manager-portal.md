@@ -1,10 +1,10 @@
 ---
-title: 'Connect an Azure virtual network to another VNet: Portal | Azure'
+title: 'Connect an Azure virtual network to another VNet: Portal | Microsoft Docs'
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using the Azure portal
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, subscriptions do not need to be associated with the same Active Directory tenant. 
+This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
 
-The steps in this article apply to the Resource Manager deployment model and the Azure portal for VNets that are in the same subscription. If your VNets are in different subscriptions, you can't create the connection in the portal. You can use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md). You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+The steps in this article apply to the Resource Manager deployment model and use the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -47,13 +47,13 @@ VNet-to-VNet communication can be combined with multi-site configurations. This 
 
 You may want to connect virtual networks for the following reasons:
 
-* **Cross region geo-redundancy and geo-presence**
-
-  * You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
-  * With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
-* **Regional multi-tier applications with isolation or administrative boundary**
-
-  * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
+- **Cross region geo-redundancy and geo-presence**
+  
+  - You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
+  - With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
+- **Regional multi-tier applications with isolation or administrative boundary**
+  
+  - Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
 For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article. Note that if your VNets are in different subscriptions, you can't create the connection in the portal. You can use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md).
 
@@ -63,49 +63,49 @@ When using these steps as an exercise, you can use the example settings values. 
 
 **Values for TestVNet1:**
 
-* VNet Name: TestVNet1
-* Address space: 10.11.0.0/16
-  * Subnet name: FrontEnd
-  * Subnet address range: 10.11.0.0/24
-* Resource Group: TestRG1
-* Location: China East
-* Address Space: 10.12.0.0/16
-  * Subnet name: BackEnd
-  * Subnet address range: 10.12.0.0/24
-* Gateway Subnet name: GatewaySubnet (this will auto-fill in the portal)
-  * Gateway Subnet address range: 10.11.255.0/27
-* DNS Server: Use the IP address of your DNS Server
-* Virtual Network Gateway Name: TestVNet1GW
-* Gateway Type: VPN
-* VPN type: Route-based
-* SKU: Select the Gateway SKU you want to use
-* Public IP address name: TestVNet1GWIP
-* Connection values:
-  * Name: TestVNet1toTestVNet4
-  * Shared key: You can create the shared key yourself. For this example, we'll use abc123. The important thing is that when you create the connection between the VNets, the value must match.
+- VNet Name: TestVNet1
+- Address space: 10.11.0.0/16
+  - Subnet name: FrontEnd
+  - Subnet address range: 10.11.0.0/24
+- Resource Group: TestRG1
+- Location: China East
+- Address Space: 10.12.0.0/16
+  - Subnet name: BackEnd
+  - Subnet address range: 10.12.0.0/24
+- Gateway Subnet name: GatewaySubnet (this will auto-fill in the portal)
+  - Gateway Subnet address range: 10.11.255.0/27
+- DNS Server: Use the IP address of your DNS Server
+- Virtual Network Gateway Name: TestVNet1GW
+- Gateway Type: VPN
+- VPN type: Route-based
+- SKU: Select the Gateway SKU you want to use
+- Public IP address name: TestVNet1GWIP
+- Connection values:
+  - Name: TestVNet1toTestVNet4
+  - Shared key: You can create the shared key yourself. For this example, we'll use abc123. The important thing is that when you create the connection between the VNets, the value must match.
 
 **Values for TestVNet4:**
 
-* VNet Name: TestVNet4
-* Address space: 10.41.0.0/16
-  * Subnet name: FrontEnd
-  * Subnet address range: 10.41.0.0/24
-* Resource Group: TestRG1
-* Location: China North
-* Address Space: 10.42.0.0/16
-  * Subnet name: BackEnd
-  * Subnet address range: 10.42.0.0/24
-* GatewaySubnet name: GatewaySubnet (this will auto-fill in the portal)
-  * GatewaySubnet address range: 10.41.255.0/27
-* DNS Server: Use the IP address of your DNS Server
-* Virtual Network Gateway Name: TestVNet4GW
-* Gateway Type: VPN
-* VPN type: Route-based
-* SKU: Select the Gateway SKU you want to use
-* Public IP address name: TestVNet4GWIP
-* Connection values:
-  * Name: TestVNet4toTestVNet1
-  * Shared key: You can create the shared key yourself. For this example, we'll use abc123. The important thing is that when you create the connection between the VNets, the value must match.
+- VNet Name: TestVNet4
+- Address space: 10.41.0.0/16
+  - Subnet name: FrontEnd
+  - Subnet address range: 10.41.0.0/24
+- Resource Group: TestRG1
+- Location: China North
+- Address Space: 10.42.0.0/16
+  - Subnet name: BackEnd
+  - Subnet address range: 10.42.0.0/24
+- GatewaySubnet name: GatewaySubnet (this will auto-fill in the portal)
+  - GatewaySubnet address range: 10.41.255.0/27
+- DNS Server: Use the IP address of your DNS Server
+- Virtual Network Gateway Name: TestVNet4GW
+- Gateway Type: VPN
+- VPN type: Route-based
+- SKU: Select the Gateway SKU you want to use
+- Public IP address name: TestVNet4GWIP
+- Connection values:
+  - Name: TestVNet4toTestVNet1
+  - Shared key: You can create the shared key yourself. For this example, we'll use abc123. The important thing is that when you create the connection between the VNets, the value must match.
 
 ## <a name="CreatVNet"></a>1. Create and configure TestVNet1
 If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks. If you have overlapping subnets, your connection won't work properly. If your VNet is configured with the correct settings, you can begin the steps in the [Specify a DNS server](#dns) section.
@@ -146,21 +146,21 @@ Once you've configured TestVNet1, create TestVNet4 by repeating the previous ste
 When the virtual network gateways for both TestVNet1 and TestVNet4 have completed, you can create your virtual network gateway connections. In this section, you will create a connection from VNet1 to VNet4. These steps work only for VNets in the same subscription. If your VNets are in different subscriptions, you must use PowerShell to make the connection. See the [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) article.
 
 1. In **All resources**, navigate to the virtual network gateway for your VNet. For example, **TestVNet1GW**. Click **TestVNet1GW** to open the virtual network gateway blade.
-
+   
     ![Connections blade](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Connections blade")
 2. Click **+Add** to open the **Add connection** blade.
 3. On the **Add connection** blade, in the name field, type a name for your connection. For example, **TestVNet1toTestVNet4**.
-
+   
     ![Connection name](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Connection name")
 4. For **Connection type**. select **VNet-to-VNet** from the dropdown.
 5. The **First virtual network gateway** field value is automatically filled in because you are creating this connection from the specified virtual network gateway.
 6. The **Second virtual network gateway** field is the virtual network gateway of the VNet that you want to create a connection to. Click **Choose another virtual network gateway** to open the **Choose virtual network gateway** blade.
-
+   
     ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Add a connection")
 7. View the virtual network gateways that are listed on this blade. Notice that only virtual network gateways that are in your subscription are listed. If you want to connect to a virtual network gateway that is not in your subscription, please use the [PowerShell article](vpn-gateway-vnet-vnet-rm-ps.md). 
 8. Click the virtual network gateway that you want to connect to.
 9. In the **Shared key** field, type a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use would be exactly the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you are connecting to another virtual network gateway.
-
+   
     ![Shared key](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Shared key")
 10. Click **OK** at the bottom of the blade to save your changes.
 
