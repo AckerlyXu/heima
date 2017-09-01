@@ -1,5 +1,5 @@
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
-Custom IPsec/IKE policy is supported on Azure **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+Custom IPsec/IKE policy is supported on Azure **VpnGw1, VpnGw2, VpnGw3, Standard**, and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
 
 ### How many policies can I specify on a connection?
 You can only specify ***one*** policy combination for a given connection.
@@ -32,21 +32,21 @@ The table below lists the supported cryptographic algorithms and key strengths c
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
 
-* IKE encryption algorithm
-* IKE integrity algorithm
-* DH Group
-* IPsec encryption algorithm
-* IPsec integrity algorithm
-* PFS Group
-* Traffic Selector (*)
+- IKE encryption algorithm
+- IKE integrity algorithm
+- DH Group
+- IPsec encryption algorithm
+- IPsec integrity algorithm
+- PFS Group
+- Traffic Selector (*)
 
 The SA lifetimes are local specifications only, do not need to match.
 
 If you enable **UsePolicyBasedTrafficSelectors**, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
-* 10.1.0.0/16 <====> 192.168.0.0/16
-* 10.1.0.0/16 <====> 172.16.0.0/16
-* 10.2.0.0/16 <====> 192.168.0.0/16
-* 10.2.0.0/16 <====> 172.16.0.0/16
+- 10.1.0.0/16 <====> 192.168.0.0/16
+- 10.1.0.0/16 <====> 172.16.0.0/16
+- 10.2.0.0/16 <====> 192.168.0.0/16
+- 10.2.0.0/16 <====> 172.16.0.0/16
 
 Refer to [Connect multiple on-premises policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for more details on how to use this option.
 
@@ -85,3 +85,5 @@ Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one fo
 
 ### Does custom IPsec/IKE policy work on ExpressRoute connection?
 No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the Azure VPN gateways.
+
+<!-- ms.date: 09/01/2017 -->

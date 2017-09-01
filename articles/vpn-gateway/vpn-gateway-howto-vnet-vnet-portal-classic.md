@@ -1,10 +1,10 @@
 ---
-title: 'Create a connection between VNets: classic: Azure portal | Azure'
+title: 'Create a connection between VNets: classic: Azure portal | Microsoft Docs'
 description: How to connect Azure virtual networks together using PowerShell and the Azure Classic Management Portal.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/21/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
 
 ---
 # Configure a VNet-to-VNet connection (classic)
@@ -45,21 +45,21 @@ The VNets you connect can be in different subscriptions and different regions. Y
 
 ![VNet to VNet Connections](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
-### Why connect virtual networks?
+### <a name="why"></a>Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
 
-* **Cross region geo-redundancy and geo-presence**
+- **Cross region geo-redundancy and geo-presence**
 
-  * You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
-  * With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
-* **Regional multi-tier applications with strong isolation boundary**
+  - You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
+  - With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
+- **Regional multi-tier applications with strong isolation boundary**
 
-  * Within the same region, you can set up multi-tier applications with multiple VNets connected together with strong isolation and secure inter-tier communication.
-* **Cross subscription, inter-organization communication in Azure**
+  - Within the same region, you can set up multi-tier applications with multiple VNets connected together with strong isolation and secure inter-tier communication.
+- **Cross subscription, inter-organization communication in Azure**
 
-  * If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
-  * For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
+  - If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
+  - For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
 
 For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
 
@@ -67,9 +67,9 @@ For more information about VNet-to-VNet connections, see [VNet-to-VNet considera
 
 Before beginning this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal.
 
-## <a name="step1"></a>Step 1 - Plan your IP address ranges
+## <a name="plan"></a>Step 1 - Plan your IP address ranges
 
-It's important to decide the ranges that you'll use to configure your virtual networks. For this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
+It’s important to decide the ranges that you’ll use to configure your virtual networks. For this configuration, you must make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
 
 The following table shows an example of how to define your VNets. Use the ranges as a guideline only. Write down the ranges for your virtual networks. You need this information for later steps.
 
@@ -115,17 +115,17 @@ GatewaySubnet: 10.41.1.0/27
 
 **When creating your VNets, keep in mind the following settings:**
 
-* **Virtual Network Address Spaces** - On the Virtual Network Address Spaces page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses that will be assigned to the VMs and other role instances that you deploy to this virtual network.<br>The address spaces you select cannot overlap with the address spaces for any of the other VNets or on-premises locations that this VNet will connect to.
+- **Virtual Network Address Spaces** - On the Virtual Network Address Spaces page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses that will be assigned to the VMs and other role instances that you deploy to this virtual network.<br>The address spaces you select cannot overlap with the address spaces for any of the other VNets or on-premises locations that this VNet will connect to.
 
-* **Location** - When you create a virtual network, you associate it with an Azure location (region). For example, if you want your VMs that are deployed to your virtual network to be physically located in China North, select that location. You can't change the location associated with your virtual network after you create it.
+- **Location** - When you create a virtual network, you associate it with an Azure location (region). For example, if you want your VMs that are deployed to your virtual network to be physically located in China North, select that location. You can’t change the location associated with your virtual network after you create it.
 
 **After creating your VNets, you can add the following settings:**
 
-* **Address space** - Additional address space is not required for this configuration, but you can add additional address space after creating the VNet.
+- **Address space** - Additional address space is not required for this configuration, but you can add additional address space after creating the VNet.
 
-* **Subnets** - Additional subnets are not required for this configuration, but you might want to have your VMs in a subnet that is separate from your other role instances.
+- **Subnets** - Additional subnets are not required for this configuration, but you might want to have your VMs in a subnet that is separate from your other role instances.
 
-* **DNS servers** - Enter the DNS server name and IP address. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
+- **DNS servers** - Enter the DNS server name and IP address. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 
 In this section, you configure the connection type, the local site, and create the gateway.
 
@@ -144,14 +144,14 @@ The local site for each VNet is the other VNet. The following example values are
 
 1. Locate TestVNet1 in the Azure portal. In the **VPN connections** section of the blade, click **Gateway**.
 
-    ![No gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
+	![No gateway](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
 2. On the **New VPN Connection** page, select **Site-to-Site**.
 3. Click **Local site** to open the Local site page and configure the settings.
 4. On the **Local site** page, name your local site. In our example, we name the local site 'VNet4Local'.
-5. For **VPN gateway IP address**, you can use any IP address that you want, as long as it's in a valid format. Typically, you'd use the actual external IP address for a VPN device. But, for a classic VNet-to-VNet configuration, you use the public IP address that is assigned to the gateway for your VNet. Given that you've not yet created the virtual network gateway, you specify any valid public IP address as a placeholder.<br>Don't leave this blank - it's not optional for this configuration. In a later step, you go back into these settings and configure them with the corresponding virtual network gateway IP addresses once Azure generates it.
+5. For **VPN gateway IP address**, you can use any IP address that you want, as long as it's in a valid format. Typically, you’d use the actual external IP address for a VPN device. But, for a classic VNet-to-VNet configuration, you use the public IP address that is assigned to the gateway for your VNet. Given that you’ve not yet created the virtual network gateway, you specify any valid public IP address as a placeholder.<br>Don't leave this blank - it's not optional for this configuration. In a later step, you go back into these settings and configure them with the corresponding virtual network gateway IP addresses once Azure generates it.
 6. For **Client Address Space**, use the address space of the other VNet. Refer to your planning example. Click **OK** to save your settings and return back to the **New VPN Connection** blade.
 
-    ![local site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
+	![local site](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
 
 ## <a name="gw"></a>Step 4 - Create the virtual network gateway
 
@@ -165,11 +165,11 @@ Each virtual network must have a virtual network gateway. The virtual network ga
 6. Click **OK**.
 7. On the **New VPN Connection** blade, click **OK** to begin creating the virtual network gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
-## Step 5 - Configure TestVNet4 settings
+## <a name="vnet4settings"></a>Step 5 - Configure TestVNet4 settings
 
 Repeat the steps to [Create a local site](#localsite) and [Create the virtual network gateway](#gw) to configure TestVNet4, substituting the values when necessary. If you are doing this as an exercise, use the [Example values](#vnetvalues).
 
-## Step 6 - Update the local sites
+## <a name="updatelocal"></a>Step 6 - Update the local sites
 
 After your virtual network gateways have been created for both VNets, you must adjust the local sites **VPN gateway IP address** values.
 
@@ -205,7 +205,7 @@ After your virtual network gateways have been created for both VNets, you must a
 6. Close the other blades.
 7. Repeat these steps for TestVNet4.
 
-## Step 7 - Retrieve values from the network configuration file
+## <a name="getvalues"></a>Step 7 - Retrieve values from the network configuration file
 
 When you create classic VNets in the Azure portal, the name that you view is not the full name that you use for PowerShell. For example, a VNet that appears to be named **TestVNet1** in the portal, may have a much longer name in the network configuration file. The name might look something like: **Group ClassicRG TestVNet1**. When you create your connections, it's important to use the values that you see in the network configuration file.
 
@@ -243,7 +243,7 @@ In the following steps, you will connect to your Azure account and download and 
   ```
 4. Open the file with a text editor and view the names for your VNets and sites. These will be the name you use when you create your connections.<br>VNet names are listed as **VirtualNetworkSite name =**<br>Site names are listed as **LocalNetworkSiteRef name =**
 
-## Step 8 - Create the VPN gateway connections
+## <a name="createconnections"></a>Step 8 - Create the VPN gateway connections
 
 When all the previous steps have been completed, you can set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell. VNet-to-VNet connections for the classic deployment model cannot be configured in the Azure portal.
 
@@ -273,19 +273,19 @@ In the examples, notice that the shared key is exactly the same. The shared key 
   ```
 
 ## <a name="faq"></a>VNet-to-VNet considerations for classic VNets
-* The virtual networks can be in the same or different subscriptions.
-* The virtual networks can be in the same or different Azure regions (locations).
-* A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
-* Connecting multiple virtual networks together doesn't require any VPN devices.
-* VNet-to-VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services that are not deployed to a virtual network.
-* VNet-to-VNet requires dynamic routing gateways. Azure static routing gateways are not supported.
-* Virtual network connectivity can be used simultaneously with multi-site VPNs. There is a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks, or on-premises sites.
-* The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of virtual networks or uploading netcfg configuration files to fail.
-* Redundant tunnels between a pair of virtual networks are not supported.
-* All VPN tunnels for the VNet, including P2S VPNs, share the available bandwidth for the VPN gateway, and the same VPN gateway uptime SLA in Azure.
-* VNet-to-VNet traffic travels across the Azure backbone.
+- The virtual networks can be in the same or different subscriptions.
+- The virtual networks can be in the same or different Azure regions (locations).
+- A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
+- Connecting multiple virtual networks together doesn't require any VPN devices.
+- VNet-to-VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services that are not deployed to a virtual network.
+- VNet-to-VNet requires dynamic routing gateways. Azure static routing gateways are not supported.
+- Virtual network connectivity can be used simultaneously with multi-site VPNs. There is a maximum of 10 VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks, or on-premises sites.
+- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of virtual networks or uploading netcfg configuration files to fail.
+- Redundant tunnels between a pair of virtual networks are not supported.
+- All VPN tunnels for the VNet, including P2S VPNs, share the available bandwidth for the VPN gateway, and the same VPN gateway uptime SLA in Azure.
+- VNet-to-VNet traffic travels across the Azure backbone.
 
 ## Next steps
 Verify your connections. See [Verify a VPN Gateway connection](vpn-gateway-verify-connection-resource-manager.md).
 
-<!--Update_Description: add steps to create classic vnet in the new portal-->
+<!--Update_Description: wording update --> 

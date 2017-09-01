@@ -1,10 +1,10 @@
 ---
-title: 'Connect virtual network to another VNet: Azure CLI | Azure'
+title: 'Connect virtual network to another VNet: Azure CLI | Microsoft Docs'
 description: This article walks you through connecting virtual networks together by using Azure Resource Manager and Azure CLI.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/22/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using Azure CLI
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. The steps in this article apply to the Resource Manager deployment model and uses the Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
+
+The steps in this article apply to the Resource Manager deployment model and use Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -39,17 +41,17 @@ VNet-to-VNet communication can be combined with multi-site configurations. This 
 
 ![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### Why connect virtual networks?
+### <a name="why"></a>Why connect virtual networks?
 
 You may want to connect virtual networks for the following reasons:
 
-* **Cross region geo-redundancy and geo-presence**
+- **Cross region geo-redundancy and geo-presence**
 
-  * You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
-  * With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
-* **Regional multi-tier applications with isolation or administrative boundary**
+  - You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
+  - With Azure Traffic Manager and Load Balancer, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
+- **Regional multi-tier applications with isolation or administrative boundary**
 
-  * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
+  - Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
 For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
@@ -65,44 +67,43 @@ In this article, you see two different sets of steps. One set of steps for [VNet
 
 Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 ### <a name="Plan"></a>Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It's important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
 **Values for TestVNet1:**
 
-* VNet Name: TestVNet1
-* Resource Group: TestRG1
-* Location: China East
-* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
-* FrontEnd: 10.11.0.0/24
-* BackEnd: 10.12.0.0/24
-* GatewaySubnet: 10.12.255.0/27
-* GatewayName: VNet1GW
-* Public IP: VNet1GWIP
-* VPNType: RouteBased
-* Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
-* ConnectionType: VNet2VNet
+- VNet Name: TestVNet1
+- Resource Group: TestRG1
+- Location: China East
+- TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+- FrontEnd: 10.11.0.0/24
+- BackEnd: 10.12.0.0/24
+- GatewaySubnet: 10.12.255.0/27
+- GatewayName: VNet1GW
+- Public IP: VNet1GWIP
+- VPNType: RouteBased
+- Connection(1to4): VNet1toVNet4
+- Connection(1to5): VNet1toVNet5
+- ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
 
-* VNet Name: TestVNet4
-* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
-* FrontEnd: 10.41.0.0/24
-* BackEnd: 10.42.0.0/24
-* GatewaySubnet: 10.42.255.0/27
-* Resource Group: TestRG4
-* Location: China North
-* GatewayName: VNet4GW
-* Public IP: VNet4GWIP
-* VPNType: RouteBased
-* Connection: VNet4toVNet1
-* ConnectionType: VNet2VNet
+- VNet Name: TestVNet4
+- TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+- FrontEnd: 10.41.0.0/24
+- BackEnd: 10.42.0.0/24
+- GatewaySubnet: 10.42.255.0/27
+- Resource Group: TestRG4
+- Location: China North
+- GatewayName: VNet4GW
+- Public IP: VNet4GWIP
+- VPNType: RouteBased
+- Connection: VNet4toVNet1
+- ConnectionType: VNet2VNet
+
 
 ### <a name="Connect"></a>Step 1 - Connect to your subscription
 
@@ -126,7 +127,7 @@ We use the following values in the examples:
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
   ```
 4. Create the backend subnet.
-
+  
   ```azurecli
   az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
@@ -143,7 +144,7 @@ We use the following values in the examples:
 7. Create the virtual network gateway for TestVNet1. VNet-to-VNet configurations require a RouteBased VpnType. If you run this command using the '--no-wait' parameter, you don't see any feedback or output. The '--no-wait' parameter allows the gateway to create in the background. It does not mean that the VPN gateway finishes creating immediately. Creating a gateway can often take 45 minutes or more, depending on the gateway SKU that you use.
 
   ```azurecli
-  az network vnet-gateway create -n VNet1GW -l chinaeast --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet1GW -l chinaeast --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="TestVNet4"></a>Step 3 - Create and configure TestVNet4
@@ -178,14 +179,14 @@ We use the following values in the examples:
 6. Create the TestVNet4 virtual network gateway.
 
   ```azurecli
-  az network vnet-gateway create -n VNet4GW -l chinanorth --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet4GW -l chinanorth --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Step 4 - Create the connections
+### <a name="createconnect"></a>Step 4 - Create the connections
 
 You now have two VNets with VPN gateways. The next step is to create VPN gateway connections between the virtual network gateways. If you used the examples above, your VNet gateways are in different resource groups. When gateways are in different resource groups, you need to identify and specify the resource IDs for each gateway when making a connection. If your VNets are in the same resource group, you can use the [second set of instructions](#samerg) because you don't need to specify the resource IDs.
 
-### To connect VNets that reside in different resource groups
+### <a name="diffrg"></a>To connect VNets that reside in different resource groups
 
 1. Get the Resource ID of VNet1GW from the output of the following command:
 
@@ -266,18 +267,18 @@ When creating additional connections, it's important to verify that the IP addre
 
 **Values for TestVNet5:**
 
-* VNet Name: TestVNet5
-* Resource Group: TestRG5
-* Location: China East
-* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
-* FrontEnd: 10.51.0.0/24
-* BackEnd: 10.52.0.0/24
-* GatewaySubnet: 10.52.255.0.0/27
-* GatewayName: VNet5GW
-* Public IP: VNet5GWIP
-* VPNType: RouteBased
-* Connection: VNet5toVNet1
-* ConnectionType: VNet2VNet
+- VNet Name: TestVNet5
+- Resource Group: TestRG5
+- Location: China East
+- TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
+- FrontEnd: 10.51.0.0/24
+- BackEnd: 10.52.0.0/24
+- GatewaySubnet: 10.52.255.0.0/27
+- GatewayName: VNet5GW
+- Public IP: VNet5GWIP
+- VPNType: RouteBased
+- Connection: VNet5toVNet1
+- ConnectionType: VNet2VNet
 
 ### <a name="TestVNet5"></a>Step 7 - Create and configure TestVNet5
 
@@ -291,7 +292,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
 2. Create TestVNet5.
 
   ```azurecli
-  az network vnet create -n TestVNet5 -g TestRG5 --address-prefix 10.51.0.0/16 -l chinaeast--subnet-name FrontEnd --subnet-prefix 10.51.0.0/24
+  az network vnet create -n TestVNet5 -g TestRG5 --address-prefix 10.51.0.0/16 -l chinaeast --subnet-name FrontEnd --subnet-prefix 10.51.0.0/24
   ```
 
 3. Add subnets.
@@ -315,10 +316,10 @@ This step must be done in the context of the new subscription, Subscription 5. T
 6. Create the TestVNet5 gateway
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l chinaeast--public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l chinaeast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### Step 8 - Create the connections
+### <a name="connections5"></a>Step 8 - Create the connections
 
 We split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
@@ -353,7 +354,7 @@ We split this step into two CLI sessions marked as **[Subscription 1]**, and **[
 4. **[Subscription 5]** This step is similar to the one above, except you are creating the connection from TestVNet5 to TestVNet1. Make sure that the shared keys match and that you connect to Subscription 5.
 
   ```azurecli
-  az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l chinaeast--shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
+  az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l chinaeast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
 
 ## <a name="verify"></a>Verify the connections
@@ -366,7 +367,7 @@ We split this step into two CLI sessions marked as **[Subscription 1]**, and **[
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](/#pivot=services&panel=Compute).
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+- Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](/#pivot=services&panel=Compute).
+- For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 
 <!--Update_Description: wording update-->

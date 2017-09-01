@@ -1,10 +1,10 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: Portal | Azure'
+title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: Portal | Microsoft Docs'
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -13,10 +13,10 @@ ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 05/31/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+ms.workload: infrastructure-services 
+origin.date: 08/02/2017
+ms.date: 08/31/2017
+ms.author: v-junlch
 
 ---
 # Create a Site-to-Site connection in the Azure portal
@@ -28,7 +28,6 @@ This article shows you how to use the Azure portal to create a Site-to-Site VPN 
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Classic Management Portal (classic)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -40,32 +39,32 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 Verify that you have met the following criteria before beginning your configuration:
 
-* Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-* Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
-* If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to. 
+- Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
+- Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
+- If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to. 
 
 ### <a name="values"></a>Example values
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
 
-* **VNet Name:** TestVNet1
-* **Address Space:** 
-    * 10.11.0.0/16
-    * 10.12.0.0/16 (optional for this exercise)
-* **Subnets:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (optional for this exercise)
-* **GatewaySubnet:** 10.11.255.0/27
-* **Resource Group:** TestRG1
-* **Location:** China East
-* **DNS Server:** Optional. The IP address of your DNS server.
-* **Virtual Network Gateway Name:** VNet1GW
-* **Public IP:** VNet1GWIP
-* **VPN Type:** Route-based
-* **Connection Type:** Site-to-site (IPsec)
-* **Gateway Type:** VPN
-* **Local Network Gateway Name:** Site2
-* **Connection Name:** VNet1toSite2
+- **VNet Name:** TestVNet1
+- **Address Space:** 
+  - 10.11.0.0/16
+  - 10.12.0.0/16 (optional for this exercise)
+- **Subnets:**
+  - FrontEnd: 10.11.0.0/24
+  - BackEnd: 10.12.0.0/24 (optional for this exercise)
+- **GatewaySubnet:** 10.11.255.0/27
+- **Resource Group:** TestRG1
+- **Location:** China East
+- **DNS Server:** Optional. The IP address of your DNS server.
+- **Virtual Network Gateway Name:** VNet1GW
+- **Public IP:** VNet1GWIP
+- **VPN Type:** Route-based
+- **Connection Type:** Site-to-site (IPsec)
+- **Gateway Type:** VPN
+- **Local Network Gateway Name:** Site2
+- **Connection Name:** VNet1toSite2
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
@@ -116,10 +115,18 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
+## <a name="reset"></a>How to reset a VPN gateway
+
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
+
+## <a name="resize"></a>How to change a gateway SKU (resize a gateway)
+
+For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
 ## Next steps
 
-*  For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-*  For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md)
-*  For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
+- For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+- For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
+- For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 
 <!--Update_Description: wording update-->
