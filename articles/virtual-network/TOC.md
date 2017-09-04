@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Template](virtual-networks-create-vnet-arm-template-click.md)
-#### Classic
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### Network security groups
 #### [Portal](virtual-networks-create-nsg-arm-pportal.md)
@@ -44,7 +40,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [Virtual network peering](virtual-network-create-peering.md)
+### Virtual network peering
+#### [Same deployment model - same subscription](virtual-network-create-peering.md)
+#### [Same deployment model - different subscriptions](create-peering-different-subscriptions.md)
+#### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
+#### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
 ### Virtual machines
 #### Create a VM with a static public IP address
@@ -77,11 +77,14 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
+#### [Create a VM with accelerated networking](virtual-network-create-vm-accelerated-networking.md)
+
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)
 #### [VNet (Resource Manager) to a VNet (Classic)](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fvirtual-network%2ftoc.json)
 #### [VNet to on-premises network (VPN)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)
 #### [VNet to on-premises network (ExpressRoute)](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json)
+<!-- Not Available #### [Highly available hybrid network architecture](../guidance/guidance-hybrid-network-expressroute-vpn-failover.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ### Security scenarios
 #### [Secure networks with virtual appliances](virtual-network-scenario-udr-gw-nva.md)
@@ -89,6 +92,12 @@
 ##### [DMZ with firewall and NSGs](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [DMZ with firewall, UDR, and NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Sample application](virtual-networks-sample-app.md)
+
+### Classic
+#### [Virtual network](create-virtual-network-classic.md)
+##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ## Configure
 ### Virtual machines
@@ -150,3 +159,5 @@
 ## [Networking blog](https://www.azure.cn/blog/tags/虚拟网络)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://www.azure.cn/pricing/details/networking/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

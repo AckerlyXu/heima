@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
-ms.date: 07/10/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
@@ -43,7 +43,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     For more information, see Step 2 of [Create a Resource Group](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fload-balancer%2ftoc.json).
 
-3. [Create an Availability Set](../virtual-machines/windows/create-availability-set.md?toc=%2fload-balancer%2ftoc.json) to contain your VMs. For this scenario, use the following command:
+3. [Create an Availability Set](../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fload-balancer%2ftoc.json) to contain your VMs. For this scenario, use the following command:
 
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName "contosofabrikam" -Name "myAvailset" -Location "China North"
@@ -140,3 +140,5 @@ Follow the steps below to achieve the scenario outlined in this article:
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+
+<!--Update_Description: update link-->

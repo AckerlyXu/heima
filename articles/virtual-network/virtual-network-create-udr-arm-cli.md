@@ -3,8 +3,8 @@ title: Control routing and virtual appliances using the Azure CLI 2.0 | Azure
 description: Learn how to control routing and virtual appliances using the Azure CLI 2.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/12/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 # Create User-Defined Routes (UDR) using the Azure CLI 2.0
@@ -225,3 +225,5 @@ To enable IP forwarding in the NIC used by **FW1**, complete the following steps
     Parameters:
 
     **--ip-forwarding**: *true* or *false*.
+    
+<!--Update_Description: update meta properties-->

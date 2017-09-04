@@ -66,7 +66,10 @@
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Pricing](https://www.azure.cn/pricing/details/stream-analytics/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->
-## [Service updates](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [Service updates](https://www.azure.cn/what-is-new/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
+
+<!--Update_Description: update link-->
