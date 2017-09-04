@@ -76,9 +76,7 @@ After you've set everything up, run a test failover to make sure everything's wo
 - If you want to connect to Azure VMs using RDP after failover, [prepare to connect](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
  - To fully test you need to copy of Active Directory and DNS in your test environment. [Learn more](site-recovery-active-directory.md#test-failover-considerations).
  - For full information about test failover, read [this article](site-recovery-test-failover-to-azure.md) article.
-- Get a quick video overview before you start:
-
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+<!-- Not Available on Video-->
 
 Now, run a failover:
 
@@ -102,6 +100,6 @@ Now, run a failover:
 
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
 - If you're migrating machines rather than replicating and failing back, [read more](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
-- [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.
+<!-- Not Available - - [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.-->
 
 <!--Update_Description: new articles on site recovery test failover from vmware to azure-->

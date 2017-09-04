@@ -102,7 +102,8 @@ Now, run a failover:
 
 If you completed the test failover successfully, your physical servers are replicating and you've checked that they can fail over to Azure. Now, you can run failovers in accordance with your organizational requirements. 
 
-Remember that you can't currently fail back from Azure to a physical server. You have to fail back to a VMware VM. This means you need an on-premises VMware infrastructure in order to fail back. [Learn more](site-recovery-failback-azure-to-vmware.md) about failing back Azure VMs to VMware.
+Remember that you can't currently fail back from Azure to a physical server. You have to fail back to a VMware VM. This means you need an on-premises VMware infrastructure in order to fail back.
+<!-- Not Available [Learn more](site-recovery-failback-azure-to-vmware.md) about failing back Azure VMs to VMware.-->
 
 ## Next steps
 
