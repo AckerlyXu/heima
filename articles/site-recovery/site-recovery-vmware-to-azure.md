@@ -65,7 +65,7 @@ Here's what you need to do:
     - Azure VMs will be placed in this network when they're created after failover.
     - You can set up a network in [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md), or in classic mode.
 
-2. Set up an [Azure storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for replicated data.
+2. Set up an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for replicated data.
     - The account can be standard or [premium](../storage/storage-premium-storage.md).
     - You can set up an account in Resource Manager, or in classic mode.
 
