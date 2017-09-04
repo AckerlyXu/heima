@@ -47,7 +47,7 @@ from azure.storage.table import TableService, Entity
 Create a [TableService][py_TableService] object, passing in your storage account name and account key. Replace `myaccount` and `mykey` with your account name and key, and call [create_table][py_create_table] to create the table in Azure Storage.
 
 ```python
-table_service = TableService(account_name='myaccount', account_key='mykey')
+table_service = TableService(account_name='myaccount', account_key='mykey',endpoint_suffix='core.chinacloudapi.cn')
 
 table_service.create_table('tasktable')
 ```
