@@ -307,7 +307,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 >
 >  3. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
 >
->  4. Change the Site Recovery settings in the process server to [increase the amount of network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+>  4. Change the Site Recovery settings in the process server to increase the amount of network bandwidth used for replication.
 
 ## Recommendations with desired RPO as input
 
@@ -351,7 +351,7 @@ For replication, you should set the recommended bandwidth to meet the RPO 100 pe
 
 3. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
 
-4. Change the Site Recovery settings in the process server to [increase the amount network bandwidth used for replication](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+4. Change the Site Recovery settings in the process server to increase the amount network bandwidth used for replication.
 
 If you are running the tool on a configuration server or process server that already has protected VMs, run the tool a few times. The achieved throughput number changes depending on the amount of churn being processed at that point in time.
 
