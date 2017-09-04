@@ -85,7 +85,7 @@ The Site Recovery license is per protected instance, where an instance is a VM, 
 - No disks are created till a test failover or a failover. In the replication state, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://www.azure.cn/zh-cn/pricing/calculator/) are incurred. These charges are based on the storage type of premium/standard and the data redundancy type -LRS, GRS,RA-GRS etc.
 - If the option to use managed disks on a failover is selected, [charges for managed disks](https://azure.microsoft.com/en-inhttps://www.azure.cn/pricing/details/managed-disks/) apply after a failover/test failover. Managed disks charges do not apply during replication.
 - If the option to use managed disks on a failover is not selected, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) are incurred after failover. These charges are based on the storage type of premium/standard and the data redundancy type -LRS,GRS,RA-GRS etc.
-<!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/storage-premium-storage.md#pricing-and-billing -->
+<!-- URL matching  https://aka.ms/premium-storage-pricing -- ../storage/common/storage-premium-storage.md#pricing-and-billing -->
 <!-- Not Available Managed disks and premium storage content block -->
 - Storage transactions are charged during steady-state replication and for regular VM operations after a failover / test failover. But these charges are negligible.
 
