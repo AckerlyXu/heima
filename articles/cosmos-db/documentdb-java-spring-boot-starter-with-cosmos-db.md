@@ -26,7 +26,7 @@ ms.author: v-yeche
 
 The **[Spring Framework]** is an open-source solution that helps Java developers create enterprise-level applications. One of the more-popular projects that is built on top of that platform is [Spring Boot], which provides a simplified approach for creating stand-alone Java applications. To help developers get started with Spring Boot, several sample Spring Boot packages are available at <https://github.com/spring-guides/>. In addition to choosing from the list of basic Spring Boot projects, the **[Spring Initializr]** helps developers get started with creating custom Spring Boot applications.
 
-Azure Cosmos DB is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as DocumentDB, MongoDB, Graph, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using DocumentDB APIs.
+Azure Cosmos DB is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as DocumentDB, MongoDB, and Table APIs. Microsoft's Spring Boot Starter enables developers to use Spring Boot applications that easily integrate with Azure Cosmos DB by using DocumentDB APIs.
 
 This article demonstrates creating an Azure Cosmos DB using the Azure portal, then using the **Spring Initializr** to create a custom java application, and then add the Spring Boot Starter functionality to your custom application to store data in and retrieve data from your Azure Cosmos DB by using the DocumentDB API.
 
@@ -34,7 +34,8 @@ This article demonstrates creating an Azure Cosmos DB using the Azure portal, th
 
 The following prerequisites are required in order to follow the steps in this article:
 
-* An Azure subscription; if you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits] or sign up for a [trial Azure account].
+* An Azure subscription; if you don't already have an Azure subscription, you can sign up for a [trial Azure account].
+<!--Not Available [MSDN subscriber benefits] -->
 
 * A [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.7 or later.
 
@@ -319,7 +320,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Build a DocumentDB API app with Java]: /cosmos-db/create-documentdb-java
 [trial Azure account]: https://www.azure.cn/pricing/1rmb-trial/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
-[MSDN subscriber benefits]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/
+<!-- Not Available [MSDN subscriber benefits]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/-->
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
