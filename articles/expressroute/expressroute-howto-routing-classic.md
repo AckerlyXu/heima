@@ -16,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/21/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/18/2017
 ---
 # Create and modify peering for an ExpressRoute circuit (classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager- Azure Portal](./expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
-> * [Classic- PowerShell](./expressroute-howto-routing-classic.md)
->
+> * [Azure CLI](howto-routing-cli.md)
+> * [PowerShell (classic)](expressroute-howto-routing-classic.md)
+> 
 >
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
@@ -90,9 +91,9 @@ This section provides instructions on how to create, get, update, and delete the
    
         Bandwidth                        : 200
         CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
+        Location                         : Beijing
         ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
+        ServiceProviderName              : Beijing Telecom Ethernet
         ServiceProviderProvisioningState : Provisioned
         Sku                              : Standard
         Status                           : Enabled
@@ -176,9 +177,8 @@ This section provides instructions on how to create, get, update and delete the 
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 2. **Create an ExpressRoute circuit**
-
-    Follow the instructions to create an [ExpressRoute circuit](./expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
-
+   
+    Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 3. **Check ExpressRoute circuit to ensure it is provisioned**
 
     You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled. See the example below.
@@ -187,9 +187,9 @@ This section provides instructions on how to create, get, update and delete the 
    
         Bandwidth                        : 200
         CircuitName                      : MyTestCircuit
-        Location                         : Silicon Valley
+        Location                         : Beijing 
         ServiceKey                       : *********************************
-        ServiceProviderName              : equinix
+        ServiceProviderName              : Beijing Telecom Ethernet
         ServiceProviderProvisioningState : Provisioned
         Sku                              : Standard
         Status                           : Enabled

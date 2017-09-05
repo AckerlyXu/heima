@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/12/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/18/2017
 ---
 
 # Connect a virtual network to an ExpressRoute circuit
@@ -24,7 +24,9 @@ ms.date: ''
 > [!div class="op_single_selector"]
 >- [Resource Manager - Azure Portal](./expressroute-howto-linkvnet-portal-resource-manager.md)
 >- [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
->- [Classic - PowerShell](./expressroute-howto-linkvnet-classic.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
+> * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
+> 
 
 This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and the Azure portal. Virtual networks can either be in the same subscription, or they can be part of another subscription.
 

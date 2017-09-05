@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/21/2017
+
+origin.date: 08/01/2017
 ms.author: v-yiso
+ms.date: 09/18/2017
+
 ---
 
 # Verifying ExpressRoute Connectivity
@@ -251,10 +253,6 @@ At line:1 char:1
         + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 ```
 
->[!IMPORTANT]
->If layer 3 peerings were set by the service provider, setting the ExpressRoute peerings via the portal or PowerShell overwrites the service provider settings. Resetting the provider side peering settings requires the support of the service provider. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
->
->
 
 <p/>
 >[!NOTE]

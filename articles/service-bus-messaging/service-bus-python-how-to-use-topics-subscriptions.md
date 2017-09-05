@@ -1,5 +1,5 @@
 ---
-title: How to use Service Bus topics with Python | Azure
+title: How to use Azure Service Bus topics with Python | Microsoft Docs
 description: Learn how to use Azure Service Bus topics and subscriptions from Python.
 services: service-bus
 documentationCenter: python
@@ -7,26 +7,26 @@ authors: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ---
-
-# How to use Service Bus topics and subscriptions
+# How to use Service Bus topics and subscriptions with Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
+This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Azure Python SDK package][Azure Python package]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 > [!NOTE] 
-> If you need to install Python or the [Python Azure package][Python Azure package], please see the [Python Installation Guide](../python-how-to-install.md).
+> If you need to install Python or the [Azure Python package][Azure Python package], see the [Python Installation Guide](../python-how-to-install.md).
 
 ## Create a topic
 The **ServiceBusService** object enables you to work with topics. Add the following near the top of any Python file in which you wish to programmatically access Service Bus:
@@ -44,13 +44,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-You can obtain the values for the SAS key name and value from the [Azure portal][].
+You can obtain the values for the SAS key name and value from the [Azure portal][Azure portal].
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-**create\_topic** also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of 1 minute:
+The `create_topic` method also supports additional options, which enable you to override default topic settings such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of 1 minute:
 
 ```python
 topic_options = Topic()
@@ -70,8 +70,7 @@ Subscriptions to topics are also created with the **ServiceBusService** object. 
 > 
 
 ### Create a subscription with the default (MatchAll) filter
-
-The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'AllMessages' and uses the default **MatchAll**
+The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named `AllMessages` and uses the default **MatchAll**
 filter.
 
 ```python
@@ -82,16 +81,16 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 You can also define filters that enable you to specify which messages sent to a topic should show up within a specific topic subscription.
 
-The most flexible type of filter supported by subscriptions is a **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][] syntax.
+The most flexible type of filter supported by subscriptions is a **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about the expressions that can be used with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
 You can add filters to a subscription by using the **create\_rule** method of the **ServiceBusService** object. This method allows you to add new filters to an existing subscription.
 
 > [!NOTE]
-> Because the default filter is applied automatically to all new subscriptions, you must first remove the default filter or the **MatchAll** will override any other filters you may specify. You can remove the default rule by using the **delete\_rule** method of the **ServiceBusService** object.
+> Because the default filter is applied automatically to all new subscriptions, you must first remove the default filter or the **MatchAll** will override any other filters you may specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
 > 
 > 
 
-The following example creates a subscription named `HighMessages` with a **SqlFilter** that only selects messages that have a custom **messagenumber** property greater than 3:
+The following example creates a subscription named `HighMessages` with a **SqlFilter** that only selects messages that have a custom `messagenumber` property greater than 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -104,7 +103,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Similarly, the following example creates a subscription named `LowMessages` with a **SqlFilter** that only selects messages that have a **messagenumber** property less than or equal to 3:
+Similarly, the following example creates a subscription named `LowMessages` with a **SqlFilter** that only selects messages that have a `messagenumber` property less than or equal to 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -163,8 +162,7 @@ There is also a timeout associated with a message locked within the subscription
 In the event that the application crashes after processing the message but before the **delete** method is called, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
 
 ## Delete topics and subscriptions
-
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure classic portal][] or programmatically. The following example shows how to delete the topic named `mytopic`:
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -184,7 +182,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 -   Reference for [SqlFilter.SqlExpression][].
 
 [Azure portal]: https://portal.azure.cn
-[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Azure Python package]: https://pypi.python.org/pypi/azure  
 [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Service Bus quotas]: ./service-bus-quotas.md

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 6/14/2017
+origin.date: 08/03/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/18/2017
 ---
 
 # ExpressRoute circuits and routing domains
@@ -77,10 +77,9 @@ You can choose to enable one or more of the routing domains as part of your Expr
 If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through layer 2 connectivity providers, you will be responsible for configuring and managing routing . You can learn more by reviewing the [workflows](./expressroute-workflows.md) for setting up ExpressRoute.
 
 ## Next steps
+* Find a service provider. See [ExpressRoute service providers and locations](expressroute-locations.md).
+* Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* Configure your ExpressRoute connection.
+  * [Create and manage ExpressRoute circuits](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configure routing (peering) for ExpressRoute circuits](expressroute-howto-routing-portal-resource-manager.md)
 
-- Find a service provider. See [ExpressRoute service providers and locations](./expressroute-locations.md).
-- Ensure that all prerequisites are met. See [ExpressRoute prerequisites](./expressroute-prerequisites.md).
-- Configure your ExpressRoute connection.
-    - [Create an ExpressRoute circuit](./expressroute-howto-circuit-classic.md)
-    - [Configure routing (circuit peerings)](./expressroute-howto-routing-classic.md)
-    - [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md)

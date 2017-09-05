@@ -15,7 +15,7 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 06/26/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 09/18/2017
 ---
 
 # Get started with Service Bus Queues
@@ -31,13 +31,13 @@ This tutorial covers the following steps:
 4. Write a console application to receive the messages sent in the previous step.
 
 ## Prerequisites
-1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## 1. Create a namespace using the Azure portal
-If you have already created a Service Bus Messaging namespace, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
+If you've already created a Service Bus Messaging namespace, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -75,7 +75,6 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -106,7 +105,6 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
