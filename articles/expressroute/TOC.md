@@ -37,7 +37,6 @@
 ### [Configure a router](expressroute-config-samples-routing.md)
 
 ## Best Practices
-### [Best practices for network security and cloud services](../best-practices-network-security.md)
 ### [Optimize routing](expressroute-optimize-routing.md)
 
 ## Troubleshoot
