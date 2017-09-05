@@ -15,8 +15,8 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 07/31/2017
+origin.date: 07/25/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 ---
 
@@ -29,7 +29,7 @@ This PowerShell script example configures active geo-replication for an Azure SQ
 ## Sample Scripts
 
 ```powershell
-﻿# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your serverw
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
 $secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
@@ -158,4 +158,4 @@ For more information on the Azure PowerShell, see [Azure PowerShell documentatio
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metadata-->

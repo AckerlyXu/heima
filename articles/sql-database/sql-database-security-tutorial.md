@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 06/28/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 
 ---
@@ -113,10 +113,6 @@ This establishes a connection using Transport Layer Security (TLS) and reduces t
 3. Review the complete **ADO.NET** connection string.
 
     ![ADO.NET connection string](./media/sql-database-security-tutorial/adonet-connection-string.png)
-
-> [!TIP]
-> For an example of creating a .NET application using Azure SQL Database, see [Build an ASP.NET app in Azure with SQL Database](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md).
->
 
 ## Creating database users
 
@@ -252,4 +248,4 @@ You can improve the protection of your database against malicious users or unaut
 > [!div class="nextstepaction"]
 >[Improve SQL Database performance](sql-database-performance-tutorial.md)
 
-<!--Update_Description: update word & link references-->
+<!--Update_Description: removed a tip -->

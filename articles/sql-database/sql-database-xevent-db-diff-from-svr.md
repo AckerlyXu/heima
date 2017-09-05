@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Extended events in SQL Database
@@ -50,7 +50,7 @@ Prior exposure to the following items is helpful when choosing the Event File as
 - [Azure Storage service](https://www.azure.cn/home/features/storage/)
 
 - PowerShell
-	- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+	- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
 
 ## Code samples
 
@@ -117,7 +117,7 @@ For extended events there are additional DMVs that are common to both Azure SQL 
 
 You can run a simple SQL **SELECT** to obtain a list of the available events, actions, and target.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],
@@ -185,10 +185,10 @@ The **Event File** target might experience network latency or failures while per
 
 ## Related links
 
-- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
+- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md).
 - [Azure Storage Cmdlets](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
-- [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
+- [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
@@ -201,3 +201,4 @@ Other code sample topics for extended events are available at the following link
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
+<!--Update_Description: update word & link-->

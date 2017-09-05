@@ -14,8 +14,8 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-origin.date: 07/11/2017
-ms.date: 07/31/2017
+origin.date: 08/08/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 ---
 # Use Python to query an Azure SQL database
@@ -36,9 +36,9 @@ To complete this quick start tutorial, make sure you have the following:
 
 - You have installed Python and related software for your operating system.
 
-    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/Python/mac/).
-    - **Ubuntu**:  Install Python and other required packages, and then install the Python Driver for SQL Server. See [Step 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: Install the newest version of Python (environment variable is now configured for you), install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/windows/). 
+    - **MacOS**: Install Homebrew and Python, install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+    - **Ubuntu**:  Install Python and other required packages, and then install the Python Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
+    - **Windows**: Install the newest version of Python (environment variable is now configured for you), install the ODBC driver and SQLCMD, and then install the Python Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
 
 ## SQL server connection information
 
@@ -57,30 +57,28 @@ Get the connection information needed to connect to the Azure SQL database. You 
 1. In your favorite text editor, create a new file, **sqltest.py**.  
 
 2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
-
-```Python
-import pyodbc
-server = 'your_server.database.chinacloudapi.cn'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print (str(row[0]) + " " + str(row[1]))
+    ```Python
+    import pyodbc
+    server = 'your_server.database.chinacloudapi.cn'
+    database = 'your_database'
+    username = 'your_username'
+    password = 'your_password'
+    driver= '{ODBC Driver 13 for SQL Server}'
+    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
+    cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
     row = cursor.fetchone()
-```
+    while row:
+        print (str(row[0]) + " " + str(row[1]))
+        row = cursor.fetchone()
+    ```
 
 ## Run the code
 
 1. At the command prompt, run the following commands:
-
-```Python
-   python sqltest.py
-```
+    ```Python
+    python sqltest.py
+    ```
 
 2. Verify that the top 20 rows are returned and then close the application window.
 
@@ -90,4 +88,4 @@ while row:
 - [Microsoft Python Drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python Developer Center](/develop/python/)
 
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->
+<!--Update_Description: update link-->

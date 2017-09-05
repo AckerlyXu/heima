@@ -1,5 +1,5 @@
 ---
-title: Load data from CSV file into Azure SQL Databaase (bcp) | Azure
+title: Load data from CSV file into Azure SQL Database (bcp) | Azure
 description: For a small data size, uses bcp to import data into Azure SQL Database.
 services: sql-database
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 01/10/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ---
 # Load data from CSV into Azure SQL Database (flat files)
 You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
@@ -114,3 +114,4 @@ To migrate a SQL Server database, see [SQL Server database migration](sql-databa
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+<!--Update_Description: update metadata-->

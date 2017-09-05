@@ -16,7 +16,7 @@ ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/30/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 
 ---
@@ -54,7 +54,16 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    > You must select the sample database on this form because it is used in the remainder of this quick start.
    > 
 
-4. Click **Server** and then fill out the **New server form** specifying a globally unique server name, provide a name for the server admin login, and then specify the password of your choice. 
+4. Under **Server**, click **Configure required settings** and fill out the SQL server (logical server) form with the following information, as shown on the following image:   
+
+   | Setting       | Suggested value | 
+   | ------------ | ------------------ | 
+   | **Server name** | Any globally unique name | 
+   | **Server admin login** | Any valid name |
+   | **Password** | Any valid password |
+   | **Subscription** | Your subscription |
+   | **Resource group** | myResourceGroup |
+   | **Location** | Any valid location |
 
    > [!IMPORTANT]
    > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use. 
@@ -159,4 +168,4 @@ Now that you have a database, you can connect and query using your favorite tool
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
-<!--Update_Description: update image link references-->
+<!--Update_Description: update link references-->
