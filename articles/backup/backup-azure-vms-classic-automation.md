@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/29/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -27,6 +27,12 @@ ms.custom: H1Hack27Feb2017
 >
 
 This article shows you how to use Azure PowerShell for backup and recovery of Azure VMs. Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Classic deployment model to back up data to a Backup vault. If you have not created a Backup vault in your subscription, see the Resource Manager version of this article, [Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines](backup-azure-vms-automation.md). Microsoft recommends that most new deployments use the Resource Manager model.
+
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 ## Concepts
 This article provides information specific to the PowerShell cmdlets used to back up virtual machines. For introductory information about protecting Azure VMs, please see [Plan your VM backup infrastructure in Azure](backup-azure-vms-introduction.md).
@@ -48,34 +54,36 @@ To begin:
 1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
-    PS C:\> Get-Command *azurermbackup*
+```
+PS C:\> Get-Command *azurermbackup*
 
-    CommandType     Name                                               Version    Source
-    -----------     ----                                               -------    ------
-    Cmdlet          Backup-AzureRmBackupItem                           1.0.1      AzureRM.Backup
-    Cmdlet          Disable-AzureRmBackupProtection                    1.0.1      AzureRM.Backup
-    Cmdlet          Enable-AzureRmBackupContainerReregistration        1.0.1      AzureRM.Backup
-    Cmdlet          Enable-AzureRmBackupProtection                     1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupContainer                         1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupItem                              1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupJob                               1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupJobDetails                        1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupRecoveryPoint                     1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupVault                             1.0.1      AzureRM.Backup
-    Cmdlet          Get-AzureRmBackupVaultCredentials                  1.0.1      AzureRM.Backup
-    Cmdlet          New-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
-    Cmdlet          New-AzureRmBackupRetentionPolicyObject             1.0.1      AzureRM.Backup
-    Cmdlet          New-AzureRmBackupVault                             1.0.1      AzureRM.Backup
-    Cmdlet          Register-AzureRmBackupContainer                    1.0.1      AzureRM.Backup
-    Cmdlet          Remove-AzureRmBackupProtectionPolicy               1.0.1      AzureRM.Backup
-    Cmdlet          Remove-AzureRmBackupVault                          1.0.1      AzureRM.Backup
-    Cmdlet          Restore-AzureRmBackupItem                          1.0.1      AzureRM.Backup
-    Cmdlet          Set-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
-    Cmdlet          Set-AzureRmBackupVault                             1.0.1      AzureRM.Backup
-    Cmdlet          Stop-AzureRmBackupJob                              1.0.1      AzureRM.Backup
-    Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      AzureRM.Backup
-    Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Backup-AzureRmBackupItem                           1.0.1      AzureRM.Backup
+Cmdlet          Disable-AzureRmBackupProtection                    1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupContainerReregistration        1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupProtection                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupContainer                         1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupItem                              1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJob                               1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJobDetails                        1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupRecoveryPoint                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVaultCredentials                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupRetentionPolicyObject             1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Register-AzureRmBackupContainer                    1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupProtectionPolicy               1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupVault                          1.0.1      AzureRM.Backup
+Cmdlet          Restore-AzureRmBackupItem                          1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Stop-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      AzureRM.Backup
+Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+```
 
 The following setup and registration tasks can be automated with PowerShell:
 
@@ -348,3 +356,4 @@ If you want to add charting capabilities to this report output, learn from the T
 ## Next steps
 If you prefer using PowerShell to engage with your Azure resources, check out the PowerShell article for protecting Windows Server, [Deploy and Manage Backup for Windows Server](backup-client-automation-classic.md). There is also a PowerShell article for managing DPM backups, [Deploy and Manage Backup for DPM](backup-dpm-automation-classic.md). Both of these articles have a version for Resource Manager deployments as well as Classic deployments.
 
+<!--Update_Description: wording update -->
