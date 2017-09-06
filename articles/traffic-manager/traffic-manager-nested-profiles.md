@@ -3,8 +3,8 @@ title: Nested Traffic Manager Profiles | Azure
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+origin.date: 09/11/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
 ---
 
 # Nested Traffic Manager profiles
@@ -34,13 +34,13 @@ Suppose that you deployed an application in the following Azure regions: China N
 
 Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in China North.
 
-You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two China East site 1 endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
+You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two China East endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
 
 The following diagram illustrates this example:
 
 ![Nested Traffic Manager profiles][2]
 
-In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within China East site 1, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
+In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within China East, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
 
 When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance).
 
@@ -52,7 +52,7 @@ Returning to the previous example, suppose the production deployment in China No
 
 ![Nested Profile failover (default behavior)][3]
 
-You might be happy with this arrangement. Or you might be concerned that all traffic for China East site 1 is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in China East site 1 fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
+You might be happy with this arrangement. Or you might be concerned that all traffic for China East is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in China East fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
 
 The following figure illustrates this configuration:
 
@@ -67,11 +67,11 @@ The default behavior for the 'Performance' traffic-routing method is designed to
 
 !['Performance' traffic routing with default failover][5]
 
-However, suppose you prefer the China East site 1 traffic failover to China North, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
+However, suppose you prefer the China East traffic failover to China North, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
 
 !['Performance' traffic routing with preferential failover][6]
 
-Since the China East site 1 endpoint has higher priority than the China North endpoint, all traffic is sent to the China East site 1 endpoint when both endpoints are online. If China East site 1 fails, its traffic is directed to China North. With the nested profile, traffic is directed to China East only when both China East site 1 and China East site 2 North fail.
+Since the China East endpoint has higher priority than the China North endpoint, all traffic is sent to the China East endpoint when both endpoints are online. If China East fails, its traffic is directed to China North. With the nested profile, traffic is directed to China East only when both China East and China North fail.
 
 You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
 
@@ -112,3 +112,5 @@ Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.m
 [8]: ./media/traffic-manager-nested-profiles/figure-8.png
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
+
+<!--Update_Description: update meta properties-->

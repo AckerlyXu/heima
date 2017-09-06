@@ -3,8 +3,8 @@ title: What is Traffic Manager | Azure
 description: This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/15/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 09/11/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
 ---
 
 # Overview of Traffic Manager
@@ -112,6 +112,10 @@ Learn more about Traffic Manager [endpoint monitoring and automatic failover](tr
 
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
+<!-- Not Available [networking capabilities](../networking/networking-overview.md) of Azure.-->
+
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
+
+<!--Update_Description: update meta properties-->

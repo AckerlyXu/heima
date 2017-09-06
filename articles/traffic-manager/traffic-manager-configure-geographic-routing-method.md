@@ -3,8 +3,8 @@ title: Configure geographic traffic routing method using Azure Traffic Manager |
 description: This article explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/22/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 09/11/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
 ---
 
 # Configure the geographic traffic routing method using Traffic Manager
@@ -61,3 +61,5 @@ The Geographic traffic routing method allows you to direct traffic to specific e
 
 - Learn more about [Geographic traffic routing method](traffic-manager-routing-methods.md#geographic).
 - Learn how to [test Traffic Manager settings](traffic-manager-testing-settings.md).
+
+<!--Update_Description: update meta properties-->
