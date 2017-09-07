@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/28/2017
-ms.date: 08/14/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -64,4 +64,4 @@ Check out [Partitioning Service Fabric services][10] to learn more about partiti
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties-->

@@ -13,8 +13,8 @@ ms.devlang: Java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -43,4 +43,4 @@ The preview supports interaction with the cluster through Azure CLI. For Java de
 5. [Setup Service Fabric continuous integration and deployment with Jenkins and GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 6. [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties-->

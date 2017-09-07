@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,7 @@ One way to upload and collect logs is to use the Linux Azure Diagnostics (LAD) e
 
 ## Log and event sources
 
-### Service Fabric infrastructure events
+### Service Fabric platform events
 Service Fabric emits a few out-of-the-box logs via [LTTng](http://lttng.org), including operational events or runtime events. These logs are stored in the location that the cluster's Resource Manager template specifies. To get or set the storage account details, search for the tag **AzureTableWinFabETWQueryable** and look for **StoreConnectionString**.
 
 ### Application events
@@ -57,3 +57,5 @@ After you finish this configuration, the LAD agent monitors the specified log fi
 ## Next steps
 
 To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+
+<!--Update_Description: wording update-->

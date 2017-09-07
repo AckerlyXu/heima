@@ -12,8 +12,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-origin.date: 05/09/2017
-ms.date: 07/17/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -195,3 +195,5 @@ If the client does not present a certificate, reverse proxy forwards an empty he
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
+
+<!--Update_Description: update meta properties-->

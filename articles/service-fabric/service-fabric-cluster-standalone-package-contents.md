@@ -3,8 +3,8 @@ title: Azure Service Fabric Standalone Package for Windows Server | Azure
 description: Description and contents of the Azure Service Fabric Standalone package for Windows Server.
 services: service-fabric
 documentationcenter: .net
-author: maburlik
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.service: service-fabric
@@ -12,8 +12,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
-ms.author: v-johch
+origin.date: 08/10/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
 
 ---
 
@@ -30,7 +31,7 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | TestConfiguration.ps1 |A PowerShell script for analyzing the infrastructure as specified in the Cluster.json. |
 | DownloadServiceFabricRuntimePackage.ps1 |A PowerShell script used for downloading the latest runtime package out of band, for scenarios where the deploying machine is not connected to the internet. |
 | DeploymentComponentsAutoextractor.exe |Self-extracting archive containing Deployment Components used by the Standalone package scripts. |
-| EULA_ENU.txt |The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now. |
+| EULA_ENU.txt |The license terms for the use of Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now. |
 | Readme.txt |A link to the release notes and basic installation instructions. It is a subset of the instructions in this document. |
 | ThirdPartyNotice.rtf |Notice of third-party software that is in the package. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe which is run on demand to collect and upload trace logs to Microsoft for support purpose. |
@@ -45,11 +46,16 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | ClusterConfig.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for a secure, multi-machine (or virtual machine) cluster using Windows security, including the information for each machine that is in the secure cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx). |
 | ClusterConfig.x509.DevCluster.json |A cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. The cluster is secured using x509 certificates. |
 | ClusterConfig.x509.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using x509 certificates. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using [Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## Cluster Configuration Samples
 Latest versions of cluster configuration templates can be found at the GitHub page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
+## Independent Runtime Package
+The latest runtime package is downloaded automatically during cluster deployment from [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
+
 ## Related
 * [Create a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md)
 * [Service Fabric cluster security scenarios](service-fabric-windows-cluster-windows-security.md)
+
+<!--Update_Description: update meta properties， wording update-->

@@ -14,12 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/15/2017
-ms.date: 08/14/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 ---
 
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
 This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
+
+> [!NOTE]
+> Not all settings may be available via the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
+> 
 <!-- Not Avaialable ## Customizing Service Fabric cluster settings using Azure Resource Manager templates -->
 
 ## Fabric settings that you can customize
@@ -234,6 +238,7 @@ Here are the Fabric settings that you can customize:
 |IsEnabled|Bool, default is false | Enables/Disables the httpgateway. Httpgateway is disabled by default and this config needs to be set to enable it. |
 |ActiveListeners |Uint, default is 50 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
 |MaxEntityBodySize |Uint, default is 4194304 |  Gives the maximum size of the body that can be expected from a http request. Default value is 4MB. Httpgateway will fail a request if it has a body of size > this value. Minimum read chunk size is 4096 bytes. So this has to be >= 4096. |
+|HttpGatewayHealthReportSendInterval |Time in seconds, default is 30 | Specify timespan in seconds. The interval at which the Http Gateway sends accumulated health reports to Health Manager. |
 
 ### Section Name: KtlLogger
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
@@ -250,10 +255,10 @@ Here are the Fabric settings that you can customize:
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
 | --- | --- | --- |
 |IsEnabled |Bool, default is false | Enables/Disables the HttpApplicationGateway. HttpApplicationGateway is disabled by default and this config needs to be set to enable it. |
-|NumberOfParallelOperations | Uint, default is 1000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
-|DefaultHttpRequestTimeout |Time in seconds. default is 60 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
+|NumberOfParallelOperations | Uint, default is 5000 | Number of reads to post to the http server queue. This controls the number of concurrent requests that can be satisfied by the HttpGateway. |
+|DefaultHttpRequestTimeout |Time in seconds. default is 120 |Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
 |ResolveServiceBackoffInterval |Time in seconds, default is 5 |Specify timespan in seconds.  Gives the default back-off interval before retrying a failed resolve service operation. |
-|BodyChunkSize |Uint, default is 4096 |  Gives the size of for the chunk in bytes used to read the body. |
+|BodyChunkSize |Uint, default is 16384 |  Gives the size of for the chunk in bytes used to read the body. |
 |GatewayAuthCredentialType |string, default is "None" | Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
 |GatewayX509CertificateStoreName |string, default is "My" | Name of X.509 certificate store that contains certificate for http app gateway. |
 |GatewayX509CertificateFindType |string, default is "FindByThumbprint" | Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
@@ -588,4 +593,4 @@ Read these articles for more information on cluster management:
 
 [Add, Roll over, remove certificates from your Azure cluster ](service-fabric-cluster-security-update-certs-azure.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, update parameters setting.-->
