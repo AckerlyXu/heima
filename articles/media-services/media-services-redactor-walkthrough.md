@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 09/07/2017
 ms.author: v-johch
 
 ---
@@ -27,7 +27,7 @@ For details about  **Azure Media Redactor**, see the [Face redaction overview](m
 
 This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 
-The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. In the current release, there is a 10 minute limit on processed video length.
+The **Azure Media Redactor** MP is generally available. It is available in all public Azure regions as well as US Government and China data centers.
 
 For more information, see [this](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
 
