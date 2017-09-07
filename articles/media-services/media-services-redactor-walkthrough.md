@@ -29,7 +29,7 @@ This topic shows step by step instructions on how to run a full redaction workfl
 
 The **Azure Media Redactor** MP is generally available. It is available in all public Azure regions as well as US Government and China data centers.
 
-For more information, see [this](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
+For more information, see [this](https://azure.microsoft.com/en-us/blog/general-availability-azure-media-redactor/) blog.
 
 ## Azure Media Services Explorer workflow
 
