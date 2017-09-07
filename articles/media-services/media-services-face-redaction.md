@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/31/2017
-ms.date: 09/04/2017
+ms.date: 09/07/2017
 ms.author: v-haiqya
 
 ---
@@ -26,7 +26,7 @@ ms.author: v-haiqya
 
 This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
-The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. 
+The **Azure Media Redactor** MP is generally available. It is available in all public Azure regions as well as US Government and China data centers.
 
 ## Face redaction modes
 
