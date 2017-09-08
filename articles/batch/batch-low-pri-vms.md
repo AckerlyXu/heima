@@ -127,8 +127,7 @@ benefit from low-priority VMs:
 
 > [!NOTE]
 > Low-priority VMs are not currently supported for Batch accounts where the pool
-allocation mode is set to [User
-subscription](batch-account-create-portal.md#user-subscription-mode).
+allocation mode is set to User subscription.
 >
 >
 
