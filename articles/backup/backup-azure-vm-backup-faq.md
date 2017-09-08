@@ -32,7 +32,7 @@ Please go through [Supported operating systems](backup-azure-arm-vms-prepare.md#
 
 ### Why can't I see my VM in configure backup wizard?
 In Configure backup wizard, Azure Backup only lists VMs which are:
-- Not already protected - You can verify the backup status of a VM by going to VM blade and checking on Backup status from Settings Menu of the blade. Learn more on how to [Check backup status of a VM](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+- Not already protected 
 - Belongs to same region as VM
 
 ## Backup
