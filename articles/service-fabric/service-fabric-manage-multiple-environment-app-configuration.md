@@ -13,12 +13,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/07/2017
-ms.date: 07/17/2017
+origin.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
-
 # Manage application parameters for multiple environments
 You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you often want to configure the application differently, depending on the number of machines you're deploying to.
 
@@ -52,7 +51,7 @@ Each of the named parameters must be defined within the Parameters element of th
 
 ```xml
 <Parameters>
-    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
 </Parameters>
@@ -168,8 +167,7 @@ Service Fabric has built in environment variables set for each service instance.
 * FabricPackageFileName
 
 The code belows shows how to list the Service Fabric environment variables
-
-```csharp
+ ```csharp
     foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
     {
         if (de.Key.ToString().StartsWith("Fabric"))
@@ -178,7 +176,6 @@ The code belows shows how to list the Service Fabric environment variables
         }
     }
 ```
-
 The following are examples of environment variables for an application type called `GuestExe.Application` with a service type called `FrontEndService` when run on your local dev machine.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
@@ -195,13 +192,12 @@ The Service Fabric application project can include one or more application param
 
 <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Parameters>
-        <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
+        <Parameter Name ="Stateful1_MinReplicaSetSize" Value="3" />
         <Parameter Name="Stateful1_PartitionCount" Value="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
     </Parameters>
 </Application>
 ```
-
 By default, a new application includes three application parameter files, named Local.1Node.xml, Local.5Node.xml, and Cloud.xml:
 
 ![Application parameter files in Solution Explorer][app-parameters-solution-explorer]
@@ -224,10 +220,11 @@ The `Deploy-FabricApplication.ps1` PowerShell script included in the application
   ```
 
 ## Next steps
-
 To learn more about some of the core concepts that are discussed in this topic, see the [Service Fabric technical overview](service-fabric-technical-overview.md). For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
+
+<!--Update_Description: update meta properties, wording update-->

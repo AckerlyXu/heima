@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/14/2017
-wacn.date: ''
+
+ms.date: 09/11/2017
 ms.author: v-yeche
 ---
 
@@ -29,12 +29,6 @@ For the machines in your cluster, consider collecting the following performance 
 
 | Counter Category | Counter Name |
 | --- | --- |
-| PhysicalDisk(Total) | Avg. Disk Read Queue Length |
-| PhysicalDisk(Total) | Avg. Disk Write Queue Length |
-| PhysicalDisk(Total) | Disk Reads/sec |
-| PhysicalDisk(Total) | Disk Read Bytes/sec |
-| PhysicalDisk(Total) | Disk Writes/sec |
-| PhysicalDisk(Total) | Disk Write Bytes/sec |
 | PhysicalDisk(per Disk) | Avg. Disk Read Queue Length |
 | PhysicalDisk(per Disk) | Avg. Disk Write Queue Length |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Read |
@@ -81,5 +75,7 @@ If you use Reliable Collections, we recommend adding the `Avg. Transaction ms/Co
 
 ## Next steps
 
-* Learn more about [event generation at the infrastructure level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
+* Learn more about [event generation at the platform level](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
 * Collect performance metrics through [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
+
+<!--Update_Description: update meta properties, wording update-->

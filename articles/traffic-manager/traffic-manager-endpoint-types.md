@@ -3,8 +3,8 @@ title: Traffic Manager Endpoint Types | Azure
 description: This article explains different types of endpoints that can be used with Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/29/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+origin.date: 09/11/2017
+ms.date: 09/11/2017
+ms.author: v-yeche
 ---
 
 # Traffic Manager endpoints
@@ -91,3 +91,5 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 * Learn [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md).
 * Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 * Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
+
+<!--Update_Description: update meta properties-->

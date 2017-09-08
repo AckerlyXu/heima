@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Service Fabric Documentation
 metadata:
-  title: Azure Service Fabric Documentation - Tutorials, API Reference | Azure
+  title: Azure Service Fabric Documentation - Tutorials, API Reference | Azure Docs
   meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
   services: service-fabric
   author: carolz
@@ -14,11 +14,9 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   original.date: 01/23/2017
-  ms.date: 08/14/2017
   ms.author: v-yeche
 abstract:
-  description: Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Learn how to use Azure Service Fabric with our quickstarts, tutorials, and samples.
-
+  description: Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Learn how to use Azure Service Fabric with our quickstarts, tutorials, and samples.  
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -28,7 +26,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/app-service-web/media/index/logo_net.svg
+        src: https://docs.azure.cn/app-service-web/media/index/logo_net.svg
       text: .NET
       href: https://docs.azure.cn/service-fabric/service-fabric-quickstart-dotnet
 - title: Step-by-Step Tutorials

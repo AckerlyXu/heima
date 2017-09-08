@@ -13,8 +13,8 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/28/2017
-ms.date: 08/14/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -124,4 +124,4 @@ To add another service to an application already created using `yo`, perform the
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
 
-<!--Update_Description: update meta properties, update reference link, new feature on connect cluster using Azure CLI 2.0-->
+<!--Update_Description: update meta properties-->

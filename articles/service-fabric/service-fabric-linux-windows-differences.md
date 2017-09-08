@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---

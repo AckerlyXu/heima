@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/28/2017
-ms.date: 08/14/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -139,4 +139,4 @@ Learn how to use advanced functionality while upgrading your application by refe
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md).
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties-->

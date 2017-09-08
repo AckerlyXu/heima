@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/21/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 ---
 
@@ -56,7 +56,7 @@ When shutting down a stateless service, the same pattern is followed, just in re
 
 1. In parallel
     - Any open listeners are Closed (`CommunicationListener.closeAsync()` is called on each listener)
-    - The cancellation token passed to `runAsync()` is canceled (checking the cancellation token's `isCancelled` property returns true, and if called the token's `throwIfCancellationRequested` method returns an `CancellationException`)
+    - The cancellation token passed to `runAsync()` is canceled (checking the cancellation token's `isCancelled` property returns true, and if called the token's `throwIfCancellationRequested` method throws a `CancellationException`)
 2. Once `closeAsync()` completes on each listener and `runAsync()` also completes, the service's `StatelessService.onCloseAsync()` method is called, if present (again this is an uncommon override).
 3. After `StatelessService.onCloseAsync()` completes, the service object is destructed
 
@@ -77,4 +77,4 @@ When shutting down a stateless service, the same pattern is followed, just in re
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->
