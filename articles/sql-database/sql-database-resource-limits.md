@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 09/08/2017
 ms.author: v-haiqya
 
 ---
@@ -44,7 +44,7 @@ For example, the number of connections to a SQL database and the number of concu
 There are service tiers and performance levels for both single database and elastic pools.
 
 ### Single databases
-For a single database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, Premium, and Premium RS databases at varying performance levels.
+For a single database, the limits of the database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, Premium, and Premium RS databases at varying performance levels.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
