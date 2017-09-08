@@ -106,16 +106,62 @@ The response is similar to the following example:
     ],
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/expressRouteServiceProviders/",
     "location": null,
-    "name": "AARNet",
+    "name": "Beijing Telecom Ethernet",
     "peeringLocations": [
-      "Melbourne",
-      "Sydney"
+      "Beijing"
     ],
     "provisioningState": "Succeeded",
     "resourceGroup": "",
     "tags": null,
     "type": "Microsoft.Network/expressRouteServiceProviders"
   },
+  {
+    "bandwidthsOffered": [
+      {
+        "offerName": "50Mbps",
+        "valueInMbps": 50
+      },
+      {
+        "offerName": "100Mbps",
+        "valueInMbps": 100
+      },
+      {
+        "offerName": "200Mbps",
+        "valueInMbps": 200
+      },
+      {
+        "offerName": "500Mbps",
+        "valueInMbps": 500
+      },
+      {
+        "offerName": "1Gbps",
+        "valueInMbps": 1000
+      },
+      {
+        "offerName": "2Gbps",
+        "valueInMbps": 2000
+      },
+      {
+        "offerName": "5Gbps",
+        "valueInMbps": 5000
+      },
+      {
+        "offerName": "10Gbps",
+        "valueInMbps": 10000
+      }
+    ],
+    "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/expressRouteServiceProviders/",
+    "location": null,
+    "name": "Shanghai Telecom Ethernet",
+    "peeringLocations": [
+      "Shanghai"
+    ],
+    "provisioningState": "Succeeded",
+    "resourceGroup": "",
+    "tags": null,
+    "type": "Microsoft.Network/expressRouteServiceProviders"
+  }
+]
 ```
 
 Check the response to see if your connectivity provider is listed. Make a note of the following information, which you will need when you create a circuit:
@@ -242,7 +288,7 @@ The response is similar to the following example:
 "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
 "gatewayManagerEtag": null,
 "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-"location": "westus",
+"location": "chinanorth",
 "name": "MyCircuit",
 "peerings": [],
 "provisioningState": "Succeeded",
@@ -251,8 +297,8 @@ The response is similar to the following example:
 "serviceProviderNotes": null,
 "serviceProviderProperties": {
   "bandwidthInMbps": 200,
-  "peeringLocation": "Silicon Valley",
-  "serviceProviderName": "Equinix"
+  "peeringLocation": "Beijing",
+  "serviceProviderName": "Beijing Telecom Ethernet"
 },
 "serviceProviderProvisioningState": "NotProvisioned",
 "sku": {
