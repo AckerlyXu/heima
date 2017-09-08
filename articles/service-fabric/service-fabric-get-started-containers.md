@@ -34,7 +34,8 @@ A development computer running:
 
 A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-cluster-creation-via-portal.md) or [try Service Fabric for free](https://aka.ms/tryservicefabric).
 
-A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
+A registry in Azure Container Registry - Create a container registry in your Azure subscription.
+<!-- Not Available (../container-registry/container-registry-get-started-portal.md) -->
 
 ## Define the Docker container
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.
@@ -143,9 +144,11 @@ docker rm my-web-site
 ## Push the image to the container registry
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
-Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run ``docker login`` to log in to your container registry with your registry credentials.
+<!-- Not Available (../container-registry/container-registry-authentication.md)-->
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/active-directory-application-objects.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could login using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory service principal. For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could login using your registry username and password.
+<!-- Not Available (../active-directory/active-directory-application-objects.md)-->
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -464,7 +467,7 @@ For images that should not be deleted, you can specify them under the `Container
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
+<!--Not Available * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.-->
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 
