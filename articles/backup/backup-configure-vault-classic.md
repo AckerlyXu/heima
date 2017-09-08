@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/30/2017
+origin.date: 08/11/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 
 ---
@@ -28,17 +28,21 @@ ms.author: v-junlch
 
 This article covers the procedures that you need to follow to prepare your environment and back up a Windows server (or workstation) to Azure. It also covers considerations for deploying your backup solution. If you're interested in trying Azure Backup for the first time, this article quickly walks you through the process.
 
-
-> [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
->
->
+Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Before you start
 To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
 
 ## Create a backup vault
 To back up files and folders from a server or client, you need to create a backup vault in the geographic region where you want to store the data.
+
+> [!IMPORTANT]
+> Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults.
+>
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 
 ## Download the vault credential file
@@ -162,6 +166,7 @@ After the initial backup is completed, the **Job completed** status appears in t
 For additional information about backing up VMs or other workloads, see:
 
 - [Back up IaaS VMs](backup-azure-vms-prepare.md)
-- [Back up workloads to Azure with Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
-- [Back up workloads to Azure with DPM](backup-azure-dpm-introduction-classic.md)
+- [Back up workloads to Azure with Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Back up workloads to Azure with DPM](backup-azure-dpm-introduction.md)
 
+<!--Update_Description: wording update -->

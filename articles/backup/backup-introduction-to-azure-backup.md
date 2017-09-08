@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/14/2017
-ms.date: 08/18/2017
+origin.date: 08/11/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -30,7 +30,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 **Unlimited scaling** - Azure Backup uses the underlying power and unlimited scale of the Azure cloud to deliver high-availability - with no maintenance or monitoring overhead. You can set up alerts to provide information about events, but you don't need to worry about high-availability for your data in the cloud.
 
-**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally redundant storage](../storage/storage-redundancy.md#locally-redundant-storage) and [geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
+**Multiple storage options** - An aspect of high-availability is storage replication. Azure Backup offers two types of replication: [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) and [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage). Choose the backup storage option based on need:
 
 - Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a paired datacenter in the same region. LRS is a low-cost option for protecting your data from local hardware failures.
 
@@ -58,8 +58,8 @@ If you aren't sure which Azure Backup component works for your needs, see the fo
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported |
 | --- | --- | --- | --- |
 | Azure Backup (MARS) agent |<p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> |<p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> |<p>Recovery Services vault</p> |
-| System Center DPM |<p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](backup-azure-dpm-introduction-classic.md).</p> |<p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).</p> |<p>Locally attached disk,</p> <p>Recovery Services vault,</p> <p>tape (on-premises only)</p> |
-| Azure Backup Server |<p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md).</p> |<p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md).</p> |<p>Locally attached disk,</p> <p>Recovery Services vault</p> |
+| System Center DPM |<p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).</p> |<p>Locally attached disk,</p> <p>Recovery Services vault,</p> <p>tape (on-premises only)</p> |
+| Azure Backup Server |<p>**Yes**</p><p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Locally attached disk,</p> <p>Recovery Services vault</p> |
 | Azure IaaS VM Backup |<p>**Yes**</p><p>Part of Azure fabric</p><p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> |<p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> |<p>Recovery Services vault</p> |
 
 ## Which applications and workloads can be backed up?
@@ -69,15 +69,15 @@ The following table provides a matrix of the data and workloads that can be prot
 
 | Data or Workload | Source environment | Azure Backup solution |
 | --- | --- | --- |
-| Files and folders |Windows Server |<p>[Azure Backup agent](./backup-configure-vault.md),</p> <p>[System Center DPM](./backup-azure-dpm-introduction-classic.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Files and folders |Windows computer |<p>[Azure Backup agent](./backup-configure-vault.md),</p> <p>[System Center DPM](./backup-azure-dpm-introduction-classic.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Hyper-V virtual machine (Windows) |Windows Server |<p>[System Center DPM](./backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Hyper-V virtual machine (Linux) |Windows Server |<p>[System Center DPM](./backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Microsoft SQL Server |Windows Server |<p>[System Center DPM](./backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Microsoft SharePoint |Windows Server |<p>[System Center DPM](./backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Microsoft Exchange |Windows Server |<p>[System Center DPM](./backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](./backup-azure-microsoft-azure-backup-classic.md) (includes the Azure Backup agent)</p> |
-| Azure IaaS VMs (Windows) |running in Azure |[Azure Backup (VM extension)](./backup-azure-vms-introduction.md) |
-| Azure IaaS VMs (Linux) |running in Azure |[Azure Backup (VM extension)](./backup-azure-vms-introduction.md) |
+| Files and folders |Windows Server |<p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Files and folders |Windows computer |<p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Hyper-V virtual machine (Windows) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Hyper-V virtual machine (Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Microsoft SQL Server |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Microsoft SharePoint |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Microsoft Exchange |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ the Azure Backup agent),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (includes the Azure Backup agent)</p> |
+| Azure IaaS VMs (Windows) |running in Azure |[Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
+| Azure IaaS VMs (Linux) |running in Azure |[Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
 ## Linux support
 The following table shows the Azure Backup components that have support for Linux.  
@@ -87,13 +87,13 @@ The following table shows the Azure Backup components that have support for Linu
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
 | System Center DPM |<li> File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br> </br>  *File-consistent backup not available for Azure VM* <br/> |
 | Azure Backup Server |<li>File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br></br> *File-consistent backup not available for Azure VM*  |
-| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> Granular file recovery <br/> [Restore all VM disks](backup-azure-restore-vms.md) |
+| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
 
 ## Using Premium Storage VMs with Azure Backup
-Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
+Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/common/storage-premium-storage.md).
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/storage-premium-storage.md#pricing-and-billing).
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/common/storage-premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
@@ -107,10 +107,10 @@ Premium Storage VMs can be restored to either Premium Storage or to normal stora
 Azure Backup protects managed disk VMs. Managed disks free you from managing storage accounts of virtual machines and greatly simplify VM provisioning.
 
 ### Back up managed disk VMs <a name="back-up-managed-disk-vms"></a>
-Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup currently doesn't support backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
+Backing up VMs on managed disks is no different than backing up Resource Manager VMs. In the Azure portal, you can configure the backup job directly from the Virtual Machine view or from the Recovery Services vault view. You can back up VMs on managed disks through RestorePoint collections built on top of managed disks. Azure Backup also supports backing up managed disk VMs encrypted using Azure Disk encryption(ADE).
 
 ### Restore managed disk VMs <a name="restore-managed-disk-vms"></a>
-Azure Backup allows you to restore a complete VM with managed disks or restore managed disks to a Resource Manager storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process.
+Azure Backup allows you to restore a complete VM with managed disks, or restore managed disks to a storage account. Azure manages the managed disks during the restore process. You (the customer) manage the storage account created as part of the restore process. When restoring managed encrypted VMs, the VM's keys and secrets should exist in the key vault prior to starting the restore operation.
 
 ## What are the features of each Backup component?
 The following sections provide tables that summarize the availability or support of various features in each Azure Backup component. See the information following each table for additional support or details.
@@ -218,7 +218,13 @@ Some common examples of protected instances are virtual machines, application se
 ## What is a Recovery Services vault?
 A Recovery Services vault is an online storage entity in Azure used to hold data such as backup copies, recovery points, and backup policies. You can use Recovery Services vaults to hold backup data for Azure services and on-premises servers and workstations. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. You can create as many Recovery Services vaults as you like, within a subscription.
 
-Backup vaults, which are based on Azure Service Manager, were the first version of the vault. Recovery Services vaults, which add the Azure Resource Manager model features, are the second version of the vault. See the [Recovery Services vault overview article](backup-azure-recovery-services-vault-overview.md) for a full description of the feature differences. You can no longer create Backup vaults in the Azure portal, but Backup vaults are still supported.
+Backup vaults, which are based on Azure Service Manager, were the first version of the vault. Recovery Services vaults, which add the Azure Resource Manager model features, are the second version of the vault. See the [Recovery Services vault overview article](backup-azure-recovery-services-vault-overview.md) for a full description of the feature differences. You can no longer create use the portal to create Backup vaults, but Backup vaults are still supported.
+
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **By November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 ## How does Azure Backup differ from Azure Site Recovery?
 Azure Backup and Azure Site Recovery are related in that both services back up data and can restore that data. However, these services serve different purposes in providing business continuity and disaster recovery in your business. Use Azure Backup to protect and restore data at a more granular level. For example, if a presentation on a laptop became corrupted, you would use Azure Backup to restore the presentation. If you wanted to replicate the configuration and data on a VM across another datacenter, use Azure Site Recovery.
@@ -237,15 +243,16 @@ The following concepts can help you make important decisions around backup and d
 Use one of the following tutorials for detailed, step-by-step, instructions for protecting data on Windows Server, or protecting a virtual machine (VM) in Azure:
 
 - [Back up Files and Folders](backup-try-azure-backup-in-10-mins.md)
-- [Backup Azure Virtual Machines](backup-azure-vms-first-look.md)
+- [Backup Azure Virtual Machines](backup-azure-vms-first-look-arm.md)
 
 For details about protecting other workloads, try one of these articles:
 
 - [Back up your Windows Server](backup-configure-vault.md)
-- [Back up application workloads](backup-azure-microsoft-azure-backup-classic.md)
+- [Back up application workloads](backup-azure-microsoft-azure-backup.md)
 - [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
+<!--Update_Description: wording update -->

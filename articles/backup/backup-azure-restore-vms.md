@@ -14,14 +14,25 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/29/2017
+origin.date: 08/11/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 
 ---
 # Restore virtual machines in Azure
+> [!div class="op_single_selector"]
+> * [Restore VMs in Azure portal](backup-azure-arm-restore-vms.md)
+> * [Restore VMs in Classic Management Portal](backup-azure-restore-vms.md)
+>
+>
 
 Restore a virtual machine to a new VM from the backups stored in an Azure Backup vault with the following steps.
+
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> **Starting November 1, 2017**:
+>- Any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 ## Restore workflow
 ### Step 1: Choose an item to restore <a name="choosing-a-vm-restore-configuration"></a>
@@ -93,7 +104,7 @@ If you are using a cloud-init based Linux distribution such as Ubuntu, for secur
 If you have restored VM to same cloud service with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored VM to a different cloud service or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.
 
 ## Restoring a VM during Azure DataCenter Disaster
-Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. 
+Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. Learn more about [Azure Data center resiliency](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## Restoring Domain Controller VMs
 Backup of Domain Controller (DC) virtual machines is a supported scenario with Azure Backup. However, care must be taken during
@@ -146,10 +157,13 @@ In order to fully recreate the virtual machine post restoring disks, follow thes
 1. Restore the disks from backup vault using [Azure Backup PowerShell](backup-azure-vms-classic-automation.md#restore-an-azure-vm)
 2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
 
+   - Create VM in cloud service with [Internal Load balancer ](/load-balancer/load-balancer-internal-getstarted/)
+   - Create VM to connect to [Internet facing load balancer](/load-balancer/load-balancer-internet-getstarted/)
    - Create VM with [multiple NICs](../virtual-network/virtual-networks-multiple-nics.md)
    - Create VM with [multiple reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md)
 
 ## Next steps
 - [Troubleshooting errors](backup-azure-vms-troubleshoot.md#restore)
-- [Manage virtual machines](./backup-azure-manage-vms-classic.md)
+- [Manage virtual machines](backup-azure-manage-vms.md)
 
+<!--Update_Description: wording update -->
