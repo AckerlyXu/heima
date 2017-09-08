@@ -2,12 +2,16 @@
 title: Common cloud service management tasks | Azure
 description: Learn how to manage cloud services in the Azure portal. These examples use the Azure portal.
 services: cloud-services
-documentationCenter: ''
-authors: Thraka
+documentationcenter: ''
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 origin.date: 12/27/2016
 ms.date: 07/17/2017

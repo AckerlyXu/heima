@@ -64,7 +64,7 @@ To instantiate an Azure Table service client, you must first have a valid connec
 For accessing a live service:
 
 ```php
-DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
+DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];EndpointSuffix=core.chinacloudapi.cn
 ```
 
 For accessing the emulator storage:

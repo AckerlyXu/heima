@@ -131,7 +131,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azure Java Developer Center]:/develop/java/
 [Azure Management Portal]: https://manage.windowsazure.cn
 [Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
-[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Creating a Hello World Application for Azure in Eclipse]:/app-service-web/app-service-web-eclipse-create-hello-world-web-app
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Using the Azure Service Runtime Library in JSP]: /develop/java/
 

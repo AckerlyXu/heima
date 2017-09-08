@@ -3,8 +3,8 @@ title: Detect Face and Emotion with Azure Media Analytics | Azure
 description: This topic demonstrates how to detect faces and emotions with Azure Media Analytics.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/11/2017
-ms.date: 08/07/2017
+origin.date: 07/18/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -29,7 +29,7 @@ The **Azure Media Face Detector** media processor (MP) enables you to count, tra
     Face detection finds and tracks human faces within a video. Multiple faces can be detected and subsequently be tracked as they move around, with the time and location metadata returned in a JSON file. During tracking, it will attempt to give a consistent ID to the same face while the person is moving around on screen, even if they are obstructed or briefly leave the frame.
 
   > [!NOTE]
-  > This services does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
+  > This service does not perform facial recognition. An individual who leaves the frame or becomes obstructed for too long will be given a new ID when they return.
 
 * **Emotion detection**
 
@@ -330,21 +330,24 @@ JSON output for aggregate emotion (truncated):
 * For each video, the maximum number of faces returned is 64.
 * Some faces may not be detected due to technical challenges; e.g. very large face angles (head-pose), and large occlusion. Frontal and near-frontal faces have the best results.
 
-## Sample code
+## .NET sample code
 
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-1. Create a job with a face detection task based on a configuration file that contains the following json preset.
+2. Create a job with a face detection task based on a configuration file that contains the following json preset. 
+   
+        {
+            "version": "1.0"
+        }
+3. Download the output JSON files. 
 
-    ```
-    {
-        "version": "1.0"
-    }
-    ```
+#### Create and configure a Visual Studio project
 
-1. Download the output JSON files.
-    ```.net
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
+
+#### Example
+
     using System;
     using System.Configuration;
     using System.IO;
@@ -357,40 +360,24 @@ The following program shows how to:
     {
         class Program
         {
-            // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-            private static readonly String _defaultScope = "urn:WindowsAzureMediaServices";
-
-            // Azure China uses a different API server and a different ACS Base Address from the Global.
-            private static readonly String _chinaApiServerUrl = "https://wamsshaclus001rest-hs.chinacloudapp.cn/API/";
-            private static readonly String _chinaAcsBaseAddressUrl = "https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn";
+            private static readonly string _AADTenantDomain =
+                      ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                      ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
-            private static Uri _apiServer = null;
 
             static void Main(string[] args)
             {
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                        _mediaServicesAccountName,
-                        _mediaServicesAccountKey,
-                        _defaultScope,
-                        _chinaAcsBaseAddressUrl);
-
-                // Create the API server Uri
-                _apiServer = new Uri(_chinaApiServerUrl);
-
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_apiServer, _cachedCredentials);
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 // Run the FaceDetection job.
-                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4", @"C:\supportFiles\FaceDetection\config.json");
+                var asset = RunFaceDetectionJob(@"C:\supportFiles\FaceDetection\BigBuckBunny.mp4",
+                                            @"C:\supportFiles\FaceDetection\config.json");
 
                 // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\FaceDetection\Output");
@@ -479,7 +466,8 @@ The following program shows how to:
                     .LastOrDefault();
 
                 if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                    throw new ArgumentException(string.Format("Unknown media processor",
+                                                               mediaProcessorName));
 
                 return processor;
             }
@@ -514,14 +502,13 @@ The following program shows how to:
                         break;
                 }
             }
-
         }
     }
-    ```
+
 
 ## Related links
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)  
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
-<!--Update_Description: wording update add a include link-->
+<!--Update_Description: update code to use AAD token instead of ACS-->

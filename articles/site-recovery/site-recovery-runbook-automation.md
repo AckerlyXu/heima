@@ -249,7 +249,7 @@ For another example, see the following video. It demonstrates how to recover a t
 
 ## Additional resources
 <!-- Not Available automation-sec-configure-azure-runas-account.md -->
-[Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
+[Azure Automation Overview](https://docs.azure.cn/zh-cn/automation/ "Azure Automation Overview")
 * [Azure Automation sample scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
 
 <!--Update_Description: update meta properties, wording update-->

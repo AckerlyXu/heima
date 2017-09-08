@@ -3,8 +3,8 @@ title: Azure Media Services Telemetry | Azure
 description: This article gives an overview of Azure Media Services telemetry.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
 
@@ -34,9 +34,9 @@ You can configure telemetry on a component level granularity. There are two deta
 
 The following topics show how to enable telemetry:
 
-[Enabling telemetry with .NET](./media-services-dotnet-telemetry.md) 
+[Enabling telemetry with .NET](media-services-dotnet-telemetry.md) 
 
-[Enabling telemetry with REST](./media-services-rest-telemetry.md)
+[Enabling telemetry with REST](media-services-rest-telemetry.md)
 
 ## Consuming telemetry information
 
@@ -44,11 +44,12 @@ Telemetry is written to an Azure Storage Table in the storage account that you s
 
 You can consume telemetry data in one of the following ways:
 
-- Read data directly from Azure Table Storage (e.g. using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/zh-cn/library/mt742089.aspx) topic.
+- Read data directly from Azure Table Storage (e.g. using the Storage SDK). For the description of telemetry storage tables, see the **Consuming telemetry information** in [this](https://msdn.microsoft.com/library/mt742089.aspx) topic.
 
 Or
 
-- Use the support in the Media Services .NET SDK for reading storage data, as described in [this](./media-services-dotnet-telemetry.md) topic. 
+- Use the support in the Media Services .NET SDK for reading storage data, as described in [this](media-services-dotnet-telemetry.md) topic. 
+
 
 The telemetry schema described below is designed to give good performance within the limits of Azure Table Storage:
 
@@ -206,5 +207,3 @@ Telemetric data can be processed and visualized with the following tools:
 ### How to manage data retention?
 
 The telemetry system does not provide data retention management or auto deletion of old records. Thus, you need to manage and delete old records manually from the storage table. You can refer to storage SDK for how to do it.
-
-<!--Update_Description: update metadata-->

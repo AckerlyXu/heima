@@ -3,8 +3,8 @@ title: Creating Filters with Azure Media Services .NET SDK
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/18/2016
-ms.author: v-johch
+origin.date: 07/21/2017
+ms.date: 07/21/2017
+ms.author: v-haiqya
 
 ---
 # Creating Filters with Azure Media Services .NET SDK
@@ -26,14 +27,13 @@ ms.author: v-johch
 
 Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](./media-services-dynamic-manifest-overview.md).
+For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
 
 This topic shows how to use Media Services .NET SDK to create, update, and delete filters. 
 
 Note if you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
 
-##Types used to create filters
-
+## Types used to create filters
 The following types are used when creating filters: 
 
 * **IStreamingFilter**.  This type is based on the following REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
@@ -41,70 +41,68 @@ The following types are used when creating filters:
 * **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
-##Create/Update/Read/Delete global filters
-
+## Create/Update/Read/Delete global filters
 The following code shows how to use .NET to create, update,read, and delete asset filters.
 
-```
-string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
+    string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
-List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
+    List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
 
-FilterTrackSelectStatement filterTrackSelectStatement = new FilterTrackSelectStatement();
-filterTrackSelectStatement.PropertyConditions = new List<IFilterTrackPropertyCondition>();
-filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackNameCondition("Track Name", FilterTrackCompareOperator.NotEqual));
-filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackBitrateRangeCondition(new FilterTrackBitrateRange(0, 1), FilterTrackCompareOperator.NotEqual));
-filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackTypeCondition(FilterTrackType.Audio, FilterTrackCompareOperator.NotEqual));
-filterTrackSelectStatements.Add(filterTrackSelectStatement);
+    FilterTrackSelectStatement filterTrackSelectStatement = new FilterTrackSelectStatement();
+    filterTrackSelectStatement.PropertyConditions = new List<IFilterTrackPropertyCondition>();
+    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackNameCondition("Track Name", FilterTrackCompareOperator.NotEqual));
+    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackBitrateRangeCondition(new FilterTrackBitrateRange(0, 1), FilterTrackCompareOperator.NotEqual));
+    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackTypeCondition(FilterTrackType.Audio, FilterTrackCompareOperator.NotEqual));
+    filterTrackSelectStatements.Add(filterTrackSelectStatement);
 
-// Create
-IStreamingFilter filter = _context.Filters.Create(filterName, new PresentationTimeRange(), filterTrackSelectStatements);
+    // Create
+    IStreamingFilter filter = _context.Filters.Create(filterName, new PresentationTimeRange(), filterTrackSelectStatements);
 
-// Update
-filter.PresentationTimeRange = new PresentationTimeRange(timescale: 500);
-filter.Update();
+    // Update
+    filter.PresentationTimeRange = new PresentationTimeRange(timescale: 500);
+    filter.Update();
 
-// Read
-var filterUpdated = _context.Filters.FirstOrDefault();
-Console.WriteLine(filterUpdated.Name);
+    // Read
+    var filterUpdated = _context.Filters.FirstOrDefault();
+    Console.WriteLine(filterUpdated.Name);
 
-// Delete
-filter.Delete();
-```
+    // Delete
+    filter.Delete();
 
-##Create/Update/Read/Delete asset filters
 
+## Create/Update/Read/Delete asset filters
 The following code shows how to use .NET to create, update,read, and delete asset filters.
 
-```
-string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
-var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
+    string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
+    var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
-string filterName = "AssetFilter_" + Guid.NewGuid().ToString();
+    string filterName = "AssetFilter_" + Guid.NewGuid().ToString();
 
-// Create
-IStreamingAssetFilter filter = asset.AssetFilters.Create(filterName,
-                                    new PresentationTimeRange(), 
-                                    new List<FilterTrackSelectStatement>());
 
-// Update
-filter.PresentationTimeRange = 
-        new PresentationTimeRange(start: 6000000000, end: 72000000000);
+    // Create
+    IStreamingAssetFilter filter = asset.AssetFilters.Create(filterName,
+                                        new PresentationTimeRange(), 
+                                        new List<FilterTrackSelectStatement>());
 
-filter.Update();
+    // Update
+    filter.PresentationTimeRange = 
+            new PresentationTimeRange(start: 6000000000, end: 72000000000);
 
-// Read
-asset = _context.Assets.Where(c => c.Id == asset.Id).FirstOrDefault();
-var filterUpdated = asset.AssetFilters.FirstOrDefault();
-Console.WriteLine(filterUpdated.Name);
+    filter.Update();
 
-// Delete
-filterUpdated.Delete();
-```
+    // Read
+    asset = _context.Assets.Where(c => c.Id == asset.Id).FirstOrDefault();
+    var filterUpdated = asset.AssetFilters.FirstOrDefault();
+    Console.WriteLine(filterUpdated.Name);
 
-##Build streaming URLs that use filters
+    // Delete
+    filterUpdated.Delete();
 
-For information on how to publish and deliver your assets, see [Delivering Content to Customers Overview](./media-services-deliver-content-overview.md).
+
+
+
+## Build streaming URLs that use filters
+For information on how to publish and deliver your assets, see [Delivering Content to Customers Overview](media-services-deliver-content-overview.md).
 
 The following examples show how to add filters to your streaming URLs.
 

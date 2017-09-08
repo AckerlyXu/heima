@@ -3,8 +3,8 @@ title: " Upload files into a Media Services account using the Azure portal | Azu
 description: This tutorial walks you through the steps of uploading files into a Media Services account using the Azure portal
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: 3ad3dcea-95be-4711-9aae-a455a32434f6
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-oringin.date: 02/13/2017
-ms.date: 08/07/2017
+oringin.date: 08/07/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -59,4 +59,3 @@ You can now encode your uploaded assets. For more information, see [Encode asset
 
 You can also use Azure Functions to trigger an encoding job based on a file arriving in the configured container. For more information, see [this sample](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
-<!--Update_Description: new file-->

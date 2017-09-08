@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/22/2017
-ms.date: 08/14/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -34,7 +34,7 @@ The guide covers the following procedures:
 
 A secure cluster is a cluster that prevents unauthorized access to management operations. This includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, we highly recommend that you create a secure cluster from the outset. Because an unsecure cluster cannot be secured later, a new cluster must be created.
 
-The concept of creating secure clusters is the same, whether they are Linux or Windows clusters.
+The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. For more information and helper scripts for creating secure Linux clusters, see [Creating secure clusters on Linux](#secure-linux-clusters).
 
 ## Sign in to your Azure account
 This guide uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
@@ -171,7 +171,7 @@ The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically f
 
 ```powershell
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName mychinaeastvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
 ```
 
@@ -448,7 +448,7 @@ The Azure AD configuration that you created earlier can be inserted directly int
 }
 ```
 
-### <a "configure-arm" ></a>Configure Resource Manager template parameters
+### <a name="configure-arm" ></a>Configure Resource Manager template parameters
 Finally, use the output values from the key vault and Azure AD PowerShell commands to populate the parameters file:
 
 ```json
@@ -606,8 +606,8 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
-[service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
-[service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
+[service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
+[service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.chinacloudapi.cn/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/

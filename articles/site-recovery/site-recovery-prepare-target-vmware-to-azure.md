@@ -21,7 +21,7 @@ ms.author: v-yeche
 # Prepare target (VMware to Azure)
 > [!div class="op_single_selector"]
 > * [VMware to Azure](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Physical to Azure](./site-recovery-prepare-target-physical-to-azure.md)
+<!-- Not Available > * [Physical to Azure](./site-recovery-prepare-target-physical-to-azure.md)-->
 
 This article describes how to prepare your Azure environment to start replicating VMware virtual machines to Azure.
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/12/2017
-ms.date: 07/03/2017
+origin.date: 07/25/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. To register a resource provider, provide the namespace:
+Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -66,6 +66,8 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {China North, China East, China East 2, China North...}
 ```
+
+You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
 To see information for a particular resource provider, use:
 
@@ -151,13 +153,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. To register a resource provider, provide the namespace:
+Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 Which returns a message that registration is on-going.
+
+You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
 To see information for a particular resource provider, use:
 
@@ -246,9 +250,11 @@ Select **Resource providers** and view the list of available resource providers.
 
 ![show resource providers](./media/resource-manager-supported-services/show-resource-providers.png)
 
-By default, many resource providers are automatically registered; however, you may need to manually register some resource providers. To register a resource provider, select **Register**.
+Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles. To register a resource provider, select **Register**.
 
 ![register resource provider](./media/resource-manager-supported-services/register-provider.png)
+
+You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
 To see information for a particular resource provider, select **More services**.
 
@@ -277,4 +283,6 @@ The API version corresponds to a version of REST API operations that are release
 ## Next steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
-* To view the operations for a resource provider, see [Azure REST API](https://docs.microsoft.com/zh-cn/rest/api/).
+* To view the operations for a resource provider, see [Azure REST API](https://docs.microsoft.com/rest/api/).
+
+<!--Update_Description: update meta properties, wording update -->

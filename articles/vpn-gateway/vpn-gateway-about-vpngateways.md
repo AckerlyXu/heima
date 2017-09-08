@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/05/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+ms.date: 09/08/2017
+ms.author: v-junlch
 
 ---
 # About VPN Gateway
@@ -62,7 +62,7 @@ The following sections contain tables which list:
 
 Use the diagrams and descriptions to help select the connection topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline.
 
-## Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
+## <a name="s2smulti"></a>Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
 
 ### <a name="S2S"></a>Site-to-Site
 

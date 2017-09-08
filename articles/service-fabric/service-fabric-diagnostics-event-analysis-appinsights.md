@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/26/2017
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -73,7 +73,7 @@ In the "WadCfg" of the Resource Manager template, add a "Sink" by including the 
 
 In both the code snippets above, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
 
-Currently, logs from the cluster will show up as traces in AI's log viewer. Since most of the traces coming from the infrastructure level are of type "Information", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error".
+Currently, logs from the cluster will show up as traces in AI's log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error".
 <!-- Not Available [this article](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md). -->
 
 >[!NOTE]
@@ -118,3 +118,5 @@ Clicking **Analytics** will take you to the Application Insights Analytics porta
 
 <!-- Not Available * [Set up Alerts in AI](../application-insights/app-insights-alerts.md) to be notified about changes in performance or usage -->
 <!-- Not Available * [Smart Detection in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems -->
+
+<!--Update_Description: wording update-->

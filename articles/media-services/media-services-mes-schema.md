@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 07/10/2017
-ms.author: v-johch
+origin.date: 07/19/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 # Media Encoder Standard schema
 This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](media-services-mes-presets-overview.md) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
@@ -90,7 +90,7 @@ By default, if you send an input to the encoder that contains only audio, and no
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Number of B frames between reference frames. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default="3" |**xs:int** |Number of reference frames in a GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |Could be one of the following values: **Cabac** and **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |rational number |Determines the frame rate of the output video. Use default of "0/1" to let the encoder use the same frame rate as the input video. Allowed values are expected to be common video frame rates, as shown below. However, any valid rational is allowed. For example 1/1 would be 1 fps and is valid.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) |
+| **FrameRate**<br/><br/> minOccurs="0" |rational number |Determines the frame rate of the output video. Use default of "0/1" to let the encoder use the same frame rate as the input video. Allowed values are expected to be common video frame rates, as shown below. However, any valid rational is allowed. For example 1/1 would be 1 fps and is valid.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29.97 fps) <br/> <br/>**NOTE** If you are creating a custom preset for multiple-bitrate encoding, then all layers of the preset **must** use the same value of FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Copy from Azure media encoder |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determines how many slices a frame is divided into. Recommend using default. |
 
@@ -263,5 +263,3 @@ If the above is not the desired behavior, then you can make use of the PreserveR
 
 ## Examples
 See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md).
-
-<!--Update_Description: wording update-->

@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/10/2017
-ms.date: 07/24/2017
+origin.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
@@ -36,13 +36,13 @@ To get started using the Event Hubs management libraries, you must authenticate 
 * [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have **Owner** permissions for the resource group on which you want to run.
 
 ## Programming pattern
 
 The pattern to manipulate any Event Hubs resource follows a common protocol:
 
-1. Obtain a token from Azure Active Directory using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
+1. Obtain a token from AAD using the `Microsoft.IdentityModel.Clients.ActiveDirectory` library.
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -81,4 +81,4 @@ The pattern to manipulate any Event Hubs resource follows a common protocol:
 * [.NET Management sample](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Microsoft.Azure.Management.EventHub Reference](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.EventHub)
 
-<!--Update_Description: wording update and command style update-->
+<!--Update_Description: update meta properties, wording update-->

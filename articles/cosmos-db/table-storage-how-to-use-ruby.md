@@ -53,6 +53,7 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
+Azure.config.storage_endpoint_suffix = "core.chinacloudapi.cn"
 ```
 
 To obtain these values from a classic or Resource Manager storage account in the Azure portal:

@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/28/2017
-ms.date: 08/14/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 ---
 
@@ -53,12 +53,20 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
 </ApplicationManifest>
 ```
 
-In the preceding example, the `Source` tag for the `Volume` refers to the source folder. The source folder could be a folder in the VM that hosts the containers or a persistent remote store. The `Destination` tag is the location that the `Source` is mapped within the running container. When using a volume plugin, the name of the plugin (`Driver` tag) is specified as shown in the preceding example.  If a Docker log driver is specified, it is necessary to deploy agents (or containers) to handle the logs in the cluster. 
+In the preceding example, the `Source` tag for the `Volume` refers to the source folder. The source folder could be a folder in the VM that hosts the containers or a persistent remote store. The `Destination` tag is the location that the `Source` is mapped to within the running container. 
+
+When specifying a volume plugin, Service Fabric automatically creates the volume using the parameters specified. The `Source` tag is the name of the volume, and the `Driver` tag specifies the volume driver plugin. Options can be specified using the `DriverOption` tag as shown in the following snippet:
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+If a Docker log driver is specified, it is necessary to deploy agents (or containers) to handle the logs in the cluster.  The `DriverOption` tag can be used to specify log driver options as well.
 
 Refer to the following articles to deploy containers to a Service Fabric cluster:
 
 <!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
 
-[Deploy a Docker container to Service Fabric on Linux](service-fabric-deploy-container-linux.md)
-
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

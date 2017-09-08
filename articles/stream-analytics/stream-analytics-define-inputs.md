@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 07/05/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -179,4 +179,4 @@ You've learned about data connection options in Azure for your Stream Analytics 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: wording update-->

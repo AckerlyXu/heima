@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/15/2017
-ms.date: 07/03/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -292,22 +292,26 @@ The following sample applications show how to log in as the service principal.
 **Java**
 
 * [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
-* [Getting Started with Resources - Manage Resource Group - in Java](https://github.com/Azure-Samples/resources-java-manage-resource-group//)
+* [Getting Started with Resources - Manage Resource Group - in Java](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
+* [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
 
 **Python**
 
 * [Deploy an SSH Enabled VM with a Template in Python](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
 * [Managing Azure Resource and Resource Groups with Python](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
+* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
 **Node.js**
 
 * [Deploy an SSH Enabled VM with a Template in Node.js](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
 * [Manage Azure resources and resource groups with Node.js](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
+* [Node.js](https://docs.microsoft.com/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 
 **Ruby**
 
 * [Deploy an SSH Enabled VM with a Template in Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
 * [Managing Azure Resource and Resource Groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
+* [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## Next Steps
 * For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).

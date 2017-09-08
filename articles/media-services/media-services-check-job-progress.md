@@ -3,8 +3,8 @@ title: Monitor Job Progress using .NET
 description: Learn how to use event handler code to track job progress and send status updates. The code sample is written in C# and uses the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
-ms.author: v-johch
+origin.date: 07/20/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 
 ---
 # Monitor Job Progress using .NET

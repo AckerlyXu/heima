@@ -3,8 +3,8 @@ title: Azure Virtual Network | Azure
 description: Learn about Azure Virtual Network concepts and features.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/23/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 # Azure Virtual Network
@@ -36,7 +36,7 @@ To learn more about the following Azure Virtual Network capabilities, click the 
 
 ## <a name = "isolation"></a>Network isolation and segmentation
 
-You can implement multiple VNets within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure region. Each VNet is isolated from other VNets. For each VNet you can:
+You can implement multiple VNets within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region). Each VNet is isolated from other VNets. For each VNet you can:
 - Specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources connected to the VNet a private IP address from the address space you assign.
 - Segment the VNet into one or more subnets and allocate a portion of the VNet address space to each subnet.
 - Use Azure-provided name resolution or specify your own DNS server for use by resources connected to a VNet. To learn more about name resolution in VNets, read the [Name resolution for VMs and Cloud Services](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
@@ -87,3 +87,6 @@ To review frequently asked questions about Virtual Network, see the [Virtual Net
 
 - Create your first VNet, and connect a few VMs to it, by completing the steps in the [Create your first virtual network](virtual-network-get-started-vnet-subnet.md) article.
 - Create a point-to-site connection to a VNet by completing the steps in the [Configure a point-to-site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) article.
+<!-- Not Available [network capabilities](../networking/networking-overview.md)-->
+
+<!--Update_Description: wording update, update reference link-->

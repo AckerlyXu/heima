@@ -3,8 +3,8 @@ title: Azure Media Services encoding error codes | Azure
 description: This topic lists error codes that could be returned in case an error was encountered during the encoding task execution..
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
@@ -13,14 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+origin.date: 08/09/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
+
 ---
 
 # Encoding error codes
 
-The following table lists error codes that could be returned in case an error was encountered during the encoding task execution.  To get error details in your .NET code, use the [ErrorDetails](http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) class. To get error details in your REST code, use the [ErrorDetail](https://msdn.microsoft.com/zh-cn/library/jj853026.aspx) REST API.
+The following table lists error codes that could be returned in case an error was encountered during the encoding task execution.  To get error details in your .NET code, use the [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) class. To get error details in your REST code, use the [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API.
 
 | ErrorDetail.Code | Possible causes for error |
 | --- | --- |
@@ -36,8 +37,8 @@ The following table lists error codes that could be returned in case an error wa
 | TransientError |Category of errors to cover transient issues (eg. temporary networking issues with Azure Storage) |
 
 ## Related articles
-* [Perform advanced encoding tasks by customizing Media Encoder Standard presets](./media-services-custom-mes-presets-with-dotnet.md)
-* [Quotas and Limitations](./media-services-quotas-and-limitations.md)
+* [Perform advanced encoding tasks by customizing Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
+* [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: https://www.azure.cn/pricing/details/media-services/

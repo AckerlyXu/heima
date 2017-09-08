@@ -12,13 +12,14 @@ ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: na   
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/10/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
+
 # Build an IoT solution by using Stream Analytics
 ## Introduction
 In this tutorial, you will learn how to use Azure Stream Analytics to get real-time insights from your data. Developers can easily combine streams of data, such as click-streams, logs, and device-generated events, with historical records or reference data to derive business insights. As a fully managed, real-time stream computation service that's hosted in Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
@@ -126,7 +127,7 @@ If you do not have an Azure account, you can [request a trial version](https://w
 > 
 > 
 
-Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your free Azure credit.
+Be sure to follow the steps in the "Clean up your Azure account" section at the end of this article so that you can make the best use of your Azure credit.
 
 ## Provision Azure resources required for the tutorial
 This tutorial requires two event hubs to receive *entry* and *exit* data streams. Azure SQL Database outputs the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
@@ -439,3 +440,5 @@ Refer to the [online documentation](/stream-analytics/) to learn more about Azur
     > Resources are identified by the name. Make sure you carefully review each item before confirming removal.
     > 
     >
+
+<!--Update_Description: wording update-->

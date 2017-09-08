@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/30/2017
-ms.date: 07/17/2017
-ms.author: v-dazen
+ms.date: 09/08/2017
+ms.author: v-junlch
 
 ---
 # VPN Gateway FAQ

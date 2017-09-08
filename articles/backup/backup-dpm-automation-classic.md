@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/30/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 
 ---
@@ -27,6 +27,11 @@ ms.author: v-junlch
 
 This article explains how to use PowerShell to back up and recover DPM data from a backup vault. Microsoft recommends using Recovery Services vaults for all new deployments. If you are a new Azure Backup user, use the article, [Deploy and manage Data Protection Manager data to Azure using PowerShell](backup-dpm-automation.md), so you store your data in a Recovery Services vault.
 
+> [!IMPORTANT]
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults. After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
 
 ## Setting up the PowerShell environment
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -104,20 +109,20 @@ PS C:\> MARSAgentInstaller.exe /?
 The available options include:
 
 | Option | Details | Default |
-| ---- | ----- | ----- |
-| /q | Quiet installation | - |
-| /p:"location" | Path to the installation folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" | Path to the cache folder for the Azure Backup agent. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Opt-in to Microsoft Update | - |
-| /nu | Do not Check for updates after installation is complete | - |
-| /d | Uninstalls Azure Recovery Services Agent | - |
-| /ph | Proxy Host Address | - |
-| /po | Proxy Host Port Number | - |
-| /pu | Proxy Host UserName | - |
-| /pw | Proxy Password | - |
+| --- | --- | --- |
+| /q |Quiet installation |- |
+| /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Azure Recovery Services Agent |
+| /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Azure Recovery Services Agent\Scratch |
+| /m |Opt-in to Microsoft Update |- |
+| /nu |Do not Check for updates after installation is complete |- |
+| /d |Uninstalls Azure Recovery Services Agent |- |
+| /ph |Proxy Host Address |- |
+| /po |Proxy Host Port Number |- |
+| /pu |Proxy Host UserName |- |
+| /pw |Proxy Password |- |
 
 ### Registering with the Azure Backup service
-Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](./backup-azure-dpm-introduction-classic.md) are met. You must:
+Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](backup-azure-dpm-introduction.md) are met. You must:
 
 - Have a valid Azure subscription
 - Have a backup vault
@@ -348,4 +353,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 The commands can easily be extended for any datasource type.
 
 ## Next steps
-- For more information about Azure Backup for DPM see [Introduction to DPM Backup](./backup-azure-dpm-introduction-classic.md)
+- For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
+
+<!--Update_Description: wording update -->

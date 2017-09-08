@@ -6,7 +6,7 @@ documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
+editor: 
 
 ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
 ms.service: stream-analytics
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
 # Add a streaming data input or reference data to a Stream Analytics job
 Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
 
-Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
+Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure Blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
 <!-- Not Available [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/) even in global ACOM -->
 
 ## Data input: Streaming data and reference data
@@ -62,9 +62,9 @@ To add an input to your Stream Analytics job:
     * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
     * Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
 
-    ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
+     ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
 
-    ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
+     ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
 6. After completing the input creation, Stream Analytics will verify that it can connect to the input source.  You can view the status of the Test Connection operation in the Notification hub.
 
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
@@ -81,4 +81,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link -->

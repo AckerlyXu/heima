@@ -15,10 +15,9 @@ ms.devlang: Java
 ms.topic: article
 origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 09/18/2017
 ---
-
-# How to use Service Bus topics and subscriptions
+# How to use Service Bus topics and subscriptions with Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 

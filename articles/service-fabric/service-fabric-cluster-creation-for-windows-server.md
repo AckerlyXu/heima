@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/24/2017
-ms.date: 08/14/2017
+origin.date: 08/10/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 
 ---
@@ -111,9 +111,9 @@ The Service Fabric runtime package is automatically downloaded at cluster creati
 The runtime package can be downloaded separately, from another machine connected to the internet, at [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copy the runtime package to where you are deploying the offline cluster from, and create the cluster by running `CreateServiceFabricCluster.ps1` with the `-FabricRuntimePackagePath` parameter included, as shown below: 
 
 ```powershell
-CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-where `<path to ClusterConfig.json>` and `<path to MicrosoftAzureServiceFabric.cab>` are the paths to the cluster configuration and the runtime .cab file respectively.
+where `.\ClusterConfig.json` and `.\MicrosoftAzureServiceFabric.cab` are the paths to the cluster configuration and the runtime .cab file respectively.
 
 ### Step 2: Connect to the cluster
 To connect to a secure cluster, see [Service fabric connect to secure cluster](service-fabric-connect-to-secure-cluster.md).
@@ -122,7 +122,9 @@ To connect to an unsecure cluster, run the following PowerShell command:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-
+```
+Example:
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### Step 3: Bring up Service Fabric Explorer
@@ -200,4 +202,4 @@ None.
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

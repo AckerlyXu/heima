@@ -1,4 +1,4 @@
-<!--ms.date: 08/28/2017-->
+
 | Resource | Default Limit |
 | --- | --- |
 | Number of storage accounts per subscription |200<sup>1</sup> |
@@ -37,7 +37,11 @@
 <sup>3</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
 
 <sup>4</sup>Azure Storage replication options include:
-* **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-* **GRS**:  Geo-redundant storage. 
-* **ZRS**: Zone-redundant storage. Available only for block blobs. 
-* **LRS**: Locally redundant storage.
+- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
+- **GRS**:  Geo-redundant storage. 
+- **ZRS**: Zone-redundant storage. Available only for block blobs. 
+- **LRS**: Locally redundant storage. 
+
+
+
+<!--ms.date: 08/29/2017-->

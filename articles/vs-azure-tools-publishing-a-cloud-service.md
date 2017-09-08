@@ -1,10 +1,10 @@
 ---
-title: Publishing a Cloud Service using the Azure Tools | Azure
+title: Publishing a Cloud Service using the Azure Tools | Microsoft Docs
 description: Learn about how to publish Azure cloud service projects by using Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 11/11/2016
-ms.date: 03/30/2017
+origin.date: 08/14/2017
+ms.date: 08/29/2017
 ms.author: v-junlch
----
 
+---
 # Publishing a Cloud Service using the Azure Tools
 By using the Azure Tools for Microsoft Visual Studio, you can publish your Azure application directly from Visual Studio. Visual Studio supports integrated publishing to either the Staging or the Production environment of a cloud service.
 
@@ -39,29 +39,29 @@ Use the following procedures to publish your Azure application and to update a w
 When you publish your Azure application, you can do one of the following tasks:
 
 - Create a service package: You can use this package and the service configuration file to publish your application to a deployment environment from the [Azure Classic Management Portal](https://manage.windowsazure.cn).
-- Publish your Azure project from Visual Studio: To publish your application directly to Azure, you use the Publish Wizard. For information, see [Publish Azure Application Wizard](./vs-azure-tools-publish-azure-application-wizard.md).
+- Publish your Azure project from Visual Studio: To publish your application directly to Azure, you use the Publish Wizard. For information, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
 
 ### To create a service package from Visual Studio
 1. When you are ready to publish your application, open Solution Explorer, open the shortcut menu for the Azure project that contains your roles, and choose Publish.
 2. To create a service package only, follow these steps:  
-
+   
    1. On the shortcut menu for the Azure project, choose **Package**.
    2. In the **Package Azure Application** dialog box, choose the service configuration for which you want to create a package, and then choose the build configuration.
    3. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then select **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
-
-      For more information, see [Using Remote Desktop with Azure Roles](./vs-azure-tools-remote-desktop-roles.md).
+      
+      For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
    4. To create the package, choose the **Package** link.
-
+      
       File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the [Azure Classic Management Portal](https://manage.windowsazure.cn).
    5. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 3. (Optional) To cancel the deployment process, on the shortcut menu for the line item in the activity log, choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
-
+   
    > [!NOTE]
    > To remove this deployment environment after it has been deployed, you must use the [Azure Classic Management Portal](https://manage.windowsazure.cn).
    > 
    > 
-4. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
-
+4. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here, you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
+   
     ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 
 ## Update a Web Role as Part of the Development and Testing Cycle
@@ -78,14 +78,14 @@ Here are the requirements to use Web Deploy to update your web role:
 The following procedure assumes that you are using the **Publish Azure Application** wizard.
 
 ### To Enable Web Deploy When You Publish Your Application
-1. To enable the **Enable Web Deploy** for all web roles check box, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that will be used to connect remotely in the **Remote Desktop Configuration** box that appears. See [Using Remote Desktop with Azure Roles](./vs-azure-tools-remote-desktop-roles.md) for more information.
+1. To enable the **Enable Web Deploy** for all web roles check box, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that will be used to connect remotely in the **Remote Desktop Configuration** box that appears. See [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md) for more information.
 2. To enable Web Deploy for all the web roles in your application, select **Enable Web Deploy for all web roles**.
-
+   
     A yellow warning triangle appears. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate. For information about how to do this, see the section **To Make Web Deploy Secure** later in this topic.
 3. Choose **Next** to show the **Summary** screen, and then choose **Publish** to deploy the cloud service.
-
+   
     The cloud service is published. The virtual machine that is created has remote connections enabled for IIS so that Web Deploy can be used to update your web roles without republishing them.
-
+   
    > [!NOTE]
    > If you have more than one instance configured for a web role, a warning message appears, stating that each web role will be limited to one instance only in the package that’s created to publish your application. Select **OK** to continue. As stated in the Requirements section, you can have more than one web role but only one instance of each role.
    > 
@@ -95,25 +95,25 @@ The following procedure assumes that you are using the **Publish Azure Applicati
 1. To use Web Deploy, make code changes to the project for any of your web roles in Visual Studio that you want to publish, and then right-click this project node in your solution and point to **Publish**. The **Publish Web** dialog box appears.
 2. (Optional) If you added a trusted SSL certificate to use for remote connections for IIS, you can clear the **Allow untrusted certificate** check box. For information about how to add a certificate to make Web Deploy secure, see the section **To Make Web Deploy Secure** later in this topic.
 3. To use Web Deploy, the publish mechanism needs the user name and password that you set up for your remote desktop connection when you first published the package.
-
+   
    1. In **User name**, enter the user name.
    2. In **Password**, enter the password.
    3. (Optional) If you want to save this password in this profile, choose **Save password**.
 4. To publish the changes to your web role, choose **Publish**.
-
+   
     The status line displays **Publish started**. When the publishing has completed, **Publish succeeded** appears. The changes have now been deployed to the web role on your virtual machine. Now you can start your Azure application in the Azure environment to test your changes.
 
 ### To Make Web Deploy Secure
 1. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate, which you obtain from a certificate authority (CA).
-
+   
     To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the [Azure Classic Management Portal](https://manage.windowsazure.cn). This makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
 2. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
-
-   1. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](./vs-azure-tools-remote-desktop-roles.md).
-
+   
+   1. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+      
       Your browser will prompt you to download an .RDP file.
    2. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the [Azure Classic Management Portal](https://manage.windowsazure.cn). For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
-
+      
       > [!NOTE]
       > If you add a trusted SSL certificate, the yellow warning triangle no longer appears in the **Publish Wizard**.
       > 
@@ -124,19 +124,19 @@ You might need to include specific files in your service package so that they ar
 
 ### To include files in the service package
 1. To add an assembly to a service package, use the following steps:
-
+   
    1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
    2. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The Add Reference dialog appears.
    3. Choose the reference that you want to add and then choose the **OK** button.
-
+      
       The reference is added to the list under the **References** folder.
    4. Open the shortcut menu for the assembly that you added and choose **Properties**. The **Properties** window appears.
-
+      
       To include this assembly in the service package, in the **Copy Local list** choose **True**.
 2. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
 3. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The **Add Reference** dialog appears.
 4. Choose the reference that you want to add and then choose the **OK** button.
-
+   
     The reference is added to the list under the **References** folder.
 5. Open the shortcut menu for the assembly that you added and choose **Properties**. The Properties window appears.
 6. To include this assembly in the service package, in the **Copy Local** list, choose **True**.
@@ -144,4 +144,6 @@ You might need to include specific files in your service package so that they ar
 8. To include files in the service package that have been added to your worker role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Copy if newer** from the **Copy to output directory** list box.
 
 ## Next steps
-To learn more about publishing to Azure from Visual Studio, see [Publish Azure Application Wizard](./vs-azure-tools-publish-azure-application-wizard.md).
+To learn more about publishing to Azure from Visual Studio, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+
+<!--Update_Description: wording update -->  

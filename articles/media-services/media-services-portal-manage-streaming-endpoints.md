@@ -4,9 +4,9 @@ title: Manage streaming endpoints with the Azure portal | Azure
 description: This topic shows how to manage streaming endpoints with the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: hayley244
 writer: juliako
-manager: erikre
+manager: digimobile
 editor: ''
 
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
@@ -15,8 +15,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 08/07/2017
+origin.date: 08/09/2017
+ms.date: 09/04/2017
 ms.author: v-haiqya
 
 ---
@@ -83,31 +83,4 @@ A brief description of the fields follows.
 ## Scale your Premium streaming endpoint
 
 For more information, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
-
-## <a id="enable_cdn"></a>Enable Azure CDN integration
-
-When you create a new account, default Streaming Endpoint Azure CDN integration is enabled by default.
-
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to 2 hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream will be delivered from the CDN. During the provisioning period your streaming endpoint will be in **starting** state and you might observe degredad performance.
-
-CDN integration is enabled in all the Azure data centers execpt China and Federal Goverment regions.
-
-Once it is enabled, the **Access Control**, **Custom hostname** and **Akamai Signature authentication** configuration gets disabled.
-
-> [!IMPORTANT]
-> Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. For more information about Azure CDN features, see the [CDN overview](/cdn/cdn-overview).
-
-### Additional considerations
-
-* When CDN is enabled for a streaming endpoint, clients cannot request content directly from the origin. If you need the ability to test your content with or without CDN, you can create another streaming endpoint that isn't CDN enabled.
-* Your streaming endpoint hostname remains the same after enabling CDN. You don't need to make any changes to your media services workflow after CDN is enabled. For example, if your streaming endpoint hostname is strasbourg.streaming.mediaservices.chinacloudapi.cn, after enabling CDN, the exact same hostname is used.
-* For new streaming endpoints, you can enable CDN simply by creating a new endpoint; for existing streaming endpoints, you need to first stop the endpoint and then enable/disable the CDN.
-* Standard streaming endpoint can only be configured using **Verizon Standard CDN provider** using Azure management portal. However, you can enable other Azure CDN providers using REST APIs.
-
-## Configure CDN profile
-
-You can configure the CDN profile by selecting the **Manage CDN** button from the top.
-
-![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
-
-<!--Update_Description:new file-->
+<!--Update_Description: remove CDN integration related content since not support in MC-->

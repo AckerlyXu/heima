@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/03/2017
-ms.date: 07/03/2017
+origin.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
@@ -22,7 +22,7 @@ ms.author: v-yeche
 
 ## Runtime APIs
 
-The following is a listing of all currently available Azure Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an event hub.
+The following is a description of all currently available Azure Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an event hub.
 
 See [additional information](#additional-information) for more details on the current status of each runtime library.
 
@@ -57,3 +57,5 @@ You can learn more about Event Hubs by visiting the following links:
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
 * [Create an event hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
+
+<!--Update_Description: update meta properties, wording update-->

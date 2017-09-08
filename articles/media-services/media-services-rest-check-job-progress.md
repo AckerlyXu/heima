@@ -2,32 +2,40 @@
 title: How to check job progress using REST API | Azure
 description: Learn how to track job progress.
 services: media-services
-documentationCenter: ''
-authors: Juliako
-manager: erikre
+documentationcenter: ''
+author: hayley244
+manager: digimobile
 editor: ''
 
+ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: v-johch
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
-
-#How to: check job progress
-
+# How to: check job progress
 > [!div class="op_single_selector"]
->- [Portal](./media-services-portal-check-job-progress.md)
->- [.NET](./media-services-check-job-progress.md)
->- [REST](./media-services-rest-check-job-progress.md)
+> * [Portal](media-services-portal-check-job-progress.md)
+> * [.NET](media-services-check-job-progress.md)
+> * [REST](media-services-rest-check-job-progress.md)
+> 
+> 
 
-When you run jobs, you often require a way to track job progress. You can find out the Job status by using the Job's State property. For more information on the State property, see [Job Entity Properties](https://msdn.microsoft.com/zh-cn/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+When you run jobs, you often require a way to track job progress. You can find out the Job status by using the Job's State property. For more information on the State property, see [Job Entity Properties](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+
+## Check job progress
+```
 Request:
 
-```
 GET https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs()?$filter=Id%20eq%20'nb%3Ajid%3AUUID%3Af3c43f94-327f-2347-90bb-3bf79f8559f1'&$top=1 HTTP/1.1
 DataServiceVersion: 1.0;NetFx
 MaxDataServiceVersion: 3.0;NetFx
@@ -55,3 +63,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 {"odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
 ```
+
+## See also
+
+[Media Services operations REST API overview](media-services-rest-how-to-use.md)
+<!--Update_Description: update to use AAD token to connect media service-->

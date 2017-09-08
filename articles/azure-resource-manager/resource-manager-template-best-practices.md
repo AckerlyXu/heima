@@ -4,7 +4,7 @@ description: Guidelines for simplifying your Azure Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 31b10deb-0183-47ce-a5ba-6d0ff2ae8ab3
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 06/05/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 ---
 
@@ -392,6 +392,7 @@ It's also a good idea to format your JSON for better readability. You can use a 
 
 ## Next steps
 <!-- Not Available on Guidance Directory-->
-* For guidance on setting up a storage account, see [Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md).
-* For help with virtual networks, see the [networking infrastructure guidelines](../virtual-machines/windows/infrastructure-networking-guidelines.md).
+* For guidance on setting up a storage account, see [Azure Storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
 * To learn about how an enterprise can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: update meta properties, update reference link-->

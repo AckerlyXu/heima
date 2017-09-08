@@ -14,19 +14,24 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/30/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 
 ---
 # Back up Azure virtual machines (Classic Management Portal)
+> [!div class="op_single_selector"]
+> * [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
+> * [Back up VMs to Backup vault](backup-azure-vms.md)
+>
+>
 
 This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
 
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](./backup-azure-vms-introduction.md) and [Azure virtual machines](../virtual-machines/index.md).
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See Back up VMs to Recovery Services vault for details on working with Recovery Services vaults.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) for details on working with Recovery Services vaults.
 >
 >
 
@@ -37,6 +42,11 @@ Backing up Azure virtual machines involves three key steps:
 > [!NOTE]
 > Backing up virtual machines is a local process. You cannot back up virtual machines in one region to a backup vault in another region. So, you must create a backup vault in each Azure region, where there are VMs that will be backed up.
 >
+> [!IMPORTANT]
+> Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults.
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 >
 
 ## Step 1 - Discover Azure virtual machines
@@ -182,9 +192,10 @@ Once protected, the virtual machine count also increases in the **Dashboard** pa
 Values in the dashboard are refreshed once every 24 hours.
 
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, look at the [VM  troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
+If you run into issues while backing up your virtual machine, look at the [VM     troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
-- [Manage and monitor your virtual machines](./backup-azure-manage-vms-classic.md)
+- [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-restore-vms.md)
 
+<!--Update_Description: wording update -->

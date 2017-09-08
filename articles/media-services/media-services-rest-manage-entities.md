@@ -1,8 +1,8 @@
 ---
 title: Managing Media Services entities with REST  | Azure
 description: Learn how to manage Media Services entities with REST API.
-author: juliako
-manager: dwrede
+author: hayley244
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,35 +13,36 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2017
-ms.date: 03/10/2017
-ms.author: v-johch
+origin.date: 08/10/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Managing Media Services entities with REST 
-
 > [!div class="op_single_selector"]
->- [REST](./media-services-rest-manage-entities.md)
->- [.NET](./media-services-dotnet-manage-entities.md)
+> * [REST](media-services-rest-manage-entities.md)
+> * [.NET](media-services-dotnet-manage-entities.md)
+> 
+> 
 
-Microsoft Azure Media Services is a REST-based service built on OData v3. Because of this, you can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](http://www.odata.org/documentation/).
+Azure Media Services is a REST-based service built on OData v3. You can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](http://www.odata.org/documentation/).
 
 This topic shows you how to manage Azure Media Services entities with REST.
 
 >[!NOTE]
 > Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
 
-## Considerations when working with AMS REST
+## Considerations  
 
->[!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
->
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
+When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Access the Azure Media Services API with REST](./media-services-rest-connect-with-aad.md). 
+## Connect to Media Services
 
-##Adding entities
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
+
+
+## Adding entities
 Every entity in Media Services is added to an entity set, such as Assets, through a POST HTTP request.
 
 The following example shows how to create an AccessPolicy.
@@ -125,11 +126,12 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
->[!NOTE]
->The $expand operation is not supported in Media Services as well as the unsupported LINQ methods described in LINQ Considerations (WCF Data Services).
+> [!NOTE]
+> The $expand operation is not supported in Media Services as well as the unsupported LINQ methods described in LINQ Considerations (WCF Data Services).
+> 
+> 
 
-##Enumerating through large collections of entities
-
+## Enumerating through large collections of entities
 When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. Use **skip** and **top** to enumerate through the large collection of entities. 
 
 The following example shows how to use **skip** and **top** to skip the first 2000 jobs and get the next 1000 jobs.  
@@ -145,9 +147,8 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
-##Updating entities
-
-Depending on the entity type and the state that it is in, you can update properties on that entity through a PATCH, PUT, or MERGE HTTP requests. For more information about these operations, see [PATCH/PUT/MERGE](https://msdn.microsoft.com/zh-cn/library/dd541276.aspx).
+## Updating entities
+Depending on the entity type and the state that it is in, you can update properties on that entity through a PATCH, PUT, or MERGE HTTP requests. For more information about these operations, see [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 The following code example shows how to update the Name property on an Asset entity.
 
@@ -166,8 +167,7 @@ Expect: 100-continue
 {"Name" : "NewName" }
 ```
 
-##Deleting entities
-
+## Deleting entities
 Entities can be deleted in Media Services by using a DELETE HTTP request. Depending on the entity, the order in which you delete entities may be important. For example, entities such as Assets require that you revoke (or delete) all Locators that reference that particular Asset before deleting the Asset.
 
 The following example shows how to delete a Locator that was used to upload a file into blob storage.
@@ -183,3 +183,4 @@ Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidenti
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 0
 ```
+<!--Update_Description: add "Connect to Media Services" section-->

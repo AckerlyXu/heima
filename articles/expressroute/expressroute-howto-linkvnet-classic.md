@@ -16,13 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/28/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 09/18/2017
 ---
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](./expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](./expressroute-howto-linkvnet-arm.md)
-> * [Classic - PowerShell](./expressroute-howto-linkvnet-classic.md)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Azure CLI](howto-linkvnet-cli.md)
+> * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 >
 >
 

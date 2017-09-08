@@ -24,7 +24,7 @@
 ### [Configure Internet facing Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configure Internet facing Load Balancer (Template)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configure Internet facing Load Balancer (Classic Portal)](load-balancer-get-started-internet-classic-portal.md)
+## [Configure Internet facing Load Balancer (Classic Management Portal)](load-balancer-get-started-internet-classic-portal.md)
 ### [Configure Internet facing Load Balancer (Classic Cloud)](load-balancer-get-started-internet-classic-cloud.md)
 ### [Configure Internet facing Load Balancer (Classic PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configure Internet facing Load Balancer (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
@@ -54,7 +54,7 @@
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Related
@@ -68,6 +68,7 @@
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/load-balancer/)
-## [Service updates](https://azure.microsoft.com/updates/?product=load-balancer)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Service updates](https://www.azure.cn/what-is-new/)
 
-<!--Update_Description: update link of load-balancer-troubleshoot.md -->
+<!--Update_Description: wording update, update link -->

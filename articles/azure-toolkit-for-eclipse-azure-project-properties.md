@@ -3,8 +3,8 @@ title: Azure Project Properties
 description: Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse.
 services: ''
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 0fce53ec-0c5e-47b9-a453-59a0d4307556
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/22/2016
-ms.date: 02/14/2017
+origin.date: 04/14/2017
+ms.date: 08/25/2017
 ms.author: v-junlch
----
 
+---
 # Azure Project Properties
 Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
 
@@ -28,9 +28,9 @@ Configuring your Azure Project Properties is accomplished through the property d
 
 Within this property page, you can change the following items: 
 
-* **Service name:** The name for your Azure project.
-* **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
-* **Target OS:** The operating system to use when your project is deployed to Azure.
+- **Service name:** The name for your Azure project.
+- **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
+- **Target OS:** The operating system to use when your project is deployed to Azure.
 
 ## See Also
 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
@@ -47,15 +47,17 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Java Developer Center]:/develop/java/
-[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
-[Azure Role Properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md
-[Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
-[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
-[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Azure Java Developer Center]: /develop/java
+[Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse
+[Azure Role Properties]: /azure-toolkit-for-eclipse-azure-role-properties/
+[Azure Storage Account List]: /azure-toolkit-for-eclipse-azure-storage-account-list/
+[Creating a Hello World Application for Azure in Eclipse]: /app-service-web/app-service-web-eclipse-create-hello-world-web-app
+[Installing the Azure Toolkit for Eclipse]: /azure-toolkit-for-eclipse-installation/
 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/jj835232.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
+
+<!--Update_Description: wording update -->  

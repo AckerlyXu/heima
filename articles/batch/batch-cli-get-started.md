@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-origin.date: 05/11/2017
-ms.date: 07/03/2017
+origin.date: 07/20/2017
+ms.date: 09/06/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -75,7 +75,7 @@ az cloud set -n AzureChinaCloud
 az login
 ```
 
-The `az login` command returns a token that you'll use to authenticate, as shown here. Follow the instructions provided to open a web page and submit the token to Azure:
+The `az login` command returns a token that you can use to authenticate, as shown here. Follow the instructions provided to open a web page and submit the token to Azure:
 
 ![Log in to Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -116,6 +116,10 @@ You have two options for authenticating against your Batch account:
     ```
 
 The examples listed in the [Sample shell scripts](#sample-shell-scripts) section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
+
+## Use Azure Batch CLI Templates and File Transfer (Preview)
+
+You can use the Azure CLI to run Batch jobs end-to-end without writing code. Batch template files support creating pools, jobs, and tasks with the Azure CLI. You can also use the Azure CLI to upload job input files to the Azure Storage account associated with the Batch account, and download job output files from it. For more information, see [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md).
 
 ## Sample shell scripts
 
@@ -183,10 +187,11 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 
 - For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 - For more information about Batch resources, see [Overview of Azure Batch for developers](batch-api-basics.md).
-- See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
+- For more information about using Batch templates to create pools, jobs, and tasks without writing code, see [Use Azure Batch CLI Templates and File Transfer (Preview)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
+<!-- Update_Description: wording update -->

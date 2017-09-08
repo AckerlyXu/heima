@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/27/2017
-ms.date: 07/24/2017
+ms.date: 09/04/2017
 ms.author: v-yeche
 
 ---
@@ -66,7 +66,7 @@ This article provides a side-by-side comparison of features to help you choose b
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Microsoft support?</strong>
+                    <strong>Azure support?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -124,8 +124,7 @@ This article provides a side-by-side comparison of features to help you choose b
                 <p>
                     Priced by volume of data processed and the number of streaming units required per hour that the job is running. 
                 </p>
-                <p>
-                    For more information, see <a href="https://www.azure.cn/pricing/details/stream-analytics/">Stream Analytics Pricing</a>.</p>
+                    <p>For more information, see <a href="https://www.azure.cn/pricing/details/stream-analytics/">Stream Analytics Pricing</a>.</p>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -333,7 +332,7 @@ This article provides a side-by-side comparison of features to help you choose b
             </td>
             <td width="246" valign="top">
                 <p>
-                    Storm supports many outputs in a topology, and each output can have custom logic for downstream processing. Storm includes connectors for Power BI, Azure Event Hubs, Azure Blob storage, SQL, and HBase. Users can create additional connectors using custom code.    
+                    Storm supports many outputs in a topology, and each output can have custom logic for downstream processing. Storm includes connectors for Power BI, Azure Event Hubs, Azure Blob storage, Azure Cosmos DB, SQL, and HBase. Users can create additional connectors using custom code.    
                 </p>
             </td>
         </tr>
@@ -556,7 +555,7 @@ This article provides a side-by-side comparison of features to help you choose b
             </td>
             <td width="246" valign="top">
                 <p>
-                    No limits on data size. Connectors are available for HBase, SQL Server, and Azure. Users can create additional connectors using custom code. Reference data must be refreshed using custom code.
+                    No limits on data size. Connectors are available for HBase, Azure Cosmos DB, SQL Server, and Azure. Users can create additional connectors using custom code. Reference data must be refreshed using custom code.
                 </p>
             </td>
         </tr>
@@ -580,4 +579,4 @@ This article provides a side-by-side comparison of features to help you choose b
     </tbody>
 </table>
 
-<!--Update_Description: update meta properties,wording update-->
+<!--Update_Description: wording update-->

@@ -3,8 +3,8 @@ title: Testing Azure VM network throughput | Azure
 description: Learn how to test Azure virtual machine network throughput.
 services: virtual-network
 documentationcenter: na
-author: steveesp
-manager: Gerald DeGrace
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/21/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 07/21/2017
+ms.date: 09/04/2017
+ms.author: v-yeche
 
 ---
 
@@ -167,3 +167,5 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
 * Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
+
+<!--Update_Description: update meta properties-->

@@ -151,7 +151,8 @@ Alternatively, you can run the script as below, and you'll be asked to provide i
 
 ### How to replicate using Azure Site Recovery in the Recovery Services vault
 
-- You can now protect your Azure VMs from one region to another. To know more, refer to the documentation [here](site-recovery-azure-to-azure.md).
+- You can now protect your Azure VMs from one region to another.
+<!--Not Available  To know more, refer to the documentation [here](site-recovery-azure-to-azure.md).-->
 
 - To know more about replicating VMware VMs to Azure, refer to the documentation [here](vmware-walkthrough-overview.md).
 

@@ -10,8 +10,8 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-origin.date: 05/05/2017
-ms.date: 07/03/2017
+origin.date: 07/21/2017
+ms.date: 09/06/2017
 ms.author: v-junlch
 
 ---
@@ -32,7 +32,10 @@ most suitable for certain types of workloads. Use low-priority VMs for batch and
 asynchronous processing workloads where the job completion time is flexible and
 the work is distributed across many VMs.
 
-For an additional discussion of low-priority VMs, see the blog post announcement: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/).
+Low-priority VMs are significantly less expensive than dedicated VMs. For pricing
+details, see [Batch Pricing](https://www.azure.cn/pricing/details/batch/).
+
+For an additional discussion of low-priority VMs, see the blog post announcement: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/).
 
 > [!IMPORTANT]
 > Low-priority VMs are currently in preview, and are available only for workloads running in Batch. 
@@ -121,6 +124,12 @@ benefit from low-priority VMs:
 -   Low-priority VMs have a core quota that differs from that of dedicated VMs. 
     The quote for low-priority VMs is higher than that of dedicated VMs, because 
     low-priority VMs cost less. See [Batch service quotas and limits](batch-quota-limit.md#resource-quotas) for more information.    
+
+> [!NOTE]
+> Low-priority VMs are not currently supported for Batch accounts where the pool
+allocation mode is set to User subscription.
+>
+>
 
 ## Create and update pools
 
@@ -237,8 +246,25 @@ VMs may occasionally be preempted; when this happens, Batch does the following:
     scheduling.
 -   Preemption counts are available as a metric in the Azure portal.
 
+## Metrics
+
+New metrics are available in the [Azure portal](https://portal.azure.cn) for low-priority nodes. These metrics are:
+
+- Low-Priority Node Count
+- Low-Priority Core Count 
+- Preempted Node Count
+
+To view metrics in the Azure portal:
+
+1. Navigate to your Batch account in the portal, and view the settings for your Batch account.
+2. Select **Metrics** from the **Monitoring** section.
+3. Select the metrics you desire from the **Available Metrics** list.
+
+![Metrics for low-priority nodes](./media/batch-low-pri-vms/low-pri-metrics.png)
+
 ## Next steps
 
 - Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 
+<!-- Update_Description: wording update -->

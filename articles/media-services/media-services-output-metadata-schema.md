@@ -1,8 +1,8 @@
 ---
 title: Azure Media Services output metadata schema | Azure
 description: The topic gives an overview of Azure Media Services output metadata schema.
-author: Juliako
-manager: erikre
+author: hayley244
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/26/2016
-ms.date: 12/12/2016
-ms.author: v-johch
+origin.date: 07/19/2017
+ms.date: 09/04/2017
+ms.author: v-haiqya
 ---
 
 # Output Metadata
@@ -24,7 +24,7 @@ An encoding job is associated with an input asset (or assets) on which you want 
 
 If you want to examine the metadata file, you can create a **SAS** locator and download the file to your local computer.  
 
-This topic discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](./media-services-input-metadata-schema.md).  
+This topic discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
 >You can find the complete schema code and XML example at the end of this topic.  
@@ -35,10 +35,10 @@ Collection of AssetFile entries for the encoding job.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |An [AssetFile element](./media-services-output-metadata-schema.md) that is part of the AssetFiles collection. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |An [AssetFile element](media-services-output-metadata-schema.md) that is part of the AssetFiles collection. |
 
 ## <a name="AssetFile "></a> AssetFile element
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -50,24 +50,24 @@ You can find an XML example [XML example](./media-services-output-metadata-schem
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](./media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](./media-services-output-metadata-schema.md). |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](./media-services-output-metadata-schema.md). |
+| **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Sources element
 Collection of input/source media files, that was processed in order to produce this AssetFile.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](./media-services-output-metadata-schema.md). |
+| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a> Source element
 An input/source file used when generating this asset.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -77,17 +77,17 @@ You can find an XML example [XML example](./media-services-output-metadata-schem
 ## <a name="VideoTracks "></a> VideoTracks element
 Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific video track in the parent AssetFile. For more information, see [VideoTrack element](./media-services-output-metadata-schema.md#VideoTrack). |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific video track in the parent AssetFile. For more information, see [VideoTrack element](media-services-output-metadata-schema.md#VideoTrack). |
 
 ## <a name="VideoTrack"></a> VideoTrack element
 A specific video track in the parent AssetFile.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -109,17 +109,17 @@ You can find an XML example [XML example](./media-services-output-metadata-schem
 ## <a name="AudioTracks "></a> AudioTracks element
 Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](./media-services-output-metadata-schema.md). |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see [AudioTrack element](media-services-output-metadata-schema.md). |
 
 ## <a name="AudioTrack "></a> AudioTrack element
 A specific audio track in the parent AssetFile.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |
@@ -135,12 +135,12 @@ You can find an XML example [XML example](./media-services-output-metadata-schem
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](./media-services-output-metadata-schema.md). |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see [LoudnessMeteringResultParameters element](media-services-output-metadata-schema.md). |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters element
 Loudness metering result parameters.  
 
-You can find an XML example [XML example](./media-services-output-metadata-schema.md#xml).  
+You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
 ### Attributes
 | Name | Type | Description |

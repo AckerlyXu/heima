@@ -1,5 +1,5 @@
 ---
-title: Node.js API app in Azure App Service | Azure
+title: Node.js API app in Azure App Service | Microsoft Docs
 description: Learn how to create a Node.js RESTful API and deploy it to an API app in Azure App Service.
 services: app-service\api
 documentationcenter: node
@@ -14,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
 origin.date: 06/13/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-
+ms.author: v-yiso
+ms.date: 09/11/2017
 ---
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-This quickstart shows how to create an [Express](http://expressjs.com/) framework Node.js REST API using from a [Swagger](http://swagger.io/) definition and deploy it as an [API app](app-service-api-apps-why-best-platform.md)  on Azure. You create the app using command-line tools, configure resources with the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli),  and deploy the app using Git.  When you've finished, you have a working sample REST API running on Azure.
+This quickstart shows how to create a REST API, written with Node.js [Express](http://expressjs.com/), using a [Swagger](http://swagger.io/) definition and deploying it as an [API app](app-service-api-apps-why-best-platform.md) on Azure. You create the app using command-line tools, configure resources with the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and deploy the app using Git.  When you've finished, you have a working sample REST API running on Azure.
 
 ## Prerequisites
 
@@ -133,6 +132,9 @@ Tell us a bit about your application
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -289,4 +291,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [Consume API apps from JavaScript clients with CORS](app-service-api-cors-consume-javascript.md)
 
-<!--Update_Description: add note about Azure CLI 2.0 version-->
+<!--Update_Description: update some code-->

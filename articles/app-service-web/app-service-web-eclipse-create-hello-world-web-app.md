@@ -23,7 +23,7 @@ This tutorial shows how to create and deploy a basic Hello World application to 
 
 When you have completed this tutorial, your application will look similar to the following illustration when you view it in a web browser:
 
-![Preview of Hello World app][01]
+![Preview of Hello World app](./media/app-service-web-eclipse-create-hello-world-web-app/9.png)
 
 ## Prerequisites
 * A Java Developer Kit (JDK), v 1.8 or later.
@@ -31,8 +31,6 @@ When you have completed this tutorial, your application will look similar to the
 * A distribution of a Java-based web server or application server, such as [Apache Tomcat] or [Jetty].
 * An Azure subscription, which can be acquired from <https://www.azure.cn/pricing/1rmb-trial/> or <http://www.azure.cn/pricing/overview/>.
 * The [Azure Toolkit for Eclipse]. For information about installing the Azure Toolkit, see [Installing the Azure Toolkit for Eclipse].
-
-[!INCLUDE [azure-eclipse-login-guide](../../includes/azure-eclipse-login-guide.md)]
 
 ## To create a Hello World application
 First, we'll start off with creating a Java project.
@@ -42,12 +40,21 @@ First, we'll start off with creating a Java project.
 
     ![Creating a new Dynamic Web Project][02]
 3. Click **Finish**.
-4. Within Eclipse's Project Explorer view, expand **MyWebApp**. Right-click **WebContent**, click **New**, and then click **JSP File**.
-5. In the **New JSP File** dialog box, name the file **index.jsp**, keep the parent folder as **MyWebApp/WebContent**, and then click **Next**.
-6. In the **Select JSP Template** dialog box, for purposes of this tutorial select **New JSP File (html)**, and then click **Finish**.
-7. When your index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should resemble the following example:
 
-    `<body><b><% out.println("Hello World!"); %></b></body>` 
+4. Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
+
+5. In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as **MyHelloWorld/WebContent**, as shown in the following:
+
+   ![ic659262](./media/app-service-web-eclipse-create-hello-world-web-app/ic659262.png)
+
+6. In the **Select JSP Template** dialog, for purposes of this tutorial select **New JSP File (html)** and click **Finish**.
+
+7. When the index.jsp file opens in Eclipse, add in text to dynamically display **Hello World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
+   ```
+   <body>
+   <b><% out.println("Hello World!"); %></b>
+   </body>
+   ```
 8. Save index.jsp.
 
 ## To deploy your application to an Azure Web App Container
@@ -56,76 +63,69 @@ There are several ways by which you can deploy a Java web application to Azure. 
 1. In Eclipse's Project Explorer, right-click **MyWebApp**.
 2. In the context menu, select **Azure**, then click **Publish as Azure Web App...**
 
-    ![Publish as Azure Web App][03]
+    ![Publish as Azure Web App](./media/app-service-web-eclipse-create-hello-world-web-app/1.png)
 
-    Alternatively, while your web application project is selected in the Project Explorer, you can click the **Publish** dropdown button on the toolbar and select **Publish as Azure Web App** from there:
+3. Click **Create...** on **Deploy Web App** page.
 
-    ![Publish as Azure Web App][14]
-5. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\2.png) 
 
-    ![Deploy to Azure Web App Container dialog box][06]
-6. If you have not created an Azure Web App Container before, or if you would like to publish your application to a new container, use the following steps. Otherwise, select an existing Web App Container and skip to step 7 below.
+4. Enter a name for your app service.
+  
+   In the Web Container drop-down menu, select the appropriate software for your application.
 
-   1. Click **New...**
+   Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure. 
 
-       ![Deploy to Azure Web App Container dialog box][15]
-   2. The **New Web App Container** dialog box will be displayed:
+   In the Subscription drop-down menu, select the subscription you want to use for this deployment.
 
-       ![New Web App Container dialog box][07a]
-   3. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. (Note that the name must be available and conform to Azure Web App naming requirements.)
-   4. In the **Web Container** drop-down menu, select the appropriate software for your application.
+   The App Service Plan menu lists the app service plans that are associated with the Resource Group that you selected. (App Service Plans specify information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.)
 
-       Currently, you can choose from Tomcat 8, Tomcat 7 or Jetty 9. A recent distribution of the selected software will be provided by Azure, and it will run on a recent distribution of JDK 8 created by Oracle and provided by Azure.
-   5. In the **Subscription** drop-down menu, select the subscription you want to use for this deployment.
-   6. In the **Resource Group** drop-down menu, select the Resource Group with which you want to associate your Web App. (Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.)
+   You can select an existing App Service Plan (if you have any) or create a new App Service Plan:
 
-       You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
+   * In the the **Create New** textbox, specify a name for your new App Service Plan.
 
-      * Click **New...**
-      * The **New Resource Group** dialog box will be displayed:
+   * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
+   
+   * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free_F1**.
 
-          ![New Resource Group dialog box][08]
-      * In the the **Name** textbox, specify a name for your new Resource Group.
-      * In the the **Region** drop-down menu, select the appropriate Azure data center location for your Resource Group.
-      * OPTIONAL: By default, a recent distribution of Java 8 will be deployed by Azure automatically to your web app container as your JVM. However, you can specify a different version and distribution of the JVM if your Web App requires it. To specify the JDK for your Web App, click the **JDK** tab, and select one of the following options:
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\3.png)  
 
-        * **Deploy the default JDK offered by Azure Web Apps service**: This option will deploy a recent distribution of Java 8.
-        * **Deploy a 3rd party JDK available on Azure**: This option allows you to choose from the list of JDKs which are provided by Azure.
-        * **Deploy my own JDK from this download location**: This option allows you to specify your own JDK distribution, which must be packaged as a ZIP file and uploaded to either a publicly available download location or an Azure storage account for which you have access.
+   In the Resource Group drop-down menu, select the Resource Group with which you want to associate your Web App. (Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.)
 
-          ![New Web App Container dialog box][07b]
-   7. Click **OK**.
-   8. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected. (App Service Plans specify information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.)
+   You can select an existing Resource Group (if you have any), or to create a new Resource Group:
 
-       You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
+   * In the the **Create new** textbox, specify a name for your new Resource Group.
+   * The resource group you created has the same location with the app service plan you configured or created above.    
 
-      * Click **New...**
-      * The **New App Service Plan** dialog box will be displayed:
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\4.png)  
 
-          ![New App Service Plan dialog box][09]
-      * In the the **Name** textbox, specify a name for your new App Service Plan.
-      * In the the **Location** drop-down menu, select the appropriate Azure data center location for the plan.
-      * In the the **Pricing Tier** drop-down menu, select the appropriate pricing for the plan. For testing purposes you can choose **Free**.
-      * In the the **Instance Size** drop-down menu, select the appropriate instance size for the plan. For testing purposes you can choose **Small**.
-   9. Once you have completed all of the above steps, the New Web App Container dialog box should resemble the following illustration:
+   By default, a recent distribution of Java 8 will be deployed by Azure automatically to your web app container as your JVM. However, you can specify a different version and distribution of the JVM if your Web App requires it. To specify the JDK for your Web App, click the **JDK** tab, and select one of the following options:
 
-       ![New Web App Container dialog box][10]
-   10. Click **OK** to complete the creation of your new Web App container.
+   * **Default**: This option will deploy a recent distribution of Java 8.
 
-        Wait a few seconds for the list of the Web App containers to be refreshed, and your newly-created web app container should now be selected in the list.
-7. You are now ready to complete the initial deployment of your Web App to Azure:
+   * **3rd party**: This option allows you to choose from the list of JDKs which are provided by Azure.
+   
+   * **Download URL**: This option allows you to specify your own JDK distribution, which must be packaged as a ZIP file and uploaded to either a publicly available download location or an Azure storage account for which you have access.
 
-    ![Deploy to Azure Web App Container dialog box][11]
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\5.png)  
 
-    Click **OK** to deploy your Java application to the selected Web App container.
+   click **Create**.
 
-    By default, your application will be deployed as a subdirectory of the application server. If you want it to be deployed as the root application, check the **Deploy to root** checkbox before clicking **OK**.
-8. Next, you should see the **Azure Activity Log** view, which will indicate the deployment status of your Web App.
+5. Click **Deploy** on chart below to deloy your project to azure web app. This may take several minutes for the first build. An **Azure Activity Log** will display in your Eclipse tabbed views section.
 
-    ![Azure Activity Log][12]
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\6.png)  
 
-    The process of deploying your Web App to Azure should take only a few seconds to complete. When your application ready, you will see a link named **Published** in the **Status** column. When you click the link, it will take you to your deployed Web App's home page.
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\7.png)  
 
+6. When your deployment is successfully deployed, the **Azure Activity Log** will show a status of **Published**. Click **Published**, as shown in the following image, and your browser will open an instance of your deployment.
+
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\8.png)  
+
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\9.png)  
+
+> [!WARNING]
+> At this point you have deployed your Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Azure subscription.
+> 
+> 
 ## Updating your web app
 Updating an existing running Azure Web App is a quick and easy process, and you have two options for updating:
 
@@ -153,6 +153,30 @@ When the **Azure Explorer** view is displayed, use follow these steps to start o
 4. When the context menu appears, click **Start**, **Stop**, or **Restart**. Note that the menu choices are context-aware, so you can only stop a running web app or start a web app which is not currently running.
 
     ![Stopping an Existing Web App][13]
+
+## To delete your deployment
+
+Follow the steps below to delete your deployment within the Azure Toolkit for Eclipse.
+
+1. In Eclipse's Project Explorer, right click **MyHelloWorld**.
+
+2. Click **Azure** and then click **Publish As Azure Web App**
+
+   ![](./media/app-service-web-eclipse-create-hello-world-web-app/1.png)
+
+3. Choose the web app you want to delete and click **Delete...** on **Deploy Web App** page.
+
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\10.png)
+
+   Click **Yes**. 
+
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\11.png)
+
+   You can see that your web app has been delete after several miniutes.
+
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\12.png)
+
+   ![](media\app-service-web-eclipse-create-hello-world-web-app\13.png)
 
 ## Next Steps
 For more information about the Azure Toolkits for Java IDEs, see the following links:

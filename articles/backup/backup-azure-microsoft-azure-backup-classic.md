@@ -14,13 +14,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/29/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 
 ---
 # Preparing to back up workloads using Azure Backup Server
 > [!div class="op_single_selector"]
+> * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+> * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
@@ -53,7 +55,15 @@ If you plan to join Azure Backup Server to a domain, it is recommended that you 
 ## 2. Backup vault
 ![step2](./media/backup-azure-microsoft-azure-backup/step2.png)
 
-Whether you send backup data to Azure or keep it locally, the Azure Backup Server must be registered to a vault.
+Whether you send backup data to Azure or keep it locally, the Azure Backup Server must be registered to a vault. If you are a new Azure Backup user, and want to use Azure Backup Server, see the Azure portal version of this article - [Prepare to back up workloads using Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+
+> [!IMPORTANT]
+> Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults.
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+>- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+>- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+>
+
 
 
 ## 3. Software package
@@ -98,10 +108,10 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**.
 
-	> [!NOTE]
-	> Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
-	>
-	>
+   > [!NOTE]
+   > Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
+   >
+   >
 
 4. Provide a location for the installation of Azure Backup server files and click **Next**.
 
@@ -113,10 +123,10 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
 6. Select whether you want to use *Microsoft Update* to check for updates and click **Next**.
 
-	> [!NOTE]
-	> We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Azure Backup Server.
-	>
-	>
+   > [!NOTE]
+   > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Azure Backup Server.
+   >
+   >
 
     ![Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 7. Review the *Summary of Settings* and click **Install**.
@@ -189,3 +199,4 @@ You can use these articles to gain a deeper understanding of workload protection
 - [SharePoint server backup](backup-azure-backup-sharepoint.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)
 
+<!--Update_Description: wording update -->

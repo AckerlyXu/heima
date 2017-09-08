@@ -2,15 +2,19 @@
 title: Configure a custom domain name in Cloud Services | Azure
 description: Learn how to expose your Azure application or data on a custom domain by configuring DNS settings.
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 6a62c2b7-ea47-4cce-9d6a-0cca38357f42
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2016
-ms.date: 01/03/2017
+origin.date: 07/05/2016
+ms.date: 09/11/2017
 ms.author: v-yiso
 ---
 
@@ -32,7 +36,9 @@ Do you already undestand what CNAME and A records are? [Jump past the explanatio
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
+> 
+> 
 
 ## Understand CNAME and A records
 
@@ -129,9 +135,9 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
 For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of your deployed application:
 
-| Host name/Subdomain | IP address     |
-| ------------------- | -------------- |
-| @                   | 137.135.70.239 |
+| Host name/Subdomain | IP address |
+| --- | --- |
+| @ |137.135.70.239 |
 
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 

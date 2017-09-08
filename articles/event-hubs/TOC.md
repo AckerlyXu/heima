@@ -56,10 +56,12 @@
 ## [Quotas](event-hubs-quotas.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+<!-- Not Available ## [Azure Roadmap](https://azure.microsoft.com/roadmap/) -->
 ## [Code samples](event-hubs-samples.md)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+<!-- Not Available ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/) -->
 ## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
-## [Service updates](https://azure.microsoft.com/updates/?product=event-hubs)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Service updates](https://www.azure.cn/what-is-new/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 
+<!--Update_Description: update link-->

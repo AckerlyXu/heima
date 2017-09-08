@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 08/09/2017
+ms.date: 09/11/2017
 ms.author: v-yeche
 ---
 
@@ -160,7 +160,7 @@ and the modified service.  Now, copy and register your updated application using
 Now, you can start the application upgrade with the following command:
 
 ```sh
- azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–target-application-type-version 2.0 --rolling-upgrade-mode UnmonitoredAuto
+ azure servicefabric application upgrade start --application-name fabric:/MySFApp --target-application-type-version 2.0 --rolling-upgrade-mode UnmonitoredAuto
 ```
 
 You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated. You
@@ -228,4 +228,4 @@ packages), so use password authentication instead.
 
 * [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: wording update-->

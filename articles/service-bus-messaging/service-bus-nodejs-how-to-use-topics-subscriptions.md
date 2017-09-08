@@ -12,12 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ---
-
-# How to Use Service Bus topics and subscriptions
+# How to Use Service Bus topics and subscriptions with Node.js
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -106,7 +105,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-**createServiceBusService** also supports additional options, which
+The `createServiceBusService` method also supports additional options, which
 enable you to override default topic settings such as message time to
 live or maximum topic size. The following example sets the maximum topic size to 5GB with a time to live of 1 minute:
 
@@ -136,7 +135,7 @@ After performing preprocessing on the request options, the method calls `next` p
 function (returnObject, finalCallback, next)
 ```
 
-In this callback, and after processing the **returnObject** (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke **finalCallback** otherwise to end up the service invocation.
+In this callback, and after processing the `returnObject` (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or invoke `finalCallback` otherwise, to end the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
@@ -451,4 +450,4 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/app-service-web-get-started-nodejs.md
   [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md

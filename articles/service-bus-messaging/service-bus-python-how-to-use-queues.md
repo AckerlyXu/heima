@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 04/30/2017
+origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ---
 # How to use Service Bus queues
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -53,7 +53,7 @@ The values for the SAS key name and value can be found in the [Azure portal][Azu
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5GB, and the TTL value to 1 minute:
+The `create_queue` method also supports additional options, which enable you to override default queue settings such as message time to live (TTL) or maximum queue size. The following example sets the maximum queue size to 5 GB, and the TTL value to 1 minute:
 
 ```python
 queue_options = Queue()
@@ -64,9 +64,9 @@ bus_service.create_queue('taskqueue', queue_options)
 ```
 
 ## Send messages to a queue
-To send a message to a Service Bus queue, your application calls the **send\_queue\_message** method on the **ServiceBusService** object.
+To send a message to a Service Bus queue, your application calls the `send_queue_message` method on the **ServiceBusService** object.
 
-The following example demonstrates how to send a test message to the queue named *taskqueue using* **send\_queue\_message**:
+The following example demonstrates how to send a test message to the queue named `taskqueue` using `send_queue_message`:
 
 ```python
 msg = Message(b'Test Message')

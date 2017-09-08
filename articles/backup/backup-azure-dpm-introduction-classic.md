@@ -14,14 +14,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2017
-ms.date: 06/29/2017
+origin.date: 08/02/2017
+ms.date: 09/04/2017
 ms.author: v-junlch
 
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]
-> * [Azure Backup Server](backup-azure-microsoft-azure-backup-classic.md)
+> * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+> * [SCDPM](backup-azure-dpm-introduction.md)
 > * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
 > * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
@@ -58,8 +59,14 @@ After the snapshot has been taken, the data is transferred by the Azure Backup s
 ## Prerequisites
 Prepare Azure Backup to back up DPM data as follows:
 
-1. **Create a Backup vault**
+1. **Create a Backup vault**. If you haven't created a Backup vault in your subscription, see the Azure portal version of this article - [Prepare to back up workloads to Azure with DPM](backup-azure-dpm-introduction.md).
 
+  > [!IMPORTANT]
+  > Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults.
+  > You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+  >- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+  >- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
+  >
 
 2. **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
 3. **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.
@@ -100,3 +107,4 @@ And these are unsupported:
 >
 >
 
+<!--Update_Description: wording update -->

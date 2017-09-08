@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/11/2017
 ---
 # Should I choose cloud services or something else?
 Is Azure Cloud Services the choice for you? Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do.
@@ -39,7 +39,7 @@ Automatically deploys and hosts your app through IIS.
 * **Worker role**  
 Does not use IIS and runs your app standalone.
 
-For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, then pass those requests on to a worker role for processing. (This communication could use [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queues](../storage/storage-introduction.md).)
+For example, a simple application might use just a single web role, serving a website. A more complex application might use a web role to handle incoming requests from users, then pass those requests on to a worker role for processing. (This communication could use [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) or [Azure Queues](../storage/common/storage-introduction.md).)
 
 As the preceding figure suggests, all the VMs in a single application run in the same cloud service. Users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform [scales and deploys](./cloud-services-how-to-scale.md) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure.
 
