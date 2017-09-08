@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ---
 # How to use Service Bus queues
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -32,8 +32,7 @@ covered include **creating queues, sending and receiving messages**, and
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## How to create a queue
-
-The **Azure::ServiceBusService** object enables you to work with queues. To create a queue, use the **create_queue()** method. The following example creates a queue or prints out any errors.
+The **Azure::ServiceBusService** object enables you to work with queues. To create a queue, use the `create_queue()` method. The following example creates a queue or prints out any errors.
 
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
@@ -55,10 +54,9 @@ queue = azure_service_bus_service.create_queue(queue)
 ```
 
 ## How to send messages to a queue
+To send a message to a Service Bus queue, your application calls the `send_queue_message()` method on the **Azure::ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **Azure::ServiceBus::BrokeredMessage** objects, and have a set of standard properties (such as `label` and `time_to_live`), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string value as the message and any required standard properties are populated with default values.
 
-To send a message to a Service Bus queue, your application calls the **send\_queue\_message()** method on the **Azure::ServiceBusService** object. Messages sent to (and received from) Service Bus queues are **Azure::ServiceBus::BrokeredMessage** objects, and have a set of standard properties (such as **label** and **time\_to\_live**), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.
-
-The following example demonstrates how to send a test message to the queue named "test-queue" using **send\_queue\_message()**:
+The following example demonstrates how to send a test message to the queue named `test-queue` using `send_queue_message()`:
 
 ```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
@@ -87,12 +85,11 @@ azure_service_bus_service.delete_queue_message(message)
 ```
 
 ## How to handle application crashes and unreadable messages
-
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlock\_queue\_message()** method on the **Azure::ServiceBusService** object. This causes Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
+Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the `unlock_queue_message()` method on the **Azure::ServiceBusService** object. This call causes Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
 There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
-In the event that the application crashes after processing the message but before the **delete\_queue\_message()** method is called, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **message\_id** property of the message, which remains constant across delivery attempts.
+In the event that the application crashes after processing the message but before the `delete_queue_message()` method is called, then the message is redelivered to the application when it restarts. This process is often called *At Least Once Processing*; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the `message_id` property of the message, which remains constant across delivery attempts.
 
 ## Next Steps
 

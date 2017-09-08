@@ -1,20 +1,21 @@
 ---
-title: Create a Service Bus namespace using a Resource Manager template | Azure
+title: Create Service Bus namespace using an Azure Resource Manager template | Microsoft Docs
 description: Use Azure Resource Manager template to create a Service Bus namespace
 services: service-bus
 documentationCenter: .net
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/15/2016
+origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
+ms.date: 09/18/2017
 ---
 
 # Create a Service Bus namespace using an Azure Resource Manager template
@@ -46,13 +47,13 @@ To run the deployment automatically, click the following button:
 
 With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
-The template defines the following parameters.
+This template defines the following parameters.
 
 ### serviceBusNamespaceName
 
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -65,7 +66,7 @@ The name of the Service Bus namespace to create.
 
 The name of the Service Bus [SKU](https://www.azure.cn/pricing/details/messaging/) to create.
 
-```
+```json
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
@@ -82,13 +83,13 @@ The name of the Service Bus [SKU](https://www.azure.cn/pricing/details/messaging
 
 The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
 
-For more information about Service Bus pricing, please see [Service Bus pricing and billing][].
+For more information about Service Bus pricing, see [Service Bus pricing and billing][Service Bus pricing and billing].
 
 ### serviceBusApiVersion
 
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": { 
        "type": "string", 
        "defaultValue": "2015-08-01", 
@@ -103,7 +104,7 @@ The Service Bus API version of the template.
 
 Creates a standard Service Bus namespace of type **Messaging**.
 
-```
+```json
 "resources": [
     {
         "apiVersion": "[parameters('serviceBusApiVersion')]",
@@ -126,14 +127,12 @@ Creates a standard Service Bus namespace of type **Messaging**.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### Azure CLI
-
-```
+```azurecli
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

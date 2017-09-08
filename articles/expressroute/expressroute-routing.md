@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/12/2017
+origin.date: 07/31/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/18/2017
 ---
-
-# ExpressRoute routing requirements  
-
-To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements. 
+# ExpressRoute routing requirements
+To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:
 
 Refer to the [Circuits and routing domains](./expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be setup in to facilitate connectivity.
 
 > [!NOTE]
-> Microsoft does not support any router redundancy protocols (e.g., HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
+> Microsoft does not support any router redundancy protocols (for example, HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
 > 
 > 
 
@@ -35,17 +33,16 @@ You need to reserve a few blocks of IP addresses to configure routing between yo
 ### IP addresses used for Azure private peering
 You can use either private IP addresses or public IP addresses to configure the peerings. The address range used for configuring routes must not overlap with address ranges used to create virtual networks in Azure. 
 
- - You must reserve a /29 subnet or two /30 subnets for routing interfaces.
- - The subnets used for routing can be either private IP addresses or public IP addresses.
- - The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
- - If a /29 subnet is used, it will be split into two /30 subnets. 
-     - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-     - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-     - You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.  
+* You must reserve a /29 subnet or two /30 subnets for routing interfaces.
+* The subnets used for routing can be either private IP addresses or public IP addresses.
+* The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
+* If a /29 subnet is used, it will be split into two /30 subnets. 
+  * The first /30 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
+  * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
+  * You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.  
 
 #### Example for private peering
-
-If you choose to use a.b.c.d/29 to setup the peering, it will be split into two /30 subnets. In the example below, we will look at how the a.b.c.d/29 subnet is used. 
+If you choose to use a.b.c.d/29 to set up the peering, it will be split into two /30 subnets. In the example below, we look at how the a.b.c.d/29 subnet is used. 
 
 a.b.c.d/29 will be split to a.b.c.d/30 and a.b.c.d+4/30 and passed down to Microsoft through the provisioning APIs. You will use a.b.c.d+1 as the VRF IP for the Primary PE and Microsoft will consume a.b.c.d+2 as the VRF IP for the primary MSEE. You will use a.b.c.d+5 as the VRF IP for the secondary PE and Microsoft will use a.b.c.d+6 as the VRF IP for the secondary MSEE.
 
@@ -57,11 +54,11 @@ Consider a case where you select 192.168.100.128/29 to setup private peering. 19
 ### IP addresses used for Azure public peering
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
 
-- You must use a unique /29 subnet or two /30 subnets to setup the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
-- If a /29 subnet is used, it will be split into two /30 subnets. 
-    - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-    - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-    - You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.
+* You must use a unique /29 subnet or two /30 subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
+* If a /29 subnet is used, it will be split into two /30 subnets. 
+  * The first /30 subnet will be used for the primary link and the second /30 subnet is used for the secondary link.
+  * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
+  * You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.
 
 ## Public IP address requirement
 ### Private Peering
@@ -97,9 +94,12 @@ Default routes are permitted only on Azure private peering sessions. In such a c
  - Azure public peering is enabled to route traffic to public endpoints
  - You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
-**Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
+> [!NOTE]
+> Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
+> 
+> 
 
-## Support for BGP communities
+## <a name="bgp"></a>Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
 If you are connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region, you will have access to all Microsoft cloud services across all regions within the geopolitical boundary. 
@@ -154,6 +154,20 @@ All routes advertised from Microsoft will be tagged with the appropriate communi
 > 
 > 
 
+In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
+
+| **Service** | **BGP community value** |
+| --- | --- |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype For Business Online |12076:5030 |
+| Dynamics 365 |12076:5040 |
+| Other Office 365 Online services |12076:5100 |
+
+> [!NOTE]
+> Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
+> 
+> 
 
 ### BGP Community support in National Clouds (Preview)
 

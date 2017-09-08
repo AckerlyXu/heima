@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ---
 
 # How to use Service Bus queues
@@ -67,7 +67,7 @@ In the examples below, the `require_once` statement will always be shown, but on
 To instantiate a Service Bus client, you must first have a valid connection string in this format:
 
 ```
-Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
+Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
 Where **Endpoint** is typically of the format `[yourNamespace].servicebus.chinacloudapi.cn`.
@@ -79,19 +79,19 @@ To create any Azure service client you must use the `ServicesBuilder` class. You
   * By default it comes with support for one external source - environmental variables
   * You can add new sources by extending the `ConnectionStringSource` class
 
-For the examples outlined here, the connection string will be passed directly.
+For the examples outlined here, the connection string is passed directly.
 
 ```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 
-$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
+$connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]";
 
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## How to: create a queue
+## Create a queue
 You can perform management operations for Service Bus queues via the `ServiceBusRestProxy` class. A `ServiceBusRestProxy` object is constructed via the `ServicesBuilder::createServiceBusService` factory method with an appropriate connection string that encapsulates the token permissions to manage it.
 
 The following example shows how to instantiate a `ServiceBusRestProxy` and call `ServiceBusRestProxy->createQueue` to create a queue named `myqueue` within a `MySBNamespace` service namespace:
@@ -115,7 +115,7 @@ try	{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
+    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -127,7 +127,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## How to: send messages to a queue
+## Send messages to a queue
 To send a message to a Service Bus queue, your application calls the `ServiceBusRestProxy->sendQueueMessage` method. The following code shows how to send a message to the `myqueue` queue previously created within the
 `MySBNamespace` service namespace.
 
@@ -152,7 +152,7 @@ try	{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780775
+    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -164,7 +164,7 @@ Messages sent to (and received from ) Service Bus queues are instances of the [B
 Service Bus queues support a maximum message size of 256 KB in the Standard tier. The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
-## How to receive messages from a queue
+## Receive messages from a queue
 The best way to receive messages from a queue is to use a `ServiceBusRestProxy->receiveQueueMessage` method. Messages can be received in two different modes: [*ReceiveAndDelete*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) and [*PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock). **PeekLock** is the default.
 
 When using [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) mode, receive is a single-shot operation; that is, when Service Bus receives a read request for a message in a queue, it marks the message as being consumed and returns it to the application. [ReceiveAndDelete](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) mode is the simplest model and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
@@ -204,7 +204,7 @@ try	{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780735
+    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";

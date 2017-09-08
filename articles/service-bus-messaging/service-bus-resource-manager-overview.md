@@ -13,9 +13,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/18/2017
+origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates
@@ -173,7 +173,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup ** command. Provide the name of the resource group and location you want to use. For example:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzureRmResourceGroup -Name MyDemoRG -Location "China East"
 ```
 
 If successful, a summary of the new resource group is displayed.
