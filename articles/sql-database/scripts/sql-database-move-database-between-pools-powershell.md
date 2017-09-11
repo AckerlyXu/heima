@@ -16,11 +16,11 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 ---
 
-# Create elastic pools and move databases between pools and out of a pool using PowerShell
+# Use PowerShell to create elastic pools and move databases between elastic pools
 
 This PowerShell script example creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database performance level. 
 
@@ -29,7 +29,7 @@ This PowerShell script example creates two elastic pools and moves a database fr
 ## Sample script
 
 ```powershell
-﻿# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your server
 $resourcegroupname = "myResourceGroup-$(Get-Random)"
 $location = "China East"

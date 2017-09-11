@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # SQL Database application development overview
@@ -32,7 +32,7 @@ There are code samples available for various programming languages and platforms
 * More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
 ## Tools 
-You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
+You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
 
 ## Resource limitations
 Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
@@ -74,3 +74,4 @@ Elastic Scale simplifies the process of scaling out (and in).
 
 ## Next steps
 Explore all the [capabilities of SQL Database](sql-database-technical-overview.md)
+<!--Update_Description: wording update-->

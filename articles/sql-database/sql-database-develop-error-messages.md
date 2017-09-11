@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2016
-ms.date: 07/10/2017
-ms.author: v-johch
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # SQL error codes for SQL Database client applications: Database connection error and other issues
@@ -35,14 +35,15 @@ The following table covers the SQL error codes for connection loss errors, and o
 ### Most common database connection errors and transient fault errors
 The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to SQL Database. This kind of error condition is called a *transient fault*.
 
-If your client program has retry logic, it can try to reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
+It is strongly recommended that your client program has retry logic so that it could reestablish a connection after giving the transient fault time to correct itself.  We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
 
-* Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>
-* Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>. (Microsoft SQL Server, Error: 40613)
+* Database &lt;db_name&gt; on server &lt;Azure_instance&gt; is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of &lt;session_id&gt;
+* Database &lt;db_name&gt; on server &lt;Azure_instance&gt; is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
 * An existing connection was forcibly closed by the remote host.
 * System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+* An connection attempt to a secondary database failed because the database is in the process of reconfguration and it is busy applying new pages while in the middle of an active transation on the primary database. 
 
 For code examples of retry logic, see:
 
@@ -63,6 +64,7 @@ The following errors are transient, and should be retried in application logic
 | 49918 |16 |Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 | 49919 |16 |Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 | 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
+| 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
 
 ## Database copy errors
 The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
@@ -181,7 +183,7 @@ The following errors do not fall into any previous categories.
 | 40611 |16 |Servers can have at most 128 firewall rules defined. |
 | 40614 |16 |Start IP address of firewall rule cannot exceed End IP address. |
 | 40615 |16 |Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.  To enable access, use the SQL Database Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. |
-| 40617 |16 |The firewall rule name that starts with <rule name> is too long. Maximum length is 128. |
+| 40617 |16 |The firewall rule name that starts with (rule name) is too long. Maximum length is 128. |
 | 40618 |16 |The firewall rule name cannot be empty. |
 | 40620 |16 |The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server. |
 | 40627 |20 |Operation on server '{0}' and database '{1}' is in progress. Please wait a few minutes before trying again. |
@@ -189,21 +191,21 @@ The following errors do not fall into any previous categories.
 | 40631 |16 |The password that you specified is too long. The password should have no more than 128 characters. |
 | 40632 |16 |Password validation failed. The password does not meet policy requirements because it is not complex enough. |
 | 40636 |16 |Cannot use a reserved database name '%.&#x2a;ls' in this operation. |
-| 40638 |16 |Invalid subscription id <subscription-id>. Subscription does not exist. |
-| 40639 |16 |Request does not conform to schema: <schema error>. |
+| 40638 |16 |Invalid subscription id (subscription-id). Subscription does not exist. |
+| 40639 |16 |Request does not conform to schema: (schema error). |
 | 40640 |20 |The server encountered an unexpected exception. |
 | 40641 |16 |The specified location is invalid. |
 | 40642 |17 |The server is currently too busy. Please try again later. |
 | 40643 |16 |The specified x-ms-version header value is invalid. |
 | 40644 |14 |Failed to authorize access to the specified subscription. |
-| 40645 |16 |Servername <servername> cannot be empty or null. It can only be made up of lowercase letters 'a'-'z', the numbers 0-9 and the hyphen. The hyphen may not lead or trail in the name. |
+| 40645 |16 |Servername (servername) cannot be empty or null. It can only be made up of lowercase letters 'a'-'z', the numbers 0-9 and the hyphen. The hyphen may not lead or trail in the name. |
 | 40646 |16 |Subscription ID cannot be empty. |
-| 40647 |16 |Subscription <subscription-id does not have server servername. |
+| 40647 |16 |Subscription (subscription-id) does not have server (servername). |
 | 40648 |17 |Too many requests have been performed. Please retry later. |
 | 40649 |16 |Invalid content-type is specified. Only application/xml is supported. |
-| 40650 |16 |Subscription <subscription-id> does not exist or is not ready for the operation. |
-| 40651 |16 |Failed to create server because the subscription <subscription-id> is disabled. |
-| 40652 |16 |Cannot move or create server. Subscription <subscription-id> will exceed server quota. |
+| 40650 |16 |Subscription (subscription-id) does not exist or is not ready for the operation. |
+| 40651 |16 |Failed to create server because the subscription (subscription-id) is disabled. |
+| 40652 |16 |Cannot move or create server. Subscription (subscription-id) will exceed server quota. |
 | 40671 |17 |Communication failure between the gateway and the management service. Please retry later. |
 | 40852 |16 |Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain 'secure' in the server FQDN  -  'server name'.database.chinacloudapi.cn should be modified to 'server name'.database.`secure`.chinacloudapi.cn. |
 | 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |
@@ -212,3 +214,4 @@ The following errors do not fall into any previous categories.
 ## Related links
 * [Azure SQL Database Features](sql-database-features.md)
 * [Azure SQL Database resource limits](sql-database-resource-limits.md)
+<!--Update_Description: wording update-->

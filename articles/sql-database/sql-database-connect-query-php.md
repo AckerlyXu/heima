@@ -14,8 +14,8 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: hero-article
-origin.date: 07/10/2017
-ms.date: 07/31/2017
+origin.date: 08/08/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 
 ---
@@ -37,9 +37,9 @@ To complete this quick start tutorial, make sure you have the following:
 
 - You have installed PHP and related software for your operating system.
 
-    - **MacOS**: Install Homebrew and PHP, install the ODBC driver and SQLCMD, and then install the PHP Driver for SQL Server. See [Step 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
-    - **Ubuntu**:  Install PHP and other required packages, and then install the PHP Driver for SQL Server. See [Step 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: Install the newest version of PHP for IIS Express, the newest version of Microsoft Drivers for SQL Server in IIS Express, Chocolatey, the ODBC driver, and SQLCMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).    
+    - **MacOS**: Install Homebrew and PHP, install the ODBC driver and SQLCMD, and then install the PHP Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu**:  Install PHP and other required packages, and then install the PHP Driver for SQL Server. See [Steps 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Windows**: Install the newest version of PHP for IIS Express, the newest version of Microsoft Drivers for SQL Server in IIS Express, Chocolatey, the ODBC driver, and SQLCMD. See [Steps 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
 
 ## SQL server connection information
 
@@ -58,40 +58,37 @@ Get the connection information needed to connect to the Azure SQL database. You 
 1. In your favorite text editor, create a new file, **sqltest.php**.  
 
 2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
-
-```PHP
-<?php
-$serverName = "your_server.database.chinacloudapi.cn";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-     FROM [SalesLT].[ProductCategory] pc
-     JOIN [SalesLT].[Product] p
-     ON pc.productcategoryid = p.productcategoryid";
-$getResults= sqlsrv_query($conn, $tsql);
-echo ("Reading data from table" . PHP_EOL);
-if ($getResults == FALSE)
-    echo (sqlsrv_errors());
-while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-    echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-}
-sqlsrv_free_stmt($getResults);
-?>
-```
-
+    ```PHP
+    <?php
+    $serverName = "your_server.database.chinacloudapi.cn";
+    $connectionOptions = array(
+        "Database" => "your_database",
+        "Uid" => "your_username",
+        "PWD" => "your_password"
+    );
+    //Establishes the connection
+    $conn = sqlsrv_connect($serverName, $connectionOptions);
+    $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+        FROM [SalesLT].[ProductCategory] pc
+        JOIN [SalesLT].[Product] p
+        ON pc.productcategoryid = p.productcategoryid";
+    $getResults= sqlsrv_query($conn, $tsql);
+    echo ("Reading data from table" . PHP_EOL);
+    if ($getResults == FALSE)
+        echo (sqlsrv_errors());
+    while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+        echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+    }
+    sqlsrv_free_stmt($getResults);
+    ?>
+    ```
+    
 ## Run the code
 
 1. At the command prompt, run the following commands:
-
-```PHP
-   php sqltest.php
-```
-
+    ```PHP
+    php sqltest.php
+    ```
 2. Verify that the top 20 rows are returned and then close the application window.
 
 ## Next steps
@@ -99,4 +96,4 @@ sqlsrv_free_stmt($getResults);
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues)
 
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->
+<!--Update_Description: update link-->

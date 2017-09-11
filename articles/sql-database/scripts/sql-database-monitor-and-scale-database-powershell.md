@@ -16,11 +16,11 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 ---
 
-# Monitor and scale a single SQL database using PowerShell
+# Use PowerShell to monitor and scale a single SQL database
 
 This PowerShell script example monitors the performance metrics of a database, scales it to a higher performance level, and creates an alert rule on one of the performance metrics. 
 

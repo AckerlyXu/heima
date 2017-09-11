@@ -11,8 +11,8 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 07/31/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 ms.workload: data-management
 ms.topic: article
@@ -383,4 +383,4 @@ To create and manage SQL Database elastic pools using the REST API, see [Azure S
 * For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!--Update_Description: update word(added manage elastic pool related docs into this one) & link references-->
+<!--Update_Description: update metadata-->
