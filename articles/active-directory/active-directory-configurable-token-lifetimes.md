@@ -204,8 +204,7 @@ To get started, do the following steps:
     Connect-AzureAD -Confirm
     ```
 
-3. To see all policies that have been created in your organization, run the following command. Run this command after most operations in the following scenarios. Running the command also helps you get the **
-** of your policies.
+3. To see all policies that have been created in your organization, run the following command. Run this command after most operations in the following scenarios.
 
     ```PowerShell
     Get-AzureADPolicy

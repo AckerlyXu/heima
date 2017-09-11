@@ -163,7 +163,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
 
 #### Related Articles
--[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
+- [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
 
 ## Data Validation Failures
 ### IdentityDataValidationFailed

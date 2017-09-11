@@ -87,12 +87,6 @@ To assign a role, you need to identify both the object (user, group, or applicat
 
 If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal. To learn how to query for the subscription ID, see [Get-AzureSubscription](https://docs.microsoft.com/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) on MSDN.
 
-To get the object ID for an Azure AD group, use:
-
-```
-Get-AzureRmADGroup -SearchString <group name in quotes>
-```
-
 To get the object ID for an Azure AD service principal or application, use:
 
 ```
