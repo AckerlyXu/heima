@@ -17,7 +17,7 @@ ms.workload: na
 origin.date: 07/12/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/14/2017
+ms.date: 09/25/2017
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (C)
@@ -29,9 +29,9 @@ Don't have a kit yet? Try [Raspberry Pi online simulator](./iot-hub-raspberry-pi
 
 ## What you do
 
-* Setup Raspberry Pi.
 * Create an IoT hub.
 * Register a device for Pi in your IoT hub.
+* Setup Raspberry Pi.
 * Run a sample application on Pi to send sensor data to your IoT hub.
 
 Connect Raspberry Pi to an IoT hub that you create. Then you run a sample application on Pi to collect temperature and humidity data from a BME280 sensor. Finally, you send the sensor data to your IoT hub.
@@ -77,7 +77,7 @@ These items are optional because the code sample support simulated sensor data.
 Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
-   1. [Download Raspbian Jessie with Pixel](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   1. [Download Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
    1. Extract the Raspbian image to a folder on your computer.
 1. Install Raspbian to the microSD card.
    1. [Download and install the Etcher SD card burner utility](https://etcher.io/).
@@ -103,7 +103,7 @@ To enable SSH and SPI, you can find more reference documents on [raspberrypi.org
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, skip this section.
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 The BME280 sensor can collect temperature and humidity data. And the LED will blink if there is a communication between device and the cloud. 
@@ -127,6 +127,7 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ![Connected Pi and BME280](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
+### Connect Pi to the network
 Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network.
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
@@ -137,8 +138,18 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 ### Install the prerequisite packages
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
-    - [PuTTY](http://www.putty.org/) for Windows.
-    - The built-in SSH client on Ubuntu or macOS.
+   
+   **Windows Users**
+   1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
+   1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
+   
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   
+   **Mac and Ubuntu Users**
+   
+   Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
+   > [!NOTE] 
+   The default username is `pi` , and the password is `raspberry`.
 
 1. Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C and Cmake by running the following commands:
 
@@ -170,7 +181,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    ![Config file](./media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
 
-   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
+   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
 
    If you **don't have the sensor**, set the `SIMULATED_DATA` value to `1` to make the sample application create and use simulated sensor data.
 
@@ -201,7 +212,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub or send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](./iot-hub-explorer-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

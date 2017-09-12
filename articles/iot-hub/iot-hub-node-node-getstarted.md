@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/22/2017
-ms.date: 08/14/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
 ---
 
@@ -73,8 +73,9 @@ In this section, you create a Node.js console app that creates a device identity
 6. Add the following code to create a device definition in the identity registry in your IoT hub. This code creates a device if the device ID does not exist in the identity registry, otherwise it returns the key of the existing device:
 
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -91,6 +92,8 @@ In this section, you create a Node.js console app that creates a device identity
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Save and close **CreateDeviceIdentity.js** file.
 8. To run the **createdeviceidentity** application, execute the following command at the command prompt in the createdeviceidentity folder:
 

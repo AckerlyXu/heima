@@ -8,14 +8,15 @@ author: dominicbetts
 manager: timlt
 editor: ''
 
+ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/24/2017
+origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/25/2017
 
 ---
 
@@ -28,7 +29,7 @@ The Azure IoT Suite preconfigured solutions are implementations of common IoT so
 
 Each preconfigured solution is a complete, end-to-end implementation that uses simulated devices to generate telemetry.
 
-In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
+You can download the complete source code to customize and extend the solution to meet your specific IoT requirements.
 
 > [!NOTE]
 > To deploy one of the preconfigured solutions, visit [Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] provides more information about how to deploy and run one of the solutions.
@@ -45,8 +46,8 @@ The following table shows how the solutions map to specific IoT features:
 * *Data ingestion*: Ingress of data at scale to the cloud.
 * *Device identity*: Manage unique device identities and control device access to the solution.
 * *Device management*: Manage device metadata and perform operations such as device reboots and firmware upgrades.
-* *Command and control*: Send messages to a device from the cloud to cause the device to take an action.
-* *Rules and actions*: The solution back end uses rules to act on specific device-to-cloud data.
+* *Command and control*: To cause the device to take an action, send messages to a device from the cloud.
+* *Rules and actions*: To act on specific device-to-cloud data, the solution back end uses rules.
 * *Predictive analytics*: The solution back end analyzes device-to-cloud data to predict when specific actions should take place. For example, analyzing aircraft engine telemetry to determine when engine maintenance is due.
 
 ## Remote Monitoring preconfigured solution overview
@@ -70,13 +71,13 @@ The simulated devices in the solution can respond to the following cloud-to-devi
 
 For a comparison of these different approaches, see [Cloud-to-device communications guidance][lnk-c2d-guidance].
 
-When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, simulated devices support these methods:
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub. This message enumerates the methods the device can respond to. In the remote monitoring preconfigured solution, simulated devices support these methods:
 
 * *Initiate Firmware Update*: this method initiates an asynchronous task on the device to perform a firmware update. The asynchronous task uses reported properties to deliver status updates to the solution dashboard.
 * *Reboot*: this method causes the simulated device to reboot.
 * *FactoryReset*: this method triggers a factory reset on the simulated device.
 
-When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub that enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, simulated devices support these commands:
+When a device first connects to IoT Hub in the preconfigured solution, it sends a device information message to the hub. This message enumerates the commands the device can respond to. In the remote monitoring preconfigured solution, simulated devices support these commands:
 
 * *Ping Device*: The device responds to this command with an acknowledgement. This command is useful for checking that the device is still active and listening.
 * *Start Telemetry*: Instructs the device to start sending telemetry.
@@ -105,7 +106,7 @@ The device management capability of IoT Hub enables you to manage your device pr
 ## Azure Stream Analytics
 The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the devices:
 
-* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages to the solution device registry (an Azure Cosmos DB database). This message is sent when a device first connects or in response to a **Change device state** command.
+* *DeviceInfo job* - outputs data to an Event hub that routes device registration-specific messages to the solution device registry. This device registry is an Azure Cosmos DB database. These messages are sent when a device first connects or in response to a **Change device state** command.
 * *Telemetry job* - sends all raw telemetry to Azure blob storage for cold storage and calculates telemetry aggregations that display in the solution dashboard.
 * *Rules job* - filters the telemetry stream for values that exceed any rule thresholds and outputs the data to an Event hub. When a rule fires, the solution portal dashboard view displays this event as a new row in the alarm history table. These rules can also trigger an action based on the settings defined on the **Rules** and **Actions** views in the solution portal.
 
@@ -116,7 +117,7 @@ In this preconfigured solution, the event processor forms part of the **IoT solu
 
 The **DeviceInfo** and **Rules** ASA jobs send their output to Event hubs for delivery to other back-end services. The solution uses an [EventProcessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], to read the messages from these Event hubs. The **EventProcessorHost** uses:
 - The **DeviceInfo** data to update the device data in the Cosmos DB database.
-
+- The **Rules** data to invoke the Logic app and update the alerts display in the solution portal.
 
 ## Device identity registry, device twin, and Cosmos DB
 Every IoT hub includes a [device identity registry][lnk-identity-registry] that stores device keys. IoT Hub uses this information authenticate devices - a device must be registered and have a valid key before it can connect to the hub.

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/04/2017
+origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 09/25/2017
 ---
 
 # Configure IoT Hub file uploads using Azure CLI
@@ -59,7 +59,7 @@ Sign in to your Azure account and select your subscription.
 
 The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.
 
-You need the connection string of an Azure storage account in the same subscription as your IoT hub to configure file uploads from your devices. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
+To configure file uploads from your devices, you need the connection string for an Azure storage account. The storage account must be in the same subscription as your IoT hub. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
@@ -131,7 +131,7 @@ az iot hub show --name {your iot hub name}
 
 ## Next steps
 
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the IoT Hub developer guide.
+For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].
 
 Follow these links to learn more about managing Azure IoT Hub:
 
@@ -169,8 +169,8 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
 [lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
-[lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
+[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
 [lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
 
 <!--Update_Description: update meta data only-->
