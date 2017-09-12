@@ -1,5 +1,5 @@
 ---
-title: What is Apache Storm? - Azure HDInsight | Azure
+title: What is Apache Storm - Azure HDInsight | Azure
 description: 'Apache Storm allows you to process streams of data in real time. Azure HDInsight allows you to easily create Storm clusters on the Azure cloud. With Visual Studio, you can create Storm solutions using C#, and then deploy to your HDInsight Storm clusters.'
 services: hdinsight
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 08/03/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # What is Apache Storm on Azure HDInsight?
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use a Storm cluster to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
+[Apache Storm](http://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with Hadoop. Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
 
 Storm on HDInsight provides the following key benefits:
 
@@ -199,3 +199,4 @@ Learn more about real-time analytics solutions with Storm on HDInsight:
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
+<!--Update_Description: wording update-->

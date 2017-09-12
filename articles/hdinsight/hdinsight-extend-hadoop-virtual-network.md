@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/11/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 08/10/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Extend Azure HDInsight using an Azure Virtual Network
@@ -52,7 +52,10 @@ The following are the questions that you must answer when planning to install HD
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-Use the steps in this section to discover how to add HDInsight to an existing Azure Virtual Network.
+Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
+
+> [!NOTE]
+> You cannot add an existing HDInsight cluster into a virtual network.
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 
@@ -103,6 +106,16 @@ Use the steps in this section to discover how to add HDInsight to an existing Az
 
         For more information, see the [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
 
+4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+
+    * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [Create HDInsight using Azure CLI 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+
+  > [!IMPORTANT]
+  > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
+
 ## <a id="multinet"></a>Connecting multiple networks
 
 The biggest challenge with a multi-network configuration is name resolution between the networks.
@@ -137,11 +150,11 @@ To enable name resolution between the virtual network and resources in joined ne
 
         * __Custom DNS__ (in the virtual network):
 
-            * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests between resources within the virtual network.
+            * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
 
             * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
 
-        * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the Azure recursive resolver (168.63.129.16). The Azure recursive resolver handles name resolution for the resources in the virtual network.
+        * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
 
         This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
 
@@ -159,11 +172,11 @@ To enable name resolution between the virtual network and resources in joined ne
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
 
-## Directly connect to HDInsight
+## Directly connect to Hadoop services
 
 Most documentation on HDInsight assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at https://CLUSTERNAME.azurehdinsight.cn. This address uses the public gateway, which is not available if you have used NSGs or UDRs to restrict access from the internet.
 
-To directly connect to HDInsight through the virtual network, use the following steps:
+To connect to Ambari and other web pages through the virtual network, use the following steps:
 
 1. To discover the internal fully qualified domain names (FQDN) of the HDInsight cluster nodes, use one of the following methods:
 
@@ -187,12 +200,12 @@ To directly connect to HDInsight through the virtual network, use the following 
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    You can use the FQDNs returned to directly connect to the cluster from within the virtual network or a connected network.
-
-2. To determine the port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+    In the list of nodes returned, find the FQDN for the head nodes and use those to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
 
     > [!IMPORTANT]
-    > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it fails, switch to the other head node.
+    > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it returns a 404 error, switch to the other head node.
+
+2. To determine the node and port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
 ## <a id="networktraffic"></a> Controlling network traffic
 
@@ -431,7 +444,7 @@ On the custom DNS server in the virtual network:
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.config.local` file:
+2. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver

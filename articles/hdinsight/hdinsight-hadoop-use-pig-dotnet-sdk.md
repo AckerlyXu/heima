@@ -15,9 +15,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Run Pig jobs using the .NET SDK for Hadoop in HDInsight
@@ -134,3 +134,4 @@ For more information on using Hadoop on HDInsight, see the following documents:
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.cn/
+<!--Update_Description: update metadata-->

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 07/28/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight
@@ -34,12 +34,10 @@ Hadoop achieves high availability and reliability by replicating services and da
 
 ## Availability and reliability of nodes
 
-Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. If a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type is used until the new node is brought online.
+Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The following sections discuss the individual node types used with HDInsight. 
 
 > [!NOTE]
-> If the node is analyzing data when it fails, its progress on the job is lost. The job is resubmitted to another node.
-
-The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
+> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
 
 ### Head nodes
 
@@ -238,4 +236,4 @@ Use the following links to learn more about things mentioned in this document.
 [azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-cli]: ../cli-install-nodejs.md
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: wording update-->

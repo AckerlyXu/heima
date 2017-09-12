@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/14/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight (PowerShell)
@@ -401,3 +401,4 @@ Now that you have learned how to use Mahout, discover other ways of working with
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+<!--Update_Description: update metadata-->

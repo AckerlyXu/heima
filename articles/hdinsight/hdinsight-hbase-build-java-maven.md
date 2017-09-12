@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2017
-ms.date: 03/10/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
 
 ---
@@ -424,7 +424,7 @@ There are many ways to upload a file to your HDInsight cluster, as described in 
         $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
         # The JAR
-        $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+        $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
         # The job definition
         $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -618,3 +618,4 @@ Replace **hdinsightclustername** with the name of your HDInsight cluster.
 ## Troubleshooting
 ### No results or unexpected results when using Start-HBaseExample
 Use the `-showErr` parameter to view the standard error (STDERR) that is produced while running the job.
+<!--Update_Description: change 'wasbs' into 'wasb'-->

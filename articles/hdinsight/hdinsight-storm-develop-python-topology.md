@@ -15,9 +15,9 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 08/04/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight
@@ -27,7 +27,7 @@ Learn how to create an Apache Storm topology that uses Python components. Apache
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> The information in this document was tested using Storm on HDInsight 3.5. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> The information in this document was tested using Storm on HDInsight 3.6. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 The code for this project is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -152,3 +152,4 @@ See the following documents for other ways to use Python with HDInsight:
 
 * [How to use Python for streaming MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 * [How to use Python User Defined Functions (UDF) in Pig and Hive](hdinsight-python.md)
+<!--Update_Description: wording update-->

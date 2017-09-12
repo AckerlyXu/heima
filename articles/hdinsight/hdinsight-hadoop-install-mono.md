@@ -13,9 +13,9 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-origin.date: 05/01/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ms.custom: hdinsightactive
 
 ---
@@ -67,3 +67,4 @@ You have learned how to upgrade or install a specific version of Mono on HDInsig
 * [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
 For more information on using script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
+<!--Update_Description: update metadata-->

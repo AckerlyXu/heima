@@ -15,16 +15,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 08/04/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Learn how to use Apache Oozie with Hadoop on HDInsight. Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts
+Learn how to use Apache Oozie with Hadoop on HDInsight. Apache Oozie is a workflow/coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts
 
 ## Prerequisites
 
@@ -56,7 +63,7 @@ The workflow used in this document contains two actions. Actions are definitions
 
 ## Create the working directory
 
-Oozie expects resources required for a job to be stored in the same directory. This example uses **wasbs:///tutorials/useoozie**. Use the following command to create this directory, and the data directory that holds the new Hive table created by this workflow:
+Oozie expects resources required for a job to be stored in the same directory. This example uses **wasb:///tutorials/useoozie**. Use the following command to create this directory, and the data directory that holds the new Hive table created by this workflow:
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
@@ -121,13 +128,13 @@ Use the following steps to create a HiveQL script that defines a query, which is
 
 4. To exit the editor, press Ctrl-X. When prompted, select **Y** to save the file, then use **Enter** to use the **useooziewf.hql** file name.
 
-5. Use the following commands to copy **useooziewf.hql** to **wasbs:///tutorials/useoozie/useooziewf.hql**:
+5. Use the following commands to copy **useooziewf.hql** to **wasb:///tutorials/useoozie/useooziewf.hql**:
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    These commands store the **useooziewf.hql** file on the Azure Storage account associated with this cluster, which preserves the file even if the cluster is deleted.
+    These commands store the **useooziewf.hql** file on the HDFS-compatible storage for the cluster.
 
 ## Define the workflow
 
@@ -284,11 +291,11 @@ The job definition describes where to find the workflow.xml. It also describes w
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn</value>
+    <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn</value>
     ```
 
     > [!NOTE]
-    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasbs://`.
+    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`.
 
     Save the contents of the `<value>` element, as it is used in the next steps.
 
@@ -318,7 +325,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>nameNode</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn</value>
         </property>
 
         <property>
@@ -338,7 +345,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>hiveScript</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -348,7 +355,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie/data</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie/data</value>
         </property>
 
         <property>
@@ -368,12 +375,12 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Replace all instances of **wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** with the value you received earlier for default storage.
+   * Replace all instances of **wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn** with the value you received earlier for default storage.
 
      > [!WARNING]
      > If the path is a `wasb` path, you must use the full path. Do not shorten it to just `wasb:///`.
@@ -443,7 +450,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
-    App Path      : wasbs:///tutorials/useoozie
+    App Path      : wasb:///tutorials/useoozie
     Status        : PREP
     Run           : 0
     User          : USERNAME
@@ -456,7 +463,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    This job has a status of `PREP`. This indicates that it was submitted, but has not been started yet.
+    This job has a status of `PREP`. This status indicates that the job was created, but not started.
 
 5. Use the following command to start the job:
 
@@ -493,7 +500,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
         Windows Phone   1791
         (6 rows affected)
 
-For more information on the Oozie command, see [Oozie Command Line Tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+For more information on the Oozie command, see [Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ## Oozie REST API
 
@@ -511,7 +518,7 @@ For more information on using the Oozie REST API, see [Oozie Web Services API](h
 
 ## Oozie Web UI
 
-The Oozie Web UI provides a web-based view into the status of Oozie jobs on the cluster. The web UI allows you to view the following:
+The Oozie Web UI provides a web-based view into the status of Oozie jobs on the cluster. The web UI allows you to view the following information:
 
 * Job status
 * Job definition
@@ -557,9 +564,7 @@ To access the Oozie Web UI, use the following steps:
 
 ## Scheduling jobs
 
-The coordinator allows you to specify a start, end, and occurrence frequency for jobs so that they can be scheduled for certain times.
-
-To define a schedule for the workflow, use the following steps:
+The coordinator allows you to specify a start, end, and occurrence frequency for jobs. To define a schedule for the workflow, use the following steps:
 
 1. Use the following to create a file named **coordinator.xml**:
 
@@ -604,20 +609,20 @@ To define a schedule for the workflow, use the following steps:
 
     Make the following changes:
 
-   * Change `<name>oozie.wf.application.path</name>` to `<name>oozie.coord.application.path</name>`. This value instructs Oozie to run the coordinator file instead of the workflow file.
+   * To instruct oozie to run the coordinator file instead of the workflow, change `<name>oozie.wf.application.path</name>` to `<name>oozie.coord.application.path</name>`.
 
-   * Add the following XML. This sets a variable used in the coordinator.xml to point to the location of the workflow.xml:
+   * To set the `workflowPath` variable used by the coordinator, add the following XML:
 
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie</value>
+            <value>wasb://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie</value>
         </property>
         ```
 
-       Replace the `wasbs://mycontainer@mystorageaccount.blob.core.windows` text with the value used in other entries in the job.xml file.
+       Replace the `wasb://mycontainer@mystorageaccount.blob.core.windows` text with the value used in other entries in the job.xml file.
 
-   * Add the following XML. This defines the start, end, and frequency to use for the coordinator.xml file:
+   * To define the start, end, and frequency for the coordinator, add the following XML:
 
         ```xml
         <property>
@@ -641,7 +646,7 @@ To define a schedule for the workflow, use the following steps:
         </property>
         ```
 
-       These values set the start time to 12:00PM on May 10th, 2017, the end time to May 12th, 2017. The interval for running this job daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the timezone is set to UTC.
+       These values set the start time to 12:00PM on May 10, 2017, the end time to May 12, 2017. The interval for running this job daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the timezone is set to UTC.
 
 5. Use Ctrl-X, then **Y** and **Enter** to save the file.
 
@@ -664,7 +669,7 @@ To define a schedule for the workflow, use the following steps:
     ![Coordinator job info](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > This only shows successful runs of the job, not individual actions within the scheduled workflow. To see that, select one of the **Action** entries.
+    > This image only shows successful runs of the job, not individual actions within the scheduled workflow. To see that, select one of the **Action** entries.
 
     ![Action info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
@@ -686,7 +691,7 @@ The following are specific errors you may encounter, and how to resolve them.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Cause**: The WASB addresses used in the **job.xml** file do not contain the storage container or storage account name. The WASB address format must be `wasbs://containername@storageaccountname.blob.core.chinacloudapi.cn`.
+**Cause**: The WASB addresses used in the **job.xml** file do not contain the storage container or storage account name. The WASB address format must be `wasb://containername@storageaccountname.blob.core.chinacloudapi.cn`.
 
 **Resolution**: Change the WASB addresses used by the job.
 
@@ -758,7 +763,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
@@ -777,3 +782,4 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

@@ -15,21 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Develop Java MapReduce programs for Hadoop on HDInsight
 
 Learn how to use Apache Maven to create a Java-based MapReduce application, then run it with Hadoop on Azure HDInsight.
 
+> [!NOTE]
+> This example was most recently tested on HDInsight 3.6.
+
 ## <a name="prerequisites"></a>Prerequisites
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)...
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK).
 
     > [!NOTE]
-    > HDInsight versions 3.4 and earlier use Java 7. HDInsight 3.5 uses Java 8.
+    > HDInsight versions 3.4 and earlier use Java 7. HDInsight 3.5 and greater uses Java 8.
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -56,6 +59,11 @@ The following environment variables may be set when you install Java and the JDK
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
+
+    > [!NOTE]
+    > If you are using PowerShell, you must enclose the `-D` parameters in double quotes.
+    >
+    > `mvn archetype:generate "-DgroupId=org.apache.hadoop.examples" "-DartifactId=wordcountjava" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     This command creates a directory with the name specified by the `artifactID` parameter (**wordcountjava** in this example.) This directory contains the following items:
 
@@ -139,7 +147,7 @@ The following environment variables may be set when you install Java and the JDK
     The second plugin configures the target Java version.
 
     > [!NOTE]
-    > HDInsight 3.4 and earlier use Java 7. HDInsight 3.5 uses Java 8.
+    > HDInsight 3.4 and earlier use Java 7. HDInsight 3.5 and greater uses Java 8.
 
 3. Save the `pom.xml` file.
 
@@ -246,7 +254,7 @@ The following environment variables may be set when you install Java and the JDK
 Use the following command to upload the jar file to the HDInsight headnode:
 
 ```bash
-scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
+scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
 ```
 
 Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
@@ -255,7 +263,7 @@ This command copies the files from the local system to the head node. For more i
 
 ## <a name="run"></a>Run the MapReduce job on Hadoop
 
-1. Connect to HDInsight using SSH. For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Connect to HDInsight using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. From the SSH session, use the following command to run the MapReduce application:
 
@@ -302,3 +310,4 @@ For more information, see also the [Java Developer Center](/develop/java/).
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+<!--Update_Description: wording update-->

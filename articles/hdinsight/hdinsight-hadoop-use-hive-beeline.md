@@ -17,8 +17,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use the Beeline client with Apache Hive
@@ -80,7 +80,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 3. Use the following command to display the schema for the hivesampletable:
 
-    ```bash
+    ```hiveql
     describe hivesampletable;
     ```
 
@@ -110,7 +110,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
     ```
 
@@ -277,4 +277,4 @@ If you are using Tez with Hive, see the following documents:
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: update code change 'wasbs' into 'wasb'-->

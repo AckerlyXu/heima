@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
@@ -66,9 +66,8 @@ You can continue to use Visual Studio to build your .NET solutions for HDInsight
 
 Once you have modified your solution using the recommendations from the .NET Portability Analyzer or from a manual analysis, you must test it with HDInsight. Testing the solution on a Linux-based HDInsight cluster may reveal subtle problems that need to be corrected. We recommend that you enable additional logging in your application while testing it.
 
-For more information on accessing logs, see the following documents:
+For more information on accessing logs, see the following document:
 
-* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 * [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Next steps
@@ -79,4 +78,4 @@ For more information on accessing logs, see the following documents:
 
 * [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: wording update-->

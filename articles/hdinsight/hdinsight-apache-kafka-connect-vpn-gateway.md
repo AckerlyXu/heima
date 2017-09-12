@@ -1,5 +1,5 @@
 ﻿---
-title: Connect to Kafka using virtual networks - Azure HDInsight | Microsoft Docs
+title: Connect to Kafka using virtual networks - Azure HDInsight | Azure
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
 services: hdinsight
 documentationCenter: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
 origin.date: 08/01/2017
-ms.date: 09/04/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 
 ---
@@ -228,7 +228,7 @@ Use the steps in this section to create the following configuration:
         -Version $hdiVersion `
         -HttpCredential $adminCreds `
         -SshCredential $sshCreds `
-        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.chinacloudapi.cn" `
         -DefaultStorageAccountKey $defaultStorageKey `
         -DefaultStorageContainer $defaultContainerName `
         -VirtualNetworkId $network.Id `
@@ -331,20 +331,19 @@ To validate connectivity to Kafka, use the following steps to create and run a P
     Save the returned information for use in the next steps.
 
 2. Use the following to install the [kafka-python](http://kafka-python.readthedocs.io/) client:
-
-        pip install kafka-python
-
+    ```
+    pip install kafka-python
+    ```
 3. To send data to Kafka, use the following Python code:
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
-  for _ in range(50):
-      producer.send('testtopic', b'test message')
-  ```
-
+    ```python
+    from kafka import KafkaProducer
+    # Replace the `ip_address` entries with the IP address of your worker nodes
+    # NOTE: you don't need the full list of worker nodes, just one or two.
+    producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
+    for _ in range(50):
+        producer.send('testtopic', b'test message')
+    ```
     Replace the `'kafka_broker'` entries with the addresses returned from step 1 in this section:
 
     * If you are using a __Software VPN client__, replace the `kafka_broker` entries with the IP address of your worker nodes.
