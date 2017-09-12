@@ -228,8 +228,6 @@ scp sshuser@clustername-ssh.azurehdinsight.cn:test.txt .
 > For information on directly loading data into the HDFS-compatible storage, see the following documents:
 >
 > * [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md).
->
-> * [HDInsight using Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md).
 
 ## Next steps
 
