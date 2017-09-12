@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/04/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Manage HDInsight clusters by using the Ambari Web UI
@@ -227,3 +227,4 @@ Ambari Views allow developers to plug UI elements into the Ambari Web UI using t
 * Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Hive Views with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Tez View: The Tez View allows you to better understand and optimize jobs. You can view information on how Tez jobs are executed and what resources are used.
+<!--Update_Description: update metadata-->

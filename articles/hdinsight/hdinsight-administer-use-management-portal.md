@@ -4,8 +4,8 @@ description: Learn how to administer HDInsight Service. Create an HDInsight clus
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: mumian
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: cgronlun
 
 ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ROBOTS: NOINDEX
 
@@ -35,7 +35,7 @@ The information in this article only applies to Window-based HDInsight clusters.
 Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/storage-create-storage-account.md).
+* **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md). For details on creating an Azure Storage account, see [How to Create a Storage Account](../storage/common/storage-create-storage-account.md).
 
 ## Open the Portal
 1. Sign in to [https://portal.azure.cn](https://portal.azure.cn).
@@ -376,3 +376,4 @@ In this article, you have learned how to create an HDInsight cluster by using th
 
 [azure-portal]: https://portal.azure.cn
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop command line"
+<!--Update_Description: update link ref-->

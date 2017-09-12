@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster
@@ -121,4 +121,5 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+<!--Update_Description: update storage link--->

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
@@ -196,7 +196,7 @@ For more information on the version of the .NET framework and Mono included with
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasbs:///HiveCSharp.exe;
+    -- add file wasb:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'HiveCSharp.exe' AS
@@ -266,4 +266,4 @@ For other ways to use Pig and Hive, and to learn about using MapReduce, see the 
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

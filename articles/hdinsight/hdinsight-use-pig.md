@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use Pig with Hadoop on HDInsight
@@ -80,7 +80,7 @@ In the previous example, the log level is ERROR.
 
 The following Pig Latin job loads the `sample.log` file from the default storage for your HDInsight cluster. Then it performs a series of transformations that result in a count of how many times each log level occurred in the input data. The results are written to STDOUT.
 
-    LOGS = LOAD 'wasbs:///example/data/sample.log';
+    LOGS = LOAD 'wasb:///example/data/sample.log';
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
     FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
     GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -151,4 +151,4 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

@@ -11,7 +11,12 @@
 
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Start with Spark
+### [Create a Spark cluster](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Run queries on a Spark cluster](hdinsight-apache-spark-load-data-run-query.md)
+### [Analyze data using BI tools](hdinsight-apache-spark-use-bi-tools.md)
+### [Manage cluster resources](hdinsight-apache-spark-resource-manager.md)
+### [Debug Spark jobs](hdinsight-apache-spark-job-debugging.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
 ## [Start with Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md)
@@ -65,8 +70,6 @@
 ### [Use a local Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Remote jobs with Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Debug jobs remotely with IntelliJ through VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Manage resources](hdinsight-apache-spark-resource-manager.md)
-### [Track and debug jobs](hdinsight-apache-spark-job-debugging.md)
 ### [Known issues](hdinsight-apache-spark-known-issues.md)
 ## Use HBase
 ### [Use Phoenix and SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -83,7 +86,6 @@
 #### [Process events with Java topologies](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Use Power BI with a topology](hdinsight-storm-power-bi-topology.md)
 #### [Analyze real-time sensor data](hdinsight-storm-sensor-data-analysis.md)
-#### [Process vehicle sensor data](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Correlate events over time](hdinsight-storm-correlation-topology.md)
 #### [Develop topologies using Python](hdinsight-storm-develop-python-topology.md)
 ## Use Kafka (Preview)
@@ -115,6 +117,7 @@
 ### [Generate recommendations with Mahout](hdinsight-hadoop-mahout-linux-mac.md)
 ### [Analyze website logs with Hive](hdinsight-hive-analyze-website-log.md)
 ## Extend clusters
+### [Use secure enabled storage account](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Customize clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Customize clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Connect HDInsight to your on-premises network](connect-on-premises-network.md)
@@ -176,15 +179,15 @@
 #### [Hadoop memory and performance](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Access Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Enable heap dumps for Hadoop services](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [Analyze HDInsight logs](hdinsight-debug-jobs.md)
 #### [Understand and resolve WebHCat errors](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Hive settings fix Out of Memory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Use Ambari Views to debug Tez Jobs](hdinsight-debug-ambari-tez-view.md)
 #### [Optimize Hive queries](hdinsight-hadoop-optimize-hive-query.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.hdinsight)
-## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight)
+## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 ## [REST](https://docs.microsoft.com/rest/api/hdinsight/)
@@ -211,6 +214,6 @@
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
-## [Get help on the forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight)
+## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Microsoft Professional Program for Big Data](https://academy.microsoft.com/professional-program/big-data/)
 ## [Windows tools for HDInsight](hdinsight-hadoop-windows-tools.md)

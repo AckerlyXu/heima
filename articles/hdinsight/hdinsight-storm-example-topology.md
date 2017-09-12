@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
-# Example Storm toplogies and components for Apache Storm on HDInsight
+# Example Storm topologies and components for Apache Storm on HDInsight
 
-The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO
+The following is a list of examples created and maintained by Microsoft for use with Apache Storm on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, Power BI, SQL Database, HBase on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
 
 | Description | Demonstrates | Language/Framework |
 |:--- |:--- |:--- |
@@ -40,8 +40,9 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Scalability benchmarks for reading from Azure Event Hubs using Storm on HDInsight][d6c540e3] |Message throughput, Event Hubs, SQL Database |C#, Java |
 | [Correlate events using Storm and HBase on HDInsight](hdinsight-storm-correlation-topology.md) |HBase |C# |
 | [Use Python with Storm on HDInsight](hdinsight-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
+| [Use Kafka with Storm on HDInsight](hdinsight-apache-storm-with-kafka.md) | Apache Storm reading and writing to Apache Kafka | Java |
 
-## Next Steps
+### Next Steps
 
 * [Get started with Apache Storm on HDInsight][2b8c3488]
 * [Learn how to deploy and manage Storm topologies with Storm on HDInsight][6eb0d3b8]
@@ -54,7 +55,8 @@ The following is a list of examples created and maintained by Microsoft for use 
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Demonstrates a basic Storm topology that performs a wordcount, implemented in C#. This also demonstrates how to create multiple data streams within a C# topology."
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "Learn how to read and write data from Azure Event Hubs with Storm on HDInsight."
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hubs, visualize it using D3.js, and (optionally,) store it to HBase."
-[246ee964]: hdinsight-storm-iot-eventhub-documentdb.md "Learn how to use a Storm topology to read messages from Azure Event Hubs, read documents from Azure Cosmos DB for data referencing and save data to Azure Storage."
+[246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Learn how to use a Storm topology to read messages from Azure Event Hubs, read documents from Azure Cosmos DB for data referencing and save data to Azure Storage."
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Several topologies to demonstrate throughput when reading from Azure Event Hubs and storing to SQL Database using Apache Storm on HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Learn how to read data from Azure Event Hubs, aggregate & transform the data, then store it to HBase on HDInsight."
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "This project contains templates for spouts, bolts and topologies to interact with various Azure services like Event Hubs, Cosmos DB, and SQL Database."
+<!--Update_Description: wording update-->

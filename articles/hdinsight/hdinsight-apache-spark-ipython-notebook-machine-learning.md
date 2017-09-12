@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Build Apache Spark machine learning applications on Azure HDInsight
@@ -105,7 +105,7 @@ In this application we use a Spark ML pipeline to perform a document classificat
             return LabeledDocument((values[6]), textValue, hot)
 
         # Load the raw HVAC.csv file, parse it using the function
-        data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
         training = documents.toDF()
@@ -228,4 +228,5 @@ Apache Spark clusters on HDInsight include Anaconda libraries. This also include
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

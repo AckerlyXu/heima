@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/05/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
 
 ---
@@ -91,14 +91,14 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -117,7 +117,7 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
     ```
 
     In the above example, replace **clustername** with the name of your HDInsight cluster that has Giraph installed.
-3. View the results. Once the job has finished, the results will be stored in two output files in the **wasbs:///example/out/shotestpaths** folder. The files are called **part-m-00001** and **part-m-00002**. Perform the following steps to download and view the output:
+3. View the results. Once the job has finished, the results will be stored in two output files in the **wasb:///example/out/shotestpaths** folder. The files are called **part-m-00001** and **part-m-00002**. Perform the following steps to download and view the output:
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name
@@ -179,3 +179,4 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+<!--Update_Description: change 'wasbs' into 'wasb'-->

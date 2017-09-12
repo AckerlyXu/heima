@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use C# with MapReduce streaming on Hadoop in HDInsight
@@ -182,7 +182,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
     using __Azure Storage__ as default storage:
 
     ```bash
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
     ```
 
     The following list describes what each parameter does:
@@ -312,4 +312,4 @@ For information on using C# with Hive and Pig, see [Use a C# user defined functi
 
 For information on using C# with Storm on HDInsight, see [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

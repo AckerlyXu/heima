@@ -15,9 +15,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/23/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/02/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
@@ -121,6 +121,9 @@ The Data Lake tools for Visual Studio provide the following templates:
 | Storm HBase Writer Sample |How to write to HBase on HDInsight clusters. |
 | Storm Hybrid Sample |How to use a Java component. |
 | Storm Sample |A basic word count topology. |
+
+> [!WARNING]
+> Not all templates will work with Linux-based HDInsight. Nuget packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 
@@ -769,3 +772,4 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 **Apache HBase on HDInsight**
 
 * [Getting started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)
+<!--Update_Description: wording update: add a warning-->

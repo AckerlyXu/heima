@@ -15,9 +15,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/22/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/14/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Query Hive through the JDBC driver in HDInsight
@@ -196,3 +196,4 @@ Now that you have learned how to use JDBC to work with Hive, use the following l
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
+<!--Update_Description: update metadata-->

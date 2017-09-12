@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -83,7 +83,7 @@ Use the following steps to copy data from the production cluster to the test clu
 6. From the SSH session, use the following command to copy files from the linked storage account to the new default storage account. Replace CONTAINER with the container information returned by PowerShell. Replace __ACCOUNT__ with the account name. Replace the path to data with the path to a data file.
 
     ```bash
-    hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.chinacloudapi.cn/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.chinacloudapi.cn/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -272,9 +272,9 @@ If you know that the scripts do not contain strings with embedded CR characters,
 * **After uploading to the cluster**: Use the following command from an SSH session to the Linux-based cluster to modify the script.
 
     ```bash
-    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    hdfs dfs -get wasb:///path/to/script.py oldscript.py
     tr -d '\r' < oldscript.py > script.py
-    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
 ## Next Steps
@@ -283,4 +283,4 @@ If you know that the scripts do not contain strings with embedded CR characters,
 * [Use SSH to connect to HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

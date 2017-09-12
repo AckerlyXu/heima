@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Information about using HDInsight on Linux
@@ -124,9 +124,9 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 * `wasb:///`: Access default storage using unencrypted communication.
 
-* `wasbs:///`: Access default storage using encrypted communication.
+* `wasbs:///`: Access default storage using encrypted communication.  The wasbs scheme is supported only from HDInsight version 3.6 onwards.
 
-* `wasbs://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
+* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
 ### What storage is the cluster using
 
@@ -139,7 +139,7 @@ You can use Ambari to retrieve the default storage configuration for the cluster
 
 This command returns a value similar to the following URIs:
 
-* `wasbs://<container-name>@<account-name>.blob.core.chinacloudapi.cn` if using an Azure Storage account.
+* `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn` if using an Azure Storage account.
 
     The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
 
@@ -246,4 +246,4 @@ To use a different version of a component, upload the version you need and use i
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
 
-<!--Update_Description: update meta data-->
+<!--Update_Description: change 'wasbs' into 'wasb'-->

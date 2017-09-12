@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
 
 ---
@@ -56,7 +56,7 @@ Nowadays, many people choose Hive and Pig over MapReduce.  For more information,
     > Follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java
-To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
+To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
 
 The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -76,9 +76,9 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 
     # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput"
+                                -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -165,7 +165,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
     ```
@@ -216,7 +216,6 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 * [Submit Hadoop Jobs in HDInsight][hdinsight-submit-jobs]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
-* [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
 ## Appendix A - The Word count source code
 
@@ -983,8 +982,6 @@ public class TeraSort extends Configured implements Tool {
 }
 ```
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
-
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
@@ -1006,3 +1003,4 @@ public class TeraSort extends Configured implements Tool {
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
+<!--Update_Description: change 'wasbs' into 'wasb' and delete a link-->

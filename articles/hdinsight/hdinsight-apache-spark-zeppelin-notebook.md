@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -57,7 +57,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
 
         // Create an RDD using the default Spark context, sc
-        val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         // Define a schema
         case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -189,4 +189,5 @@ In such a case, you must perform the following steps before you can start runnin
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->
