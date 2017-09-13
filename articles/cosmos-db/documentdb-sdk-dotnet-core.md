@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET Core API, SDK & Resources | Azure
-description: Learn all about the .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET Core SDK.
+title: Azure Cosmos DB .NET Core API, SDK & Resources | Azure
+description: Learn all about the .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 08/07/2017
+origin.date: 08/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB .NET Core SDK: Release notes and resources
+# Azure Cosmos DB .NET Core SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -38,13 +38,13 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**API documentation**</td><td>[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET Core SDK](documentdb-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET Core SDK](documentdb-dotnetcore-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
@@ -56,4 +56,4 @@ ms.custom: H1Hack27Feb2017
 ## See Also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -35,7 +35,7 @@ By reading this article, you'll be able to answer the following questions:
 As the following diagram illustrates, the Cosmos DB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
 > [!NOTE]
-> Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
 > 
 > 
 
@@ -161,7 +161,7 @@ A Cosmos DB database is a logical container of one or more collections and users
 A database can contain virtually unlimited document storage partitioned within collections.
 
 ### Elastic scale of a Cosmos DB database
-A Cosmos DB database is elastic by default – ranging from a few GB to petabytes of SSD backed document storage and provisioned throughput. 
+A Cosmos DB database is elastic by default - ranging from a few GB to petabytes of SSD backed document storage and provisioned throughput. 
 
 Unlike a database in traditional RDBMS, a database in Cosmos DB is not scoped to a single machine. With Cosmos DB, as your application's scale needs to grow, you can create more collections, databases, or both. Indeed, various first party applications within Microsoft have been using Cosmos DB at a consumer scale by creating extremely large Cosmos DB databases each containing thousands of collections with terabytes of document storage. You can grow or shrink a database by adding or removing collections to meet your application's scale requirements. 
 
@@ -219,7 +219,7 @@ The JavaScript logic registered at a collection level can then issue database op
 
 The ability to execute JavaScript directly within the database engine in the same address space as the buffer pool enables performant and transactional execution of database operations against the documents of a collection. Furthermore, Cosmos DB database engine makes a deep commitment to the JSON and JavaScript eliminates any impedance mismatch between the type systems of application and the database.   
 
-After creating a collection, you can register stored procedures, triggers and UDFs with a collection using the [REST APIs](https://docs.microsoft.com/rest/api/documentdb/) or any of the [client SDKs](documentdb-sdk-dotnet.md). After registration, you can reference and execute them. Consider the following stored procedure written entirely in JavaScript, the code below takes two arguments (book name and author name) and creates a new document, queries for a document and then updates it – all within an implicit ACID transaction. At any point during the execution, if a JavaScript exception is thrown, the entire transaction aborts.
+After creating a collection, you can register stored procedures, triggers and UDFs with a collection using the [REST APIs](https://docs.microsoft.com/rest/api/documentdb/) or any of the [client SDKs](documentdb-sdk-dotnet.md). After registration, you can reference and execute them. Consider the following stored procedure written entirely in JavaScript, the code below takes two arguments (book name and author name) and creates a new document, queries for a document and then updates it - all within an implicit ACID transaction. At any point during the execution, if a JavaScript exception is thrown, the entire transaction aborts.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -460,4 +460,4 @@ Learn more about working with resources by using HTTP commands in [RESTful inter
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update, update link-->

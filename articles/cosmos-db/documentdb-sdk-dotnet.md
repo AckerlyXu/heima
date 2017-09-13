@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET SDK & Resources | Azure
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK.
+title: Azure Cosmos DB .NET SDK & Resources | Azure
+description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/05/2017
-ms.date: 08/07/2017
+origin.date: 08/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB .NET SDK: Download and release notes
+# Azure Cosmos DB .NET SDK: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -41,7 +41,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Samples**</td><td>[.NET code samples](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET SDK](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -58,4 +58,4 @@ ms.custom: H1Hack27Feb2017
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update ->

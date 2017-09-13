@@ -4,7 +4,7 @@ description: Reduce memory requirements or increase the available memory to maxi
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 11/18/2016
-ms.date: 05/08/2017
+origin.date: 06/02/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ---
 
-# Memory optimizations for columnstore compression
+# Maximizing rowgroup quality for columnstore
 
-Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
+Rowgroup quality is determined by the number of rows in a rowgroup. Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
 ## Why the rowgroup size matters
 Since a columnstore index scans a table by scanning column segments of individual rowgroups, maximizing the number of rows in each rowgroup enhances query performance. When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
@@ -38,6 +38,40 @@ During a bulk load or columnstore index rebuild, sometimes there isn't enough me
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error.
 
 For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+
+## How to monitor rowgroup quality
+
+There is a DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
+
+```sql
+create view dbo.vCS_rg_physical_stats
+as 
+with cte
+as
+(
+select   tb.[name]                    AS [logical_table_name]
+,        rg.[row_group_id]            AS [row_group_id]
+,        rg.[state]                   AS [state]
+,        rg.[state_desc]              AS [state_desc]
+,        rg.[total_rows]              AS [total_rows]
+,        rg.[trim_reason_desc]        AS trim_reason_desc
+,        mp.[physical_name]           AS physical_name
+FROM    sys.[schemas] sm
+JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]                             
+JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_id]
+JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
+JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
+                                                                            AND rg.[pdw_node_id]   = nt.[pdw_node_id]
+									    AND rg.[distribution_id]    = nt.[distribution_id]						                  	
+)
+select *
+from cte;
+```
+
+The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = NO_TRIM implies there was no trimming and row group is of optimal quality). The following trim reasons indicate premature trimming of the rowgroup:
+- BULKLOAD: This trim reason is used when the incoming batch of rows for the load had less than 1 million rows. The engine will create compressed row groups if there are greater than 100,000 rows being inserted (as opposed to inserting into the delta store) but sets the trim reason to BULKLOAD. In this scenario, consider increasing your batch load window to accumulate more rows. Also, reevaluate your partitioning scheme to ensure it is not too granular as row groups cannot span partition boundaries.
+- MEMORY_LIMITATION: To create row groups with 1 million rows, a certain amount of working memory is required by the engine. When available memory of the loading session is less than the required working memory, row groups get prematurely trimmed. The following sections explain how to estimate memory required and allocate more memory.
+- DICTIONARY_SIZE: This trim reason indicates that rowgroup trimming occurred because there was at least one string column with wide and/or high cardinality strings. The dictionary size is limited to 16 MB in memory and once this limit is reached the row group is compressed. If you do run into this situation, consider isolating the problematic column into a separate table.
 
 ## How to estimate memory requirements
 
@@ -72,13 +106,13 @@ Columns of string data types require more memory than numeric and date data type
 Additional memory requirements for string compression:
 
 - String data types up to 32 characters can require 32 additional bytes per value.
-- String data types with more than 32 characters are compressed using dictionary methods.  Each column in the rowgroup can require up to an additional 16 MB to build the dictionary. 
+- String data types with more than 32 characters are compressed using dictionary methods.  Each column in the rowgroup can require up to an additional 16 MB to build the dictionary.
 
 ### Avoid over-partitioning
 
 Columnstore indexes create one or more rowgroups per partition. In SQL Data Warehouse, the number of partitions grows quickly because the data is distributed and each distribution is partitioned. If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression, but it leads to rowgroups that do not achieve the best columnstore query performance.
 
-Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows, which are held in memory until each partition has enough rows to be compressed. Having too many partitions creates additional memory pressure. 
+Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows, which are held in memory until each partition has enough rows to be compressed. Having too many partitions creates additional memory pressure.
 
 ### Simplify the load query
 
@@ -88,7 +122,7 @@ Design the load query to focus only on loading the query. If you need to run tra
 
 ### Adjust MAXDOP
 
-Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming. 
+Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming.
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 
@@ -124,3 +158,5 @@ To find more ways to improve performance in SQL Data Warehouse, see the [Perform
 <!--MSDN references-->
 
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, add new feature on monitor rowgroup quanlity-->

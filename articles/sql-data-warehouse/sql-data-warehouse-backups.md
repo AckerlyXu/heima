@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.custom: backup-restore
 origin.date: 10/31/2016
-ms.date: 07/24/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
@@ -32,7 +32,7 @@ SQL Data Warehouse protects your data by storing your data in locally redundant 
 
 To learn more about:
 
-* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/storage-premium-storage.md).
+* Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/common/storage-premium-storage.md).
 * Locally Redundant storage, see [Azure Storage replication](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## Azure Storage Blob snapshots
@@ -40,7 +40,7 @@ As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Stora
 
 To learn more about:
 
-* Azure blob snapshots, see [Create a blob snapshot](../storage/storage-blob-snapshots.md).
+* Azure blob snapshots, see [Create a blob snapshot](../storage/blobs/storage-blob-snapshots.md).
 
 ## Geo-redundant backups
 Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS).
@@ -118,4 +118,4 @@ The primary use for SQL data warehouse backups is to restore the data warehouse 
 
 <!-- ### Tutorials -->
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update reference link-->

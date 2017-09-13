@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 06/19/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quickstart demonstrates how to use an existing [MongoDB](mongodb-introduction.md) app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
@@ -61,18 +61,17 @@ npm start
 If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
 ```azurecli
-az configure            # Azure CLI 2.0
-// Update the cloud name with AzureChinaCloud in specific configureation file with default name of C:\Users\{USER NAME}\.azure\config
-// [cloud]
-// name = AzureChinaCloud
+az cloud set -n AzureChinaCloud
 az login
+#az cloud set -n AzureCloud
+#return to global azure 
 ``` 
 
 ## Add the Azure Cosmos DB module
 
 If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command.
 
-If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0](https://docs.microsoft.com/zh-cn/cli/azure/install-azure-cli).
+If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -82,7 +81,7 @@ The following example creates a resource group in the China East region. Choose 
 
 If you are using Azure Cloud Shell, click **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location "China East"
 ```
 
@@ -92,13 +91,16 @@ Create an Azure Cosmos DB account with the [az cosmosdb create](https://docs.mic
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.cn/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
-```azurecli-interactive
+```azurecli
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 The `--kind MongoDB` parameter enables MongoDB client connections.
 
 When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
+
+> [!NOTE]
+> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI 2.0 commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -148,7 +150,7 @@ Replace the content of this file with the following code. Be sure to also replac
 
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10250/mean-dev?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10255/mean-dev?ssl=true&sslverifycertificate=false'
   }
 };
 ```
@@ -157,7 +159,7 @@ module.exports = {
 
 In order to connect to an Azure Cosmos DB database, you need the database key. Use the [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) command to retrieve the primary key.
 
-```azurecli-interactive
+```azurecli
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
@@ -208,7 +210,7 @@ In your MEAN.js repository, open `config/env/production.js`.
 In the `db` object, replace the value of `uri` as show in the following example. Be sure to replace the placeholders as before.
 
 ```javascript
-'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10250/mean?ssl=true&sslverifycertificate=false',
+'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.cn:10255/mean?ssl=true&sslverifycertificate=false',
 ```
 
 > [!NOTE] 

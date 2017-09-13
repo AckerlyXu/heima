@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB Java API, SDK & Resources | Azure
-description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
+title: 'Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Azure'
+description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB DocumentDB Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 08/07/2017
+origin.date: 07/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB Java SDK: Release notes and resources
+# Azure Cosmos DB: DocumentDB Java SDK release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -44,7 +44,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Web app tutorial**</td><td>[Web application development with DocumentDB](documentdb-java-application.md)</td></tr>
+<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
@@ -58,4 +58,4 @@ ms.custom: H1Hack27Feb2017
 ## See Also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wroding update, update link-->

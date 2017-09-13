@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -31,12 +31,12 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 - [How do single partition collections and partitioned collections compare to the S1, S2, S3 performance levels?](#compare)
 - [What do I need to do to ensure uninterrupted access to my data?](#uninterrupted-access)
 - [How will my collection change after the migration?](#collection-change)
-- [How will my billing change after I'm migrated to single partition collections?](#billing-change)
+<!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
 - [What if I need more than 10 GB of storage?](#more-storage-needed)
 - [Can I change between the S1, S2, and S3 performance levels before August 1, 2017?](#change-before)
 - [How will I know when my collection has migrated?](#when-migrated)
 - [How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?](#migrate-diy)
-- [How am I impacted if I'm an EA customer?](#ea-customer)
+<!-- Not Available- [How am I impacted if I'm an EA customer?](#ea-customer)-->
 
 <a name="why-retired"></a>
 
@@ -55,9 +55,9 @@ The following table compares the throughput and storage options available in sin
 |Maximum throughput|Unlimited|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimum throughput|2.5K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Maximum storage|Unlimited|10 GB|10 GB|10 GB|10 GB|
-|Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|
+<!-- Not Avaialbel |Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|-->
 
-Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer)
+<!-- Not Avaialbel Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer) -->
 
 <a name="uninterrupted-access"></a>
 
@@ -81,11 +81,8 @@ In each of these cases, after your collection is migrated, you will be able to c
 
 <a name="billing-change"></a>
 
-## How will my billing change after I'm migrated to the single partition collections?
+<!--Not Available ## How will my billing change after I'm migrated to the single partition collections?-->
 
-Assuming you have 10 S1 collections, 1 GB of storage for each, in the China East region, and you migrate these 10 S1 collections to 10 single partition collections at 400 RU/sec (the minimum level). Your bill will look as follows if you keep the 10 single partition collections for a full month:
-
-![How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection](./media/performance-levels/s1-vs-standard-pricing.png)
 
 <a name="more-storage-needed"></a>
 
@@ -166,9 +163,8 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 
 <a name="ea-customer"></a>
 
-## How am I impacted if I'm an EA customer?
+<!-- Not Available ## How am I impacted if I'm an EA customer?-->
 
-EA customers will be price protected until the end of their current contract.
 
 ## Next steps
 To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:
@@ -177,4 +173,4 @@ To learn more about pricing and managing data with Azure Cosmos DB, explore thes
 2.	[Cosmos DB pricing](https://www.azure.cn/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.
 
-<!--Update_Description: update link-->
+<!--Update_Description: update link, wording update -->

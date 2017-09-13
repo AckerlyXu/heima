@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Python API, SDK & Resources | Azure
-description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK.
+description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
 services: cosmos-db
 documentationcenter: python
 author: rockboyfor
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
-# DocumentDB Python SDK: Release notes and resources
+# Azure Cosmos DB Python SDK: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -58,4 +58,4 @@ ms.custom: H1Hack27Feb2017
 ## See also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

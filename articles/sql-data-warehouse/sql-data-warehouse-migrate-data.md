@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 06/29/2017
-ms.date: 07/24/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
 
 # Migrate Your Data
-Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS, and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
+Data can be moved from different sources into your SQL Data Warehouse with a variety tools. SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
 This article first discusses the simple migration scenarios of SSIS and bcp. It then look a little deeper into how the migration can be optimized.
 <!-- Not Available ## Azure Data Factory (ADF) copy-->
@@ -168,7 +168,7 @@ For more development tips, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ../storage/storage-use-azcopy.md
+[AZCopy]:../storage/common/storage-use-azcopy.md
 <!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
 <!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
 <!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
@@ -182,7 +182,7 @@ For more development tips, see [development overview][development overview].
 
 <!--Other Web references-->
 <!-- Not Available [Azure Data Factory]: http://azure.microsoft.com/services/data-factory/-->
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://www.azure.cn/home/features/expressroute/
 [ExpressRoute documentation]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
@@ -190,4 +190,4 @@ For more development tips, see [development overview][development overview].
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update reference link-->

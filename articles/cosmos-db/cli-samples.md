@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 06/07/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ---
 
@@ -42,6 +42,6 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |[Connect a web app to Azure Cosmos DB](/app-service-web/scripts/app-service-cli-app-service-documentdb.md)|Create and connect an Azure Cosmos DB database and an Azure web app.|
 |||
 
-<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website -->
+<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website(extenal site) -->
 
 <!--Update_Description: update meta properties-->

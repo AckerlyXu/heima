@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 08/07/2017
+origin.date: 08/11/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
@@ -25,9 +25,9 @@ Azure Cosmos DB automatically takes backups of all your data at regular interval
 This article starts with a quick recap of the data redundancy and availability in Cosmos DB, and then discusses backups. 
 
 ## High availability with Cosmos DB - a recap
-Cosmos DB is designed to be [globally distributed](distribute-data-globally.md) – it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. As a database system offering [99.99% availability SLAs](https://www.azure.cn/support/sla/cosmos-db), all the writes in Cosmos DB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. Note that the high availability of Cosmos DB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
+Cosmos DB is designed to be [globally distributed](distribute-data-globally.md) - it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. As a database system offering [99.99% availability SLAs](https://www.azure.cn/support/sla/cosmos-db), all the writes in Cosmos DB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. Note that the high availability of Cosmos DB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
 
-As illustrated in the following diagram, a single Cosmos DB container is [horizontally partitioned](partition-data.md). A "partition" is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions – China East, China North and Central India). The "partition set" is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and Cosmos DB will transparently failover to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
+As illustrated in the following diagram, a single Cosmos DB container is [horizontally partitioned](partition-data.md). A "partition" is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions - China East, China North and Central India). The "partition set" is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and Cosmos DB will transparently failover to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
 
 The following image illustrates the high degree of redundancy with Cosmos DB.
 
@@ -46,18 +46,21 @@ The following image illustrates periodic full backups of all Cosmos DB entities 
 
 ![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 
-## Retention period for a given snapshot
-As described above, we take snapshots of your data every 4 hours and retain the last two snapshots for 30 days. Per our compliance regulations, snapshots are purged after 90 days.
+## Backup retention period
+As described above, Azure Cosmos DB takes snapshots of your data every four hours and retains the last two snapshots of every partition for 30 days. Per our compliance regulations, snapshots are purged after 90 days.
 
 If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups. 
 
-## Restore database from the online backup
-In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://www.azure.cn/support/contact/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
+## Restoring a database from an online backup
+If you accidentally delete your database or collection, you can [file a support ticket](https://www.azure.cn/support/support-azure/) or [call Azure support](https://www.azure.cn/support/contact/) to restore the data from the last automatic backup. If you need to restore your database because of data corruption issue, see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from penetrating the backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
+
+## Handling data corruption
+Azure Cosmos DB retains the last two backups of every partition in the system. This model works very well when a container (collection of documents, table) or a database is accidentally deleted since one of the last versions can be restored. However, in the case when when users may introduce a data corruption issue, Azure Cosmos DB may be unaware of the data corruption, and it is possible that the corruption may have penetrated the backups. As soon as corruption is detected, you should delete the corrupted container (collection/table) so that backups are protected from being overwritten with corrupted data. Since the last backup could be four hours old, the user can employ [change feed](change-feed.md) to capture and store the last four hours worth of data before deleting the container.
 
 ## Next steps
 
 To replicate your database in multiple data centers, see [distribute your data globally with Cosmos DB](distribute-data-globally.md). 
 
-To file contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To file contact Azure Support, [file a ticket from the Azure portal](https://www.azure.cn/support/support-azure/).
 
 <!--Update_Description: update meta properties, wording update-->
