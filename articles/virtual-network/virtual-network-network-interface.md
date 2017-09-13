@@ -98,7 +98,8 @@ You can view and change most settings for a network interface after it's created
 |CLI|[az network nic list](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to view network interfaces in the subscription; [az network nic show](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to view settings for a network interface|
 |PowerShell|[Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json) to view network interfaces in the subscription or view settings for a network interface|
 
-## <a name="dns"></a>Change DNS servers
+<a name="dns"></a>
+## <a name="change-dns-servers"></a>Change DNS servers
 
 The DNS server is assigned by the Azure DHCP server to the network interface within the virtual machine operating system. The DNS server assigned is whatever the DNS server setting is for a network interface. To learn more about name resolution settings for a network interface, see [Name resolution for virtual machines](virtual-networks-name-resolution-for-vms-and-role-instances.md). The network interface can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network.
 

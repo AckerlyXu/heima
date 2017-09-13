@@ -22,9 +22,9 @@ ms.author: v-yeche
 # Auditing in Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Auditing](sql-data-warehouse-auditing-overview.md)
-> * [Threat detection](sql-data-warehouse-security-threat-detection.md)
 > 
 > 
+<!--  * [Threat detection](sql-data-warehouse-security-threat-detection.md) -->
 
 SQL Data Warehouse auditing allows you to record events in your database to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. SQL Data Warehouse auditing also integrates with Microsoft Power BI for drill-down reporting and analysis.
 
@@ -59,7 +59,8 @@ Audit logs are stored in your Azure storage account. You can define an audit log
 
 An auditing policy can be defined for a specific database or as a default server policy. A default server auditing policy applies to all databases on a server, which do not have a specific overriding database auditing policy defined.
 
-Before setting up audit auditing check if you are using a ["Downlevel Client."](sql-data-warehouse-auditing-downlevel-clients.md)
+Before setting up audit auditing check if you are using a downlevel client.
+<!-- Not Available oboslete ["Downlevel Client."](sql-data-warehouse-auditing-downlevel-clients.md) -->
 
 ## <a id="subheading-2"></a>Set up auditing for your database
 1. Launch the <a href="https://portal.azure.cn" target="_blank">Azure portal</a>.
@@ -76,7 +77,8 @@ Before setting up audit auditing check if you are using a ["Downlevel Client."](
     ![][4]
 5. Click the **OK** button to save the storage details configuration.
 6. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
-7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
+7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured.
+<!-- Not Available oboslete [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.-->
 8. Click **OK**.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports

@@ -252,8 +252,6 @@
     items:
     - name: Connect to Spark
       href: spark-connector.md
-    - name: Connect to Spark GraphX
-      href: spark-connector-graph.md      
     - name: Deploy a website with Azure App Service
       href: create-website.md
     - name: Analyze data with Hadoop
