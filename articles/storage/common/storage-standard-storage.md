@@ -150,6 +150,6 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Create a VM using Resource Manager and PowerShell](/virtual-machines/windows/quick-create-powershell.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0](../../virtual-machines/linux/quick-create-cli.md)
 
 <!--Update_Description: update link-->
