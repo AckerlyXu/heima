@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 07/14/2017
-ms.date: 07/24/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
@@ -40,18 +40,18 @@ A replicated table has a full copy of the table accessible on each Compute node.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table")  
+![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
 Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
 
 Consider using a replicated table when:
 
-- The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - The table is used in joins that would otherwise require data movement. For example, a join on hash-distributed tables requires data movement when the joining columns are not the same distribution column. If one of the hash-distributed tables is small, consider a replicated table. A join on a round-robin table requires data movement. We recommend using replicated tables instead of round-robin tables in most cases. 
 
 Consider converting an existing distributed table to a replicated table when:
 
-- Query plans use data movement operations that broadcast the data to all the Compute nodes. The BroadcastMoveOperation is expensive and slows query performance. To view data movement operations in query plans, use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- Query plans use data movement operations that broadcast the data to all the Compute nodes. The BroadcastMoveOperation is expensive and slows query performance. To view data movement operations in query plans, use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
 
 Replicated tables may not yield the best query performance when:
 
@@ -80,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## Convert existing round-robin tables to replicated tables
 If you already have round-robin tables, we recommend converting them to replicated tables if they meet with criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
 
-This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
+This example uses [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -108,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### Query performance example for round-robin versus replicated 
 
-A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
+A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
 
 For example, in following query against the AdventureWorks schema, the ` FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
 
@@ -172,7 +172,7 @@ For example, this load pattern loads data from four sources, but only invokes on
 ### Rebuild a replicated table after a batch load
 To ensure consistent query execution times, we recommend forcing a refresh of the replicated tables after a batch load. Otherwise, the first query must wait for the tables to refresh, which includes rebuilding the indexes. Depending on the size and number of replicated tables affected, the performance impact can be significant.  
 
-This query uses the [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV to list the replicated tables that have been modified, but not rebuilt.
+This query uses the [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV to list the replicated tables that have been modified, but not rebuilt.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -194,7 +194,9 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## Next steps 
 To create a replicated table, use one of these statements:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
+
+<!--Update_Description: wording update, update reference link-->

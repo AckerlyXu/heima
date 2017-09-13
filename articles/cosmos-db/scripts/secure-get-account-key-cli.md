@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ---
 
@@ -27,11 +27,11 @@ This sample gets account keys for any kind of Azure Cosmos DB account.
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 <!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -63,7 +63,7 @@ az cosmosdb list-keys \
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -75,8 +75,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Updates an Azure Cosmos DB account. |
-| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) | Creates a logical server that hosts the SQL Database. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

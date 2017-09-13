@@ -16,9 +16,11 @@
 ### [Pause and resume migration](https://docs.microsoft.com/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)
 ### [Manage and troubleshoot](https://docs.microsoft.com/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database)
 ### [Back up](https://docs.microsoft.com/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database)
+### [Restore](https://docs.microsoft.com/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database)
 ### [Disable Stretch Database](https://docs.microsoft.com/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Resources
-## [Pricing](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
 ## [Blog](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
+## [Pricing](https://www.azure.cn/pricing/details/sql-server-stretch-database/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -126,7 +126,7 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
             private IMongoCollection<MyTask> GetTasksCollection()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -148,7 +148,7 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
             private IMongoCollection<MyTask> GetTasksCollectionForEdit()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -221,3 +221,5 @@ You can proceed to the next tutorial and import your MongoDB data to Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
+
+<!--Update_Description: wording update-->

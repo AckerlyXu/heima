@@ -8,15 +8,14 @@ editor: mimig1
 
 ms.service: cosmos-db
 ms.topic: hero-article
-origin.date: 06/22/2017
-ms.date: 08/07/2017
-wacn.date: ''
+origin.date: 07/21/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ---
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 This quick-start demonstrates how to use an existing [MongoDB](/cosmos-db/mongodb-introduction) app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections.
 
@@ -88,8 +87,8 @@ The following Golang code snippet connects the Go app with Azure Cosmos DB Mongo
 dialInfo := &mgo.DialInfo{
     Addrs:    []string{"golang-couch.documents.azure.cn:10255"}, // Get HOST + PORT
     Timeout:  60 * time.Second,
-    Database: "golang-coach", // It can be anything
-    Username: "golang-coach", // Username
+    Database: "database", // It can be anything
+    Username: "username", // Username
     Password: "Azure database connect password from Azure Portal", // PASSWORD
     DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
         return tls.Dial("tcp", addr.String(), &tls.Config{})
@@ -120,7 +119,7 @@ The **mgo.Dial()** method is used when there is no SSL connection. For an SSL co
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 
 ```go
-collection := session.DB("golang-couch").C("package")
+collection := session.DB("database").C("package")
 ```
 
 <a id="create-document"></a>
@@ -241,4 +240,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
 
-<!--Update_Description: new articles on operate the Mongodb data to Cosmos DB using Go lanuage -->
+<!--Update_Description: wording update -->

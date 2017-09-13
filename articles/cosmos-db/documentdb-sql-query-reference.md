@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
 origin.date: 06/13/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
@@ -73,7 +73,7 @@ The query language supports T-SQL style comments like
 
 -   SQL Statement `-- comment text [newline]`  
 
-While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
+While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: - 1 e5` is a minus token followed by number 1 and identifier e5.  
 
 ##  <a name="bk_select_query"></a> SELECT clause  
 The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
@@ -422,7 +422,7 @@ ORDER BY <sort_specification>
 -   `input_alias`  
 
      Represents a value defined by the `input_alias` introduced in the `FROM` clause.  
-    This value is guaranteed to not be **undefined** –**undefined** values in the input are skipped.  
+    This value is guaranteed to not be **undefined** -**undefined** values in the input are skipped.  
 
 -   `<scalar_expression>.property_name`  
 
@@ -2517,7 +2517,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 ```  
 
 ####  <a name="bk_array_slice"></a> ARRAY_SLICE  
- Returns a Boolean indicating whether the array contains the specified value.  
+ Returns part of an array expression.
 
  **Syntax**  
 
@@ -2768,3 +2768,5 @@ SELECT ST_ISVALIDDETAILED({
 ## Next steps  
  [SQL syntax and SQL query for Azure Cosmos DB](documentdb-sql-query.md)   
  [Azure Cosmos DB documentation](/cosmos-db/)
+ 
+ <!--Update_Description: wording update-->

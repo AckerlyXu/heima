@@ -81,18 +81,22 @@
 
 ## Load
 
-### [Overview](sql-data-warehouse-overview-load.md)
-### [Sample data](sql-data-warehouse-load-sample-databases.md)
-<!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md) -->
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-<!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Concepts
+#### [Overview](sql-data-warehouse-overview-load.md)
+#### [PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
+
+### Tutorials
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### How-to guides
+#### [Sample data](sql-data-warehouse-load-sample-databases.md)
+<!-- Not Available #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+<!-- Not Available #### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
+#### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Migrate
 
@@ -121,7 +125,7 @@
 ## Security
 
 ### [Overview](sql-data-warehouse-overview-manage-security.md)
-<!-- Not Available ### [Auditing](sql-data-warehouse-auditing-overview.md)-->
+### [Auditing](sql-data-warehouse-auditing-overview.md)
 <!-- Not Available ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)-->
 ### [Authentication](sql-data-warehouse-authentication.md)
 ### [Encryption](sql-data-warehouse-encryption-tde.md)
@@ -139,10 +143,11 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://www.azure.cn/pricing/details/sql-data-warehouse/)
-## [Service updates](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Service updates](https://www.azure.cn/what-is-new/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 

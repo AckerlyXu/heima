@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB as a key value store – Cost overview | Azure
+title: Azure Cosmos DB as a key value store - Cost overview | Azure
 description: Learn about the low cost of using Azure Cosmos DB as a key value store.
 keywords: key value store
 services: cosmos-db
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ---
 
-# Azure Cosmos DB as a key value store – Cost overview
+# Azure Cosmos DB as a key value store - Cost overview
 
 Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](documentdb-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
 
@@ -62,3 +62,5 @@ Most of the basic blob or object stores services charge $0.40 per million read t
 ## Next steps
 
 Stay tuned for new articles on optimizing Cosmos DB resource provisioning. In the meantime, feel free to use our [RU calculator](https://www.documentdb.com/capacityplanner).
+
+<!--Update_Description: wording update-->

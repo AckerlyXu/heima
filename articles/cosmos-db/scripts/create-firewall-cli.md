@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 ---
 
@@ -31,7 +31,7 @@ This topic requires that you are running the Azure CLI version 2.0 or later. Run
 
 ## Sample script
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -81,7 +81,7 @@ az cosmosdb update \
 
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -93,8 +93,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Creates an Azure CosmosDB account. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/sql/server#create) | Updates an Azure CosmosDB account to include firewall settings. |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Updates an Azure CosmosDB account to include firewall settings. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

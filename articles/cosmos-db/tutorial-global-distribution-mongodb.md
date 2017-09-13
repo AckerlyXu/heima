@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
@@ -55,13 +55,13 @@ Example results:
             "region": "South India"
          },
          "hosts": [
-            "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10250",
-            "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10250",
+            "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10255",
+            "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10255",
          ],
          "setName": "globaldb",
          "setVersion": 1,
-         "primary": "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10250",
-         "me": "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10250"
+         "primary": "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10255",
+         "me": "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10255"
       }
    ```
 
@@ -103,3 +103,5 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 
 > [!div class="nextstepaction"]
 > [Develop locally with the emulator](local-emulator.md)
+
+<!--Update_Description: wording update-->

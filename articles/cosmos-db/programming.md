@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 08/07/2017
+ms.date: 09/18/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs
 Learn how Azure Cosmos DB's language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in an [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. This allows you to write database program application logic that can be shipped and executed directly on the database storage partitions. 
 
+<!-- Not Available VIDEO https://channel9.msdn.com-->
 
 Then, return to this article, where you'll learn the answers to the following questions:  
 
@@ -39,14 +40,14 @@ This approach of *"JavaScript as a modern day T-SQL"* frees application develope
 * **Atomic Transactions:** Cosmos DB guarantees that database operations performed inside a single stored procedure or trigger are atomic. This lets an application combine related operations in a single batch so that either all of them succeed or none of them succeed. 
 * **Performance:** The fact that JSON is intrinsically mapped to the Javascript language type system and is also the basic unit of storage in Cosmos DB allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are more performance benefits associated with shipping business logic to the database:
 
-  * Batching – Developers can group operations like inserts and submit them in bulk. The network traffic latency cost and the store overhead to create separate transactions are reduced significantly. 
-  * Pre-compilation – Cosmos DB precompiles stored procedures, triggers and user defined functions (UDFs) to avoid JavaScript compilation cost for each invocation. The overhead of building the byte code for the procedural logic is amortized to a minimal value.
-  * Sequencing – Many operations need a side-effect ("trigger") that potentially involves doing one or many secondary store operations. Aside from atomicity, this is more performant when moved to the server. 
+  * Batching - Developers can group operations like inserts and submit them in bulk. The network traffic latency cost and the store overhead to create separate transactions are reduced significantly. 
+  * Pre-compilation - Cosmos DB precompiles stored procedures, triggers and user defined functions (UDFs) to avoid JavaScript compilation cost for each invocation. The overhead of building the byte code for the procedural logic is amortized to a minimal value.
+  * Sequencing - Many operations need a side-effect ("trigger") that potentially involves doing one or many secondary store operations. Aside from atomicity, this is more performant when moved to the server. 
 * **Encapsulation:** Stored procedures can be used to group business logic in one place. This has two advantages:
   * It adds an abstraction layer on top of the raw data, which enables data architects to evolve their applications independently from the data. This is particularly advantageous when the data is schema-less, due to the brittle assumptions that may need to be baked into the application if they have to deal with data directly.  
   * This abstraction lets enterprises keep their data secure by streamlining the access from the scripts.  
 
-The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://docs.microsoft.com/rest/api/documentdb/), [Azure Document DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](documentdb-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
+The creation and execution of database triggers, stored procedure and custom query operators is supported through the [REST API](https://docs.microsoft.com/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), and [client SDKs](documentdb-sdk-dotnet.md) in many platforms including .NET, Node.js and JavaScript.
 
 This tutorial uses the [Node.js SDK with Q Promises](http://azure.github.io/azure-documentdb-node-q/) to illustrate syntax and usage of stored procedures, triggers, and UDFs.   
 
@@ -143,7 +144,7 @@ The example described demonstrated how to use stored procedures. We will cover t
 ## Database program transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation and Durability.  
 
-Briefly, atomicity guarantees that all the work done inside a transaction is treated as a single unit where either all of it is committed or none. Consistency makes sure that the data is always in a good internal state across transactions. Isolation guarantees that no two transactions interfere with each other – generally, most commercial systems provide multiple isolation levels that can be used based on the application needs. Durability ensures that any change that's committed in the database will always be present.   
+Briefly, atomicity guarantees that all the work done inside a transaction is treated as a single unit where either all of it is committed or none. Consistency makes sure that the data is always in a good internal state across transactions. Isolation guarantees that no two transactions interfere with each other - generally, most commercial systems provide multiple isolation levels that can be used based on the application needs. Durability ensures that any change that's committed in the database will always be present.   
 
 In Cosmos DB, JavaScript is hosted in the same memory space as the database. Hence, requests made within stored procedures and triggers execute in the same scope of a database session. This enables Cosmos DB to guarantee ACID for all operations that are part of a single stored procedure/trigger. Consider the following stored procedure definition:
 
@@ -283,7 +284,7 @@ Below is an example of a stored procedure that is written to bulk-import documen
 
 ## <a id="trigger"></a> Database triggers
 ### Database pre-triggers
-Cosmos DB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document – this pre-trigger will run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
+Cosmos DB provides triggers that are executed or triggered by an operation on a document. For example, you can specify a pre-trigger when you are creating a document - this pre-trigger will run before the document is created. The following is an example of how pre-triggers can be used to validate the properties of a document that is being created:
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",

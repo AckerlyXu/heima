@@ -12,8 +12,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 04/28/2017
-  ms.date: 08/07/2017
+  origin.date: 07/24/2017
+  ms.date: 09/18/2017
   ms.author: v-yeche
 abstract:
   description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
@@ -60,7 +60,7 @@ sections:
     style: ordered
     items:
     - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a>
-    - html: Import data into Cosmos DB&#58; <a href="documentdb-import-data">DocumentDB</a> | <a href="documentdb-mongodb-migrate">MongoDB</a>
+    - html: Import data into Cosmos DB&#58; <a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a>
     - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a>
     - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
     - html: <a href="local-emulator">Develop your application locally using the emulator</a>
@@ -72,3 +72,5 @@ sections:
     items:
     - html: <a href="/cosmos-db/cli-samples">Azure CLI</a>
     - html: <a href="/cosmos-db/powershell-samples">Azure PowerShell</a>
+### Not Available - title: Refrence
+### ms.date: 09/18/2017
