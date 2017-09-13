@@ -1261,11 +1261,6 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/sql-database/sql-database-point-in-time-restore.md",
-      "redirect_url": "/sql-database/sql-database-recovery-using-backups",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/sql-database/sql-database-restore-database-portal.md",
       "redirect_url": "/sql-database/sql-database-recovery-using-backups",
       "redirect_document_id": "false"
