@@ -1,10 +1,10 @@
 ---
-title: Create, start, or delete an application gateway | Azure
+title: Create, start, or delete an application gateway | Microsoft Docs
 description: This page provides instructions to create, configure, start, and delete an Azure application gateway
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -14,9 +14,9 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-origin.date: 12/12/2016
-ms.date: 01/25/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/13/2017
+ms.author: v-junlch
 
 ---
 # Create, start, or delete an application gateway with PowerShell 
@@ -47,11 +47,11 @@ When you use the `New-AzureApplicationGateway` command to create the application
 
 The values are:
 
-* **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
-* **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
-* **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
+- **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
+- **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
 
 ## Create an application gateway
 
@@ -445,3 +445,5 @@ If you want more information about load balancing options in general, see:
 * [Azure Traffic Manager](/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
+
+<!--Update_Description: metadata properties update-->

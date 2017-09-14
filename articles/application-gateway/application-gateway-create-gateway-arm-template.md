@@ -1,21 +1,20 @@
----
-title: Create an Azure Application Gateway - templates | Azure
+﻿---
+title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: tysonn
 
-ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/13/2017
+ms.author: v-junlch
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -27,12 +26,12 @@ ms.author: v-dazen
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are in the cloud or on-premises.
-Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
+Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
+Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
 
-To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
+To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
-You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
+This article walks you through downloading and modifying an existing Azure Resource Manager template from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
 
 If you are simply deploying the Azure Resource Manager template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
@@ -40,10 +39,10 @@ If you are simply deploying the Azure Resource Manager template directly from Gi
 
 In this scenario you will:
 
-* Create an application gateway with web application firewall.
-* Create a virtual network named VirtualNetwork1 with a reserved CIDR block of 10.0.0.0/16.
-* Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-* Set up two previously configured back-end IPs for the web servers you want to load balance the traffic. In this template example, the back-end IPs are 10.0.1.10 and 10.0.1.11.
+- Create an application gateway with web application firewall.
+- Create a virtual network named VirtualNetwork1 with a reserved CIDR block of 10.0.0.0/16.
+- Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
+- Set up two previously configured back-end IPs for the web servers you want to load balance the traffic. In this template example, the back-end IPs are 10.0.1.10 and 10.0.1.11.
 
 > [!NOTE]
 > Those settings are the parameters for this template. To customize the template, you can change rules, the listener, SSL, and other options in the azuredeploy.json file.
@@ -74,9 +73,9 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 1. Check the content under **resources** and notice the following properties:
 
-   * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
-   * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
-   * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
+   - **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
+   - **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
+   - **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
    > [!NOTE]
    > For more information on templates visit: [Resource Manager templates reference](https://github.com/Azure/azure-quickstart-templates/)
@@ -248,4 +247,4 @@ If you want more information about load balancing options in general, visit:
 * [Azure Load Balancer](/load-balancer/)
 * [Azure Traffic Manager](/traffic-manager/)
 
-<!--Update_Description: add script for getting cert in macOS-->
+<!--Update_Description: wording update-->
