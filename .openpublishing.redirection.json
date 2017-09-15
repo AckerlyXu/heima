@@ -1433,67 +1433,67 @@
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-disable.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-enable-database.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/enable-stretch-database-for-a-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-enable-table.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/enable-stretch-database-for-a-table",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-identify-databases.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-limitations.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/limitations-for-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-manage.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-overview.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-monitor.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-pause.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-restore.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-predicate-function.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-wizard.md",
         "redirect_url": "https://docs.microsoft.com/zh-cn/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard",
-        "redirect_document_id": "true"
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
