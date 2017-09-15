@@ -54,7 +54,7 @@ ACU: 160
 | Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4 / 2000 |
 | Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 6000 - 8000 &#8224; |
-<!-- Correct DS Max Disk Count 8,16,32,64,64 -->
+<!-- Correct DS Max Disk Count 8,16,32,64 -->
 
 *The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/common/storage-premium-storage.md).
 
@@ -68,6 +68,6 @@ ACU: 160
 | Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 8x500                         | 4 / 2000                     |
 | Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 16x500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 32x500                       | 8 / 6000 - 8000 &#8224;                |
-<!-- Correct D-series Max Disk Count 8,16,32,64,64 -->
+<!-- Correct D-series Max Disk Count 8,16,32,64-->
 
 <br>

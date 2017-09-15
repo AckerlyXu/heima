@@ -43,7 +43,7 @@ ACU: 210-250
 | Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2 / 1000 |
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
-<!-- Please take the Max Data Disks is 4,8,16,32,64 for DS-series-->
+<!-- Please take the Max Data Disks is 4,8,16,32 for DS-series-->
 
 <br>
 
