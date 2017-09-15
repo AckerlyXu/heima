@@ -678,7 +678,7 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Priority Queue Pattern](https://msdn.microsoft.com/zh-cn/library/dn589794.aspx) shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.
 
 ## More information
-- [Monitor, diagnose, and troubleshoot Azure Storage](./storage/storage-monitoring-diagnosing-troubleshooting.md)
+- [Monitor, diagnose, and troubleshoot Azure Storage](./storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Azure: Telemetry Basics and Troubleshooting](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/), [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/), and [HDInsight](https://www.azure.cn/home/features/hdinsight/)

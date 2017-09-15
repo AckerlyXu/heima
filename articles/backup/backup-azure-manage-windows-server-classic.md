@@ -79,7 +79,7 @@ From the **Configure** tab you can select the appropriate storage redundancy opt
 
 ![Configure](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-See this article for more information about [storage redundancy](../storage/storage-redundancy.md).
+See this article for more information about [storage redundancy](../storage/common/storage-redundancy.md).
 
 ## Azure Backup agent tasks
 ### Console

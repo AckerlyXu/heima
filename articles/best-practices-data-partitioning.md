@@ -519,8 +519,8 @@ When considering strategies for implementing data consistency, the following pat
 - The [Data types] page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.
 
 [Azure Redis Cache]: https://www.azure.cn/home/features/redis-cache/
-[Azure Storage Scalability and Performance Targets]:./storage/storage-scalability-targets.md
-[Azure Storage Table Design Guide]:./storage/storage-table-design-guide.md
+[Azure Storage Scalability and Performance Targets]:./storage/common/storage-scalability-targets.md
+[Azure Storage Table Design Guide]:./cosmos-db/table-storage-design-guide.md
 [Building a Polyglot Solution]: https://msdn.microsoft.com/zh-cn/library/dn313279.aspx
 [Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/zh-cn/library/dn271399.aspx
 [Data consistency primer]: http://aka.ms/Data-Consistency-Primer

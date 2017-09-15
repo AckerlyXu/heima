@@ -44,7 +44,7 @@ The following steps illustrate how to create a file share within Storage Explore
 
     ![Create File Share](./media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) section for a list of rules and restrictions on naming file shares.
+4. A text box will appear below the **File Shares** folder. Enter the name for your file share. See the [Share naming rules](/storage/blobs/storage-dotnet-how-to-use-blobs#create-a-container) section for a list of rules and restrictions on naming file shares.
 
     ![Naming the share](./media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -114,7 +114,7 @@ The following steps illustrate how to copy a file share from one storage account
 
 ## Get the SAS for a file share
 
-A [shared access signature (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
+A [shared access signature (SAS)](/storage/common/storage-dotnet-shared-access-signature-part-1) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
 
 The following steps illustrate how to create a SAS for a file share:+
 

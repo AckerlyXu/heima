@@ -167,6 +167,6 @@ For more information on developing and publishing Azure Websites, see the tutori
 [Creating Websites with Bottle]:./app-service-web/web-sites-python-create-deploy-bottle-app.md
 [Creating Websites with Flask]:./app-service-web/web-sites-python-create-deploy-flask-app.md
 [Configuring Python with Azure Websites]:./app-service-web/web-sites-python-configure.md
-[table storage]:./storage/storage-python-how-to-use-table-storage.md
-[queue storage]:./storage/storage-python-how-to-use-queue-storage.md
-[blob storage]:./storage/storage-python-how-to-use-blob-storage.md
+[table storage]:./cosmos-db/table-storage-how-to-use-python.md
+[queue storage]:./storage/queues/storage-python-how-to-use-queue-storage.md
+[blob storage]:./storage/blobs/storage-python-how-to-use-blob-storage.md
