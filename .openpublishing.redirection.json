@@ -3648,7 +3648,7 @@
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md",
         "redirect_url": "/virtual-network/virtual-network-create-peering",
-        "redirect_document_id": "false
+        "redirect_document_id": "false"
     },
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md",
@@ -3658,7 +3658,7 @@
     {
         "source_path": "articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md",
         "redirect_url": "/virtual-network/virtual-network-create-peering",
-        "redirect_document_id": "false
+        "redirect_document_id": "false"
     },
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
