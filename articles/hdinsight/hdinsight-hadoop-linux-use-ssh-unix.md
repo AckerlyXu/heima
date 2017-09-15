@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/12/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 08/03/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -122,7 +122,34 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 
 For information on changing the SSH user account password, see the __Change passwords__ section of the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
-## Connect to worker and Zookeeper nodes
+## Connect to nodes
+
+The head nodes and edge node (if there is one) can be accessed over the internet on ports 22 and 23.
+
+* When connecting to the __head nodes__, use port __22__ to connect to the primary head node and port __23__ to connect to the secondary head node. The fully qualified domain name to use is `clustername-ssh.azurehdinsight.cn`, where `clustername` is the name of your cluster.
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.cn
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.cn
+    ```
+
+* When connectiung to the __edge node__, use port 22. The fully qualified domain name is `edgenodename.clustername-ssh.azurehdinsight.cn`, where `edgenodename` is a name you provided when creating the edge node. `clustername` is the name of the cluster.
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.cn
+    ```
+
+> [!IMPORTANT]
+> The previous examples assume that you are using password authentication, or that certificate authentication is occuring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.cn`.
+
+Once connected, the prompt changes to indicate the SSH user name and the node you are connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@hn0-clustername:~$`.
+
+### Connect to worker and Zookeeper nodes
 
 The worker nodes and Zookeeper nodes are not directly accessible from the internet. They can be accessed from the cluster head nodes or edge nodes. The following are the general steps to connect to other nodes:
 
@@ -177,8 +204,34 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
 
 5. Connect to the cluster edge node or head nodes using SSH. Then use the SSH command to connect to a worker or zookeeper node. The connection is established using the forwarded key.
 
+## Copy files
+
+The `scp` utility can be used to copy files to and from individual nodes in the cluster. For example, the following command copies the `test.txt` directory from the local system to the primary head node:
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.cn:
+```
+
+Since no path is specified after the `:`, the file is placed in the `sshuser` home directory.
+
+The following example copies the `test.txt` file from the `sshuser` home directory on the primary head node to the local system:
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.cn:test.txt .
+```
+
+> [!IMPORTANT]
+> `scp` can only access the file system of individual nodes within the cluster. It cannot be used to access data in the HDFS-compatible storage for the cluster.
+>
+> Use `scp` when you need to upload a resource for use from an SSH session. For example, upload a Python script and then run the script from an SSH session.
+>
+> For information on directly loading data into the HDFS-compatible storage, see the following documents:
+>
+> * [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md).
+
 ## Next steps
 
 * [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 * [Use a virtual network with HDInsight](hdinsight-extend-hadoop-virtual-network.md)
 * [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)
+<!--Update_Description: add 'connect to nodes' and 'copy files' section-->

@@ -14,9 +14,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/01/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -34,8 +34,8 @@ In this document, you learn how to create a basic C# Storm topology that tracks 
 
 * Apache Storm on HDInsight cluster (Windows-based).
 
-  > [!IMPORTANT]
-  > While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/28/2016, the HBase SDK for .NET package available as of 10/28/2016 does not work correctly on Linux.
+  > [!WARNING]
+  > While SCP.NET topologies are supported on Linux-based Storm clusters created after 10/28/2016, the HBase SDK for .NET package available as of 10/28/2016 does not work correctly on Linux-based HDInsight
 
 * Apache HBase on HDInsight cluster (Linux or Windows-based).
 
@@ -220,3 +220,4 @@ When you are ready to stop the topology, return to the **CorrelationTopology** p
 ## Next steps
 
 For more Storm examples, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).
+<!--Update_Description: wording update-->

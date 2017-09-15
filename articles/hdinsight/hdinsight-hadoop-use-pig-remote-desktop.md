@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/17/2017
-ms.date: 03/10/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 ROBOTS: NOINDEX
 
 ---
@@ -48,7 +48,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
     You will be presented with a `grunt>` prompt.
 3. Enter the following statement:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     This command loads the contents of the sample.log file into the LOGS file. You can view the contents of the file by using the following command:
 
@@ -79,7 +79,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
     </table>
 6. You can also save the results of a transformation by using the `STORE` statement. For example, the following command saves the `RESULT` to the **/example/data/pigout** directory in the default storage container for your cluster:
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
@@ -95,7 +95,7 @@ You can also use the Pig command to run Pig Latin that is contained in a file.
 1. After exiting the grunt prompt, open **Notepad** and create a new file named **pigbatch.pig** in the **%PIG_HOME%** directory.
 2. Type or paste the following lines into the **pigbatch.pig** file, and then save it:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
@@ -127,3 +127,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+<!--Update_Description: change 'wasbs' into 'wasb'-->

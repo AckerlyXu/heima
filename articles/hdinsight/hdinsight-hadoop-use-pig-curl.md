@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Run Pig jobs with Hadoop on HDInsight by using REST
@@ -101,7 +101,7 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
 
 ## <a id="results"></a>View results
 
-When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from the default storage used by the cluster. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/pigcurl`.
+When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/pigcurl`.
 
 HDInsight can use Azure Storage as the default data store. For more information, see the storage section of the [Linux-based HDInsight information](hdinsight-hadoop-linux-information.md#hdfs-and-azure-storage) document.
 
@@ -121,3 +121,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+<!--Update_Description: wording update-->

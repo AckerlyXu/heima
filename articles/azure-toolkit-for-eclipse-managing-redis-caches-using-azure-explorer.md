@@ -100,7 +100,7 @@ For more information about Azure redis caches, configuration settings and pricin
 <!-- URL List -->
 
 [Redis Cache Pricing]: https://www.azure.cn/pricing/details/cache/
-[Azure Redis Cache]: https://azure.microsoft.com/services/cache/
+[Azure Redis Cache]: /redis-cache/
 [Redis Cache Documentation]: ./redis-cache/index.md
 [How to configure Azure Redis Cache]: ./redis-cache/cache-configure.md
 [Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md

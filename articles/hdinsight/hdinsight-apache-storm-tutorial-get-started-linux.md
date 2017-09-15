@@ -14,9 +14,9 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/15/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ---
@@ -62,7 +62,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
     * **Operating system**: Linux
 
-    * **Version**: Storm 1.0.1 (HDI 3.5)
+    * **Version**: Storm 1.1.0 (HDI 3.6)
 
     * **Cluster Tier**: Standard
 
@@ -107,7 +107,7 @@ Use the following steps to create a Storm on HDInsight cluster:
     >
     > The WordCount example, and other storm-starter examples, are already included on your cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-If you are interested in viewing the source for the storm-starter examples, you can find the code at [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). This link is for Storm 1.0.x, which is provided with HDInsight 3.5. For other versions of Storm, use the __Branch__ button at the top of the page to select a different Storm version.
+If you are interested in viewing the source for the storm-starter examples, you can find the code at [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). This link is for Storm 1.1.x, which is provided with HDInsight 3.6. For other versions of Storm, use the __Branch__ button at the top of the page to select a different Storm version.
 
 ## Monitor the topology
 
@@ -207,3 +207,4 @@ For example topologies that can be used with Storm on HDInsight, see the followi
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.cn/
+<!--Update_Description: update the version of hdinsight-->

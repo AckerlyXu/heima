@@ -180,10 +180,10 @@ For more information about using Azure with Java, see [Azure Java Developer Cent
 [Azure Java Developer Center]: /develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
-[Sizes for Windows virtual machines in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
-[Sizes for Linux virtual machines in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Windows virtual-machine pricing]: /pricing/details/virtual-machines/windows/
-[Linux virtual-machine pricing]: /pricing/details/virtual-machines/linux/
+[Sizes for Windows virtual machines in Azure]: /virtual-machines/virtual-machines-windows-sizes
+[Sizes for Linux virtual machines in Azure]: /virtual-machines/virtual-machines-linux-sizes
+[Windows virtual-machine pricing]: https://www.azure.cn/pricing/details/virtual-machines/
+[Linux virtual-machine pricing]: https://www.azure.cn/pricing/details/virtual-machines/
 
 
 <!-- IMG List -->

@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/03/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use MapReduce with Hadoop on HDInsight with SSH
@@ -42,11 +42,15 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 
 Connect to the cluster using SSH. For example, the following command connects to a cluster named **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.cn
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.cn
+```
 
 **If you use a certificate key for SSH authentication**, you may need to specify the location of the private key on your client system, for example:
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.cn
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.cn
+```
 
 **If you use a password for SSH authentication**, you need to provide the password when prompted.
 
@@ -89,7 +93,7 @@ For more information on using SSH with HDInsight, see [Use SSH with HDInsight](h
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    This command displays a list of the words that are contained in the **wasbs://example/data/gutenberg/davinci.txt** file and the number of times each word occurred. The following text is an example of the data that is contained in the file:
+    This command displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occurred. The following text is an example of the data that is contained in the file:
 
         wreathed        3
         wreathing       1
@@ -113,3 +117,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+<!--Update_Description: update code type and change 'wasbs' into 'wasb'-->

@@ -3,8 +3,8 @@ title: Analyze flight delay data with Hive on HDInsight - Azure | Azure
 description: Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop.
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
-manager: jhubbard
+author: hayley244
+manager: digimobile
 editor: cgronlun
 tags: azure-portal
 
@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/04/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 07/31/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -160,7 +160,7 @@ Use the following steps to import data from the CSV file into a Hive table named
 3. To start Hive and run the **flightdelays.hql** file, use the following command:
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
@@ -169,7 +169,7 @@ Use the following steps to import data from the CSV file into a Hive table named
 4. Once the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
 5. When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following query to retrieve data from the imported flight delay data.
@@ -317,3 +317,4 @@ To learn more ways to work with data in HDInsight, see the following documents:
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+<!--Update_Description: update code-->

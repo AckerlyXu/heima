@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/26/2016
-ms.date: 06/05/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Optimize Hive queries in Azure HDInsight
@@ -95,7 +95,7 @@ Once the partitioned table is created, you can either create static partitioning
         WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
 
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
-        LOCATION 'wasbs://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
+        LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
 * **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table:
 
         SET hive.exec.dynamic.partition = true;
@@ -186,3 +186,4 @@ In this article, you have learned several common Hive query optimization methods
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
+<!--Update_Description: change 'wasbs' into 'wasb'-->

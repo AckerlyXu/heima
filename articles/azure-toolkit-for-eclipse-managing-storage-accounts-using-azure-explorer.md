@@ -138,16 +138,16 @@ For more information about using Azure with Java, see [Azure Java Developer Cent
 [Azure Java Developer Center]: /develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
-[Introduction to Azure Storage]: /azure/storage/storage-introduction
-[About Azure storage accounts]: /azure/storage/storage-create-storage-account
-[Azure storage replication]: /azure/storage/storage-redundancy
-[Azure storage scalability and Performance Targets]: /azure/storage/storage-scalability-targets
+[Introduction to Azure Storage]: /storage/common/storage-introduction
+[About Azure storage accounts]: /storage/common/storage-create-storage-account
+[Azure storage replication]: /storage/common/storage-redundancy
+[Azure storage scalability and Performance Targets]: /storage/common/storage-scalability-targets
 [Naming and referencing containers, blobs, and metadata]: http://go.microsoft.com/fwlink/?LinkId=255555
 
-[Sizes for Windows storage accounts in Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
-[Sizes for Linux storage accounts in Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
-[Windows storage-account pricing]: /pricing/details/virtual-machines/windows/
-[Linux storage-account pricing]: /pricing/details/virtual-machines/linux/
+[Sizes for Windows storage accounts in Azure]: /virtual-machines/virtual-machines-windows-sizes
+[Sizes for Linux storage accounts in Azure]: /virtual-machines/virtual-machines-linux-sizes
+[Windows storage-account pricing]: https://www.azure.cn/pricing/details/virtual-machines/
+[Linux storage-account pricing]: https://www.azure.cn/pricing/details/virtual-machines/
 
 <!-- IMG List -->
 

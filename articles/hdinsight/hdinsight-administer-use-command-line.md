@@ -3,8 +3,8 @@ title: Manage Hadoop clusters using Azure CLI - Azure HDInsight| Azure
 description: Learn how to use the Azure Command-line Interface to manage Hadoop clusters in Azure HDInsight. The Azure CLI works on Windows, Mac, and Linux.
 services: hdinsight
 editor: cgronlun
-manager: jhubbard
-author: mumian
+manager: digimobile
+author: hayley244
 tags: azure-portal
 documentationcenter: ''
 
@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Manage Hadoop clusters in HDInsight using the Azure CLI
@@ -91,8 +91,8 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [How to use the Azure CLI][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]: ../storage-create-storage-account.md
-[azure-purchase-options]: https://www.azure.cn/pricing/overview/
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
+[azure-purchase-options]: https://www.azure.cn/pricing/purchase-options/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
@@ -104,3 +104,4 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "List and show clusters"
+<!--Update_Description: update link ref-->

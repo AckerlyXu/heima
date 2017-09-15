@@ -17,8 +17,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/06/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Set up clusters in HDInsight with Hadoop, Spark, and more
@@ -114,6 +114,8 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 During configuration, for the default storage endpoint you specify a blob container of an Azure Storage account. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
@@ -232,3 +234,4 @@ If you run into issues with creating HDInsight clusters, see [access control req
 - [What are HDInsight, the Hadoop ecosystem, and Hadoop clusters?](hdinsight-hadoop-introduction.md)
 - [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Work in Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
+<!--Update_Description: add a include-->

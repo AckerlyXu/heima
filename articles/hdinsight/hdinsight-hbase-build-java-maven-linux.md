@@ -1,5 +1,5 @@
 ---
-title: Java HBase application - Azure HDInsight | Azure
+title: Java HBase client - Azure HDInsight | Azure
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/07/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Build Java applications for Apache HBase
@@ -24,6 +24,9 @@ ms.author: v-dazen
 Learn how to create an [Apache HBase](http://hbase.apache.org/) application in Java. Then use the application with HBase on Azure HDInsight.
 
 The steps in this document use [Maven](http://maven.apache.org/) to create and build the project. Maven is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects.
+
+> [!NOTE]
+> The steps in this document were most recently tested with HDInsight 3.6.
 
 > [!IMPORTANT]
 > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -35,7 +38,7 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 or later.
 
     > [!NOTE]
-    > HDInsight 3.5 requires Java 8. Earlier versions of HDInsight require Java 7.
+    > HDInsight 3.5 and greater requires Java 8. Earlier versions of HDInsight require Java 7.
 
 * [Maven](http://maven.apache.org/)
 
@@ -46,13 +49,18 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 
 ## Create the project
 
-1. From the command line in your development environment, change directories to the location where you want to create the project, for example, `cd code/hdinsight`.
+1. From the command line in your development environment, change directories to the location where you want to create the project, for example, `cd code\hbase`.
 
 2. Use the **mvn** command, which is installed with Maven, to generate the scaffolding for the project.
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
+
+    > [!NOTE]
+    > If you are using PowerShell, you must enclose the `-D` parameters in double quotes.
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     This command creates a directory with the same name as the **artifactID** parameter (**hbaseapp** in this example.) This directory contains the following items:
 
@@ -86,7 +94,7 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
    | HDInsight cluster version | HBase version to use |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
-   | 3.3, 3.4 and 3.5 |1.1.2 |
+   | 3.3, 3.4, 3.5, and 3.6 |1.1.2 |
 
     For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 
@@ -152,7 +160,9 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 
 6. Use the following command to copy the HBase configuration from the HBase cluster to the `conf` directory. Replace `USERNAME` with the name of your SSH login. Replace `CLUSTERNAME` with your HDInsight cluster name:
 
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
 
    For more information on using `ssh` and `scp`, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -372,7 +382,9 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
 2. To connect to the HBase cluster, use the following command:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```
 
     Replace `USERNAME` the name of your SSH login. Replace `CLUSTERNAME` with your HDInsight cluster name.
 
@@ -398,6 +410,8 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
         Rae Schroeder - rae@contoso.com - ID: 4
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
+
+5. To delete the table, use the following command:
 
 ## Upload the JAR and run jobs (PowerShell)
 
@@ -456,7 +470,7 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -664,7 +678,7 @@ When you are done with the example, use the following to delete the **people** t
 
 __From an `ssh` session__:
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __From Azure PowerShell__:
 
@@ -673,3 +687,4 @@ __From Azure PowerShell__:
 ## Next steps
 
 [Learn how to use SQuirreL SQL with HBase](hdinsight-hbase-phoenix-squirrel-linux.md)
+<!--Update_Description: wording update and change 'wasbs' into 'wasb'-->

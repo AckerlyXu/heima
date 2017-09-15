@@ -1,5 +1,5 @@
 ---
-title: Mirror Apache Kafka topics - Azure HDInsight | Microsoft Docs
+title: Mirror Apache Kafka topics - Azure HDInsight | Azure
 description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
 services: hdinsight
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/13/2017
-ms.date: 09/04/2017
+ms.date: 09/18/2017
 ms.author: v-haiqya
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (preview)
@@ -63,22 +63,22 @@ For more information on connecting two Azure Virtual Networks, see [Configure a 
 While you can create an Azure virtual network and Kafka clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network and two Kafka clusters to your Azure subscription.
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
-   
+
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
     > [!WARNING]
     > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following information to populate the entries on the **Custom deployment** blade:
-    
+
     ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)
-    
+
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you.
-     
+
     * **Base Cluster Name**: This value is used as the base name for the Kafka clusters. For example, entering **hdi** creates clusters named **source-hdi** and **dest-hdi**.
 
     * **Cluster Login User Name**: The admin user name for the source and destination Kafka clusters.
@@ -119,7 +119,7 @@ Once the resources have been created, you are redirected to a blade for the reso
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
     export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
-    
+
     Replace `$PASSWORD` with the password for the cluster.
 
     Replace `$CLUSTERNAME` with the name of the source cluster.
@@ -232,7 +232,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     * **--num.streams**: The number of consumer threads to create.
 
- On startup, MirrorMaker returns information similar to the following text:
+    On startup, MirrorMaker returns information similar to the following text:
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}

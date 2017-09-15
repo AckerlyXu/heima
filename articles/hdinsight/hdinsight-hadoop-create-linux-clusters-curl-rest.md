@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/10/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Create Hadoop clusters using the Azure REST API
@@ -375,3 +375,4 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+<!--Update_Description: update metadata-->

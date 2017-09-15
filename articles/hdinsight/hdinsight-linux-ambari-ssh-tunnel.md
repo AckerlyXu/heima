@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/30/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/21/2017
+ms.date: 09/18/2017
+ms.author: v-haiqya
 
 ---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs
@@ -36,6 +36,9 @@ The following Web UIs require an SSH tunnel:
 * HBase Master and Logs UI
 
 If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web UI require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
+
+> [!IMPORTANT]
+> If you have direct access to HDInsight through a virtual network, you do not need to use SSH tunnels. For an example of directly accessing HDInsight through a virtual network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## What is an SSH tunnel
 
@@ -110,7 +113,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
    > [!NOTE]
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
 
-2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). If the proxy is correctly configured, the IP address returned is from a machine in the Azure datacenter.
+2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). The IP returned should be one used by the Azure datacenter.
 
 ## Verify with Ambari web UI
 
@@ -130,7 +133,7 @@ Once the cluster has been established, use the following steps to verify that yo
     ![Image with the QuickLinks menu expanded](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > When you select __Quick Links__, you may get a wait indicator. This can happen if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
+   > When you select __Quick Links__, you may get a wait indicator. This condition can occur if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
    >
    > Some entries in the **Quick Links** menu may be cut off by the right side of the screen. If so, expand the menu using your mouse and use the right arrow key to scroll the screen to the right to see the rest of the menu.
 
@@ -148,3 +151,4 @@ Now that you have learned how to create and use an SSH tunnel, see the following
 * [Manage HDInsight clusters by using Ambari](hdinsight-hadoop-manage-ambari.md)
 
 For more information on using SSH with HDInsight, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+<!--Update_Description: wording update-->
