@@ -67,7 +67,7 @@ You can view and configure the following settings using the **Resource Menu**.
 
 ### Activity log
 
-Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). 
 
 ### Access control (IAM)
 
@@ -117,7 +117,7 @@ By default, non-SSL access is disabled for new caches. To enable the non-SSL por
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 
-#### Memory policies <a name="maxmemory-policy-and-maxmemory-reserved"></a>
+#### Memory policies <a name="memory-policies"></a>
 The **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
