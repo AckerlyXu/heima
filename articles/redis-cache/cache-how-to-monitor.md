@@ -1,10 +1,10 @@
 ---
-title: How to monitor Azure Redis Cache | Azure
+title: How to monitor Azure Redis Cache | Microsoft Docs
 description: Learn how to monitor the health and performance your Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
@@ -13,9 +13,9 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 07/13/2017
+ms.date: 09/14/2017
+ms.author: v-junlch
 
 ---
 # How to monitor Azure Redis Cache
@@ -33,8 +33,8 @@ To view cache metrics, [browse](cache-configure.md#configure-redis-cache-setting
 
 The **Overview** blade has the following pre-configured monitoring charts.
 
-* [Monitoring charts](#monitoring-charts)
-* [Usage charts](#usage-charts)
+- [Monitoring charts](#monitoring-charts)
+- [Usage charts](#usage-charts)
 
 ### Monitoring charts
 The **Monitoring** section in the **Overview** blade has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
@@ -60,7 +60,7 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../monitorin
 
 To configure a storage account for your cache metrics:
 
-1. Click **Diagnostics** from the **Settings** in the **Redis Cache** blade.
+1. Click **Diagnostics** from the **Monitoring** in the **Redis Cache** blade.
 2. Click **On**.
 3. Check **Archive to a storage account**.
 4. Select the storage account in which to store the cache metrics.
@@ -102,19 +102,6 @@ Each metric includes two versions. One metric measures performance for the entir
 | Cache Read |The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.** |
 | Cache Write |The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client. |
 
-<a name="operations-and-alerts"></a>
-## Alerts
-You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
-
-* Send an email notification
-* Call a webhook
-* Invoke an Azure Logic App
-
-To configure Alert rules for your cache, click **Alert rules** from the **Settings**.
-
-![Monitoring](./media/cache-how-to-monitor/redis-cache-monitoring.png)
-
-For more information about configuring and using Alerts, see [Overview of Alerts](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 ## Activity Logs
 Activity logs provide insight into the operations that were performed on your Azure Redis Cache instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Redis Cache instances. 
@@ -124,6 +111,17 @@ Activity logs provide insight into the operations that were performed on your Az
 >
 >
 
-To view activity logs for your cache, click **Activity logs** from the **Settings**.
+To view activity logs for your cache, click **Activity logs** from the **Overview**.
 
-For more information about Activity logs, see [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+<!--Update_Description: wording update-->
+
+
+
+
+
+
+
+
+
+
+

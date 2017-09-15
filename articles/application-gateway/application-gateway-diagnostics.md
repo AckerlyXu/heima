@@ -92,7 +92,7 @@ The following snippet shows an example of the response:
 }
 ```
 
-## Diagnostic logs
+## Diagnostic logs <a name="diagnostic-logging"></a>
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such Excel and Power BI. You can learn more about the different types of logs from the following list:
 

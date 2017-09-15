@@ -130,7 +130,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## Multi-site redirect
 
-The following example creates a new application gateway with 2 multi-site listeners on port 80. The listeners are for adatum.com and adatum.org. A redirect rule is created to redirect traffic from adatum.org to adatum.com. Additional configuration is required for configuring CNAME aliases to the application gateway public IP address, for more information on delegating your domain to Azure DNS and creating CNAME records for your domain visit, [Delegate a domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
+The following example creates a new application gateway with 2 multi-site listeners on port 80. The listeners are for adatum.com and adatum.org. A redirect rule is created to redirect traffic from adatum.org to adatum.com. Additional configuration is required for configuring CNAME aliases to the application gateway public IP address.
 
 ```powershell
 # Create a new resource group for the application gateway
