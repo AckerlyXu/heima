@@ -107,7 +107,8 @@ If your VM traffic flow is impacted for a specific NIC, you can view a full list
    > 
 4. You can directly edit rules for NSGs associated with a NIC and a subnet. To learn how, read step 8 of the **View effective security rules for a virtual machine** section of this article.
 
-## <a name="nsg"></a>View effective security rules for a network security group (NSG)
+<a name="nsg"></a>
+## View effective security rules for a network security group (NSG)
 When modifying NSG rules, you may want to review the impact of the rules being added on a particular VM. You can view a full list of the effective security rules for all the NICs that a given NSG is applied to, without having to switch context from the given NSG blade. 
 To troubleshoot effective rules within an NSG, complete the following steps:
 
