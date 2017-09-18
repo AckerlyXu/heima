@@ -47,7 +47,7 @@ Yes. You can use a VNet without using hybrid connectivity. This is particularly 
 
 Yes. You can deploy a [WAN optimization network virtual appliance](https://azure.microsoft.com/marketplace/?term=wan+optimization) from several vendors through the Azure Marketplace.
 
-## Configuration
+## <a name="configuration"></a>Configuration
 
 ### What tools do I use to create a VNet?
 You can use the following tools to create or configure a VNet:
