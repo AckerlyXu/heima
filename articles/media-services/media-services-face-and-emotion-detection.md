@@ -3,7 +3,7 @@ title: Detect Face and Emotion with Azure Media Analytics | Azure
 description: This topic demonstrates how to detect faces and emotions with Azure Media Analytics.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/18/2017
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Detect Face and Emotion with Azure Media Analytics
@@ -163,7 +163,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
-|| Defaults(s) | Min(s) | Max(s) |
+|| Defaults(s) | Max(s) | Min(s) |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |0.25|
 | AggregateEmotionIntervalMs |0.5 |1 |0.25|
@@ -511,4 +511,4 @@ Set up your development environment and populate the app.config file with connec
 
 [Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
 
-<!--Update_Description: update code to use AAD token instead of ACS-->
+<!--Update_Description: update Aggregate defaults table-->

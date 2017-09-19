@@ -3,8 +3,8 @@ title: Smooth Streaming Windows Store App Tutorial | Azure
 description: Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
@@ -13,7 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+origin.date: 05/11/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 
 ---
@@ -46,7 +47,7 @@ In this lesson, you will create a Windows Store application with a MediaElement 
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
 
-For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](https://developer.microsoft.com/zh-cn/windows). 
+For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). 
 This lesson contains the following procedures:
 
 1. Create a Windows Store project

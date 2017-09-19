@@ -4,7 +4,7 @@ title: Manage streaming endpoints with the Azure portal | Azure
 description: This topic shows how to manage streaming endpoints with the Azure portal.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: forester123
 writer: juliako
 manager: digimobile
 editor: ''
@@ -15,9 +15,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/10/2017
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Manage streaming endpoints with the Azure portal
@@ -83,4 +83,4 @@ A brief description of the fields follows.
 ## Scale your Premium streaming endpoint
 
 For more information, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
-<!--Update_Description: remove CDN integration related content since not support in MC-->
+<!--Update_Description: wording update-->

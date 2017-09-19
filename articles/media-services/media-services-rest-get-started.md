@@ -3,7 +3,7 @@ title: Get started with delivering content on demand using REST | Azure
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using REST API.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/05/2017
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Get started with delivering content on demand using REST
@@ -51,7 +51,7 @@ The following tasks are shown in this quickstart.
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
-For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
+For details about AMS REST entities used in this topic, see [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Also, see [Azure Media Services concepts](media-services-concepts.md).
 
 >[!NOTE]
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
@@ -973,4 +973,4 @@ http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-
 To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
-<!--Update_Description: remove ACS related content-->
+<!--Update_Description: update one link-->

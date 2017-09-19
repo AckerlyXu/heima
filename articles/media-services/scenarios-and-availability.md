@@ -3,8 +3,8 @@ title: Azure Media Services scenarios and availability of features across datace
 description: This topic gives an overview of Azure Media Services scenarios and availability of features and services across data centers. 
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.service: media-services
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 07/10/2017
-ms.date: ''
-ms.author: v-haiqya
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Scenarios and availability of Media Services features across datacenters
@@ -190,6 +190,7 @@ AMS offers two on-demand encoders **Media Encoder Standard** and **Media Encoder
 |Media processor name|Status|Datacenters
 |---|---|---|
 |Media Encoder Standard|GA|All|
+|Media Encoder Premium Workflow|GA|All except China|
 
 ### Analytics media processors
 
@@ -207,6 +208,7 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Azure Media Redactor|Preview|All|
 |Azure Media Stabilizer|Preview|All|
 |Azure Media Video Thumbnails|Preview|All|
+|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
@@ -220,6 +222,7 @@ Azure Media Services enables you to secure your media from the time it leaves yo
 |AES-128 keys|GA|All|
 |Fairplay|GA|All|
 |PlayReady|GA|All|
+|Widevine|GA|All except Germany, Federal Government and China.
 
 ### Reserved units (RUs)
 
@@ -245,4 +248,4 @@ For more information, see the [scaling](#scaling) section.
 |S2|GA|All except Brazil South, and India West|
 |S3|GA|All except India West|
 
-<!--Update_Description:new file-->
+<!--Update_Description:update three tables-->

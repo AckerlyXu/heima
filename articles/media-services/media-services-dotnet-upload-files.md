@@ -3,8 +3,8 @@ title: Upload files into a Media Services account using .NET  | Microsoft Docs
 description: Learn how to get media content into Media Services by creating and uploading assets.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
@@ -13,7 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+origin.date: 03/12/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 
 ---
@@ -21,6 +22,7 @@ ms.author: v-johch
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
 > 
 > 
 
@@ -279,10 +281,12 @@ The following example calls UploadFile function and specifies storage encryption
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
+## Next steps
 
+You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 
 ## Next step
 Now that you have uploaded an asset to Media Services, go to the [How to Get a Media Processor][How to Get a Media Processor] topic.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
+<!--Update_Description:add two links-->

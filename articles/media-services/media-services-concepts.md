@@ -3,8 +3,8 @@ title: Azure Media Services concepts | Microsoft Docs
 description: This topic gives an overview of Azure Media Services Concepts
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Azure Media Services concepts
@@ -93,7 +93,7 @@ Codecs are the software that implements the compression/decompression algorithms
 
 Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) without you having to re-package into these streaming formats.
 
-To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard streaming endpoint in started state.
+To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard or premium streaming endpoint in started state.
 
 Media Services supports the following on-demand encoders that are described in this article:
 
@@ -158,16 +158,16 @@ For more information, see the following articles:
 When working with Media Services, it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 ### Streaming endpoint
-A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a streaming endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. Media Services customers choose a **Standard** streaming endpoint, according to their needs. Standard streaming endpoint is suitable for most streaming workloads. 
+A StreamingEndpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution (Azure Media Services now provides the Azure CDN integration.) The outbound stream from a streaming endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. Media Services customers choose either a **Standard** streaming endpoint or one or more **Premium** streaming endpoints, according to their needs. Standard streaming endpoint is suitable for most streaming workloads. 
 
-Standard Streaming Endpoint is suitable for most streaming workloads. Standard Streaming Endpoints offer the flexibility to deliver your content to virtually every device through dynamic packaging into HLS, MPEG-DASH, and Smooth Streaming as well as dynamic encryption for Microsoft PlayReady, Apple Fairplay, and AES128.  They also scale from very small to very large audiences with thousands of concurrent viewers through Azure CDN integration.
+Standard Streaming Endpoint is suitable for most streaming workloads. Standard Streaming Endpoints offer the flexibility to deliver your content to virtually every device through dynamic packaging into HLS, MPEG-DASH, and Smooth Streaming as well as dynamic encryption for Microsoft PlayReady, Apple Fairplay, and AES128.  They also scale from very small to very large audiences with thousands of concurrent viewers through Azure CDN integration. If you have an advanced workload or your streaming capacity requirements don't fit to standard streaming endpoint throughput targets or you want to control the capacity of the StreamingEndpoint service to handle growing bandwidth needs,  it is recommended to allocate scale units(also known as premium streaming units).
 
 It is recommended to use dynamic packaging and/or dynamic encryption.
 
 >[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-
+For more information, see [this](media-services-portal-manage-streaming-endpoints.md) topic.
 
 By default you can have up to 2 streaming endpoints in your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
@@ -222,4 +222,4 @@ The following list describes different streaming formats and gives examples:
 
     http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: add Premium Streaming endpoint information-->

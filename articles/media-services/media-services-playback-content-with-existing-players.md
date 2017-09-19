@@ -3,8 +3,8 @@ title: Use existing players to playback your content - Azure | Azure
 description: This topic lists existing players that you can use to playback your content.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/10/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 ---
-
-#Playing your content with existing players
-
+# Playing your content with existing players
 Azure Media Services supports many popular streaming formats, such as Smooth Streaming, HTTP Live Streaming, and MPEG-Dash. This topic points you to existing players that you can use to test your streams.
 
 ### The Azure portal Media Services content player
 
 The **Azure** portal provides a content player that you can use to test your video.
 
-Click on the desired video and click the **Play** button at the bottom of the portal.
+Click on the desired video (make sure it was [published](media-services-portal-publish.md)) and click the **Play** button at the bottom of the portal.
 
 Some considerations apply:
 
@@ -37,41 +35,34 @@ Some considerations apply:
 ### Azure Media Player
 Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) to playback your content (clear or protected) in any of the following formats:
 
-- Smooth Streaming
-- MPEG DASH
-- HLS
-- Progressive MP4
+* Smooth Streaming
+* MPEG DASH
+* HLS
+* Progressive MP4
 
-###Flash Player
-
-####AES-encrypted with Token
-
+### Flash Player
+#### AES-encrypted with Token
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-###Silverlight Players
-
-####Monitoring
-
+### Silverlight Players
+#### Monitoring
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
-####PlayReady with Token
-
+#### PlayReady with Token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
 ### DASH Players
-
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
-###Other
-
+### Other
 To test HLS URLs you can also use:
 
-- **Safari** on an iOS device or
-- **3ivx HLS Player** on Windows.
+* **Safari** on an iOS device or
+* **3ivx HLS Player** on Windows.
 
 ## Developing video players
-For information about how to develop your own players, see [Developing video players](./media-services-develop-video-players.md)
+For information about how to develop your own players, see [Developing video players](media-services-develop-video-players.md)
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png

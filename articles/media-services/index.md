@@ -2,15 +2,16 @@
 title: Azure Media Services Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to securely stream on-demand or live broadcast-quality video with Media Services, an extensible cloud platform. Tutorials, API references, and more.
 services: media-services
-author: carolz
-manager: carolz
+author: forester123
+manager: digimobile
 layout: LandingPage
 ms.assetid:	
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+origin.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 ---
 
@@ -37,8 +38,27 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
         </div>
         </a>
     </li>
+
     <li>
-        <a href="/media-services/media-services-create-account">
+        <a href="/media-services/media-services-portal-create-account">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Azure Media Services using the Azure Portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/media-services/media-services-portal-create-account">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +75,24 @@ Learn how to stream broadcast-quality video with Media Services, an extensible c
         </div>
         </a>
     </li>
-<li>
+    <li>
+        <a href="/media-services/media-services-portal-vod-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started delivering content using the Azure Portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
         <a href="/media-services/media-services-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
