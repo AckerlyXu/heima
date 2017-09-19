@@ -164,11 +164,9 @@ The agent is now installed and your machine is registered to the vault. You're r
 ## Network and Connectivity Requirements
 
 If your machine/proxy has limited internet access, ensure that firewall settings on the mcahine/proxy are configured to allow the following URLs: <br>
-    1. www.msftncsi.com
-    2. *.Microsoft.com
-    3. *.WindowsAzure.com
-    4. *.microsoftonline.com
-    5. *.windows.ne
+    1. *.Microsoft.com
+    2. *.WindowsAzure.cn
+    3. *.microsoftonline.cn
 
 ## Back up your files and folders
 The initial backup includes two key tasks:

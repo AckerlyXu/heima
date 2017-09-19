@@ -174,8 +174,8 @@ If you have a firewall or a proxy that is preventing access to Azure, you need t
 
 - www.msftncsi.com
 - \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
+- \*.WindowsAzure.cn
+- \*.microsoftonline.cn
 - \*.chinacloudapi.cn
 
 Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
