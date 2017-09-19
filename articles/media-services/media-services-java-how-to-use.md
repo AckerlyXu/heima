@@ -3,8 +3,8 @@ title: Get started with delivering content on demand using Java | Azure
 description: This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.
 services: media-services
 documentationcenter: java
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
 origin.date: 01/10/2017
-ms.date: 02/24/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 ---
 
@@ -29,7 +29,7 @@ This tutorial walks you through the steps of implementing a basic Video-on-Deman
 The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
-* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-create-account.md).
+* A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][Azure Java Developer Center].
 
 ##<a if="connect"></a>How to: Use Media Services with Java
@@ -37,9 +37,12 @@ The following are required to complete the tutorial:
 >[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
 The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
-You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](./media-services-create-account.md).
+You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 
 Substitute your values for the 'clientId' and 'clientSecret' variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
 
@@ -256,7 +259,7 @@ public class HelloMediaServices
 
 ## Additional Resources
 For Media Services Javadoc documentation, see [Azure Libraries for Java documentation][Azure Libraries for Java documentation].
-
+<!--Update_Description:update two links;add one note about AMS policy limitations-->
 <!-- URLs. -->
 
   [Azure Java Developer Center]: /develop/java/

@@ -3,8 +3,8 @@ title: Redact faces with Azure Media Analytics walkthrough | Azure
 description: This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 services: media-services
 documentationcenter: ''
-author: Lichard
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
@@ -13,7 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/07/2017
+origin.date: 09/03/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 
 ---
@@ -27,9 +28,7 @@ For details about  **Azure Media Redactor**, see the [Face redaction overview](m
 
 This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 
-The **Azure Media Redactor** MP is generally available. It is available in all public Azure regions as well as US Government and China data centers.
-
-For more information, see [this](https://azure.microsoft.com/en-us/blog/general-availability-azure-media-redactor/) blog.
+For more information, see [this](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
 
 ## Azure Media Services Explorer workflow
 
@@ -40,7 +39,7 @@ The easiest way to get started with Redactor is to use the open source AMSE tool
 1. Download the AMSE tool from [here](https://github.com/Azure/Azure-Media-Services-Explorer).
 1. Log in to your Media Services account using your service key.
 
-    To obtain the account name and key information, go to the [Azure Portal](https://portal.azure.cn/) and select your AMS account. Then, select Settings > Keys. The Manage keys windows shows the account name and the primary and secondary keys is displayed. Copy values of the account name and the primary key.
+    To obtain the account name and key information, go to the [Azure portal](https://portal.azure.cn/) and select your AMS account. Then, select Settings > Keys. The Manage keys windows shows the account name and the primary and secondary keys is displayed. Copy values of the account name and the primary key.
 
 ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
@@ -124,3 +123,4 @@ If you are a developer trying to parse the JSON annotation data, look inside Mod
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 [Announcing Face Redaction for Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)
+<!--Update_Description:update blog link-->

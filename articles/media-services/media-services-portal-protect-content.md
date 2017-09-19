@@ -3,7 +3,7 @@ title: Configuring content protection policies using the Azure portal | Microsof
 description: This article demonstrates how to use the Azure portal to configure content protection policies. The article also shows how to enable dynamic encryption for your assets.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 08/25/2017
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Configuring content protection policies using the Azure portal
@@ -109,3 +109,6 @@ To enable FairPlay encryption, you need to provide the App Certificate and Appli
 
 Once you make the encryption selection, press **Apply**.
 
+>[!NOTE] 
+>If you are planning to play an AES encrypted HLS in Safari, see [this blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+<!--Update_Description:add a note at the end-->

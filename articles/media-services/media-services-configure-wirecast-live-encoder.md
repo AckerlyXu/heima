@@ -3,8 +3,8 @@ title: Configure the Telestream Wirecast encoder to send a single bitrate live s
 description: 'This topic shows how to configure the Wirecast live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. '
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -13,7 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+origin.date: 01/05/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 
 ---
@@ -28,11 +29,11 @@ ms.author: v-johch
 
 This topic shows how to configure the [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure Management Portal to create [channels](./media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](./media-services-portal-creating-live-encoder-enabled-channel.md).
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## Prerequisites
-* [Create an Azure Media Services account](media-services-create-account.md)
-* Ensure there is a Streaming Endpoint running. 
+* [Create an Azure Media Services account](media-services-portal-create-account.md)
+* Ensure there is a Streaming Endpoint running. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
 * Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
 * Launch the tool and connect to your AMS account.
 
@@ -170,5 +171,5 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Troubleshooting
 Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.
-
+<!--Update_Description:update links-->
 

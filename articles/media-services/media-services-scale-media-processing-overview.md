@@ -3,8 +3,8 @@ title: Scaling Media Processing overview | Microsoft Docs
 description: This topic is an overview of scaling Media Processing with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/04/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+ms.date: 09/25/2017
+ms.author: v-johch
 
 ---
 # Scaling Media Processing overview
@@ -56,9 +56,10 @@ Achieve the scaling media processing task with one of these technologies:
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
+> * [Portal](media-services-portal-scale-media-processing.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
-<!--Update_Description: update metadata-->
+<!--Update_Description: add one link-->

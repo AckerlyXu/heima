@@ -3,8 +3,8 @@ title: Configure the Elemental Live encoder to send a single bitrate live stream
 description: This topic shows how to configure the Elemental Live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.
 services: media-services
 documentationcenter: ''
-author: cenkdin
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
@@ -13,7 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+origin.date: 01/05/2017
+ms.date: 09/25/2017
 ms.author: v-johch
 
 ---
@@ -32,8 +33,8 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 
 ## Prerequisites
 * Must have a working knowledge of using Elemental Live web interface to create live events.
-* [Create an Azure Media Services account](media-services-create-account.md)
-* Ensure there is a Streaming Endpoint running. 
+* [Create an Azure Media Services account](media-services-portal-create-account.md)
+* Ensure there is a Streaming Endpoint running. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md).
 * Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
 * Launch the tool and connect to your AMS account.
 
@@ -169,5 +170,5 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 ## Troubleshooting
 Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.
-
+<!--Update_Description: update links-->
 

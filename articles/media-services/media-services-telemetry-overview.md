@@ -3,7 +3,7 @@ title: Azure Media Services Telemetry | Azure
 description: This article gives an overview of Azure Media Services telemetry.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 09/25/2017
+ms.author: v-johch
 ---
 
 # Azure Media Services Telemetry
@@ -70,7 +70,7 @@ Telemetry data is stored in aggregate in one table, "TelemetryMetrics20160321" w
 Property|Value|Examples/notes
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>The account ID is included in the partition key to simplify workflows where multiple Media Services accounts are writing to the same storage account.
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>The row key starts with the number of seconds to midnight to allow top n style queries within a partition. For more information, see [this](../storage/storage-table-design-guide.md#log-tail-pattern) article. 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>The row key starts with the number of seconds to midnight to allow top n style queries within a partition. For more information, see [this](../cosmos-db/table-storage-design-guide.md#log-tail-pattern) article. 
 Timestamp|Date/Time|Auto timestamp from the Azure table 2016-09-09T22:43:42.241Z
 Type|The type of the entity providing telemetry data|Channel/StreamingEndpoint/Archive<br/><br/>Event type is just a string value.
 Name|The name of the telemetry event|ChannelHeartbeat/StreamingEndpointRequestLog
@@ -207,3 +207,4 @@ Telemetric data can be processed and visualized with the following tools:
 ### How to manage data retention?
 
 The telemetry system does not provide data retention management or auto deletion of old records. Thus, you need to manage and delete old records manually from the storage table. You can refer to storage SDK for how to do it.
+<!--Update_Description:update one link-->
