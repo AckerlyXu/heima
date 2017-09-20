@@ -3,8 +3,8 @@ title: Azure Traffic Manager - FAQs | Azure
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/15/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 09/25/2017
+ms.author: v-yeche
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -66,8 +66,8 @@ To work around this issue, we recommend using an HTTP redirect to direct traffic
 Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
-No, currently Traffic Manager considers only the source IP address of the DNS query it receives, which usually is the IP address of the DNS resolver, when performing lookups for Geographic and Performance routing methods.  
-Specifically, [RFC 7871 - Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it to DNS servers is currently not supported in Traffic Manager. You can register your support for this feature request through our [community feedback site](https://feedback.azure.com/forums/217313-networking).
+Yes, in addition to the source IP address of the DNS query it receives (which usually is the IP address of the DNS resolver), when performing lookups for Geographic and Performance routing methods, traffic manager also considers the client subnet address if it is included in the query by the resolver making the request on behalf of the end user.  
+Specifically, [RFC 7871 - Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) that provides an [Extension Mechanism for DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) which can pass on the client subnet address from resolvers that support it.
 
 ### What is DNS TTL and how does it impact my users?
 
@@ -253,3 +253,5 @@ The following table describes the behavior of Traffic Manager health checks for 
 ## Next steps:
 - Learn more about Traffic Manager [endpoint monitoring and automatic failover](../traffic-manager/traffic-manager-monitoring.md).
 - Learn more about Traffic Manager [traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md).
+
+<!--Update_Description: wording update-->
