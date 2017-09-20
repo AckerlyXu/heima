@@ -15,15 +15,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 6: Create measures
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In this lesson, you create measures to be included in your model. Similar to the calculated columns you created, a measure is a calculation created by using a DAX formula. However, unlike calculated columns, measures are evaluated based on a user selected *filter*. For example, a particular column or slicer added to the Row Labels field in a PivotTable. A value for each cell in the filter is then calculated by the applied measure. Measures are powerful, flexible calculations that you want to include in almost all tabular models to perform dynamic calculations on numerical data. To learn more, see [Measures](/sql/analysis-services/tabular-models/measures-ssas-tabular).
+In this lesson, you create measures to be included in your model. Similar to the calculated columns you created, a measure is a calculation created by using a DAX formula. However, unlike calculated columns, measures are evaluated based on a user selected *filter*. For example, a particular column or slicer added to the Row Labels field in a PivotTable. A value for each cell in the filter is then calculated by the applied measure. Measures are powerful, flexible calculations that you want to include in almost all tabular models to perform dynamic calculations on numerical data. To learn more, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
 
 To create measures, you use the *Measure Grid*. By default, each table has an empty measure grid; however, you typically do not create measures for every table. The measure grid appears below a table in the model designer when in Data View. To hide or show the measure grid for a table, click the **Table** menu, and then click **Show Measure Grid**.  
 
@@ -52,7 +51,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     Notice the top-left cell now contains a measure name, **DaysCurrentQuarterToDate**, followed by the result, **92**.
 
-      ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
+    ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
 
     Unlike calculated columns, with measure formulas you can type the measure name, followed by a colon, followed by the formula expression.
 
@@ -78,7 +77,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     The AutoSum feature automatically creates a measure for the selected column using the DistinctCount standard aggregation formula.  
 
-       ![aas-lesson6-newmeasure2](../tutorials/media/aas-lesson6-newmeasure2.png)
+    ![aas-lesson6-newmeasure2](../tutorials/media/aas-lesson6-newmeasure2.png)
 
 4.  In the measure grid, click the new measure, and then in the **Properties** window, in **Measure Name**, rename the measure to **InternetDistinctCountSalesOrder**. 
 
@@ -99,31 +98,33 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
 2.  By clicking an empty cell in the measure grid, and by using the formula bar, create, and name the following measures in order:  
 
-      ```
-      InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
-      ```
+    ```
+    InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
+    ```
 
-      ```
-      InternetCurrentQuarterMargin:=TOTALQTD([InternetTotalMargin],'DimDate'[Date])
-      ```
+    ```
+    InternetCurrentQuarterMargin:=TOTALQTD([InternetTotalMargin],'DimDate'[Date])
+    ```
 
-      ```
-      InternetPreviousQuarterMarginProportionToQTD:=[InternetPreviousQuarterMargin]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
-      ```
+    ```
+    InternetPreviousQuarterMarginProportionToQTD:=[InternetPreviousQuarterMargin]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
+    ```
 
-      ```
-      InternetPreviousQuarterSales:=CALCULATE([InternetTotalSales],PREVIOUSQUARTER('DimDate'[Date]))
-      ```
+    ```
+    InternetPreviousQuarterSales:=CALCULATE([InternetTotalSales],PREVIOUSQUARTER('DimDate'[Date]))
+    ```
 
-      ```
-      InternetCurrentQuarterSales:=TOTALQTD([InternetTotalSales],'DimDate'[Date])
-      ```
+    ```
+    InternetCurrentQuarterSales:=TOTALQTD([InternetTotalSales],'DimDate'[Date])
+    ```
 
-      ```
-      InternetPreviousQuarterSalesProportionToQTD:=[InternetPreviousQuarterSales]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
-      ```
+    ```
+    InternetPreviousQuarterSalesProportionToQTD:=[InternetPreviousQuarterSales]*([DaysCurrentQuarterToDate]/[DaysInCurrentQuarter])
+    ```
 
 Measures created for the FactInternetSales table can be used to analyze critical financial data such as sales, costs, and profit margin for items defined by the user selected filter.  
 
 ## What's next?
 [Lesson 7: Create Key Performance Indicators](../tutorials/aas-lesson-7-create-key-performance-indicators.md).
+
+<!--Update_Description: update meta properties, update link-->

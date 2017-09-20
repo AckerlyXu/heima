@@ -16,6 +16,7 @@
 ## [Manage a server](analysis-services-manage.md)
 ## [Manage database users](analysis-services-database-users.md)
 ## [Manage server administrators](analysis-services-server-admins.md)
+## [Monitor server metrics](analysis-services-monitor.md)
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
@@ -52,10 +53,10 @@
 ## [Analysis Services code samples on GitHub](https://github.com/Microsoft/Analysis-Services)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+<!-- Not Availabel ## [Azure Roadmap](https://www.azure.cn/roadmap/?category=intelligence-analytics)-->
 ## [Azure status](https://www.azure.cn/support/service-dashboard/)
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Pricing](https://www.azure.cn/pricing/details/analysis-services/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-<!-- Not Available ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest) -->
+<!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->

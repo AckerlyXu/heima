@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/17/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 13: Deploy
@@ -76,4 +76,4 @@ Congratulations! You're finished authoring and deploying your first Analysis Ser
 [Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties-->

@@ -15,8 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Supplemental lesson - Detail Rows
@@ -82,3 +81,5 @@ What we would like to see here is a table containing columns and rows of data th
 [SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
 [Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Supplemental Lesson - Ragged hierarchies](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+
+<!--Update_Description: update meta properties-->

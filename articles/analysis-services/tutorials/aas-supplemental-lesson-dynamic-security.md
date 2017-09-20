@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Supplemental lesson - Dynamic security
@@ -187,4 +187,4 @@ In this task, you use the Analyze in Excel feature in SSDT to test the efficacy 
 [LOOKUPVALUE Function (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA Function (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

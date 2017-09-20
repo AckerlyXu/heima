@@ -15,8 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Supplemental lesson - Ragged hierarchies
@@ -128,3 +127,5 @@ If you've created the AW Internet Sales project as part of the tutorial, your mo
 [Lesson 9: Create hierarchies](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Supplemental Lesson - Dynamic security](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Supplemental Lesson - Detail rows](../tutorials/aas-supplemental-lesson-detail-rows.md)
+
+<!--Update_Description: update meta properties-->

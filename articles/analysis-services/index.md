@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Analysis Services Documentation

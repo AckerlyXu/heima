@@ -15,26 +15,25 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 11: Create roles
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In this lesson, you create roles. Roles provide model database object and data security by limiting access to only those users that are role members. Each role is defined with a single permission: None, Read, Read and Process, Process, or Administrator. Roles can be defined during model authoring by using Role Manager. After a model has been deployed, you can manage roles by using SQL Server Management Studio (SSMS). To learn more, see [Roles](/sql/analysis-services/tabular-models/roles-ssas-tabular).
+In this lesson, you create roles. Roles provide model database object and data security by limiting access to only those users that are role members. Each role is defined with a single permission: None, Read, Read and Process, Process, or Administrator. Roles can be defined during model authoring by using Role Manager. After a model has been deployed, you can manage roles by using SQL Server Management Studio (SSMS). To learn more, see [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
 
 > [!NOTE]  
 > Creating roles is not necessary to complete this tutorial. By default, the account you are currently logged in with has Administrator privileges on the model. However, for other users in your organization to browse by using a reporting client, you must create at least one role with Read permissions and add those users as members.  
 
 You create three roles:  
 
--   **Sales Manager** – This role can include users in your organization for which you want to have Read permission to all model objects and data.  
+-   **Sales Manager** - This role can include users in your organization for which you want to have Read permission to all model objects and data.  
 
--   **Sales Analyst US** – This role can include users in your organization for which you want only to be able to browse data related to sales in the United States. For this role, you use a DAX formula to define a *Row Filter*, which restricts members to browse data only for the United States.  
+-   **Sales Analyst US** - This role can include users in your organization for which you want only to be able to browse data related to sales in the United States. For this role, you use a DAX formula to define a *Row Filter*, which restricts members to browse data only for the United States.  
 
--   **Administrator** – This role can include users for which you want to have Administrator permission, which allows unlimited access and permissions to perform administrative tasks on the model database.  
+-   **Administrator** - This role can include users for which you want to have Administrator permission, which allows unlimited access and permissions to perform administrative tasks on the model database.  
 
 Because Windows user and group accounts in your organization are unique, you can add accounts from your particular organization to members. However, for this tutorial, you can also leave the members blank. You test the effect of each role later in Lesson 12: Analyze in Excel.  
 
@@ -90,3 +89,5 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
 ## What's next?
 [Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).
+
+<!--Update_Description: update meta properties, update link-->

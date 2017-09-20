@@ -15,8 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 3: Mark as Date Table
@@ -54,3 +53,5 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
 ## What's next?
 [Lesson 4: Create relationships](../tutorials/aas-lesson-4-create-relationships.md).
+
+<!--Update_Description: update meta properties-->
