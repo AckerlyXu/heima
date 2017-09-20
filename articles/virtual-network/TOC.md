@@ -88,6 +88,8 @@
 
 ### Security scenarios
 #### [Secure networks with virtual appliances](virtual-network-scenario-udr-gw-nva.md)
+<!-- Not Available #### [DMZ between Azure and the Internet](../guidance/guidance-iaas-ra-secure-vnet-dmz.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Available #### [Cloud service and network security](../best-practices-network-security.md?toc=%2fvirtual-network%2ftoc.json)-->
 ##### [Simple DMZ with NSGs](virtual-networks-dmz-nsg-asm.md)
 ##### [DMZ with firewall and NSGs](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [DMZ with firewall, UDR, and NSGs](virtual-networks-dmz-nsg-fw-udr-asm.md)
@@ -138,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Throughput testing](virtual-network-bandwidth-testing.md)
 ### [Cannot delete virtual networks](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [VM to VM connectivity problems](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Reference
 ## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.network)
@@ -161,3 +164,5 @@
 ## [Pricing](https://www.azure.cn/pricing/details/networking/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+
+<!--Update_Description: update meta properties, update link-->

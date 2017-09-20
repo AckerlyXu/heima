@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2017
-ms.date: 09/04/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,7 @@ The steps to create a virtual network peering are different, depending on whethe
 
 A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. A virtual network peering can only be created between two virtual networks that exist in the same Azure region. When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions must both be associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fvirtual-network%2ftoc.json#start-from-scratch). If you need to connect virtual networks that were both created through the classic deployment model, or that exist in different Azure regions, or that exist in subscriptions associated to different Azure Active Directory tenants, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
 
-You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), or Azure [PowerShell](#powershell) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
+You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an Azure Resource Manager [template](#template) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
 ## <a name="portal"></a>Create peering - Azure portal
 
@@ -237,6 +237,47 @@ This tutorial uses different accounts for each subscription. If you're using an 
 13. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
 14. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
 
+## <a name="template"></a>Create peering - Resource Manager template
+
+1. Complete the steps in the [Portal](#portal), [Azure CLI](#cli), or [PowerShell](#powershell) sections of this article to create a virtual network and assign the appropriate [permissions](#permissions) to the account in each subscription.
+2. Save the text that follows to a file on your local computer. Replace `<subscription ID>` with UserA's subscription ID. You might save the file as vnetpeeringA.json, for example.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+    "resources": [
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "myVnetA/myVnetAToMyVnetB",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "/subscriptions/<subscription ID>/resourceGroups/PeeringTest/providers/Microsoft.Network/virtualNetworks/myVnetB"
+                }
+            }
+            }
+        ]
+     }
+    ```
+
+3. Log into Azure as UserA and deploy the template using the [portal](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), or the [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fvirtual-network%2ftoc.json#deploy-local-template). Specify the file name you saved the example json text in step 2 to.
+4. Copy the example json from step 2 to a file on your computer and make changes to the lines that begin with:
+    - **name**: Change *myVnetA/myVnetAToMyVnetB* to *myVnetB/myVnetBToMyVnetA*.
+    - **id**: Replace `<subscription ID>` with UserB's subscription ID and change *myVnetB* to *myVnetA*.
+5. Complete step 3 again, logged into Azure as UserB.
+6. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
+7. **Optional**: To delete the resources that you create in this tutorial, complete the steps in the [Delete resources](#delete) section of this article, using either the Azure portal, PowerShell, or the Azure CLI.
+
 ## <a name="permissions"></a>Permissions
 
 The accounts you use to create a virtual network peering must have the necessary role or permissions. For example, if you were peering two virtual networks named **myVnetA** and **myVnetB**, your account must be assigned the following minimum role or permissions for each virtual network:
@@ -295,4 +336,4 @@ When you've finished this tutorial, you might want to delete the resources you c
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
 - Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
-<!--Update_Description: new articles on virtual network -->
+<!--Update_Description: add new feature to create peering with template deployment -->

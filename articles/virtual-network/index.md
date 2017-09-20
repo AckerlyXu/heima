@@ -2,8 +2,8 @@
 title: Azure Virtual Network Documentation - Tutorials, API Reference | Azure
 description: Learn how to use a virtual network in the cloud. Documentation shows how to deploy a VNet, use it to launch resources, and integrate with an on-premises network.
 services: virtual-network
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: virtual-network
@@ -11,8 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
+ms.date: 09/25/2017
+ms.author: v-yeche
 ---
 # Virtual Network Documentation
 
@@ -92,3 +92,4 @@ Learn how to use Virtual Network (VNet), a logical representation of your networ
         </a>
     </li>
 </ul>
+<!--Update_Description: update meta properties-->
