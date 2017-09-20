@@ -11,4 +11,6 @@ The following table lists quotas and limits specific to Azure Event Hubs. For in
 | Number of non-epoch receivers per consumer group |Entity |Static |- |5 |
 | Maximum retention period of event data |Entity |Static |- |1-7 days |
 | Maximum throughput units |Namespace |Static |Exceeding the throughput unit limit causes your data to be throttled and generates a **[ServerBusyException](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. |20 |
+| Number of Authorization Rules per namespace |Namespace|Static |Subsequent requests for authorization rule creation will be rejected.|12 |
 <!-- Not Available /azure-supportability/*.md , event-hubs/event-hubs-auto-inflate.md-->
+<!-- md.date: 09/25/2017-->
