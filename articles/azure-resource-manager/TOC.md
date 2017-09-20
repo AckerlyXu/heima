@@ -6,8 +6,8 @@
 <!-- Not Available ## [Managed Applications](managed-application-overview.md)-->
 
 # Get started
-## [Export template](resource-manager-export-template.md)
 ## [Create and deploy template](resource-manager-create-first-template.md)
+## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Samples
@@ -20,8 +20,8 @@
 
 # How to
 ## Create templates
-### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Template sections](resource-group-authoring-templates.md)
+### [Best practices for templates](resource-manager-template-best-practices.md)
 ### [Link to other templates](resource-group-linked-templates.md)
 ### [Define dependency between resources](resource-group-define-dependencies.md)
 ### [Create multiple instances](resource-group-create-multiple.md)
@@ -42,7 +42,9 @@
 #### [Deploy template](resource-group-template-deploy-cli.md)
 #### [Deploy private template with SAS token](resource-manager-cli-sas-token.md)
 #### [Export template and redeploy](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
+### Portal
+#### [Deploy resources](resource-group-template-deploy-portal.md)
+#### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure-resource-manager%2ftoc.json)
@@ -81,6 +83,8 @@
 <!-- Not Available ## Use managed applications -->
 <!-- Not Available ### [Publish service catalog application](managed-application-publishing.md) -->
 <!-- Not Available ### [Consume service catalog application](managed-application-consumption.md) -->
+<!-- Not Available ### [Publish marketplace application](managed-application-author-marketplace.md)-->
+<!-- Not Available ### [Consume marketplace application](managed-application-consume-marketplace.md)-->
 <!-- Not Available ### [Create UI definitions](managed-application-createuidefinition-overview.md) -->
 
 ## Audit
@@ -129,7 +133,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/resources/)
 
 # Resources
-<!-- Not Available ## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) -->
+<!-- Not Available ## [Azure Roadmap] -->
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)

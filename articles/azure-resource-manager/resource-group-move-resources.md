@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 08/25/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -27,8 +27,8 @@ You cannot change the location of the resource. Moving a resource only moves it 
 
 > [!NOTE]
 > This article describes how to move resources within an existing Azure account offering.
-> 
-> 
+>
+>
 <!-- Not Available [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
 
 ## Checklist before moving resources
@@ -69,7 +69,8 @@ Call support when you need to:
 * Move your resources to a new Azure account (and Azure Active Directory tenant).
 * Move classic resources but are having trouble with the limitations.
 
-## <a name="services-that-support-move"></a>Services that enable move
+<a name="services-that-support-move"></a>
+## Services that enable move
 For now, the services that enable moving to both a new resource group and subscription are:
 
 * API Management
@@ -94,12 +95,13 @@ For now, the services that enable moving to both a new resource group and subscr
 * Service Fabric
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
-* Stream Analytics
+* Stream Analytics - Stream Analytics jobs cannot be moved when in running state.
 * SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
 * Traffic Manager
 * Virtual Machines
 * Virtual Machines with certificate stored in Key Vault - Move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+* Virtual Machine Scale Sets
 * Virtual Networks - Currently, a peered Virtual Network cannot be moved until VNet peering has been disabled. Once disabled, the Virtual Network can be moved successfully and the VNet peering can be enabled. In addition,
 a Virtual Network cannot be moved to a different subscription if the Virtual Network contains any subnet with resource navigation links. For example, a Virtual Network subnet has a resource navigation link when a Microsoft.Cache
 redis resource is deployed into this subnet.
@@ -303,7 +305,8 @@ Are you sure you want to move these resources to the resource group
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-## <a name="use-azure-cli"></a>Use Azure CLI 2.0
+<a name="use-azure-cli"></a>
+## Use Azure CLI 2.0
 To move existing resources to another resource group or subscription, use the `az resource move` command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
 ```azurecli
@@ -367,4 +370,4 @@ In the request body, you specify the target resource group and the resources to 
 * To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](resource-group-portal.md).
 * To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

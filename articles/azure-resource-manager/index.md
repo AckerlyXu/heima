@@ -3,7 +3,7 @@ title: Azure Resource Manager Documentation - Tutorials, API Reference | Azure
 description: Learn how to use Resource Manager to deploy and manage solution resources as a group and to create templates for consistent and repeatable resource deployment.
 services: azure-resource-manager
 author: rockboyfor
-manager: carolz
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 #Azure Resource Manager Documentation
