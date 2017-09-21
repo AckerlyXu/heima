@@ -6,7 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-ms.reviewer: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 07/18/2017
+origin.date: 08/28/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: it-pro
 
@@ -87,4 +87,4 @@ To get started, you need to [download and install the Azure AD PowerShell module
    - To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    - To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
-<!--Update_Description: wording update-->   
+<!--Update_Description: update meta properties -->   

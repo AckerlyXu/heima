@@ -1,10 +1,10 @@
 ---
-title: Integrating Applications with Azure Active Directory | Azure
+title: Integrating Applications with Azure Active Directory | Microsoft Docs
 description: Details on how to add, update, or remove an application in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: mbaldwin
 
 ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 07/20/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
 ---
 
@@ -248,3 +248,5 @@ In order to remove a multi-tenant application's access to your directory (after 
 - To learn more about the role the app manifest plays, see [Understanding the Azure Active Directory application manifest](./active-directory-application-manifest.md)
 - See the [Azure AD developer glossary](./active-directory-dev-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
 - Visit the [Active Directory developer's guide](./active-directory-developers-guide.md) for an overview of all developer related content.
+
+<!--Update_Description: update meta properties -->  
