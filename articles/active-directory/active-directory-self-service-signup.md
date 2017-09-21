@@ -1,10 +1,10 @@
----
+﻿---
 title: What is Self-Service Signup for Azure? | Microsoft Docs
 description: An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/08/2017
-ms.date: 06/12/2017
+origin.date: 08/28/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
+ms.reviewer: elkuzmen
+ms.custom: it-pro
 
 ---
 # What is Self-Service Signup for Azure?
@@ -202,3 +204,4 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
+<!--Update_Description: update meta properties -->  

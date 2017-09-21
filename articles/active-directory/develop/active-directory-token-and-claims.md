@@ -1,10 +1,10 @@
 ---
-title: Learn about the different token and claim types supported by Azure AD | Azure
+title: Learn about the different token and claim types supported by Azure AD | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
-author: bryanla
+author: alexchen2016
 services: active-directory
-manager: mbaldwin
+manager: digimobile
 editor: ''
 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/08/2017
-ms.date: 03/13/2017
+origin.date: 09/07/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Azure AD token reference
 Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.
 
 ## Types of tokens
-Azure AD supports the [OAuth 2.0 authorization protocol](./active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](./active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
+Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
 
 A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though authentication with Azure AD is required in order to receive a bearer token, steps must be taken to secure the token, to prevent interception by an unintended party. Because bearer tokens do not have a built-in mechanism to prevent unauthorized parties from using them, they must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used to acquire the token and gain unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [jwt.calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [jwt.ms](https://jwt.ms/). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id_tokens
-Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](./active-directory-protocols-openid-connect-code.md).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
+Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-protocols-openid-connect-code.md).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
 
 Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
 See the following section for information on id_tokens claims, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The following list includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### Sample id_token
-
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ.
 ```
 
 > [!TIP]
-> For practice, try inspecting the claims in the sample id_token by pasting it into [calebb.net](http://jwt.calebb.net).
+> For practice, try inspecting the claims in the sample id_token by pasting it into [jwt.ms](https://jwt.ms/).
 > 
 > 
 
@@ -80,7 +80,7 @@ If your app only *uses* access tokens to get access to APIs, you can (and should
 When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
 If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. Your app should perform validation of the access token before using it to access resources. For more information on validation, please see [Validating Tokens](#validating-tokens).  
-For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](./active-directory-devquickstarts-webapi-dotnet.md).
+For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## Refresh tokens
 
@@ -94,9 +94,9 @@ When you redeem a refresh token for a new access token, you will receive a new r
 
 ## Validating tokens <a name="validating-tokens"></a>
 
-In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.chinacloudapi.cn/common/.well-known/openid-configuration](https://login.chinacloudapi.cn/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](./active-directory-code-samples.md) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](active-directory-code-samples.md) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
-We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](./active-directory-authentication-libraries.md).
+We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 #### Validating the signature
 
@@ -119,7 +119,7 @@ At any given point in time, Azure AD may sign an id_token using any one of a cer
 You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
@@ -303,5 +303,7 @@ In addition to claims, the token includes a version number in **ver** and **appi
 ```
 
 ## Related content
-- See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
-- For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md).
+- See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
+- For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md). 
+
+<!--Update_Description: wording update-->

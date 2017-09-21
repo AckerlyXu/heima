@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/24/2017
-ms.date: 08/22/2017
+origin.date: 09/07/2017
+ms.date: 09/20/2017
 ms.author: v-junlch
 
 ms.custom: oldportal;it-pro;
 
 ---
 # Understanding resource access in Azure
-
-In October 2013, the Azure Classic Management Portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Azure resources. Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control. Naturally, these should also be made available for managing Azure resources across-the-board.
 
 Access control in Azure starts from a billing perspective. The owner of an Azure account, accessed by visiting the  [Azure Accounts Center](https://account.windowsazure.cn/subscriptions), is the Account Administrator (AA). Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the [Azure Classic Management Portal](https://manage.windowsazure.cn/). The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.
 
@@ -52,8 +50,8 @@ Users with subscriptions across multiple directories have the ability to switch 
 Operations such as moving resources between subscriptions can be more difficult as a result of this single directory view of subscriptions. To perform the resource transfer, it may be necessary to first use the **Edit Directory** command on the Subscriptions page in **Settings** to associate the subscriptions to the same directory.
 
 ## Next Steps
-- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md)
-- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](./active-directory-assign-admin-roles.md)
+- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-understanding-resource-access/IC707931.png
