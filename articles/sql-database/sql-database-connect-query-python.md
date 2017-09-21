@@ -3,20 +3,20 @@ title: Use Python to query Azure SQL Database | Azure
 description: This topic shows you how to use Python to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 08/08/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 # Use Python to query an Azure SQL database
 
@@ -28,9 +28,9 @@ To complete this quick start tutorial, make sure you have the following:
 
 - An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+   - [Create DB - Portal](sql-database-get-started-portal.md)
+   - [Create DB - CLI](sql-database-get-started-cli.md)
+   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 
@@ -88,4 +88,3 @@ Get the connection information needed to connect to the Azure SQL database. You 
 - [Microsoft Python Drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Python Developer Center](/develop/python/)
 
-<!--Update_Description: update link-->

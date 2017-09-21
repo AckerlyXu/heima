@@ -1,20 +1,22 @@
 ---
 title: Performance recommendations - Azure SQL Database | Azure
-description: The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance.
+description: The Azure SQL Database provides recommendations for your SQL Databases that can improve current query performance.
 services: sql-database
 documentationCenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
 
+ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Performance recommendations
@@ -80,5 +82,3 @@ Monitor your recommendations and continue to apply them to refine performance. D
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Role-based access control](../active-directory/role-based-access-control-what-is.md)
-
-<!--Update_Description: update link references-->

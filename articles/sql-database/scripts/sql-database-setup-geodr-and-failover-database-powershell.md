@@ -3,7 +3,7 @@ title: PowerShell example-active geo-replication-single Azure SQL Database | Azu
 description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database 
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -16,8 +16,8 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use PowerShell to configure active geo-replication for a single Azure SQL database
@@ -96,8 +96,8 @@ $secondaryLink | Remove-AzureRmSqlDatabaseSecondary
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## Script explanation
@@ -124,4 +124,4 @@ For more information on the Azure PowerShell, see [Azure PowerShell documentatio
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Clean up deployment" script-->

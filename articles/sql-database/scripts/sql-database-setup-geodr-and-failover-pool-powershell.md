@@ -3,7 +3,7 @@ title: PowerShell example-active geo-replication-pooled Azure SQL database | Azu
 description: Azure PowerShell example script to set up active geo-replication for a pooled Azure SQL database
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -16,8 +16,8 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 07/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use PowerShell to configure active geo-replication for a pooled Azure SQL database
@@ -26,7 +26,7 @@ This PowerShell script example configures active geo-replication for an Azure SQ
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## Sample Scripts
+## Sample scripts
 
 ```powershell
 # Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -130,8 +130,8 @@ $database | Get-AzureRmSqlDatabaseReplicationLink -PartnerResourceGroupName $pri
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
-Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $primaryresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 ```
 
 ## Script explanation
@@ -158,4 +158,4 @@ For more information on the Azure PowerShell, see [Azure PowerShell documentatio
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 
-<!--Update_Description: update metadata-->
+<!--Update_Description: update "Clean up deployment" script-->

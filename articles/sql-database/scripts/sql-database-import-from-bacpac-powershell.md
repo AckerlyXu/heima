@@ -1,9 +1,9 @@
 ---
-title: PowerShell example-import-bacpac file-Azure SQL database | Azure
-description: Azure PowerShell example script to import a bacpac tile into a SQL database
+title: PowerShell example import BACPAC file Azure SQL database | Microsoft Docs
+description: Azure PowerShell example script to import a BACPAC file into a SQL database
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -16,13 +16,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
-# Use PowerShell to import a bacpac file into an Azure SQL database
+# Use PowerShell to import a PACPAC file into an Azure SQL database
 
-This PowerShell script example imports a database from a **bacpac** file into an Azure SQL database.  
+This PowerShell script example imports a database from a BACPAC file into an Azure SQL database.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -124,7 +124,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname `
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation
@@ -136,7 +136,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a logical server that hosts the SQL Database. |
 | [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | Imports a .bacpac file and create a new database on the server. |
+| [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | Imports a BACPAC file and create a new database on the server. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps

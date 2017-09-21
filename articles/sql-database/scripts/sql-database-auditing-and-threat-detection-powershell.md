@@ -3,7 +3,7 @@ title: PowerShell example-auditing-threat detection-Azure SQL Database  | Azure
 description: Azure PowerShell example script to configure auditing & threat detection in an Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,9 +15,9 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+origin.date: 09/08/2017
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use PowerShell to configure SQL Database auditing and threat detection
@@ -32,7 +32,7 @@ This PowerShell script example configures SQL Database auditing and threat detec
 # Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your server
 $resourcegroupname = "myResourceGroup-$(Get-Random)"
-$location = "China East"
+$location = "China North"
 # Set an admin login and password for your server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
@@ -44,7 +44,7 @@ $databasename = "mySampleDatabase"
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
 # The storage account name has to be unique in the system
-$storageaccountname = $("sql$($(Get-AzureRMContext).Subscription.Id)").substring(0,23).replace("-", "")
+$storageaccountname = $("sql$(Get-Random)")
 # Specify the email recipients for the threat detection alerts
 $notificationemailreceipient = "changeto@your.email;changeto@your.email"
 
@@ -66,7 +66,7 @@ $serverfirewallrule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resou
 $database = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename -RequestedServiceObjectiveName "S0"
-
+    
 # Create a Storage Account 
 $storageaccount = New-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
     -AccountName $storageaccountname `
@@ -74,21 +74,23 @@ $storageaccount = New-AzureRmStorageAccount -ResourceGroupName $resourcegroupnam
     -Type "Standard_LRS"
 
 # Set an auditing policy
-$auditpolicy = Set-AzureRmSqlDatabaseAuditingPolicy -ResourceGroupName $resourcegroupname `
+Set-AzureRmSqlDatabaseAuditing -State Enabled `
+    -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
-    -StorageAccountName $storageaccountname `
+    -StorageAccountName $storageaccountname 
 
 # Set a threat detection policy
-#threatdetectionpolicy = Set-AzureRmSqlDatabaseThreatDetectionPolicy -ResourceGroupName $resourcegroupname `
+Set-AzureRmSqlDatabaseThreatDetectionPolicy -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
-    -DatabaseName $databasename`
+    -DatabaseName $databasename `
     -StorageAccountName $storageaccountname `
     -NotificationRecipientsEmails $notificationemailreceipient `
     -EmailAdmins $False
 
 # Clean up deployment 
 # Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+
 ```
 
 ## Clean up deployment
@@ -96,7 +98,7 @@ $auditpolicy = Set-AzureRmSqlDatabaseAuditingPolicy -ResourceGroupName $resource
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation
@@ -120,4 +122,4 @@ For more information on the Azure PowerShell, see [Azure PowerShell documentatio
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->

@@ -3,7 +3,7 @@ title: Monitor XTP in-memory storage | Azure
 description: Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -14,26 +14,26 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/19/2016
-ms.date: 07/03/2017
+origin.date: 07/25/2017
+ms.date: 10/02/2017
 ms.author: v-johch
 ---
-# Monitor In-Memory OLTP Storage
-When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+# Monitor In-Memory OLTP storage
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in [single database resource limits](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) and [elastic pool resource limits](sql-database-resource-limits.md#elastic-pool-change-storage-size). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
-Determine the storage cap: consult the [SQL Database Service Tiers article](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) for the storage caps of the different Premium service tiers.
+Determine the storage caps of the different Premium service tiers. See [single database resource limits](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) and [elastic pool resource limits](sql-database-resource-limits.md#elastic-pool-change-storage-size).
 
 Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database. Take a few minutes to review that topic on [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 Note that the table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
 
 ## Monitoring and alerting
-You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) in the Azure [portal](https://portal.azure.cn/): 
+You can monitor in-memory storage use as a percentage of the storage cap for your performance tier in the [Azure portal](https://portal.azure.cn/): 
 
-* On the Database blade, locate the Resource utilization box and click on Edit.
-* Then select the metric `In-Memory OLTP Storage percentage`.
-* To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
+1. On the Database blade, locate the Resource utilization box and click on Edit.
+2. Select the metric `In-Memory OLTP Storage percentage`.
+3. To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
 
 Or use the following query to show the in-memory storage utilization:
 
@@ -53,3 +53,4 @@ To resolve this error, either:
 
 ## Next steps
 For monitoring guidance, see [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md).
+<!--Update_Description: update links-->

@@ -3,21 +3,23 @@ title: Apply performance recommendations - Azure SQL Database | Azure
 description: You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload.
 services: sql-database
 documentationCenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
 
+ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
-# SQL Database Advisor using the Azure portal
+# Find and apply performance recommendations
 
 You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload. **Performance recommendation** page in Azure portal enables you to find the top recommendations based on their potential impact. 
 
@@ -28,8 +30,8 @@ To view and apply performance recommendations, you need the correct [role-based 
 Use the following steps to find performance recommendations on Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
-2. Click **More services** > **SQL databases**, and select your database.
-3. Click **Performance recommendation** to view available recommendations for the selected database.
+2. Go to **More services** > **SQL databases**, and select your database.
+3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
 Performance recommendations are shonw in the table similar to the one shown on the following figure:
 
@@ -54,7 +56,7 @@ Here is an example of "Create index" recommendation in the Azure portal.
 ![Create index](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## Applying recommendations
-SQL Database Advisor gives you full control over how recommendations are enabled using any of the following three options: 
+Azure SQL Database gives you full control over how recommendations are enabled using any of the following three options: 
 
 * Apply individual recommendations one at a time.
 * Enable the Automatic tuning to automatically apply recommendations.
@@ -86,8 +88,9 @@ If desired, you can add discarded items back to the **Recommendations** list:
 2. Select a discarded item from the list to view its details.
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
-### Enable automatic index management
-You can set the SQL Database Advisor to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all index operations managed by the service if the performance impact is negative the recommendation will be reverted.
+
+### Enable automatic tuning
+You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all recommendations managed by the service if the performance impact is negative the recommendation will be reverted.
 
 1. On the **Recommendations** blade, click **Automate**:
 
@@ -108,7 +111,7 @@ Recommendations that are in a **Pending**, **Verifying**, or **Success** status 
 2. Click **Cancel** to abort the process of applying the recommendation.
 
 ## Monitoring operations
-Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation operations. The following are possible states that an index can be in:
+Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation. The following are possible states that an index can be in:
 
 | Status | Description |
 |:--- |:--- |
@@ -152,4 +155,4 @@ Monitor your recommendations and continue to apply them to refine performance. D
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Role-based access control](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: update word & link-->
+<!--Update_Description: wording update-->

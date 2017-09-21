@@ -4,7 +4,7 @@ description: Learn how about SQL Server database migration to Azure SQL Database
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 origin.date: 02/08/2017
-ms.date: 07/03/2017
+ms.date: 10/02/2017
 ms.author: v-johch
 
 ---
@@ -48,7 +48,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](sql-database-manage-single-databases-portal.md), [Change the service tier and performance level of a single database using PowerShell](sql-database-manage-single-databases-powershell.md), [Change the service tier and performance level of a single database using Transact-SQL](sql-database-manage-single-databases-tsql.md)
+* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. 
 * Minimize the distance between your .BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes
@@ -61,7 +61,7 @@ The following list contains recommendations for best performance during the impo
 
 ## Method 2: Use Transactional Replication
 
-When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this method, the source database must meet the [requirements for transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) and be compatible for Azure SQL Database. 
+When you cannot afford to remove your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. To use this method, the source database must meet the [requirements for transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) and be compatible for Azure SQL Database. For information about SQL replication with AlwaysOn, see [Configure Replication for Always On Availability Groups (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 To use this solution, you configure your Azure SQL Database as a subscriber to the SQL Server instance that you wish to migrate. The transactional replication distributor synchronizes data from the database to be synchronized (the publisher) while new transactions continue occur. 
 

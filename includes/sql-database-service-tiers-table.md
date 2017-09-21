@@ -41,15 +41,15 @@ sql-database-single-database-resources.md
 |||||||
 
 ### Premium service tier 
-| **Performance level** | **P1** | **P2** | **P4** | **P6** |
-| :--- |---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 
-| Max concurrent logins | 200 | 400| 800| 1600| 
-| Max concurrent sessions | 30000| 30000| 30000| 30000|
+| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+| :--- |---:|---:|---:|---:|---:|---:|
+| Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
+| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
+| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 ### Premium RS service tier 

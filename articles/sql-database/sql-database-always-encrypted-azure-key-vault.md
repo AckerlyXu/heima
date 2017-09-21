@@ -4,7 +4,7 @@ description: This article shows you how to secure sensitive data in a SQL databa
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: cgronlun
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
-ms.date: 07/10/2017
+ms.date: 10/02/2017
 ms.author: v-johch
 
 ---
@@ -65,7 +65,7 @@ You must enable your client application to access the SQL Database service by se
 ## Create a key vault to store your keys
 Now that your client app is configured and you have your client ID, it's time to create a key vault and configure its access policy so you and your application can access the vault's secrets (the Always Encrypted keys). The *create*, *get*, *list*, *sign*, *verify*, *wrapKey*, and *unwrapKey* permissions are required for creating a new column master key and for setting up encryption with SQL Server Management Studio.
 
-To quickly create an Azure Key Vault you can run the script below. For a detailed explanation of these cmdlets and more information about creating and configuring an Azure Key Vault, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+You can quickly create a key vault by running the following script. For a detailed explanation of these cmdlets and more information about creating and configuring a key vault, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
 ```
 $subscriptionName = '<your Azure subscription name>'
@@ -635,4 +635,4 @@ After you create a database that uses Always Encrypted, you may want to do the f
 * [SQL Server encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Always Encrypted blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
+<!--Update_Description: wording update-->

@@ -3,7 +3,7 @@ title: Import a BACPAC file to create an Azure SQL database | Azure
 description: Create a newAzure SQL database by importing a BACPAC file.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -12,8 +12,8 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
 origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -30,11 +30,11 @@ When you need to import a database from an archive or when migrating from anothe
 > To import a BACPAC to a new database, you must first create an Azure SQL Database logical server. For a tutorial showing you how to migrate a SQL Server database to Azure SQL Database using SQLPackage, see [Migrate a SQL Server Database](sql-database-migrate-your-sql-server-database.md)
 >
 
-## Import from a BACPAC file using Azure Portal
+## Import from a BACPAC file using Azure portal
 
-This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure Portal](https://portal.azure.cn). Import using the Azure Portal only supports importing a BACPAC file from Azure blob storage.
+This article provides directions for creating an Azure SQL database from a BACPAC file stored in Azure blob storage using the [Azure portal](https://portal.azure.cn). Import using the Azure portal only supports importing a BACPAC file from Azure blob storage.
 
-To import a database using the Azure Portal, open the page for your database and click **Import** on the toolbar. Specify the *.bacpac filename, provide the Azure storage account and container for the bacpac, and provide the credentials to connect to the source database.  
+To import a database using the Azure portal, open the page for the server to associate the database to and then click **Import** on the toolbar. Specify the storage account and container, and select the BACPAC file you want to import. Select the size of the new database (usually the same as origin) and provide the destination SQL Server credentials.  
 
    ![Database import](./media/sql-database-import/import.png)
 
@@ -61,11 +61,15 @@ See the following SQLPackage command for a script example for how to import the 
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.chinacloudapi.cn;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
-   ![sqlpackage import](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
-
 > [!IMPORTANT]
 > An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
 >
+
+This example shows how to import a database using SqlPackage.exe with Active Directory Universal Authentication:
+
+```cmd
+SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.chinacloudapi.cn /ua:True /tid:"apptest.partner.onmschina.cn"
+```
 
 ## Import from a BACPAC file using PowerShell
 
@@ -108,5 +112,3 @@ For another script example, see [Import a database from a BACPAC file](scripts/s
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
 * For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * For a discussion of the entire SQL Server database migration process, including performance recommendations, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
-
-<!--Update_Description: update word & link references-->

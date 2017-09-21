@@ -169,4 +169,3 @@ This article focuses on the disaster recovery strategies for the database tier u
 * To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)
 * To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 
-<!--Update_Description: update meta properties-->

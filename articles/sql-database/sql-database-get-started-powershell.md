@@ -1,31 +1,32 @@
 ---
-title: 'Azure PowerShell: Create a SQL database | Azure'
-description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure Portal.
+title: 'Azure PowerShell: Create a SQL database | Microsoft Docs'
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal.
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 04/17/2017
 ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.author: v-johch
 ---
 
 # Create a single Azure SQL database using PowerShell
 
 PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to deploy an Azure SQL database in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in an [Azure SQL Database logical server](sql-database-features.md).
+
 If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
-To complete this tutorial, make sure you have installed the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+This tutorial requires the Azure PowerShell module version 4.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
 
 ## Log in to Azure
 
@@ -125,4 +126,3 @@ Now that you have a database, you can connect and query using your favorite tool
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
-<!--Update_Description: update code-->

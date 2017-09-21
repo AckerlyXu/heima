@@ -3,7 +3,7 @@ title: Azure SQL Database connectivity architecture | Azure
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure. 
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: monicar
 ms.assetid: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 06/05/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Azure SQL Database Connectivity Architecture 
@@ -36,7 +36,7 @@ The following steps describe how a connection is established to an Azure SQL dat
 - The proxy middleware redirects the traffic to the appropriate Azure SQL database.
 
 > [!IMPORTANT]
-> Each of these components have distributed denial of service (DDoS) protection built-in at the network and the app layer.
+> Each of these components has distributed denial of service (DDoS) protection built-in at the network and the app layer.
 >
 
 ## Connectivity from within Azure
@@ -67,15 +67,33 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 The following PowerShell script shows how to change the connection policy.
 
 ```powershell
-import-module azureRm
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
-$tenantId =  #your AAD tenant ID
-$subscriptionId = #Azure SubscriptionID
-$uri = #AAD uri
-$authUrl = "https://login.chinacloudapi.cn/$tenantId"
-$serverName = #sqldb server name 
-$resourceGroupName=#sqldb resource group
+# Azure Active Directory ID
+$tenantId = "<Azure Active Directory GUID>"
+$authUrl = "https://login.partner.microsoftonline.cn/$tenantId"
+
+# Subscription ID
+$subscriptionId = "<Subscription GUID>"
+
+# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
+# Under Required Permissions, add the API:  Windows Azure Service Management API
+
+# Specify the redirect URL for the app registration
+$uri = "<NATIVE APP - REDIRECT URI>"
+
+# Specify the application id for the app registration
+$clientId = "<NATIVE APP - APPLICATION ID>"
+
+# Logical SQL Server Name
+$serverName = "<LOGICAL DATABASE SERVER - NAME>"
+
+# Resource Group where the SQL Server is located
+$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
+
+
+# Login and acquire a bearer token
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 
 $result = $AuthContext.AcquireToken("https://management.core.chinacloudapi.cn/",
@@ -88,13 +106,14 @@ $authHeader = @{
 'Authorization'=$result.CreateAuthorizationHeader()
 }
 
-#getting the current connection property
+#Get current connection Policy
 Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
 
-#setting the property to 'Proxy'
+#Set connection policy to Proxy
 $connectionType="Proxy" <#Redirect / Default are other options#>
 $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 
+# Apply Changes
 Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
@@ -104,4 +123,4 @@ Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subsc
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update "Script to change connection settings" -->
