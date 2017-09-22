@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/13/2016
-ms.date: 09/26/2016
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Azure App Service App Cloning Using PowerShell
@@ -24,8 +24,6 @@ With the release of Azure PowerShell version 1.1.0 a new option has been added t
 App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as Web Apps Backup feature, see [Back up a web app in Azure App Service](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-To learn about using Azure Resource Manager based Azure PowerShell cmdlets to manage your Web Apps check [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## Cloning an existing App
 Scenario: An existing web app in China East region, the user would like to clone the contents to a new web app in China North region. This can be accomplished by using the Azure Resource Manager version of the PowerShell cmdlet to create a new web app with the -SourceWebApp option.
@@ -91,7 +89,6 @@ This feature is currently in preview, we are working to add new capabilities ove
 * Database content are not cloned
 
 ### References
-* [Azure Resource Manager based PowerShell commands for Azure Web App](app-service-web-app-azure-resource-manager-powershell.md)
 * [Web App Cloning using Azure Portal](app-service-web-app-cloning-portal.md)
 * [Back up a web app in Azure App Service](web-sites-backup.md)
 * [Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2016
-ms.date: 02/10/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Deploy your app to Azure App Service using FTP/S
@@ -71,5 +71,4 @@ enables version control, package restore, MSBuild, and more.
 
 ## More Resources
 
-* [Create a PHP-MySQL web app and deploy using FTP](web-sites-php-mysql-deploy-use-ftp.md).
 * [Azure App Service Deployment Credentials](app-service-deploy-ftp.md)

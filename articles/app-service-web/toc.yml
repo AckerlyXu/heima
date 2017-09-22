@@ -42,11 +42,11 @@
 - name: Concepts
   items:
   - name: How App Service works
-    href: ../app-service/app-service-how-works-readme.md?toc=%2fapp-service-web%2ftoc.json
+    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: App Service plans
-    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-web%2ftoc.json
+    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Authentication and authorization
-    href: ../app-service/app-service-authentication-overview.md?toc=%2fapp-service-web%2ftoc.json
+    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Authentication with on-premises AD
     href: web-sites-authentication-authorization.md
 - name: How-To guides
@@ -65,14 +65,8 @@
         href: app-service-web-php-get-started.md
       - name: Set up your PHP project
         href: web-sites-php-configure.md
-      - name: Set up your WordPress Multisite
-        href: web-sites-php-convert-wordpress-multisite.md
     - name: Node.js
       items:
-      - name: Sails.js app with NOSQL DB
-        href: app-service-web-nodejs-sails.md
-      - name: Use io.js
-        href: web-sites-nodejs-iojs.md
       - name: Debug Node.js app
         href: web-sites-nodejs-debug.md
     - name: Java
@@ -81,14 +75,8 @@
         href: app-service-web-eclipse-create-hello-world-web-app.md
       - name: Java app with IntelliJ
         href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: Use Azure SDK for Java
-        href: java-create-azure-website-using-java-sdk.md
       - name: Upload existing app
         href: web-sites-java-add-app.md
-    - name: Python
-      items:
-      - name: Django app with MySQL
-        href: web-sites-python-ptvs-django-mysql.md
     - name: Configure runtime
       items:
       - name: PHP on Windows
@@ -124,10 +112,10 @@
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Migrate an active domain
         href: app-service-custom-domain-name-migrate.md
-    - name: Test in production
-      href: app-service-web-test-in-production-get-start.md
-    - name: Add functionality to web app
-      href: app-service-web-get-started-2.md
+    - name: Deploy a Spring Boot app to Azure Web Apps using the Maven Plugin
+      href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
+    - name: Deploy a containerized Spring Boot app using the Maven Plugin
+      href: app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md
   - name: Connect to DB/resources
     items:
     - name: Connect to Azure VNet
@@ -141,9 +129,9 @@
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-web%2ftoc.json
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
       - name: Authenticate with Microsoft account
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-web%2ftoc.json
+        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
       - name: Authenticate with on-prem AD
         href: web-sites-authentication-authorization.md
       - name: App with a multi-tenant database
@@ -157,15 +145,11 @@
     - name: Scale up
       href: web-sites-scale.md
     - name: Scale out
-      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fapp-service-web%2ftoc.json
-    - name: Load-balance with Traffic Manager
-      href: web-sites-traffic-manager.md
+      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Connect to Redis Cache via Memcache
       href: web-sites-connect-to-redis-using-memcache-protocol.md
     - name: Create a Redis Cache
-      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fapp-service-web%2ftoc.json
-    - name: Manage session state with Azure Redis cache
-      href: web-sites-dotnet-session-state-caching.md
+      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Monitor
     items:
     - name: Monitor apps
@@ -180,8 +164,6 @@
       href: web-sites-backup.md
     - name: Restore your app from backup
       href: web-sites-restore.md
-    - name: Backup with REST API
-      href: websites-csm-backup.md
   - name: Manage app resources
     items:
     - name: Clone app with PowerShell
@@ -190,10 +172,7 @@
       href: app-service-web-app-cloning-portal.md
     - name: Move resources
       href: app-service-move-resources.md
-    - name: Use Azure Resource Manager with PowerShell
-      href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: Manage apps using Azure Automation
-      href: automation-manage-web-app.md
+
 - name: Reference
   items:
   - name: CLI 2.0

@@ -38,7 +38,6 @@
 ### [App Service plans in-depth](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [High-density hosting](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Using WebJobs in Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [App Service Environment documentation](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Develop
 ### Android
@@ -115,14 +114,12 @@
 #### [Custom domains with Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Clone an existing app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [On-premises connections](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Advanced configuration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Resource groups](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Web Jobs](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Run Background tasks with WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-### [App Service Environment](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Migrate
 ### [How does App Service compare to Mobile Services?](app-service-mobile-value-prop-migration-from-mobile-services.md)
@@ -132,7 +129,6 @@
 #### [Node.js backend](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## [Secure](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Secure an app in Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Authenticate with identity providers
 #### [Azure Active Directory authentication](app-service-mobile-how-to-configure-active-directory-authentication.md)
@@ -150,7 +146,6 @@
 ## Backup
 ### [Back up your app in Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Restore an app in Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Use REST to back up and restore App Service apps](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Monitor](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Enable diagnostics logging ](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -159,9 +154,6 @@
 ## Automate
 ### [Agile development](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Resource Manager deployment](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [MSDeploy with custom hostname and SSL certificate](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Powershell
 #### [Automate backup and restore](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [App cloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -187,7 +179,6 @@
 
 # Related
 ## [GitHub repositories](https://github.com/Azure/azure-mobile-apps)
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
 ## [App Service Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

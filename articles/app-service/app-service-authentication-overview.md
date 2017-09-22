@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 11/21/2016
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Authentication and authorization in Azure App Service
@@ -28,7 +28,6 @@ If you want to get started right away, see one of the following tutorials:
 
 * [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova])
 * [User authentication for API Apps in Azure App Service][apia-user]
-* [Get started with Azure App Service - Part 2][web-getstarted]
 
 ## How authentication works in App Service
 In order to authenticate by using one of the identity providers, you first need to configure the identity provider to know about your application. The identity provider will then provide IDs and secrets that you provide to App Service. This completes the trust relationship so that App Service can validate user assertions, such as authentication tokens, from the identity provider.

@@ -12,10 +12,10 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 01/04/2017
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 ms.custom: mvc
 ---
 # Web Apps overview
@@ -34,10 +34,10 @@ For examples of typical application scenarios that you can use Web Apps for, see
 Here are some key features of App Service that apply to Web Apps:
 
 * **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [PowerShell and other scripts or executables](web-sites-create-web-jobs.md) on App Service VMs.
-* **DevOps optimization** - Set up [continuous integration and deployment](app-service-continuous-deployment.md) with GitHub. Promote updates through [test and staging environments](web-sites-staged-publishing.md). Perform [A/B testing](app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) or the [cross-platform command-line interface (CLI)](../cli-install-nodejs.md).
+* **DevOps optimization** - Set up [continuous integration and deployment](app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](web-sites-staged-publishing.md). Manage your apps in App Service by using [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the [cross-platform command-line interface (CLI)](../cli-install-nodejs.md).
 * **Global scale with high availability** - Scale [up](web-sites-scale.md) or [out](../monitoring-and-diagnostics/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Azure.cn's national datacenter infrastructure, and the App Service [SLA](https://www.azure.cn/support/sla/app-service/) promises high availability.
 * **Connections to on-premises data** - Access on-premises data using [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
-* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.trustcenter.cn/).
+* **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
 * **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
 In addition, a web app can take advantage of features offered by [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) (such as CORS support) and [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) (such as push notifications). For more information about app types in App Service, see [Azure App Service overview](../app-service/app-service-value-prop-what-is.md).

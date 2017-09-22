@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: ''
+ms.date: 10/09/2017
 ---
 # How to use Azure API Management with virtual networks
 Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routeable network that you control access to. These networks can then be connected to your on-premises networks using various VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -107,7 +107,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 11000 - 11999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 14000 - 14999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / 5671 |Outbound |AMQP |Dependency for Log to Event Hub policy and monitoring agent |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| 6381 - 6383 / 6381 - 6383 |Inbound & Outbound |UDP |Dependency on Redis Cache |VIRTUAL_NETWORK / VIRTUAL_NETWORK |External & Internal |-
+| * / 6381 - 6383 |Inbound & Outbound |TCP |Dependency on Redis Cache |VIRTUAL_NETWORK / VIRTUAL_NETWORK |External & Internal |
 | * / 445 |Outbound |TCP |Dependency on Azure File Share for GIT |VIRTUAL_NETWORK / INTERNET |External & Internal |
 | * / * | Inbound |TCP |Azure Infrastructure Load Balancer | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |External & Internal |
 

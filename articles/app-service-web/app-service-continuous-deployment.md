@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/28/2016
-ms.date: 04/24/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Continuous Deployment to Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows you how to configure a continuous deployment workflow for your [Azure App Service] app. App Service integration with GitHub enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
+This tutorial shows you how to configure a continuous deployment workflow for your [Azure Web Apps](app-service-web-overview.md). App Service integration with GitHub enables a continuous deployment workflow where Azure pulls in the most recent updates from your project published to one of these services. Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated.
 
 To find out how to configure continuous deployment manually from a cloud repository not listed by the Azure Portal (such as [GitLab](https://gitlab.com/)), see
 [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
@@ -84,10 +84,10 @@ To disable continuous deployment,
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
-[Azure App Service]: /app-service-web/app-service-changes-existing-services/
+
 [Azure portal]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
-[Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [How to use PowerShell for Azure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [How to use the Azure Command-Line Tools for Mac and Linux]:../cli-install-nodejs.md
 [Git Documentation]: http://git-scm.com/documentation
@@ -95,4 +95,3 @@ To disable continuous deployment,
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Get started with VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-[Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
