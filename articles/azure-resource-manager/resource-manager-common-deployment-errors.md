@@ -16,7 +16,8 @@ ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/17/2017
-ms.date: 09/04/2017
+origin.date: 09/25/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
@@ -79,6 +80,22 @@ You receive this error when the resource SKU you have selected (such as VM size)
   virtualMachines      Standard_A2 chinaeast
   ```
 
+- For the Azure CLI, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
+
+  ```
+  az vm list-skus --output table
+  ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
+  ----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
+  availabilitySets  chinaeast              Classic                 MaximumPlatformFaultDomainCount=3
+  avilabilitySets  chinaeast              Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  chinaeast2             Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  chinaeast2             Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  chinanorth              Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  chinanorth              Aligned                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  chinaeast           Classic                 MaximumPlatformFaultDomainCount=3
+  availabilitySets  chinaeast           Aligned                 MaximumPlatformFaultDomainCount=3
+  ```
+
 - To use the [portal](https://portal.azure.cn), log in to the portal and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
     ![available SKUs](./media/resource-manager-common-deployment-errors/view-sku.png)
@@ -121,6 +138,7 @@ You receive this error when the resource SKU you have selected (such as VM size)
     ```
 
 If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, submit a [SKU request](https://www.azure.cn/support/support-ticket-form) to Azure Support.
+<!-- Not Available [https://aka.ms/skurestriction] (azure-supportability/sku-series-unavailable)-->
 
 ## <a name="disallowedoperation"></a> DisallowedOperation
 
@@ -437,7 +455,8 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ```
 
 <a id="quotaexceeded"></a>
-## <a name="operationnotallowed"></a>QuotaExceeded and OperationNotAllowed
+<a name="operationnotallowed"></a>
+## QuotaExceeded and OperationNotAllowed
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
@@ -541,4 +560,4 @@ For more information about role-based access control, see [Azure Role-Based Acce
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 
-<!--Update_Description: wording update, add Get-AzureRmComputeResourceSku sample code -->
+<!--Update_Description: update meta properties, wording update -->

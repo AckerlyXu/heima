@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/30/2017
-ms.date: 07/03/2017
+origin.date: 08/30/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,7 @@ All tokens are signed with a SAS key. Typically, all tokens are signed with the 
 
 ### Create the SAS key
 
-When creating an Event Hubs namespace, the service generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can also create additional keys. It is recommended that you produce a key that grants send permissions to the specific event hub. For the remainder of this topic, it is assumed that you named this key **EventHubSendKey**.
+When creating an Event Hubs namespace, the service automatically generates a 256-bit SAS key named **RootManageSharedAccessKey**. This rule has an associated pair of primary and secondary keys that grant send, listen, and manage rights to the namespace. You can also create additional keys. It is recommended that you produce a key that grants send permissions to the specific event hub. For the remainder of this topic, it is assumed that you named this key **EventHubSendKey**.
 
 The following example creates a send-only key when creating the event hub:
 
@@ -115,3 +115,5 @@ To learn more about Event Hubs, visit the following topics:
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [Sample applications that use Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Overview of Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md
+
+<!--Update_Description: update meta properties, wording update-->

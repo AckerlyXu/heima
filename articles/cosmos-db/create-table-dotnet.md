@@ -13,9 +13,9 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 06/22/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -110,7 +110,8 @@ Now we'll update the connection string information so your app can talk to Azure
 3. Paste the value into the app.config file as the value of the PremiumStorageConnectionString. 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />`    
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
+<!-- Not Need to add EndpointSuffix=core.chinacloudapi.cn-->
 
     You can leave the StandardStorageConnectionString as is.
 

@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-origin.date: 08/28/2017
-ms.date: ''
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -65,8 +64,6 @@ var azure = require('azure-storage');
 
 ## Set up an Azure Storage connection
 The azure module will read the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
-
-For an example of setting the environment variables in the [Azure portal](https://portal.azure.cn) for an Azure Website, see [Node.js web app using the Azure Table Service](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## Create a table
 The following code creates a **TableService** object and uses it to create a new table. Add the following near the top of **server.js**.
@@ -454,3 +451,5 @@ For more information, see the following resources.
 * [Microsoft Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
 * [Node.js Developer Center](/develop/nodejs/)
 * [Create and deploy a Node.js application to an Azure website](../app-service-web/app-service-web-get-started-nodejs.md)
+
+<!--Update_Description: update meta properties， wording update-->

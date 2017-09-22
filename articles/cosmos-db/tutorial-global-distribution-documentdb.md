@@ -13,9 +13,9 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -170,3 +170,5 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 > [Develop locally with the emulator](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
+
+<!--Update_Description: update meta properties-->

@@ -188,16 +188,30 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
-      - name: Tutorials
+      - name: Angular tutorial series
+        items:
+        - name: Part 2 - Create Node app
+          href: tutorial-develop-mongodb-nodejs-part2.md
+        - name: Part 3 - Add Angular UI
+          href: tutorial-develop-mongodb-nodejs-part3.md
+        - name: Part 4 - Create Cosmos DB
+          href: tutorial-develop-mongodb-nodejs-part4.md
+        - name: Part 5 - Connect to Cosmos DB
+          href: tutorial-develop-mongodb-nodejs-part5.md
+        - name: Part 6 - Write to the app
+          href: tutorial-develop-mongodb-nodejs-part6.md
+      - name: Additional tutorials
         items:
         - name: Node.js console app
           href: mongodb-samples.md
     - name: Table API
       items:
-      - name: Table storage
-        href: https://docs.microsoft.com/rest/api/storageservices/Table-Service-Concepts
+      - name: Table storage overview
+        href: table-storage-overview.md
       - name: Table storage design guide
         href: table-storage-design-guide.md
+      - name: Table storage REST APIs
+        href: https://docs.microsoft.com/rest/api/storageservices/Table-Service-Concepts
       - name: Tutorials
         items:
           - name: .NET
@@ -301,4 +315,5 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Data consistency explained through baseball
-    href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+    href: http://research.microsoft.com/apps/pubs/default.aspx?id=20691
+### ms.date: 09/25/2017

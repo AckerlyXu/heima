@@ -4,7 +4,7 @@ description: Shows recommended approaches for using complex objects to share sta
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: fd2f5e2d-d56d-4e01-a57d-34f3eaead4a9
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/26/2016
-ms.date: 03/03/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 
@@ -30,7 +30,7 @@ With complex objects, you can create variables that contain collections of data,
 
 The following example shows how to define variables that contain complex objects for representing collections of data. The collections define values that are used for virtual machine size, network settings, operating system settings and availability settings.
 
-```
+```json
 "variables": {
   "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
   "tshirtSizeSmall": {
@@ -115,7 +115,7 @@ You can then reference these variables later in the template. The ability to ref
 and makes it easy to understand context. The following example defines a resource to deploy by using the objects shown previously to set values. For example, the VM size is set by retrieving the value
 for `variables('tshirtSize').vmSize` while the value for the disk size is retrieved from `variables('tshirtSize').diskSize`. In addition, the URI for a linked template is set with the value for `variables('tshirtSize').vmTemplate`.
 
-```
+```json
 "name": "master-node",
 "type": "Microsoft.Resources/deployments",
 "apiVersion": "2015-01-01",
@@ -188,7 +188,7 @@ The following table lists commonly used parameters in templates.
 
 The **tshirtSize** parameter used in the previous section is defined as:
 
-```
+```json
 "parameters": {
   "tshirtSize": {
     "type": "string",
@@ -217,7 +217,7 @@ concatenated to the known configuration template location and stored in the `vmT
 The benefit of this approach is that if the template location changes, you only need to change the static variable
 in one place, which passes it throughout the linked templates.
 
-```
+```json
 "variables": {
   "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
   "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
@@ -250,7 +250,7 @@ network settings and pass them to linked templates.
 
 An example of communicating network settings can be seen below.
 
-```
+```json
 "networkSettings": {
   "vnetName": "[parameters('virtualNetworkName')]",
   "addressPrefix": "10.0.0.0/16",
@@ -272,7 +272,7 @@ An example of communicating network settings can be seen below.
 #### availabilitySettings
 Resources created in linked templates are often placed in an availability set. In the following example, the availability set name is specified and also the fault domain and update domain count to use.
 
-```
+```json
 "availabilitySetSettings": {
   "name": "pgsqlAvailabilitySet",
   "fdCount": 3,
@@ -286,7 +286,7 @@ for creating a variable for a specific t-shirt size.
 #### storageSettings
 Storage details are often shared with linked templates. In the example below, a *storageSettings* object provides details about the storage account and container names.
 
-```
+```json
 "storageSettings": {
     "vhdStorageAccountName": "[parameters('storageAccountName')]",
     "vhdContainerName": "[variables('vmStorageAccountContainerName')]",
@@ -300,7 +300,7 @@ it easier to support multiple operating system choices for deployment.
 
 The following example shows an object for *osSettings*:
 
-```
+```json
 "osSettings": {
   "imageReference": {
     "publisher": "Canonical",
@@ -315,7 +315,7 @@ The following example shows an object for *osSettings*:
 A generated variable, *machineSettings* is a complex object containing a mix of core variables for creating a VM. The variables include administrator user name and password, a prefix for the VM names, and an operating
 system image reference.
 
-```
+```json
 "machineSettings": {
     "adminUsername": "[parameters('adminUsername')]",
     "adminPassword": "[parameters('adminPassword')]",
@@ -329,7 +329,7 @@ system image reference.
 },
 ```
 
-Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM--entirely or based
+Note that *osImageReference* retrieves the values from the *osSettings* variable defined in the main template. That means you can easily change the operating system for a VM—entirely or based
 on the preference of a template consumer.
 
 #### vmScripts
@@ -343,7 +343,7 @@ This example is from a template used to deploy MongoDB, which requires an arbite
 
 The variables section is where you find the variables that define the specific text to execute the script with the proper values.
 
-```
+```json
 "vmScripts": {
     "scriptsToDownload": [
         "[concat(variables('scriptUrl'), 'mongodb-', variables('osFamilySpec').osName, '-install.sh')]",
@@ -361,7 +361,7 @@ by the source template.
 
 The following example shows how to pass the private IP address generated in a linked template.
 
-```
+```json
 "outputs": {
     "masterip": {
         "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
@@ -378,7 +378,7 @@ Within the main template, you can use that data with the following syntax:
 
 You can use this expression in either the outputs section or the resources section of the main template. You cannot use the expression in the variables section because it relies on the runtime state. To return this value from the main template, use:
 
-```
+```json
 "outputs": {
   "masterIpAddress": {
     "value": "[reference('master-node').outputs.masterip.value]",
@@ -386,12 +386,12 @@ You can use this expression in either the outputs section or the resources secti
   }
 ```
 
-For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](./resource-group-create-multiple.md).
+For an example of using the outputs section of a linked template to return data disks for a virtual machine, see [Creating multiple data disks for a Virtual Machine](resource-group-create-multiple.md).
 
 ## Define authentication settings for virtual machine
 You can use the same pattern shown previously for configuration settings to specify the authentication settings for a virtual machine. You create a parameter for passing in the type of authentication.
 
-```
+```json
 "parameters": {
   "authenticationType": {
     "allowedValues": [
@@ -409,7 +409,7 @@ You can use the same pattern shown previously for configuration settings to spec
 
 You add variables for the different authentication types, and a variable to store which type is used for this deployment based on the value of the parameter.
 
-```
+```json
 "variables": {
   "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
   "osProfilepassword": {
@@ -439,7 +439,7 @@ You add variables for the different authentication types, and a variable to stor
 
 When defining the virtual machine, you set the **osProfile** to the variable you created.
 
-```
+```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   ...
@@ -448,5 +448,7 @@ When defining the virtual machine, you set the **osProfile** to the variable you
 ```
 
 ## Next steps
-* To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-* To see the functions that are available within a template, see [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
+* To learn about the sections of the template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+* To see the functions that are available within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+
+<!--Update_Description: wording update-->

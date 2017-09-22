@@ -28,6 +28,6 @@
 
 6.  When the deployment is complete, open the new account from the All Resources tile. 
 
-    ![DocumentDB account on the All Resources tile](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount-table/all-resources.png)
 <!--Update_Description: wording update-->
-<!--ms.date: 09/18/2017-->
+<!--ms.date: 09/25/2017-->

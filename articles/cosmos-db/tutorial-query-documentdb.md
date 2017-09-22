@@ -12,11 +12,11 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -144,3 +144,5 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+
+<!--Update_Description: update meta properties-->

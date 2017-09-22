@@ -15,15 +15,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 4: Create relationships
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In this lesson, you verify the relationships that were created automatically when you imported data and add new relationships between different tables. A relationship is a connection between two tables that establishes how the data in those tables should be correlated. For example, the DimProduct table and the DimProductSubcategory table have a relationship based on the fact that each product belongs to a subcategory. To learn more, see [Relationships](/sql/analysis-services/tabular-models/relationships-ssas-tabular).
+In this lesson, you verify the relationships that were created automatically when you imported data and add new relationships between different tables. A relationship is a connection between two tables that establishes how the data in those tables should be correlated. For example, the DimProduct table and the DimProductSubcategory table have a relationship based on the fact that each product belongs to a subcategory. To learn more, see [Relationships](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
 
 Estimated time to complete this lesson: **10 minutes**  
 
@@ -71,7 +70,7 @@ The arrow shows the filter direction. The asterisk shows this table is the many 
 
 ![aas-lesson4-edit](../tutorials/media/aas-lesson4-edit.png)
 
-These features are meant for advanced data modeling and are outside the scope of this tutorial. To learn more, see [Bi-directional cross filters for tabular models in Analysis Services](/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services).
+These features are meant for advanced data modeling and are outside the scope of this tutorial. To learn more, see [Bi-directional cross filters for tabular models in Analysis Services](https://docs.microsoft.com/sql/analysis-services/tabular-models/bi-directional-cross-filters-tabular-models-analysis-services).
 
 In some cases, you may need to create additional relationships between tables in your model to support certain business logic. For this tutorial, you need to create three additional relationships between the FactInternetSales table and the DimDate table.  
 
@@ -96,3 +95,5 @@ In some cases, you may need to create additional relationships between tables in
 
 ## What's next?
 [Lesson 5: Create calculated columns](../tutorials/aas-lesson-5-create-calculated-columns.md).
+
+<!--Update_Description: update meta properties, update link-->

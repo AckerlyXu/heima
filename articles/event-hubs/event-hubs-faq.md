@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
-ms.date: 07/24/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -34,6 +34,7 @@ The Standard tier of Azure Event Hubs provides features beyond what is available
 For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://www.azure.cn/pricing/details/event-hubs/).
 
 ### What are Event Hubs throughput units?
+
 You explicitly select Event Hubs throughput units, either through the Azure portal or Event Hubs Resource Manager templates. Throughput units apply to all event hubs in an Event Hubs namespace, and each throughput unit entitles the namespace to the following capabilities:
 
 * Up to 1 MB per second of ingress events (events sent into an event hub), but no more than 1000 ingress events, management operations or control API calls per second.
@@ -54,7 +55,7 @@ There is a default quota of 20 throughput units per namespace. You can request a
 Yes, as long as all the event hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
-Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](/event-hubs/event-hubs-archive-overview) on your event hub pulls the data from your event hub to the storage of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
+Event Hubs Standard tier currently supports a maximum retention period of 7 days. Note that event hubs are not intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond 7 days, enabling [Event Hubs Capture](/event-hubs/event-hubs-capture-overview) on your event hub pulls the data from your event hub to the storage of your choosing. Enabling Capture incurs a charge based on your purchased Throughput Unit.
 
 ### Where is Azure Event Hubs available?
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://www.azure.cn/support/service-dashboard/) page.  

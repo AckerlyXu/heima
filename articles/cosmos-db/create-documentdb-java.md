@@ -13,9 +13,9 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 08/02/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,8 @@ This quickstart creates a document database using the Azure portal tools for Azu
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## Create a database account
 
@@ -198,4 +199,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, doc
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update, add include file named cosmos-db-emulator-docdb-api.md-->

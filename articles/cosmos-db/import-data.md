@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
-# How to import data into Azure Cosmos DB for the DocumentDB API?
+# How to import data into Azure Cosmos DB with the DocumentDB API
 
 This tutorial provides instructions on using the Azure Cosmos DB: DocumentDB API Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and Azure Cosmos DB DocumentDB API collections into collections for use with Azure Cosmos DB and the DocumentDB API. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
 
@@ -239,7 +239,7 @@ The format of the Azure Table storage connection string is:
 > 
 > 
 
-Enter the name of the Azure table from which data will be imported. You may optionally specify a [filter](https://msdn.microsoft.com/zh-cn/library/azure/ff683669.aspx).
+Enter the name of the Azure table from which data will be imported. You may optionally specify a [filter](https://docs.azure.cn/zh-cn/).
 
 The Azure Table storage source importer option has the following additional options:
 
@@ -584,3 +584,5 @@ You can now proceed to the next tutorial and learn how to query data using Azure
 
 > [!div class="nextstepaction"]
 >[How to query data?](../cosmos-db/tutorial-query-documentdb.md)
+
+<!--Update_Description: update link-->

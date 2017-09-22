@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 07/24/2017
-  ms.date: 09/18/2017
+  ms.date: 09/25/2017
   ms.author: v-yeche
 abstract:
   description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
@@ -73,4 +73,4 @@ sections:
     - html: <a href="/cosmos-db/cli-samples">Azure CLI</a>
     - html: <a href="/cosmos-db/powershell-samples">Azure PowerShell</a>
 ### Not Available - title: Refrence
-### ms.date: 09/18/2017
+### ms.date: 09/25/2017

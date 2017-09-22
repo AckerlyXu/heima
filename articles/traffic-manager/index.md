@@ -2,8 +2,8 @@
 title: Azure Traffic Manager Documentation - Tutorials, API Reference | Azure
 description: Learn how to manage incoming traffic for optimal application performance. Documentation shows how to distribute traffic to Azure or external service endpoints.
 services: traffic-manager
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 ms.assetid: 
 ms.service: traffic-manager
@@ -11,8 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
+ms.date: 09/25/2017
+ms.author: v-yeche
 ---
 #Traffic Manager Documentation
 
@@ -74,3 +74,4 @@ Learn how to use Traffic Manager to route incoming traffic for optimal applicati
         </a>
     </li>
 </ul>
+<!--Update_Description: update meta properties-->

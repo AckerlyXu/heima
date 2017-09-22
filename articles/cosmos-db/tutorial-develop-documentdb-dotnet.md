@@ -11,11 +11,11 @@ tags: ''
 ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -42,10 +42,10 @@ This tutorial covers the following tasks by using the [DocumentDB .NET API](docu
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/). 
-    * Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md) for this tutorial if you'd like to use a local environment that emulates the Azure DocumentDB service for development purposes.
-* [Visual Studio](http://www.visualstudio.com/).
 
-<!--Update_Description: wording update-->
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 ## Create an Azure Cosmos DB account
 
@@ -113,7 +113,7 @@ Copy the URI from the portal and paste it over `<your endpoint URL>` in the prog
 Now, create a new instance of the **DocumentClient**.
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
 ## <a id="create-database"></a>Create a database
@@ -313,3 +313,5 @@ You can now proceed to the next tutorial and import additional data to your Cosm
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
+
+<!--Update_Description: wording update-->

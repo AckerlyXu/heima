@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 origin.date: 12/08/2016
-origin.date: 08/28/2017
-ms.date: ''
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -62,14 +61,6 @@ To obtain these values from a classic or Resource Manager storage account in the
 2. Navigate to the storage account you want to use.
 3. In the Settings blade on the right, click **Access Keys**.
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
-5. Click the copy icon to copy the key to the clipboard.
-
-To obtain these values from a classic storage account in the classic Azure portal:
-
-1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
-2. Navigate to the storage account you want to use.
-3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
-4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
 5. Click the copy icon to copy the key to the clipboard.
 
 ## Create a table
@@ -172,3 +163,5 @@ azure_table_service.delete_table("testtable")
 
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+
+<!--Update_Description: wording update-->

@@ -26,7 +26,8 @@ The Resource Manager template you deploy can either be a local file on your mach
 
 [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
 
-## <a id="deploy-local-template"></a> Deploy a template from your local machine
+<a id="deploy-local-template"></a> 
+## <a name="deploy-a-template-from-your-local-machine"></a> Deploy a template from your local machine
 
 When deploying resources to Azure, you:
 

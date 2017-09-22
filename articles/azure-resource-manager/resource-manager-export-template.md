@@ -12,9 +12,9 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 origin.date: 07/06/2017
-ms.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Export an Azure Resource Manager template from existing resources
@@ -172,4 +172,4 @@ You have learned how to export a template from resources that you created in the
 * To see how to export a template through PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * To see how to export a template through Azure CLI, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
-<!--Update_Description: update meta properties, wording update, remove the unnessary json template sample-->
+<!--Update_Description: update meta properties-->

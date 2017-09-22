@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/18/2017
+origin.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -63,4 +63,4 @@ To replicate your database in multiple data centers, see [distribute your data g
 
 To file contact Azure Support, [file a ticket from the Azure portal](https://www.azure.cn/support/support-azure/).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

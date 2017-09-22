@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 06/01/2017
-ms.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 1: Create a tabular model project

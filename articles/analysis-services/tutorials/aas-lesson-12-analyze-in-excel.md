@@ -15,8 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 05/26/2017
-ms.date: 08/07/2017
-
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 # Lesson 12: Analyze in Excel
@@ -76,3 +75,5 @@ Roles are an important part of any tabular model. Without at least one role to w
 
 ## What's next?
 Go to the next lesson: [Lesson 13: Deploy](../tutorials/aas-lesson-13-deploy.md).
+
+<!--Update_Description: update meta properties-->
