@@ -96,10 +96,6 @@
 #### [App cloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [SSL Certificate Binding](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
-## Integrate
-### [Send email using SendGrid with Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Export to PowerApps and Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
-### [Use Managed Service Identity](app-service-managed-service-identity.md)
 
 ## Troubleshoot
 ### [Enable diagnostics logging](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)

@@ -33,7 +33,6 @@
 ### [Customize styling of page elements](./api-management-customize-styles.md)
 ### [Customize system pages using templates](./api-management-developer-portal-templates.md)
 ### [Authentication with AAD](./api-management-howto-aad.md)
-### [Authentication with AAD B2C](./api-management-howto-aad-b2c.md)
 ### [Delegated authentication](./api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](./api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](./api-management-howto-oauth2.md)
@@ -77,8 +76,6 @@
 ### [Page controls](./api-management-page-controls.md)
 ### [Template resources](./api-management-template-resources.md)
 # Resources
-## [API design guidance](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
-## [API implementation guidance](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 ## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
