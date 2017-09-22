@@ -22,8 +22,7 @@ ms.author: v-yeche
 
 This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
 
-Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
-
+<!-- Not Avaialbe [the introduction](tutorial-develop-mongodb-nodejs.md) due to it is all invalid VIDEO-->
 > [!div class="checklist"]
 > * Install the Angular CLI and TypeScript
 > * Create a new project using Angular

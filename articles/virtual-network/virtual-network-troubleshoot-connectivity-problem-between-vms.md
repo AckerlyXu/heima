@@ -64,7 +64,9 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 ### Step 2: Check whether network traffic is blocked by NSG or UDR
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there is a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow.
+Use Network Watcher IP Flow Verify and NSG Flow Logging to determine whether there is a Network Security Group (NSG) or User-Defined Route (UDR) that is interfering with traffic flow.
+<!-- Not Available (../network-watcher/network-watcher-ip-flow-verify-overview.md)-->
+<!-- Not Available (../network-watcher/network-watcher-nsg-flow-logging-overview.md)-->
 
 ### Step 3: Check whether network traffic is blocked by VM firewall
 
@@ -104,7 +106,7 @@ If you cannot connect to a VM network share, the problem may be caused by unavai
 
 ### Step 9: Check Inter-Vnet connectivity
 
-Use [Network Watcher IP Flow Verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) and [NSG Flow Logging](../network-watcher/network-watcher-nsg-flow-logging-overview.md) to determine whether there is a NSG or UDR that is interfering with traffic flow. You can also verify your Inter-Vnet configuration [here](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
+Use Network Watcher IP Flow Verify and NSG Flow Logging to determine whether there is a NSG or UDR that is interfering with traffic flow. You can also verify your Inter-Vnet configuration [here](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).
 
 ### Need help? Contact support.
 If you still need help, [contact support](https://www.azure.cn/support/support-azure/) to get your issue resolved quickly.
