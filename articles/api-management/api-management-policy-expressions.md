@@ -20,13 +20,6 @@ ms.date: ''
 # API Management policy expressions
 Policy expressions syntax is C# 6.0. Each expression has access to the implicitly provided [context](./api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](./api-management-policy-expressions.md#CLRTypes) of .NET Framework types.  
   
- 
->  -   10:30 - See how to apply policy at the API level to supply context information to the backend service using the [Set query string parameter](./api-management-transformation-policies.md#SetQueryStringParameter) and [Set HTTP header](./api-management-transformation-policies.md#SetHTTPheader) policies. At 12:10 there is a demo of calling an operation in the developer portal where you can see these policies at work.  
-> -   13:50 - See how to use the [Validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.  
-> -   21:00 - See how to use an [API Inspector](./api-management-howto-api-inspector.md) trace to see how policies are evaluated and the results of the evaluations.  
-> -   25:25 - See how to use policy expressions with the [Get from cache](./api-management-caching-policies.md#GetFromCache) and [Store to cache](./api-management-caching-policies.md#StoreToCache) policies to configure API Management response caching duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.  
-> -   34:30 - See how to perform content filtering by removing data elements from the response received from the backend service using the [Control flow](./api-management-advanced-policies.md#choose) and [Set body](./api-management-transformation-policies.md#SetBody) policies. Start  at 31:50 to see an overview of [The Dark Sky Forecast API](https://developer.forecast.io/) used for this demo.  
-> -   To download the policy statements, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github repo.  
   
   
 ##  <a name="Syntax"></a> Syntax  
@@ -165,7 +158,7 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
   
 |Context Variable|Allowed methods, properties, and parameter values|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Deployment<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> RequestId: string<br /><br /> Response<br /><br /> Subscription<br /><br /> Tracing: bool<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Deployment<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> RequestId: Guid<br /><br /> Response<br /><br /> Subscription<br /><br /> Tracing: bool<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> For more information about context.LastError, see [Error handling](./api-management-error-handling-policies.md).|  

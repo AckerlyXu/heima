@@ -15,8 +15,8 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Application performance FAQs for Web Apps in Azure
@@ -103,7 +103,10 @@ To turn on failed request tracing:
 3. Select **All Settings** > **Diagnostics Logs**.
 4. For **Failed Request Tracing**, select **On**.
 5. Select **Save**.
-6. On the web app blade, select **App Service Editor (Preview)** under **Development Tools**.
+6. On the web app blade, select **Tools**.
+7. Select **Visual Studio Online**.
+8. If the setting is not **On**, select **On**.
+9. Select **Go**.
 10. Select **Web.config**.
 11. In system.webServer, add this configuration (to capture a specific URL):
 

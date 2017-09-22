@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Local Git Deployment to Azure App Service
-This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
-Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started.md).
+This tutorial shows you how to deploy your app to [Azure Web Apps](app-service-web-overview.md) from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
+Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started-dotnet.md).
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -66,8 +66,8 @@ Perform the following steps to enable a Git repository for your App Service app.
 2. In your App Service app's blade, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.  
 
     ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
-3. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your app's blade, click **Deployment > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
-
+3. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your app's blade, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
+   
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
 ## <a name="Step4"></a>Step 4: Deploy your project
@@ -166,11 +166,10 @@ git config --global http.postBuffer 524288000
 * [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
-[Azure App Service]: /app-service-web/app-service-changes-existing-services/
 [Azure Developer Center]: /develop/overview/
 [Azure Portal]: https://portal.azure.cn
 [Git website]: http://git-scm.com
-[Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
+[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure Command-Line Interface]: /azure-resource-manager/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex

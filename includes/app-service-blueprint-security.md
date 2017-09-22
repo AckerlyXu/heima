@@ -1,6 +1,6 @@
 * [Secure your web app using various means of authentication and authorization](../articles/app-service-web/web-sites-authentication-authorization.md)
   * [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
-* [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../articles/app-service-web/web-sites-configure-ssl-certificate.md)
+* [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../articles/app-service-web/app-service-web-tutorial-custom-ssl.md)
   * [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/#force-https)
   * [Enable Strict Transport Security (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
 * [Restrict access to your app by client's IP address](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)

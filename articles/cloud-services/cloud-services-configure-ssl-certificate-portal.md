@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 10/09/2017
 ---
 
 # Configuring SSL for an application in Azure
@@ -33,8 +33,6 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.
 
 Read [this](./cloud-services-how-to-create-deploy-portal.md) first if you have not yet created a cloud service.
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## Step 1: Get an SSL certificate
 To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third party who issues certificates for this purpose. If you do not already have one, you need to obtain one from a company that sells SSL certificates.

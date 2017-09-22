@@ -15,8 +15,8 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Deployment FAQs for Web Apps in Azure

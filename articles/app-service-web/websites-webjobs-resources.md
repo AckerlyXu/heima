@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/25/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Azure WebJobs documentation resources
@@ -57,7 +57,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ## <a name="schedule"></a>Scheduling WebJobs
 * [The Add Azure WebJob Dialog](websites-dotnet-deploy-webjobs.md#configure)
-* [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduled)
+* [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Hooking up a scheduler job to a WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Scheduling individual WebJob functions using the WebJobs SDK TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)
@@ -70,7 +70,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Who wrote that blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting interactive code in the Cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Adding Trace to Azure WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitor, diagnose, and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md)
+* [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 
 ## <a name="scale"></a>Scaling WebJobs
 * [Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/magazine/dn786914.aspx)
@@ -107,5 +107,5 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ## <a name="gethelp"></a>Getting help with WebJobs
 
 * [Azure and ASP.NET forum](http://forums.asp.net/1247.aspx)
-* [Azure App Service Web Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview)
+* [Azure App Service Web Apps forum](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
 * [Report a WebJobs bug or issue](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)

@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 09/01/2016
-ms.date: 03/24/2017
-ms.author: v-dazen
+ms.date: 10/09/2017
+ms.author: v-yiso
 
 ---
 # Create a line-of-business Azure app with Azure Active Directory authentication
@@ -117,56 +117,27 @@ You need the following to complete this tutorial:
 
     > [!IMPORTANT]
     > If you navigate away from this page now, you won't be able to access this client key ever again.
-1. use REST API to configure your App: GET from the following URL.
-
-    ```
-    https://management.chinacloudapi.cn/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings/list?api-version=2015-08-01
-    ```
-2. You will get something like this.
-
-    ```json
-    {
-    "id": "/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings",
-    "name": "authsettings",
-    "type": "Microsoft.Web/sites/config",
-    "location": "China East",
-    "tags": {
-        "hidden-related:/subscriptions/<Subscription id>/resourcegroups/<resource group>/providers/Microsoft.Web/serverfarms/<app service plan>": "empty"
-    },
-    "properties": {
-        "enabled": false,
-        "httpApiPrefixPath": null,
-        "unauthenticatedClientAction": null,
-        "tokenStoreEnabled": null,
-        "allowedExternalRedirectUrls": null,
-        "defaultProvider": null,
-        "clientId": null,
-        "clientSecret": null,
-        "issuer": null,
-        "allowedAudiences": null,
-        "additionalLoginParams": null,
-        "isAadAutoProvisioned": false,
-        "googleClientId": null,
-        "googleClientSecret": null,
-        "googleOAuthScopes": null,
-        "facebookAppId": null,
-        "facebookAppSecret": null,
-        "facebookOAuthScopes": null,
-        "twitterConsumerKey": null,
-        "twitterConsumerSecret": null,
-        "microsoftAccountClientId": null,
-        "microsoftAccountClientSecret": null,
-        "microsoftAccountOAuthScopes": null
-    }
-    ```
-15. Update `clientSecret` and `additionalLoginParams` properties as follows.
-
+    > 
+    > 
+11. Next, you need to configure your web app with this key. Log in to the [Azure Resource Explorer](https://resources.azure.com) with your 
+    Azure account.
+12. At the top of the page, click **Read/Write** to make changes in the Azure Resource Explorer.
+    
+    ![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
+13. Find the authentication settings for your app, located at subscriptions > **&lt;*subscriptionname*>** > **resourceGroups** > **&lt;*resourcegroupname*>** > **providers** > **Microsoft.Web** > **sites** > **&lt;*appname*>** > **config** > **authsettings**.
+14. Click **Edit**.
+    
+    ![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)
+15. In the editing pane, set the `clientSecret` and `additionalLoginParams` properties as follows.
+    
         ...
         "clientSecret": "<client key from the Azure Active Directory application>",
         ...
         "additionalLoginParams": ["response_type=code id_token", "resource=https://graph.chinacloudapi.cn"],
         ...
-8. PUT the json to the above URL.
+16. Click **Put** at the top to submit your changes.
+    
+    ![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 17. Now, to test if you have the authorization token to access the Azure Active Directory Graph API, just navigate to
     **https://&lt;*appname*>.chinacloudsites.cn/.auth/me** in your browser. If you configured everything correctly, you
     should see the `access_token` property in the JSON response.

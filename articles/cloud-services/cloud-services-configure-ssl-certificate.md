@@ -1,19 +1,21 @@
 ---
-title: Configure SSL for a cloud service (classic) | Azure
+title: Configure SSL for a cloud service (classic) | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 4cbb7f38-7994-454d-b4f0-7259b558c766
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+origin.date: 12/14/2016
 ms.author: v-yiso
+ms.date: 10/09/2017
 ---
 
 # Configuring SSL for an application in Azure
@@ -21,17 +23,19 @@ ms.author: v-yiso
 > [!div class="op_single_selector"]
 >- [Azure portal](./cloud-services-configure-ssl-certificate-portal.md)
 >- [Azure classic portal](./cloud-services-configure-ssl-certificate.md)
+> 
+> 
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
+> The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md) article.
+> 
+> 
 
-This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
+This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.
 
-Read [this](./cloud-services-how-to-create-deploy.md) first if you have not yet created a cloud service.
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+Read [this](cloud-services-how-to-create-deploy.md) article first if you have not yet created a cloud service.
 
 ## Step 1: Get an SSL certificate
 
@@ -159,7 +163,7 @@ Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
 certificate to Azure with the Azure classic portal.
 
-1. Log in to the [Azure classic portal][]. 
+1. Log in to the [Azure classic portal][Azure classic portal]. 
 2. Click **Cloud Services** on the left-side navigation pane.
 3. Click the desired cloud service.
 4. Click the **Certificates** tab.
@@ -181,17 +185,18 @@ connect to it using HTTPS.
 
     ![Determine site URL][2]
 
-2.  In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
-
-    >[!NOTE]
-    > If you are using a self-signed certificate, when you
-    browse to an HTTPS endpoint that's associated with the self-signed
-    certificate you may see a certificate error in the browser. Using a
-    certificate signed by a trusted certification authority eliminates this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
-
+2. In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
+   
+   > [!NOTE]
+   > If you are using a self-signed certificate, when you
+   > browse to an HTTPS endpoint that's associated with the self-signed
+   > certificate you may see a certificate error in the browser. Using a
+   > certificate signed by a trusted certification authority eliminates this problem; in the meantime, you can ignore the error. (Another option is to add the self-signed certificate to the user's trusted certificate authority certificate store.)
+   > 
+   > 
     ![SSL example web site][3]
 
-If you want to use SSL for a staging deployment instead of a production deployment, you first need to determine the URL used for the staging deployment. Deploy your cloud service to the staging environment without including a certificate or any certificate information. Once deployed, you can determine the GUID-based URL, which is listed in the Azure classic portal's **Site URL** field. Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **32818777-6e77-4ced-a8fc-57609d404462.chinacloudapp.cn**), use the Azure classic portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package.
+If you want to use SSL for a staging deployment instead of a production deployment, you first need to determine the URL used for the staging deployment. Deploy your cloud service to the staging environment without including a certificate or any certificate information. Once deployed, you can determine the GUID-based URL, which is listed in the Azure classic portal's **Site URL** field. Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**). Use the Azure classic portal to add the certificate to your staged cloud service. Then, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package.
 
 ## Next steps
 
