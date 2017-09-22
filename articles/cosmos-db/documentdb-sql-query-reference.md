@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
 origin.date: 06/13/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -2024,7 +2024,7 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
  Here is the result set.  
 
 ```  
-[{"$1": "ab", "$2": "ab"}]  
+[{"$1": "a", "$2": "ab"}]  
 ```  
 
 ####  <a name="bk_length"></a> LENGTH  

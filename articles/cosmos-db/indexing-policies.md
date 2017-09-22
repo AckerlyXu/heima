@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 08/17/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -73,8 +73,6 @@ Azure Cosmos DB supports three indexing modes which can be configured via the in
 > Configuring the indexing policy with "None" has the side effect of dropping any existing index. Use this if your access patterns are only require "id" and/or "self-link".
 > 
 > 
-
-The following sample show how create an Azure Cosmos DB collection using the .NET SDK with consistent automatic indexing on all document insertions.
 
 The following table shows the consistency for queries based on the indexing mode (Consistent and Lazy) configured for the collection and the consistency level specified for the query request. This applies to queries made using any interface - REST API, SDKs or from within stored procedures and triggers. 
 
@@ -406,4 +404,4 @@ Follow the links below for index policy management samples and to learn more abo
 2. [DocumentDB API REST Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Query with SQL](documentdb-sql-query.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

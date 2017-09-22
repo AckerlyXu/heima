@@ -13,9 +13,9 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
    * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
    * Maven (Run `apt-get install maven` if you don't have Maven)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## Create a database account
 
@@ -41,7 +42,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 Name your new database, **db**, and your new collection, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## Clone the sample application
 
@@ -125,4 +126,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-mongodb.md-->

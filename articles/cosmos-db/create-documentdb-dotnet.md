@@ -13,9 +13,9 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## Create a database account
@@ -164,4 +165,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update， add include file named cosmos-db-emulator-docdb-api.md-->

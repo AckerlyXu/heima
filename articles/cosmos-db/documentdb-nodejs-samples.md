@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -35,10 +35,13 @@ Sample solutions that perform CRUD operations and other common operations on Azu
 
 **Prerequisites**
 
-1. You need an Azure account to use these Node.js examples:
-   * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
-     * You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
-2. You also need the [Node.js SDK](documentdb-sdk-node.md).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+- You can [activate Visual Studio subscriber benefits](https://www.azure.cn/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+You also need the [Node.js SDK](documentdb-sdk-node.md).
 
    > [!NOTE]
    > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the collection being created.
@@ -118,3 +121,5 @@ The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/
 | [Use a HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
 For more information about partitioning data in Azure Cosmos DB, see [Partition and scale data in Azure Cosmos DB](partition-data.md).
+
+<!--Update_Description: wording update-->

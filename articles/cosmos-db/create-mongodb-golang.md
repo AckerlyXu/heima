@@ -7,9 +7,9 @@ manager: digimobile
 editor: mimig1
 
 ms.service: cosmos-db
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 
@@ -23,7 +23,10 @@ In other words, your Golang application only knows that it's connecting to a dat
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial) before you begin. 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/dl/) and a basic knowledge of the [Go](https://golang.org/) language.
 - An IDE — [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/). In this tutorial, I'm using Goglang.
 
@@ -240,4 +243,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-mongodb.md-->

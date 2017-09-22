@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -43,11 +43,10 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
+* If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/) before you begin. 
 
-   OR
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-   A local installation of the [Azure Cosmos DB Emulator](local-emulator.md) (Windows only).
 * [Node.js][Node.js] version v0.10.29 or higher.
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install this via `npm install express-generator -g`)
 * [Git][Git].
@@ -527,7 +526,7 @@ This should be all that we need for our application to work.
 
         git push azure master
 4. In a few seconds, git will finish publishing your web
-   application and launch a browser where you can see your handy work
+   application and launch a browser where you can see your handiwork
    running in Azure!
 
     Congratulations! You have just built your first Node.js Express Web Application using Azure Cosmos DB and published it to Azure Websites.
@@ -545,4 +544,4 @@ This should be all that we need for our application to work.
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

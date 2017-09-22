@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/18/2017
+origin.date: 09/07/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -63,13 +63,15 @@ For details, refer to the [Azure Cosmos DB pricing details](https://www.azure.cn
 <!-- Not Avaialbe  Graph API graph -->
 
 ### Is a free account available?
-If you are new to Azure, you can sign up for an [Azure free account](https://www.azure.cn/pricing/1rmb-trial/), which gives you 30 days and and a credit to try all the Azure services. 
+<!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
+If you are new to Azure, you can sign up for an [Azure free account](https://www.azure.cn/pricing/1rmb-trial/), which gives you 30 days and and a credit to try all the Azure services. If you have a Visual Studio subscription, you are also eligible for [free Azure credits](https://www.azure.cn/support/legal/offer-rate-plans/) to use on any Azure service. 
 
 You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 ### How can I get additional help with Azure Cosmos DB?
 If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB), or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
+<!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
 ## Set up Azure Cosmos DB
 ### How do I sign up for Azure Cosmos DB?
 Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a DocumentDB API, Table API (Preview), or MongoDB API account to your Azure subscription.
@@ -380,6 +382,7 @@ Azure Cosmos DB started as "Project Florence" in 2010 to address the pain points
 Since that time, we've added new features and introduced significant new capabilities. Azure Cosmos DB is the result. As a part of this release, DocumentDB customers, with their data, automatically and seamlessly become Azure Cosmos DB customers. These capabilities are in the areas of the core database engine, as well as global distribution, elastic scalability, and industry-leading, comprehensive SLAs. Specifically, we have evolved the Azure Cosmos DB database engine to efficiently map all popular data models, type systems, and APIs to the underlying data model of Azure Cosmos DB. 
 
 The current developer-facing manifestation of this work is the new support for [Table storage APIs](../cosmos-db/table-introduction.md). And this is just the beginning. We plan to add other popular APIs and newer data models over time, with more advances in performance and storage at global scale. 
+<!-- Not Available [Gremlin](../cosmos-db/graph-introduction.md)-->
 
 It is important to point out that the DocumentDB [SQL dialect](../documentdb/documentdb-sql-query.md) has always been just one of the many APIs that the underlying Azure Cosmos DB can support. For developers who use a fully managed service such as Azure Cosmos DB, the only interface to the service is the APIs that are exposed by the service. Nothing really changes for existing DocumentDB customers. In Azure Cosmos DB, you get exactly the same SQL API that DocumentDB offers. And now (and in the future), you can access other previously inaccessible capabilities 
 

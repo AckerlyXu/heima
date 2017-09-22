@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -51,8 +51,11 @@ Now let's get started!
 ## Prerequisites
 Make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/). Alternatively, you can use the [Azure Cosmos DB Emulator](local-emulator.md) for this tutorial.
-* [Git](https://git-scm.com/downloads)
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/). 
+
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+* [Git](https://git-scm.com/downloads).
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
@@ -79,11 +82,11 @@ The directory contains a `pom.xml` for the project and a `src` folder containing
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
 Next, head back to the [Azure Portal](https://portal.azure.cn) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
 
-In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `<your endpoint URI>` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `<your key>`.
+In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.cn` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
 
     this.client = new DocumentClient(
-        "<your endpoint URI>",
-        "<your key>"
+        "https://FILLME.documents.azure.cn",
+        "FILLME"
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 

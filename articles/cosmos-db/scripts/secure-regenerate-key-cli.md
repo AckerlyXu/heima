@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ---
 
@@ -81,9 +81,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Updates an Azure Cosmos DB account. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Updates an Azure Cosmos DB account. |
 | [az cosmosdb regenerate-key](https://docs.microsoft.com/cli/azure/cosmosdb/regenerate-key) | Regeneratates Azure Cosmos DB account keys. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

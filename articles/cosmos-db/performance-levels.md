@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 09/18/2017
+origin.date: 08/28/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB API accounts.
 >
 
-This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections on August 1st, 2017. After reading this article, you'll be able to answer the following questions:
+This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections late in 2017. After reading this article, you'll be able to answer the following questions:
 
 - [Why are the S1, S2, and S3 performance levels being retired?](#why-retired)
 - [How do single partition collections and partitioned collections compare to the S1, S2, S3 performance levels?](#compare)
@@ -33,7 +33,7 @@ This article provides an overview of S1, S2, and S3 performance levels, and disc
 - [How will my collection change after the migration?](#collection-change)
 <!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
 - [What if I need more than 10 GB of storage?](#more-storage-needed)
-- [Can I change between the S1, S2, and S3 performance levels before August 1, 2017?](#change-before)
+- [Can I change between the S1, S2, and S3 performance levels before the planned migration?](#change-before)
 - [How will I know when my collection has migrated?](#when-migrated)
 - [How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?](#migrate-diy)
 <!-- Not Available- [How am I impacted if I'm an EA customer?](#ea-customer)-->
@@ -63,13 +63,13 @@ The following table compares the throughput and storage options available in sin
 
 ## What do I need to do to ensure uninterrupted access to my data?
 
-Nothing, Cosmos DB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to a single partition collection on July 31, 2017. 
+Nothing, Cosmos DB handles the migration for you. If you have an S1, S2, or S3 collection, your current collection will be migrated to a single partition collection late in 2017. 
 
 <a name="collection-change"></a>
 
 ## How will my collection change after the migration?
 
-If you have an S1 collection, you will be migrated to a single partition collection with 400 RU/s throughput. 400 RU/s is the lowest throughput available with single partition collections. However, the cost for 400 RU/s in the a single partition collection is approximately the same as you were paying with your S1 collection and 250 RU/s – so you are not paying for the extra 150 RU/s available to you.
+If you have an S1 collection, you will be migrated to a single partition collection with 400 RU/s throughput. 400 RU/s is the lowest throughput available with single partition collections. However, the cost for 400 RU/s in the a single partition collection is approximately the same as you were paying with your S1 collection and 250 RU/s - so you are not paying for the extra 150 RU/s available to you.
 
 If you have an S2 collection, you will be migrated to a single partition collection with 1 K RU/s. You will see no change to your throughput level.
 
@@ -92,15 +92,15 @@ Whether you have a collection with an S1, S2, or S3 performance level, or have a
 
 <a name="change-before"></a>
 
-## Can I change between the S1, S2, and S3 performance levels before August 1, 2017?
+## Can I change between the S1, S2, and S3 performance levels before the planned migration?
 
-Only existing accounts with S1, S2, and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. By August 1, 2017, the S1, S2, and S3 performance levels will no longer be available. If you change from S1, S3, or S3 to a single partition collection, you cannot return to the S1, S2, or S3 performance levels.
+Only existing accounts with S1, S2, and S3 performance will be able to change and alter performance level tiers through the portal or programmatically. If you change from S1, S3, or S3 to a single partition collection, you cannot return to the S1, S2, or S3 performance levels.
 
 <a name="when-migrated"></a>
 
 ## How will I know when my collection has migrated?
 
-The migration will occur on July 31, 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the Cosmos DB team will contact you by email before the migration takes place. Once the migration is complete, on August 1, 2017, the Azure portal will show that your collection uses Standard pricing.
+The migration will occur on late in 2017. If you have a collection that uses the S1, S2 or S3 performance levels, the Cosmos DB team will contact you by email before the migration takes place. Once the migration is complete, the Azure portal will show that your collection uses Standard pricing.
 
 ![How to confirm your collection has migrated to the Standard pricing tier](./media/performance-levels/portal-standard-pricing-applied.png)
 
@@ -108,7 +108,7 @@ The migration will occur on July 31, 2017. If you have a collection that uses th
 
 ## How do I migrate from the S1, S2, S3 performance levels to single partition collections on my own?
 
-You can migrate from the S1, S2, and S3 performance levels to single partition collections using the Azure portal or programmatically. You can do this on your own before August 1 to benefit from the flexible throughput options available with single partition collections, or we will migrate your collections for you on July 31, 2017.
+You can migrate from the S1, S2, and S3 performance levels to single partition collections using the Azure portal or programmatically. You can do this on your own before the planned migration to benefit from the flexible throughput options available with single partition collections, or we will migrate your collections for you late in 2017.
 
 **To migrate to single partition collections using the Azure portal**
 
@@ -136,7 +136,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 **To migrate to single partition collections using the .NET SDK**
 
-Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/zh-cn/library/azure/dn781482.aspx). If you are new to our .NET SDK, visit our [getting started tutorial](documentdb-get-started.md).
+Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [DocumentDB .NET API](documentdb-sdk-dotnet.md), but the process is similar for our other SDKs.
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
 
@@ -173,4 +173,4 @@ To learn more about pricing and managing data with Azure Cosmos DB, explore thes
 2.	[Cosmos DB pricing](https://www.azure.cn/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties, update link, wording update -->

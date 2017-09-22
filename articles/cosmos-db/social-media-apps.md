@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2017
-ms.date: 09/18/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -133,7 +133,7 @@ To solve this, we can use a mixed approach. As part of the User Statistics docum
     }
 
 <!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
-
+The User Statistics document can still be used to create cards in the UI or quick profile previews.
 
 ## The "Ladder" pattern and data duplication
 As you might have noticed in the JSON document that references a post, there are multiple occurrences of a user. And you'd have guessed right, this means that the information that represents a user, given this denormalization, might be present in more than one place.
@@ -227,14 +227,12 @@ But wait... you soon realize their experience with your platform is not optimal;
 
 Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-documentdb.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-documentdb.md). This also means that you can have [multiple failover regions](regional-failover.md). 
 
-When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a [Performance configuration](../app-service-web/web-sites-traffic-manager.md) to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
+When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
 
 ![Adding global coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## Conclusion
 This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called "Ladder".
-
-<!--Update_Description: wording update-->
 
 ![Diagram of interaction between Azure services for social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
 
@@ -242,3 +240,5 @@ The truth is that there is no silver bullet for this kind of scenarios, it's the
 
 ## Next steps
 To learn more about use cases for Cosmos DB, see [Common Cosmos DB use cases](use-cases.md).
+
+<!--Update_Description: update meta properties, update link, wording update-->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2016
-ms.date: 07/17/2017
+ms.date: 09/25/2017
 ms.author: v-yeche
 
 ---
@@ -35,10 +35,13 @@ Sample solutions that perform CRUD operations and other common operations on Azu
 
 **Prerequisites**
 
-1. You need an Azure account to use these Python examples:
-   * You can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
-     * You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
-2. You also need the [Python SDK](documentdb-sdk-python.md). 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+- You can [activate Visual Studio subscriber benefits](https://www.azure.cn/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+You also need the [Python SDK](documentdb-sdk-python.md). 
 
    > [!NOTE]
    > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the collection being created. 
@@ -67,3 +70,5 @@ The [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/sa
 | [Get performance tier of a collection](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L139-L161) |[DocumentQueryable.QueryOffers](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Change performance tier of a collection](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Delete a collection](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
+
+<!--Update_Description: wording update-->
