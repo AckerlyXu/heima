@@ -125,7 +125,7 @@
 ## Security
 
 ### [Overview](sql-data-warehouse-overview-manage-security.md)
-### [Auditing](sql-data-warehouse-auditing-overview.md)
+<!-- Not Available ### [Auditing](sql-data-warehouse-auditing-overview.md) -->
 <!-- Not Available ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)-->
 ### [Authentication](sql-data-warehouse-authentication.md)
 ### [Encryption](sql-data-warehouse-encryption-tde.md)

@@ -27,11 +27,7 @@ After completing this tutorial, you'll be able to answer the following questions
 * How do I load data from Cosmos DB using a Hive, Pig, or MapReduce job?
 * How do I store data in Cosmos DB using a Hive, Pig, or MapReduce job?
 
-We recommend getting started by watching the following video, where we run through a Hive job using Cosmos DB and HDInsight.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
->
->
+<!-- Not Available > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]-->
 
 Then, return to this article, where you'll receive the full details on how you can run analytics jobs on your Cosmos DB data.
 
