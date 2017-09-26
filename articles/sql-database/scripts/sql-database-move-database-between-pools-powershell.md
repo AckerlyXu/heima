@@ -3,7 +3,7 @@ title: PowerShell example-move Azure SQL database-SQL elastic pool | Azure
 description: Azure PowerShell example script to move a SQL database between elastic pools using PowerShell
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -16,8 +16,8 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use PowerShell to create elastic pools and move databases between elastic pools
@@ -109,7 +109,7 @@ $firstdatabase = Set-AzureRmSqlDatabase -ResourceGroupName $resourcegroupname `
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation
@@ -132,4 +132,4 @@ For more information on the Azure PowerShell, see [Azure PowerShell documentatio
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Clean up deployment" script-->

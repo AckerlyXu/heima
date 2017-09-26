@@ -3,7 +3,7 @@ title: PowerShell example-create an Azure SQL database | Azure
 description: Azure PowerShell example script to create a Azure SQL database
 services: sql-database
 documentationcenter: sql-database
-author: hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -16,8 +16,8 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use PowerShell to create a single Azure SQL database and configure a firewall rule
@@ -74,7 +74,7 @@ $database = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## Script explanation
@@ -96,5 +96,5 @@ For more information on the Azure PowerShell, see [Azure PowerShell documentatio
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Clean up deployment" script-->
 

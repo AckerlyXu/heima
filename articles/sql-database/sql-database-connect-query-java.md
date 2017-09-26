@@ -3,7 +3,7 @@ title: Use Java to query Azure SQL Database | Azure
 description: This topic shows you how to use Java to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,10 +13,10 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/10/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Use Java to query an Azure SQL database
@@ -29,9 +29,9 @@ To complete this quick start tutorial, make sure you have the following prerequi
 
 - An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+    - [Create DB - Portal](sql-database-get-started-portal.md)
+    - [Create DB - CLI](sql-database-get-started-cli.md)
+    - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 
@@ -56,29 +56,29 @@ Get the connection information needed to connect to the Azure SQL database. You 
 ## **Create Maven project and dependencies**
 1. From the terminal, create a new Maven project called **sqltest**. 
 
-```bash
-mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-```
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+    ```
 
 2. Enter **Y** when prompted.
 3. Change directory to **sqltest** and open ***pom.xml*** with your favorite text editor.  Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code:
 
-```xml
-<dependency>
-	<groupId>com.microsoft.sqlserver</groupId>
-	<artifactId>mssql-jdbc</artifactId>
-       <version>6.2.1.jre8</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+	   <groupId>com.microsoft.sqlserver</groupId>
+	   <artifactId>mssql-jdbc</artifactId>
+	   <version>6.2.1.jre8</version>
+    </dependency>
+    ```
 
 4. Also in ***pom.xml***, add the following properties to your project.  If you don't have a properties section, you can add it after the dependencies.
 
-   ```xml
-   <properties>
+    ```xml
+    <properties>
        <maven.compiler.source>1.8</maven.compiler.source>
        <maven.compiler.target>1.8</maven.compiler.target>
-   </properties>
-   ```
+    </properties>
+    ```
 
 5. Save and close ***pom.xml***.
 
@@ -88,58 +88,59 @@ mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-Dar
 
 2. Open the file and replace its contents with the following code and add the appropriate values for your server, database, user, and password.
 
-```java
-package com.sqldbsamples;
+   ```java
+   package com.sqldbsamples;
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
+   import java.sql.Connection;
+   import java.sql.Statement;
+   import java.sql.PreparedStatement;
+   import java.sql.ResultSet;
+   import java.sql.DriverManager;
 
-public class App {
+   public class App {
 
-	public static void main(String[] args) {
+   	public static void main(String[] args) {
+	
+	   	// Connect to database
+		   String hostName = "your_server.database.chinacloudapi.cn";
+		   String dbName = "your_database";
+		   String user = "your_username";
+		   String password = "your_password";
+		   String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
+		   Connection connection = null;
 
-		// Connect to database
-		String hostName = "your_server.database.chinacloudapi.cn";
-		String dbName = "your_database";
-		String user = "your_username";
-		String password = "your_password";
-		String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-		Connection connection = null;
+		   try {
+			   	   connection = DriverManager.getConnection(url);
+				   String schema = connection.getSchema();
+				   System.out.println("Successful connection - Schema: " + schema);
 
-		try {
-				connection = DriverManager.getConnection(url);
-				String schema = connection.getSchema();
-				System.out.println("Successful connection - Schema: " + schema);
+				   System.out.println("Query data example:");
+				   System.out.println("=========================================");
 
-				System.out.println("Query data example:");
-				System.out.println("=========================================");
+				   // Create and execute a SELECT SQL statement.
+				   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+				       + "FROM [SalesLT].[ProductCategory] pc "  
+				       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+				
+				   try (Statement statement = connection.createStatement();
+					   ResultSet resultSet = statement.executeQuery(selectSql)) {
 
-				// Create and execute a SELECT SQL statement.
-				String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-				    + "FROM [SalesLT].[ProductCategory] pc "  
-				    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-
-				try (Statement statement = connection.createStatement();
-					ResultSet resultSet = statement.executeQuery(selectSql)) {
-
-						// Print results from select statement
-						System.out.println("Top 20 categories:");
-						while (resultSet.next())
-						{
-						    System.out.println(resultSet.getString(1) + " "
-							    + resultSet.getString(2));
-						}
-				}
-        }
-		catch (Exception e) {
-		    	e.printStackTrace();
-		}
-	}
-}
-```
+						   // Print results from select statement
+						   System.out.println("Top 20 categories:");
+						   while (resultSet.next())
+						   {
+						       System.out.println(resultSet.getString(1) + " "
+							       + resultSet.getString(2));
+						   }
+					connection.close();
+				   }				   
+           }
+		   catch (Exception e) {
+		    	   e.printStackTrace();
+		   }
+	   }
+   }
+   ```
 
 ## Run the code
 
@@ -156,5 +157,3 @@ public class App {
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)
-
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->

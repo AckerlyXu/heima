@@ -3,7 +3,7 @@ title: Design your first Azure SQL database | Azure
 description: Learn to design your first Azure SQL database.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 tags: ''
@@ -12,12 +12,12 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 08/03/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/25/2017
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 
@@ -42,9 +42,9 @@ To complete this tutorial, make sure you have installed:
 - The newest version of [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
 - The newest version of [BCP and SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
-## Log in to the Azure Portal
+## Log in to the Azure portal
 
-Log in to the [Azure Portal](https://portal.azure.cn/).
+Log in to the [Azure portal](https://portal.azure.cn/).
 
 ## Create a blank SQL database
 
@@ -52,49 +52,53 @@ An Azure SQL database is created with a defined set of [compute and storage reso
 
 Follow these steps to create a blank SQL database. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure Portal.
+1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page, and select **SQL Database** from the **Databases** page. 
+2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
 
     ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
 
-   | Setting       | Suggested value | 
-   | ------------ | ------------------ | 
-   | **Database name** | mySampleDatabase | 
-   | **Subscription** | Your subscription  |
-   | **Resource group** | myResourceGroup |
-   | **Select source** | Blank database |
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
+   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.cn/Subscriptions). |
+   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Select source** | Blank database | Specifies that a blank database should be created. |
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
-   | Setting       | Suggested value | 
-   | ------------ | ------------------ | 
-   | **Server name** | Any globally unique name | 
-   | **Server admin login** | Any valid name |
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-   | **Location** | Any valid location |
-   
-    > [!NOTE]
-    > Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. 
-    >
+   | Setting       | Suggested value | Description | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
+   | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+   | **Location** | Any valid location | China East and China North |
 
     ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
     
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier and performance level for your new database. For this tutorial, select **20 DTUs** and **250** GB of storage.
+6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the number of DTUs and storage that is available to you for each service tier. 
+
+7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
     ![create database-s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-7. Click **Apply**.  
+8. Accept the preview terms to use the **Add-on Storage** option. 
 
-8. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
+   > [!IMPORTANT]
+   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/). 
+   >
 
-9. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
+9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
-10. On the toolbar, click **Notifications** to monitor the deployment process.
+10. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
+
+11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
+
+12. On the toolbar, click **Notifications** to monitor the deployment process.
 
     ![notification](./media/sql-database-get-started-portal/notification.png)
 
@@ -106,25 +110,21 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 > SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170313.database.chinacloudapi.cn**) and provides options for further configuration. Copy this fully qualified server name for use later.
+1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.chinacloudapi.cn**) and provides options for further configuration. 
 
-    > [!IMPORTANT]
-    > You need this fully qualified server name to connect to your server and its databases in subsequent quick starts.
-    > 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
 
-   ![server name](./media/sql-database-connect-query-dotnet/server-name.png) 
+    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
-2. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
+3. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens. 
 
     ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-3. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-4. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-    ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Click **OK** and then close the **Firewall settings** page.
+6. Click **OK** and then close the **Firewall settings** page.
 
 You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
 
@@ -135,11 +135,11 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 Get the fully qualified server name for your Azure SQL Database server in the Azure Portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
 
-1. Log in to the [Azure Portal](https://portal.azure.cn/).
+1. Log in to the [Azure portal](https://portal.azure.cn/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure Portal page for your database, locate and then copy the **Server name**.
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
 
-   ![connection information](./media/sql-database-connect-query-dotnet/server-name.png)
+   ![connection information](./media/sql-database-get-started-portal/server-name.png)
 
 ## Connect to the database with SSMS
 
@@ -152,7 +152,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.chinacloudapi.cn**. |
+   | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170824.database.chinacloudapi.cn**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
@@ -315,13 +315,13 @@ Imagine you have accidentally deleted a table. This is something you cannot easi
     * Restore point: Select a time that occurs before the database was changed
     * Target server: You cannot change this value when restoring a database 
     * Elastic database pool: Select **None**  
-    * Pricing tier: Select **20 DTUs** and **250 GB** of storage.
+    * Pricing tier: Select **20 DTUs** and **40 GB** of storage.
 
    ![restore-point](./media/sql-database-design-first-database/restore-point.png)
 
 3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers.md).
 
-## Next Steps 
+## Next steps 
 In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:
 > [!div class="checklist"]
 > * Create a database
@@ -337,4 +337,4 @@ Advance to the next tutorial to learn about designing a database using Visual St
 > [!div class="nextstepaction"]
 >[Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
 
-<!--Update_Description: update link & word-->
+<!--Update_Description: update steps for "Create a server-level firewall rule"-->

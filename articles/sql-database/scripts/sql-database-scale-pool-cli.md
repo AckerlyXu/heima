@@ -3,7 +3,7 @@ title: CLI example scales a SQL elastic pool-Azure SQL Database | Azure
 description: Azure CLI example script to scale a SQL elastic pool in Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -16,8 +16,8 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use CLI to scale a SQL elastic pool in Azure SQL Database
@@ -94,12 +94,12 @@ This script uses the following commands to create a resource group, logical serv
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Creates an elastic database pool within the logical server. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update) | Updates an elastic database pool, in this example changes the assigned eDTU. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Creates a logical server that hosts the SQL Database. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create) | Creates an elastic database pool within the logical server. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_create) | Creates the SQL Database in the logical server. |
+| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) | Updates an elastic database pool, in this example changes the assigned eDTU. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
@@ -107,4 +107,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update bookmarks-->

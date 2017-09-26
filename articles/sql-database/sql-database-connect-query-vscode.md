@@ -5,7 +5,7 @@ metacanonical: ''
 keywords: connect to sql database
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -15,10 +15,10 @@ ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 06/20/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data
@@ -186,12 +186,5 @@ Use the following code to delete the new product that you previously added using
 
 ## Next steps
 
-- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
-- To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).
-- To connect and query using Node.js, see [Connect and query with Node.js](sql-database-connect-query-nodejs.md).
-- To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
-- To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
-- To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
-
-<!--Update_Description: update word & link-->
+- To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
+- For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).

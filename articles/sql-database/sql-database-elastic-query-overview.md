@@ -4,7 +4,7 @@ description: Overview of the elastic query feature
 services: sql-database
 documentationCenter: ''
 manager: digimobile
-author: Hayley244
+author: forester123
 
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/27/2016
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Azure SQL Database elastic query overview (preview)
@@ -138,8 +138,6 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 * Except for nvarchar(max), LOB types are not supported in external table definitions. As a workaround, you can create a view on the remote database that casts the LOB type into nvarchar(max), define your external table over the view instead of the base table and then cast it back into the original LOB type in your queries.
 * Column statistics over external tables are currently not supported. Tables statistics are supported, but need to be created manually.
 
-## Feedback
-Please share feedback on your experience with elastic queries with us on Disqus below, the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 
 ## Next steps
 

@@ -3,25 +3,25 @@ title: Design your first Azure SQL database - C# | Azure
 description: Learn to design your first Azure SQL database and connect to it with a C# program using ADO.NET.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: 'CarlRabeler'
 tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: develop databases
+ms.custom: develop databases, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/25/2017
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud ("Azure"). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Azure. In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to: 
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal
@@ -65,4 +65,3 @@ Advance to the next tutorial to learn about migrating your data.
 > [!div class="nextstepaction"]
 >[Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
 
-<!--Update_Description: wording update-->

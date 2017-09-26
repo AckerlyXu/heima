@@ -1,7 +1,7 @@
 ---
 title: Use Azure portal to create SQL Database alerts | Azure
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 services: sql-database
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Use Azure portal to create alerts for Azure SQL Database and Data Warehouse
@@ -44,9 +44,9 @@ You can configure and get information about alert rules using
 
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.cn/), locate the resource you are interested in monitoring and select it.
-2. This step is different for SQL Database and elastic pools versus SQL Data warehouse: 
+2. This step is different for SQL DB and elastic pools versus SQL DW: 
 
-- **SQL DB & Elastic Pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
+   - **SQL DB & Elastic Pools ONLY**: Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
 
     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
 
@@ -58,7 +58,7 @@ You can configure and get information about alert rules using
 
     ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
-5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
+5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the **average** CPU has been above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the average CPU is below 80% over 5 minutes. The CPU measurement occurs every 1 minute. Consult the table below for supported time windows and the aggregation type that each alert uses- not all alerts use the average value.   
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
 7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
 8. Put in a valid URI in the **Webhook** field if you want it called when the alert fires.
@@ -121,4 +121,4 @@ Once you have created an alert, you can select it and:
 * Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 
-<!--Update_Description: wording update: added sql DW parts in step guidence-->
+<!--Update_Description: wording update-->

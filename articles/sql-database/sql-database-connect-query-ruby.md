@@ -3,7 +3,7 @@ title: Use Ruby to query Azure SQL Database | Azure
 description: This topic shows you how to use Ruby to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,10 +13,10 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/14/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 ---
 
 # Use Ruby to query an Azure SQL database
@@ -29,9 +29,9 @@ To complete this quick start tutorial, make sure you have the following prerequi
 
 - An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+   - [Create DB - Portal](sql-database-get-started-portal.md)
+   - [Create DB - CLI](sql-database-get-started-cli.md)
+   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 - You have installed Ruby and related software for your operating system.
@@ -94,5 +94,3 @@ ruby sqltest.rb
 - [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [Ruby Drivers for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-
-<!--Update_Description: update word & code : deleted insert, update, delete sample code-->

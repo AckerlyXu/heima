@@ -3,7 +3,7 @@ title: Use Node.js to query Azure SQL Database | Azure
 description: This topic shows you how to use Node.js to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,10 +13,10 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 07/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 # Use Node.js to query an Azure SQL database
@@ -29,9 +29,9 @@ To complete this quick start tutorial, make sure you have the following:
 
 - An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+   - [Create DB - Portal](sql-database-get-started-portal.md)
+   - [Create DB - CLI](sql-database-get-started-cli.md)
+   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
 - You have installed Node.js and related software for your operating system.
@@ -132,7 +132,7 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
 
 2. Verify that the top 20 rows are returned and then close the application window.
 
-## Next Steps
+## Next steps
 
 - Learn about the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
 - Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
@@ -141,4 +141,3 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
 - Learn how to [Connect and query with SSMS](sql-database-connect-query-ssms.md)
 - Learn how to [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 
-<!--Update_Description: update link-->

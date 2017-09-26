@@ -3,7 +3,7 @@ title: Create & manage Azure SQL servers & databases | Azure
 description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases using the Azure portal, PowerShell, the Azure CLI, Transact-SQL, and the REST API.
 services: sql-database
 documentationcenter: na
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 ms.assetid: 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 07/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 07/19/2017
+ms.date: 10/02/2017
+ms.author: v-johch
 
 ---
 
@@ -27,8 +27,8 @@ An Azure SQL database is a managed database in Azure that is created within an [
 
 An Azure SQL database can be:
 
-- A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
-- Part of a [SQL elastic pool](sql-database-elastic-pool.md) that [shares a set of resources](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
+- A [single database](sql-database-single-database-resources.md) with its own set of resources
+- Part of an [elastic pool](sql-database-elastic-pool.md) that shares a set of resources
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
 - Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
@@ -42,7 +42,8 @@ An Azure SQL database can be:
 
 ## What is an Azure SQL logical server?
 
-A logical server acts as a central administrative point for multiple databases, including [SQL elastic pools](sql-database-elastic-pool.md) [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server. 
+A logical server acts as a central administrative point for multiple databases, including [elastic pools](sql-database-elastic-pool.md) [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-geo-replication-overview.md). A logical server can be in a different region than its resource group. The logical server must exist before you can create the Azure SQL database. All databases on a server are created within the same region as the logical server. 
+
 
 > [!IMPORTANT]
 > In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features.
@@ -74,7 +75,7 @@ An Azure Database logical server:
 
 ## Azure SQL databases protected by SQL Database firewall
 
-To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must [create one or more firewall rules](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To help protect your data, a [SQL Database firewall](sql-database-firewall-configure.md) prevents all access to your database server or any of its databases from outside of your connection to the server directly through your Azure subscription connection. To enable additional connectivity, you must [create one or more firewall rules](sql-database-firewall-configure.md#creating-and-managing-firewall-rules). For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure portal
 
@@ -82,11 +83,7 @@ You can create the Azure SQL database's resource group ahead of time or while cr
 
 ### Create a blank SQL server (logical server)
 
-To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.cn), navigate to a blank SQL server (logical server) form. The following screenshot shows one method for opening a form to create a blank logical SQL server. 
-
-   ![create logical server completed form](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
-
-If you get to this form using another method, the information on the form is identical.
+To create an Azure SQL Database server (without a database) using the [Azure portal](https://portal.azure.cn), navigate to a blank SQL server (logical server) form. 
 
 ### Create a blank or sample SQL database
 
@@ -100,9 +97,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.cn
 
 ### Manage an existing SQL server
 
-To manage an existing server, navigate to the server using a number of methods - such as from specific SQL database page, the **SQL servers** page, or the **All resources** page. The following screenshot shows how to begin setting a server-level firewall from the **Overview** page for a server. 
-
-   ![logical server overview](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+To manage an existing server, navigate to the server using a number of methods - such as from specific SQL database page, the **SQL servers** page, or the **All resources** page. 
 
 To manage an existing database, navigate to the **SQL databases** page and click the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database. 
 
@@ -118,7 +113,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 
 ## Manage Azure SQL servers, databases, and firewalls using PowerShell
 
-To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -142,7 +137,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
 
-To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), use the following [Azure CLI SQL Database](https://docs.microsoft.com/cli/azure/sql/db) commands. Use the [Cloud Shell](/cloud-shell/overview) to run the CLI in your browser, or [install](https://docs.microsoft.com/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), use the following [Azure CLI SQL Database](https://docs.microsoft.com/cli/azure/sql/db) commands. [Install](https://docs.microsoft.com/cli/azure/install-azure-cli) CLI on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -201,13 +196,35 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 ## Manage Azure SQL servers, databases, and firewalls using the REST API
 
-To create and manage Azure SQL server, databases, and firewalls using the REST API, see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/).
+To create and manage Azure SQL server, databases, and firewalls use these REST API requests.
+
+| Command | Description |
+| --- | --- |
+|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Creates or updates a new server.|
+|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Deletes a SQL server.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Gets a server.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Returns a list of servers.|
+|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Updates an existing server.|
+|[Servers - Sql](https://docs.microsoft.com/rest/api/sql/servers%20-%20sql)|Determines whether a resource can be created with the specified name.|
+|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Gets a database.|
+|[Databases - Get By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/getbyelasticpool)|Gets a database inside of an elastic pool.|
+|[Databases - Get By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/getbyrecommendedelasticpool)|Gets a database inside of a recommented elastic pool.|
+|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](https://docs.microsoft.com/api/sql/databases/update)|Updates an existing database.|
+|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
+|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
+|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Gets a firewall rule.|
+|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returns a list of firewall rules.|
 
 ## Next steps
 
-- To learn about pooling databases using SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+- To learn about pooling databases using elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md).
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-cloud-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).
 
-<!--Update_Description: update word & link-->
+<!--Update_Description: remove cloud shell; add rest commands-->

@@ -1,10 +1,10 @@
 ---
-title: Get started with elastic database tools
-description: Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app.
+title: Get started with elastic database tools | Microsoft Docs
+description: Basic explanation of the elastic database tools feature of Azure SQL Database, including an easy-to-run sample app.
 services: sql-database
 documentationcenter: ''
 manager: digimobile
-author: Hayley244
+author: forester123
 editor: CarlRabeler
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
-ms.date: 07/31/2017
+ms.date: 10/02/2017
 ms.author: v-haiqya
 
 ---
-# Get started with Elastic Database tools
-This document introduces you to the developer experience by running the sample app. The sample creates a simple sharded application and explores key capabilities of elastic database tools. The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md)
+# Get started with elastic database tools
+This document introduces you to the developer experience by helping you to run the sample app. The sample creates a simple sharded application and explores key capabilities of elastic database tools. The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md).
 
 To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). The library is installed with the sample app that's described in the following section.
 
@@ -42,7 +42,7 @@ The **Elastic DB Tools for Azure SQL - Getting Started** sample application illu
 
     ![Progress][4]
 
-Congratulations - you have successfully built and run your first sharded application using elastic database tools on Azure SQL Database. Take a quick look at the shards that the sample created by connecting with Visual Studio or SQL Server Management Studio to your Azure DB Server. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Congratulations--you have successfully built and run your first sharded application by using elastic database tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created.
 
 > [!IMPORTANT]
 > We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -68,16 +68,16 @@ The elastic database tools are free. When you use elastic database tools, you do
 
 For example, the sample application creates new databases. The cost for this depends on the SQL Database edition you choose and the Azure usage of your application.
 
-For pricing information, see [SQL Database Pricing Details](https://www.azure.cn/pricing/details/sql-database/).
+For pricing information, see [SQL Database pricing details](https://www.azure.cn/pricing/details/sql-database/).
 
 ## Next steps
 For more information about elastic database tools, see the following pages:
 
-* Code Samples: 
+* Code samples: 
   * [Elastic DB Tools for Azure SQL - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
   * [Elastic DB Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+* Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * Microsoft Virtual Academy: [Implementing Scale-Out Using Sharding with the Elastic Database Client Library Video](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
 * Channel 9: [Elastic Scale Overview Video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussion forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)
@@ -95,4 +95,4 @@ For more information about elastic database tools, see the following pages:
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update-->
