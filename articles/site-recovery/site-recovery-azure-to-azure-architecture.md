@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/29/2017
-ms.date: 07/10/2017
+origin.date: 08/31/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -80,3 +80,5 @@ When you initiate a failover, the VMs are created in the target resource group, 
 
 - Learn about [networking](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM replication.
 <!-- Not Available [replicate Azure VMs.](site-recovery-azure-to-azure.md) -->
+
+<!--Update_Description: update meta properties-->

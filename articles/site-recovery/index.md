@@ -5,13 +5,13 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid:
 ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 06/05/2017
-ms.date: 07/10/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
 # Site Recovery Documentation

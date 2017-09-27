@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 05/08/2017
-ms.date: 08/28/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ Organizations need a business continuity and disaster recovery (BCDR) strategy t
 
 Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
 
-Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, IBM and Red Hat. You can customize replication solutions on an app-by-app basis.
+Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP and Red Hat. You can customize replication solutions on an app-by-app basis.
 
 ## Why use Site Recovery for application replication?
 Site Recovery contributes to application-level protection and recovery as follows:
@@ -122,8 +122,6 @@ Use Site Recovery to protect your SAP deployment, as follows:
 * Enable protection of SAP NetWeaver and non-NetWeaver Production applications running Azure, by replicating components to another Azure datacenter.
 * Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
 * Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
-
-[Learn more](http://aka.ms/asr-sap) about protecting SAP.
 
 ## Protect IIS
 Use Site Recovery to protect your IIS deployment, as follows:
