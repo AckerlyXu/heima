@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/06/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,7 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 Before you begin this article, you must have the following:
 
 * Install Visual Studio 2017 or 2015.
-* Download and install [Azure .NET SDK](/downloads/).
+* Download and install [Azure .NET SDK](https://www.azure.cn/downloads/).
 * Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview);  
 
         # Log in to your Azure account
@@ -316,7 +316,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
@@ -337,7 +337,7 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 [azure.blob.storage]: /storage/
 [azure.blob.storage.use]: /storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs]: https://www.azure.cn/home/features/event-hubs/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
@@ -350,4 +350,4 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!Update_Description: new article which migrate from .Net SDK 1.X source code -->
+<!-- Update_Description: wording update -->
