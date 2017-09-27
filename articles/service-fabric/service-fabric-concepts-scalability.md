@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
 # Scaling in Service Fabric
@@ -128,16 +128,18 @@ But why even try to pick a single partition scheme out for all users? Why limit 
 When building for scale, consider the following dynamic pattern. You may need to adapt it to your situation:
 
 1. Instead of trying to pick a partitioning scheme for everyone up front, build a "manager service".
-2. The job of the manager service is to look at customer information when they sign up for your service. Then depending on that information the manager service create an instance of your _actual_ contact-storage service _just for that customer_. If they require particular configuration, isolation, or upgrades, you can also decide to spin up an Application instance for this customer. This dynamic creation pattern many benefits:
+2. The job of the manager service is to look at customer information when they sign up for your service. Then depending on that information the manager service create an instance of your _actual_ contact-storage service _just for that customer_. If they require particular configuration, isolation, or upgrades, you can also decide to spin up an Application instance for this customer. 
 
-    * You're not trying to guess the correct partition count for all users up front or build a single service that is infinitely scalable all on its own. 
-    *Users don't have to have the same partition count, replica count, placement constraints, metrics, default loads, service names, dns settings, or any of the other properties specified at the service or application level. 
-    * Data segmentation, since each customer has their own copy of the service
-    * Each customer service can be configured differently and granted more or fewer resources, with more or fewer partitions or replicas as necessary based on their expected scale.
-      * For example, say the customer paid for the "Gold" tier - they could get more replicas or greater partition count, and potentially resources dedicated to their services via metrics and application capacities.
-      * Or say they provided information indicating the number of contacts they needed was "Small" - they would get only a few partitions, or could even be put into a shared service pool with other customers.
-    * You're not running a bunch of service instances or replicas while you're waiting for customers to show up
-    * If a customer ever leaves, then removing their information from your service is as simple as having the manager delete that service or application that it created.
+This dynamic creation pattern many benefits:
+
+  - You're not trying to guess the correct partition count for all users up front or build a single service that is infinitely scalable all on its own. 
+  - Different users don't have to have the same partition count, replica count, placement constraints, metrics, default loads, service names, dns settings, or any of the other properties specified at the service or application level. 
+  - You gain additional data segmentation. Each customer has their own copy of the service
+    - Each customer service can be configured differently and granted more or fewer resources, with more or fewer partitions or replicas as necessary based on their expected scale.
+      - For example, say the customer paid for the "Gold" tier - they could get more replicas or greater partition count, and potentially resources dedicated to their services via metrics and application capacities.
+      - Or say they provided information indicating the number of contacts they needed was "Small" - they would get only a few partitions, or could even be put into a shared service pool with other customers.
+  - You're not running a bunch of service instances or replicas while you're waiting for customers to show up
+  - If a customer ever leaves, then removing their information from your service is as simple as having the manager delete that service or application that it created.
 
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:
@@ -145,4 +147,4 @@ For more information on Service Fabric concepts, see the following articles:
 * [Availability of Service Fabric services](service-fabric-availability-services.md)
 * [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
-<!--Update_Description: update meta properties, add new feature of Scaling by creating or removing stateless service instances.-->
+<!--Update_Description: update meta properties, wording update.-->

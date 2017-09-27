@@ -7,15 +7,16 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/13/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 
@@ -69,7 +70,7 @@ For more information on creating Service Fabric clusters, see [Create a Service 
 5. Create the cluster and its certificate by running the following command:
 
    ```powershell
-      New-AzureRmServiceFabricCluster
+      New-AzureRmServiceFabricCluster `
           -TemplateFile C:\Users\me\Desktop\azuredeploy.json `
           -ParameterFile C:\Users\me\Desktop\azuredeploy.parameters.json `
           -CertificateOutputFolder C:\Users\me\Desktop\ `

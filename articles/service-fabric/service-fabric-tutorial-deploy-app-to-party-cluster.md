@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -126,4 +126,4 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Set up continuous integration using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

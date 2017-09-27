@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/16/2017
-ms.date: 07/17/2017
+origin.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -35,6 +35,7 @@ If port 19080 is not accessible from the Service Fabric resource provider, a mes
 ## Templates
 
 All Service Fabric templates are in [one download file](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). You should be able to deploy the templates as-is by using the following PowerShell commands. If you are deploying the existing Azure Virtual Network template or the static public IP template, first read the [Initial setup](#initialsetup) section of this article.
+<!-- Download address should be core.windows.net -->
 
 <a id="initialsetup"></a>
 ## Initial setup
@@ -48,11 +49,11 @@ In the following example, we start with an existing virtual network named Existi
 A static public IP address generally is a dedicated resource that's managed separately from the VM or VMs it's assigned to. It's provisioned in a dedicated networking resource group (as opposed to in the Service Fabric cluster resource group itself). Create a static public IP address named staticIP1 in the same ExistingRG resource group, either in the Azure portal or by using PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location "China East" -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location chinaeast -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
-Location                 : China East
+Location                 : chinaeast
 Id                       : /subscriptions/1237f4d2-3dce-1236-ad95-123f764e7123/resourceGroups/ExistingRG/providers/Microsoft.Network/publicIPAddresses/staticIP1
 Etag                     : W/"fc8b0c77-1f84-455d-9930-0404ebba1b64"
 ResourceGuid             : 77c26c06-c0ae-496c-9231-b1a114e08824
@@ -71,7 +72,7 @@ DnsSettings              : {
 
 ### Service Fabric template
 
-In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://azure.microsoft.com/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
+In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 <a id="existingvnet"></a>
 ## Existing virtual network or subnet
@@ -157,7 +158,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 5. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location "China East"
+    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location chinaeast
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
@@ -266,7 +267,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 8. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location "China East"
+    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location chinaeast
 
     $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
@@ -368,7 +369,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 7. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location "China East"
+    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location chinaeast
 
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
@@ -585,7 +586,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 7. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location "China East"
+    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location chinaeast
 
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
@@ -594,3 +595,5 @@ After deployment, you can see two load balancers in the resource group. If you b
 
 ## Next steps
 [Create a cluster](service-fabric-cluster-creation-via-arm.md)
+
+<!--Update_Description: wording update-->

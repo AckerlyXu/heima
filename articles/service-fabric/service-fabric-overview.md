@@ -10,18 +10,18 @@ editor: masnider
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
 
 # Overview of Azure Service Fabric
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Service Fabric also addresses the significant challenges in developing and managing cloud native applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Service Fabric represents the next-generation platform for building and managing these enterprise-class, tier-1, cloud-scale applications running in containers.
-<!-- Not Available Channel9 video -->
+<!-- Not Available Channel9 video href="https://aka.ms/servicefabricvideo" -->
 
 ## Applications composed of microservices 
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated, lightweight runtime to build distributed, scalable, stateless, and stateful microservices running in containers. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications including containerized services.
@@ -87,4 +87,4 @@ By using Service Fabric, you can:
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

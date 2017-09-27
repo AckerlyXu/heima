@@ -10,12 +10,13 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/13/2017
 ms.date: 08/14/2017
 wacn.date: ''
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
 
@@ -148,3 +149,5 @@ Read more about [guest executables](service-fabric-deploy-existing-app.md).
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
 [create-account]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
+
+<!--Update_Description: update meta properties-->

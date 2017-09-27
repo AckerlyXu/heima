@@ -12,9 +12,9 @@ ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 06/20/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -83,4 +83,4 @@ For more information on the Azure PowerShell module, see [Azure PowerShell docum
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
 
-<!--Update_Description: new articles of create secure cluster with ps in service fabric -->
+<!--Update_Description: update meta properties -->

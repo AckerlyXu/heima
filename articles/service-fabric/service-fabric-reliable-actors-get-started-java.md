@@ -14,12 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/04/2017
-ms.date: 08/21/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
-
 # Getting started with Reliable Actors
-
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-actors-get-started.md)
 > * [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
@@ -99,11 +97,9 @@ HelloWorldActorApplication/
 ```
 
 ## Reliable Actors basic building blocks
-
 The basic concepts described earlier translate into the basic building blocks of a Reliable Actor service.
 
 ### Actor interface
-
 This contains the interface definition for the actor. This interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in a place that is separate from the actor implementation and can be shared by multiple other services or client applications.
 
 `HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
@@ -149,7 +145,6 @@ public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActo
 ```
 
 ### Actor registration
-
 The actor service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
@@ -173,11 +168,9 @@ public class HelloWorldActorHost {
 ```
 
 ### Test client
-
 This is a simple test client application you can run separately from the Service Fabric application to test your actor service. This is an example of where the ActorProxy can be used to activate and communicate with actor instances. It does not get deployed with your service.
 
-### The application 
-
+### The application
 Finally, the application packages the actor service and any other services you might add in the future together for deployment. It contains the *ApplicationManifest.xml* and place holders for the actor service package.
 
 ## Run the application
@@ -191,22 +184,17 @@ $ gradle
 
 This will produce a Service Fabric application package that can be deployed using Service Fabric CLI tools.
 
-### Deploy with XPlat CLI
+### Deploy Service Fabric CLI
 
-If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
-package. Run the install.sh script to deploy the application.
+The install.sh script contains the necessary Service Fabric CLI (sfctl) commands to deploy the application package.
+Run the install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
 
-### Deploy with Azure CLI 2.0
+## Next steps
 
-If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
-## Related articles
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
-
-<!--Update_Description: update meta properties, add new feature on deploy with Azure CLI 2.0-->
+<!--Update_Description: update meta properties, add new feature on deploy with service fabric CLI(sfctl) -->

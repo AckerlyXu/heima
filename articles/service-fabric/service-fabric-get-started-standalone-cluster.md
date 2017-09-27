@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/06/2017
-ms.date: 08/21/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -93,4 +93,4 @@ Now that you have set up a development standalone cluster, try the following art
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties-->

@@ -14,12 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
-ms.date: 08/21/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
-
 # Get started with Reliable Services
-
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
@@ -163,24 +161,19 @@ application. To run the application, first build the application with gradle:
 $ gradle
 ```
 
-This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI.
+This produces a Service Fabric application package that can be deployed using Service Fabric CLI.
 
-### Deploy with XPlat CLI
+### Deploy with Service Fabric CLI
 
-If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
-package. Run the install.sh script to deploy the application.
+The install.sh script contains the necessary Service Fabric CLI commands to deploy the application package. Run the
+install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
 
-### Deploy with Azure CLI 2.0
+## Next steps
 
-If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
-## Related articles
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
-
-<!--Update_Description: update meta properties, add reference feature on deploy with XPlat CLI and Azure CLI 2.0-->
+<!--Update_Description: update meta properties, add reference feature on deploy with service fabric CLI  -->
