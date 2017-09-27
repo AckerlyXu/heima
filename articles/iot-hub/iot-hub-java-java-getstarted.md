@@ -16,7 +16,7 @@ ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/14/2017
+ms.date: 09/25/2017
 ---
 # Connect your device to your IoT hub using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -61,7 +61,7 @@ In this section, you create a Java console app that creates a device identity in
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
     
@@ -87,6 +87,8 @@ In this section, you create a Java console app that creates a device identity in
     private static final String deviceId = "myFirstJavaDevice";
    
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 8. Modify the signature of the **main** method to include the exceptions as follows:
 
     ```java
@@ -168,16 +170,13 @@ In this section, you create a Java console app that reads device-to-cloud messag
 2. At your command prompt, navigate to the read-d2c-messages folder.
 3. Using a text editor, open the pom.xml file in the read-d2c-messages folder and add the following dependency to the **dependencies** node. This dependency enables you to use the eventhubs-client package in your app to read from the Event Hub-compatible endpoint:
 
-    ```java
+    ```xml
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
         <version>0.13.0</version> 
     </dependency>
     ```
-
-    > [!NOTE]
-    > You can check for the latest version of **azure-eventhubs** using [Maven search][lnk-maven-eventhubs-search].
 
 4. Save and close the pom.xml file.
 5. Using a text editor, open the read-d2c-messages\src\main\java\com\mycompany\app\App.java file.
@@ -286,7 +285,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     mvn clean package -DskipTests
     ```
 
-## Create a simulated device app
+## Create a device app
 In this section, you create a Java console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
 1. In the iot-java-get-started folder you created in the *Create a device identity* section, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
@@ -301,7 +300,7 @@ In this section, you create a Java console app that simulates a device that send
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -353,7 +352,7 @@ In this section, you create a Java console app that simulates a device that send
     ```
 9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the device app. This method also notifies the main thread in the app when the message has been processed:
    
-    ```
+    ```java
     private static class EventCallback implements IotHubEventCallback
     {
       public void execute(IotHubStatusCode status, Object context) {
@@ -461,7 +460,7 @@ You are now ready to run the apps.
     ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub.
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 

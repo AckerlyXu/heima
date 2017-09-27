@@ -13,9 +13,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 06/29/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ---
 
 # Process IoT Hub device-to-cloud messages (Java)
@@ -46,8 +46,8 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a simulated device app
-In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
+## Send interactive messages from a device app
+In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
 1. Use a text editor to open the simulated-device\src\main\java\com\mycompany\app\App.java file. This file contains the code for the **simulated-device** app you created in the [Get started with IoT Hub] tutorial.
 2. Replace the **MessageSender** class with the following code:
@@ -197,7 +197,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
 [Azure Storage]: /storage/
-[Azure Service Bus]: /service-bus-messaging/
+[Azure Service Bus]: /service-bus/
 
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
