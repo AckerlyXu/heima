@@ -198,7 +198,7 @@ In this quickstart, you learn how to:
 > * Deploy the container application to Azure
 
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
+<!-- Not Available * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.-->
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
 

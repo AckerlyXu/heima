@@ -15,7 +15,7 @@
 
 ## Containerize an existing .NET app
 ### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
+<!-- Not Available ### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)-->
 
 # Samples
 ## [PowerShell](service-fabric-powershell-samples.md)
@@ -33,7 +33,7 @@
 #### [Overview](service-fabric-choose-framework.md)
 #### Containers
 ##### [Overview](service-fabric-containers-overview.md)
-##### [Docker compose (preview)](service-fabric-docker-compose.md)
+<!-- Not Available ##### [Docker compose (preview)](service-fabric-docker-compose.md)-->
 ##### [Resource governance](service-fabric-resource-governance.md)
 #### Reliable Services
 ##### [Overview](service-fabric-reliable-services-introduction.md)
