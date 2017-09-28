@@ -93,7 +93,7 @@ Configuration config =
       "HowToSample",
       "RootManageSharedAccessKey",
       "SAS_key_value",
-      ".servicebus.windows.net"
+      ".servicebus.chinacloudapi.cn"
       );
 
 ServiceBusContract service = ServiceBusService.create(config);
