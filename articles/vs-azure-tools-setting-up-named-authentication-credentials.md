@@ -1,6 +1,6 @@
 ---
-title: Setting Up Named Authentication Credentials | Microsoft Docs
-description: 'Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. '
+title: Set up named authentication credentials | Microsoft Docs
+description: 'Learn how to provide credentials that Visual Studio can use to authenticate requests to Azure, so you can publish an application to Azure from Visual Studio or monitor an existing cloud service.'
 services: visual-studio-online
 documentationcenter: na
 author: alexchen2016
@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 08/17/2017
-ms.date: 08/29/2017
+origin.date: 08/22/2017
+ms.date: 09/25/2017
 ms.author: v-junlch
 
 ---
-# Setting Up Named Authentication Credentials
-To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from the Server Explorer, you can open the shortcut menu for the **Azure** node and choose **Connect to Azure Subscription...**. When you sign in, the subscription information associated with your Azure account is available in Visual Studio, and there is nothing more you need to do.
+# Set up named authentication credentials
+To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from Server Explorer, you can open the shortcut menu for the **Azure** node and select **Connect to Azure Subscription**. When you sign in, the subscription information that's associated with your Azure account is available in Visual Studio. There's nothing more you have to do.
 
-Azure Tools also supports an older way of providing credentials, using the subscription file (.publishsettings file). This topic describes this method, which is still supported in Azure SDK 2.2.
+Azure Tools also supports an older way of providing credentials: using the subscription file (.publishsettings file). This article describes this method, which is still supported in Azure SDK 2.2.
 
 The following items are required for authentication to Azure:
 
@@ -29,47 +29,54 @@ The following items are required for authentication to Azure:
 - A valid X.509 v3 certificate
 
 > [!NOTE]
-> The length of the X.509 v3 certificate's key must be at least 2048 bits. Azure will reject any certificate that doesn’t meet this requirement or that isn’t valid.
+> The length of the X.509 v3 certificate's key must be at least 2,048 bits. Azure rejects any certificate that doesn’t meet this requirement or that isn’t valid.
 >
 >
 
 Visual Studio uses your subscription ID together with the certificate data as credentials. The appropriate credentials are referenced in the subscription file (.publishsettings file), which contains a public key for the certificate. The subscription file can contain credentials for more than one subscription.
 
-You can edit the subscription information from the **New/Edit Subscription** dialog box, as explained later in this topic.
+You can edit the subscription information from the **New Subscription** or **Edit Subscription** dialog box, as explained later in this article.
 
-If you want to create a certificate yourself, you can refer to the instructions in [Create and Upload a Management Certificate for Azure](/cloud-services/cloud-services-certs-create) and then manually upload the certificate to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
+If you want to create a certificate yourself, you can refer to the instructions in [Create and upload a management certificate for Azure](/cloud-services/cloud-services-certs-create) and then manually upload the certificate to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 
 > [!NOTE]
 > These credentials that Visual Studio requires to manage your cloud services aren’t the same credentials that are required to authenticate a request against the Azure storage services.
 >
 >
 
-## Modify or Export Authentication Credentials in Visual Studio
-You can also set up, modify, or export your authentication credentials in the **New Subscription** dialog box, which appears if you perform either of the following actions:
+## Import, set up, or edit authentication credentials in Visual Studio
 
-- In **Server Explorer**, open the shortcut menu for the **Azure** node, choose **Manage and Filter Subscriptions...**, choose the **Certificates** tab, and choose **Import**, **New**, or **Edit**.
-- When you publish an Azure cloud service from the **Publish Azure Application** wizard, choose **Manage** in the **Choose your Subscription** list, then choose the Certificates tab, and then choose the **New** or **Edit** button.
+1. In Server Explorer, open the shortcut menu for the **Azure** node and select **Manage and Filter Subscriptions**.
+2. Select the **Certificates** tab, and then use any of the following methods:
+
+    - Select **Import** to open the **Import Azure Subscriptions** dialog box. There, you can download the subscriptions file for the currently loaded subscription, browse to its download location, and then import it for use in authentication.
+    - Select **New** to open the **New Subscription** dialog box. There, you can set up a new subscription for use in authentication.
+    - Select **Edit** (after you choose your active subscription) to open the **Edit Subscription** dialog box. There, you can edit an existing subscription for use in authentication. 
 
 The following procedure assumes that the **New Subscription** dialog box is open.
 
 ### To set up authentication credentials in Visual Studio
-1. In the **Select an existing certificate** for authentication list, choose a certificate.
-2. Choose the **Copy the full path** button. The path for the certificate (.cer file) is copied to the Clipboard.
+1. In the **Select an existing certificate for authentication** list, choose a certificate.
+2. Select the **Copy the full path** link. The path for the certificate (.cer file) is copied to the clipboard.
 
    > [!IMPORTANT]
-   > To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
+   > To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure portal](https://portal.azure.cn).
    >
    >
-3. To upload the certificate to the [Azure Classic Management Portal](https://manage.windowsazure.cn):
+3. To upload the certificate to the Azure portal:
 
-   1. Choose the Azure Portal link.
+   a. Open the [Azure portal](https://portal.azure.cn).
+   
+   b. If you're prompted, sign in to the portal and then browse to **Settings** > **Management Certificates**.
+   
+   c. In the **Management certificates** pane, select **Upload**.
+   
+   d. Select your Azure subscription, paste the full path of the .cer file that you just created, and select **Upload**.
 
-        The [Azure Classic Management Portal](https://manage.windowsazure.cn) opens.
-   2. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn), and then choose the **Cloud Services** button.
-   3. Choose the cloud service that interests you.
-
-       The page for the service opens.
-   4. On the **Certificates** tab, choose the **Upload** button.
-   5. Paste the full path of the .cer file that you just created, and then enter the password that you specified.
+## Next steps
+- [General overview of Web Apps](/app-service-web/)
+- [Deploy your app to Azure App Service](/app-service-web/web-sites-deploy) 
+- [Deploy WebJobs using Visual Studio](/app-service-web/websites-dotnet-deploy-webjobs)
+- [Create and deploy a cloud service](/cloud-services/cloud-services-how-to-create-deploy-portal)
 
 <!--Update_Description: wording update -->  
