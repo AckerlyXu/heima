@@ -100,7 +100,8 @@ In **Recovery Services vaults**, click the vault name. In the vault, click the *
 
 ### Step 3. Configure settings
 
-1. To override the default target settings and specify the settings of your choice, click **Customize**. For more information, see [Customize target resources](site-recovery-replicate-azure-to-azure.md##customize-target-resources).
+1. To override the default target settings and specify the settings of your choice, click **Customize**. 
+<!-- Not Available [Customize target resources](site-recovery-replicate-azure-to-azure.md##customize-target-resources).-->
 
     ![Configure settings](./media/site-recovery-azure-to-azure/settings.png)
 
