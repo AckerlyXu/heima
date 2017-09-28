@@ -3,8 +3,8 @@ title: Azure Storage performance and scalability checklist | Azure
 description: A checklist of proven practices for use with Azure Storage in developing performant applications.
 services: storage
 documentationcenter: ''
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: ''
-ms.author: v-haiqya
+ms.date: '10/16/2017'
+ms.author: v-johch
 
 ---
 # Azure Storage Performance and Scalability Checklist
@@ -139,7 +139,7 @@ For more information about virtual machine sizes and allocated bandwidth, see [W
 #### <a name="subheading4"></a>Location
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
 
-If your client applications are not hosted within Azure (such as mobile device apps or on premises enterprise services), then again placing the storage account in a region near to the devices that will access it, will generally reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then you should consider using multiple storage accounts: one located in a North American region and one in a European region. This will help to reduce latency for users in both regions. This approach is usually easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.  For broad content distribution, a CDN is recommended - see the next section for more details.  
+If your client applications are not hosted within Azure (such as mobile device apps or on premises enterprise services), then again placing the storage account in a region near to the devices that will access it, will generally reduce latency. If your clients are broadly distributed (for example, some in Beijing, and some in Shanghai), then you should consider using multiple storage accounts: one located in China North region and one in China East region. This will help to reduce latency for users in both regions. This approach is usually easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.  For broad content distribution, a CDN is recommended - see the next section for more details.  
 
 ### <a name="subheading5"></a>Content Distribution
 Sometimes, an application needs to serve the same content to many users (e.g. a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, you should use a Content Delivery Network (CDN) such as Azure CDN, and the CDN would use Azure storage as the origin of the data. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.  
@@ -412,4 +412,4 @@ You should use queues to make your application architecture scalable. The follow
 
 ## Conclusion
 This article discussed some of the most common, proven practices for optimizing performance when using Azure Storage. We encourage every application developer to assess their application against each of the above practices and consider acting on the recommendations to get great performance for their applications that use Azure Storage.
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

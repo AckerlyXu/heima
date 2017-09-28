@@ -1,9 +1,9 @@
 ---
-title: Mount an Azure File share and access the share in Windows | Azure
+title: Mount an Azure File share and access the share in Windows | Microsoft Docs
 description: Mount an Azure File share and access the share in Windows.
 services: storage
 documentationcenter: na
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 ---
 
 # Mount an Azure File share and access the share in Windows
@@ -23,16 +23,19 @@ ms.author: v-haiqya
 
 In order to mount an Azure File share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
 
-Azure File share can be mounted on Windows machine either on-premises or in Azure VM depending on OS version. Below table illustrates the 
+You can mount Azure File shares on a Windows installation that is running either in an Azure VM or on-premises. The table below illustrates which OS versions support mounting file shares in which environment:
 
-| Windows Version        | SMB Version |Mountable On Azure VM|Mountable On-Premise|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Yes                 | No                  |
-| Windows Server 2008 R2 | SMB 2.1     | Yes                 | No                  |
-| Windows 8              | SMB 3.0     | Yes                 | Yes                 |
-| Windows Server 2012    | SMB 3.0     | Yes                 | Yes                 |
-| Windows Server 2012 R2 | SMB 3.0     | Yes                 | Yes                 |
-| Windows 10             | SMB 3.0     | Yes                 | Yes                 |
+| Windows Version        | SMB Version | Mountable in Azure VM | Mountable On-Premises |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Yes | Yes |
+| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
+| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
+| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
+| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
+| Windows 7              | SMB 2.1     | Yes                   | No                   |
+| Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
+
+<sup>1</sup>Windows 10 versions 1507, 1511, 1607, and 1703
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -129,7 +132,12 @@ See these links for more information about Azure File storage.
 * [Troubleshooting Azure File storage problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Troubleshooting Azure File storage problems - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
+### Blog posts
+* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Introducing Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Migrating data to Azure File ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-<!--Update_Description: update link-->

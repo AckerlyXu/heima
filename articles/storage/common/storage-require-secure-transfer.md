@@ -1,9 +1,9 @@
 ---
-title: Require secure transfer in Azure Storage | Azure
+title: Require secure transfer in Azure Storage | Microsoft Docs
 description: Learn about the "Require secure transfer" feature for Azure Storage, and how to enable it.
 services: storage
 documentationcenter: na
-author: hayley244
+author: forester123
 manager: digimobile
 editor: fhryo-msft
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 origin.date: 06/20/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 ---
 # Require secure transfer
 
@@ -49,15 +49,15 @@ You can enable the "Secure transfer required" setting both when you create a sto
 
 ## Enable "Secure transfer required" programmatically
 
-The setting name is _supportsHttpsTrafficOnly_ in storage account properties. You can enable "Secure transfer required" setting with REST API, tools or libraries:
+The setting name is _supportsHttpsTrafficOnly_ in storage account properties. You can enable it with REST API, tools, or libraries:
 
-* **REST API** (Version: 2016-12-01): [release package](https://docs.microsoft.com/rest/api/storagerp/storageaccounts)
-* **PowerShell** (Version: 4.1.0): [release package](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
-* **CLI** (Version: 2.0.11): [release package](https://pypi.python.org/pypi/azure-cli-storage/2.0.11)
-* **NodeJS** (Version: 1.1.0): [release package](https://www.npmjs.com/package/azure-arm-storage/)
-* **.NET SDK** (Version: 6.3.0): [release package](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview)
-* **Python SDK** (Version: 1.1.0): [release package](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0)
-* **Ruby SDK** (Version: 0.11.0): [release package](https://rubygems.org/gems/azure_mgmt_storage)
+* [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (Version: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Version: 4.1.0)
+* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (Version: 2.0.11)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (Version: 1.1.0)
+* [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (Version: 6.3.0)
+* [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (Version: 1.1.0)
+* [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (Version: 0.11.0)
 
 ### Enable "Secure transfer required" setting with REST API
 
@@ -107,4 +107,3 @@ Sample of Input.json:
 
 ## Next steps
 Azure Storage provides a comprehensive set of security capabilities, which together enable developers to build secure applications. For more details, visit the [Storage Security Guide](storage-security-guide.md).
-<!--Update_Description: wording update add "Enable "Secure transfer required" programmatically"-->

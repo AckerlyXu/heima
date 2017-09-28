@@ -1,7 +1,7 @@
 ---
 title: Setting up the Azure Import/Export Tool | Azure
 description: Learn how to set up the drive preparation and repair tool for the Azure Import/Export service.
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 
 ---
 
@@ -37,7 +37,7 @@ If you are **preparing drives** for an import job, the following prerequisites m
 * You need a computer (the "copy machine") with Windows 7, Windows Server 2008 R2, or a newer Windows operating system installed.
 * The .NET Framework 4 must be installed on the copy machine.
 * BitLocker must be enabled on the copy machine.
-* You need one or more empty 3.5-inch SATA hard drives connected to the copy machine.
+* You need one or more empty 2.5-inch or 3.5-inch SATAII or III or SSD hard drives connected to the copy machine.
 * The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
 If you are attempting to **repair an import** that has partially failed, you need:
@@ -213,4 +213,4 @@ Examples:
 * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

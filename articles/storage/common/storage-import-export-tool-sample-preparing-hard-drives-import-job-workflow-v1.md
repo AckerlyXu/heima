@@ -1,7 +1,7 @@
 ---
 title: Sample workflow to prep hard drives for an Azure Import/Export import job - v1 | Azure
 description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service.
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 
 ---
 
@@ -30,9 +30,9 @@ This example imports the following data into a Window Azure storage account name
 |H:\Photo|A collection of photos, 30 GB in total.|  
 |K:\Temp\FavoriteMovie.ISO|A Blu-Ray™ disk image, 25 GB.|  
 |\\\bigshare\john\music|A collection of music files on a network share, 10 GB in total.|  
-
-The import job will import this data into the following destinations in the storage account:  
-
+  
+The import job imports this data into the following destinations in the storage account:  
+  
 |Source|Destination virtual directory or blob|  
 |------------|-------------------------------------------|  
 |H:\Video|https://mystorageaccount.blob.core.chinacloudapi.cn/video|  
@@ -40,13 +40,13 @@ The import job will import this data into the following destinations in the stor
 |K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|https://mystorageaccount.blob.core.chinacloudapi.cn/music|  
 
-With this mapping, the file `H:\Video\Drama\GreatMovie.mov` will be imported to the blob `https://mystorageaccount.blob.core.chinacloudapi.cn/video/Drama/GreatMovie.mov`.  
+With this mapping, the file `H:\Video\Drama\GreatMovie.mov` is imported to the blob `https://mystorageaccount.blob.core.chinacloudapi.cn/video/Drama/GreatMovie.mov`.  
 
 Next, to determine how many hard drives are needed, compute the size of the data:  
 
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
 
-For this example, two 3TB hard drives should be sufficient. However, since the source directory `H:\Video` has 5TB of data and your single hard drive's capacity is only 3TB, it's necessary to break `H:\Video` into two smaller directories before running the Azure Import/Export Tool: `H:\Video1` and `H:\Video2`. This step yields the following source directories:  
+For this example, two 3-TB hard drives should be sufficient. However, since the source directory `H:\Video` has 5 TB of data and your single hard drive's capacity is only 3 TB, it's necessary to break `H:\Video` into two smaller directories: `H:\Video1` and `H:\Video2`, before running the Azure Import/Export Tool. This step yields the following source directories:  
 
 |Location|Size|Destination virtual directory or blob|  
 |--------------|----------|-------------------------------------------|  
@@ -56,10 +56,10 @@ For this example, two 3TB hard drives should be sufficient. However, since the s
 |K:\Temp\FavoriteMovies.ISO|25GB|https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|10GB|https://mystorageaccount.blob.core.chinacloudapi.cn/music|  
 
- Note that even though the `H:\Video`directory has been split to two directories, they point to the same destination virtual directory in the storage account. This way, all video files are maintained under a single `video` container in the storage account.  
-
- Next, the above source directories are evenly distributed to the two hard drives:  
-
+ Even though the `H:\Video`directory has been split to two directories, they point to the same destination virtual directory in the storage account. This way, all video files are maintained under a single `video` container in the storage account.  
+  
+ Next, the previous source directories are evenly distributed to the two hard drives:  
+  
 ||||  
 |-|-|-|  
 |Hard drive|Source directories|Total size|  
@@ -116,16 +116,16 @@ Now you are ready to run the Azure Import/Export Tool to prepare the two hard dr
 -   The key for the storage account `mystorageaccount` is `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`.  
 
 ## Preparing disk for import when data is pre-loaded
-
- If the data to be imported is already present on the disk, use the flag /skipwrite. Value of /t and /srcdir both should point to the disk being prepared for import. If not all the data on the disk needs to go to the same destination virtual directory or root of the storage account, run the same command for each directory separately keeping the value of /id same across all runs.
+ 
+ If the data to be imported is already present on the disk, use the flag /skipwrite. The value of /t and /srcdir should both point to the disk being prepared for import. If all of the data to be imported is not going to the same destination virtual directory or root of the storage account, run the same command for each destination directory separately, keeping the value of /id the same across all runs.
 
 >[!NOTE] 
 >Do not specify /format as it will wipe the data on the disk. You can specify /encrypt or /bk depending on whether the disk is already encrypted or not. 
 >
 
-When data is already present on the disk for each drive run the following command.
 ```
-WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
+    When data is already present on the disk for each drive run the following command.
+    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
 ## Copy sessions - first drive
@@ -168,10 +168,10 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## Copy session completion
 
-Once the copy sessions have completed, you can disconnect the two drives from the copy computer and ship them to the appropriate Windows Azure data center. You'll upload the two journal files, `FirstDrive.jrn` and `SecondDrive.jrn`, when you create the import job in the [Windows Azure Management Portal](https://manage.windowsazure.cn/).  
+Once the copy sessions have completed, you can disconnect the two drives from the copy computer and ship them to the appropriate Windows Azure data center. Upload the two journal files, `FirstDrive.jrn` and `SecondDrive.jrn`, when you create the import job in the [Windows Azure Management Portal](https://manage.windowsazure.cn/).  
 
 ## Next steps
 
 * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Quick reference for frequently used commands](../storage-import-export-tool-quick-reference-v1.md)
-<!--Update_Description: update link-->
+* [Quick reference for frequently used commands](../storage-import-export-tool-quick-reference-v1.md) 
+<!--Update_Description: wording update-->

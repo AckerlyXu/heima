@@ -3,7 +3,7 @@ title: Azure Storage Explorer troubleshooting guide | Azure
 description: Overview of the two debugging feature of Azure
 services: virtual-machines
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -13,14 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+origin.date: 09/08/2017
+ms.date: 10/16/2017
+ms.author: v-johch
 ---
 
 # Azure Storage Explorer troubleshooting guide
-
-## Introduction
 
 Azure Storage Explorer (Preview) is a stand-alone app that enables you to easily work with Azure Storage data on Windows, macOS and Linux. The app can connect toStorage accounts hosted on Azure, Sovereign Clouds, and Azure Stack.
 
@@ -173,4 +171,11 @@ If you are connecting to a service using a SAS URL and experiencing this error:
 
 - If the SAS URL is based on an access policy, verify that the access policy has not been revoked.
 
-<!--Update_Description: update link-->
+## Next steps
+
+If none of the solutions work for you, submit your issue through the feedback tool with your email and as many details about the issue included as you can, so that we can contact you for fixing the issue.
+
+To do this, click **Help** menu, and then click **Send Feedback**.
+
+![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+<!--Update_Description:add next steps section-->
