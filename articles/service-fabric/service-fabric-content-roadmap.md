@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/14/2017
-ms.date: 08/14/2017
+origin.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -25,10 +25,10 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 [Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
 <table><tr><th>Core concepts</th><th>Design time</th><th>Run time</th></tr>
-<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
+<tr><td><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
 <img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
+<td><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
+<td><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
 <img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
 </table>
 
@@ -54,7 +54,7 @@ After creating a named application, you can create an instance of one of its ser
 
 There are two types of services: stateless and stateful. Stateless services can store persistent state in an external storage service such as Azure Storage, Azure SQL Database, or Azure Cosmos DB. Use a stateless service when the service has no persistent storage at all. A stateful service uses Service Fabric to manage your service's state via its Reliable Collections or Reliable Actors programming models. 
 
-When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions. Each partition is responsible for a portion of the complete state of the service, which is spread across the cluster's nodes. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. Stateful named services maintain their state within replicas and each partition has its own replica set. Read and write operations are performed at one replica (called the Primary). Changes to state from write operations are replicated to multiple other replicas (called Active Secondaries). 
+When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions. Each partition is responsible for a portion of the complete state of the service, which is spread across the cluster's nodes.  
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
@@ -90,7 +90,10 @@ By default, Service Fabric deploys and activates services as processes. Service 
 Built on top of Reliable Services, the [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built in communication for actors and pre-set state persistence and scale-out configurations.
 
 ### ASP.NET Core
-Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) as a first class programming model for building web and API applications
+Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) as a first class programming model for building web and API applications.  ASP.NET Core can be used in two different ways in Service Fabric:
+
+- Hosted as a guest executable. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
+- Run inside a Reliable Service. This allows better integration with the Service Fabric runtime and allows stateful ASP.NET Core services.
 
 ### Guest executables
 A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbitrary executable (written in any language) hosted on a Service Fabric cluster alongside other services. Guest executables do not integrate directly with Service Fabric APIs. However they still benefit from features the platform offers, such as custom health and load reporting and service discoverability by calling REST APIs. They also have full application lifecycle support. 
@@ -101,7 +104,7 @@ As with other platforms, an application on Service Fabric usually goes through t
 The entire app lifecycle can be managed using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/ServiceFabric/), [C# APIs](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](https://docs.azure.cn/java/api/system.fabric._application_management_client), and [REST APIs](https://docs.microsoft.com/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -126,7 +129,7 @@ A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-conne
 Service Fabric clusters can be created on virtual or physical machines running Windows Server or Linux. You are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected: on-premises, on Azure, or on any cloud provider.
 
 The following Microsoft Virtual Academy video describes Service Fabric clusters:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
+<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
 <img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -163,7 +166,7 @@ If you add new nodes to the cluster, Service Fabric rebalances the partition rep
 ### Cluster upgrades
 Periodically, new versions of the Service Fabric runtime are released. Perform runtime, or fabric, upgrades on your cluster so that you are always running a [supported version](service-fabric-support.md). In addition to fabric upgrades, you can also update cluster configuration such as certificates or application ports.
 
-A Service Fabric cluster is a resource that you own, but is partly managed by Azure.  We is responsible for patching the underlying OS and performing fabric upgrades on your cluster.  You can set your cluster to receive automatic fabric upgrades, when we releases a new version, or choose to select a supported fabric version that you want.  Fabric and configuration upgrades can be set through the Azure Portal or through Resource Manager.  For more information, read [Upgrade a Service Fabric cluster](service-fabric-cluster-upgrade.md).  
+A Service Fabric cluster is a resource that you own, but is partly managed by Azure.  We are responsible for patching the underlying OS and performing fabric upgrades on your cluster.  You can set your cluster to receive automatic fabric upgrades, when we releases a new version, or choose to select a supported fabric version that you want.  Fabric and configuration upgrades can be set through the Azure Portal or through Resource Manager.  For more information, read [Upgrade a Service Fabric cluster](service-fabric-cluster-upgrade.md).  
 
 A standalone cluster is a resource that you entirely own. You are responsible for patching the underlying OS and initiating fabric upgrades. If your cluster can connect to [https://www.microsoft.com/download](https://www.microsoft.com/download), you can set your cluster to automatically download and provision the new Service Fabric runtime package. You would then initiate the upgrade. If your cluster can't access [https://www.microsoft.com/download](https://www.microsoft.com/download), you can manually download the new runtime package from an internet connected machine and then initiate the upgrade. For more information, read [Upgrade a standalone Service Fabric cluster](service-fabric-cluster-upgrade-windows-server.md).
 
@@ -186,7 +189,7 @@ Service Fabric provides multiple ways to [view health reports](service-fabric-vi
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
 
 The following Microsoft Virtual Academy video describes the Service Fabric health model and how it's used:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -204,4 +207,4 @@ The following Microsoft Virtual Academy video describes the Service Fabric healt
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties, update reference link, wording update -->

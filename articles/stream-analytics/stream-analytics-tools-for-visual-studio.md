@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -24,7 +24,6 @@ ms.author: v-yeche
 In this tutorial, you learn how to use Azure Stream Analytics Tools for Visual Studio to create, author, test locally, manage, and debug your Stream Analytics jobs. 
 
 After completing this tutorial, you will be able to:
-
 * Familiarize yourself with Stream Analytics Tools for Visual Studio.
 * Configure and deploy a Stream Analytics job.
 * Test your job locally with local sample data.
@@ -32,14 +31,13 @@ After completing this tutorial, you will be able to:
 * Export existing jobs to projects.
 
 ## Prerequisites
-
 To complete this tutorial, you need the following prerequisites:
 * Finish the steps that precede "Create a Stream Analytics job" in the [Build an IoT solution by using Stream Analytics tutorial](/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Use Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported. Visual Studio 2017 is not supported. 
 * Use the Azure SDK for .NET version 2.7.1 or later. Install it by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 * Install the [Stream Analytics Tools for Visual Studio](http://aka.ms/asatoolsvs).
 
-## Create a Stream Analytics Project
+## Create a Stream Analytics project
 1. In Visual Studio, click the **File** menu and select **New Project**. 
 
 2. In the templates list on the left, select **Stream Analytics** and then click **Azure Stream Analytics Application**.
@@ -258,4 +256,4 @@ You also can use the job view, and click **Generate Project**.
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

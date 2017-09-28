@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
 
@@ -75,3 +75,4 @@ Learn how to configure Load Balancer to deliver high availability and network pe
         </a>
     </li>
 </ul>
+<!--Update_Description: update meta properties-->

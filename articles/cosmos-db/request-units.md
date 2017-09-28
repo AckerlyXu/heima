@@ -38,17 +38,12 @@ After reading this article, you'll be able to answer the following questions:
 * What happens if I exceed request unit capacity for a collection?
 
 As Azure Cosmos DB is a multi-model database, it is important to note that we will refer to a collection/document for a document API and a table/entity for table API. Throughput this document we will generalize to the concepts of container/item.
-<!-- Not Available on Grapy API-->
+<!-- Not Available on Graph API-->
 ## Request units and request charges
 Azure Cosmos DB delivers fast, predictable performance by *reserving* resources to satisfy your application's throughput needs.  Because application load and access patterns change over time, Azure Cosmos DB allows you to easily increase or decrease the amount of reserved throughput available to your application.
 
 With Azure Cosmos DB, reserved throughput is specified in terms of request units processing per second .You can think of request units as throughput currency, whereby you *reserve* an amount of guaranteed request units available to your application on per second basis.  Each operation in Azure Cosmos DB - writing a document, performing a query, updating a document - consumes CPU, memory, and IOPS.  That is, each operation incurs a *request charge*, which is expressed in *request units*.  Understanding the factors which impact request unit charges, along with your application's throughput requirements, enables you to run your application as cost effectively as possible. The query explorer is also a wonderful tool to test the core of a query.
-
-We recommend getting started by watching the following video, where Aravind Ramachandran explains request units and predictable performance with Azure Cosmos DB.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
-> 
-> 
+<!-- Not Available > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]-->
 
 ## Specifying request unit capacity in Azure Cosmos DB
 When starting a new collection of table, you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.

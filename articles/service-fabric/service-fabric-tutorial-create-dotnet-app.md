@@ -10,12 +10,13 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 
@@ -557,4 +558,4 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Deploy the application to Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 
-<!--Update_Description: update meta properties， add the Angula JS and Visual Studio Core content in service fabric app-->
+<!--Update_Description: update meta properties-->

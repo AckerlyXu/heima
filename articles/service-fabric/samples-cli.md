@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples - Service Fabric | Azure
-description: Azure CLI Samples - Service Fabric
+title: Azure Service Fabric CLI Samples
+description: Azure Service Fabric CLI Samples
 services: service-fabric
 documentationcenter: service-fabric
 author: rockboyfor
@@ -11,19 +11,18 @@ tags:
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 06/26/2017
-origin.date: 09/11/2017
-origin.date: ''
-ms.date: 09/11/2017
+origin.date: 08/22/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
-# Azure PowerShell Samples
 
-The following table includes links to [Azure CLI](service-fabric-azure-cli-2-0.md) scripts samples that manage Service Fabric clusters, applications, and services.
+# Azure Service Fabric CLI Samples
+
+The following table includes links to [Service Fabric CLI](service-fabric-cli.md) scripts samples that manage Service Fabric clusters, applications, and services.
 
 | | |
 |-|-|
@@ -31,4 +30,4 @@ The following table includes links to [Azure CLI](service-fabric-azure-cli-2-0.m
 | [Deploy an application](./scripts/cli-deploy-application.md)| Deploy an application to a cluster.|
 | [Remove an application](./scripts/cli-remove-application.md)| Remove an application from a cluster.|
 
-<!--Update_Description: new articles of sample CLI in service fabric -->
+<!--Update_Description: update reference link-->

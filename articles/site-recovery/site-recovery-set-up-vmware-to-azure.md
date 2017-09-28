@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/29/2017
-ms.date: 08/28/2017
-ms.author: v-johch
+ms.date: 10/02/2017
+ms.author: v-yeche
 ---
 
 # Set up the source environment (VMware to Azure)
 > [!div class="op_single_selector"]
 > * [VMware to Azure](./site-recovery-set-up-vmware-to-azure.md)
-<!-- Not Available > * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)-->
+> * [Physical to Azure](./site-recovery-set-up-physical-to-azure.md)
 
 This article describes how to set up your on-premises environment to start replicating virtual machines running on VMware to Azure.
 
@@ -33,7 +33,11 @@ The article assumes that you have already created:
 - A virtual machine on which to install the configuration server.
 
 ## Configuration server minimum requirements
-The configuration server software should be deployed on a highly available VMware virtual machine. The following table lists the minimum hardware, software, and network requirements for a configuration server.
+The following table lists the minimum hardware, software, and network requirements for a configuration server.
+
+> [!IMPORTANT]
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Available (HA)** virtual machine.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]
@@ -93,3 +97,5 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 
 ## Next steps
 [Set up your target environment](./site-recovery-prepare-target-vmware-to-azure.md) in Azure.
+
+<!--Update_Description: update meta properties， update link -->

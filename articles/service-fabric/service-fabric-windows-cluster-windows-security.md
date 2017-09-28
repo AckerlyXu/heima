@@ -3,8 +3,8 @@ title: Secure a cluster running on Windows by using Windows security | Azure
 description: Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows by using Windows security.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
@@ -13,8 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/28/2017
-ms.author: v-johch
+origin.date: 08/24/2017
+ms.date: 10/02/2017
+ms.author: v-yeche
+
 ---
 # Secure a standalone cluster on Windows by using Windows security
 To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. This article describes how to configure node-to-node and client-to-node security by using Windows security in the *ClusterConfig.JSON* file.  The process corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information about how Service Fabric uses Windows security, see [Cluster security scenarios](service-fabric-cluster-security.md).
@@ -29,7 +31,6 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 
 ```
 "security": {
-            "ServerCredentialType": "Windows",
             "WindowsIdentities": {
                 "ClustergMSAIdentity": "accountname@fqdn"
                 "ClusterSPN": "fqdn"
@@ -135,3 +136,5 @@ After configuring Windows security in the *ClusterConfig.JSON* file, resume the 
 For more information about how node-to-node security, client-to-node security, and role-based access control, see [Cluster security scenarios](service-fabric-cluster-security.md).
 
 See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for examples of connecting by using PowerShell or FabricClient.
+
+<!--Update_Description: update meta properties, wording update -->

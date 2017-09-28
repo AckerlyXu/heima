@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/13/2017
-ms.date: 07/31/2017
+origin.date: 08/31/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
 # Networking guidance for replicating Azure virtual machines
 
->[!NOTE]
->
+> [!NOTE]
 > Site Recovery replication for Azure virtual machines is currently in preview.
 
 This article details the networking guidance for Azure Site Recovery when you're replicating and recovering Azure virtual machines from one region to another region. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md) article.
@@ -42,9 +41,8 @@ If you are using Azure ExpressRoute or a VPN connection from an on-premises netw
 
 Typically, customers protect their networks using firewalls and/or network security groups (NSGs). The firewalls can use either URL-based or IP-based whitelisting for controlling network connectivity. NSGs allow rules for using IP ranges to control network connectivity.
 
->[!IMPORTANT]
->
-> If you are using an authenticated proxy to control network connectivity, it is not supported and Site Recovery replication cannot be enabled.
+> [!IMPORTANT]
+> If you are using an authenticated proxy to control network connectivity, it is not supported, and Site Recovery replication cannot be enabled.
 
 The following sections discuss the network outbound connectivity changes that are required from Azure virtual machines for Site Recovery replication to work.
 
@@ -57,12 +55,11 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 *.blob.core.chinacloudapi.cn | Required so that data can be written to the cache storage account in the source region from the VM.
 login.chinacloudapi.cn | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.cn | Required so that the Site Recovery service communication can occur from the VM.
-*.servicebus.chinacloudapi.cn | Required so that the Site Recovery monitoring and diagnostics data  can be written from the VM.
+*.servicebus.chinacloudapi.cn | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
 
 ## Outbound connectivity for Azure Site Recovery IP ranges
 
 > [!NOTE]
->
 > To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
 > [!IMPORTANT]
@@ -85,32 +82,39 @@ If you are using any IP-based firewall proxy or NSG rules to control outbound co
 This section explains the steps to configure NSG rules so that Site Recovery replication can work on a virtual machine. If you are using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP ranges.
 
 >[!Note]
->
 > To automatically create the required NSG rules on the network security group, you can [download and use this script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702).
 
 For example, if your VM's source location is "China East" and your replication target location is "China North," follow the steps in the next two sections.
 
 >[!IMPORTANT]
 > * We recommend that you create the required NSG rules on a test network security group and verify that there are no problems before you create the rules on a production network security group.
-> * To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact support to increase the NSG rule limit in your subscription. 
+> * To create the required number of NSG rules, ensure that your subscription is whitelisted. Contact support to increase the NSG rule limit in your subscription.
 
 ### NSG rules on the China East network security group
 
-* Create rules that correspond to China East IP ranges. This is required so that data can be written to the cache storage account from the VM.
+* Create rules that correspond to [China East IP ranges](https://www.microsoft.com/download/details.aspx?id=42064). This is required so that data can be written to the cache storage account from the VM.
 
 * Create rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
 * Create rules that correspond to the target location:
 
+   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+    --- | --- | ---
+   China North | 40.69.144.231 | 52.165.34.144
+
 ### NSG rules on the China North network security group
 
 These rules are required so that replication can be enabled from the target region to the source region post-failover:
 
-* Rules that correspond to China North IP ranges. These are required so that data can be written to the cache storage account from the VM.
+* Rules that correspond to [China North IP ranges](https://www.microsoft.com/download/details.aspx?id=42064). These are required so that data can be written to the cache storage account from the VM.
 
 * Rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
 
 * Rules that correspond to the source location:
+
+   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+    --- | --- | ---
+   China East | 13.82.88.226 | 104.45.147.24
 
 ## Guidelines for existing Azure-to-on-premises ExpressRoute/VPN configuration
 
@@ -136,14 +140,13 @@ Follow these best practices for ExpressRoute configuration:
   - The source virtual network and the ExpressRoute circuit.
   - The target virtual network and the ExpressRoute circuit.
 
-- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
+- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://www.azure.cn/pricing/details/expressroute/).
 
 - We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure virtual networks of the same IP ranges at the same time.
 
 - You can create virtual networks with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source virtual network, and connect the circuit in the target virtual network.
 
  >[!IMPORTANT]
- >
  > If the primary region is completely down, the disconnect operation can fail. That will prevent the target virtual network from getting ExpressRoute connectivity.
 
 ## Next steps

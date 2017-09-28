@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -63,8 +63,8 @@ The current versions are:
 * Service Fabric SDK 2.7.198
 * Service Fabric runtime 5.7.198
 * Service Fabric Tools for Visual Studio 2015 1.7.50721
-* Visual Studio 2017 Update 2 includes Service Fabric Tools for Visual Studio 1.6.20170504
-* Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
+* Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
+* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
 For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 
@@ -83,7 +83,7 @@ Now that you've finished setting up your development environment, start building
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-* [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+<!-- Not Avaialble * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)-->
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: https://www.azure.cn/home/features/service-fabric "Service Fabric campaign page"

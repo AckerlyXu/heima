@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -331,8 +331,8 @@ You can mix and match different networking modes across services within an appli
 In this article, you learned about networking modes offered by Service Fabric.  
 
 * [Service Fabric application model](service-fabric-application-model.md)
-* [Service Fabric service manifest resources](service-fabric-application-model.md)
+* [Service Fabric service manifest resources](/service-fabric/service-fabric-service-manifest-resources)
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)
 
-<!--Update_Description: new articles of networking modes in service fabric -->
+<!--Update_Description: update reference link -->

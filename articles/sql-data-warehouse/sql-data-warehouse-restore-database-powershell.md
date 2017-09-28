@@ -2,7 +2,7 @@
 title: Restore an Azure SQL Data Warehouse  (PowerShell) | Azure
 description: PowerShell tasks for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationCenter: NA
+documentationcenter: NA
 author: rockboyfor
 manager: digimobile
 editor: ''
@@ -15,12 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ---
-
 # Restore an Azure SQL Data Warehouse (PowerShell)
-
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Portal][Portal]
@@ -61,7 +59,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
@@ -73,7 +71,7 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -110,7 +108,7 @@ Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 $DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
-$RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase -FromDeletedDatabaseBackup -DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $DeletedDatabase.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status
@@ -131,20 +129,20 @@ To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDa
 5. Create the recovery request for the database.
 6. Verify the status of the geo-restored database.
 
-    ```Powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    Get-AzureRmSubscription
-    Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+```Powershell
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-    # Get the database you want to recover
-    $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+# Get the database you want to recover
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
-    # Recover database
-    $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
+# Recover database
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase -FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" -ResourceId $GeoBackup.ResourceID
 
-    # Verify that the geo-restored database is online
-    $GeoRestoredDatabase.status
-    ```
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
+```
 
 > [!NOTE]
 > To configure your database after the restore has completed, see [Configure your database after recovery][Configure your database after recovery].
@@ -170,8 +168,10 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/zh-cn/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+
+<!--Update_Description: update meta properties, wording update -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/28/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -100,6 +100,6 @@ Now, run a failover:
 
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
 - If you're migrating machines rather than replicating and failing back, [read more](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
-<!-- Not Available - - [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.-->
+- [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.
 
-<!--Update_Description: new articles on site recovery test failover from vmware to azure-->
+<!--Update_Description: wording update-->

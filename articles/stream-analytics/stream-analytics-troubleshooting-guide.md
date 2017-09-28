@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -83,11 +83,11 @@ For best results in troubleshooting your Stream Analytics job, use the following
     - To analyze data flow and identify issues, use the [job diagram with metrics](stream-analytics-job-diagram-with-metrics.md).
 
 11. Open a support case:
-    - Finally, if all else fails, open a Microsoft support case by using the SubscriptionID that contains your job.
+    - Finally, if all else fails, open a Azure support case by using the SubscriptionID that contains your job.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 
@@ -97,4 +97,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, wording update -->

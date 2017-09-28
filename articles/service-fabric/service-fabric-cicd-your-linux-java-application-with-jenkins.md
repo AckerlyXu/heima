@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 08/23/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -45,7 +45,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
 3. You need the connect option details of the Azure storage file-share, where you want to persist the state of the Jenkins container instance. If you are using the Azure portal for the same, please follow the steps - Create an Azure storage account, say ``sfjenkinsstorage1``. Create a **File Share** under that storage account, say ``sfjenkins``. Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, say this would look like as follows -
     ```sh
-    sudo mount -t cifs //sfjenkinsstorage1.file.core.chinacloudapi.cn/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //sfjenkinsstorage1.file.core.chinacloudapi.cn/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
     ```
 
 4. Update the placeholder values in the ```setupentrypoint.sh``` script with corresponding azure-storage details.
@@ -56,8 +56,8 @@ Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.fi
 Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from point 3 above.
 
 5. Connect to the cluster and install the container application.
-    ```sh
-    azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+    ```azurecli
+    sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
     bash Scripts/install.sh
     ```
 This installs a Jenkins container on the cluster, and can be monitored by using the Service Fabric Explorer.
@@ -103,7 +103,7 @@ Now when you run ``docker info`` in the terminal, you should see in the output t
 ### Steps
 1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:v1``
 2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
-3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
+3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps -a``
 4. Sign in to the Jenkins portal by using the following steps:
 
     ```sh

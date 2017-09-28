@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-yeche
 Writing queries for stream processing logic in Azure Stream Analytics is implemented as a "standing query" that is defined before a job starts and executed on data as it reaches the job. The data transformation is expressed in a SQL-like query language, which is largely a subset of T-SQL with some added language extensions like [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) used to express temporal semantics.
 
 ## Writing Queries:
-1. In your Stream Analytics Job in the Azure Management portal, click **Query**.
+1. In your Stream Analytics Job in the Azure portal, click **Query**.
 
     ![Select Query](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
 
@@ -48,7 +48,7 @@ You can test that your query behaves as expected by running it in the browser ov
 1. Make sure that there are no errors in the query (otherwise the Test button will be disabled) and then click the Test button.  
 
     ![Query data Test](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)  
-2. You will be prompted to specify files for each of the inputs referenced in the query. In this example, the template query is left as-is, so the dialog is prompting for an input named "yourinputalias".  
+2. You are prompted to specify files for each of the inputs referenced in the query. In this example, the template query is left as-is, so the dialog is prompting for an input named "yourinputalias".
 
     ![Test Data query](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)  
 3. Browse to a test file. Several sample files are available on [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample Data) and you can also retrieve sample data from your own data stream inputs via the Sample Data function on the inputs tab.  
@@ -59,7 +59,7 @@ You can test that your query behaves as expected by running it in the browser ov
     ![Query Summary](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -68,4 +68,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

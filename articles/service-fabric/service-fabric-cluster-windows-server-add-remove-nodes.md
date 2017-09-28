@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/02/2017
-ms.date: 07/17/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -129,3 +129,5 @@ The replacement of primary nodes should be performed one node after another, ins
 * [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
 * [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 * [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+
+<!--Update_Description: update meta properties-->

@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 08/08/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -79,11 +79,9 @@ To define transformations, you use a simple, declarative [Stream Analytics query
 You can extend the capabilities of the query language by defining and invoking additional functions. You can also integrate JavaScript user-defined functions (UDFs) in order to perform complex calculations as part a Stream Analytics query.
 <!-- Not Available Azure Machine Learning --> 
 
-<!--Update_Description: update meta properties, wording update-->
-
 ### Scalability
 
-Stream Analytics can handle up to 1 GB of incoming data per second. Integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure IoT Hubs](https://www.azure.cn/home/features/iot-hub/) allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partition feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
+Stream Analytics can handle up to 1 GB of incoming data per second. Integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/) allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partition feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
 
 ### Low cost
 
@@ -96,10 +94,10 @@ As a managed service in the cloud, Stream Analytics helps prevent data loss and 
 ## Next steps
 
 * Get started by [experimenting with inputs and queries from IoT devices](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
-* Build an [end-to-end Streaming Analytics solution](stream-analytics-real-time-fraud-detection.md) that examines telephone metadata to look for fraudulent calls.
+* Build an [end-to-end Stream Analytics solution](stream-analytics-real-time-fraud-detection.md) that examines telephone metadata to look for fraudulent calls.
 * Learn about the SQL-like query language for Stream Analytics, and about unique concepts like [window functions](stream-analytics-window-functions.md).
-* Learn how to [scale Streaming Analytics jobs](stream-analytics-scale-jobs.md). 
-<!-- Not Available * Learn how to [integrate Streaming Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). -->
-* Find answers to your questions about Stream Analytics in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Learn how to [scale Stream Analytics jobs](stream-analytics-scale-jobs.md). 
+<!-- Not Available * Learn how to [integrate Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). -->
+* Find answers to your Stream Analytics questions in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 <!--Update_Description: update meta properties, wording update-->
