@@ -14,9 +14,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/29/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 10/16/2017
 ---
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
@@ -132,7 +132,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
    1. Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
    1. Drag **temperature** to **Values**.
 
-      Now a line chart is created. The x-axis of chart displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
+      Now a line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
 
       ![Add a line chart for temperature to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 
@@ -157,4 +157,4 @@ There is an alternate way to visualize data from Azure IoT Hub. See [Use Azure W
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
-<!--Update_Description:update meta properties only-->
+<!--Update_Description:update meta properties and wording-->

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/28/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ---
 
 # Connect Raspberry Pi online simulator to Azure IoT Hub (Node.js)

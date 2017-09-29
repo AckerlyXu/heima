@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
+origin.date: 09/04/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 10/16/2017
 ---
 # Azure IoT Edge architectural concepts
 

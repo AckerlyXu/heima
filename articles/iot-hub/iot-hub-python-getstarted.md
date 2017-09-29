@@ -11,10 +11,10 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/22/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: na
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ---
 # Connect your simulated device to your IoT hub using Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]

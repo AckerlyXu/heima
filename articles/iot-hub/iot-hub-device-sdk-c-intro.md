@@ -13,9 +13,9 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/20/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 10/16/2017
 ---
 # Azure IoT device SDK for C
 
@@ -408,7 +408,7 @@ myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send and it:
+The model you defined earlier enables you to set the values by setting members of a **struct**. Next, serialize the message you want to send:
 
 ```c
 unsigned char* destination;

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ---
 
 # Get started with device management (Java)
@@ -154,6 +154,12 @@ This console app connects to your IoT Hub to invoke the direct method and read t
         }
       }
     }
+    ```
+
+1. Modify the signature of the **main** method to throw the following exception:
+
+    ```java
+    public static void main(String[] args) throws IOException
     ```
 
 1. To invoke the reboot direct method on the simulated device, add the following code to the **main** method:
@@ -449,4 +455,4 @@ You are now ready to run the apps.
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 
-<!--Update_Description:update wording-->
+<!--Update_Description:update code-->

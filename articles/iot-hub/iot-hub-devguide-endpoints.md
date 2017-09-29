@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ---
 
 # Reference - IoT Hub endpoints
@@ -42,8 +42,6 @@ The following list describes the endpoints:
   * *Receive direct method requests*. A device uses this endpoint to listen for [direct method][lnk-methods]'s requests.
     
     These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. AMQP is also available over [WebSockets][lnk-websockets] on port 443.
-
-    The device twins and methods endpoints are available only when you use the [MQTT v3.1.1][lnk-mqtt] protocol.
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP][lnk-amqp] protocol. The method invocation endpoint is exposed over the HTTP protocol.
   

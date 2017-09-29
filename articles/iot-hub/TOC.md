@@ -15,8 +15,11 @@
 ### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Use a physical device](iot-hub-get-started-physical.md)
+#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
+
+#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -81,13 +84,16 @@
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-getstarted.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java back end/Java device](iot-hub-java-java-direct-methods.md)
 ### Get started with device management
 #### [Node.js back end/Node.js device](iot-hub-node-node-device-management-get-started.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java back end/Java device](iot-hub-java-java-device-management-getstarted.md)
 ### How to use twin properties
 #### [Node.js back end/Node.js device](iot-hub-node-node-twin-how-to-configure.md)
@@ -99,6 +105,7 @@
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Manage
 ### Create an IoT hub 
 #### [Use the portal](iot-hub-create-through-portal.md)

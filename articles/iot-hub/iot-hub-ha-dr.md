@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub HA and DR | Azure
+title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
 services: iot-hub
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: v-yiso
 ---
 
 # IoT Hub high availability and disaster recovery
-As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, design and prepare your solutions to take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][Disaster recovery and high availability for Azure applications] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, design and prepare your solutions to take advantage of these Azure DR features. The [Disaster recovery and high availability for Azure applications][Disaster recovery and high availability for Azure applications] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
 ## Azure IoT Hub DR
 In addition to intra-region HA, IoT Hub implements failover mechanisms for disaster recovery that require no intervention from the user. IoT Hub DR is self-initiated and has a recovery time objective (RTO) of 2-26 hours, and the following recovery point objectives (RPOs).
@@ -51,7 +51,6 @@ Follow these links to learn more about Azure IoT Hub:
 - [What is Azure IoT Hub?][]
 
 [Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Azure Business Continuity Technical Guidance]: ../resiliency/resiliency-technical-guidance.md
 [Azure Traffic Manager]: ../traffic-manager/index.md
 [IoT Hub Developer Guide - identity registry]: ./iot-hub-devguide-identity-registry.md
 

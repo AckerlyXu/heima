@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/24/2017
+origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 10/16/2017
 ---
 
 # IoT Hub operations monitoring
@@ -38,7 +38,7 @@ IoT Hub monitors six categories of events:
 
     ![Access operations monitoring configuration in the portal][1]
 
-1. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
+1. Select the monitoring categories you wish to monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**. The IoT Hub endpoint is called `messages/operationsmonitoringevents`.
 
     ![Configure operations monitoring on your IoT hub][2]
 
@@ -299,3 +299,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+
+<!--Update_Description:update meta properties only-->

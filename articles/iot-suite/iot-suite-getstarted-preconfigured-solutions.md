@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
+ms.date: 10/16/2017
 ---
 # Get started with the preconfigured solutions
 

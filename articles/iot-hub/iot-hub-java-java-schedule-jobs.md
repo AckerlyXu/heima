@@ -13,8 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
-ms.author: dobett
-ms.date: 09/25/2017
+ms.author: v-yiso
+ms.date: 10/16/2017
 ---
 # Schedule and broadcast jobs (Java)
 
@@ -345,7 +345,7 @@ In this section, you create a Java console app that handles the desired properti
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use device twin features you must use the MQTT protocol.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object.
 
 1. To print device twin notifications to the console, add the following nested class to the **App** class:
 

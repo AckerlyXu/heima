@@ -15,7 +15,7 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 10/16/2017
 ---
 
 # Create a Service Bus namespace using an Azure Resource Manager template
@@ -37,7 +37,7 @@ For the complete template, see the [Service Bus namespace template][] on GitHub.
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://www.azure.cn/pricing/details/messaging/) SKU.
+With this template, you deploy a Service Bus namespace with a [Basic or Standard](https://www.azure.cn/pricing/details/messaging/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -71,8 +71,7 @@ The name of the Service Bus [SKU](https://www.azure.cn/pricing/details/messaging
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard",
-        "Premium" 
+        "Standard"
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -81,7 +80,7 @@ The name of the Service Bus [SKU](https://www.azure.cn/pricing/details/messaging
 
 ```
 
-The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
+The template defines the values that are permitted for this parameter (Basic or Standard) and assigns a default value (Standard) if no value is specified.
 
 For more information about Service Bus pricing, see [Service Bus pricing and billing][Service Bus pricing and billing].
 

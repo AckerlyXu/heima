@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ---
 # Use direct methods (Java)
 
@@ -107,7 +107,7 @@ In this section, you create a Java console app that responds to a method called 
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use direct methods you must use the MQTT protocol.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. 
 
 1. To return a status code to your IoT hub, add the following nested class to the **App** class:
 

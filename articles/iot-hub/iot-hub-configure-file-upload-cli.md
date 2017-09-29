@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ---
 
 # Configure IoT Hub file uploads using Azure CLI
@@ -171,6 +171,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-iot-pricing]: https://www.azure.cn/pricing/details/iot-hub/
 [lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
 [lnk-portal-storage]:../storage/common/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
+[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#az_iot_hub_create
 
 <!--Update_Description: update meta data only-->
