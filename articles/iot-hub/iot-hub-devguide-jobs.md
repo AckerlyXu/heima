@@ -13,17 +13,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/30/2016
-ms.date: 07/10/2017
+origin.date: 08/29/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
 # Schedule jobs on multiple devices
 ## Overview
-As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]).  Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and direct methods against a set of devices at a schedule time.  For example, an operator would use a back-end app that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][lnk-twin-devguide] and [direct methods][lnk-dev-methods]).  Typically, back-end apps enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and direct methods against a set of devices at a scheduled time.  For example, an operator would use a back-end app that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
 
 ### When to use
-Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of device:
+Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of devices:
 
 * Update desired properties
 * Update tags

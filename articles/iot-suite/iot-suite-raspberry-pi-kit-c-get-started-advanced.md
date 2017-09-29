@@ -13,9 +13,9 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/25/2017
+origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/25/2017
 ---
 # Connect your Raspberry Pi 3 to the remote monitoring solution and enable remote firmware updates using C
 
@@ -59,15 +59,18 @@ You can now download and configure the remote monitoring client application on y
 
 If you haven't done so already, clone the required repositories by running the following commands on your Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
+```
 
 ### Update the device connection string
 
 Open the sample configuration file in the **nano** editor using the following command:
 
-`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
 Replace the placeholder values with the device ID and IoT Hub information you created and saved at the start of this tutorial.
 
@@ -84,19 +87,23 @@ Save your changes (**Ctrl-O**, **Enter**) and exit the editor (**Ctrl-X**).
 
 If you have not already done so, install the prerequisite packages for the Microsoft Azure IoT Device SDK for C by running the following commands in a terminal on the Raspberry Pi:
 
-`sudo apt-get update`
-
-`sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
+```sh
+sudo apt-get update
+sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
+```
 
 You can now build the sample solution on the Raspberry Pi:
 
-`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
-
-`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
+```sh
+chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+```
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-  `sudo ~/cmake/remote_monitoring/remote_monitoring`
+  ```sh
+  sudo ~/cmake/remote_monitoring/remote_monitoring
+  ```
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 

@@ -1,6 +1,6 @@
 ---
-title: Secure your IoT deployment | Azure
-description: How to secure your IoT deployment. Includes guidelines for securing device provisioning, connections, and access to the IoT Hub service
+title: Secure your Azure IoT deployment | Microsoft Docs
+description: How to secure your IoT deployment. Includes guidelines for securing device provisioning, connections, and access to the IoT Hub service.
 services: iot-hub
 documentationcenter: ''
 author: YuriDio
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/03/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 10/16/2017
 ---
 
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]

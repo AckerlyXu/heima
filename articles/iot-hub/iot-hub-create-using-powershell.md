@@ -12,9 +12,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/04/2017
+origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ---
 
 # Create an IoT hub using the New-AzureRmIotHub cmdlet
@@ -83,8 +83,10 @@ New-AzureRmIotHub `
     -Location "China East"
 ```
 
-> [!NOTE]
-> The name of the IoT hub must be unique.
+The name of the IoT hub must be unique.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 
 You can list all the IoT hubs in your subscription using the following command:
 

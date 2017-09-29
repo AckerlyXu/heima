@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
+ms.date: 10/16/2017
 ---
 
 # Device information metadata in the remote monitoring preconfigured solution
@@ -121,6 +121,7 @@ Now you've finished learning how you can customize the preconfigured solutions, 
 [lnk-docdb]: /documentdb/
 [lnk-stream-analytics]: /stream-analytics/
 [lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
+
 [lnk-predictive-overview]: ./iot-suite-predictive-overview.md
 [lnk-faq]: ./iot-suite-faq.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md

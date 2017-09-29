@@ -13,8 +13,8 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/13/2016
-ms.date: 07/10/2017
+origin.date: 08/25/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
@@ -43,7 +43,7 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create the service app
-In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
+In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that are reporting a cellular connection.
 
 1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
 
@@ -128,10 +128,6 @@ In the next section you create a device app that reports the connectivity inform
 ## Create the device app
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
 
-> [!NOTE]
-> At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
-> 
-> 
 
 1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
 
@@ -225,7 +221,7 @@ Use the following resources to learn how to:
 [lnk-connect-device]: https://www.azure.cn/develop/iot/
 
 [lnk-twin-how-to-configure]: ./iot-hub-node-node-twin-how-to-configure.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup/
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md

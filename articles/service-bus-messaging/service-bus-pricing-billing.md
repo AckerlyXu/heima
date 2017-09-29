@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/02/2017
+origin.date: 08/28/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 10/16/2017
 ---
 # Service Bus pricing and billing
 
@@ -28,14 +28,14 @@ Service Bus is offered in Basic, Standard tiers. You can choose a service tier f
 
 Service Bus uses the following two meters for queues and topics/subscriptions:
 
-1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
-2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics, or subscriptions during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
+1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter replaces messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
+2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics, or subscriptions during a given one-hour sampling period. This meter only applies in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
 
 The **Standard** tier introduces graduated pricing for operations performed with queues and topics/subscriptions, resulting in volume-based discounts of up to 80% at the highest usage levels. There is also a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost.
 
 The **Premium** tier provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution. Not only is this performance more predictable and available, but it is also faster.
 
-Note that the standard tier base charge is charged only once per month per Azure subscription. This means that after you create a single Standard tier Service Bus namespace, you will be able to create as many additional Standard namespaces as you want under that same Azure subscription, without incurring additional base charges.
+Note that the Standard tier base charge is charged only once per month per Azure subscription. This means that after you create a single Standard tier Service Bus namespace, you can create as many additional Standard namespaces as you want under that same Azure subscription, without incurring additional base charges.
 
 The [Service Bus pricing](https://www.azure.cn/pricing/details/messaging/) table summarizes the functional differences between the Basic, Standard tiers.
 
@@ -71,11 +71,6 @@ The Standard tier removes the per-namespace brokered connection limit and counts
 >
 >
 
-| Premium Tier |
-| --- |
-| Brokered connections are not charged in the Premium tier. |
-
-For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
 
 ## FAQ
 
@@ -95,7 +90,7 @@ For example:
 
 ### Do brokered connection charges apply to queues and topics/subscriptions?
 
-Yes. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. Receiving events with HTTP using a timeout greater than zero, sometimes called "long polling," generates brokered connection charges. AMQP connections generate brokered connection charges regardless of whether the connections are being used to send or receive. Note that 100 brokered connections are allowed at no charge in a Basic namespace. This is also the maximum number of brokered connections allowed for the Azure subscription. The first 1,000 brokered connections across all Standard namespaces in an Azure subscription are included at no extra charge (beyond the base charge). Because these allowances are enough to cover many service-to-service messaging scenarios, brokered connection charges usually only become relevant if you plan to use AMQP or HTTP long-polling with a large number of clients; for example, to achieve more efficient event streaming or enable bi-directional communication with many devices or application instances.
+Yes. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. Receiving events with HTTP using a timeout greater than zero, sometimes called "long polling," generates brokered connection charges. AMQP connections generate brokered connection charges regardless of whether the connections are being used to send or receive. The first 1,000 brokered connections across all Standard namespaces in an Azure subscription are included at no extra charge (beyond the base charge). Because these allowances are enough to cover many service-to-service messaging scenarios, brokered connection charges usually only become relevant if you plan to use AMQP or HTTP long-polling with a large number of clients; for example, to achieve more efficient event streaming or enable bi-directional communication with many devices or application instances.
 
 ## Next steps
 

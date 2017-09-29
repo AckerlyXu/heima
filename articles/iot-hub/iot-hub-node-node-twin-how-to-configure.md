@@ -13,8 +13,8 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/13/2016
-ms.date: 07/10/2017
+origin.date: 09/07/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
@@ -34,7 +34,7 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 To complete this tutorial you need the following:
 
-+ Node.js version 0.10.x or later.
++ Node.js version 4.0.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
@@ -94,7 +94,7 @@ In this section, you create a Node.js console app that connects to your hub as *
    
     The **Client** object exposes all the methods required to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for **myDeviceId**, and attaches a handler for the update on desired properties. The handler verifies that there is an actual configuration change request by comparing the configIds, then invokes a method that starts the configuration change.
    
-    Note that for the sake of simplicity, the previous code uses a hard-coded default for the inital configuration. A real app would probably load that configuration from a local storage.
+    Note that for the sake of simplicity, the previous code uses a hard-coded default for the initial configuration. A real app would probably load that configuration from a local storage.
    
    > [!IMPORTANT]
    > Desired property change events are always emitted once at device connection, make sure to check that there is an actual change in the desired properties before performing any action.
@@ -168,7 +168,7 @@ In this section, you will create a Node.js console app that updates the *desired
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **addtagsandqueryapp** folder.
+3. Using a text editor, create a new **SetDesiredAndQuery.js** file in the **setdesiredandqueryapp** folder.
 4. Add the following code to the **SetDesiredAndQuery.js** file, and substitute the **{iot hub connection string}** placeholder with the IoT Hub connection string you copied when you created your hub:
    
         'use strict';
@@ -275,3 +275,6 @@ Use the following resources to learn how to:
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 [lnk-how-to-configure-createapp]: ./iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+
+
+<!--Update_Description:update meta properties and wording-->

@@ -58,7 +58,7 @@ can be used to create a queue named "TestQueue", with a namespace named "HowToSa
                 "HowToSample",
                 "RootManageSharedAccessKey",
                 "SAS_key_value",
-                ".servicebus.windows.net"
+                ".servicebus.chinacloudapi.cn"
                 );
 
 ServiceBusContract service = ServiceBusService.create(config);

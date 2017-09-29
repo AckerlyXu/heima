@@ -13,8 +13,8 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/22/2017
-ms.date: 08/14/2017
+origin.date: 08/31/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
@@ -43,38 +43,41 @@ To complete this tutorial, you need the following:
 You have now created your IoT hub. You have the IoT Hub hostname and the IoT Hub connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity
-In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device can only connect to IoT hub if it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
+
+In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device can only connect to IoT hub if it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. Run this app to generate the unique device ID and key your device uses to identify itself when it sends device-to-cloud messages.
 
 1. Create a new empty folder called **createdeviceidentity**. In the **createdeviceidentity** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
 
-    ```
+    ```cmd/sh
     npm init
     ```
 2. At your command prompt in the **createdeviceidentity** folder, run the following command to install the **azure-iothub** Service SDK package:
 
-    ```
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 3. Using a text editor, create a **CreateDeviceIdentity.js** file in the **createdeviceidentity** folder.
 4. Add the following `require` statement at the start of the **CreateDeviceIdentity.js** file:
 
-    ```
+    ```nodejs
     'use strict';
 
     var iothub = require('azure-iothub');
     ```
-5. Add the following code to the **CreateDeviceIdentity.js** file and replace the placeholder value with the IoT Hub connection string for the hub you created in the previous section: 
 
-    ```
+5. Add the following code to the **CreateDeviceIdentity.js** file. Replace the placeholder value with the IoT Hub connection string for the hub you created in the previous section:
+
+    ```nodejs
     var connectionString = '{iothub connection string}';
 
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
 6. Add the following code to create a device definition in the identity registry in your IoT hub. This code creates a device if the device ID does not exist in the identity registry, otherwise it returns the key of the existing device:
 
-    ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    ```nodejs
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -91,10 +94,13 @@ In this section, you create a Node.js console app that creates a device identity
       }
     }
     ```
-7. Save and close **CreateDeviceIdentity.js** file.
-8. To run the **createdeviceidentity** application, execute the following command at the command prompt in the createdeviceidentity folder:
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-    ```
+7. Save and close **CreateDeviceIdentity.js** file.
+
+8. To run the `createdeviceidentity` application, execute the following command at the command prompt in the `createdeviceidentity` folder:
+
+    ```cmd/sh
     node CreateDeviceIdentity.js 
     ```
 9. Make a note of the **Device ID** and **Device key**. You need these values later when you create an application that connects to IoT Hub as a device.
@@ -106,39 +112,43 @@ In this section, you create a Node.js console app that creates a device identity
 
 <a id="D2C_node"></a>
 ## Receive device-to-cloud messages
-In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
+
+In this section, you create a Node.js console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information that is applicable to the IoT Hub Event Hub-compatible endpoints.
 
 > [!NOTE]
 > The Event Hub-compatible endpoint for reading device-to-cloud messages always uses the AMQP protocol.
 > 
 > 
 
-1. Create an empty folder called **readdevicetocloudmessages**. In the **readdevicetocloudmessages** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called `readdevicetocloudmessages`. In the `readdevicetocloudmessages` folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 
-    ```
+    ```cmd/sh
     npm init
     ```
-2. At your command prompt in the **readdevicetocloudmessages** folder, run the following command to install the **azure-event-hubs** package:
 
-    ```
+2. At your command prompt in the `readdevicetocloudmessages` folder, run the following command to install the **azure-event-hubs** package:
+
+    ```cmd/sh
     npm install azure-event-hubs --save
     ```
-3. Using a text editor, create a **ReadDeviceToCloudMessages.js** file in the **readdevicetocloudmessages** folder.
+
+3. Using a text editor, create a **ReadDeviceToCloudMessages.js** file in the `readdevicetocloudmessages` folder.
+
 4. Add the following `require` statements at the start of the **ReadDeviceToCloudMessages.js** file:
 
-    ```
+    ```nodejs
     'use strict';
 
     var EventHubClient = require('azure-event-hubs').Client;
     ```
 5. Add the following variable declaration and replace the placeholder value with the IoT Hub connection string for your hub:
 
-    ```
+    ```nodejs
     var connectionString = '{iothub connection string}';
     ```
 6. Add the following two functions that print output to the console:
 
-    ```
+    ```nodejs
     var printError = function (err) {
       console.log(err.message);
     };
@@ -151,7 +161,7 @@ In this section, you create a Node.js console app that reads device-to-cloud mes
     ```
 7. Add the following code to create the **EventHubClient**, open the connection to your IoT Hub, and create a receiver for each partition. This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This filter is useful in a test environment so you see just the current set of messages. In a production environment, your code should make sure that it processes all the messages. For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial:
 
-    ```
+    ```nodejs
     var client = EventHubClient.fromConnectionString(connectionString);
     client.open()
         .then(client.getPartitionIds.bind(client))
@@ -171,35 +181,39 @@ In this section, you create a Node.js console app that reads device-to-cloud mes
 ## Create a simulated device app
 In this section, you create a Node.js console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
-1. Create an empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called `simulateddevice`. In the `simulateddevice` folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 
-    ```
+    ```cmd/sh
     npm init
     ```
-2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
-    ```
+2. At your command prompt in the `simulateddevice` folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a **SimulatedDevice.js** file in the **simulateddevice** folder.
+
+3. Using a text editor, create a **SimulatedDevice.js** file in the `simulateddevice` folder.
+
 4. Add the following `require` statements at the start of the **SimulatedDevice.js** file:
 
-    ```
+    ```nodejs
     'use strict';
 
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. Add a **connectionString** variable and use it to create a **Client** instance. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section. Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
 
-    ```
+5. Add a `connectionString` variable and use it to create a **Client** instance. Replace `{youriothostname}` with the name of the IoT hub you created the *Create an IoT Hub* section. Replace `{yourdevicekey}` with the device key value you generated in the *Create a device identity* section:
+
+    ```nodejs
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
 
     var client = clientFromConnectionString(connectionString);
     ```
 6. Add the following function to display output from the application:
 
-    ```
+    ```nodejs
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
@@ -209,7 +223,7 @@ In this section, you create a Node.js console app that simulates a device that s
     ```
 7. Create a callback and use the **setInterval** function to send a message to your IoT hub every second:
 
-    ```
+    ```nodejs
     var connectCallback = function (err) {
       if (err) {
         console.log('Could not connect: ' + err);
@@ -231,7 +245,7 @@ In this section, you create a Node.js console app that simulates a device that s
     ```
 8. Open the connection to your IoT Hub and start sending messages:
 
-    ```
+    ```nodejs
     client.open(connectCallback);
     ```
 9. Save and close the **SimulatedDevice.js** file.
@@ -244,16 +258,17 @@ In this section, you create a Node.js console app that simulates a device that s
 ## Run the apps
 You are now ready to run the apps.
 
-1. At a command prompt in the **readdevicetocloudmessages** folder, run the following command to begin monitoring your IoT hub:
-   
-    ```
+1. At a command prompt in the `readdevicetocloudmessages` folder, run the following command to begin monitoring your IoT hub:
+
+    ```cmd/sh
     node ReadDeviceToCloudMessages.js 
     ```
 
     ![Node.js IoT Hub service app to monitor device-to-cloud messages][7]
-2. At a command prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:
 
-    ```
+2. At a command prompt in the `simulateddevice` folder, run the following command to begin sending telemetry data to your IoT hub:
+
+    ```cmd/sh
     node SimulatedDevice.js
     ```
 
@@ -293,7 +308,7 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-portal]: https://portal.azure.cn/
 
-<!--Update_Description:update meta properties and link references-->
+<!--Update_Description:update meta properties and code block language specification-->
 
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md

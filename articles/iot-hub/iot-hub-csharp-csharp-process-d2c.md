@@ -13,8 +13,8 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/02/2017
-ms.date: 08/14/2017
+origin.date: 07/25/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
 ---
 
@@ -22,21 +22,19 @@ ms.author: v-yiso
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+This tutorial builds on the [Get started with IoT Hub] tutorial. The tutorial:
 
-This tutorial builds on the [Get started with IoT Hub] tutorial, and shows you how to use routing rules to dispatch device-to-cloud messages in an easy, configuration-based way. The tutorial illustrates how to isolate messages that require immediate action from the solution back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
+* Shows you how to use routing rules to dispatch device-to-cloud messages in an easy, configuration-based way.
+* Illustrates how to isolate interactive messages that require immediate action from the solution back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. In contrast, data-point messages, such as temperature telemetry, feed into an analytics engine.
 
 At the end of this tutorial, you run three .NET console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds.
 * **ReadDeviceToCloudMessages** that displays the non-critical telemetry sent by your device app.
-* **ReadCriticalQueue** de-queues the critical messages sent by your device app from the Service Bus queue attached to the IoT hub.
+* **ReadCriticalQueue** de-queues the critical messages sent by your device app from a Service Bus queue. This queue is attached to the IoT hub.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
-> 
-> 
+> IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, see the [Azure IoT Developer Center].
 
 To complete this tutorial, you need the following:
 
@@ -45,12 +43,13 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a device app
-In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
+## Send interactive messages
+
+Modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send interactive messages.
 
 In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code:
 
-```
+```csharp
 private static async void SendDeviceToCloudMessagesAsync()
 {
     double minTemperature = 20;
@@ -99,12 +98,11 @@ This method randomly adds the property `"level": "critical"` to messages sent by
    > 
    > 
 
-   > [!NOTE]
-   > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
-   > 
-   > 
+> [!NOTE]
+> For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
-## Add a queue to your IoT hub and route messages to it
+## Route messages to a queue in your IoT hub
+
 In this section, you:
 
 * Create a Service Bus queue.
@@ -144,15 +142,15 @@ In this section, you read the messages from the queue endpoint.
 3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the Azure Service Bus, with all its dependencies.
 
 4. Add the following **using** statements at the top of the **Program.cs** file:
-
-    ```
+   
+    ```csharp
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Finally, add the following lines to the **Main** method. Substitute the connection string with **Listen** permissions for the queue:
-
-    ```
+   
+    ```csharp
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
@@ -209,7 +207,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 
 [Azure Storage]: /storage/
-[Azure Service Bus]: /service-bus-messaging/
+[Azure Service Bus]: /service-bus/
 
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [Get started with IoT Hub]: ./iot-hub-csharp-csharp-getstarted.md

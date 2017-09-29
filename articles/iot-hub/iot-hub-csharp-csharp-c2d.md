@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/08/2017
-ms.date: 08/14/2017
+origin.date: 08/24/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 # Send messages from the cloud to your device with IoT Hub (.NET)

@@ -293,7 +293,7 @@ The *name* property identifies the entity with which the token shall be associat
 | --- | --- | --- | --- |
 | amqp:jwt |JSON Web Token (JWT) |AMQP Value (string) |Not yet available. |
 | amqp:swt |Simple Web Token (SWT) |AMQP Value (string) |Only supported for SWT tokens issued by AAD/ACS |
-| servicebus.windows.net:sastoken |Service Bus SAS Token |AMQP Value (string) |- |
+| servicebus.chinacloudapi.cn:sastoken |Service Bus SAS Token |AMQP Value (string) |- |
 
 Tokens confer rights. Service Bus knows about three fundamental rights: "Send" enables sending, "Listen" enables receiving, and "Manage" enables manipulating entities. SWT tokens issued by AAD/ACS explicitly include those rights as claims. Service Bus SAS tokens refer to rules configured on the namespace or entity, and those rules are configured with rights. Signing the token with the key associated with that rule thus makes the token express the respective rights. The token associated with an entity using *put-token* permits the connected client to interact with the entity per the token rights. A link where the client takes on the *sender* role requires the "Send" right; taking on the *receiver* role requires the "Listen" right.
 

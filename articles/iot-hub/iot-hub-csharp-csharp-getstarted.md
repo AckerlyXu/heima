@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/08/2017
-ms.date: 08/14/2017
+origin.date: 08/08/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
 ---
 # Connect your device to your IoT hub using .NET
@@ -90,9 +90,10 @@ In this section, you create a .NET console app that reads device-to-cloud messag
             Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
         }
     }
-   ```
-   
-    This method uses an **EventHubReceiver** instance to receive messages from all the IoT hub device-to-cloud receive partitions. Notice how you pass a `DateTime.Now` parameter when you create the **EventHubReceiver** object, so that it only receives messages sent after it starts. This filter is useful in a test environment so you can see the current set of messages. In a production environment, your code should make sure that it processes all the messages. For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+    ```
+
+    This method uses an **EventHubReceiver** instance to receive messages from all the IoT hub device-to-cloud receive partitions. Notice how you pass a `DateTime.Now` parameter when you create the **EventHubReceiver** object, so that it only receives messages sent after it starts. This filter is useful in a test environment so you can see the current set of messages. In a production environment, your code should make sure that it processes all the messages. For more information, see the tutorial [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial].
+
 7. Finally, add the following lines to the **Main** method:
    
    ```csharp
@@ -132,7 +133,7 @@ In this section, you create a .NET console app that simulates a device that send
    using Microsoft.Azure.Devices.Client;
    using Newtonsoft.Json;
    ```
-5. Add the following fields to the **Program** class. Substitute the placeholder values with the IoT hub host name you retrieved in the "Create an IoT hub" section, and the device key retrieved in the "Create a device identity" section.
+5. Add the following fields to the **Program** class. Substitute `{iot hub hostname}` with the IoT hub host name you retrieved in the "Create an IoT hub" section. Substitute `{device key}` with the device key you retrieved in the "Create a device identity" section.
    
    ```csharp
    static DeviceClient deviceClient;
@@ -184,7 +185,7 @@ In this section, you create a .NET console app that simulates a device that send
    Console.ReadLine();
    ```
    
-   By default, the **Create** method in a .NET Framework app creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub (UWP and PCL clients use HTTP by default.) To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
+    By default, the **Create** method in a .NET Framework app creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. UWP and PCL clients use the HTTP protocol by default. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
 
 This tutorial takes you through the steps to create an IoT Hub device app. You can also use the [Connected Service for Azure IoT Hub][lnk-connected-service] Visual Studio extension to add the necessary code to your device app.
 

@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/19/2016
+origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 07/10/2017
+ms.date: 10/16/2017
 ---
 
 # Scale your IoT hub solution
@@ -34,8 +34,8 @@ The best way to size an IoT Hub solution is to evaluate the traffic on a per-uni
 Device-to-cloud messages follow these sustained throughput guidelines.
 
 | Tier | Sustained throughput | Sustained send rate |
-| ---- | -------------------- | ------------------- |
-| S1 | Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) | Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
+| --- | --- | --- |
+| S1 |Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) |Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
 | S2 |Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) |Average of 4,167 messages/minute per unit<br/>(6 million messages/day per unit) |
 | S3 | Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) | Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
@@ -58,3 +58,5 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+
+<!--Update_Description:update meta properties only-->

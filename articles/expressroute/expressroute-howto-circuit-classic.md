@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/21/2017
-ms.date: 09/18/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 # Create and modify an ExpressRoute circuit using PowerShell (classic)
@@ -55,11 +55,11 @@ Follow the instructions in [Getting started with Azure PowerShell cmdlets](../po
 
 3. If you have more than one subscription, select the subscription that you want to use.
 
-    	Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+    	Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_id"
 
-4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
+4. Confirm if the selected subscription id is set as default.
 
-	Add-AzureAccount -Environment AzureChinaCloud
+		Get-AzureSubscription -default
 
 ## Create and provision an ExpressRoute circuit
 ### Step 1. Import the PowerShell modules for ExpressRoute

@@ -13,9 +13,9 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/24/2017
+origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 09/25/2017
 ---
 # Connect your Raspberry Pi 3 to the remote monitoring solution and send telemetry from a real sensor using Node.js
 
@@ -55,33 +55,44 @@ Install Node.js on your Raspberry Pi. The IoT SDK for Node.js requires version 0
 
 1. Use the following command to update your Raspberry Pi:
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. Use the following command to download the Node.js binaries to your Raspberry Pi:
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Use the following command to install the binaries:
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Use the following command to verify you have installed Node.js v6.10.2 successfully:
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### Clone the repositories
 
 If you haven't already done so, clone the required repositories by running the following commands on your Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```
 
 ### Update the device connection string
 
 Open the sample source file in the **nano** editor using the following command:
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 Find the line:
 
@@ -95,13 +106,16 @@ Replace the placeholder values with the device and IoT Hub information you creat
 
 Run the following commands to install the prerequisite packages for the sample:
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic
+npm install
+```
 
 You can now run the sample program on the Raspberry Pi. Enter the command:
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 The following sample output is an example of the output you see at the command prompt on the Raspberry Pi:
 
