@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable | Microsoft Docs'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent'
+description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, disks'
 services: backup
 documentationcenter: ''
 author: alexchen2016
@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2017
-ms.date: 09/04/2017
+origin.date: 09/08/2017
+ms.date: 09/21/2017
 ms.author: v-junlch
 ---
 
@@ -64,6 +64,10 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
 
+## The specified Disk configuration is not supported
+
+Currently Azure Backup doesn’t support disk sizes greater than 1023GB. Please make sure that disk sizes are less than the limit by splitting the disks. To split the disks, you need to copy data from disks greater than 1023GB into newly created disks of size less than 1023GB.
+
 
 ## Causes and Solutions
 
@@ -110,15 +114,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
 
- >[!NOTE]
- >We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent is unavailable for your distribution, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
+    >[!NOTE]
+    >We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent is unavailable for your distribution, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
 
 2. Make sure that the Azure agent is running on the VM by running the following command: `ps -e`
 
- If the process is not running, restart it by using the following commands:
+    If the process is not running, restart it by using the following commands:
 
- - For Ubuntu: `service walinuxagent start`
- - For other distributions: `service waagent start`
+    - For Ubuntu: `service walinuxagent start`
+    - For other distributions: `service waagent start`
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, please collect the following logs from the customer’s VM:

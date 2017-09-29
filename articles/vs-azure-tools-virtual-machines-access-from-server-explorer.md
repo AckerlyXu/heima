@@ -1,10 +1,10 @@
 ---
-title: Accessing Azure Virtual Machines from Server Explorer | Azure
+title: Accessing Azure Virtual Machines from Server Explorer | Microsoft Docs
 description: Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 11/18/2016
-ms.date: 03/30/2017
+origin.date: 08/31/2017
+ms.date: 09/25/2017
 ms.author: v-junlch
----
 
+---
 # Accessing Azure Virtual Machines from Server Explorer
 By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.
 
@@ -25,21 +25,21 @@ By using Server Explorer in Visual Studio, you can display information about you
 If you have virtual machines hosted by Azure, you can access them in Server Explorer. You must first sign in to your Azure subscription to view your mobile services. To sign in, open the shortcut menu for the Azure node in Server Explorer, and choose **Connect to Azure**.
 
 ### To get information about your virtual machines
-1. In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
-
-    The following table shows what properties are available, but they are all read-only. To change them, use the [Azure Classic Management Portal](https://manage.windowsazure.cn).
-
+1. In Cloud Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
+   
+    The following table shows what properties are available, but they are all read-only. To change them, use the [Azure portal](https://portal.azure.cn).
+   
    | Property | Description |
    | --- | --- |
    | DNS Name |The URL with the Internet address of the virtual machine. |
    | Environment |For a virtual machine, the value of this property is always Production. |
    | Name |The name of the virtual machine. |
-   | Size |The size of the virtual machine, which reflects the amount of memory and disk space that’s available. For more information, see How To: Configure Virtual Machine Sizes. |
-   | Status |Values include Starting, Started, Stopping, Stopped, and Retrieving Status. If Retrieving Status appears, the current status is unknown. The values for this property differ from the values that are used on the [Azure Classic Management Portal](https://manage.windowsazure.cn). |
-   | SubscriptionID |The subscription ID for your Azure account. You can show this information on the [Azure Classic Management Portal](https://manage.windowsazure.cn) by viewing the properties for a subscription. |
+   | Size |The size of the virtual machine, which reflects the amount of memory and disk space that’s available. For more information, see [Virtual Machine Sizes](/cloud-services/cloud-services-sizes-specs). |
+   | Status |Values include Starting, Started, Stopping, Stopped, and Retrieving Status. If Retrieving Status appears, the current status is unknown. The values for this property differ from the values that are used on the [Azure portal](https://portal.azure.cn). |
+   | SubscriptionID |The subscription ID for your Azure account. You can show this information on the [Azure portal](https://portal.azure.cn) by viewing the properties for a subscription. |
 2. Choose an endpoint node, and then view the **Properties** window.
-3. The following table describes the available properties of endpoints, but they are read-only. To add or edit the endpoints for a virtual machine, use the [Azure Classic Management Portal](https://manage.windowsazure.cn). 
-
+3. The following table describes the available properties of endpoints, but they are read-only. To add or edit the endpoints for a virtual machine, use the [Azure portal](https://portal.azure.cn). 
+   
    | Property | Description |
    | --- | --- |
    | Name |An identifier for the endpoint. |
@@ -48,4 +48,6 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
    | Public Port |The port that’s used for public access to your application. |
 
 ## Next steps
-To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](./vs-azure-tools-remote-desktop-roles.md).
+To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+
+<!--Update_Description: wording update-->

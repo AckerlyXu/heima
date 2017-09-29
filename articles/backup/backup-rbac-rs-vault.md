@@ -3,8 +3,8 @@ title: 'Manage Backups with Azure Role-Based Access Control | Microsoft Docs'
 description: Use Role-based Access Control to manage access to backup management operations in Recovery Services vault.
 services: backup
 documentationcenter: ''
-author: trinadhk
-manager: shreeshd
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
@@ -13,7 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+origin.date: 08/22/2017
+ms.date: 09/21/2017
 ms.author: v-junlch
 
 ---
@@ -42,7 +43,7 @@ The following table captures the Backup management actions and corresponding min
 | Create Recovery Services vault | Contributor on Resource group of vault |
 | Enable backup of Azure VMs | Backup Operator on vault, Virtual machine contributor on VMs |
 | On-demand backup of VM | Backup operator |
-| Restore VM | Backup operator, Resource group contributor i|n which VM and Vnets are going to get deployed |
+| Restore VM | Backup operator, Resource group contributor in which VM and Vnets are going to get deployed |
 | Restore disks, individual files from VM backup | Backup operator |
 | Create backup policy for Azure VM backup | Backup contributor |
 | Modify backup policy of Azure VM backup | Backup contributor |
@@ -52,9 +53,11 @@ The following table captures the Backup management actions and corresponding min
 | Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup contributor |
 
 ## Next steps
-- [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure Portal.
+- [Role Based Access Control](../active-directory/role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
 - Learn how to manage access with:
   - [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   - [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   - [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 - [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
+
+<!--Update_Description: update meta properties --> 
