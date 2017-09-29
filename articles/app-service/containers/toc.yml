@@ -14,8 +14,12 @@
     href: quickstart-php.md
   - name: Create Node.js app
     href: quickstart-nodejs.md
+  - name: Create Java app
+    href: ../../azure-toolkit-for-intellij-hello-world-web-app-linux.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Create Ruby app
     href: quickstart-ruby.md
+  - name: Deploy custom Docker image
+    href: quickstart-custom-docker-image.md
 - name: Tutorials
   items:
   - name: 1 - App with DB
@@ -28,10 +32,14 @@
       href: tutorial-nodejs-mongodb-app.md
     - name: Python custom container with PostgreSQL
       href: tutorial-docker-python-postgresql-app.md
-  - name: 1 - Map Custom Domain
+  - name: 1 - Custom Docker image
+    href: tutorial-custom-docker-image.md
+  - name: 2 - Map Custom Domain
     href: ../../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 2 - Bind SSL Certificate
+  - name: 3 - Bind SSL Certificate
     href: ../../app-service-web/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: 4 - Add CDN
+    href: ../../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI
@@ -44,6 +52,10 @@
     href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service plans
     href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Deployment type - Custom image vs. built-in
+    href: ../../app-service-web/app-service-linux-choose-deployment-type.md
+  - name: App Service Environment
+    href: ../app-service-environment/intro.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
     href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Choose deployment type
@@ -60,6 +72,8 @@
       items:
       - name: Deploy via FTP
         href: ../../app-service-web/app-service-deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Deploy via cloud sync
+        href: ../../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy continuously
         href: ../../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy from local Git
@@ -72,18 +86,28 @@
       href: ../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Map custom domain
     items:
+    - name: Buy domain
+      href: ../../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Map domains with Traffic Manager
       href: ../../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Migrate an active domain
       href: ../../app-service-web/app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Secure app
     items:
+    - name: Buy SSL cert
+      href: ../../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
         href: ../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Authenticate with Facebook
+        href: ../../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Authenticate with Google
+        href: ../../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Authenticate with Microsoft account
         href: ../../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Authenticate with Twitter
+        href: ../../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Configure TLS mutual authentication
       href: ../../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Scale app
@@ -111,21 +135,27 @@
 - name: Reference
   items:
   - name: CLI 2.0
-    href: https://docs.microsoft.com/cli/azure/appservice
+    href: /cli/azure/appservice
   - name: PowerShell
-    href: https://docs.microsoft.com/powershell
+    href: /powershell
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/appservice/
+    href: /rest/api/appservice/
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://www.azure.cn/pricing/details/app-service/
+    href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
     href: ../../azure-subscription-service-limits.md#app-service-limits
+  - name: Service Updates & Release Notes
+    href: https://azure.microsoft.com/updates/?product=app-service
   - name: Best practices
     href: ../../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=app-service
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
   - name: Cookbooks
     items:
     - name: Deployment Scripts
