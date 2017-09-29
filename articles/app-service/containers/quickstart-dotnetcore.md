@@ -14,8 +14,9 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+origin.date: 08/30/2017
+ms.author: v-yiso
+ms.date: 10/16/2017
 ---
 # Create a .NET Core web app in a Linux container in Azure
 

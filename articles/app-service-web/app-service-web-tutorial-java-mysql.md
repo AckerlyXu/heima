@@ -118,7 +118,7 @@ Stop the application by hitting `Ctrl`+`C` in the terminal.
 
 ## Create an Azure MySQL database
 
-In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You configure the sample application to use this database later on in the tutorial.
+In this step, you create an Azure Database for MySQL instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You configure the sample application to use this database later on in the tutorial.
 
 Use the Azure CLI 2.0 in a terminal window to create the resources needed to host your Java application in Azure appservice. Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions. 
 
@@ -468,11 +468,11 @@ These tabs in the blade show the many great features you can add to your web app
 
 ## Clean up resources
 
-If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
-  
+If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command: 
+  
 ```azurecli
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 

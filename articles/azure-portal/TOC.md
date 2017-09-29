@@ -15,7 +15,7 @@
 ### [Programmatically create Azure Dashboards](azure-portal-dashboards-create-programmatically.md)
 ## Manage
 ### [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
-### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
+
 ### [Manage access with Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 ### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)
 ### [Use tags to organize resources](../azure-resource-manager/resource-group-using-tags.md)
@@ -26,7 +26,6 @@
 ### [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
 
 
-### [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 
 # Related
 ## [Azure resource manager template functions](../azure-resource-manager/resource-group-template-functions.md)

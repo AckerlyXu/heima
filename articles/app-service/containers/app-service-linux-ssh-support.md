@@ -104,7 +104,6 @@ The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/refer
 
 See the following links for more information regarding Web Apps for Containers. You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [How to use a custom Docker image for Azure Web Apps for Containers](quickstart-custom-docker-image.md)
 * [Using .NET Core in Azure Web Apps for Containers](quickstart-dotnetcore.md)
 * [Using Ruby in Azure Web Apps for Containers](quickstart-ruby.md)
 * [Azure App Service Web Apps for Containers FAQ](app-service-linux-faq.md)

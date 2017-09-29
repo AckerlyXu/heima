@@ -36,4 +36,3 @@ automatically created for some dependent resources. You can also programmaticall
 
 ## Next steps
 * If you need an introduction to writing Resource Manager templates, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
-* To understand more about working with resource groups through the portal, see [Using the Azure portal to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
