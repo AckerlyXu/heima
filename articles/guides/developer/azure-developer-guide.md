@@ -181,8 +181,6 @@ It's crucial to not only know who is using your applications, but also to preven
 With your application up and running in Azure, you need to be able to monitor performance, watch for issues, and see how customers are using your app. Azure provides several monitoring options.
 
 -   **Visual Studio Application Insights**: An Azure-hosted extensible analytics service that integrates with Visual Studio to monitor your live web applications. It gives you the data that you need to continuously improve the performance and usability of your apps, whether they’re hosted on Azure or not.
-
-	>**Get started**: Follow the [Application Insights tutorial](../../application-insights/app-insights-overview.md).
 >[!NOTE]
 >Application Insights is not available in China.
 >
