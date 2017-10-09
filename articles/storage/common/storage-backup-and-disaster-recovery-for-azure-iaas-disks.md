@@ -108,7 +108,7 @@ If you use [Premium Storage disks](storage-premium-storage.md), [managed disks](
 For [unmanaged disks](../../virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks), you can use the locally redundant storage type for IaaS disks, but ensure that Azure Backup is enabled with the geo-redundant storage option for the recovery services vault.
 
 > [!NOTE]
-> If you use the [geo-redundant storage](storage-redundancy#geo-redundant-storage.md) or [read-access geo-redundant storage](storage-redundancy#read-access-geo-redundant-storage.md) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://www.azure.cn/home/features/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
+> If you use the [geo-redundant storage](storage-redundancy.md#geo-redundant-storage) or [read-access geo-redundant storage](storage-redundancy.md#read-access-geo-redundant-storage) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://www.azure.cn/home/features/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
  The following table is a summary of the solutions available for DR.
 
