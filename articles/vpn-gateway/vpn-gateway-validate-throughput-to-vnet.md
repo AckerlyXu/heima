@@ -1,10 +1,10 @@
 ---
-title: 'Validate VPN throughput to a Azure Virtual Network | Azure'
+title: 'Validate VPN throughput to a Azure Virtual Network | Microsoft Docs'
 description: The purpose of this document is to help a user validate the network throughput from their on-premises resources to an Azure virtual machine.
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: jasmc
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/10/2017
-ms.date: 05/22/2017
-ms.author: v-dazen
+origin.date: 09/08/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
 
 ---
 # How to validate VPN throughput to a virtual network
 
 A VPN gateway connection enables you to establish secure, cross-premises connectivity between your Virtual Network within Azure and your on-premises IT infrastructure.
 
-This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine. It also provides troubleshooting guidance.
+This article shows how to validate network throughput from the on-premises resources to an Azure virtual machine (VM). It also provides troubleshooting guidance.
 
 >[!NOTE]
 >This article is intended to help diagnose and fix common issues. If you're unable to solve the issue by using the following information, [contact support](https://www.azure.cn/support/support-azure/).
@@ -37,7 +37,7 @@ The VPN gateway connection involves the following components:
 - On-premises VPN device (view a list of [validated VPN devices)](vpn-gateway-about-vpn-devices.md#devicetable).
 - Public Internet
 - Azure VPN gateway
-- Azure virtual machine
+- Azure VM
 
 The following diagram shows the logical connectivity of an on-premises network to an Azure virtual network through VPN.
 
@@ -74,52 +74,52 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 
 2. On both nodes, enable a firewall exception for port 5001.
 
-    **Windows:** Run the following command as an administrator:
+	**Windows:** Run the following command as an administrator:
 
-    ```CMD
-    netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
-    ```
+	```CMD
+	netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
+	```
 
-    To remove the rule when testing is complete, run this command:
+	To remove the rule when testing is complete, run this command:
 
-    ```CMD
-    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
-    ```
-    </br>
-    **Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
+	```CMD
+	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
+	```
+
+	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
 
 3. On the server node, change to the directory where iperf3.exe is extracted. Then run iPerf in server mode and set it to listen on port 5001 as the following commands:
 
-     ```CMD
-     cd c:\iperf-3.1.2-win65
+	 ```CMD
+	 cd c:\iperf-3.1.2-win65
 
-     iperf3.exe -s -p 5001
-     ```
+	 iperf3.exe -s -p 5001
+	 ```
 
 4. On the client node, change to the directory where iperf tool is extracted and then run the following command:
 
-    ```CMD
-    iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
-    ```
+	```CMD
+	iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
+	```
 
-    The client is inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
+	The client is inducing traffic on port 5001 to the server for 30 seconds. The flag '-P ' that indicates we are using 32 simultaneous connections to the server node.
 
-    The following screen shows the output from this example:
+	The following screen shows the output from this example:
 
-    ![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+	![Output](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
 5. (OPTIONAL) To preserve the testing results, run this command:
 
-    ```CMD
-    iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
-    ```
+	```CMD
+	iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
+	```
 
 6. After completing the previous steps, execute the same steps with the roles reversed, so that the server node will now be the client and vice-versa.
 
 ## Address slow file copy issues
 You may experience slow file coping when using Windows Explorer or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
-- File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
+- File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
 ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
 
@@ -137,3 +137,5 @@ For more information or help, check out the following links:
 
 - [Optimize network throughput for Azure virtual machines](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Azure Support](https://www.azure.cn/support/support-azure/)
+
+<!--Update_Description: wording update-->

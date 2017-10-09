@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Azure point-to-site connection problems| Azure
+title: Troubleshoot Azure point-to-site connection problems| Microsoft Docs
 description: Learn how to troubleshoot point-to-site connection problems.
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/23/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 08/23/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
 ---
 # Troubleshooting: Azure point-to-site connection problems
 
@@ -35,9 +35,17 @@ This problem occurs if the client certificate is missing from **Certificates - C
 
 ### Solution
 
-Make sure that the client certificate is installed in the following location of the Certificates store (Certmgr.msc):
+To resolve this problem, follow these steps:
 
-**Certificates - Current User\Personal\Certificates**
+1. Make sure that the following certificates are in the correct location:
+
+    | Certificate | Location |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | Current User\Personal\Certificates |
+    | Azuregateway-*GUID*.chinacloudapp.cn  | Current User\Trusted Root Certification Authorities|
+    | AzureGateway-*GUID*.chinacloudapp.cn, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+
+2. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
@@ -183,7 +191,7 @@ This problem occurs because the name of the certificate contains an invalid char
 When you try to download the VPN client configuration package, you receive the following error message:
 
 **Failed to download the file. Error details: error 503. The server is busy.**
-
+ 
 ### Solution
 
 This error can be caused by a temporary network problem. Try to download the VPN package again after a few minutes.
@@ -242,6 +250,7 @@ To work around the problem, disable the caching of domain credentials from the f
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set the value to 1 
 
+
 ## Cannot find the point-to-site VPN connection in Windows after reinstalling the VPN client
 
 ### Symptom
@@ -251,3 +260,5 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 ### Solution
 
 To resolve the problem, delete the old VPN client configuration files from **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, and then run the VPN client installer again.
+
+<!--Update_Description: wording update --> 

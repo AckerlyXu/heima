@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
-ms.date: 08/31/2017
+origin.date: 08/31/2017
+ms.date: 10/09/2017
 ms.author: v-junlch
 
 ---
@@ -62,36 +62,33 @@ The following procedure helps you create a resource group and a VNet. You'll the
 
 The procedure steps set the 'DefaultSiteHQ' as the default site connection for forced tunneling, and configure the 'Midtier' and 'Backend' subnets to use forced tunneling.
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
 Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+
+> [!IMPORTANT]
+> Installing the latest version of the PowerShell cmdlets is required. Otherwise, you may receive validation errors when running some of the cmdlets.
+>
+>
 
 ### To log in
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## Configure forced tunneling
-1. In the PowerShell console, log in to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
+
+> [!NOTE]
+> You may see warnings saying "The output object type of this cmdlet will be modified in a future release". This is expected behavior and you can safely ignore these warnings.
+>
+>
+
+
+1. Create a resource group.
 
   ```powershell
-  Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+  New-AzureRmResourceGroup -Name 'ForcedTunneling' -Location 'China North'
   ```
-2. Get a list of your Azure subscriptions.
-
- ```powershell
- Get-AzureRmSubscription
- ```
-3. Specify the subscription that you want to use.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-4. Create a resource group.
-
-  ```powershell
-  New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "China North"
-  ```
-5. Create a virtual network and specify subnets.
+2. Create a virtual network and specify subnets.
 
   ```powershell 
   $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
@@ -100,7 +97,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
   $s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
   $vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "China North" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
   ```
-6. Create the local network gateways.
+3. Create the local network gateways.
 
   ```powershell
   $lng1 = New-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.111" -AddressPrefix "192.168.1.0/24"
@@ -108,7 +105,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
   $lng3 = New-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.113" -AddressPrefix "192.168.3.0/24"
   $lng4 = New-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" -Location "China North" -GatewayIpAddress "111.111.111.114" -AddressPrefix "192.168.4.0/24"
   ```
-7. Create the route table and route rule.
+4. Create the route table and route rule.
 
   ```powershell
   New-AzureRmRouteTable -Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" -Location "China North"
@@ -116,7 +113,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
   Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
   Set-AzureRmRouteTable -RouteTable $rt
   ```
-8. Associate the route table to the Midtier and Backend subnets.
+5. Associate the route table to the Midtier and Backend subnets.
 
   ```powershell
   $vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
@@ -124,7 +121,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-9. Create the Gateway with a default site. This step takes some time to complete, sometimes 45 minutes or more, because you are creating and configuring the gateway.<br> The **-GatewayDefaultSite** is the cmdlet parameter that allows the forced routing configuration to work, so take care to configure this setting properly. This parameter is available in PowerShell 1.0 or later.
+6. Create the Gateway with a default site. This step takes some time to complete, sometimes 45 minutes or more, because you are creating and configuring the gateway.<br> The **-GatewayDefaultSite** is the cmdlet parameter that allows the forced routing configuration to work, so take care to configure this setting properly. If you see ValidateSet errors regarding the GatewaySKU value, verify that you have installed the [latest version of the PowerShell cmdlets](#before). The latest version of the PowerShell cmdlets contains the new validated values for the latest Gateway SKUs.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "China North" -AllocationMethod Dynamic
@@ -132,7 +129,7 @@ Install the latest version of the Azure Resource Manager PowerShell cmdlets. See
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
   New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "China North" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -GatewayDefaultSite $lng1 -EnableBgp $false
   ```
-10. Establish the Site-to-Site VPN connections.
+7. Establish the Site-to-Site VPN connections.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
