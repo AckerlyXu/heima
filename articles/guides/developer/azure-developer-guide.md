@@ -54,7 +54,7 @@ When you want the quickest path to publish your web-based projects, consider Azu
 
 You can create web apps, mobile app back ends, and API apps.
 
-Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service/app-service-web-overview.md).
+Because all three app types share the App Service runtime, you can host a website, support mobile clients, and expose your APIs in Azure, all from the same project or solution. To learn more about App Service, see [What is Azure Web Apps](../../app-service-web/app-service-web-overview.md).
 
 App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity, and others.
 
@@ -264,81 +264,3 @@ You develop these deployments by using an Azure Resource Manager template, which
 >**When to use**: Use Resource Manager templates when you want a template-based deployment for your app that you can manage programmatically by using REST APIs, the Azure CLI, and Azure PowerShell.
 
 >**Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
-<!--
-## Understanding accounts, subscriptions, and billing
-
-As developers, we like to dive right into the code and try to get started as fast as possible with making our applications run. We certainly want to encourage you to start working in Azure as easily as possible. To help make it easy, Azure offers a [free trial](https://azure.microsoft.com/free/). Some services even have a "Try it for free" functionality, like [Azure App Service](https://tryappservice.azure.com/), which doesn't require you to  even create an account. As fun as it is to dive into coding and deploying your application to Azure, it's also important to take some time to understand how Azure works from a standpoint of user accounts, subscriptions, and billing.
-
-### What is an Azure account?
-
-To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
-
-Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
-
-In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
-
-### Manage your subscriptions
-
-A subscription is a logical unit of Azure services that is linked to an Azure account. Each associated account has a role in a subscription. Billing for Azure services is done on a per-subscription basis. For a list of the available subscription offers by type, see [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### Administrator roles
-
-An Azure subscription has multiple account administrator roles, which
-you can assign at any time.
-
--   **Account Administrator**: This role has full control over the subscription and is the account that is responsible for billing.
-
--   **Service Administrator**: This role has control over all the services in the subscription. By default, this is the same account as the Account Administrator.
-
--   **Co-administrator**: This role has the same access as the Service Administrator, except that it can’t change the association of the subscription to an Azure directory.
-
-To learn more about administrator roles, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
-
-#### Resource groups
-
-When you provision new Azure services, you do so in a given subscription. Individual Azure services, which are also called resources, are created in the context of a resource group. Resource groups make it easier to deploy and manage your application's resources. A resource group should contain all the resources for your application that you want to work with as a unit. You can move resources between resource groups and even to different subscriptions. To learn about moving resources, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).
-
-The Azure Resource Explorer is a great tool for visualizing the resources that you've already created in your subscription. To learn more, see [Use Azure Resource Explorer to view and modify resources](../../resource-manager-resource-explorer.md).
-
-#### Grant access to resources
-
-When you allow access to Azure resources, it’s always a best practice to
-provide users with the least privilege that’s required to perform a
-given task.
-
--   **Role-based access control (RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. RBAC lets you deploy a set of resources into a resource group and grant permissions to a specific user or group. It also let you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles.
-
-	>**When to use**: When you need fine-grained access management for users and groups.
-
-    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../active-directory/role-based-access-control-what-is.md).
-
--   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
-
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory supplication and service principal](../../resource-group-create-service-principal-portal.md).
-
-#### Tags
-
-Azure Resource Manager lets you assign custom tags to individual resources. Tags, which are key-value pairs, can be helpful when you need to organize resources for billing or monitoring. Tags provide you a way to track resources across multiple resource groups. You can assign tags in the portal, in the Azure Resource Manager template, or programmatically, by using the REST API, the Azure CLI, or PowerShell. You can assign multiple tags to each resource. To learn more, see [Using tags to organize your Azure resources](../../resource-group-using-tags.md).
-
-### Billing
-
-In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to be able to estimate what new resources cost to run on a monthly basis. You also need to be able to project how the billing looks for a given month based on the current spending.
-
-#### Get resource usage data
-
-Azure provides a set of Billing REST APIs that give access to resource consumption and metadata information for Azure subscriptions. These Billing APIs give you the ability to better predict and manage Azure costs. You can track and analyze spending in hourly increments, create spending alerts, and predict future billing based on current usage trends.
-
->**Get started**: To learn more about using the Billing APIs, see [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
-
-#### Predict future costs
-
-Although it's challenging to estimate costs ahead of time, Azure has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) that you can use when you estimate the cost of deployed resources. You can also use the Billing blade in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
-
->**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
-
-#### Set up billing alerts
-
-After you’ve deployed your application or solution on Azure, you can create alerts that send you email when you approach the spending limits that are defined in the alert.
-
->**Get started**: To learn more, see [Set up billing alerts for your Microsoft Azure subscriptions](../../billing-set-up-alerts.md).
--->
