@@ -1,9 +1,9 @@
 ---
-title: Data replication in Azure Storage | Azure
+title: Data replication in Azure Storage | Microsoft Docs
 description: Data in your Azure Storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS).
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 ---
+
 # Azure Storage replication
 
 The data in your Azure storage account is always replicated to ensure durability and high availability. Replication copies your data, either within the same data center, or to a second data center, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, it's protected from a catastrophic failure in the primary location.
@@ -57,6 +58,7 @@ Locally redundant storage may still be desirable in certain scenarios:
 
 * Provides highest maximum bandwidth of Azure Storage replication options.
 * If your application stores data that can be easily reconstructed, you may opt for LRS.
+* Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country. 
 
 ## Zone-redundant storage
 Zone-redundant storage (ZRS) replicates your data asynchronously across datacenters within one or two regions in addition to storing three replicas similar to LRS, thus providing higher durability than LRS. Data stored in ZRS is durable even if the primary datacenter is unavailable or unrecoverable.
@@ -78,15 +80,22 @@ With GRS, both the primary and secondary regions manage replicas across separate
 Considerations:
 
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region. If Azure does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](./storage-disaster-recovery-guidance.md). 
+* The replica is not available unless 21Vianet initiates failover to the secondary region. If 21Vianet does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](../storage-disaster-recovery-guidance.md). 
 * If an application wants to read from the secondary region, the user should enable RA-GRS.
 
 When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
 
 | Primary | Secondary |
 | --- | --- |
-| China North |China East |
-| China East |China North |
+| East China |North China |
+| North China |East China |
+
+For up-to-date information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/regions/).
+
+>[!NOTE]  
+> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region. 
+> 
+> 
 
 ## Read-access geo-redundant storage
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS.
@@ -153,4 +162,3 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
 * [Azure Storage redundancy options and read access geo redundant storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!--Update_Description: update link -->

@@ -1,9 +1,9 @@
 ---
-title: How to create an Azure File Share | Azure
-description: How to create an Azure file share in Azure File storage using the Azure portal, PowerShell, and the Azure CLI.
+title: How to create an Azure File share | Microsoft Docs
+description: How to create an Azure file share in Azure Files using the Azure portal, PowerShell, and the Azure CLI.
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 

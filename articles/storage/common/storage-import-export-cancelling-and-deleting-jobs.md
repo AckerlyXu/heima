@@ -1,8 +1,8 @@
 ---
 title: Cancel and delete an Azure Import/Export job | Azure
 description: Learn how to cancel and delete jobs for the Azure Import/Export service.
-author: hayley244
-manager: syadav
+author: forester123
+manager: digimobile
 editor: tysonn
 services: storage
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 
 ---
 
 # Canceling and deleting Azure Import/Export jobs
 
-You can request that a job be cancelled before it is in the `Packaging` state by calling the [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Update) operation and setting the `CancelRequested` element to `true`. The job will be cancelled on a best-effort basis. If drives are in the process of transferring data, data may continue to be transferred even after cancellation has been requested.
+ To request that a job be canceled before it is in the `Packaging` state, call the [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Update) operation and set the `CancelRequested` element to `true`. The job is canceled on a best-effort basis. If drives are in the process of transferring data, data may continue to be transferred even after cancellation has been requested.
 
- A cancelled job will move to the `Completed` state and be kept for 90 days, at which point it will be deleted.
+ A canceled job is moved to the `Completed` state and is kept for 90 days, at which point it is deleted.
 
- To delete a job, call the [Delete Job](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Delete) operation before the job has shipped (*i.e.*, while the job is in the `Creating` state). You can also delete a job when it is in the `Completed` state. After a job has been deleted, its information and status are no longer accessible via the REST API or the Azure portal.
+ To delete a job, call the [Delete Job](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Delete) operation before the job has shipped (that is, while the job is in the `Creating` state). You can also delete a job when it is in the `Completed` state. After a job is deleted, its information and status are no longer accessible via the REST API or the Azure portal.
 
 ## Next steps
 
 * [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

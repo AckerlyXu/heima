@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
+ms.date: 10/16/2017
 ms.author: v-haiqya
 
 ---
@@ -63,8 +63,6 @@ var azure = require('azure-storage');
 
 ## Set up an Azure Storage connection
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
-
-For an example of setting the environment variables in the [Azure portal](https://portal.azure.cn) for an Azure web app, see [Node.js web app using the Azure Table Service](../../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## Create a container
 The **BlobService** object lets you work with containers and blobs. The following code creates a **BlobService** object. Add the following near the top of **server.js**:
@@ -414,7 +412,6 @@ For more information, see the following resources.
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[Node.js web app using the Azure Table Service](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure portal]: https://portal.azure.cn

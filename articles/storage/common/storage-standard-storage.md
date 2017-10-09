@@ -1,9 +1,9 @@
 ---
-title: HD-based cost-effective Standard Storage and Azure VM Disks | Azure
+title: HD-based cost-effective Standard Storage and Azure VM Disks | Microsoft Docs
 description: Discuss cost-effective Standard Storage and unmanaged and managed VM disks.
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -14,11 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 
 ---
-<!--with not avaliable VM context-->
 # Cost-effective Standard Storage and unmanaged and managed Azure VM disks
 
 Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard storage disks for Dev/Test scenarios and less critical workloads, and premium storage disks for mission-critical production applications. Standard Storage is available in all Azure regions. 
@@ -41,14 +40,15 @@ To get started with Azure Standard Storage, visit [Get started for 1rmb trial](h
 
 For information on how to create a VM with Managed Disks, please see one of the following articles.
 
-* [Create a VM using Resource Manager and PowerShell](/virtual-machines/windows/quick-create-powershell.md)
+* [Create a VM using Resource Manager and PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
 * [Create a Linux VM using the Azure CLI 2.0](../../virtual-machines/windows/quick-create-cli.md)
 
 ## Standard Storage Features 
 
-Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure Storage](../storage-introduction.md).
+Let's take a look at some of the features of Standard Storage. For more details, please see [Introduction to Azure
+Storage](../storage-introduction.md).
 
-**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure File storage, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage supports Azure Disks, Azure Blobs, Azure Files, Azure Tables, and Azure Queues. To use Standard Storage services, start with [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account).
 
 **Standard storage disks:** Standard storage disks can be attached to all Azure VMs including size-series VMs used with Premium Storage such as the DSv2 series. A standard storage disk can only be attached to one VM. However, you can attach one or more of these disks to a VM, up to the maximum disk count defined for that VM size. In the following section on Standard Storage Scalability and Performance Targets, we will describe the specifications in more detail. 
 
@@ -137,6 +137,9 @@ For detailed information on pricing for Standard Storage, Virtual Machines, and 
 * [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/)
 * [Managed Disks Pricing](https://www.azure.cn/pricing/details/managed-disks/)
 
+## Azure Backup service support 
+
+Virtual machines with unmanaged disks can be backed up using Azure Backup. [More details](../../backup/backup-azure-vms-first-look-arm.md).
 
 You can also use the Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. You can read more about this at [Using Azure Backup service for VMs with Managed Disks](../../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
@@ -148,8 +151,8 @@ You can also use the Azure Backup service with Managed Disks to create a backup 
 
 * [Managed Disks Overview](../../virtual-machines/windows/managed-disks-overview.md)
 
-* [Create a VM using Resource Manager and PowerShell](/virtual-machines/windows/quick-create-powershell.md)
+* [Create a VM using Resource Manager and PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../../virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI 2.0](../../virtual-machines/windows/quick-create-cli.md)
 
-<!--Update_Description: update link-->
+<!--Update_Description: add Azure Backup service support-->

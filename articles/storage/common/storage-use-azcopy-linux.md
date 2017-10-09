@@ -1,9 +1,9 @@
 ---
-title: Copy or move data to Azure Storage with AzCopy on Linux | Azure
+title: Copy or move data to Azure Storage with AzCopy on Linux | Microsoft Docs
 description: Use the AzCopy on Linux utility to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 
 ---
 # Transfer data with AzCopy on Linux
@@ -26,6 +26,8 @@ There are two versions of AzCopy that you can download. AzCopy on Linux is built
 ## Download and install AzCopy
 ### Installation on Linux
 
+The article includes commands for various releases of Ubuntu.  Use the `lsb_release -a` command to confirm your distribution release and codename. 
+
 AzCopy on Linux requires .NET Core framework on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) page.
 
 As an example, let's install .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
@@ -34,7 +36,7 @@ As an example, let's install .NET Core on Ubuntu 16.10. For the latest installat
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.3
+sudo apt-get install dotnet-sdk-2.0.0
 ```
 
 Once you have installed .NET Core, download and install AzCopy.
@@ -754,4 +756,4 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [AzCopy: Transfer data with restartable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-<!--Update_Description: update link-->
+

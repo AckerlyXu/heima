@@ -55,7 +55,7 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
 
-    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
+    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
 
 * **Premium page blobs**
 
@@ -82,7 +82,7 @@ Here are some of the features of Premium Storage:
 ## Supported VMs
 Premium Storage supports DS-series, DSv2-series and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
 
-For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../../virtual-machines/virtual-machines-windows-sizes-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../../virtual-machines/windows/sizes-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 These are some of the features of the DS-series, DSv2-series and Fs-series VMs:
 

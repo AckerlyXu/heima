@@ -3,8 +3,8 @@ title: Configure a connection string for Azure Storage | Azure
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authenticate access to a storage account from your application at runtime.
 services: storage
 documentationcenter: ''
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/12/2017
-ms.date: ''
-ms.author: v-haiqya
+ms.date: '10/16/2017'
+ms.author: v-johch
 
 ---
 # Configure Azure Storage connection strings
@@ -64,7 +64,7 @@ EndpointSuffix=core.chinacloudapi.cn
 Although Azure Storage supports both HTTP and HTTPS in a connection string, *HTTPS is highly recommended*.
 
 > [!TIP]
-> You can find your storage account's connection strings in the [Azure Portal](https://portal.azure.cn). Navigate to **SETTINGS** > **Access keys** in your storage account's menu blade to see connection strings for both primary and secondary access keys.
+> You can find your storage account's connection strings in the [Azure portal](https://portal.azure.cn). Navigate to **SETTINGS** > **Access keys** in your storage account's menu blade to see connection strings for both primary and secondary access keys.
 >
 
 ## Create a connection string using a shared access signature

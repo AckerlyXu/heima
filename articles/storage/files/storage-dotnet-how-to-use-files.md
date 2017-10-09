@@ -1,9 +1,9 @@
 ---
-title: Develop for Azure File storage with .NET | Azure
+title: Develop for Azure File storage with .NET | Microsoft Docs
 description: Learn how to develop .NET applications and services that use Azure File storage to store file data.
 services: storage
 documentationcenter: .net
-author: hayley244
+author: forester123
 manager: aungoo
 editor: tysonn
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-johch
 ---
 
 # Develop for Azure File storage with .NET 
@@ -39,6 +39,7 @@ This tutorial will demonstrate the basics of using .NET to develop applications 
 
 > [!Note]  
 > Because Azure File storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [Azure File storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File storage. 
+
 
 ## Create the console application and obtain the assembly
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
@@ -329,6 +330,7 @@ Azure Storage Analytics now supports metrics for Azure File storage. With metric
 
 You can enable metrics for Azure File storage from the [Azure Portal](https://portal.azure.cn). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
 
+
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure File storage.
 
 First, add the following `using` directives to your `Program.cs` file, in addition to those you added above:
@@ -399,4 +401,8 @@ See these links for more information about Azure File storage.
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
-<!--Update_Description: update link-->
+### Blog posts
+* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Introducing Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Persisting connections to Azure File storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
