@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Use Spark MLlib to build a machine learning application and analyze a dataset
@@ -359,4 +359,3 @@ After you have finished running the application, you should shut down the notebo
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
-<!--Update_Description: change 'wasbs' into 'wasb'-->

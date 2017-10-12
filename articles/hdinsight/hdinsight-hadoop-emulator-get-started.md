@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Get started with a Hadoop sandbox, an emulator on a virtual machine

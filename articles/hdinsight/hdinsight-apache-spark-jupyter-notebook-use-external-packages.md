@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
@@ -32,6 +32,8 @@ Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight t
 You can search the [Maven repository](http://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](http://spark-packages.org/).
 
 In this article, you will learn how to use the [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
+
+
 
 ## Prerequisites
 You must have the following:
@@ -120,4 +122,4 @@ You must have the following:
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
-<!--Update_Description: change 'wasbs' into 'wasb'-->
+

@@ -191,7 +191,7 @@ This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to th
 ### Access to locations where the custom scripts are stored
 Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account. If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only). For instance you might want to access a file and save it using the SaveFile-HDI command.
 
-    Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.chinacloudapi.cn/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+    Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
 In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible. Otherwise, the script throws a 'Not Found' exception and fail.
 
@@ -248,7 +248,7 @@ An easy way to check the logs is to use HDInsight Tools for Visual Studio. For i
 
 You can also remote into the cluster nodes to see both STDOUT and STDERR for custom scripts. The logs on each node are specific only to that node and are logged into **C:\HDInsightLogs\DeploymentAgent.log**. These log files record all outputs from the custom script. An example log snippet for a Spark script action looks like this:
 
-    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
+    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
     Version : 2.1.0.0;
     ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
     AzureVMName : HEADNODE0;
@@ -274,7 +274,7 @@ You can also remote into the cluster nodes to see both STDOUT and STDERR for cus
     ...
 
     Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
-    Details : END: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
+    Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
     Version : 2.1.0.0;
     ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
     AzureVMName : HEADNODE0;

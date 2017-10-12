@@ -1,6 +1,6 @@
 ---
 title: Create Hadoop clusters using a web browser - Azure HDInsight | Azure
-description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure Portal.
+description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a web browser and the Azure preview portal.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/10/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Create Linux-based clusters in HDInsight using the Azure portal
@@ -61,6 +61,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
         * **Operating System**: Select **Linux**.
 
         * **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+	* **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
     * Enter an **SSH Username** and if you want to have the SSH password same as the admin password you specified earlier, select the **Use same password as cluster login** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. Click **Select** at the bottom to save the credentials configuration.
@@ -167,4 +168,4 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
-<!--Update_Description: wording update: add new include-->
+<!--Update_Description: wording update-->

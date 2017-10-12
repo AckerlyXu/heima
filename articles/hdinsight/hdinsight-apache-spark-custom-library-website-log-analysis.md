@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Analyze website logs using a custom Python library with Spark cluster on HDInsight
@@ -66,7 +66,8 @@ Once your data is saved as a Hive table, in the next section we will connect to 
    can access the data in the default storage account associated with the cluster
    at **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+
 
 1. Retrieve a sample log set to verify that the previous step completed
    successfully.
@@ -91,7 +92,8 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
     However, this library is not in the `PYTHONPATH` so we cannot use it by using an import statement like `import iislogparser`. To use this library, we must distribute it to all the worker nodes. Run the following snippet.
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+
 
 1. `iislogparser` provides a function `parse_log_line` that returns `None` if a log
    line is a header row, and returns an instance of the `LogLine` class if it
@@ -124,7 +126,7 @@ Once your data is saved as a Hive table, in the next section we will connect to 
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
    You should see an output like the following:
 

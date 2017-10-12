@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
@@ -160,7 +160,7 @@ Old command (ASM):
         -ClusterSizeInNodes 2 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.5" `
+        -Version "3.2" `
         -Credential $httpCredential `
         -SshCredential $sshCredential
 
@@ -176,7 +176,7 @@ New command (ARM):
         -ClusterSizeInNodes 2 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.5" `
+        -Version "3.2" `
         -HttpCredential $httpcredentials `
         -SshCredential $sshCredentials
 

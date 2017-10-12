@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
