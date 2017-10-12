@@ -34,12 +34,14 @@ This topic requires that you are running the Azure CLI version 2.0 or later. Run
 ```azurecli-interactive
 #!/bin/bash
 
-# Set variables for the new account, database, and collection
+# Set variables for the new account, database, collection and url 
+# It is mandatory to set url parameter when try to create the database and collection in Azure China. 
 resourceGroupName='myResourceGroup'
 location='chinaeast'
 name='docdb-test'
 databaseName='docdb-test-database'
 collectionName='docdb-test-collection'
+url='https://'${databaseName}'-'${location}'.documents.azure.cn:443/'
 
 # Create a resource group
 az group create \
@@ -58,14 +60,16 @@ az cosmosdb create \
 az cosmosdb database create \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName
+    --resource-group $resourceGroupName \
+    --url-connection $url
 
 # Create a collection
 az cosmosdb collection create \
     --collection-name $collectionName \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName
+    --resource-group $resourceGroupName \
+    --url-connection $url
 
 ```
 
@@ -94,3 +98,4 @@ For more information on the Azure CLI, see [Azure CLI documentation](https://doc
 Additional Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI documentation](../cli-samples.md).
 
 <!--Update_Description: update link, wording update-->
+ 
