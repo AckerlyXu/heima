@@ -3,20 +3,20 @@ title: Create custom VM images with the Azure CLI | Azure
 description: Tutorial - Create a custom VM image using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/21/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -141,4 +141,4 @@ Advance to the next tutorial to learn about highly available virtual machines.
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

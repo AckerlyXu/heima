@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create a managed disk from a VHD file in a stor
 description: Azure CLI Script Sample - Create a managed disk from a VHD file in a storage account in the same subscription
 services: virtual-machines-linux
 documentationcenter: storage
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -15,8 +15,9 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
+ms.custom: mvc
 ---
 
 # Create a managed disk from a VHD file in a storage account in the same subscription with CLI
@@ -71,7 +72,7 @@ This script uses following commands to create a managed disk from a VHD. Each co
 
 | Command | Notes |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
 
 ## Next steps
 
@@ -79,4 +80,6 @@ This script uses following commands to create a managed disk from a VHD. Each co
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../virtual-machines/linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../app-service-web/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: update link-->

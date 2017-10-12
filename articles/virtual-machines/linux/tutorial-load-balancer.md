@@ -3,7 +3,7 @@ title: How to load balance Linux virtual machines in Azure | Azure
 description: Learn how to use the Azure load balancer to create a highly available and secure application across three Linux VMs
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -160,7 +160,9 @@ done
 ## Create virtual machines
 
 ### Create cloud-init config
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. Create a file named *cloud-init.txt* and paste the following configuration:
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app.
+
+ Create a file named *cloud-init.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -296,3 +298,5 @@ Advance to the next tutorial to learn more about Azure virtual network component
 
 > [!div class="nextstepaction"]
 > [Manage VMs and virtual networks](tutorial-virtual-network.md)
+
+<!--Update_Description: update meta properties, wording update-->

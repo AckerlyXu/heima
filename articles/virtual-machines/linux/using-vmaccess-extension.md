@@ -1,9 +1,9 @@
 ---
-title: Reset access with the VMAccess Extension and Azure CLI 2.0 | Azure
-description: How to manage users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI 2.0
+title: Reset access to an Azure Linux VM | Azure
+description: How to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 08/04/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
-# Manage users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
+# Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or reset the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Ways to use the VMAccess Extension
 There are two ways that you can use the VMAccess Extension on your Linux VMs:
@@ -65,8 +65,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## Create a user
-The following example creates a user named `myNewUser` using an SSH key for authentication on the VM named `myVM`:
+## Create an administrative/sudo user
+The following example creates a user named `myNewUser` with **sudo** permissions. The account uses an SSH key for authentication on the VM named `myVM`. This method is designed to help you regain access to a VM in the event that current credentials are lost or forgotten. As a best practice, accounts with **sudo** permissions should be limited.
 
 ```azurecli
 az vm user update \
@@ -155,9 +155,9 @@ az vm extension set \
   --protected-settings reset_sshd.json
 ```
 
-### Manage users
+### Manage administrative users
 
-To create a user that uses an SSH key for authentication, create a file named `create_new_user.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters:
+To create a user with **sudo** permissions that uses an SSH key for authentication, create a file named `create_new_user.json` and add settings in the following format. Substitute your own values for the `username` and `ssh_key` parameters. This method is designed to help you regain access to a VM in the event that current credentials are lost or forgotten. As a best practice, accounts with **sudo** permissions should be limited.
 
 ```json
 {
@@ -231,5 +231,6 @@ Updating Linux using the Azure VMAccess Extension is one method to make changes 
 [Authoring Azure Resource Manager templates with Linux VM extensions](../windows/template-description.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
-<!--Update_Description: update cli commands-->
+
+<!--Update_Description: wording update-->
 

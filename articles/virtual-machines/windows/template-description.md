@@ -3,7 +3,7 @@ title: Virtual machines in an Azure Resource Manager template | Azure
 description: Learn more about how the virtual machine resource is defined in an Azure Resource Manager template.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 
@@ -83,8 +83,7 @@ This example shows a typical resource section of a template for creating a speci
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.chinacloudapi.cn"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.chinacloudapi.cn')]"
         }
       } 
     },
@@ -163,7 +162,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
+- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -281,15 +280,15 @@ To set this property, the network interface must exist. Therefore, you need a de
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
 
 - [size](sizes.md)
-- [name](https://docs.microsoft.com/architecture/best-practices/naming-conventions) and credentials
+- [name](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
 
 ## Disks and images
-   
+
 In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
-    
+
 ### Create new virtual machines and new disks from a platform image
 
 When you create a VM, you must decide what operating system to use. The imageReference element is used to define the operating system of a new VM. The example shows a definition for a Windows Server operating system:
@@ -460,3 +459,5 @@ It's not a problem to use the same template to create resources or to update exi
 - Create your own template using [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
 - Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!--Update_Description: update meta properties, update link-->

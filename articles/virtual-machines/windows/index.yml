@@ -13,8 +13,8 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 08/21/2017
-  ms.author: v-dazen
+  ms.date: 10/16/2017
+  ms.author: v-yeche
 abstract:
   description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
 sections:
@@ -52,8 +52,10 @@ sections:
     - html: <a href="/virtual-machines/windows/tutorial-create-vmss">Create a VM scale set</a>
     - html: <a href="/virtual-machines/windows/tutorial-load-balancer">Load balance VMs</a>
     - html: <a href="/virtual-machines/windows/tutorial-virtual-network">Manage VMs with virtual networks</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-backup-vms">Backup VMs</a>
     - html: <a href="/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
     - html: <a href="/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
+    - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Secure a web server with SSL</a>
 - title: Samples
   items:
   - type: paragraph

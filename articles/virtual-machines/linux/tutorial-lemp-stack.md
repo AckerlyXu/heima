@@ -1,10 +1,10 @@
 ---
-title: Deploy LEMP on a Linux virtual machine in Azure | Microsoft Docs
+title: Deploy LEMP on a Linux virtual machine in Azure | Azure
 description: Tutorial - Install the LEMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -13,10 +13,10 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Install a LEMP web server on an Azure VM
@@ -29,6 +29,7 @@ This article walks you through how to deploy an NGINX web server, MySQL, and PHP
 > * Verify installation and configuration
 > * Install WordPress on the LEMP server
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -48,7 +49,6 @@ You are prompted to install the packages and other dependencies. When prompted, 
 
 ## Verify installation and configuration
 
-
 ### NGINX
 
 Check the version of NGINX with the following command:
@@ -59,7 +59,6 @@ nginx -v
 With NGINX installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the NGINX welcome page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
 ![NGINX default page][3]
-
 
 ### MySQL
 
@@ -144,12 +143,9 @@ If you want to test further, create a quick PHP info page to view in a browser. 
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 ```
 
-
-
 Now you can check the PHP info page you created. Open a browser and go to `http://yourPublicIPAddress/info.php`. Substitute the public IP address of your VM. It should look similar to this image.
 
 ![PHP info page][2]
-
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
@@ -172,3 +168,5 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 [1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
+
+<!--Update_Description: update meta properties, wording update-->

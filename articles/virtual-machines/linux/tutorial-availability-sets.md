@@ -3,7 +3,7 @@ title: Availability sets tutorial for Linux VMs in Azure | Azure
 description: Learn about the Availability Sets for Linux VMs in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -13,10 +13,10 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -41,7 +41,7 @@ An Availability Set is a logical grouping capability that you can use in Azure t
 
 Let's consider a typical VM-based solution where you might have 4 front-end web servers and use 2 back-end VMs that host a database. With Azure, you'd want to define two availability sets before you deploy your VMs: one availability set for the "web" tier and one availability set for the "database" tier. When you create a new VM you can then specify the availability set as a parameter to the az vm create command, and Azure will automatically ensure that the VMs you create within the available set are isolated across multiple physical hardware resources. This means that if the physical hardware that one of your Web Server or Database Server VMs is running on has a problem, you know that the other instances of your Web Server and Database VMs will remain running fine because they are on different hardware.
 
-You should always use Availability Sets when you want to deploy reliable VM based solutions within Azure.
+You should always use Availability Sets when you want to deploy reliable VM-based solutions within Azure.
 
 ## Create an availability set
 
@@ -63,6 +63,32 @@ az vm availability-set create \
 
 Availability Sets allow you to isolate resources across "fault domains" and "update domains". A **fault domain** represents an isolated collection of server + network + storage resources. In the preceding example, we indicate that we want our availability set to be distributed across at least two fault domains when our VMs are deployed. We also indicate that we want our availability set distributed across two **update domains**.  Two update domains ensure that when Azure performs software updates our VM resources are isolated, preventing all the software running underneath our VM from being updated at the same time.
 
+## Configure virtual network
+Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
+
+### Create network resources
+Create a virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
+
+```azurecli 
+az network vnet create \
+    --resource-group myResourceGroupAvailability \
+    --name myVnet \
+    --subnet-name mySubnet
+```
+Virtual NICs are created with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myResourceGroupAvailability \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
 ## Create VMs inside an availability set
 
 VMs must be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
@@ -75,6 +101,7 @@ for i in `seq 1 2`; do
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
+     --nics myNic$i \
      --size Standard_DS1_v2  \
      --image Canonical:UbuntuServer:14.04.4-LTS:latest \
      --admin-username azureuser \
@@ -112,3 +139,4 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 > [!div class="nextstepaction"]
 > [Create a VM scale set](tutorial-create-vmss.md)
 
+<!--Update_Description: update meta properties, wording update-->

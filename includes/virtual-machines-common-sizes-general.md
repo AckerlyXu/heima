@@ -8,6 +8,9 @@
 
 - The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see [Sizes for virtual machines](../articles/virtual-machines/windows/sizes.md) and for VM pricing information, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
 
+<!--Not Available ## B-series (Preview)-->
+<!--Not Available ## Dsv3-series-->
+<!-- Not Avaialble ## Dv3-series-->
 ## DSv2-series
 
 ACU: 210-250
@@ -19,7 +22,7 @@ ACU: 210-250
 | Standard_DS3_v2 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 192 |4 / 3000 |
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8 / 6000 - 12000 &#8224;|
-<!-- Please take the Max Data Disks is 4,8,16,32,64 for DV2-series-->
+<!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DV2-series-->
 
 ## Dv2-series
 
@@ -32,7 +35,7 @@ ACU: 210-250
 | Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 8x500                         | 4 / 3000                     |
 | Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 16x500                       | 8 / 6000                     |
 | Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64 / 32x500                       | 8 / 6000 - 12000 &#8224;          |
-<!-- Please take the Max Data Disks is 4,8,16,32,64 for DV2-series-->
+<!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DV2-series-->
 
 <br>
 
@@ -43,7 +46,7 @@ ACU: 210-250
 | Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2 / 1000 |
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
-<!-- Please take the Max Data Disks is 4,8,16,32 for DS-series-->
+<!-- Please acknowledge that the Max Data Disks are 4,8,16,32 for DS-series-->
 
 <br>
 

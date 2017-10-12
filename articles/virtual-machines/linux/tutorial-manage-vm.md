@@ -3,7 +3,7 @@ title: Create and Manage Linux VMs with the Azure CLI | Azure
 description: Tutorial - Create and Manage Linux VMs with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -11,12 +11,12 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -37,7 +37,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create resource group
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command. 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *chinaeast* region. 
 
@@ -49,7 +49,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 ## Create virtual machine
 
-Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. 
+Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. 
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. 
 
@@ -57,7 +57,7 @@ When creating a virtual machine, several options are available such as operating
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
+It may take a few minutes to create the VM. Once the VM has been created, the Azure CLI outputs information about the VM. Take note of the `publicIpAddress`, this address can be used to access the virtual machine.. 
 
 ```azurecli 
 {
@@ -74,13 +74,13 @@ Once the VM has been created, the Azure CLI outputs information about the VM. Ta
 
 ## Connect to VM
 
-You can now connect to the VM using SSH. Replace the example IP address with the `publicIpAddress` noted in the previous step.
+You can now connect to the VM with SSH from your local computer. Replace the example IP address with the `publicIpAddress` noted in the previous step.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Once finished with the VM, close the SSH session. 
+Once logged in to the VM, you can install and configure applications. When you are finished, you close the SSH session as normal:
 
 ```bash
 exit
@@ -152,6 +152,7 @@ The following table categorizes sizes into use cases.
 | [General purpose](sizes-general.md)         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
 | [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+<!-- Not Available Dsv3, Ls, G, NV, H series-->
 
 ### Find available VM sizes
 
@@ -199,7 +200,11 @@ az vm create \
 
 ### Resize a VM
 
-After a VM has been deployed, it can be resized to increase or decrease resource allocation.
+After a VM has been deployed, it can be resized to increase or decrease resource allocation. You can view the current of size of a VM with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):
+
+```azurecli
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](https://docs.microsoft.com/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
 
@@ -291,7 +296,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### Delete resource group
 
-Deleting a resource group also deletes all resources contained within.
+Deleting a resource group also deletes all resources contained within, such as the VM, virtual network, and disk. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli 
 az group delete --name myResourceGroupVM --no-wait --yes
@@ -312,3 +317,5 @@ Advance to the next tutorial to learn about VM disks.
 
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
+
+<!--Update_Description: update meta properties, wording update-->

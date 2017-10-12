@@ -3,7 +3,7 @@ title: Create a Linux VM using the Azure CLI 1.0 | Azure
 description: Create a Linux VM on Azure by using the Azure CLI 1.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Create a Linux VM using the Azure CLI 1.0
@@ -53,6 +53,7 @@ A quick way to choose a distribution is to use the Azure CLI aliases mapped to t
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 | Debian |credativ |Debian |8 |latest |
 | openSUSE |SUSE |openSUSE |13.2 |latest |
+<!-- Not Available image of RHEL -->
 | UbuntuLTS |Canonical |Ubuntu Server |14.04.4-LTS |latest |
 
 The following sections use the `UbuntuLTS` alias for the **ImageURN** option (`-Q`) to deploy an Ubuntu 14.04.4 LTS Server.
@@ -202,3 +203,5 @@ The `azure vm quick-create` command is the way to quickly deploy a VM so you can
 * [Create an SSH Secured Linux VM on Azure using templates](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: wording update-->

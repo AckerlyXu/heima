@@ -3,7 +3,7 @@ title: Customize a Linux VM on first boot in Azure | Azure
 description: Learn how to use cloud-init and Key Vault to customze Linux VMs the first time they boot in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -47,11 +47,11 @@ We are working with our partners to get cloud-init included and working in the i
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
 | CoreOS |CoreOS |CoreOS |Stable |latest |
 
-
 ## Create cloud-init config file
 To see cloud-init in action, create a VM that installs NGINX and runs a simple 'Hello World' Node.js app. The following cloud-init configuration installs the required packages, creates a Node.js app, then initialize and starts the app.
 
-Create a file named *cloud-init.txt* and paste the following configuration:
+In your current shell, create a file named *cloud-init.txt* and paste the following configuration. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+<!-- Not Avaialble cloud shell-->
 
 ```yaml
 #cloud-config
@@ -130,7 +130,7 @@ Now you can open a web browser and enter *http://<publicIpAddress>* in the addre
 ![View running NGINX site](./media/tutorial-automate-vm-deployment/nginx.png)
 
 ## Inject certificates from Key Vault
-This optional section shows how you can securely store certificates in Azure Key Vault and inject them during the VM deployment. Rather than using a custom image that includes the certificates baked-in, this process ensures that the most up-to-date certificates are injected to a VM on first boot. During the process, the certificate never leaves the Azure platform or is exposed in a script, command line history, or template.
+This optional section shows how you can securely store certificates in Azure Key Vault and inject them during the VM deployment. Rather than using a custom image that includes the certificates baked-in, this process ensures that the most up-to-date certificates are injected to a VM on first boot. During the process, the certificate never leaves the Azure platform or is exposed in a script, command-line history, or template.
 
 Azure Key Vault safeguards cryptographic keys and secrets, such as certificates or passwords. Key Vault helps streamline the key management process and enables you to maintain control of keys that access and encrypt your data. This scenario introduces some Key Vault concepts to create and use a certificate, though is not an exhaustive overview on how to use Key Vault.
 
@@ -142,7 +142,7 @@ The following steps show how you can:
 - Create a VM and inject the certificate
 
 ### Create an Azure Key Vault
-First, create a Key Vault with [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
+First, create a Key Vault with [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *mykeyvault* in the following example with your own unique Key Vault name:
 
 ```azurecli 
 keyvault_name=mykeyvault
@@ -176,7 +176,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### Create cloud-init config to secure NGINX
 When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring NGINX, you can use an updated cloud-init config from the previous example.
 
-Create a file named *cloud-init-secured.txt* and paste the following configuration:
+Create a file named *cloud-init-secured.txt* and paste the following configuration. Again, Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -275,3 +275,5 @@ Advance to the next tutorial to learn how to create custom VM images.
 
 > [!div class="nextstepaction"]
 > [Create custom VM images](./tutorial-custom-images.md)
+
+<!--Update_Description: update meta properties, wording update-->

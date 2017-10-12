@@ -5,16 +5,16 @@ description: Learn how to create Windows virtual machines using the Classic depl
 
 title: Azure Virtual Machines for Windows Documentation | Azure
 services: virtual-machines
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ---

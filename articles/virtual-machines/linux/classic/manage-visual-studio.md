@@ -3,8 +3,8 @@ title: Create and manage Linux VMs in Visual Studio | Azure
 description: Learn how to use Visual Studio to create and manage Azure VMs running Linux
 services: visual-studio-online,virtual-machines-linux
 documentationcenter: na
-author: TomArcher
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 1d61cd36-5004-4d7f-96c6-cc62e57ddefe
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 origin.date: 12/09/2016
-ms.date: 01/25/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Create and manage Linux virtual machines in Visual Studio
@@ -23,3 +23,5 @@ ms.author: v-dazen
 [!INCLUDE [azure-sdk-developer-differences](../../../../includes/azure-sdk-developer-differences.md)]
 
 [!INCLUDE [virtual-machines-common-classic-manage-visual-studio](../../../../includes/virtual-machines-common-classic-manage-visual-studio.md)]
+<!--Update_Description: update meta properties-->
+<!--ms.date: 10/16/2017-->
