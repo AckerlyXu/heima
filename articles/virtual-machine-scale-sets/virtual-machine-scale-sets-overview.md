@@ -1,10 +1,10 @@
 ---
-title: Azure virtual machine scale sets overview | Azure
+title: Azure virtual machine scale sets overview | Microsoft Docs
 description: Learn more about Azure virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/03/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 09/01/2017
+ms.date: 10/12/2017
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -25,10 +25,6 @@ Virtual machine scale sets are an Azure compute resource that you can use to dep
 
 For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For a further introduction to scale sets, refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
-For more information about scale sets, watch these videos:
-
-* [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
-* [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## Creating and managing scale sets
 You can create a scale set in the [Azure portal](https://portal.azure.cn) by selecting **new** and typing **scale** on the search bar. **Virtual machine scale set** is listed in the results. From there, you can fill in the required fields to customize and deploy your scale set.
@@ -37,8 +33,7 @@ You can define and deploy scale sets by using JSON templates and [REST APIs](htt
 
 You can find a set of example templates for virtual machine scale sets in the [Azure Quickstart templates GitHub repository](https://github.com/Azure/azure-quickstart-templates). (Look for templates with **vmss** in the title.)
 
->[!NOTE]
-> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+For the Quickstart template examples, a "Deploy to Azure" button in the readme for each template links to the portal deployment feature. To deploy the scale set, click the button and then fill in any parameters that are required in the portal. 
 
 ## Scaling a scale set out and in
 You can change the capacity of a scale set in the Azure portal by clicking the **Scaling** section under **Settings**. 
@@ -69,51 +64,52 @@ The [Azure portal](https://portal.azure.cn) lists scale sets and shows their pro
 ## Scale set scenarios
 This section lists some typical scale set scenarios. Some higher-level Azure services (like Batch, Service Fabric, and Container Service) use these scenarios.
 
-* **Use RDP or SSH to connect to scale set instances**: A scale set is created inside a virtual network, and individual VMs in the scale set are not allocated public IP addresses by default. This policy avoids the expense and management overhead of allocating separate public IP addresses to all the nodes in your compute grid. If you do need direct external connections to scale set VMs, you can configure a scale set to automatically assign public IP addresses to new VMs. Alternatively you can connect to VMs from other resources in your virtual network that can be allocated public IP addresses, for example, load balancers and standalone virtual machines. 
-* **Connect to VMs by using NAT rules**: You can create a public IP address, assign it to a load balancer, and define an inbound NAT pool. These actions map ports on the IP address to a port on a VM in the scale set. For example:
-
+- **Use RDP or SSH to connect to scale set instances**: A scale set is created inside a virtual network, and individual VMs in the scale set are not allocated public IP addresses by default. This policy avoids the expense and management overhead of allocating separate public IP addresses to all the nodes in your compute grid. If you do need direct external connections to scale set VMs, you can configure a scale set to automatically assign public IP addresses to new VMs. Alternatively you can connect to VMs from other resources in your virtual network that can be allocated public IP addresses, for example, load balancers and standalone virtual machines. 
+- **Connect to VMs by using NAT rules**: You can create a public IP address, assign it to a load balancer, and define an inbound NAT pool. These actions map ports on the IP address to a port on a VM in the scale set. For example:
+  
   | Source | Source port | Destination | Destination port |
   | --- | --- | --- | --- |
   |  Public IP |Port 50000 |vmss\_0 |Port 22 |
   |  Public IP |Port 50001 |vmss\_1 |Port 22 |
   |  Public IP |Port 50002 |vmss\_2 |Port 22 |
-
+  
    In [this example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat), NAT rules are defined to enable an SSH connection to every VM in a scale set, by using a single public IP address.
-
+  
    [This example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat) does the same with RDP and Windows.
-* **Connect to VMs by using a "jumpbox"**: If you create a scale set and a standalone VM in the same virtual network, the standalone VM and the scale set VM can connect to one another by using their internal IP addresses, as defined by the virtual network or subnet. If you create a public IP address and assign it to the standalone VM, you can use RDP or SSH to connect to the standalone VM. You can then connect from that machine to your scale set instances. You might notice at this point that a simple scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
-
+- **Connect to VMs by using a "jumpbox"**: If you create a scale set and a standalone VM in the same virtual network, the standalone VM and the scale set VM can connect to one another by using their internal IP addresses, as defined by the virtual network or subnet. If you create a public IP address and assign it to the standalone VM, you can use RDP or SSH to connect to the standalone VM. You can then connect from that machine to your scale set instances. You might notice at this point that a simple scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
+  
    For example, [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox) deploys a simple scale set with a standalone VM. 
-* **Load balancing to scale set instances**: If you want to deliver work to a compute cluster of VMs by using a round-robin approach, you can configure an Azure load balancer with layer-4 load-balancing rules accordingly. You can define probes to verify that your application is running by pinging ports with a specified protocol, interval, and request path. [Azure Application Gateway](https://www.azure.cn/home/features/application-gateway/) also supports scale sets, along with layer-7 and more sophisticated load-balancing scenarios.
-
+- **Load balancing to scale set instances**: If you want to deliver work to a compute cluster of VMs by using a round-robin approach, you can configure an Azure load balancer with layer-4 load-balancing rules accordingly. You can define probes to verify that your application is running by pinging ports with a specified protocol, interval, and request path. [Azure Application Gateway](/application-gateway/) also supports scale sets, along with layer-7 and more sophisticated load-balancing scenarios.
+  
    [This example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) creates a scale set that runs Apache web servers, and it uses a load balancer to balance the load that each VM receives. (Look at the Microsoft.Network/loadBalancers resource type and networkProfile and extensionProfile in virtualMachineScaleSet.)
 
    [This Linux example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-app-gateway) and [this Windows example](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-app-gateway) use Application Gateway.  
 
-* **Deploying a scale set as a compute cluster in a PaaS cluster manager**: Scale sets are sometimes described as a next-generation worker role. Though a valid description, it does run the risk of confusing scale set features with Azure Cloud Services features. In a sense, scale sets provide a true worker role or worker resource. They are a generalized compute resource that is platform/runtime independent, is customizable, and integrates into Azure Resource Manager IaaS.
-
-   A Cloud Services worker role is limited in terms of platform/runtime support (Windows platform images only). But it also includes services such as VIP swap, configurable upgrade settings, and runtime/app deployment-specific settings. These services are not *yet* available in scale sets, or they're delivered by other higher-level PaaS services like Azure Service Fabric. You can look at scale sets as an infrastructure that supports PaaS. PaaS solutions like [Service Fabric](https://www.azure.cn/home/features/service-fabric/) build on this infrastructure.
+- **Deploying a scale set as a compute cluster in a PaaS cluster manager**: Scale sets are sometimes described as a next-generation worker role. Though a valid description, it does run the risk of confusing scale set features with Azure Cloud Services features. In a sense, scale sets provide a true worker role or worker resource. They are a generalized compute resource that is platform/runtime independent, is customizable, and integrates into Azure Resource Manager IaaS.
+  
+   A Cloud Services worker role is limited in terms of platform/runtime support (Windows platform images only). But it also includes services such as VIP swap, configurable upgrade settings, and runtime/app deployment-specific settings. These services are not *yet* available in scale sets, or they're delivered by other higher-level PaaS services like Azure Service Fabric. You can look at scale sets as an infrastructure that supports PaaS. PaaS solutions like [Service Fabric](/service-fabric/) build on this infrastructure.
+  
 
 ## Scale set performance and scale guidance
-* A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 100. For considerations in using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
-* You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure managed disks, which negate performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
-* Consider using Azure Premium Storage instead of Azure Storage for faster, more predictable VM provisioning times and improved I/O performance.
-* The core quota in the region in which you are deploying limits the number of VMs you can create. You might need to contact Customer Support to increase your compute quota limit, even if you have a high limit of cores for use with Azure Cloud Services today. To query your quota, run this Azure CLI command: `azure vm list-usage`. Or, run this PowerShell command: `Get-AzureRmVMUsage`.
+- A scale set supports up to 1,000 VMs. If you create and upload your own custom VM images, the limit is 300. For considerations in using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
+- You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure managed disks, which negate performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
+- Consider using Azure Premium Storage instead of Azure Storage for faster, more predictable VM provisioning times and improved I/O performance.
+- The core quota in the region in which you are deploying limits the number of VMs you can create. You might need to contact Customer Support to increase your compute quota limit, even if you have a high limit of cores for use with Azure Cloud Services today. To query your quota, run this Azure CLI command: `azure vm list-usage`. Or, run this PowerShell command: `Get-AzureRmVMUsage`.
 
 ## Frequently asked questions for scale sets
 **Q.** How many VMs can I have in a scale set?
 
-**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 100 VMs based on custom images. 
+**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 300 VMs based on custom images. 
 
 **Q.** Are data disks supported within scale sets?
 
 **A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
-* Azure files (SMB shared drives)
-* OS drive
-* Temp drive (local, not backed by Azure Storage)
-* Azure data service (for example, Azure tables, Azure blobs)
-* External data service (for example, remote database)
+- Azure files (SMB shared drives)
+- OS drive
+- Temp drive (local, not backed by Azure Storage)
+- Azure data service (for example, Azure tables, Azure blobs)
+- External data service (for example, remote database)
 
 **Q.** Which Azure regions support scale sets?
 

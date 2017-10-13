@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-origin.date: 07/13/2017
-ms.date: 09/14/2017
+origin.date: 08/22/2017
+ms.date: 10/09/2017
 ms.author: v-junlch
 
 ---
@@ -61,13 +61,14 @@ You can view and configure the following settings using the **Resource Menu**.
  - [Redis metrics](#redis-metrics)
  - [Diagnostics](#diagnostics)
 
+
 ## Overview
 
 **Overview** provides you with basic information about your cache, such as name, ports, pricing tier, and selected cache metrics.
 
 ### Activity log
 
-Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). 
+Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### Access control (IAM)
 
@@ -212,29 +213,13 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 
 ### Redis data persistence
-Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache.
+Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Redis Cache offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-![Redis data persistence](./media/cache-configure/redis-cache-persistence-settings.png)
+For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
-To enable Redis persistence, click **Enabled** to enable RDB (Redis database) backup. To disable Redis persistence, click **Disabled**.
-
-To configure the backup interval, select one of the following **Backup Frequency** entries from the drop-down list. 
-
-- **15 Minutes**
-- **30 minutes**
-- **60 minutes**
-- **6 hours**
-- **12 hours**
-- **24 hours**
-
-The backup interval starts counting down after the previous backup operation successfully completes, and when it elapses a new backup is initiated.
-
-Click **Storage Account** to select the storage account to use, and choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. Anytime the storage key for your persistence account is regenerated, you must rechoose the desired key from the **Storage Key** drop-down.
-
-Click **OK** to save the persistence configuration.
 
 > [!IMPORTANT]
-> Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
+> Redis data persistence is only available for Premium caches. 
 > 
 > 
 
@@ -488,4 +473,4 @@ For information on moving resources from one resource group to another, and from
 ## Next steps
 - For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
 
-
+<!--Update_Description: wording update-->
