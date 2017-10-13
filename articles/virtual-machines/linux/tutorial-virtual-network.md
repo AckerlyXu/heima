@@ -3,7 +3,7 @@ title: Azure Virtual Networks and Linux Virtual Machines | Azure
 description: Tutorial - Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -52,7 +52,7 @@ az group create --name myRGNetwork --location chinaeast
 
 ### Create virtual network
 
-Us the [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given an address prefix of *10.0.0.0/16*. A subnet is also created with a name of *mySubnetFrontEnd* and a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM is connected to this subnet. 
+Use the [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) command to create a virtual network. In this example, the network is named *mvVnet* and is given an address prefix of *10.0.0.0/16*. A subnet is also created with a name of *mySubnetFrontEnd* and a prefix of *10.0.1.0/24*. Later in this tutorial a front-end VM is connected to this subnet. 
 
 ```azurecli 
 az network vnet create \
@@ -117,7 +117,7 @@ First, deallocate the VM.
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
-Use the [az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip#update) command to update the allocation method. In this case, the `--allocaion-metod` is being set to *static*.
+Use the [az network public-ip update](https://docs.microsoft.com/cli/azure/network/public-ip#update) command to update the allocation method. In this case, the `--allocation-method` is being set to *static*.
 
 ```azurecli 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
@@ -304,4 +304,9 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Secure incoming internet traffic
 > * Secure VM to VM traffic
 
+Advance to the next tutorial to learn about securing data on virtual machines using Azure backup. 
 
+> [!div class="nextstepaction"]
+> [Back up Linux virtual machines in Azure](./tutorial-backup-vms.md)
+
+<!--Update_Description: update meta properties, wording update-->

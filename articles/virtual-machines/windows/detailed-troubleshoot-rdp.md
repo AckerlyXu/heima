@@ -3,7 +3,7 @@ title: Detailed remote desktop troubleshooting in Azure | Azure
 description: Review detailed troubleshooting steps for remote desktop errors where you cannot to a Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-origin.date: 07/25/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/06/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Detailed troubleshooting steps for remote desktop connection issues to Windows VMs in Azure
@@ -47,6 +47,7 @@ Before proceeding to the detailed troubleshooting,
 
 * Check the status of the virtual machine in the Azure portal for any obvious issues.
 * Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* For custom images, make sure that your VHD is properly prepared prior to upload it. For more information, see [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md).
 
 Try reconnecting to the VM via Remote Desktop after these steps.
 
@@ -109,6 +110,7 @@ To check if the endpoint is the source of the problem, remove the current endpoi
 Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network.
 
 You can review effective security group rules to ensure inbound "Allow" NSG rule exists and is prioritized for RDP port(default 3389). For more information, see [Using Effective Security Rules to troubleshoot VM traffic flow](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+<!-- Not Available [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) -->
 
 ## Source 5: Windows-based Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
@@ -195,3 +197,5 @@ Verify that the Remote Desktop endpoint for the Azure VM is also using TCP port 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Troubleshoot access to an application running on an Azure virtual machine](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!--Update_Description: update meta properties, wording update-->

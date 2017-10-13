@@ -3,7 +3,7 @@ title: Enforce security with policies on Windows VMs in Azure | Azure
 description: How to apply a policy to an Azure Resource Manager Windows Virtual Machine
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Apply policies to Windows VMs with Azure Resource Manager
@@ -57,7 +57,7 @@ To ensure that virtual machines for your organization are compatible with an app
             {
               "field": "Microsoft.Compute/imageSku",
               "in": [
-                "2012-Datacenter"
+                "2012-R2-Datacenter"
               ]
             },
             {
@@ -83,6 +83,23 @@ Use a wild card to modify the preceding policy to allow any Windows Server Datac
 {
   "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
+}
+```
+
+Use anyOf to modify the preceding policy to allow any Windows Server 2012 R2 Datacenter or higher image:
+
+```json
+{
+  "anyOf": [
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2012-R2-Datacenter*"
+    },
+    {
+      "field": "Microsoft.Compute/imageSku",
+      "like": "2016-Datacenter*"
+    }
+  ]
 }
 ```
 
@@ -205,7 +222,6 @@ You may want to forbid usage of certain types of extensions. For example, an ext
 }
 ```
 
-
 ## Azure Hybrid Use Benefit
 
 When you have an on-premise license, you can save the license fee on your virtual machines. When you don't have the license, you should forbid the option. The following policy forbids usage of Azure Hybrid Use Benefit (AHUB):
@@ -231,7 +247,7 @@ When you have an on-premise license, you can save the license fee on your virtua
 ```
 
 ## Next steps
-* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource.
+* For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
 
-<!--Update_Description: add section "Images for Virtual Machines", section "Virtual Machine extensions" and "Azure Hybrid Use Benefit"-->
+<!--Update_Description: update meta properties, wording update-->

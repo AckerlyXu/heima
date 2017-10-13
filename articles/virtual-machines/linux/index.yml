@@ -6,17 +6,18 @@ metadata:
   title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: czeumault
-  manager: carolz
+  author: rockboyfor
+  manager: digimobile
   ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 08/21/2017
-  ms.author: v-dazen
+  ms.date: 10/16/2017
+  ms.author: v-yeche
 abstract:
   description: Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice. Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.
+### Not Available aside
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -52,8 +53,12 @@ sections:
     - html: <a href="/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a>
     - html: <a href="/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
+    - html: <a href="/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
+    - html: <a href="/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD with Team Services</a>
+    - html: Create a web server stack with <a href="/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/virtual-machines/linux/tutorial-lemp-stack">LEMP</a>, or <a href="/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
+    - html: <a href="/virtual-machines/linux/tutorial-secure-web-server">Secure a web server with SSL</a>
 - title: Samples
   items:
   - type: paragraph

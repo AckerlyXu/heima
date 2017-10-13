@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Create a VM from a snapshot | Azure
 description: Azure CLI Script Sample - Create a VM from a snapshot
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
-manager: kavithag
+author: rockboyfor
+manager: digimobile
 editor: ramankum
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -83,12 +83,14 @@ This script uses the following commands to create a managed disk, virtual machin
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Gets snapshot using snapshot name and resource group name. Id property of the returned object is used to create a managed disk.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Creates managed disks from a snapshot using snapshot Id, disk name, storage type, and size  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Creates a VM using a managed OS disk |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Gets snapshot using snapshot name and resource group name. Id property of the returned object is used to create a managed disk.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates managed disks from a snapshot using snapshot Id, disk name, storage type, and size  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates a VM using a managed OS disk |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: update link-->

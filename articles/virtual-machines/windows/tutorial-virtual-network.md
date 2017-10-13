@@ -3,7 +3,7 @@ title: Azure Virtual Networks and Windows Virtual Machines | Azure
 description: Tutorial - Manage Azure Virtual Networks and Windows Virtual Machines with Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -65,7 +65,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 ## Create front-end VM
 
-For a VM to communicate in a VNet, it needs a virtual network interface (NIC). The *myFrontendVM* is accessed from the internet, so it also needs a public IP address. 
+For a VM to communicate in a VNet, it needs a virtual network interface (NIC). The *myFrontendVM* is accessed from the Internet, so it also needs a public IP address. 
 
 Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
@@ -88,7 +88,7 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Set the username and password needed for the administrator account on the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set the username and password needed for the administrator account on the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). You use these credentials to connect to the VM in additional steps:
 
 ```powershell
 $cred = Get-Credential
@@ -148,7 +148,7 @@ Use the following command to create a remote desktop session with *myFrontendVM*
 mstsc /v:<publicIpAddress>
 ``` 
 
-Now that you have logged in to *myFrontendVM*, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+Now that you have logged in to *myFrontendVM*, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt on your VM from the RDP session and run the following command:
 
 Use [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) to run the custom script extension that installs the IIS webserver:
 
@@ -272,4 +272,9 @@ In this tutorial, you created and secured Azure networks as related to virtual m
 > * Control network traffic with Network Security Groups
 > * View traffic rules in action
 
+Advance to the next tutorial to learn about monitoring securing data on virtual machines using Azure backup. .
 
+> [!div class="nextstepaction"]
+> [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
+
+<!--Update_Description: wording update-->

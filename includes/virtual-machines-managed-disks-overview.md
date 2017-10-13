@@ -10,7 +10,7 @@ Let's take a look at some of the benefits you gain by using managed disks, start
 
 ### Simple and scalable VM deployment
 
-Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location – one storage account per Azure region – and use them to create hundreds of VMs in a subscription.
+Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location - one storage account per Azure region - and use them to create hundreds of VMs in a subscription.
 
 Managed Disks will allow you to create up to 10,000 VM **disks** in a subscription, which will enable you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a VMSS using a Marketplace image.
 
@@ -47,7 +47,6 @@ Let's take a closer look at these.
 **Storage Type:** Managed Disks offers 2 performance tiers:
 [Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
 
-
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
 
@@ -57,20 +56,17 @@ Here are the disk sizes available for a premium managed disk:
 |------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
 | Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
-
 Here are the disk sizes available for a standard managed disk:
 
 | **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
 | Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
-
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
 
 **Outbound data transfers**: [Outbound data transfers](https://www.azure.cn/pricing/details/data-transfer/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
 For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://www.azure.cn/pricing/details/storage).
-
 
 ## Managed Disk Snapshots
 
@@ -81,8 +77,7 @@ A Managed Snapshot is a read-only full copy of a managed disk which is stored as
 To learn more about how to create snapshots with Managed Disks, please check out these resources:
 
 * [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ## Images
 
@@ -98,7 +93,7 @@ You often see the word "image" used with VMs, and now you see "snapshots" as wel
 
 A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
-What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
+What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks - the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
 
 ## Managed Disks and Encryption
 
@@ -142,3 +137,6 @@ For more information about Managed Disks, please refer to the following articles
 * [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
 
 * [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+
+<!--Update_Description: wording update-->
+<!--ms.date: 10/16/2017-->

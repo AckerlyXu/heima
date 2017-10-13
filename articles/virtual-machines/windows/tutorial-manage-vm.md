@@ -3,8 +3,8 @@ title: Create and Manage Windows VMs with the Azure PowerShell module | Azure
 description: Tutorial - Create and Manage Windows VMs with the Azure PowerShell module
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -66,7 +66,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
   -Location ChinaEast `
   -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 ` 
+  -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
 ```
 ### Create public IP address
@@ -74,9 +74,9 @@ $vnet = New-AzureRmVirtualNetwork `
 Create a public IP address with [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress ` 
+$pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupVM `
-  -Location ChinaEast ` 
+  -Location ChinaEast `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -250,11 +250,11 @@ Get-AzureRmVMImageSku -Location "ChinaEast" -PublisherName "MicrosoftWindowsServ
 Skus                            Offer         PublisherName          Location
 ----                            -----         -------------          --------
 2008-R2-SP1                     WindowsServer MicrosoftWindowsServer ChinaEast  
-2008-R2-SP1-BYOL                WindowsServer MicrosoftWindowsServer ChinaEast  
+2008-R2-SP1-zhcn                WindowsServer MicrosoftWindowsServer ChinaEast  
 2012-Datacenter                 WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-Datacenter-BYOL            WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-Datacenter-zhcn            WindowsServer MicrosoftWindowsServer ChinaEast  
 2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer ChinaEast  
-2012-R2-Datacenter-BYOL         WindowsServer MicrosoftWindowsServer ChinaEast  
+2012-R2-Datacenter-zhcn         WindowsServer MicrosoftWindowsServer ChinaEast  
 2016-Datacenter                 WindowsServer MicrosoftWindowsServer ChinaEast  
 2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer ChinaEast  
 2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer ChinaEast  
@@ -347,7 +347,7 @@ To retrieve the state of a particular VM, use the [Get-AzureRmVM](https://docs.m
 
 ```powershell
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroup `
+    -ResourceGroupName myResourceGroupVM `
     -Name myVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
@@ -403,3 +403,5 @@ Advance to the next tutorial to learn about VM disks.
 
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-data-disk.md)
+
+<!--Update_Description: update meta properties, wording update-->

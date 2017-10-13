@@ -31,19 +31,21 @@
     href: tutorial-load-balancer.md
   - name: 8 - Manage networking
     href: tutorial-virtual-network.md
-  - name: 9 - Monitor virtual machines
+  - name: 9 - Backup virtual machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Monitor virtual machines
     href: tutorial-monitoring.md
-  - name: 10 - Deploy Jenkins
+  - name: 11 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 11 - CI/CD with Team Services
+  - name: 12 - CI/CD with Team Services
     href: tutorial-build-deploy-jenkins.md
-  - name: 12a - Create LAMP stack
+  - name: 13a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 12b - Create LEMP stack
+  - name: 13b - Create LEMP stack
     href: tutorial-lemp-stack.md
-  - name: 12c - Create MEAN stack
+  - name: 13c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 13 - Secure web server with SSL
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -53,47 +55,27 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Azure-endorsed distributions
-    href: endorsed-distros.md
+  - name: Azure Resource Manager
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
   - name: Regions and availability
     href: regions-and-availability.md
+  - name: VM types and sizes
+    href: sizes.md
+  - name: Endorsed distros
+    href: endorsed-distros.md
+  - name: Maintenance and updates
+    href: maintenance-and-updates.md
   - name: Storage
     href: azure-vm-storage-overview.md
   - name: Networking
-    href: azure-vm-network-overview.md
-  - name: VM Scale Sets
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    items:
-    - name: Deployment models
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Templates for VMs
-      href: ../windows/template-description.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Azure Linux agent
-    href: agent-user-guide.md
-  - name: Disaster recovery
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Planned maintenance
-    href: planned-maintenance.md
-  - name: VM sizes
-    items:
-    - name: VM sizes overview
-      href: sizes.md
-      items:
-      - name: General purpose
-        href: sizes-general.md
-      - name: Compute optimized
-        href: sizes-compute.md
-      - name: Memory optimized
-        href: sizes-memory.md
-    - name: Azure compute units (ACU)
-      href: acu.md
-    - name: Compute benchmark scores
-      href: compute-benchmark-scores.md
+    href: network-overview.md
+  - name: Monitoring
+    href: monitor.md
+  - name: Backup and recovery
+    href: backup-recovery.md
   - name: Deployment considerations
     items:
-    - name: Example basic deployment
+    - name: Infrastructure guidelines
       href: infrastructure-example.md
 - name: How-to guides
   items:
@@ -176,7 +158,7 @@
       - name: OpenBSD
         href: create-upload-openbsd.md
       - name: FreeBSD
-        href: ../virtual-machines-freebsd-intro-on-azure.md
+        href: freebsd-intro-on-azure.md
     - name: Capture VM to image
       href: capture-image.md
     - name: Build image with Packer
@@ -219,8 +201,6 @@
         href: install-mongodb.md
       - name: PostgreSQL
         href: postgresql-install.md
-      - name: MS SQL on Linux
-        href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: Manage storage
     items:
     - name: Learn about Managed Disks
@@ -355,9 +335,9 @@
   - name: Java
     href: https://docs.azure.cn/zh-cn/java/api/overview/
   - name: Node.js
-    href: /develop/nodejs/#azure-sdk
+    href: https://www.azure.cn/develop/nodejs/#azure-sdk
   - name: Python
-    href: /develop/python/
+    href: https://www.azure.cn/develop/python/
   - name: REST
     href: https://docs.microsoft.com/rest/api/compute
 - name: Resources
@@ -368,3 +348,4 @@
     href: https://www.azure.cn/pricing/details/virtual-machines
   - name: FAQ
     href: faq.md
+### ms.date: 10/16/2017

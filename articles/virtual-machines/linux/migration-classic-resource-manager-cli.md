@@ -3,8 +3,8 @@ title: Migrate VMs to Resource Manager using Azure CLI | Azure
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
-These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI](../../cli-install-nodejs.md).
+These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure CLI 1.0](../../cli-install-nodejs.md). Since Azure CLI 2.0 is only applicable for Azure Resource Manager resources, it cannot be used for this migration.
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform will then try the action again.
@@ -184,3 +184,5 @@ If the prepared configuration looks good, you can move forward and commit the re
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!--Update_Description: wording update-->

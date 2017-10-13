@@ -3,7 +3,7 @@ title: Create and use an SSH key pair for Linux VMs in Azure | Azure
 description: How to create and use an SSH public and private key pair for Linux VMs in Azure to improve the security of the authentication process.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/14/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 
@@ -41,10 +41,10 @@ If you're not familiar with SSH public keys, you can see your public key by runn
 cat ~/.ssh/id_rsa.pub
 ```
 
-With the public key on your Azure VM, SSH to your VM using the IP address or DNS name of your VM (remember to replace `azureuser` and `myvm.chinanorth.chinacloudapp.cn` below with the admin username and the fully qualified domain name -- or IP address):
+With the public key on your Azure VM, SSH to your VM using the IP address or DNS name of your VM (remember to replace `azureuser` and `myvm.chinanorth.cloudapp.chinacloudapi.cn` below with the admin username and the fully qualified domain name -- or IP address):
 
 ```bash
-ssh azureuser@myvm.chinanorth.chinacloudapp.cn
+ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 If you provided a passphrase when you created your key pair, enter the passphrase when prompted during the login process. (The server is added to your `~/.ssh/known_hosts` folder, and you won't be asked to connect again until the public key on your Azure VM changes or the server name is removed from `~/.ssh/known_hosts`.)
@@ -56,5 +56,7 @@ VMs created using SSH keys are by default configured with passwords disabled, to
 You can create VMs that use your SSH key pair using the Azure portal, CLI, and templates:
 
 * [Create a secure Linux VM using the Azure portal](quick-create-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [Create a secure Linux VM using the Azure CLI 2.0)](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure CLI 2.0](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Create a secure Linux VM using an Azure template](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!--Update_Description: update meta properties, wording update-->

@@ -3,8 +3,8 @@ title: Run custom scripts on Linux VMs in Azure | Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension
 services: virtual-machines-linux
 documentationcenter: ''
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,13 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+<!-- User Notification to update the endpoint-->
 
 The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
@@ -120,7 +121,7 @@ Public configuration file:
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"]
 }
 ```
 
@@ -135,7 +136,7 @@ Protected configuration file:
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
 ## Resource Manager Template
@@ -237,3 +238,5 @@ info:    vm extension get command OK
 
 ## Next Steps
 For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: update meta properties, wording update-->

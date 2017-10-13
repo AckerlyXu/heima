@@ -31,7 +31,7 @@ This sample PowerShell script creates an Azure Cosmos DB API account.
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "South Central US"
+$resourceGroupLocation = "China East"
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
@@ -40,9 +40,9 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 $DBName = "testdb"
 
 # Write and read locations and priorities for the database
-$locations = @(@{"locationName"="South Central US"; 
+$locations = @(@{"locationName"="China East"; 
                  "failoverPriority"=0}, 
-               @{"locationName"="North Central US"; 
+               @{"locationName"="China North"; 
                   "failoverPriority"=1})
 
 # IP addresses that can access the database through the firewall
@@ -87,6 +87,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmResource](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Creates a logical server that hosts a database or elastic pool. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
+
 
 ## Next steps
 

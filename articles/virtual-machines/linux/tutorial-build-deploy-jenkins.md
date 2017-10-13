@@ -1,20 +1,20 @@
 ---
-title: CI/CD from Jenkins to Azure VMs with Team Services | Microsoft Docs
+title: CI/CD from Jenkins to Azure VMs with Team Services | Azure
 description: Set up continuous integration (CI) and continuous deployment (CD) of a Node.js app using Jenkins to Azure VMs from Release Management in Visual Studio Team Services (VSTS) or Microsoft Team Foundation Server (TFS)
-author: hayley244
-manager: douge
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -179,7 +179,7 @@ To create the release definition in Team Services:
 
 1. The parameters template used in the Azure Resource Group Deployment task sets the admin password used to connect to the VMs.
    You provide this password with the variable **$(adminpassword)**:
-   
+
    - Open the **Variables** tab and, in the **Variables** section, enter the name `adminpassword`.
 
    - Enter the administrator password.
@@ -231,7 +231,7 @@ The **Shell Script** task is used to provide the configuration for a script to r
 * **Specify Working Directory**: `Checked`
 
 * **Working Directory**: `$(System.DefaultWorkingDirectory)/Fabrikam-Node`
-   
+
 ## Rename and save the release definition
 
 1. Edit the name of the release definition to the name you specified in the
@@ -283,3 +283,5 @@ Advance to the next tutorial to learn more about how to deploy a LAMP (Linux, Ap
 
 > [!div class="nextstepaction"]
 > [Deploy LAMP stack](tutorial-lamp-stack.md)
+
+<!--Update_Description: update meta properties-->
