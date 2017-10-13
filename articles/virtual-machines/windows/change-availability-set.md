@@ -4,7 +4,7 @@ description: Learn how to change the availability set for your virtual machines 
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Change the availability set for a Windows VM
@@ -144,8 +144,8 @@ The following script provides an example of gathering the required information, 
     }
 
     #Add NIC(s)
-    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
-        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic.Id
     }
 
     #Create the VM
@@ -154,4 +154,4 @@ The following script provides an example of gathering the required information, 
 
 ## Next steps
 Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!--Update_Description: update managed disk links-->
+<!--Update_Description: update powershell scripts-->

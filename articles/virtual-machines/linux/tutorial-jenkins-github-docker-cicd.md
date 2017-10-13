@@ -3,7 +3,7 @@ title: Create a development pipeline in Azure with Jenkins | Azure
 description: Learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. 
 
-Create a cloud-init file named *cloud-init-jenkins.txt* and paste the following contents:
+Create a file named *cloud-init.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -150,7 +150,7 @@ To test the GitHub integration with Jenkins, commit a change in your fork.
 Back in GitHub web UI, select your forked repo, and then click the **index.js** file. Click the pencil icon to edit this file so line 6 reads:
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 To commit your changes, click the **Commit changes** button at the bottom.
@@ -230,3 +230,5 @@ Advance to the next tutorial to learn more about how to integrate Jenkins with V
 
 > [!div class="nextstepaction"]
 > [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)
+
+<!--Update_Description: update meta properties, wording update-->

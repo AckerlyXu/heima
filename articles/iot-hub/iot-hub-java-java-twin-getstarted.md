@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ---
 # Get started with device twins (Java)
 
@@ -58,7 +58,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -215,7 +215,7 @@ In this section, you create a Java console app that sets a reported property val
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 

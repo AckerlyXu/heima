@@ -3,8 +3,8 @@ title: Create custom VM images with the Azure PowerShell | Azure
 description: Tutorial - Create a custom VM image using the Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 06/21/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -60,13 +60,13 @@ To create an image, the VM needs to be deallocated and marked as generalized in 
 Deallocated the VM using [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm).
 
 ```powershell
-Stop-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Force
+Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
 ```
 
 Set the status of the virtual machine to `-Generalized` using [Set-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvm). 
 
 ```powershell
-Set-AzureRmVM -ResourceGroupName myResourceGroupImages -Name myVM -Generalized
+Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
 ```
 
 ## Create the image
@@ -76,7 +76,7 @@ Now you can create an image of the VM by using [New-AzureRmImageConfig](https://
 Get the virtual machine. 
 
 ```powershell
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroupImages
+$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
 ```
 
 Create the image configuration.
@@ -88,7 +88,7 @@ $image = New-AzureRmImageConfig -Location ChinaEast -SourceVirtualMachineId $vm.
 Create the image.
 
 ```powershell
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroupImages
+New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
 ```	
 
 ## Create VMs from the image
@@ -156,7 +156,7 @@ $vmConfig = New-AzureRmVMConfig `
 # Here is where we create a variable to store information about the image 
 $image = Get-AzureRmImage `
     -ImageName myImage `
-    -ResourceGroupName myResourceGroupImages
+    -ResourceGroupName myResourceGroup
 
 # Here is where we specify that we want to create the VM from and image and provide the image ID
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
@@ -203,3 +203,5 @@ Advance to the next tutorial to learn about how highly available virtual machine
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md)
+
+<!--Update_Description: update meta properties-->

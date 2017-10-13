@@ -3,7 +3,7 @@ title: Service Bus Messaging overview | Azure
 description: Description of Service Bus messaging and Azure Relay
 services: service-bus
 documentationCenter: .net
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-origin.date: 05/25/2017
+origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 10/16/2017
 ---
 
 # Service Bus messaging: flexible data delivery in the cloud
@@ -39,9 +39,10 @@ You initiate the connection between your on-premises service and the relay servi
 WCF Relay provides many benefits, but requires the server and client to both be online at the same time in order to send and receive messages. This is not optimal for HTTP-style communication, in which the requests may not be typically long-lived, nor for clients that connect only occasionally, such as browsers, mobile applications, and so on. Brokered messaging supports decoupled communication, and has its own advantages; clients and servers can connect when needed and perform their operations in an asynchronous manner.
 
 ## <a name="Brokered-messaging"></a>Brokered messaging
-In contrast to the relay scheme, Service Bus Messaging, or [brokered messaging](./service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
 
-The core components of the Service Bus brokered messaging infrastructure are queues, topics, and subscriptions.  The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+In contrast to the relay scheme, Service Bus messaging with [queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive them. This enables the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
+
+The core components of the Service Bus messaging infrastructure are queues, topics, and subscriptions. The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
 
 As with the WCF Relay infrastructure, the brokered messaging capability is provided for WCF and .NET Framework programmers, and also via REST.
 
@@ -50,5 +51,5 @@ To learn more about Service Bus Messaging, see the following topics.
 
 - [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus queues, topics, and subscriptions](./service-bus-queues-topics-subscriptions.md)
-- [How to use Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
+* [Get started with Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
 - [How to use Service Bus topics and subscriptions](./service-bus-dotnet-how-to-use-topics-subscriptions.md)

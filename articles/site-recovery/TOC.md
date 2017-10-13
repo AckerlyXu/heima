@@ -13,6 +13,7 @@
 ## [Watch an introduction](https://www.azure.cn/video-center/)
 
 # Get Started
+## [Replicate Azure VMs to Azure (preview)](site-recovery-azure-to-azure.md)
 ## [Replicate VMware VMs to Azure](vmware-walkthrough-overview.md)
 ### [Step 1: Review the architecture](vmware-walkthrough-architecture.md)
 ### [Step 2: Review prerequisites and limitations](vmware-walkthrough-prerequisites.md)
@@ -64,7 +65,7 @@
 ### [Step 10: Enable replication](physical-walkthrough-enable-replication.md)
 ### [Step 11: Run a test failover](physical-walkthrough-test-failover.md)
 ## [Replicate Hyper-V VMs to a secondary site (with VMM)](site-recovery-vmm-to-vmm.md)
-
+## [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
 ## [Replicate VMware VMs to Azure in a multi-tenant deployment (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # How To
@@ -73,15 +74,26 @@
 ### Plan networking
 #### [Plan networking for Azure to Azure replication (preview)](site-recovery-azure-to-azure-networking-guidance.md)
 #### [Plan networking for on-premises machine replication](site-recovery-network-design.md)
+#### [Plan network mapping for Azure VM replication](site-recovery-network-mapping-azure-to-azure.md)
 #### [Plan network mapping for Hyper-V VM replication](site-recovery-network-mapping.md)
 ### Plan capacity and scalability
+#### [Plan capacity for VMware replication to Azure](site-recovery-plan-capacity-vmware.md)
+#### [Deployment Planner for VMware replication to Azure](site-recovery-deployment-planner.md)
 #### [Capacity Planner for Hyper-V replication](site-recovery-capacity-planner.md)
 ### [Plan role-based access for VM replication](site-recovery-role-based-linked-access-control.md)
 ## Configure
-
-
-### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
-### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### Set up the source environment
+#### [Source environment for VMware to Azure](site-recovery-set-up-vmware-to-azure.md)
+#### [Source environment for physical to Azure](site-recovery-set-up-physical-to-azure.md)
+### Set up the target environment
+#### [Target environment for VMware to Azure](site-recovery-prepare-target-vmware-to-azure.md)
+#### [Target environment for physical to Azure](site-recovery-prepare-target-physical-to-azure.md)
+### [Configure replication settings](site-recovery-setup-replication-settings-vmware.md)
+### [Deploy the Mobility service for VMware replication](site-recovery-vmware-to-azure-install-mob-svc.md)
+#### [Deploy the Mobility service with System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
+#### [Deploy the Mobility service with Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
+### Enable replication
+#### [Enable VMware to Azure replication](site-recovery-replicate-vmware-to-azure.md)
 ## Fail over and fail back
 ### [Set up recovery plans](site-recovery-create-recovery-plans.md)
 #### [Add Azure runbooks to recovery plans](site-recovery-runbook-automation.md)
@@ -93,6 +105,7 @@
 #### [Reprotect from an Azure secondary region to primary](site-recovery-how-to-reprotect-azure-to-azure.md)
 #### [Reprotect from Azure to on-premises](site-recovery-how-to-reprotect.md)
 ### Fail back from Azure
+#### [Fail back from Azure to VMware](site-recovery-failback-azure-to-vmware.md)
 #### [Fail back from Azure to Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)
 ## Migrate
 ### [Migrate to Azure](site-recovery-migrate-to-azure.md)
@@ -104,6 +117,7 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 
+### [IIS based web applications](site-recovery-iis.md)
 ### [Other workloads](site-recovery-workload.md#workload-summary)
 ## Automate replication
 ### [Automate Hyper-V replication to Azure (no VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
@@ -111,16 +125,22 @@
 ### [Automate Hyper-V replication to a secondary site (with VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Manage
 ### [Upgrade your Site Recovery vault to Recovery Services vault](upgrade-site-recovery-vaults.md)
+### [Manage process servers in Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
+### [Manage the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md)
+### [Manage scaled-out process servers](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
+### [Manage vCenter servers](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Remove servers and disable protection](site-recovery-manage-registration-and-protection.md)
 ### [Delete Recovery Services vault](delete-vault.md)
 ## Monitor and troubleshoot
 ### [Azure to Azure replication issues](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [On-premises to Azure replication issues](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Mobility service installation issues](site-recovery-vmware-to-azure-push-install-error-codes.md)
 ### [Collect logs and troubleshoot on-premises issues](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.siterecovery)
-## [PowerShell classic](https://docs.microsoft.com/zh-cn/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/zh-cn/library/mt750497)
+## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.siterecovery)
+## [PowerShell classic](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Related
 ## [Azure Automation](https://docs.azure.cn/zh-cn/automation/)

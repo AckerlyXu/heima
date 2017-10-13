@@ -3,7 +3,7 @@ title: Linux VM sizes in Azure | Azure
 description: Lists the different sizes available for Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 07/28/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/07/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
 ---
 
 # Sizes for Linux virtual machines in Azure
@@ -25,12 +25,18 @@ This article describes the available sizes and options for the Azure virtual mac
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7,  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+<!--Not Available B(Preview), Dsv3,Dv3-->
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
 | [Memory optimized](sizes-memory.md)         | DSv2, DS, Dv2, D   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+<!--Not Available Esv3, Ev3, M, GS, G -->
+<!--Not Available Ls-->
+<!--Not Available NV, NC-->
+<!--Not Available H, A8-11-->
 
 <br>
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Linux). 
+<!--Not Available- For availability of VM sizes in Azure regions, see [Products available by region](https://www.azure.cn/support/service-dashboard/services/).-->
 - To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
 - Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
 
@@ -52,6 +58,8 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
+<!--Not Available- [Storage optimized](sizes-storage.md)-->
+<!--Not Available- [GPU](sizes-gpu.md)-->
+<!--Not Available- [High performance compute](sizes-hpc.md)-->
 
-
-
+<!--Update_Description: wording update-->

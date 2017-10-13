@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 07/04/2017
-ms.date: 07/31/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,16 @@ This article describes how to failover virtual machines and physical servers pro
 1. Before you do a failover, do a [test failover](site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected.
 2. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
-##<a name="run-a-test-failover"></a><a name="run-an-unplanned-failover"></a><a name="run-a-failover"></a> Run a failover
+Use the below table to know about the failover options provided by Azure Site Recovery for different failover scenarios.
+
+| Scenario | Application recovery requirement | Workflow for Hyper-V | Workflow for VMware
+|---|--|--|--|
+|Planned failover due to an upcoming datacenter downtime| Zero data loss for the application when a planned activity is performed| For Hyper-V, ASR replicates data at a copy frequency specified by the user. Planned Failover is used to override the frequency and replicate the final changes before a failover is initiated. <br/> <br/> 1.	Plan a maintenance window as per your business's change management process. <br/><br/> 2.Notify users of upcoming downtime. <br/><br/> 3. Take the user-facing application offline.<br/><br/>4.Initiate Planned Failover using the ASR portal. The on-premises virtual machine is automatically shutdown.<br/><br/>Effective application data loss = 0 <br/><br/>A journal of recovery points is also provided in a retention window for a user who wants to use an older recovery point. (24 hours retention for Hyper-V).| For VMware, ASR replicates data continually using CDP. Failover gives the user the option to failover to the Latest data (including post application shutdown)<br/><br/> 1. Plan a maintenance window as per the change management process <br/><br/>2.Notify users of upcoming downtime <br/><br/>3.	Take the user-facing application offline. <br/><br/>4.	Initiate a Planned Failover using ASR portal to the Latest point after the application is offline. Use the "Unplanned Failover" option on the portal and select the Latest point to failover. The on-premises virtual machine is automatically shutdown.<br/><br/>Effective application data loss = 0 <br/><br/>A journal of recovery points in a retention window is provided for a customer who wants to use an older recovery point. (72 hours of retention for VMware).
+|Failover due to an unplanned datacenter downtime (natural or IT disaster) | Minimal data loss for the application | 1.Initiate the organization's BCP plan <br/><br/>2. Initiate Unplanned Failover using ASR portal to the Latest or a point from the retention window (journal).| 1.	Initiate the organization's BCP plan. <br/><br/>2.	Initiate unplanned Failover using ASR portal to the Latest or a point from the retention window (journal).
+
+<a name="run-a-test-failover"></a>
+<a name="run-an-unplanned-failover"></a>
+## <a name="run-a-failover"></a> Run a failover
 This procedure describes how to run a failover for a [recovery plan](site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
 
 ![Failover](./media/site-recovery-failover/Failover.png)
@@ -58,7 +67,7 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. This deletes all the recovery points available with the service and **Change recovery point** option will no longer be available.
 
 ##<a name="failover-and-failback"></a> Planned failover
-Apart from, Failover, Hyper-V virtual machines protected using Site Recovery also support **Planned failover**. This is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shutdown, the data yet to be synchronized is synchronized and then a failover is triggered. 
+Virtual machines/physical servers protected using Site Recovery also support **Planned failover**. This is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut down, the data yet to be synchronized is synchronized and then a failover is triggered.
 
 > [!NOTE]
 > When you failover Hyper-v virtual machines from one on-premises site to another on-premises site, to come back to the primary on-premises site you have to first **reverse replicate** the virtual machine back to primary site and then trigger a failover. If the primary virtual machine is not available, then before starting to **reverse replicate** you have to restore the virtual machine from a backup.   
@@ -104,12 +113,11 @@ You might want to automate certain actions while doing a failover. You can use s
 ## Other considerations
 * **Drive letter** — To retain the drive letter on virtual machines after failover you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
-## Next Steps
-Once you have failed over virtual machines and the on-premises data center is available, you should re-protect VMware virtual machines back to the on-premises data center.
-<!-- Not Available site-recovery-how-to-reprotect.md -->
+## Next steps
+Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
 
 Use [**Planned failover**](site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 
 If you have failed over a Hyper-v virtual machine to another on-premises data center managed by a VMM server and the primary data center is available, then use **Reverse replicate** option to start the replication back to the primary data center.
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

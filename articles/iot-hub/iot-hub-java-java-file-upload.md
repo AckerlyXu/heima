@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 08/07/2017
+ms.date: 09/25/2017
 ---
 # Upload files from your device to the cloud with IoT Hub
 
@@ -137,7 +137,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
 
@@ -283,7 +283,7 @@ To further explore the capabilities of IoT Hub, see:
 [Azure IoT Developer Center]: http://www.azure.cn/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
 [lnk-configure-upload]: ./iot-hub-configure-file-upload.md
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/

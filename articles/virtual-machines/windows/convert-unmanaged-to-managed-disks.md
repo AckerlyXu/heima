@@ -3,7 +3,7 @@ title: Convert a Windows virtual machine from unmanaged disks to managed disks -
 description: How to convert a Windows VM from unmanaged disks to managed disks by using PowerShell in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ---
 
 # Convert a Windows virtual machine from unmanaged disks to managed disks
 
 If you have existing Windows virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
 
-This article shows you how to convert VMs by using Azure PowerShell. If you need to install or upgrade it, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+This article shows you how to convert VMs by using Azure PowerShell. If you need to install or upgrade it, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps.md).
 
 ## Before you begin
 
@@ -85,15 +85,13 @@ If the VMs that you want to convert to managed disks are in an availability set,
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
-
 
 ## Troubleshooting
 
 If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzureRmVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
-
 
 ## Next steps
 
@@ -101,4 +99,4 @@ If there is an error during conversion, or if a VM is in a failed state because 
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
 
-<!--Update_Description: update managed disk links-->
+<!--Update_Description: wording update-->

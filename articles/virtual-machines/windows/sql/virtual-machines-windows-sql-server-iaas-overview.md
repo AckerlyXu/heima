@@ -3,9 +3,8 @@ title: Overview of SQL Server on Azure Virtual Machines | Azure
 description: Learn about how to run full SQL Server editions on Azure Virtual machines. Get direct links to all SQL Server VM images and related content.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
@@ -14,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-orgin.date: 08/07/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/12/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Overview of SQL Server on Azure Virtual Machines
@@ -27,19 +26,18 @@ This topic describes your options for running SQL Server on Azure virtual machin
 > 
 > 
 
-## Overview
-If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud. The following video provides a technical overview of SQL Server Azure VMs.
+If you are a database administrator or a developer, Azure VMs provide a way to move your on-premises SQL Server workloads and applications to the Cloud.
 
 ## Scenarios
 There are many reasons that you might choose to host your data in Azure. If your application is moving to Azure, it improves performance to also move the data. But there are other benefits. You automatically have access to multiple data centers for a global presence and disaster recovery. The data is also highly secured and durable.
 
 SQL Server running on Azure VMs is one option for storing your relational data in Azure. It is good choice for several scenarios. For example, you might want to configure the Azure VM as similarly as possible to an on-premises SQL Server machine. Or you might want to run additional applications and services on the same database server. There are two main resources that can help you think through even more scenarios and considerations:
 
-* [SQL Server on Azure virtual machines](https://www.azure.cn/home/features/virtual-machines/#home_vm_overview_info) provides an overview of the best scenarios for using SQL Server on Azure VMs. 
+* [SQL Server on Azure virtual machines](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) provides an overview of the best scenarios for using SQL Server on Azure VMs. 
 * [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) provides a detailed comparison between SQL Database and SQL Server running on a VM.
 
 ## Create a new SQL VM
-The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images.
+The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images. Depending on the image you select, you can either pay for SQL Server licensing costs on a per-minute basis, or you can bring your own license (BYOL).
 
 Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md). Also, review the [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
 
@@ -87,7 +85,7 @@ One of the most basic management steps is to connect to your SQL Server VM throu
 If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
 ### Configure high availability
-If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple Azure VMs in a virtual network. If you want to manually configure your Availability Group and associated listener, see [Configure AlwaysOn Availability Groups in Azure VM](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple Azure VMs in a virtual network. The Azure portal has a template that sets up this configuration for you. For more information, see [Configure an AlwaysOn availability group in Azure Resource Manager virtual machines](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). If you want to manually configure your Availability Group and associated listener, see [Configure AlwaysOn Availability Groups in Azure VM](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 For other high availability considerations, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -100,7 +98,7 @@ Azure VMs can use [Automated Patching](virtual-machines-windows-sql-automated-pa
 ### Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. 
 
-For more information, see the CEIP section of the [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) topic. 
+For more information about data collection, see the [SQL Server Privacy Statement](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## Next steps
 
@@ -108,3 +106,4 @@ For questions about pricing, see [Pricing guidance for SQL Server Azure VMs](vir
 
 More question? First, see the [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md). But also add your questions or comments to the bottom of any SQL VM topics to interact with Azure.cn and the community.
 
+<!--Update_Description: update meta properties, wording update-->

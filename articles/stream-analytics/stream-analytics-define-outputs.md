@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 09/04/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -97,7 +97,7 @@ The table below lists the property names and their description for creating a bl
 </tr>
 <tr>
 <td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects.</td>
+<td>Only applicable for JSON serialization. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. This array will be closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.</td>
 </tr>
 </tbody>
 </table>
@@ -138,7 +138,6 @@ The table below lists the property names and their description for creating a ta
 | Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
 
 ## Service Bus Queues
-<!--Notice: azure/hh367516.aspx redirect to EN-US service-bus-queues-topics-subscriptions, we should correct to right URL-->
 [Service Bus Queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
 
 The table below lists the property names and their description for creating a Queue output.
@@ -156,7 +155,6 @@ The table below lists the property names and their description for creating a Qu
 | Format |Only applicable for JSON type. Line separated specifies that the output will be formatted by having each JSON object separated by a new line. Array specifies that the output will be formatted as an array of JSON objects. |
 
 ## Service Bus Topics
-<!--Notice: azure/hh367516.aspx redirect to service-bus-queues-topics-subscriptions, we should correct to right URL-->
 While Service Bus Queues provide a one to one communication method from sender to receiver, [Service Bus Topics](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) provide a one-to-many form of communication.
 
 The table below lists the property names and their description for creating a table output.

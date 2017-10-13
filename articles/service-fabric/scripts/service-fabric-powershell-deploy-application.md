@@ -12,9 +12,9 @@ ms.assetid:
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 06/20/2017
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -70,4 +70,4 @@ For more information on the Service Fabric PowerShell module, see [Azure PowerSh
 
 Additional Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
 
-<!--Update_Description: new articles of deploy application with PS in service fabric -->
+<!--Update_Description: update meta properties -->

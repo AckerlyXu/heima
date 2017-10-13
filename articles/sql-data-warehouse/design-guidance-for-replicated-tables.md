@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 07/14/2017
-ms.date: 09/18/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -124,11 +124,11 @@ WHERE d.FiscalYear = 2004
 ```
 We re-created `DimDate` and `DimSalesTerritory` as round-robin tables. As a result, the query showed the following query plan, which has multiple broadcast move operations: 
 
-![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Round-robin query plan") 
+![Round-robin query plan](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran the query again. The resulting query plan is much shorter and does not have any broadcast moves.
 
-![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Round-robin query plan") 
+![Replicated query plan](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 ## Performance considerations for modifying replicated tables
 SQL Data Warehouse implements a replicated table by maintaining a master version of the table. It copies the master version to one distribution database on each Compute node. When there is a change, SQL Data Warehouse first updates the master table. Then it requires a rebuild of the tables on each Compute node. A rebuild of a replicated table includes copying the table to each Compute node and then rebuilding the indexes.
@@ -199,4 +199,4 @@ To create a replicated table, use one of these statements:
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 
-<!--Update_Description: wording update, update reference link-->
+<!--Update_Description: wording update-->

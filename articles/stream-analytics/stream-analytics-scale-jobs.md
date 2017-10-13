@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 06/22/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ A Stream Analytics job definition includes inputs, a query, and output. Inputs a
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure event hub or in Azure blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md) and [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
 ## Partitions in event hubs and Azure storage
-Scaling a Stream Analytics job takes advantage of partitions in the input or output. Partitioning lets you divide data into subsets based on a partition key. A process that consumes the data (such as a Streaming Analytics job) can consume and write different partitions in parallel, which increases throughput. When you work with Streaming Analytics, you can take advantage of partitioning in event hubs and in Blob storage. 
+Scaling a Stream Analytics job takes advantage of partitions in the input or output. Partitioning lets you divide data into subsets based on a partition key. A process that consumes the data (such as a Streaming Analytics job) can consume and write different partitions in parallel, which increases throughput. When you work with Stream Analytics, you can take advantage of partitioning in event hubs and in Blob storage. 
 
 For more information about partitions, see the following articles:
 
@@ -85,7 +85,6 @@ Query:
 This query has a grouping key. Therefore, the same key needs to be processed by the same query instance, which means that events must be sent to the event hub in a partitioned manner. But which key should be used? **PartitionId** is a job-logic concept. The key we actually care about is **TollBoothId**, so the **PartitionKey** value of the event data should be **TollBoothId**. We do this in the query by setting **Partition By** to **PartitionId**. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
 
 ### Multi-step query with a grouping key
-
 * Input: Event hub with 8 partitions
 * Output: Event hub instance with 8 partitions
 
@@ -115,7 +114,6 @@ In this case, it doesn't matter what the query is. If the input partition count 
 
 <!-- Not Available ### Not using event hubs or blob storage as output-->
 ### Multi-step query with different Partition By values
-
 * Input: Event hub with 8 partitions
 * Output: Event hub with 8 partitions
 
@@ -329,7 +327,7 @@ And the following graph shows a visualization of the relationship between SUs an
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -356,4 +354,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, wording update-->

@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Azure
+title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Microsoft Docs
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/21/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
+origin.date: 09/13/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
 ---
 
 # Troubleshooting: An Azure site-to-site VPN connection cannot connect and stops working
@@ -35,14 +35,14 @@ Check the type of the Azure VPN gateway.
 1. Go to the [Azure portal](https://portal.azure.cn).
 
 2. Check the **Overview** page of the VPN gateway for the type information.
-
+    
     ![Overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
 ### Step 1. Check whether the on-premises VPN device is validated
 
 1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#devicetable). If the device is not a validated VPN device, you might have to contact the device manufacturer to see if there is a compatibility issue.
 
-2. Make sure that the VPN device is correctly configured. For more information, see [Edit device configuration samples](/vpn-gateway-about-vpn-devices.md#editing).
+2. Make sure that the VPN device is correctly configured. For more information, see [Edit device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
 ### Step 2. Verify the shared key
 
@@ -55,8 +55,8 @@ To view the shared key for the Azure VPN connection, use one of the following me
 1. Go to the VPN gateway site-to-site connection that you created.
 
 2. In the **Settings** section, click **Shared key**.
-
-    ![Shared key](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
+    
+    ![Shared key](./media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
 **Azure PowerShell**
 
@@ -106,3 +106,5 @@ The perfect forward secrecy feature can cause disconnection problems. If the VPN
 
 -	[Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -	[Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+
+<!--Update_Description: wording update --> 

@@ -3,20 +3,20 @@ title: Azure Quick Start - Create VM PowerShell | Azure
 description: Quickly learn to create a Linux virtual machines with PowerShell
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -32,7 +32,7 @@ Finally, a public SSH key with the name *id_rsa.pub* needs to be stored in the *
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command and follow the on-screen directions.
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -40,7 +40,7 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location chinaeast
@@ -101,7 +101,7 @@ $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $secu
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName myVM -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest | `
+Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 16.04-LTS -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
@@ -167,3 +167,5 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+
+<!--Update_Description: wording update-->

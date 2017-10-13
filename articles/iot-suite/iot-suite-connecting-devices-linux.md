@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/05/2017
+origin.date: 08/24/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 10/16/2017
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (Linux)

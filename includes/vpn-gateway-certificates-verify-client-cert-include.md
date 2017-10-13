@@ -4,4 +4,6 @@ If you are having trouble connecting, check the following items:
 
 - If you are using a certificate that was issued using an Enterprise CA solution and are having trouble authenticating, check the authentication order on the client certificate. You can check the authentication list order by double-clicking the client certificate, and going to **Details > Enhanced Key Usage**. Make sure the list shows 'Client Authentication' as the first item. If not, you need to issue a client certificate based on the User template that has Client Authentication as the first item in the list.
 
-<!-- ms.date: 09/01/2017 -->
+- For additional P2S troubleshooting information, see [Troubleshoot P2S connections](../articles/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+
+<!-- ms.date: 10/10/2017 -->

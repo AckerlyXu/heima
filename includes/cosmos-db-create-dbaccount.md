@@ -7,7 +7,7 @@
 
     With Azure Cosmos DB, you can choose one of three programming models: MongoDB, SQL (DocumentDB), and Table (key-value), each which currently require a separate account.
 
-    In this quick-start article we program against the DocumentDB API, so choose **SQL (DocumentDB)** as you fill out the form. If you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
+    In this quick-start article we program against the DocumentDB API, so choose **SQL (DocumentDB)** as you fill out the form. If you have key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
 
     Complete the fields on the **New account** blade, using the information in the following screenshot as a guide- your values may be different than the values in the screenshot.
 

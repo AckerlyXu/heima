@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/24/2017
+origin.date: 07/24/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: ''
+ms.date: 09/25/2017
 ---
 
 # Overview of Azure IoT Suite
@@ -44,7 +44,13 @@ For an overview of the architecture of a typical IoT solution, see [Azure and th
 
 ## Preconfigured solutions
 
-IoT Suite includes preconfigured solutions that enable you to quickly get started with and to explore the common IoT scenarios, such as *Remote monitoring*, *Predictive maintenance*, and *Connected factory*. You can deploy these solutions to your Azure subscription and then run a complete, end-to-end IoT scenario.
+IoT Suite includes preconfigured solutions that enable you to quickly get started with and to explore the common IoT scenarios, such as:
+
+* Remote monitoring
+* Predictive maintenance
+* Connected factory
+
+You can deploy these solutions to your Azure subscription and then run a complete, end-to-end IoT scenario.
 
 ## Next steps
 Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite. For more information, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]

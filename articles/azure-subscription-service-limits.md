@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date: 08/29/2017
+origin.date: 09/01/2017
+ms.date: 09/25/2017
 ms.author: v-junlch
 
 ---
@@ -46,7 +46,7 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Active Directory](#active-directory-limits)
 - [App Service](#app-service-limits)
 - [Application Gateway](#application-gateway-limits)
-- [Automation](#automation-limits)
+- [Automation](#automation-limits) 
 - [Azure Cosmos DB](#azure-cosmos-db-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Backup](#backup-limits)
@@ -59,7 +59,7 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
 - [Mobile Services](#mobile-services-limits)
-- [Monitoring](#monitoring-limits)
+- [Monitor limits](#monitor-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Networking](#networking-limits)
 - [Notification Hub Service](#notification-hub-service-limits)
@@ -167,7 +167,7 @@ Azure Cosmos DB is a global scale database in which throughput and storage can b
 ### Mobile Services limits
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### Monitoring limits
+### Monitor limits
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### Notification Hub Service limits

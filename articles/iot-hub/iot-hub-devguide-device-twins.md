@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/09/2017
-ms.date: 06/05/2017
+origin.date: 08/24/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
@@ -25,10 +25,6 @@ ms.author: v-yiso
 * The structure of the device twin: *tags*, *desired* and *reported properties*, and
 * The operations that device apps and back ends can perform on device twins.
 
-> [!NOTE]
-> Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
-> 
-> 
 
 ### When to use
 Use device twins to:
@@ -177,7 +173,7 @@ The solution back end operates on the device twin using the following atomic ope
     $content-encoding | utf-8 |
     deviceId | Id of the device |
     hubName | Name of IoT Hub |
-    operationTimestamp | ISO8601 timestamp of operation |
+    operationTimestamp | [ISO8601] timestamp of operation |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" or "updateTwin" |
 
@@ -223,10 +219,6 @@ All the preceding operations require the **DeviceConnect** permission, as define
 
 The [Azure IoT device SDKs][lnk-sdks] make it easy to use the preceding operations from many languages and platforms. More information on the details of IoT Hub primitives for desired properties synchronization can be found in [Device reconnection flow][lnk-reconnection].
 
-> [!NOTE]
-> Currently, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol.
-> 
-> 
 
 ## Reference topics:
 The following reference topics provide you with more information about controlling access to your IoT hub.

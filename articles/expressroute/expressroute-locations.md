@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/03/2017
+origin.date: 08/28/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 10/16/2017
 ---
 
 # ExpressRoute partners and peering locations

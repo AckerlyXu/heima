@@ -14,9 +14,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/15/2017
+origin.date: 09/15/2017
 ms.author: v-yiso
-ms.date: 06/13/2017
+ms.date: 10/16/2017
 ---
 
 # Customize a preconfigured solution

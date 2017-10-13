@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/06/2017
-ms.date: 03/10/2017
+origin.date: 09/07/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
@@ -36,10 +36,10 @@ At the end of this tutorial, you have two Node.js console apps:
 
 To complete this tutorial, you need the following:
 
-* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 4.0.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](./iot-hub-node-node-device-management-get-started.md) article to create your IoT hub and get your connection string.
+Follow the [Get started with device management](iot-hub-node-node-device-management-get-started.md) article to create your IoT hub and get your IoT Hub connection string.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -48,15 +48,15 @@ Follow the [Get started with device management](./iot-hub-node-node-device-manag
 ## Trigger a remote firmware update on the device using a direct method
 In this section, you create a Node.js console app that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
 
-1. Create a new empty folder called **triggerfwupdateondevice**.  In the **triggerfwupdateondevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
-
+1. Create an empty folder called **triggerfwupdateondevice**.  In the **triggerfwupdateondevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+   
     ```
     npm init
     ```
-2. At your command prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iot-hub** and **azure-iot-device-mqtt** Device SDK packages:
-
+2. At your command prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iot-hub** package:
+   
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
 3. Using a text editor, create a **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:

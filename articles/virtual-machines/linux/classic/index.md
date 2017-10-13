@@ -4,17 +4,18 @@ description: Learn how to create a virtual machine using the Linux with a classi
 
 title: Azure Virtual Machines for Linux (Classic Deployment) Documentation | Azure
 services: virtual-machines-linux
-author: carolz
-manager: carolz
+author: rockboyfor
+manager: digimobile
 layout: LandingPage
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
+<!--Update_Description: update meta properties-->

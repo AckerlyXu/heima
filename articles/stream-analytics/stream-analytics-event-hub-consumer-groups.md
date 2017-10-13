@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -87,4 +87,4 @@ For additional assistance, try our [Azure Stream Analytics forum](https://social
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

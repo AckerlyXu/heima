@@ -1,22 +1,22 @@
 ---
-title: Create a MEAN stack on a Linux VM in Azure | Microsoft Docs
+title: Create a MEAN stack on a Linux VM in Azure | Azure
 description: Learn how to create a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -32,17 +32,17 @@ This tutorial shows you how to implement a MongoDB, Express, AngularJS, and Node
 > * Access the routes with AngularJS
 > * Run the application
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-
 ## Create a Linux VM
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example uses the Azure CLI to create a resource group named *myResourceGroupMEAN* in the *China North* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroupMEAN --location "China North"
 az vm create \
     --resource-group myResourceGroupMEAN \
@@ -56,7 +56,7 @@ az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 
 When the VM has been created, the Azure CLI shows information similar to the following example: 
 
-```azurecli-interactive
+```azurecli
 {
   "fqdns": "",
   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroupMEAN/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -97,7 +97,7 @@ sudo apt-get install -y nodejs
     ```
 
 2. Update the package manager with the key.
-  
+
     ```bash
     sudo apt-get update
     ```
@@ -123,7 +123,7 @@ sudo apt-get install -y nodejs
     ```
 
     Install the body parser package.
-    
+
     ```bash
     sudo npm install body-parser
     ```
@@ -258,7 +258,7 @@ sudo apt-get install -y nodejs
       };
     });
     ```
-    
+
 2. In the *public* folder, create a file named *index.html* with the web page defined.
 
     ```html
@@ -350,3 +350,5 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 
 > [!div class="nextstepaction"]
 > [Secure web server with SSL](tutorial-secure-web-server.md)
+
+<!--Update_Description: update meta properties， wording update, update link-->

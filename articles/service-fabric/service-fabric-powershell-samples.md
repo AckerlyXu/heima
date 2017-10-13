@@ -11,13 +11,13 @@ tags:
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 origin.date: 08/16/2017
 ms.date: 08/14/2017
 wacn.date: ''
-ms.date: 09/11/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -33,7 +33,8 @@ The following table includes links to PowerShell scripts samples that create and
 | [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
 | **Manage applications** ||
 | [Deploy an application](./scripts/service-fabric-powershell-deploy-application.md)| Deploy an application to a cluster.|
+| [Upgrade an application](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade an application |
 | [Remove an application](./scripts/service-fabric-powershell-remove-application.md)| Remove an application from a cluster.|
 | [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer. |
 
-<!--Update_Description: update meta properties, update reference link of PS sample-->
+<!--Update_Description: add upgrade application example link with powershell-->

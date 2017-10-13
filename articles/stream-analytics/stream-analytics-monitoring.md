@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/24/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -50,6 +50,10 @@ You can adjust the type of chart, metrics shown, and time range in the Edit Char
 
   ![Query Monitor Time graph](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
+## Latest output
+Another interesting data point to monitor your job is the time of the last output, shown in the Overview page.
+This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
+
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
@@ -60,4 +64,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update -->

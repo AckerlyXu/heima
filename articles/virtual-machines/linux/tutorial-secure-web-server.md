@@ -1,23 +1,23 @@
 
 ---
-title: Secure a web server with SSL certificates in Azure | Microsoft Docs
+title: Secure a web server with SSL certificates in Azure | Azure
 description: Learn how to secure the NGINX web server with SSL certificates on a Linux VM in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/17/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -30,26 +30,25 @@ To secure web servers, a Secure Sockets Later (SSL) certificate can be used to e
 > * Create a VM and install the NGINX web server
 > * Inject the certificate into the VM and configure NGINX with an SSL binding
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).  
-
 
 ## Overview
 Azure Key Vault safeguards cryptographic keys and secrets, such certificates or passwords. Key Vault helps streamline the certificate management process and enables you to maintain control of keys that access those certificates. You can create a self-signed certificate inside Key Vault, or upload an existing, trusted certificate that you already own.
 
 Rather than using a custom VM image that includes certificates baked-in, you inject certificates into a running VM. This process ensures that the most up-to-date certificates are installed on a web server during deployment. If you renew or replace a certificate, you don't also have to create a new custom VM image. The latest certificates are automatically injected as you create additional VMs. During the whole process, the certificates never leave the Azure platform or are exposed in a script, command-line history, or template.
 
-
 ## Create an Azure Key Vault
-Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *China North* location:
+Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *chinanorth* location:
 
 ```
-az group create --name myResourceGroupSecureWeb --location "China North"
+az group create --name myResourceGroupSecureWeb --location chinanorth
 ```
 
 Next, create a Key Vault with [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
-```
+```azurecli 
 keyvault_name=<mykeyvault>
 az keyvault create \
     --resource-group myResourceGroupSecureWeb \
@@ -60,7 +59,7 @@ az keyvault create \
 ## Generate a certificate and store in Key Vault
 For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.microsoft.com/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.microsoft.com/cli/azure/certificate#create) that uses the default certificate policy:
 
-```
+```azurecli 
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
@@ -70,7 +69,7 @@ az keyvault certificate create \
 ### Prepare a certificate for use with a VM
 To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret](https://docs.microsoft.com/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
-``` 
+```azurecli 
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
@@ -110,7 +109,7 @@ runcmd:
 ### Create a secure VM
 Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
 
-``` 
+```azurecli 
 az vm create \
     --resource-group myResourceGroupSecureWeb \
     --name myVM \
@@ -125,13 +124,12 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 
 To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
 
-``` 
+```azurecli 
 az vm open-port \
     --resource-group myResourceGroupSecureWeb \
     --name myVM \
     --port 443
 ```
-
 
 ### Test the secure web app
 Now you can open a web browser and enter *https://<publicIpAddress>* in the address bar. Provide your own public IP address from the VM create process. Accept the security warning if you used a self-signed certificate:
@@ -141,7 +139,6 @@ Now you can open a web browser and enter *https://<publicIpAddress>* in the addr
 Your secured NGINX site is then displayed as in the following example:
 
 ![View running secure NGINX site](./media/tutorial-secure-web-server/secured-nginx.png)
-
 
 ## Next steps
 
@@ -157,3 +154,5 @@ Follow this link to see pre-built virtual machine script samples.
 
 > [!div class="nextstepaction"]
 > [Windows virtual machine script samples](./cli-samples.md)
+
+<!--Update_Description: update meta properties, wording update-->

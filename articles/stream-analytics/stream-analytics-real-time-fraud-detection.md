@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 07/10/2017
+ms.date: 10/02/2017
 ms.author: v-yeche
 
 ---
@@ -44,8 +44,8 @@ Before you start, make sure you have the following:
 * An Azure account.
 * The call-event generator app. You can get this by downloading the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
-    > [!NOTE]
-    > Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
+    >[!NOTE]
+    >Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
 
 If you want to examine the results of the Streaming Analytics job, you also need a tool for viewing the contents of a Azure Blob Storage container. If you use Visual Studio, you can use [Azure Tools for Visual Studio](/vs-azure-tools-storage-resources-server-explorer-browse-manage) or [Visual Studio Cloud Explorer](/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatively, you can install standalone tools like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
@@ -53,31 +53,30 @@ If you want to examine the results of the Streaming Analytics job, you also need
 
 To analyze a data stream, you *ingest* it into Azure. A typical way to ingest data is to use [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), which lets you ingest millions of events per second and then process and store the event information. For this tutorial, you create an event hub and then have the call-event generator app send call data to that event hub. For more about event hubs, see the [Azure Service Bus documentation](/service-bus/).
 
-> [!NOTE]
-> For a more detailed version of this procedure, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). 
+>[!NOTE]
+>For a more detailed version of this procedure, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). 
 
 ### Create a namespace and event hub
-
 In this procedure, you first create an event hub namespace, and then you add an event hub to that namepsace. Event hub namespaces are used to logically group related event bus instances. 
 
 1. Log  into the Azure portal and click **New** > **Internet of Things** > **Event Hub**. 
 
 2. In the **Create namespace** blade, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
-
+    
 3. Select a subscription and create or choose a resource group , then click **Create**. 
 
     ![Create an event hub namespace](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
-
+ 
 4. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
 5. Click the new namespace, and in the namespace blade, click **+&nbsp;Event Hub**. 
 
     ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
-
+ 
 6. Name the new event hub `sa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
     ![Blade for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
-
+    
 7. Click **Create**.
 
 ### Grant access to the event hub and get a connection string
@@ -403,7 +402,7 @@ However, if you're done and you don't need the resources you've created, you can
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 <!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.-->

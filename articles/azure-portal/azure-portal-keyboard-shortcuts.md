@@ -1,44 +1,46 @@
 ---
-title: Azure portal keyboard shortcuts | Azure
-description: This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts.
+title: Azure portal keyboard shortcuts | Microsoft Docs
+description: Learn about the keyboard shortcuts that work in the Azure portal. 
 services: azure-portal
-documentationCenter: ''
-authors: flanakin
+documentationcenter: ''
+author: flanakin
 manager: lwelicki
 editor: ''
 
+ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
 ms.service: multiple
+ms.devlang: NA
 ms.topic: article
-origin.date: 02/07/2016
-ms.date: 06/21/2016
-ms.author: v-yiso
+ms.tgt_pltfrm: NA
+ms.workload: na
+origin.date: 08/24/2017
+ms.author: micflan
+ms.custom: accessibility
+ms.date: 10/16/2017
 ---
+# Keyboard shortcuts in the Azure portal
+This article shows the keyboard shortcuts that work throughout the Azure portal. Individual services may have their own keyboard shortcuts.
 
-# Azure portal keyboard shortcuts
-
-## Open hubs
-
-| Shortcut | Action |
-|--------|----------|
-| N | Notifications |
-| / | Browse services |
-| A | Active sessions |
-| B | Billing |
-| C | Create |
+## Actions
+|To do this |Press |
+| --- | --- |
+|Create a new resource|G+N|
+|Open the 'More services' pane|G+B|
+|Search resources|G+/| 
+|Search resource menu items|CTRL+/ |
+|Move the selected left pane item up |ALT+Shift+Up Arrow|
+|Move the selected left pane item down |ALT+Shift+Down Arrow|
 
 ## Navigation
+|To do this |Press |
+| --- | --- |
+|Move focus to command bar |G+, |
+|Toggle focus between top bar and side bar | G+. |
 
-| Shortcut | Action |
-|--------|----------|
-| H | Azure Start dashboard |
-| F | First open blade |
-| J | Previous open blade |
-| K | Next open blade |
-| L | Last open blade |
-| - | Minimize blade or restore from maximized |
-| + | Maximize blade or restore from minimized |
-| # | Close current blade |
-| ¦ | Close all blades |
-| , | Move focus to command bar |
-| . | Move focus to navigation bar |
-| ? | View keyboard shortcuts |
+## Go to
+|To do this |Press |
+| --- | --- |
+|Go to dashboard |G+D |
+|Go to all resources|G+A |
+|Go to resource groups|G+R |
+|Open the left pane item at this position |G+number|

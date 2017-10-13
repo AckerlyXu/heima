@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/25/2017
-ms.date: 04/27/2017
+origin.date: 07/25/2017
+ms.date: 09/25/2017
 ms.author: v-yiso
 ---
 
@@ -31,7 +31,7 @@ The following diagram outlines the logical components of the preconfigured solut
 
 ![][img-architecture]
 
-The blue items are Azure services that are provisioned in the region you select when you provision the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
+The blue items are Azure services provisioned in the region where you deployed the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
 
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
 
@@ -55,7 +55,11 @@ The simulated devices can handle the following commands sent from the IoT hub in
 IoT Hub provides device command acknowledgment.
 
 ## Azure Stream Analytics job
-**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
+
+**Job: Telemetry** operates on the incoming device telemetry stream using two statements:
+
+* The first selects all telemetry from the devices and sends this data to blob storage. From here, it is visualized in the web app.
+* The second computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
 
 ## Event processor
 The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to an API that exposes trained model to calculate the RUL for an engine. The API is exposed by an R Server that is provisioned as part of the solution.

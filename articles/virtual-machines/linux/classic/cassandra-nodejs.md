@@ -3,7 +3,7 @@ title: Run Cassandra with Linux on Azure | Azure
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 08/17/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) and [Spark cluster and Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/).
 
 ## Overview
 Azure is an open cloud platform that runs both Microsoft as well as non-Microsoft software which  includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra's distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org; Cassandra is written in Java and hence runs on both on Windows as well as Linux platforms.
@@ -116,8 +116,8 @@ The following software versions are used during the deployment:
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
-<tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn) </td><td>14.04 LTS</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://archive.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn/) </td><td>14.04 LTS</td></tr>
 </table>
 
 Since downloading of JRE requires manual acceptance of Oracle license, to simplify the deployment, download all the required software to the desktop for later uploading into the Ubuntu template image we will be creating as a precursor to the cluster deployment.
@@ -159,6 +159,7 @@ Enter the following information on the "Virtual machine configuration" screen #2
 <tr><td>AVAILABILITY SET </td><td>    None </td><td>    Leave it blank</td></tr>
 <tr><td>ENDPOINTS    </td><td>Use default </td><td>    Use the default SSH configuration </td></tr>
 </table>
+<!-- cloudapp.net  to chinacloudapp.cn -->
 
 Click right arrow, leave the defaults on the screen #3 and click the "check" button to complete the VM provisioning process. After a few minutes, the VM with the name "ubuntu-template" should be in a "running" status.
 
@@ -166,8 +167,7 @@ Click right arrow, leave the defaults on the screen #3 and click the "check" but
 #### STEP 1: Upload tarballs
 Using scp or pscp, copy the previously downloaded software to ~/downloads directory using the following command format:
 
-    pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.chinacloudapp.cn:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
-
+##### pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.chinacloudapp.cn:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 Repeat the above command for JRE as well as for the Cassandra bits.
 
 #### STEP 2: Prepare the directory structure and extract the archives
@@ -264,9 +264,7 @@ Append the following at the end:
 
 #### Step 4: Install JNA for production systems
 Use the following command sequence:
-
 The following command will install jna-3.2.7.jar and jna-platform-3.2.7.jar to /usr/share.java directory
-
     sudo apt-get install libjna-java
 
 Create symbolic links in $CASS_HOME/lib directory so that Cassandra startup script can find these jars:
@@ -305,7 +303,6 @@ This will take a few seconds and the image should be available in MY IMAGES sect
 
 ## Single Region Deployment Process
 **Step 1: Create the Virtual Network**
-
 Log into the Azure portal and create a virtual network (classic) with the attributes shown in the following table. See [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) for detailed steps of the process.      
 
 <table>
@@ -329,7 +326,6 @@ Add the following subnets:
 Data and Web subnets can be protected through network security groups the coverage of which is out of scope for this article.  
 
 **Step 2: Provision Virtual Machines**
-
 Using the image created previously, we will create the following virtual machines in the cloud server "hk-c-svc-north" and bind them to the respective subnets as shown below:
 
 <table>
@@ -715,4 +711,4 @@ Azure is a flexible platform that allows the running of both Microsoft as well a
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

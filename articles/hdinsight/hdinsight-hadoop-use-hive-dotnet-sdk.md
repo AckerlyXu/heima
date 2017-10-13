@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 09/15/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Run Hive queries using HDInsight .NET SDK
@@ -34,6 +34,10 @@ Learn how to submit Hive queries using HDInsight .NET SDK. You write a C# progra
 Before you begin this article, you must have the following items:
 
 * **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+
+    > [!WARNING]
+    > As of September 15, 2017, the HDInsight .NET SDK only supports returning Hive query results from Azure Storage accounts. If you use this example with an HDInsight cluster that uses Azure Data Lake Store as primary storage, you cannot retrieve search results using the .NET SDK.
+
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit Hive queries using HDInsight .NET SDK
@@ -66,9 +70,9 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
                 private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.cn";
                 private const string ExistingClusterUsername = "<Cluster Username>";
                 private const string ExistingClusterPassword = "<Cluster User Password>";
-
+                
+                // Only Azure Storage accounts are supported by the SDK
                 private const string DefaultStorageAccountName = "<Default Storage Account Name>";
-                private const string StorageAccountSuffix = "core.chinacloudapi.cn";
                 private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
                 private const string DefaultStorageContainerName = "<Default Blob Container Name>";
 
@@ -114,7 +118,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
                     // Get job output
                     var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
-                        DefaultStorageContainerName, StorageAccountSuffix);
+                        DefaultStorageContainerName);
                     var output = (jobDetail.ExitValue == 0)
                         ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
                         : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
@@ -149,4 +153,5 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-<!--Update_Description: update link ref-->
+
+

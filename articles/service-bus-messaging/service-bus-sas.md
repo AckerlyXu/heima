@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/14/2017
-ms.date: 03/20/2017
+origin.date: 08/23/2017
+ms.date: 10/16/2017
 ms.author: v-yiso
 ---
 
@@ -41,7 +41,7 @@ SAS authentication uses the following elements:
 
 ## Shared access policy
 
-An important thing to understand about SAS is that it starts with a policy. For each policy, you decide on three pieces of information: **name**, **scope**, and **permissions**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as `https://<yournamespace>.servicebus.windows.cn/`.
+An important thing to understand about SAS is that it starts with a policy. For each policy, you decide on three pieces of information: **name**, **scope**, and **permissions**. The **name** is just that; a unique name within that scope. The scope is easy enough: it's the URI of the resource in question. For a Service Bus namespace, the scope is the fully qualified domain name (FQDN), such as `https://<yournamespace>.servicebus.chinacloudapi.cn/`.
 
 The available permissions for a policy are largely self-explanatory:
 
@@ -91,14 +91,14 @@ Where `signature-string` is the SHA-256 hash of the scope of the token (**scope*
 The hash looks similar to the following pseudo code and returns 32 bytes.
 
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.cn/'+'\n'+ 1438205742)
+SHA-256('https://<yournamespace>.servicebus.chinacloudapi.cn/'+'\n'+ 1438205742)
 ```
 
 The non-hashed values are in the **SharedAccessSignature** string so that the recipient can compute the hash with the same parameters, to be sure that it returns the same result. The URI specifies the scope, and the key name identifies the policy to be used to compute the hash. This is important from a security standpoint. If the signature doesn't match that which the recipient (Service Bus) calculates, then access is denied. At this point you can be sure that the sender had access to the key and should be granted the rights specified in the policy.
 
-Note that you should use the encoded resource URI for this operation. The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, `http://<namespace>.servicebus.windows.net/<entityPath>` or `sb://<namespace>.servicebus.windows.net/<entityPath>`; that is, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`.
+Note that you should use the encoded resource URI for this operation. The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, `http://<namespace>.servicebus.chinacloudapi.cn/<entityPath>` or `sb://<namespace>.servicebus.chinacloudapi.cn/<entityPath>`; that is, `http://contoso.servicebus.chinacloudapi.cn/contosoTopics/T1/Subscriptions/S3`.
 
-The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/contosoTopics/T1` or `http://contoso.servicebus.windows.cn` in the previous example.
+The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.chinacloudapi.cn/contosoTopics/T1` or `http://contoso.servicebus.chinacloudapi.cn` in the previous example.
 
 A SAS token is valid for all resources under the `<resourceURI>` used in the `signature-string`.
 
@@ -123,14 +123,14 @@ Operations on the Service Bus namespace root require certificate authentication.
 The endpoint for accessing shared access authorization rules on a Service Bus namespace is as follows:
 
 ```http
-https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
+https://management.core.chinacloudapi.cn/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
 To create a [SharedAccessAuthorizationRule](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Service Bus namespace, execute a POST operation on this endpoint with the rule information serialized as JSON or XML. For example:
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
-string baseAddress = @"https://management.core.windows.net/<subscriptionId>/services/ServiceBus/namespaces/<namespace>/AuthorizationRules/";
+string baseAddress = @"https://management.core.chinacloudapi.cn/<subscriptionId>/services/ServiceBus/namespaces/<namespace>/AuthorizationRules/";
 
 // Configure authorization rule with base64-encoded 256-bit key and Send rights
 var sendRule = new SharedAccessAuthorizationRule("contosoSendAll",
@@ -162,7 +162,7 @@ Similarly, use a GET operation on the endpoint to read the authorization rules c
 To update or delete a specific authorization rule, use the following endpoint:
 
 ```http
-https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
+https://management.core.chinacloudapi.cn/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/{KeyName}
 ```
 
 ## Access Shared Access Authorization rules on an entity
@@ -226,9 +226,9 @@ Note that to use SAS authorization with Service Bus relays, you can use SAS keys
 Now that you know how to create Shared Access Signatures for any entities in Service Bus, you are ready to perform an HTTP POST:
 
 ```http
-POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
+POST https://<yournamespace>.servicebus.chinacloudapi.cn/<yourentity>/messages
 Content-Type: application/json
-Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
+Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.chinacloudapi.cn%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 
@@ -267,7 +267,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
     request.Properties.ReplyTo = cbsClientAddress;
     request.ApplicationProperties = new ApplicationProperties();
     request.ApplicationProperties["operation"] = "put-token";
-    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["type"] = "servicebus.chinacloudapi.cn:sastoken";
     request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
     cbsSender.Send(request);
 
@@ -304,7 +304,7 @@ The `PutCbsToken()` method receives the *connection* (AMQP connection class inst
 
 Next, the publisher creates two AMQP links for sending the SAS token and receiving the reply (the token validation result) from the service.
 
-The AMQP message contains a set of properties, and more information than a simple message. The SAS token is the body of the message (using its constructor). The **"ReplyTo"** property is set to the node name for receiving the validation result on the receiver link (you can change its name if you want, and it will be created dynamically by the service). The last three application/custom properties are used by the service to indicate what kind of operation it has to execute. As described by the CBS draft specification, they must be the **operation name** ("put-token"), the **type of token** (in this case, a "servicebus.windows.net:sastoken"), and the **"name" of the audience** to which the token applies (the entire entity).
+The AMQP message contains a set of properties, and more information than a simple message. The SAS token is the body of the message (using its constructor). The **"ReplyTo"** property is set to the node name for receiving the validation result on the receiver link (you can change its name if you want, and it will be created dynamically by the service). The last three application/custom properties are used by the service to indicate what kind of operation it has to execute. As described by the CBS draft specification, they must be the **operation name** ("put-token"), the **type of token** (in this case, a "servicebus.chinacloudapi.cn:sastoken"), and the **"name" of the audience** to which the token applies (the entire entity).
 
 After sending the SAS token on the sender link, the publisher must read the reply on the receiver link. The reply is a simple AMQP message with an application property named **"status-code"** that can contain the same values as an HTTP status code.
 

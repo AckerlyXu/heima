@@ -53,7 +53,7 @@ JMS uses the Java Naming and Directory Interface (JNDI) to create a separation b
 
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
-connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
+connectionfactory.SBCF = amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.chinacloudapi.cn
 
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
@@ -76,7 +76,7 @@ Where **[jndi_name]** and **[ConnectionURL]** have the following meanings:
 The format of the **ConnectionURL** is as follows:
 
 ```
-amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
+amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.chinacloudapi.cn
 ```
 Where **[namespace]**, **[SASPolicyName]** and **[SASPolicyKey]** have the following meanings:
 

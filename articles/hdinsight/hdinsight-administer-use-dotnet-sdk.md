@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/25/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Manage Hadoop clusters in HDInsight by using .NET SDK
@@ -37,20 +37,23 @@ Before you begin this article, you must have the following:
 
 You need the following Nuget packages:
 
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.HDInsight
+```
+Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+Install-Package Microsoft.Azure.Management.HDInsight
+```
 
 The following code sample shows you how to connect to Azure before you can administer HDInsight clusters under your Azure subscription.
 
-    using System;
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.HDInsight;
-    using Microsoft.Azure.Management.HDInsight.Models;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure.Authentication;
+```csharp
+using System;
+using Microsoft.Azure;
+using Microsoft.Azure.Management.HDInsight;
+using Microsoft.Azure.Management.HDInsight.Models;
+using Microsoft.Azure.Management.ResourceManager;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
 
     namespace HDInsightManagement
     {
@@ -117,19 +120,23 @@ See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hado
 ## List clusters
 The following code snippet lists clusters and some properties:
 
-    var results = _hdiManagementClient.Clusters.List();
-    foreach (var name in results.Clusters) {
-        Console.WriteLine("Cluster Name: " + name.Name);
-        Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
-        Console.WriteLine("\t Cluster location: " + name.Location);
-        Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
-    }
+```csharp
+var results = _hdiManagementClient.Clusters.List();
+foreach (var name in results.Clusters) {
+    Console.WriteLine("Cluster Name: " + name.Name);
+    Console.WriteLine("\t Cluster type: " + name.Properties.ClusterDefinition.ClusterType);
+    Console.WriteLine("\t Cluster location: " + name.Location);
+    Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
+}
+```
 
 ## Delete clusters
 Use the following code snippet to delete a cluster synchronously or asynchronously: 
 
-    _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
-    _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```csharp
+_hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
+_hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
+```
 
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
@@ -149,10 +156,12 @@ The impact of changing the number of data nodes for each type of cluster support
 * HBase
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
-
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+  
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -169,16 +178,20 @@ The impact of changing the number of data nodes for each type of cluster support
     ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
-
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 The following code snippet shows how to resize a cluster synchronously or asynchronously:
 
-    _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
-    _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+```csharp
+_hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+_hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
+```
 
 ## Grant/revoke access
 HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
@@ -191,23 +204,27 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = false,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = false,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 To grant:
 
-    var httpParams = new HttpSettingsParameters
-    {
-        HttpUserEnabled = enable,
-        HttpUsername = "admin",
-        HttpPassword = "*******",
-    };
-    _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```csharp
+var httpParams = new HttpSettingsParameters
+{
+    HttpUserEnabled = enable,
+    HttpUsername = "admin",
+    HttpPassword = "*******",
+};
+_hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Cluster Name>, httpParams);
+```
 
 > [!NOTE]
 > By granting/revoking the access, you will reset the cluster user name and password.
@@ -222,11 +239,13 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If 
 ## Find the default storage account
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
 
-    var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
-    foreach (var key in results.Configuration.Keys)
-    {
-        Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
-    }
+```csharp
+var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
+foreach (var key in results.Configuration.Keys)
+{
+    Console.WriteLine(String.Format("{0} => {1}", key, results.Configuration[key]));
+}
+```
 
 ## Submit jobs
 **To submit MapReduce jobs**

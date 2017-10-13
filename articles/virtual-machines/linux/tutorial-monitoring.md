@@ -3,7 +3,7 @@ title: Monitor Linux virtual machines in Azure | Azure
 description: Learn how to monitor boot diagnostics and performance metrics on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 # How to monitor a Linux virtual machine in Azure
@@ -28,6 +28,8 @@ To ensure your virtual machines (VMs) in Azure are running correctly, you can re
 > * View boot diagnostics
 > * Enable diagnostics extension on the VM
 > * Create alerts based on diagnostic metrics
+<!-- Not Available on metrics feature-->
+<!-- Not Available on advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -41,7 +43,7 @@ To see diagnostics and metrics in action, you need a VM. First, create a resourc
 az group create --name myResourceGroupMonitor --location chinaeast
 ```
 
-Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVM*:
+Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*:
 
 ```azurecli 
 az vm create \
@@ -74,7 +76,7 @@ When enabling boot diagnostics, the URI to the blob storage container is needed.
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). The `--storage` value is the blob URI collected in the previous step.
+Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable). The `--storage` value is the blob URI collected in the previous step.
 
 ```azurecli 
 az vm boot-diagnostics enable \
@@ -97,11 +99,12 @@ Now start the VM with the [az vm start](https://docs.microsoft.com/cli/azure/vm#
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) command as follows:
+You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) command as follows:
 
 ```azurecli 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
+<!--Not Available ## View host metrics-->
 
 ## Install diagnostics extension
 
@@ -119,6 +122,7 @@ The basic host metrics are available, but to see more granular and VM-specific m
 
     ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
+<!-- Not Available ## View VM metrics-->
 ## Create alerts
 
 You can create alerts based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure portal or can be sent via email. You can also trigger Azure Automation runbooks or Azure Logic Apps in response to alerts being generated.
@@ -132,6 +136,7 @@ The following example creates an alert for average CPU usage.
 6. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
 7. Click the **OK** button.
 
+<!-- Not Available ## Advanced monitoring -->
 ## Next steps
 
 In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
@@ -142,3 +147,4 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Enable diagnostics extension on the VM
 > * Create alerts based on diagnostic metrics
 
+<!--Update_Description: update meta properties, wording update, update link-->

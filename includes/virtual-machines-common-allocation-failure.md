@@ -188,6 +188,8 @@ Full deallocation means that you stopped (deallocated) all VMs in an availabilit
 
 Select a new VM size to allocate. If this does not work, please try again later.
 
+<a name="Error string lookup"></a>
+
 ## Error string lookup
 **New_VMSizeNotSupported***
 
@@ -204,3 +206,6 @@ Select a new VM size to allocate. If this does not work, please try again later.
 **GeneralError***
 
 "The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+
+<!--Update_Description: update meta properties, wording update-->
+<!--ms.date: 10/16/2017-->

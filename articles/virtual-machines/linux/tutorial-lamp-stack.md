@@ -1,10 +1,10 @@
 ---
-title: Deploy LAMP on a Linux virtual machine in Azure | Microsoft Docs
+title: Deploy LAMP on a Linux virtual machine in Azure | Azure
 description: Tutorial - Install the LAMP stack on a Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -13,10 +13,10 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # Install a LAMP web server on an Azure VM
@@ -32,7 +32,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 
 For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -42,19 +42,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command.
 
-
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
-
 
 You are prompted to install the packages and other dependencies. When prompted, set a root password for MySQL, and then [Enter] to continue. Follow the remaining prompts. This process installs the minimum required PHP extensions needed to use PHP with MySQL. 
 
 ![MySQL root password page][1]
 
 ## Verify installation and configuration
-
 
 ### Apache
 
@@ -66,7 +62,6 @@ apache2 -v
 With Apache installed, and port 80 open to your VM, the web server can now be accessed from the internet. To view the Apache2 Ubuntu Default Page, open a web browser, and enter the public IP address of the VM. Use the public IP address you used to SSH to the VM:
 
 ![Apache default page][3]
-
 
 ### MySQL
 
@@ -132,3 +127,5 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 [1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
+
+<!--Update_Description: update meta properties, wording update-->

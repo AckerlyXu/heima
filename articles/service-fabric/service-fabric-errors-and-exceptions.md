@@ -3,8 +3,8 @@ title: Common FabricClient exceptions thrown | Azure
 description: Describes the common exceptions and errors which can be thrown by the FabricClient APIs while performing application and cluster management operations.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
@@ -13,11 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/16/2017
-ms.date: 03/03/2017
-ms.author: v-johch
+origin.date: 08/30/2017
+ms.date: 10/02/2017
+ms.author: v-yeche
 ---
-
 # Common exceptions and errors when working with the FabricClient APIs
 The [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) APIs enable cluster and application administrators to perform administrative tasks on a Service Fabric application, service, or cluster. For example, application deployment, upgrade, and removal, checking the health a cluster, or testing a service. Application developers and cluster administrators can use the FabricClient APIs to develop tools for managing the Service Fabric cluster and applications.
 
@@ -33,15 +32,17 @@ There are many different types of operations which can be performed using Fabric
 
 Some common [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) errors that can be returned in a [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException):
 
-|Error| Condition|
-|---------|:-----------|
-|CommunicationError|A communication error caused the operation to fail, retry the operation.|
-|InvalidCredentialType|The credential type is invalid.|
-|InvalidX509FindType|The X509FindType is invalid.|
-|InvalidX509StoreLocation|The X509 store location is invalid.|
-|InvalidX509StoreName|The X509 store name is invalid.|
-|InvalidX509Thumbprint|The X509 certificate thumbprint string is invalid.|
-|InvalidProtectionLevel|The protection level is invalid.|
-|InvalidX509Store|The X509 certificate store cannot be opened.|
-|InvalidSubjectName|The subject name is invalid.|
-|InvalidAllowedCommonNameList|The format of common name list string is invalid. It should be a comma-separated list.|
+| Error | Condition |
+| --- |:--- |
+| CommunicationError |A communication error caused the operation to fail, retry the operation. |
+| InvalidCredentialType |The credential type is invalid. |
+| InvalidX509FindType |The X509FindType is invalid. |
+| InvalidX509StoreLocation |The X509 store location is invalid. |
+| InvalidX509StoreName |The X509 store name is invalid. |
+| InvalidX509Thumbprint |The X509 certificate thumbprint string is invalid. |
+| InvalidProtectionLevel |The protection level is invalid. |
+| InvalidX509Store |The X509 certificate store cannot be opened. |
+| InvalidSubjectName |The subject name is invalid. |
+| InvalidAllowedCommonNameList |The format of common name list string is invalid. It should be a comma-separated list. |
+
+<!--Update_Description: update meta properties-->

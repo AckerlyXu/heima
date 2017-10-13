@@ -1,10 +1,10 @@
 ---
-title: How to use Azure Redis Cache with Java | Azure
+title: How to use Azure Redis Cache with Java | Microsoft Docs
 description: Get started with Azure Redis Cache using Java
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
@@ -13,9 +13,9 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-origin.date: 04/13/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+origin.date: 08/31/2017
+ms.date: 10/09/2017
+ms.author: v-junlch
 
 ---
 # How to use Azure Redis Cache with Java
@@ -80,3 +80,5 @@ The latest builds of [jedis](https://github.com/xetorthio/jedis) provide support
 ## Next steps
 * [Enable cache diagnostics](/redis-cache/cache-how-to-monitor#enable-cache-diagnostics) so you can [monitor](/redis-cache/cache-how-to-monitor) the health of your cache.
 * Read the official [Redis documentation](http://redis.io/documentation).
+
+<!--Update_Description: update meta properties -->  

@@ -1,10 +1,10 @@
 ---
-title: About disks and VHDs for Azure Windows VMs | Microsoft Docs
+title: About disks and VHDs for Azure Windows VMs | Azure
 description: Learn about the basics of disks and VHDs for Windows virtual machines in Azure.
 services: storage
 documentationcenter: ''
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 08/28/2017
-ms.author: robinsh
+ms.date: 10/16/2017
+ms.author: v-yeche
 
 ---
 # About disks and VHDs for Azure Windows VMs
-Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. 
+Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks - a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. 
 
-In this article, we will talk about the different uses for the disks, and then discuss the different types of disks you can create and use. This article is also available for [Linux virtual machines](about-disks-and-vhds.md).
+In this article, we will talk about the different uses for the disks, and then discuss the different types of disks you can create and use. This article is also available for [Linux virtual machines](../linux/about-disks-and-vhds.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -39,7 +39,6 @@ The temporary disk is labeled as the D: drive by default and it used for storing
 
 For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-
 ### Data disk
 A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4095 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
@@ -51,7 +50,6 @@ Azure creates an operating system disk when you create a virtual machine from an
 
 You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine. You can use a VHD that you've uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file with the VM by placing a 'lease' on the VHD so it can't be deleted from storage while it's still attached.
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
 ## One last recommendation: Use TRIM with unmanaged standard disks 
@@ -59,7 +57,6 @@ You can add data disks to a virtual machine at any time, by **attaching** the di
 If you use unmanaged standard disks (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them. 
 
 You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
-
 
 ```
 fsutil behavior query DisableDeleteNotify
@@ -80,3 +77,4 @@ fsutil behavior set DisableDeleteNotify 0
 * [Attach a disk](attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.
 * [Change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so your application can use the D: drive for data.
 
+<!--Update_Description: update link-->

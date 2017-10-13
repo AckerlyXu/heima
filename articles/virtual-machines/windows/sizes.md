@@ -3,7 +3,7 @@ title: Windows VM sizes in Azure | Azure
 description: Lists the different sizes available for Windows virtual machines in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/28/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/07/2017
+ms.date: 10/16/2017
+ms.author: v-yeche
 ---
 
 # Sizes for Windows virtual machines in Azure
@@ -27,7 +27,11 @@ This article describes the available sizes and options for the Azure virtual mac
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7 | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md)         | DSv2, DS, Dv2, D   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md)         | DSv2, DS, Dv2, D   | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+<!-- Not Available B (Preview), Dsv3, Dv3, -->
+<!-- Not Available [Storage optimized] Ls -->
+<!-- Not Available [GPU] NV, NC  -->
+<!-- Not Available [High performance compute] H, A8-11 -->
 
 <br> 
 
@@ -54,6 +58,4 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
-
-
-
+<!--Update_Description: update meta properties-->

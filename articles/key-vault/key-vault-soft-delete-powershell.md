@@ -8,8 +8,8 @@ manager: digimobile
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-origin.date: 08/04/2017
-ms.date: 09/07/2017
+origin.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: v-junlch
 ---
 # How to use Key Vault soft-delete with PowerShell
@@ -22,6 +22,12 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 ## Prerequisites
 
 - Azure PowerShell 4.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+
+>[!NOTE]
+> There is an outdated version of our Key Vault PowerShell output formatting file that **may** be loaded into your environment instead of the correct version. We are anticipating an updated version of PowerShell to contain the needed correction for the output formatting and will update this topic at that time. 
+The current workaround, should you encounter this formatting problem, is:
+> - Use the following query if you notice you're not seeing the soft-delete enabled property described in this topic: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+
 
 For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
@@ -187,24 +193,24 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@
 Like keys, secrets in a key vault are operated on with their own commands. Following, are the commands for deleting, listing, recovering, and purging secrets.
 
 - Delete a secret named SQLPassword: 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```powershell
-Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
-```
+  ```powershell
+  Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  ```
 
 - Recover a secret in the deleted state: 
-```powershell
-Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
-```
+  ```powershell
+  Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+  ```
 
 - Purge a secret in deleted state: 
-```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
-```
+  ```powershell
+  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  ```
 
 >[!NOTE]
 >Purging a secret will permanently delete it, meaning it will not be recoverable.
@@ -243,3 +249,4 @@ Listing your deleted key vault objects shows when they are schedled to be purged
 - For a general overview of Azure Key Vault usage, see [Get started with Azure Key Vault](key-vault-get-started.md).
 
 
+<!--Update_Description: wording update-->

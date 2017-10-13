@@ -3,7 +3,7 @@ title: Azure Quick Start - Create Windows VM CLI | Azure
 description: Quickly learn to create a Windows virtual machines with the Azure CLI.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/16/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -42,16 +42,12 @@ az group create --name myResourceGroup --location chinaeast
 
 ## Create virtual machine
 
-Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
+Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
 The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. Update these values to something appropriate to your environment. These values are needed when creating a connection with the virtual machine.
 
 ```azurecli 
-az vm create `
-  --resource-group myResourceGroup `
-  --name myVM --image win2016datacenter `
-  --admin-username azureuser `
-  --admin-password myPassword12
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAaddress`. This address is used to access the VM.
@@ -113,3 +109,5 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
+
+<!--Update_Description: wording update-->
