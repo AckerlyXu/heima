@@ -13,9 +13,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Install and use Presto on HDInsight Hadoop clusters
@@ -43,7 +43,7 @@ This section provides instructions on how to use the sample script when creating
 
     a. It must be a Hadoop cluster with HDInsight version 3.5.
 
-    b. It must use Azure Storage as the data store. 
+	b. It must use Azure Storage as the data store. Using Presto on a cluster that uses Azure Data Lake Store as the storage option is not yet supported. 
 
     ![HDInsight cluster creation using custom options](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -114,9 +114,11 @@ In this section, we look at the steps to **install Airpal on the edgenode** of a
 
 3. From the output, note the value for the **value** property. You will need this while installing Airpal on the cluster edgenode. From the output above, the value that you will need is **10.0.0.12:9090**.
 
-4. Use the template **[here](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values.
+4. Use the template **[here](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values as shown in the following screenshot.
 
-5. Review the **Legal Terms**, and clickt the **Purchase** button for both the Legal terms and template.
+	![HDInsight install Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
+
+5. Click **Purchase**.
 
 6. Once the changes are applied to the cluster configuration, you can access the Airpal web interface by using the following steps.
 

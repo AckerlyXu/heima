@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/25/2017
-ms.date: 06/05/2017
-ms.author: v-dazen
+origin.date: 08/17/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Fix a Hive out of memory error in Azure HDInsight
 
 Learn how to fix a Hive out of memory error when process large tables by configuring Hive memory settings.
 
-## Scenario: Run a Hive query against large tables
+## Run Hive query against large tables
 
 A customer ran a Hive query:
 
@@ -101,7 +101,7 @@ The **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was s
         </description>
       </property>
 
-It is likely map join was the cause of the Java Heap Space out of memory error. As explained in the blog post [Hadoop Yarn memory settings in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), when Tez execution engine is used the heap space used actually belongs to the Tez container. See the following image describing the Tez container memory.
+It is likely map join was the cause of the Java Heap Space our of memory error. As explained in the blog post [Hadoop Yarn memory settings in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), when Tez execution engine is used the heap space used actually belongs to the Tez container. See the following image describing the Tez container memory.
 
 ![Tez container memory diagram: Hive out of memory error](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
@@ -119,10 +119,6 @@ Because a D12 machine has 28GB memory, we decided to use a container size of 10G
 
 With the new settings, the query successfully ran in under 10 minutes.
 
-## Conclusion: OOM errors and container size
-
-Getting an OOM error doesn't necessarily mean the container size is too small. Instead, you should configure the memory settings so that the heap size is increased and is at least 80% of the container memory size.
-
 ## Next steps
 
-- For optimizing Hive queries, see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Getting an OOM error doesn't necessarily mean the container size is too small. Instead, you should configure the memory settings so that the heap size is increased and is at least 80% of the container memory size. For optimizing Hive queries, see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).

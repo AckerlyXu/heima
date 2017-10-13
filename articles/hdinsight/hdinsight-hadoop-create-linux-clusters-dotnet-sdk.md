@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/16/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/17/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Create Linux-based clusters in HDInsight using the .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. This article demonstrates how to create a Linux-based HDInsight cluster using the .NET SDK.
+
+Learn how to create a Hadoop cluster in Azure HDInsight cluster using the .NET SDK.
 
 > [!IMPORTANT]
-> The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+> The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, you need to select a head node size with at least 8 cores and 14GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
@@ -190,7 +191,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
     ```
 
 6. Replace the class member values.
-7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
+7. Press **F5** to run the application. A console window should open and display the status of the application. You are prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
 
 ## Use bootstrap
 
@@ -323,7 +324,7 @@ static void Main(string[] args)
 
 ## Use Script Action
 
-Using Script Action, you can configure additional settings during cluster creations.  For more inforamtion, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+Using Script Action, you can configure additional settings during cluster creations.  For more information, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 Modify the sample in [Create clusters](#create-clusters) to call a Script Action to install R:
 
@@ -402,4 +403,4 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Run Oozie jobs in HDInsight](hdinsight-use-oozie.md)
-<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->
+

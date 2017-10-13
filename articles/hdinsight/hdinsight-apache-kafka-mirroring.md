@@ -3,8 +3,8 @@ title: Mirror Apache Kafka topics - Azure HDInsight | Azure
 description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
 services: hdinsight
 documentationcenter: ''
-author: hayley244
-manager: digimobile
+author: Blackmist
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 015d276e-f678-4f2b-9572-75553c56625b
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/13/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 09/07/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 ---
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (preview)
 
@@ -93,12 +93,8 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-Once the resources have been created, you are redirected to a blade for the resource group that contains the clusters and web dashboard.
-
-![Resource group blade for the vnet and clusters](./media/hdinsight-apache-kafka-mirroring/groupblade.png)
-
 > [!IMPORTANT]
-> Notice that the names of the HDInsight clusters are **source-BASENAME** and **dest-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
+> The name of the HDInsight clusters are **source-BASENAME** and **dest-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
 
 ## Create topics
 
@@ -118,11 +114,10 @@ Once the resources have been created, you are redirected to a blade for the reso
     # Install jq if it is not installed
     sudo apt -y install jq
     # get the zookeeper hosts for the source cluster
-    export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```
 
-    Replace `$PASSWORD` with the password for the cluster.
-
-    Replace `$CLUSTERNAME` with the name of the source cluster.
+    Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
 
 3. To create a topic named `testtopic`, use the following command:
 
@@ -162,7 +157,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following command to create a `consumer.properties` file that describes how to communicate with the **source** cluster:
+2. A `consumer.properties` file is used to configure communication with the **source** cluster. To create the file, use the following command:
 
     ```bash
     nano consumer.properties
@@ -185,19 +180,17 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
 
-    Replace `$PASSWORD` with the login account (admin) password for the cluster.
+    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
 
-    Replace `$CLUSTERNAME` with the name of the destination cluster.
-
-    These commands return information similar to the following:
+    The `echo` command returns information similar to the following text:
 
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092
 
-4. Use the following to create a `producer.properties` file that describes how to communicate with the **destination** cluster:
+4. A `producer.properties` file is used to communicate the __destination__ cluster. To create the file, use the following command:
 
     ```bash
     nano producer.properties
@@ -243,27 +236,23 @@ Once the resources have been created, you are redirected to a blade for the reso
 2. From the SSH connection to the **source** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
-    SOURCE_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Replace `$PASSWORD` with the login (admin) password for the source cluster.
+    Replace `$CLUSTERNAME` with the name of the source cluster. When prompted, enter the password for the cluster login (admin) account.
 
-    Replace `$CLUSTERNAME` with the name of the source cluster.
+     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
 
-     When you arrive at a blank line with a cursor, type in a few text messages. These are sent to the topic on the **source** cluster. When done, use **Ctrl + C** to end the producer process.
-
-3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. Then use the following commands to verify that the `testtopic` topic was created, and that data in the topic was replicated to this mirror:
+3. From the SSH connection to the **destination** cluster, use **Ctrl + C** to end the MirrorMaker process. To verify that the topic and messages were replicated to the destination, use the following commands:
 
     ```bash
-    DEST_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Replace `$PASSWORD` with the login (admin) password for the destination cluster.
-
-    Replace `$CLUSTERNAME` with the name of the destination cluster.
+    Replace `$CLUSTERNAME` with the name of the destination cluster. When prompted, enter the password for the cluster login (admin) account.
 
     The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the source cluster to the destination. The messages retrieved from the topic are the same as entered on the source cluster.
 

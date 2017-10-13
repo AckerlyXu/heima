@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Build Apache Spark machine learning applications on Azure HDInsight
@@ -229,4 +229,3 @@ Apache Spark clusters on HDInsight include Anaconda libraries. This also include
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

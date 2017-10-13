@@ -242,7 +242,7 @@ Once connected to the cluster, use the following steps to verify that you can on
 2. Use the following command to verify that you can read the contents of the file. Replace the **SASCONTAINER** and **SASACCOUNTNAME** as in the previous step. Replace **FILENAME** with the name of the file displayed in the previous command:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/FILENAME
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
     ```
 
     This command lists the contents of the file.
@@ -250,7 +250,7 @@ Once connected to the cluster, use the following steps to verify that you can on
 3. Use the following command to download the file to the local file system:
 
     ```bash
-    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/FILENAME testfile.txt
+    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     ```
 
     This command downloads the file to a local file named **testfile.txt**.
@@ -258,7 +258,7 @@ Once connected to the cluster, use the following steps to verify that you can on
 4. Use the following command to upload the local file to a new file named **testupload.txt** on the SAS storage:
 
     ```bash
-    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/testupload.txt
+    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     ```
 
     You receive a message similar to the following text:

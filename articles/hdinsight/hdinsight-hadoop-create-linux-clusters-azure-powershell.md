@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/10/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/28/2017
+ms.date: 10/23/2017
+ms.author: v-yiso
 
 ---
 # Create Linux-based clusters in HDInsight using Azure PowerShell

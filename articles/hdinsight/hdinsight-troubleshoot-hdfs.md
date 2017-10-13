@@ -1,6 +1,6 @@
 ---
-title: HDFS troubleshooting - Azure HDinsight| Azure
-description: Use the HDFS FAQ for answers to common questions on HDFS on Azure HDInsight platform.
+title: Troubleshoot HDFS by using Azure HDinsight| Microsoft Docs
+description: Get answers to common questions about working with HDFS and Azure HDInsight.
 keywords: Azure HDInsight, HDFS, FAQ, troubleshooting guide, common questions
 services: Azure HDInsight
 documentationcenter: na
@@ -15,25 +15,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+ms.date: 10/23/2017
+ms.author: v-yiso
 ---
 
-# HDFS troubleshooting
+# Troubleshoot HDFS by using Azure HDInsight
 
-This article describes the top issues and their resolutions for working with HDFS payloads in Apache Ambari.
+Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
 
-## How do I access local HDFS from inside a cluster
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>How do I access the local HDFS from inside a cluster
 
-### Issue:
+### Issue
 
-Access local HDFS from command line and application code instead of WASB or ADLS from inside 
-HDInsight cluster.   
+Access the local HDFS from the command line and application code instead of by using Azure Blob storage from inside the HDInsight cluster.   
 
-### Resolution Steps:
+### Resolution steps
 
-- From command line use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally as in 
-the following command:
+1. At the command prompt, use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally, as in the following command:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -43,7 +41,7 @@ drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
 drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
 ```
 
-- From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
+2. From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
 
 ```csharp
 import java.io.IOException;
@@ -67,7 +65,7 @@ public class JavaUnitTests {
     }
 }
 ```
-- Run the compiled JAR (for example named `java-unit-tests-1.0.jar`) on HDInsight cluster with the following command:
+3. Run the compiled .jar file (for example, a file named `java-unit-tests-1.0.jar`) on the HDInsight cluster with the following command:
 
 ```apache
 hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -77,21 +75,22 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
 hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 ```
 
-## How do I force disable HDFS safe mode in a cluster
 
-### Issue:
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster
 
-Local HDFS is stuck in safe mode on HDInsight cluster.   
+### Issue
 
-### Detailed description:
+The local HDFS is stuck in safe mode on the HDInsight cluster.   
 
-Fail to run simple HDFS command as follows:
+### Detailed description
+
+Failure occurs when you run the following HDFS command:
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-The error encountered trying to run the above command is as follows:
+You see the following error when you run the command:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -145,13 +144,13 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### Probable cause:
+### Probable cause
 
-HDInsight cluster has been scaled down to very few nodes below or close to HDFS replication factor.
+The HDInsight cluster has been scaled down to a very few nodes. The number of nodes is below or close to the HDFS replication factor.
 
-### Resolution Steps: 
+### Resolution steps 
 
-- Report on the status of HDFS on the HDInsight cluster with the following commands:
+1. Get the status of HDFS on the HDInsight cluster by using the following commands:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
@@ -192,7 +191,7 @@ Last contact: Wed Apr 05 16:22:00 UTC 2017
 ...
 ```
 
-- Check on the integrity of HDFS on the HDInsight cluster with the following commands:
+2. Check the integrity of HDFS on the HDInsight cluster by using the following commands:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -225,7 +224,7 @@ FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 The filesystem under path '/' is HEALTHY
 ```
 
-- If determined there are no missing, corrupt or under replicated blocks or those blocks can be ignored run the following command to take the name node out of safe mode:
+3. If you determine that there are no missing, corrupt, or under-replicated blocks, or that those blocks can be ignored, run the following command to take the name node out of safe mode:
 
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
