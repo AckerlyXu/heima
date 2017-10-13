@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
 origin.date: 03/17/2017
-ms.date: 07/11/2017
+ms.date: 10/13/2017
 ms.author: v-junlch
 ---
 

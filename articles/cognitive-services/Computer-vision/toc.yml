@@ -8,6 +8,8 @@
     href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Analyze videos in real time
+    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Quickstarts
   expanded: true
   items:
@@ -29,6 +31,10 @@
   items:
   - name: C#
     href: Tutorials/CSharpTutorial.md
+  - name: Java
+    href: Tutorials/java-tutorial.md
+  - name: JavaScript
+    href: Tutorials/javascript-tutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
 - name: Reference

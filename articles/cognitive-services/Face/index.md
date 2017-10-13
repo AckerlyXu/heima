@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 07/11/2017
+ms.date: 10/13/2017
 ms.author: v-junlch
 ---
 <div class="content">
     <h1>Face API Documentation</h1>
     <div class="intro" style="min-width: 200px">
-        <p>The cloud-based Face API provides developers with access to advanced face algorithms. MIcrosoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.</p>
+        <p>The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Detect and identify faces using:</p>

@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 origin.date: 12/19/2016
-ms.date: 07/10/2017
+ms.date: 10/13/2017
 ms.author: v-junlch
 ---
 

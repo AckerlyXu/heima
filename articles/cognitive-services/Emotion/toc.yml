@@ -6,6 +6,8 @@
   items:
   - name: Call the Emotion API for video
     href: emotion-api-how-to-topics/HowtoCallEmotionForVideo.md
+  - name: Analyze videos in real time
+    href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Quickstarts
   expanded: true
   items:

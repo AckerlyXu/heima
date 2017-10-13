@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: face
 ms.topic: article
 origin.date: 03/17/2017
-ms.date: 07/11/2017
+ms.date: 10/13/2017
 ms.author: v-junlch
 ---
 
@@ -19,18 +19,18 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in May 2017
 
-- **New Attribute** Hair, makeup, accessories, occlusion, blur, exposure, and noise attributes could be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure` or `noise` are specified in `returnFaceAttributes`.
+- **New Attribute** Hair, makeup, accessories, occlusion, blur, exposure, and noise attributes could be returned from [Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure` or `noise` are specified in `returnFaceAttributes`.
 
-- **Enhancement** Support 10K persons in a person group, [Face - Identify](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Face - Find Similar](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) are also supported for the scale.
+- **Enhancement** Support 10K persons in a person group, [Face - Identify](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) is also supported for the scale.
 
 - **List Persons API** Pagination is supported in [Person - List Persons in a Person Group](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) with extra optional parameters, `start` and `top`.
 
 - **Enhancement** Concurrency is supported in adding/deleting faces against different face lists or different persons in person group.
 
 ### Release changes in March 2017
-- **New Attribute** Emotion attribute could be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `emotion` is specified in `returnFaceAttributes`.
+- **New Attribute** Emotion attribute could be returned from [Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `emotion` is specified in `returnFaceAttributes`.
 
-- **Bug fix** For [Face List - Add a Face to a Face List](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [Person - Add a Person Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be re-detected with rectangle returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
+- **Bug fix** For [Face List - Add a Face to a Face List](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [Person - Add a Person Face](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be re-detected with rectangle returned from [Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
 
 - **Bug fix** Make sure the detectable face size is strictly between 36x36 to 4096x4096 pixels.
 

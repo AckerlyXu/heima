@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: computer-vision
 ms.topic: article
 origin.date: 01/26/2017
-ms.date: 07/10/2017
+ms.date: 10/13/2017
 ms.author: v-junlch
 ---
 
@@ -26,7 +26,7 @@ ms.author: v-junlch
 
 **Question**: *Can Computer Vision be used locally without an internet connection?*
 
-**Answer**: We currently do not offer an on-premise or local solution.
+**Answer**: We currently do not offer an on-premises or local solution.
 
 -----
 

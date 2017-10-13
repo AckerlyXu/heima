@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.technology: emotion
 ms.topic: article
 origin.date: 01/26/2017
-ms.date: 07/18/2017
+ms.date: 10/13/2017
 ms.author: v-junlch
 ---
 
