@@ -4,10 +4,8 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 The modern threat landscape for cloud environments is dynamic, increasing the pressure to maintain effective protection in order to meet compliance and security requirements. [Microsoft Antimalware for Azure](../articles/security/azure-security-antimalware.md) is a free real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. Alerts can be configured to notify you when known malicious or unwanted software attempts to install itself or run on your VM.
 
-## Azure Security Center
+<!--Not Available ## Azure Security Center-->
 
-Azure Security Center helps you prevent, detect, and respond to threats to your VMs. Security Center provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
-<!-- Not Available [Azure Security Center](../articles/security-center/security-center-intro.md) -->
 
 ## Encryption
 
