@@ -201,8 +201,6 @@
         href: install-mongodb.md
       - name: PostgreSQL
         href: postgresql-install.md
-      - name: MS SQL on Linux
-        href: /sql/linux/sql-server-linux-azure-virtual-machine
   - name: Manage storage
     items:
     - name: Learn about Managed Disks
