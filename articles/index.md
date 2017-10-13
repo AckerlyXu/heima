@@ -108,7 +108,7 @@ description: Learn how to build and manage powerful applications using Azure clo
 															.NET</a>
 													</li>
 													<li>
-														<a class="barLink" target="_blank href="https://docs.microsoft.com/python/azure/">
+														<a class="barLink" target="_blank" href="https://docs.microsoft.com/python/azure/">
 															<img src="media/index/logo_python.svg" alt="">
 															Python</a>
 													</li>
@@ -123,7 +123,7 @@ description: Learn how to build and manage powerful applications using Azure clo
 															PHP</a>
 													</li>
 													<li>
-														<a class="barLink" target="_blank href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
+														<a class="barLink" target="_blank" href="https://docs.microsoft.com/nodejs/azure/?view=azure-node-2.0.0">
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
 													</li>
