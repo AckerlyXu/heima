@@ -37,7 +37,7 @@ Sample solutions that perform CRUD operations and other common operations on Azu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- You can [activate Visual Studio subscriber benefits](https://www.azure.cn/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+- You can [activate Visual Studio subscriber benefits](https://www.azure.cn/support/legal/offer-rate-plans/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
