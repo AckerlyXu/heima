@@ -44,7 +44,7 @@ If you currently use Table storage, you gain the following benefits by moving to
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. The Azure Cosmos DB database engine is capable of supporting aggregates, geospatial, and sorting. |
 | Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |
 | Pricing | Storage-optimized. | Throughput-optimized. |
-| SLAs | 99.99% availability. | 99.99% availability within a single region, and the ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://www.azure.cn/support/sla/cosmos-db/) on general availability. |
+| SLAs | 99.99% availability. | 99.99% availability within a single region, and the ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://www.azure.cn/support/sla/documentdb/) on general availability. |
 
 ## Get started
 
