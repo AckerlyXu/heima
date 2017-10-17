@@ -87,7 +87,7 @@ To protect against accidental data loss during normal operations (for example, b
 
 **Resource groups.** Put tightly-coupled resources that share the same life cycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role.
 
-**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
+**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a nonbootable state. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
 
 The following CLI command enables diagnostics:
 
@@ -169,7 +169,7 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-windows.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
-[enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
+
 [fqdn]:../articles/virtual-machines/windows/portal-create-fqdn.md
 [github-folder]: http://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [group-policy]: https://technet.microsoft.com/library/dn595129.aspx
@@ -203,3 +203,4 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
+

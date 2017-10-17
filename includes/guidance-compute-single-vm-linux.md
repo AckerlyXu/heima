@@ -106,7 +106,7 @@ To protect against accidental data loss during normal operations (for example, b
 
 **SSH**. Before you create a Linux VM, generate a 2048-bit RSA public-private key pair. Use the public key file when you create the VM. For more information, see [How to Use SSH with Linux and Mac on Azure][ssh-linux].
 
-**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
+**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state.
 
 The following CLI command enables diagnostics:
 
@@ -178,7 +178,6 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
-[enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
@@ -212,3 +211,4 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Linux VM architecture in Azure"
+
