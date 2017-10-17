@@ -28,7 +28,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                 </a>
             </li>
             <li>
-                <a href="/articles/developerdifferences">
+                <a href="/guides/developer/azure-developer-guide">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -38,7 +38,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Developer Notes for Azure in China Applications</span>
+                                    <span class="likeAnH3">Get started guide for Azure in China developers</span>
                                 </div>
                             </div>
                         </div>

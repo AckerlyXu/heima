@@ -1,14 +1,13 @@
 # Overview
-## [Developer guide](azure-developer-guide.md) 
-### [What is Azure?](azure-developer-guide.md#what-is-azure)
-### [Where do I start?](azure-developer-guide.md#where-do-i-start)
-### [Azure regions](azure-developer-guide.md#azure-regions)
-### [How do I manage my applications and projects?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Understanding accounts, subscriptions, and billing](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
-## [Overview of Azure services](/fundamentals-introduction-to-azure?toc=%2fdeveloper-guide%2ftoc.json)
-## [Portal overview](/azure-portal-overview?toc=%2fdeveloper-guide%2ftoc.json)
+## [Developer guide](azure-developer-guide.md)
+## [Overview of Azure services](/fundamentals-introduction-to-azure?toc=%2fguides%2fdeveloper%2ftoc.json)
+## [Portal overview](/azure-portal-overview?toc=%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs and tools](/index#pivot=sdkstools)
+## [Azure account,platform and service overview](/articles/others/azure-for-aliyun-overview?toc=%2fguides%2fdeveloper%2ftoc.json)
+## [Azure and Ali cloud service comparison](/articles/others/azure-for-aliyun-service-comparison?toc=%2fguides%2fdeveloper%2ftoc.json)
+## [Azure and AWS service comparison](https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services)
+## [Azure in China application developing notes](/articles/others/developerdifferences?toc=%2fguides%2fdeveloper%2ftoc.json)
+
 
 # Quickstart
 ## [Web Apps](/app-service-web/app-service-web-get-started-html)
