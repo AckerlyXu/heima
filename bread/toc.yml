@@ -67,7 +67,13 @@
   - name: Cognitive Services
     tocHref: /cognitive-services/
     topicHref: /cognitive-services/
-
+    items:
+    - name: Computer Vision
+      tocHref: /cognitive-services/computer-vision/
+      topicHref: /cognitive-services/computer-vision/
+    - name: Face
+      tocHref: /cognitive-services/face/
+      topicHref: /cognitive-services/face/
   - name: CosmosDB
     tocHref: /cosmos-db/
     topicHref: /cosmos-db/
@@ -114,6 +120,9 @@
   - name: Power BI Embedded
     tocHref: /power-bi-embedded/
     topicHref: /power-bi-embedded/
+  - name: Power BI Workspace Collections
+    tocHref: /power-bi-workspace-collections/
+    topicHref: /power-bi-workspace-collections/
   - name: Redis Cache
     tocHref: /redis-cache/
     topicHref: /redis-cache/
@@ -153,6 +162,16 @@
   - name: Storage
     tocHref: /storage/
     topicHref: /storage/
+    items:
+      - name: Blobs
+        tocHref: /storage/blobs/
+        topicHref: /storage/blobs/storage-blobs-introduction
+      - name: Files
+        tocHref: /storage/files/
+        topicHref: /storage/files/storage-files-introduction 
+      - name: Queues
+        tocHref: /storage/queues/
+        topicHref: /storage/queues/storage-queues-introduction
   - name: Stream Analytics
     tocHref: /stream-analytics/
     topicHref: /stream-analytics/
@@ -177,14 +196,14 @@
         tocHref: /virtual-machines/linux/
         topicHref: /virtual-machines/linux/
         items:
-          - name: Classic Deployment
+          - name: Linux classic deployments
             tocHref: /virtual-machines/linux/classic/
             topicHref: /virtual-machines/linux/classic/
       - name: Windows
         tocHref: /virtual-machines/windows/
         topicHref: /virtual-machines/windows/
         items:
-          - name: Classic Deployment
+          - name: Windows classic deployments
             tocHref: /virtual-machines/windows/classic/
             topicHref: /virtual-machines/windows/classic/
   - name: Virtual Network
