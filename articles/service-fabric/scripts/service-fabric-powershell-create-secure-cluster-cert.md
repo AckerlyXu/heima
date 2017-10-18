@@ -40,7 +40,7 @@ $adminuser="vmadmin"
 $adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
 
 # Variables for common values
-$clusterloc="SouthCentralUS"
+$clusterloc="chinaeast"
 $clustername = "mysfcluster"
 $groupname="mysfclustergroup"       
 $vmsku = "Standard_D2_v2"
