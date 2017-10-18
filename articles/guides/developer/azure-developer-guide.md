@@ -19,7 +19,7 @@ ms.author: v-johch
 
 ---
 
-# Get started guide for Azure developers
+# Get started guide for Azure in China developers
 
 ## What is Azure?
 
@@ -58,13 +58,7 @@ Because all three app types share the App Service runtime, you can host a websit
 
 App Service has been designed with DevOps in mind. It supports various tools for publishing and continuous integration deployments, including GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity, and others.
 
-You can migrate your existing applications to App Service by using the [online migration tool](https://www.migratetoazure.net/).
-
->**When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
-
 >**Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service-web/web-sites-dotnet-get-started.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service-api/app-service-api-dotnet-get-started.md).
-
->**Try it now**: App Service lets you provision a short-lived app to try the platform without having to sign up for an Azure account. Try the platform and [create your Azure App Service app](https://tryappservice.azure.com/).
 
 #### Azure Virtual Machines
 
@@ -132,7 +126,7 @@ You can use Azure Data Factory to move existing on-premises data to Azure. If yo
 #### Docker support
 
 >[!NOTE]
->Docker is not available in China.
+>Docker and Container Service are not available in China.
 >
 >
 
@@ -143,8 +137,6 @@ Azure provides several ways to use containers in your applications.
 -   **Azure Docker VM extension**: Lets you configure your VM with Docker tools to act as a Docker host.
 
 	>**When to use**: When you want to generate consistent container deployments for your applications on a VM, or when you want to use [Docker Compose](https://docs.docker.com/compose/overview/).
-
-    >**Get started**: [Create a Docker environment in Azure by using the Docker VM extension](../../virtual-machines/linux/dockerextension.md).
 
 -   **Azure Container Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. 
 
