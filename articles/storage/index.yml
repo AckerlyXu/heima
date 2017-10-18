@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Storage Documentation
+metadata:
+  title: Azure Storage Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.
+  services: storage
+  author: forester123
+  manager: digimobile
+  ms.service: storage
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 09/20/2017
+  ms.date: 10/23/2017
+  ms.author: v-johch
+abstract:
+  description: Azure Storage is a Microsoft-managed cloud service that provides storage that is highly available, secure, durable, scalable, and redundant. Azure Storage consists of Blob storage, File Storage, and Queue storage.  Learn how to leverage Azure Storage in your applications with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Create a unique namespace to store and access your Azure Storage data objects.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/powershell.svg
+      text: Azure Powershell
+      href: /storage/common/storage-quickstart-create-storage-account-powershell
+    - image: 
+        src: /virtual-machines/linux/media/index/cli.svg 
+      text: Azure CLI
+      href: /storage/common/storage-quickstart-create-storage-account-cli
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to upload and process image data in the cloud.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts for common management tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+    - html: <a href="/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>

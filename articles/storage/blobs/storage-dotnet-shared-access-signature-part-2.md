@@ -3,8 +3,8 @@ title: Create and use a shared access signature (SAS) with Azure Blob storage | 
 description: This tutorial shows you how to create shared access signatures for use with Blob storage, and how to consume them in your client applications.
 services: storage
 documentationcenter: ''
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/23/2017
+ms.author: v-johch
 ---
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage
 
@@ -594,5 +594,3 @@ Additional error information: The remote server returned an error: (403) Forbidd
 * [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
 * [Delegating access with a shared access signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-
-<!--Update_Description: update link-->
