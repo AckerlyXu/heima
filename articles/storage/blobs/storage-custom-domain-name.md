@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/23/2017
+ms.author: v-johch
 
 ---
 # Configure a custom domain name for your Blob storage endpoint
@@ -116,7 +116,7 @@ When the custom domain has been removed successfully, you will see a portal noti
 
 ### Azure CLI 2.0
 
-Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) CLI command and specify an empty string (`""`) for the `--custom-domain` argument value to remove a custom domain registration.
+Use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI command and specify an empty string (`""`) for the `--custom-domain` argument value to remove a custom domain registration.
 
 * Command format:
 
@@ -158,4 +158,4 @@ Use the [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module
       -CustomDomainName ""
   ```
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

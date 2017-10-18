@@ -3,7 +3,7 @@ layout: HubPage
 hide_bc: true
 experimental: true
 experiment_id: "81ba5f65-59fb-4d"
-title: Azure Documentation and Resources
+title: Azure Documentation
 description: Learn how to build and manage powerful applications using Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
@@ -94,6 +94,20 @@ description: Learn how to build and manage powerful applications using Azure clo
                                         </div>
                                     </div>
                                 </div>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Manage Resources</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
+                                                    <li><a class="barLink" href="/backup/">Azure Backup</a></li>
+                                                    <li><a class="barLink" href="/site-recovery/">Azure Site Recovery</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <div class="cardSize">
@@ -101,6 +115,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
+                                                <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
 													<li>
 														<a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
@@ -116,7 +131,7 @@ description: Learn how to build and manage powerful applications using Azure clo
 														<a class="barLink" href="/java/">
 															<img src="media/index/logo_java.svg" alt="">
 															Java</a>
-													</li>
+													</li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
 													<li>
 														<a class="barLink" href="/app-service-web/app-service-web-get-started-php">
 															<img src="media/index/logo_PHP.svg" alt="">
@@ -127,8 +142,8 @@ description: Learn how to build and manage powerful applications using Azure clo
 															<img src="media/index/logo_nodejs.svg" alt="">
 															Node.js</a>
 													</li>
-												</ul>
-                                                <h4>App Models</h4>
+												</ul></td></tr></table>
+                                               <h4>App Models</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/app-service-web/">Web apps</a></li>
                                                     <li><a class="barLink" href="/service-fabric/">Microservices with Service Fabric</a></li>
@@ -153,10 +168,14 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
+                                                <h4>Storage</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/storage/">Blob Storage</a></li>
+                                                </ul>
                                                 <h4>AI and Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">Computer Vision API</a></li>
-                                                    <li><a target="_blank" class="barLink" href="https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236">Face API</a></li>
+                                                    <li><a class="barLink" href="/cognitive-services/computer-vision/">Computer Vision API</a></li>
+                                                    <li><a class="barLink" href="/cognitive-services/face/">Face API</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -169,23 +188,26 @@ description: Learn how to build and manage powerful applications using Azure clo
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
-												<ul class="noBullet">
-													<li>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
-															<img src="media/index/azure_dev-7.svg" alt="">
-															Azure CLI</a>
-													</li>
-													<li>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
-															<img src="media/index/azure_dev-8.svg" alt="">
-															Azure PowerShell</a>
-													</li>
-												</ul>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
+                                                            <img src="media/index/azure_dev-7.svg" alt="">
+                                                            Azure CLI
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">
+                                                            <img src="media/index/azure_dev-8.svg" alt="">
+                                                            Azure PowerShell
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
+
                             <li></li>
                             <li></li>
                             <li></li>
@@ -194,14 +216,13 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure in China Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
                                 </a>
                             </li>
-                            </li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#services">Services</a>
-                <ul id="services">
+                <a href="#products">Products</a>
+                <ul id="products">
                     <li>
                         <a href="#all">All</a>
                         <ul id="all" class="directory">
@@ -267,6 +288,12 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>Azure Database for MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL Data Warehouse</p>
@@ -281,13 +308,13 @@ description: Learn how to build and manage powerful applications using Azure clo
                                         <li>
                                             <a href="/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/mysql/">
-                                                <img src="media/index/MySQL.svg" alt="" />
-                                                <p>MySQL</p>
+                                            <a href="/cosmos-db/table-storage-overview">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Table Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -303,12 +330,6 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             <a href="/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -370,7 +391,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                         <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>Content Delivery Network</p>
                                             </a>
                                         </li>
                                         <li>
@@ -426,9 +447,9 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disks</p>
+                                            <a href="/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>Queue Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -438,9 +459,9 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/storage/queues/storage-queues-introduction/">
-                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
-                                                <p>Queue Storage</p>
+                                            <a href="/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -468,6 +489,24 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>Stream Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/analysis-services/">
+                                                <img src="media/index/AnalysisServices.svg" alt="" />
+                                                <p>Analysis Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/event-hubs/">
+                                                <img src="media/index/eventhubs.svg" alt="" />
+                                                <p>Event Hubs</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/sql-data-warehouse/">
+                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                <p>SQL Data Warehouse</p>
                                             </a>
                                         </li>
                                         <li>
@@ -513,15 +552,21 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/stream-analytics/">
+                                                <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                <p>Stream Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/stream-analytics/">
-                                                <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
+                                            <a href="/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -550,7 +595,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                         <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>Content Delivery Network</p>
                                             </a>
                                         </li>
                                         <li>
@@ -596,9 +641,9 @@ description: Learn how to build and manage powerful applications using Azure clo
                                     <h3>Monitoring + Management</h3>
                                     <ul>
                                         <li>
-                                            <a href="/automation/">
-                                                <img src="media/index/Automation.svg" alt="" />
-                                                <p>Automation</p>
+                                            <a href="/monitoring-and-diagnostics/">
+                                                <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                <p>Azure Monitor</p>
                                             </a>
                                         </li>
                                         <li>
@@ -614,20 +659,20 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/automation/">
+                                                <img src="media/index/automation.svg" alt="" />
+                                                <p>Automation</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/scheduler/">
                                                 <img src="media/index/Scheduler.svg" alt="" />
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/monitoring-and-diagnostics/">
-                                                <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure Monitor</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure-resource-manager/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
@@ -846,8 +891,10 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>Layer 7 Load Balancer with built-in HTTP load balancing and delivery
-                                                        control</p>
+                                                    <p>
+                                                        Layer 7 Load Balancer with built-in HTTP load balancing and delivery
+                                                        control
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -884,9 +931,8 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <h3>Content Delivery Network</h3>
+                                                    <p>Deliver content to end-users through a robust network of global data centers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -975,18 +1021,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
-                                <a href="/virtual-machines/windows/managed-disks-overview">
+                                <a href="/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Disks</h3>
-                                                    <p>Disks storage for VMs</p>
+                                                    <h3>Queue Storage</h3>
+                                                    <p>Durable queues for large-volume cloud services</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1013,18 +1059,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
-                                <a href="/storage/queues/storage-queues-introduction/">
+                                <a href="/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                        <img src="media/index/Disks-color.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Queue Storage</h3>
-                                                    <p>Durable queues for large-volume cloud services</p>
+                                                    <h3>Disk Storage</h3>
+                                                    <p>Disks storage for VMs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1062,7 +1108,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrate protection and recovery of private clouds</p>
+                                                    <p>Orchestrate disaster recovery of Azure VMs, and on-premises VMs and physical servers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1142,9 +1188,8 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
-                                                    <p>Deliver content to end-users through a robust network of global data
-                                                        centers </p>
+                                                    <h3>Content Delivery Network</h3>
+                                                    <p>Deliver content to end-users through a robust network of global data centers </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1195,18 +1240,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                         <a href="#containers">Containers</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/app-service/">
+                                <a href="/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/Fabric.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>Deploy web apps on Linux using containers</p>
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1232,25 +1277,6 @@ description: Learn how to build and manage powerful applications using Azure clo
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/service-fabric/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Develop microservices and orchestrate containers on Windows or Linux</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1269,6 +1295,25 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
                                                     <p>Managed relational database-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for MySQL</h3>
+                                                    <p>Managed MySQL database service for app developers</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1333,18 +1378,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
-                                <a href="/mysql/">
+                                <a href="/cosmos-db/table-storage-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>MySQL</h3>
-                                                    <p>Managed MySQL database service for app developers</p>
+                                                    <h3>Table Storage</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1407,6 +1452,63 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
                                                     <p>Real-time data stream processing from millions of IoT devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/analysis-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Analysis Services</h3>
+                                                    <p>Enterprise-grade data modeling in the cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/event-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/eventhubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Hubs</h3>
+                                                    <p>Receive telemetry from millions of devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/sql-data-warehouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL Data Warehouse</h3>
+                                                    <p>Elastic data warehouse-as-a-service with enterprise-class features</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1518,7 +1620,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Suite</h3>
+                                                    <h3>IoT Suite</h3>
                                                     <p>Capture and analyze untapped data to improve business results</p>
                                                 </div>
                                             </div>
@@ -1533,7 +1635,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/EventHubs.svg" alt="" />
+                                                        <img src="media/index/eventhubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1577,6 +1679,25 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
                                                     <p>A scalable, push notification engine for quickly sending millions of messages</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cosmos-db/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>Globally distributed, multi-model database for any scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1756,18 +1877,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                         <a href="#mgmt">Monitoring + Management</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
-                                <a href="/automation/">
+                                <a href="/monitoring-and-diagnostics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Automation.svg" alt="" />
+                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Automation</h3>
-                                                    <p>Simplify cloud management with process automation</p>
+                                                    <h3>Azure Monitor</h3>
+                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1813,18 +1934,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
-                                <a href="/scheduler/">
+                                <a href="/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Scheduler.svg" alt="" />
+                                                        <img src="media/index/automation.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Scheduler</h3>
-                                                    <p>Run your jobs on simple or complex recurring schedules</p>
+                                                    <h3>Automation</h3>
+                                                    <p>Simplify cloud management with process automation</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1832,18 +1953,18 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
-                                <a href="/monitoring-and-diagnostics/">
+                                <a href="/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                        <img src="media/index/scheduler.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Monitor</h3>
-                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
+                                                    <h3>Scheduler</h3>
+                                                    <p>Run your jobs on simple or complex recurring schedules</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1857,7 +1978,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2043,7 +2164,8 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0
+                                                <h3>
+                                                    Azure CLI 2.0
                                                 </h3>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">Get Started</a>
@@ -2094,7 +2216,8 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI
+                                                <h3>
+                                                    Azure CLI
                                                 </h3>
                                                 <p>
                                                     <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">Get Started</a>
@@ -2128,9 +2251,11 @@ description: Learn how to build and manage powerful applications using Azure clo
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>A set of recommended architectures for cloud applications. Each architecture includes
+                                    <p>
+                                        A set of recommended architectures for cloud applications. Each architecture includes
                                         recommended practices, prescriptive steps, and an executable component that embodies
-                                        the recommendations.</p>
+                                        the recommendations.
+                                    </p>
                                 </div>
                             </li>
                             <li>
@@ -2202,35 +2327,17 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Best Practices for Cloud Applications</h3>
-                                                    <p>A set of best practices for cloud applications, covering aspects such
-                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.</p>
+                                                    <p>
+                                                        A set of best practices for cloud applications, covering aspects such
+                                                        as auto-scaling, caching, data partitioning, API design, and monitoring.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-<!--                            <li>
-                                <a href="https://docs.microsoft.com/azure/architecture/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_scenarios.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
-                                                        written guidance and reference implementations.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
--->                     </ul>
+                        </ul>
                     </li>
                 </ul>
             </li>
