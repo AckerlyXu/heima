@@ -22,7 +22,7 @@ ms.author: v-yeche
 
 When running multiple services on the same node or cluster, it is possible that one service might consume more resources starving other services. This problem is referred to as the noisy-neighbor problem. Service Fabric allows the developer to specify reservations and limits per service to guarantee resources and also limit its resource usage.
 
->
+> [!NOTE]
 > Before proceeding with this article, you should get familiar [Service Fabric Application Model](service-fabric-application-model.md) and with [Service Fabric Hosting Model](service-fabric-hosting-model.md).
 >
 

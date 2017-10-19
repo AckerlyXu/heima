@@ -165,8 +165,8 @@ Ensure the following before you start decommissioning your Configuration Server.
   If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration Server, you cannot delete the server. Delete these entities before you try to delete the vault.
 
 ### Uninstall the Configuration Server software and its dependencies
-  > [!TIP]
-  If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
+> [!TIP]
+> If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 
 1. Log on to the Configuration Server as an Administrator.
 2. Open up Control Panel > Program > Uninstall Programs
