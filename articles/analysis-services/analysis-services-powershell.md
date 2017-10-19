@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-ms.date: 08/28/2017
+origin.date: 10/23/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -35,12 +36,13 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|[Export-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exports log to file.| 
+|[Add-AzureAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|Adds an authenticated account to use for Azure Analysis Services server cmdlet requests.| 
 |[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Gets details of a server instance.|  
-|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a server instance.|
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Creates a server instance.|   
 |[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Removes a server instance.|  
-|[Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspends a server instance.| 
+|[Restart-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Restarts an instance of Analysis Services server in the currently logged in environment; specified in Add-AzureAnalysisServicesAccount command.|  
 |[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Resumes a server instance.|  
+|[Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspends a server instance.| 
 |[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifies a server instance.|   
 |[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Tests the existence of a server  instance.| 
 
@@ -48,7 +50,7 @@ Azure Analysis Services cmdlets are included in the [AzureRM.AnalysisServices](h
 
 Azure Analysis Services database operations use the same [SqlServer](https://www.powershellgallery.com/packages/SqlServer) module as SQL Server Analysis Services. However, not all cmdlets are supported for Azure Analysis Services. 
 
-The SqlServer module provides task-specific database management cmdlets as well as the general purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SqlServer module are supported for Azure Analysis Services.
+The SqlServer module provides task-specific database management cmdlets as well as the general-purpose Invoke-ASCmd cmdlet that accepts a Tabular Model Scripting Language (TMSL) query or script. The following cmdlets in the SqlServer module are supported for Azure Analysis Services.
 
 |Cmdlet|Description|
 |------------|-----------------| 
@@ -69,4 +71,4 @@ The SqlServer module provides task-specific database management cmdlets as well 
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)
 
-<!--Update_Description: add cmdlet of Export-AzureAnalysisServicesInstance -->
+<!--Update_Description:Update meta propreties, wording update -->

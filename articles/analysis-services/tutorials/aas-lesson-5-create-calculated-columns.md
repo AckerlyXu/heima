@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 # Lesson 5: Create calculated columns
@@ -131,4 +131,4 @@ The ProductCategoryName calculated column is used to create a hierarchy in the D
 ## What's next?
 [Lesson 6: Create measures](../tutorials/aas-lesson-6-create-measures.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

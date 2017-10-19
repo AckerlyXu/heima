@@ -14,9 +14,9 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
+origin.date: 09/20/2017
 
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 # Lesson 7: Create Key Performance Indicators
@@ -46,7 +46,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
     This measure serves as the Base measure for the KPI.  
 
-4.  Right-click **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
+4.  In the measure grid, right-click **InternetCurrentQuarterSalesPerformance** > **Create KPI**.   
 
 5.  In the Key Performance Indicator (KPI) dialog box, in **Target** select **Absolute Value**, and then type **1.1**.  
 
@@ -84,4 +84,4 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 ## What's next?
 [Lesson 8: Create perspectives](../tutorials/aas-lesson-8-create-perspectives.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->
