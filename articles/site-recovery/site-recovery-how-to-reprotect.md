@@ -30,9 +30,7 @@ After reprotection finishes and the protected virtual machines are replicating, 
 
 Post comments or questions at the end of this article or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr).
 
-For a quick overview, watch the following video about how to fail over from Azure to an on-premises site.
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
-
+<!--Not Available VIDEO-->
 ## Prerequisites
 When you prepare to reprotect virtual machines, take or consider the following prerequisite actions:
 
@@ -145,17 +143,6 @@ Currently, Azure Site Recovery supports failing back only to a virtual machine f
 * The master target server cannot have snapshots on the disks. If there are snapshots, reprotection and failback fail.
 
 * The master target cannot have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails.
-
-<!--
-### Failback policy
-To replicate back to on-premises, you will need a failback policy. This policy get automatically created when you create a forward direction policy. Note that
-
-1. This policy gets auto associated with the configuration server during creation.
-2. This policy is not editable.
-3. The set values of the policy are (RPO Threshold = 15 Mins, Recovery Point Retention = 24 Hours, App Consistency Snapshot Frequency = 60 Mins)
-   ![](./media/site-recovery-failback-azure-to-vmware-new/failback-policy.png)
-
--->
 
 ## Steps to reprotect
 

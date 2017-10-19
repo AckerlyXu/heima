@@ -88,8 +88,8 @@ Use the built in wizard in Visual Studio to configure continuous delivery with V
     ![New Service Endpoint Dialog][new-service-endpoint-dialog]
 
     1. Enter a **Connection Name**.
-    2. Enter the cluster's management endpoint in the **Cluster Endpoint** field (for example, "tcp://mycluster.chinaeast.chinacloudapp.cn:19000"). Specify "tcp://" as the protocol.  The default anagement endpoint port is 19000.
-    3. Input the **Server Certificate Thumbprint**.  The thumbprint can be obtained by opening Service Fabric Explorer for your cluster (https://mycluster.chinaeast.chinacloudapp.cn:19080).
+    2. Enter the cluster's management endpoint in the **Cluster Endpoint** field (for example, "tcp://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19000"). Specify "tcp://" as the protocol.  The default anagement endpoint port is 19000.
+    3. Input the **Server Certificate Thumbprint**.  The thumbprint can be obtained by opening Service Fabric Explorer for your cluster (https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080).
         - Choose the **Cluster** node in the tree view and the **Manifest** tab in the right hand pane.
         - Look for the **<ServerCertificate>** element in the XML file and copy the content of the **X509FindValue** attribute.
     4. In the **Client Certificate** field, input the client certificate as a Base64 encoded string, required to get the certificate installed on the build agent:
@@ -124,7 +124,7 @@ Pushing the changes to Team Services automatically triggers a build.  When the b
 
 To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release definition that deploys your application to a cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.chinanorth.chinacloudapp.cn:19080/Explorer/](http://mysftestcluster.chinanorth.chinacloudapp.cn:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/](http://mysftestcluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
 
 ![Service Fabric Explorer][sfx1]
 
