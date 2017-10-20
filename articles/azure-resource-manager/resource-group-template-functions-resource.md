@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/05/2017
-ms.date: 09/25/2017
+origin.date: 10/09/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -229,7 +229,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 <a id="reference" />
 
 ## reference
-`reference(resourceName or resourceIdentifier, [apiVersion])`
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
 
@@ -239,10 +239,11 @@ Returns an object representing a resource's runtime state.
 |:--- |:--- |:--- |:--- |
 | resourceName or resourceIdentifier |Yes |string |Name or unique identifier of a resource. |
 | apiVersion |No |string |API version of the specified resource. Include this parameter when the resource is not provisioned within same template. Typically, in the format, **yyyy-mm-dd**. |
+| 'Full' |No |string |Value that specifies whether to return the full resource object. If you do not specify `'Full'`, only the properties object of the resource is returned. The full object includes values such as the resource ID and location. |
 
 ### Return value
 
-Every resource type returns different properties for the reference function. The function does not return a single, predefined format. To see the properties for a resource type, return the object in the outputs section as shown in the example.
+Every resource type returns different properties for the reference function. The function does not return a single, predefined format. Also, the returned value differs based on whether you specified the full object. To see the properties for a resource type, return the object in the outputs section as shown in the example.
 
 ### Remarks
 
@@ -266,6 +267,32 @@ Typically, you use the **reference** function to return a particular value from 
     }
 }
 ```
+
+Use `'Full'` when you need resource values that are not part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
+
+```json
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "properties": {
+    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+    "accessPolicies": [
+      {
+        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
+        "permissions": {
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "all"
+          ]
+        }
+      }
+    ],
+    ...
+```
+
+For the complete example of the preceding template, see [Windows to Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). A similar example is available for [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
 
 ### Example
 
@@ -299,16 +326,20 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
       "referenceOutput": {
           "type": "object",
           "value": "[reference(parameters('storageAccountName'))]"
+      },
+      "fullReferenceOutput": {
+        "type": "object",
+        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
       }
     }
 }
 ``` 
 
-The preceding example returns an object in the following format:
+The preceding example returns the two objects. The properties object is in the following format:
 
 ```json
 {
-   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "creationTime": "2017-10-09T18:55:40.5863736Z",
    "primaryEndpoints": {
      "blob": "https://examplestorage.blob.core.chinacloudapi.cn/",
      "file": "https://examplestorage.file.core.chinacloudapi.cn/",
@@ -319,6 +350,43 @@ The preceding example returns an object in the following format:
    "provisioningState": "Succeeded",
    "statusOfPrimary": "available",
    "supportsHttpsTrafficOnly": false
+}
+```
+
+The full object is in the following format:
+
+```json
+{
+  "apiVersion":"2016-12-01",
+  "location":"chinaeast",
+  "sku": {
+    "name":"Standard_LRS",
+    "tier":"Standard"
+  },
+  "tags":{},
+  "kind":"Storage",
+  "properties": {
+    "creationTime":"2017-10-09T18:55:40.5863736Z",
+    "primaryEndpoints": {
+      "blob":"https://examplestorage.blob.core.chinacloudapi.cn/",
+      "file":"https://examplestorage.file.core.chinacloudapi.cn/",
+      "queue":"https://examplestorage.queue.core.chinacloudapi.cn/",
+      "table":"https://examplestorage.table.core.chinacloudapi.cn/"
+    },
+    "primaryLocation":"chinaeast",
+    "provisioningState":"Succeeded",
+    "statusOfPrimary":"available",
+    "supportsHttpsTrafficOnly":false
+  },
+  "subscriptionId":"<subscription-id>",
+  "resourceGroupName":"functionexamplegroup",
+  "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
+  "referenceApiVersion":"2016-12-01",
+  "condition":true,
+  "isConditionTrue":true,
+  "isTemplateResource":false,
+  "isAction":false,
+  "provisioningOperation":"Read"
 }
 ```
 
@@ -655,4 +723,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!--Update_Description: update meta properties, add azure cli and powershell command example block-->
+<!--Update_Description: update meta properties, add full parameter cmdlet sample and json file-->

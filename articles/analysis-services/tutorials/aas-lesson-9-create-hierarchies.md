@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 # Lesson 9: Create hierarchies
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-In this lesson, you create hierarchies. Hierarchies are groups of columns arranged in levels; for example, a Geography hierarchy might have sublevels for Country, State, County, and City. Hierarchies can appear separate from other columns in a reporting client application field list, making them easier for client users to navigate and include in a report. To learn more, see [Hierarchies](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
+In this lesson, you create hierarchies. Hierarchies are groups of columns arranged in levels. For example, a Geography hierarchy might have sublevels for Country, State, County, and City. Hierarchies can appear separate from other columns in a reporting client application field list, making them easier for client users to navigate and include in a report. To learn more, see [Hierarchies](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
 
 To create hierarchies, use the model designer in *Diagram View*. Creating and managing hierarchies is not supported in Data View.  
 
@@ -39,7 +39,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 
 2.  Click and drag the **ProductCategoryName** column to the new **Category** hierarchy.  
 
-3.  In the **Category** hierarchy, right-click the **ProductCategoryName** > **Rename**, and then type **Category**.  
+3.  In the **Category** hierarchy, right-click **ProductCategoryName** > **Rename**, and then type **Category**.  
 
     > [!NOTE]  
     > Renaming a column in a hierarchy does not rename that column in the table. A column in a hierarchy is just a representation of the column in the table.  
@@ -80,4 +80,4 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
  ## What's next?
 [Lesson 10: Create partitions](../tutorials/aas-lesson-10-create-partitions.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

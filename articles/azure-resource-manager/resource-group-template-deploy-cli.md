@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 09/04/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -229,4 +229,4 @@ The following template is used for the examples in this topic. Copy and save it 
 * For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

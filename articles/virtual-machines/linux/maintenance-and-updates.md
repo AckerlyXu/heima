@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 08/14/2017
-ms.date: 10/16/2017
+origin.date: 09/15/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 
-# Planned maintenance for virtual machines in Azure
+# Planned maintenance for Linux virtual machines 
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../../includes/virtual-machines-common-planned-maintenance.md)]
 
 ## Next steps
 
-The [Azure Metadata Service](instance-metadata-service.md) enables you to discover information about your Virtual Machine hosted in Azure.
+For information on managing planned maintence, see [Handling planned maintenance notifications](maintenance-notifications.md).
 
-<!--Update_Description: new articles maintenance and update for linux VM-->
+<!--Update_Description: wording update-->

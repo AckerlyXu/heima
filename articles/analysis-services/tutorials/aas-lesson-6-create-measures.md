@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 # Lesson 6: Create measures
@@ -49,7 +49,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
 
-    Notice the top-left cell now contains a measure name, **DaysCurrentQuarterToDate**, followed by the result, **92**.
+    Notice the top-left cell now contains a measure name, **DaysCurrentQuarterToDate**, followed by the result, **92**. The result is not relevant at this point because no user filter has been applied.
 
     ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
 
@@ -96,7 +96,7 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
     |TaxAmt|InternetTotalTaxAmt|Sum|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|Sum|=SUM([Freight])|  
 
-2.  By clicking an empty cell in the measure grid, and by using the formula bar, create, and name the following measures in order:  
+2.  By clicking an empty cell in the measure grid, and by using the formula bar, create,  the following custom measures in order:  
 
     ```
     InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -127,4 +127,4 @@ Measures created for the FactInternetSales table can be used to analyze critical
 ## What's next?
 [Lesson 7: Create Key Performance Indicators](../tutorials/aas-lesson-7-create-key-performance-indicators.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update-->

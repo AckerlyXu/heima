@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy a resourc
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/15/2017
-ms.date: 06/05/2017
+origin.date: 10/23/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -41,6 +42,8 @@ The following example creates a resource group, and deploys a template from your
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -203,3 +206,5 @@ The following template is used for the examples in this topic. Copy and save it 
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+
+<!--Update_Description: update meta properties, wording update -->

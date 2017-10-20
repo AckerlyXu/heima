@@ -8,6 +8,8 @@ This page describes how Azure performs both types of maintenance. For more infor
 
 Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
+For "how-to" information on managing planned maintence, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+
 ## In-place VM migration
 
 When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
@@ -15,7 +17,6 @@ When updates don't require a full reboot, an in-place live migration is used. Du
 For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
 
 Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
-
 
 ## Maintenance requiring a reboot
 
@@ -35,7 +36,7 @@ If you decide to wait until the planned maintenance window, there are a few thin
 
 ### Paired Regions
 
-Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in China North, Azure will not update any Virtual Machines in China East at the same time. 
+Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in China North, Azure will not update any Virtual Machines in China East at the same time. However, other regions such as China North can be under maintenance at the same time as China East. Understanding how region pairs work can help you better distribute your VMs across regions.
 
 ### Availability sets and scale sets
 
@@ -46,3 +47,6 @@ Within an availability set, individual VMs are spread across up to 20 update dom
 Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
 For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+
+<!--Update_Description: wording update-->
+<!--ms.date: 10/23/2017-->
