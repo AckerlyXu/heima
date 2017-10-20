@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/26/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
 
 ms.custom: oldportal;it-pro;
@@ -74,4 +74,4 @@ Most management tasks for domain names in Azure Active Directory can also be com
 - [Manage custom domain names](active-directory-add-manage-domain-names.md)
 
 
-<!--Update_Description: wording update -->   
+<!--Update_Description: update meta properties -->  

@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/25/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
 
 ms.custom: oldportal;it-pro;
@@ -76,4 +76,4 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - [Administering Azure AD](active-directory-administer.md)
 - [Manage passwords in Azure AD](active-directory-manage-passwords.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties --> 

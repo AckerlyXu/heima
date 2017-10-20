@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 08/24/2017
+origin.date: 09/19/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
 
 ---
@@ -26,9 +26,9 @@ If you’re already familiar with the Azure AD identity model and want to learn 
 - [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## Choosing the user sign-in method for your organization
-For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
+For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
 
-I need to | PS with SSO| PA with SSO| AD FS |
+I need to | PHS with SSO| PTA with SSO| AD FS |
  --- | --- | --- | --- |
 Sync new user, contact, and group accounts in on-premises Active Directory to the cloud automatically.|x|x|x|
 Set up my tenant for Office 365 hybrid scenarios.|x|x|x|
@@ -37,14 +37,13 @@ Implement single sign-on by using corporate credentials.|x|x|x|
 Ensure that no passwords are stored in the cloud.||x*|x|
 Enable on-premises multi-factor authentication solutions.|||x|
 
-*Through a lightweight connector.
+*Through a lightweight agent.
 
-### Password synchronization
-With password synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new passwords are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password synchronization together with password write-back to enable self-service password reset in Azure AD.
+### Password hash synchronization
+With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
+![Password hash synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-![Password synchronization](./media/active-directory-aadconnect-user-signin/passwordhash.png)
-
-For more information, see the [password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) article.
+For more information, see the [password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) article.
 
 ### Federation that uses a new or existing farm with AD FS in Windows Server 2012 R2
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
@@ -118,7 +117,7 @@ It's very important to understand the relationship between the custom domain sta
 
 For the following information, let's assume that we're concerned with the UPN suffix contoso.com, which is used in the on-premises directory as part of UPN--for example user@contoso.com.
 
-###### Express settings/Password synchronization
+###### Express settings/Password hash synchronization
 | State | Effect on user Azure sign-in experience |
 |:---:|:--- |
 | Not added |In this case, no custom domain for contoso.com has been added in the Azure AD directory. Users who have UPN on-premises with the suffix @contoso.com won't be able to use their on-premises UPN to sign in to Azure. They'll instead have to use a new UPN that's provided to them by Azure AD by adding the suffix for the default Azure AD directory. For example, if you're syncing users to the Azure AD directory azurecontoso.partner.onmschina.cn, then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.partner.onmschina.cn. |
@@ -137,7 +136,7 @@ If you selected the user sign-in option **Federation with AD FS**, then you must
 | Verified |In this case, you can go ahead with the configuration without any further action. |
 
 ## Changing the user sign-in method <a name="changing-user-sign-in-method"></a>
-You can change the user sign-in method from federation, password synchronization, or pass-through authentication by using the tasks that are available in Azure AD Connect after the initial configuration of Azure AD Connect with the wizard. Run the Azure AD Connect wizard again, and you'll see a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
+You can change the user sign-in method from federation, password hash synchronization, or pass-through authentication by using the tasks that are available in Azure AD Connect after the initial configuration of Azure AD Connect with the wizard. Run the Azure AD Connect wizard again, and you'll see a list of tasks that you can perform. Select **Change user sign-in** from the list of tasks.
 
 ![Change user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -150,7 +149,7 @@ On the **User sign-in** page, select the desired user sign-in.
 ![Connect to Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> If you're only making a temporary switch to password synchronization, then select the **Do not convert user accounts** check box. Not checking the option will convert each user to federated, and it can take several hours.
+> If you're only making a temporary switch to password hash synchronization, then select the **Do not convert user accounts** check box. Not checking the option will convert each user to federated, and it can take several hours.
 >
 >
 
