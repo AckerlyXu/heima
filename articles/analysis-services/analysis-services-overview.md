@@ -15,7 +15,6 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 08/01/2017
-origin.date: 10/23/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
 

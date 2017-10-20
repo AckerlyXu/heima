@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/08/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -35,31 +35,31 @@ To complete this topic, you must have sufficient permissions to register an appl
 
 1. Log in to your Azure Account through the [Azure portal](https://portal.azure.cn).
 
-2. Select **Azure Active Directory**.
+1. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-3. In Azure Active Directory, select **User settings**.
+1. In Azure Active Directory, select **User settings**.
 
     ![select user settings](./media/resource-group-create-service-principal-portal/select-user-settings.png)
 
-4. Check the **App registrations** setting. If set to **Yes**, non-admin users can register AD apps. This setting means any user in the Azure AD tenant can register an app. You can proceed to [Check Azure subscription permissions](#check-azure-subscription-permissions).
+1. Check the **App registrations** setting. If set to **Yes**, non-admin users can register AD apps. This setting means any user in the Azure AD tenant can register an app. You can proceed to [Check Azure subscription permissions](#check-azure-subscription-permissions).
 
     ![view app registrations](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-5. If the app registrations setting is set to **No**, only admin users can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and **Find a user** from Quick tasks.
+1. If the app registrations setting is set to **No**, only admin users can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and **Find a user** from Quick tasks.
 
     ![find user](./media/resource-group-create-service-principal-portal/find-user.png)
 
-6. Search for your account, and select it when you find it.
+1. Search for your account, and select it when you find it.
 
     ![search user](./media/resource-group-create-service-principal-portal/show-user.png)
 
-7. For your account, select **Directory role**.
+1. For your account, select **Directory role**.
 
     ![directory role](./media/resource-group-create-service-principal-portal/select-directory-role.png)
 
-8. View your assigned directory role in Azure AD. If your account is assigned to the User role, but the app registration setting (from the preceding steps) is limited to admin users, ask your administrator to either assign you to an administrator role, or to enable users to register apps.
+1. View your assigned directory role in Azure AD. If your account is assigned to the User role, but the app registration setting (from the preceding steps) is limited to admin users, ask your administrator to either assign you to an administrator role, or to enable users to register apps.
 
     ![view role](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -71,40 +71,40 @@ To check your subscription permissions:
 
 1. If you are not already looking at your Azure AD account from the preceding steps, select **Azure Active Directory** from the left pane.
 
-2. Find your Azure AD account. Select **Overview** and **Find a user** from Quick tasks.
+1. Find your Azure AD account. Select **Overview** and **Find a user** from Quick tasks.
 
     ![find user](./media/resource-group-create-service-principal-portal/find-user.png)
 
-3. Search for your account, and select it when you find it.
+1. Search for your account, and select it when you find it.
 
     ![search user](./media/resource-group-create-service-principal-portal/show-user.png)
 
-4. Select **Azure resources**.
+1. Select **Azure resources**.
 
     ![select resources](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
 
-5. View your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role for two subscriptions, which means that user has adequate permissions.
+1. View your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role for two subscriptions, which means that user has adequate permissions.
 
     ![show permissions](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## Create an Azure Active Directory application
 
 1. Log in to your Azure Account through the [Azure portal](https://portal.azure.cn).
-2. Select **Azure Active Directory**.
+1. Select **Azure Active Directory**.
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-3. Select **App registrations**.
+1. Select **App registrations**.
 
-   ![select app registrations](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
+    ![select app registrations](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
-4. Select **New application registration**.
+1. Select **New application registration**.
 
-   ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
+    ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-5. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
+1. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
-   ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
+    ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
 
 You have created your application.
 
@@ -116,15 +116,15 @@ When programmatically logging in, you need the ID for your application and an au
 
     ![select application](./media/resource-group-create-service-principal-portal/select-app.png)
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+1. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
 
     ![client ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
-3. To generate an authentication key, select **Keys**.
+1. To generate an authentication key, select **Keys**.
 
     ![select keys](./media/resource-group-create-service-principal-portal/select-keys.png)
 
-4. Provide a description of the key, and a duration for the key. When done, select **Save**.
+1. Provide a description of the key, and a duration for the key. When done, select **Save**.
 
     ![save key](./media/resource-group-create-service-principal-portal/save-key.png)
 
@@ -140,11 +140,11 @@ When programmatically logging in, you need to pass the tenant ID with your authe
 
     ![select azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-2. To get the tenant ID, select **Properties** for your Azure AD tenant.
+1. To get the tenant ID, select **Properties** for your Azure AD tenant.
 
     ![select Azure AD properties](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-3. Copy the **Directory ID**. This value is your tenant ID.
+1. Copy the **Directory ID**. This value is your tenant ID.
 
     ![tenant ID](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
@@ -158,33 +158,34 @@ You can set the scope at the level of the subscription, resource group, or resou
 
     ![select subscription](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-2. Select the particular subscription (resource group or resource) to assign the application to.
+1. Select the particular subscription (resource group or resource) to assign the application to.
 
     ![select subscription for assignment](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
-3. Select **Access Control (IAM)**.
+1. Select **Access Control (IAM)**.
 
     ![select access](./media/resource-group-create-service-principal-portal/select-access-control.png)
 
-4. Select **Add**.
+1. Select **Add**.
 
     ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
-5. Select the role you wish to assign to the application. The following image shows the **Reader** role.
+
+1. Select the role you wish to assign to the application. The following image shows the **Reader** role.
 
     ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 
-6. Search for your application, and select it.
+1. Search for your application, and select it.
 
-   ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
+    ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
 
-7. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
+1. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
 ## Log in as the application
 
 Your application is now set up in Azure Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. For information about logging in as the application through different platforms, see:
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Azure CLI](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [Azure CLI](resource-group-authenticate-service-principal-cli.md)
 * [REST](https://docs.microsoft.com/rest/api/#create-the-request)
 * [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)

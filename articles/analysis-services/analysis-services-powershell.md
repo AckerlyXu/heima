@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-origin.date: 10/23/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
 
