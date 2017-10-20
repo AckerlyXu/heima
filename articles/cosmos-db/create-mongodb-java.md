@@ -15,24 +15,25 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a MongoDB API console app with Java and the Azure portal
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Available on Graph -->
 
 This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a console app built on the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## Prerequisites
 
-* Before you can run this sample, you must have the following prerequisites:
-   * JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
-   * Maven (Run `apt-get install maven` if you don't have Maven)
+Before you can run this sample, you must have the following prerequisites:
+* JDK 1.7+ (Run `apt-get install default-jdk` if you don't have JDK)
+* Maven (Run `apt-get install maven` if you don't have Maven)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## Create a database account
 
@@ -42,7 +43,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 Name your new database, **db**, and your new collection, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
 
 ## Clone the sample application
 
@@ -126,4 +127,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-mongodb.md-->
+<!--Update_Description: update meta properties, reference link -->

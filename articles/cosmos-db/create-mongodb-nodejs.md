@@ -9,19 +9,20 @@ editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/19/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Migrate an existing Node.js MongoDB web app 
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Available on Graph -->
 
 This quickstart demonstrates how to use an existing [MongoDB](mongodb-introduction.md) app written in Node.js and connect it to your Azure Cosmos DB database, which supports MongoDB client connections. In other words, your Node.js application only knows that it's connecting to a database using MongoDB APIs. It is transparent to the application that the data is stored in Azure Cosmos DB.
 
@@ -30,9 +31,11 @@ When you are done, you will have a MEAN application (MongoDB, Express, Angular, 
 ![MEAN.js app running in Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
 <!-- Not Available [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 ## Prerequisites 
-If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 In addition to Azure CLI, you need [Node.js](https://nodejs.org/) and [Git](http://www.git-scm.com/downloads) installed locally to run `npm` and `git` commands.
@@ -58,6 +61,7 @@ cd mean
 npm install
 npm start
 ```
+The application will try to connect to a MongoDB source and fail, go ahead and exit the application when the output returns "[MongoError: connect ECONNREFUSED 127.0.0.1:27017]".
 
 ## Log in to Azure
 
@@ -241,4 +245,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

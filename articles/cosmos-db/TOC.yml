@@ -39,7 +39,7 @@
     items:
     - name: DocumentDB
       href: tutorial-develop-documentdb-dotnet.md
-    - name: MongoDB
+    - name: MongoDB with .NET
       href: tutorial-develop-mongodb.md
     - name: Table
       href: tutorial-develop-table-dotnet.md
@@ -71,14 +71,20 @@
       href: local-emulator.md
     - name: Export certificates
       href: local-emulator-export-ssl-certificates.md
+  - name: 6 - Integrate with Functions
+    items:
+    - name: HTTP trigger
+      href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
-  - name: Azure PowerShell
+  - name: PowerShell
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Serverless database
+    href: serverless-computing-database.md
   - name: Global distribution
     href: distribute-data-globally.md
   - name: Partitioning
@@ -238,6 +244,8 @@
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
+    - name: Connected Service in Visual Studio
+      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
@@ -252,6 +260,10 @@
       href: set-throughput.md
     - name: Monitor SLAs
       href: monitor-accounts.md
+    - name: Use metrics
+      href: use-metrics.md
+    - name: Diagnostic logging
+      href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
     - name: Security
@@ -306,6 +318,8 @@
     items:
     - name: .NET
       href: table-sdk-dotnet.md
+    - name: Python
+      href: table-sdk-python.md  
 - name: Resources
   items:
   - name: Pricing
@@ -315,5 +329,5 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
   - name: Data consistency explained through baseball
-    href: http://research.microsoft.com/apps/pubs/default.aspx?id=20691
-### ms.date: 09/25/2017
+    href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+### ms.date: 10/23/2017

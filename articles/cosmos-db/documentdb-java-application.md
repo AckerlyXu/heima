@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 08/22/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -45,13 +45,13 @@ This Java application tutorial shows you how to create a web-based task-manageme
 ## <a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
 Before you begin this application development tutorial, you must have the following:
 
-*  If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/) before you begin. 
+*  If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Eclipse IDE for Java EE Developers.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service-web/web-sites-java-get-started.md)
+* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/app-service-web-get-started-java.md)
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
 

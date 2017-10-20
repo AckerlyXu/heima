@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a web app with .NET, Xamarin, and Facebook authentication
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Available on Graph -->
 
 This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [DocumentDB .NET API](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/), and the Azure Cosmos DB authorization engine. The todo list web app implements a per-user data pattern that enables users to login using Facebook Auth and manage their own to do items.
 
@@ -125,4 +126,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-docdb-api.md-->
+<!--Update_Description: update meta properties -->

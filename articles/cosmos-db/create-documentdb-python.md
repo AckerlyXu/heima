@@ -9,19 +9,20 @@ editor: ''
 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 05/13/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a DocumentDB API app with Python and the Azure portal
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Available on Graph -->
 
 This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [DocumentDB Python API](documentdb-sdk-python.md).
 
@@ -161,4 +162,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the DocumentDB API](import-data.md)
 
-<!--Update_Description: update meta properties, add include file named cosmos-db-emulator-docdb-api.md-->
+<!--Update_Description: update meta properties-->

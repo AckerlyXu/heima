@@ -9,19 +9,20 @@ editor: ''
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/02/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Available on Graph -->
 
 This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programatically, whichever is your preference.
 
@@ -199,4 +200,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, doc
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: wording update, add include file named cosmos-db-emulator-docdb-api.md-->
+<!--Update_Description: update meta properties, wording update-->

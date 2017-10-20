@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 09/18/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -358,4 +358,4 @@ To get started with scale and performance testing with Azure Cosmos DB, see [Per
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->
