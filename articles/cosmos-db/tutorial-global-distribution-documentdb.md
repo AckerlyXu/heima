@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -169,6 +169,6 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 > [!div class="nextstepaction"]
 > [Develop locally with the emulator](local-emulator.md)
 
-[regions]: https://azure.microsoft.com/regions/
+[regions]: https://www.azure.cn/support/service-dashboard/
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

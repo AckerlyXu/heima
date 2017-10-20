@@ -16,6 +16,7 @@ ms.topic: hero-article
 origin.date: 04/10/2017
 origin.date: 08/28/2017
 ms.date: ''
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -467,7 +468,7 @@ Now that you've learned the basics of Table storage, follow these links to learn
 * View the Table service reference documentation for complete details about available APIs:
 * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
-* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * View more feature guides to learn about additional options for storing data in Azure.
 * [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
 * [Connect to SQL Database by using .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) to store relational data.
@@ -494,3 +495,4 @@ Now that you've learned the basics of Table storage, follow these links to learn
 [dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
 [dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
 [dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
+<!--Update_Description: update link-->

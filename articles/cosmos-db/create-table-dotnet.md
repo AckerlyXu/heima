@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 06/22/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
 # Azure Cosmos DB: Build a .NET application using the Table API
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- Not Available Graph-->
 
 This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the new [Windows Azure Storage Premium Table](https://aka.ms/premiumtablenuget) (preview) package from NuGet. This library has the same classes and method signatures as the public [Windows Microsoft Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), but also has the ability to connect to Azure Cosmos DB accounts using the [Table API](table-introduction.md) (preview). 
 
@@ -84,17 +85,21 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
     table.CreateIfNotExists();
     ```
 
-* A new Table container is created. You will notice this code very similar to regular Azure Table storage SDK. 
+* A series of steps are executed on the table using the `TableOperation` class.
 
     ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
+    TableOperation insertOperation = TableOperation.Insert(item);
+    table.Execute(insertOperation);
+    ```
+
+    ```csharp
+    TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+    table.Execute(retrieveOperation);
+    ```
+
+    ```csharp
+    TableOperation deleteOperation = TableOperation.Delete(items[i]);
+    table.Execute(deleteOperation);
     ```
 
 ## Update your connection string
@@ -110,14 +115,14 @@ Now we'll update the connection string information so your app can talk to Azure
 3. Paste the value into the app.config file as the value of the PremiumStorageConnectionString. 
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn" />`    
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.cn;EndpointSuffix=core.chinacloudapi.cn" />`    
 <!-- Not Need to add EndpointSuffix=core.chinacloudapi.cn-->
 
     You can leave the StandardStorageConnectionString as is.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-## Run the web app
+## Run the console app
 
 1. In Visual Studio, right-click on the **PremiumTableGetStarted** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
