@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/02/2016
-ms.date: 08/07/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yiso
 
 ---
 # Azure App Service plans in-depth overview
@@ -31,20 +31,20 @@ App Service plans define:
 - SKU (Free, Shared, Basic, Standard, Premium)
 
 Web Apps, Mobile Apps, API Apps, in [Azure App Service](/app-service-web/app-service-changes-existing-services) 
-all run in an App Service plan.  Apps in the same subscription, region, and resource group can share an App Service plan. 
+all run in an App Service plan.  Apps in the same subscription, and region can share an App Service plan. 
 
 All applications assigned to an **App Service plan** share the resources defined by it. This sharing saves money when hosting multiple apps in a single App Service plan.
 
-Your **App Service plan** can scale from **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way.
+Your **App Service plan** can scale from **Free** and **Shared** tiers to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features.
 
-If your App Service plan is set to **Basic** SKU or higher, then you can control the **size** and scale count of the VMs.
+If your App Service plan is set to **Basic** tier or higher, then you can control the **size** and scale count of the VMs.
 
-For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances. Apps also have access to the standard service tier features. Plan instances on which apps are running are fully managed and highly available.
+For example, if your plan is configured to use two "small" instances in the **Standard** tier, all apps in that plan run on both instances. Apps also have access to the **Standard** tier features. Plan instances on which apps are running are fully managed and highly available.
 
 > [!IMPORTANT]
-> The **SKU** and **Scale** of the App Service plan determines the cost and not the number of apps hosted in it.
+> The pricing tier (SKU) of the App Service plan determines the cost and not the number of apps hosted in it.
 
-This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
+This article explores the key characteristics of an App Service plan, such as pricing tiers and scale, and how they work when you manage your apps.
 
 ## Apps and App Service plans
 
@@ -62,7 +62,7 @@ For example, a highly available app running in two regions includes at least two
 
 ## Create an App Service plan or use existing one
 
-When you create an app, you should consider creating a resource group. On the other hand, if this app is a component for a larger application, create it within the resource group that's allocated for that larger application.
+When creating a new Web App in App Service, you can share hosting resources by placing the app into an existing App Service plan. To determine whether the new app will have the necessary resources, you need to understand the capacity of the existing App Service plan, and the expected load for the new app. Over-allocating resources can potentially cause downtime for your new and existing apps.
 
 Whether the app is an altogether new application or part of a larger one, you can choose to use an existing plan to host it or create a new one. This decision is more a question of capacity and expected load.
 
@@ -76,7 +76,7 @@ This way you can allocate a new set of resources for your app and gain greater c
 
 ## Create an App Service plan
 
-You can create an empty App Service plan from the App Service plan browse experience or as part of app creation.
+You can create an empty App Service plan or as part of app creation.
 
 In the [Azure portal](https://portal.azure.cn), click **New** > **Web + mobile**, and then select **Web App** or other App Service app kind.
 
@@ -98,16 +98,7 @@ To move an app to another plan:
 - In the **Menu**, look for the **App Service Plan** section.
 - Select **Change App Service plan** to start the process.
 
-**Change App Service plan** opens the **App Service plan** selector. At this point, you can pick an existing plan to move this app into.
-
-> [!IMPORTANT]
-> The select App Service plan UI is filtered by the following criteria:
-> - Exists within the same Resource Group
-> - Exists in the same Geographical Region
-> - Exists within the same Webspace
->
-> A Webspace is a logical construct within App Service which defines a grouping of server resources. A Geographical region (such as China North) contains many Webspaces in order to allocate customers using App Service. Currently, App Service resources aren't able to be moved between Webspaces.
->
+**Change App Service plan** opens the **App Service plan** selector. At this point, you can pick an existing plan to move this app into. Only plans in the same resource group and region are displayed.
 
 ![App Service plan selector.][change]
 
@@ -120,7 +111,7 @@ If you want to move the app to a different region, one alternative is app clonin
 You can find **Clone App** in the **Development Tools** section of the menu.
 
 > [!IMPORTANT]
-> Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal](../app-service-web/app-service-web-app-cloning-portal.md).
+> Cloning has some limitations that you can read about at [Azure App Service App cloning](app-service-web-app-cloning.md).
 
 ## Scale an App Service plan
 
@@ -139,7 +130,7 @@ You can change the pricing tier and instance size by clicking the **Scale Up** i
 > [!IMPORTANT]
 > **App Service plans** that have no apps associated to them still incur charges since they continue to reserve the compute capacity.
 
-To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted.
+To avoid unexpected charges, when the last app hosted in an App Service plan is deleted, the resulting empty App Service plan is also deleted by default.
 
 ## Summary
 
@@ -147,7 +138,7 @@ App Service plans represent a set of features and capacity that you can share ac
 
 ## What's changed
 
-- For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
+- For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](app-service-web-overview.md)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
