@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 09/18/2017
+origin.date: 10/02/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -29,10 +29,9 @@ ms.custom: H1Hack27Feb2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
-<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -56,4 +55,4 @@ ms.custom: H1Hack27Feb2017
 ## See Also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

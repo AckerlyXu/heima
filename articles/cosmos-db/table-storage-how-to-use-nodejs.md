@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,6 @@ This topic shows how to perform common scenarios using the Azure Table service i
 The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
 
 * [Create a Node.js web app in Azure App Service](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Build and deploy a Node.js web app to Azure using WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -452,4 +451,4 @@ For more information, see the following resources.
 * [Node.js Developer Center](/develop/nodejs/)
 * [Create and deploy a Node.js application to an Azure website](../app-service-web/app-service-web-get-started-nodejs.md)
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: update meta properties，update link -->

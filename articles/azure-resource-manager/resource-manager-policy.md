@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 10/09/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -29,11 +29,6 @@ There are two concepts to understand about policies:
 <!-- Not Available [Assign and manage policies through script](resource-manager-policy-create-assign.md)-->
 
 Policies are evaluated when creating and updating resources (PUT and PATCH operations).
-
-> [!NOTE]
-> Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types is applied for all types. In that case, a template deployment may fail if there is a nested resource that doesn't support tags, and the deployment resource type has been added to policy evaluation. 
-> 
-> 
 
 ## How is it different from RBAC?
 There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on **user** actions at different scopes. For example, you are added to the contributor role for a resource group at the desired scope, so you can make changes to that resource group. Policy focuses on **resource** properties during deployment. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system. 
@@ -66,6 +61,7 @@ Azure provides some built-in policy definitions that may reduce the number of po
 ## Policy definition structure
 You use JSON to create a policy definition. The policy definition contains elements for:
 
+* mode
 * parameters
 * display name
 * description
@@ -78,6 +74,7 @@ The following example shows a policy that limits where resources are deployed:
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -104,6 +101,12 @@ The following example shows a policy that limits where resources are deployed:
   }
 }
 ```
+
+## Mode
+
+We recommend that you set `mode` to `all`. When you set it to **all**, resource groups and all resource types are evaluated for the policy. The portal uses **all** for all policies. If you use PowerShell or Azure CLI, you need to specify the `mode` parameter and set it to **all**.
+
+Previously, policy was evaluated on only resource types that supported tags and location. The `indexed` mode continues this behavior. If you use the **all** mode, policies are also evaluated on resource types that do not support tags and location. [Virtual network subnet](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet) is an example of a newly added type. In addition, resource groups are evaluated when mode is set to **all**. For example, you can [enforce tags on a resource group](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags). 
 
 ## Parameters
 Using parameters helps simplify your policy management by reducing the number of policy definitions. You define a policy for a resource property (such as limiting the locations where resources can be deployed), and include parameters in the definition. Then, you reuse that policy definition for different scenarios by passing in different values (such as specifying one set of locations for a subscription) when assigning the policy.
@@ -210,11 +213,13 @@ The following fields are supported:
 * property aliases - for a list, see [Aliases](#aliases).
 
 ### Effect
-Policy supports three types of effect - `deny`, `audit`, and `append`. 
+Policy supports three types of effect - `deny`, `audit`, `append`, `AuditIfNotExists`, and `DeployIfNotExists`. 
 
 * **Deny** generates an event in the audit log and fails the request
 * **Audit** generates a warning event in audit log but does not fail the request
 * **Append** adds the defined set of fields to the request 
+* **AuditIfNotExists** - enable auditing if a resource does not exist
+* **DeployIfNotExists** - deploy a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
 
 For **append**, you must provide the following details:
 
@@ -229,6 +234,10 @@ For **append**, you must provide the following details:
 ```
 
 The value can be either a string or a JSON format object. 
+
+With **AuditIfNotExists** and **DeployIfNotExists**, you can evaluate the existence of a child resource, and apply a rule when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
+
+For an example of auditing when a virtual machine extension is not deployed, see [Audit VM extensions](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json).
 
 ## Aliases
 
@@ -346,18 +355,96 @@ You use property aliases to access specific properties for a resource type. Alia
 | Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
 
-## Policy examples
+## Policy sets
 
-The following topics contain policy examples:
+Policy sets enable you to group several related policy definitions. The policy set simplifies assignment and management because you work with group as a single item. For example, you can group all related tagging policies in a single policy set. Rather than assigning each policy individually, you apply the policy set.
 
-<!-- Not Available on  resource-manager-policy-tags.md -->
-<!-- Not Available on  resource-manager-policy-naming-convention.md -->
-<!-- Not Available on  resource-manager-policy-storage -->
-* For examples of virtual machine policies, see [Apply resource policies to Linux VMs](../virtual-machines/linux/policy.md?toc=%2fazure-resource-manager%2ftoc.json) and [Apply resource policies to Windows VMs](../virtual-machines/windows/policy.md?toc=%2fazure-resource-manager%2ftoc.json)
+The following example illustrates how to create a policy set for handling two tags (costCenter and productName). It uses two built-in policies for applying the default tag value, and enforcing the tag value. The policy set declares two parameters, costCenterValue and productNameValue for reusability. It references the two built-in policy definitions multiple times with different parameters. For each parameter, you can either provide a fixed value, as shown for tagName, or a parameter from the policy set, as shown for tagValue.
+
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
+
+You add a policy set with the **New-AzureRMPolicySetDefinition** PowerShell command.
+
+For REST operations, use the **2017-06-01-preview** API version, as shown in the following example:
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## Next steps
 <!-- Not Available on resource-manager-policy-portal.md /  resource-manager-policy-create-assign.md-->
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 * The policy schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, add mode parameter-->

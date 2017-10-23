@@ -215,7 +215,7 @@
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
-### [Recommended practices](/azure/architecture/service-fabric/migrate-from-cloud-services)
+### [Recommended practices](http://docs.microsoft.com/zh-cn/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Manage application lifecycle
 ### [Package an application](service-fabric-package-apps.md)

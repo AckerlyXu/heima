@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 # Lesson 10: Create partitions
@@ -112,4 +112,4 @@ In Partition Manager, notice the **Last Processed** column for each of the new p
  ## What's next?
 Go to the next lesson: [Lesson 11: Create Roles](../tutorials/aas-lesson-11-create-roles.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

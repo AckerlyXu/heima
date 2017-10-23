@@ -93,10 +93,10 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
 ### Prerequisites
 You need to have Docker installed. The following commands can be used to install Docker from the terminal:
 
-    ```sh
-    sudo apt-get install wget
-    wget -qO- https://get.docker.io/ | sh
-    ```
+```sh
+sudo apt-get install wget
+wget -qO- https://get.docker.io/ | sh
+```
 
 Now when you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
 
@@ -152,15 +152,15 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 
     f. Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified, and works accordingly. If you create a project named ``MyActor`` (using the Eclipse plug-in or Yeoman generator), the root build script should contain ``${WORKSPACE}/MyActor``. See the following screenshot for an example of what this looks like:
 
-        ![Service Fabric Jenkins Build action][build-step]
+    ![Service Fabric Jenkins Build action][build-step]
 
     g. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
 
-        ![Service Fabric Jenkins Build action][post-build-step]
+    ![Service Fabric Jenkins Build action][post-build-step]
 
-        > [!NOTE]
-        > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
-        >
+    > [!NOTE]
+    > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
+    >
 
 ## Next steps
 GitHub and Jenkins are now configured. Consider making some sample change in your ``MyActor`` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote ``master`` branch (or any branch that you have configured to work with). This triggers the Jenkins job, ``MyJob``, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  

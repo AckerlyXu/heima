@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
+ms.reviewer: elkuzmen
 
 ---
 # Conceptual overview of custom domain names in Azure Active Directory
@@ -45,9 +46,7 @@ Azure AD verifies ownership of a domain name by looking for a particular entry i
 Adding a DNS entry to the zone file for the domain name does not affect other domain services such as email or web hosting.
 
 ## Federated and managed domain names
-A custom domain name in Azure AD can be configured to give users a federated sign in experience between your on-premises Active Directory and Azure AD. Configuring a domain for federation requires updates to privileged resources in Azure AD and also to your Windows Server Active Directory. Configuring a federated domain must be completed from Azure AD Connect or using PowerShell. Federating a custom domain cannot be initiated from the Azure Classic Management Portal. 
-
-Domains that are not federated are sometimes called managed domains. The initial domain for an Azure AD directory is implicitly evaluated as a managed domain.
+A custom domain name in Azure AD can be configured to give users a federated sign in experience between your on-premises Active Directory and Azure AD. Configuring a domain for federation requires updates to privileged resources in Azure AD and also to your Windows Server Active Directory. Configuring a federated domain must be completed from Azure AD Connect or using PowerShell. Federating a custom domain cannot be initiated from the Azure Classic Management Portal. Domains that are not federated are sometimes called managed domains. The initial domain for an Azure AD directory is implicitly evaluated as a managed domain.
 
 ## Primary domain names
 The primary domain name for a directory is the domain name that is pre-selected as the default value for the ‘domain’ portion of the user name, when an administrator creates a new user in the [Azure Classic Management Portal](https://manage.windowsazure.cn/) or another portal such as the Office 365 admin portal. A directory can have only one primary domain name. An administrator can change the primary domain name to be any verified custom domain that is not federated, or to the initial domain.

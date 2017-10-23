@@ -4,7 +4,7 @@ description: This tutorial will guide developers through the steps to deploy the
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-origin.date: 05/20/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+origin.date: 08/04/2017
+ms.date: 10/30/2017
+ms.author: v-yiso
 
 ---
 
@@ -189,7 +189,7 @@ The following steps will walk you through the steps to deploy your Spring Boot w
 
    ![Browse Sample App][SB02]
 
-## Additional Resources
+## Next steps
 
 For more information about using Azure with Java, see the [Azure Java Developer Center] and the [Java Tools for Visual Studio Team Services].
 

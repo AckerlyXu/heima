@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 05/26/2017
-ms.date: 09/25/2017
+origin.date: 09/20/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 # Lesson 11: Create roles
@@ -90,4 +90,4 @@ This topic is part of a tabular modeling tutorial, which should be completed in 
 ## What's next?
 [Lesson 12: Analyze in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties-->

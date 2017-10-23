@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -130,9 +130,12 @@ Now let's deploy our second template.  This template is useful to show how you c
 ## Next steps
 Congratulations! You've deployed Azure Cosmos DB, App Service web app and a sample web application using Azure Resource Manager templates.
 
-* To learn more about Azure Cosmos DB, see the [Azure Cosmos DB service page](https://www.azure.cn/home/features/cosmos-db/).
-* To learn more about Azure App Service Web apps, see the [Web Apps documentation](https://docs.azure.cn/zh-cn/app-service/).
-* To learn more about Azure Resource Manager templates, see [Resource Manager REST API: Deployments](https://docs.microsoft.com/rest/api/resources/deployments).
+* To learn more about Azure Cosmos DB, click [here](https://www.azure.cn/home/features/cosmos-db/).
+* To learn more about Azure App Service Web apps, click [here](https://docs.azure.cn/zh-cn/app-service/).
+* To learn more about Azure Resource Manager templates, click [here](https://msdn.microsoft.com/library/azure/dn790549.aspx).
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

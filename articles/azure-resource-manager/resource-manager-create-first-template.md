@@ -11,9 +11,9 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 09/03/2017
+origin.date: 10/02/2017
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 ---
 
@@ -25,7 +25,7 @@ To create and revise templates, you need a JSON editor. [Visual Studio Code](htt
 ## Prerequisites
 
 * Visual Studio Code. If needed, install it from [https://code.visualstudio.com/](https://code.visualstudio.com/).
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
 ## Create template
 
@@ -391,4 +391,4 @@ az group delete --name examplegroup
 <!-- Not Available (/templates/microsoft.storage/storageaccounts)-->
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/).
 
-<!--Update_Description: update meta properties, wording update, add auto complete feature in VS Code-->
+<!--Update_Description: update meta properties, wording update -->

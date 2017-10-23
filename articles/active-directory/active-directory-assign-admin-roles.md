@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2017
-ms.date: 08/22/2017
+origin.date: 10/10/2017
+ms.date: 10/18/2017
 ms.author: v-junlch
 
 ms.reviewer: Vince.Smith
@@ -23,7 +23,7 @@ robots: NOINDEX
 
 ---
 # Assigning administrator roles in Azure Active Directory
-Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. These administrators will have access to various features in the Azure portal or Azure Classic Management Portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure Classic Management Portal, or by using the Azure AD module for Windows PowerShell.
+Use Azure Active Directory (Azure AD) to designate separate administrators for different functions. These administrators can access selected features in the Azure portal or Azure Classic Management Portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services to which your organization has subscribed, regardless of whether you assign the role in the Office 365 portal, or in the Azure Classic Management Portal, or by using the Azure AD module for Microsoft PowerShell.
 
 The following administrator roles are available:
 
@@ -60,4 +60,4 @@ The global administrator has access to all administrative features. By default, 
 - [Manage passwords](./active-directory-manage-passwords.md)
 
 
-<!--Update_Description: update metadata properties -->  
+<!--Update_Description: wording update-->

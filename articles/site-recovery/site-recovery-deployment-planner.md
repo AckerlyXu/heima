@@ -581,7 +581,7 @@ Added following fixes:
 
 * Added boot type( BIOS or EFI) check for each virtual machine to determine if the virtual machine is compatible or incompatible for the protection.
 * Added OS type information for each virtual machine in the Compatible VMs  and Incompatible VMs worksheets.
-* The GetThroughput operation is now supported in the US Government and China Azure regions.
+* The GetThroughput operation is now supported in China Azure regions.
 * Added few more prerequisite checks for vCenter and ESXi Server.
 * Incorrect report was getting generated when locale settings is set to non-English.
 
@@ -599,7 +599,7 @@ Updated: February 23, 2017
 Azure Site Recovery Deployment Planner public preview 1.0 has the following known issues (to be addressed in upcoming updates):
 
 * The tool works only for VMware-to-Azure scenarios, not for Hyper-V-to-Azure deployments. For Hyper-V-to-Azure scenarios, use the [Hyper-V capacity planner tool](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-* The GetThroughput operation is not supported in the US Government and China Azure regions.
+* The GetThroughput operation is not supported in China Azure regions.
 * The tool cannot profile VMs if the vCenter server has two or more VMs with the same name or IP address across various ESXi hosts. In this version, the tool skips profiling for duplicate VM names or IP addresses in the VMListFile. The workaround is to profile the VMs by using an ESXi host instead of the vCenter server. You must run one instance for each ESXi host.
 
 <!--Update_Description: update meta properties, update link -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/29/2017
-ms.date: 09/25/2017
+ms.date: 10/23/2017
 ms.author: v-yeche
 
 ---
@@ -57,6 +57,7 @@ Here are a few pointers to get you started:
 * [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
 * [Query table data by using the Table API](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
-* [Azure Cosmos DB Table API SDK for .NET](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
 
 <!--Update_Description: update meta properties, update link, wording update-->
