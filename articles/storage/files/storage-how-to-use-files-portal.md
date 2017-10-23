@@ -1,9 +1,9 @@
 ---
-title: How to manage Azure File storage from the Azure portal | Azure
-description: Learn to use the Azure portal to manage Azure File storage.
+title: How to manage Azure Files from the Azure portal | Microsoft Docs
+description: Learn to use the Azure portal to manage Azure Files.
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+origin.date: 09/19/2017
+ms.date: 10/30/2017
+ms.author: v-johch
 ---
 
-# How to use Azure File storage from the Azure Portal
-The [Azure portal](https://portal.azure.cn) provides a user interface for managing Azure File storage. You can perform the following actions from your web browser:
+# How to use Azure Files from the Azure Portal
+The [Azure portal](https://portal.azure.cn) provides a user interface for managing Azure Files. You can perform the following actions from your web browser:
 
 * Create a File Share
 * Upload and download files to and from your file share.
@@ -45,7 +45,7 @@ The [Azure portal](https://portal.azure.cn) provides a user interface for managi
 
     ![Screenshot that shows how to create file share in the portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://www.azure.cn/pricing/calculator/) to estimate the storage cost of using Azure File storage.
+6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0. You could click on **Quota** on the file share to change the size of the file up to 5120 GB. Please refer to [Azure Pricing Calculator](https://www.azure.cn/pricing/calculator/) to estimate the storage cost of using Azure Files.
 
     ![Screenshot that shows how to create file share in the portal](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -59,10 +59,10 @@ The [Azure portal](https://portal.azure.cn) provides a user interface for managi
     ![Screenshot that shows how to upload files from the portal](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## Connect to file share
--  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you can also refer to [How to use Azure File storage with Linux](../storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distributions.
+-  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you can also refer to [How to use Azure Files with Linux](../storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distributions.
 
     ![Screenshot that shows how to mount the file share](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  You can copy the commands for mounting file share on Windows or Linux and run it from you Azure VM or on-premises machine.
+-  You can copy the commands for mounting file share on Windows or Linux and run it from your Azure VM or on-premises machine.
 
     ![Screenshot that shows the mount commands for Windows and Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 
@@ -70,9 +70,9 @@ The [Azure portal](https://portal.azure.cn) provides a user interface for managi
 To find the storage account access key for mounting, click on **View access keys for this storage account** at the bottom of the connect page.
 
 ## See also
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Troubleshooting on Linux](storage-troubleshoot-linux-file-connection-problems.md)
-<!--Update_Description: update link-->
+* [Troubleshooting on Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+<!--Update_Description: wording update-->

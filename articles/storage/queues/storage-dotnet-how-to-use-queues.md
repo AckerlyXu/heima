@@ -3,8 +3,8 @@ title: Get started with Azure Queue storage using .NET | Azure
 description: Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 services: storage
 documentationcenter: .net
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 03/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-johch
 ---
 
 # Get started with Azure Queue storage using .NET
@@ -310,7 +310,7 @@ to learn about more complex storage tasks.
 * View the Queue service reference documentation for complete details about available APIs:
   * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
-* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../../app-service-web/websites-dotnet-webjobs-sdk.md).
+* Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * View more feature guides to learn about additional options for storing data in Azure.
   * [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
   * [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
@@ -324,4 +324,4 @@ to learn about more complex storage tasks.
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

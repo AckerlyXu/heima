@@ -10,7 +10,7 @@ description: Learn how to build and manage powerful applications using Azure clo
     <div class="container">
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="/articles/">
+                <a href="/articles/azure-operations-guide/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -190,7 +190,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <h3>Command-line tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/cli/azure/overview">
+                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
                                                             Azure CLI
                                                         </a>
@@ -2168,13 +2168,13 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                     Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/overview">Get Started</a>
+                                                    <a target="_blank" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/install-azure-cli">Download Azure CLI 2.0</a>
+                                                    <a target="_blank" href="https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">Reference</a>
+                                                    <a target="_blank" href="https://docs.azure.cn/cli/?view=azure-cli-latest">Reference</a>
                                                 </p>
                                             </div>
                                         </div>

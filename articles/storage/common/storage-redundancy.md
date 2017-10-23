@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-johch
 ---
 
@@ -48,54 +48,20 @@ See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for p
 >
 
 ## Locally redundant storage
-Locally redundant storage (LRS) replicates your data three times within a storage scale unit, which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all three replicas. These three replicas each reside in separate fault domains and upgrade domains within one storage scale unit.
-
-A storage scale unit is a collection of racks of storage nodes. A fault domain (FD) is a group of nodes that represent a physical unit of failure and can be considered as nodes belonging to the same physical rack. An upgrade domain (UD) is a group of nodes that are upgraded together during the process of a service upgrade (rollout). The three replicas are spread across UDs and FDs within one storage scale unit to ensure that data is available even if hardware failure impacts a single rack or when nodes are upgraded during a rollout.
-
-LRS is the lowest cost option and offers least durability compared to other options. In the event of a datacenter level disaster (fire, flooding etc.) all three replicas might be lost or unrecoverable. To mitigate this risk, Geo Redundant Storage (GRS) is recommended for most applications.
-
-Locally redundant storage may still be desirable in certain scenarios:
-
-* Provides highest maximum bandwidth of Azure Storage replication options.
-* If your application stores data that can be easily reconstructed, you may opt for LRS.
-* Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country. 
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## Zone-redundant storage
 Zone-redundant storage (ZRS) replicates your data asynchronously across datacenters within one or two regions in addition to storing three replicas similar to LRS, thus providing higher durability than LRS. Data stored in ZRS is durable even if the primary datacenter is unavailable or unrecoverable.
 Customers who plan to use ZRS should be aware that:
 
-* ZRS is only available for block blobs in general purpose storage accounts, and is supported only in storage service versions 2014-02-14 and later.
+* ZRS is only available for block blobs in general-purpose storage accounts, and is supported only in storage service versions 2014-02-14 and later.
 * Since asynchronous replication involves a delay, in the event of a local disaster it is possible that changes that have not yet been replicated to the secondary will be lost if the data cannot be recovered from the primary.
 * The replica may not be available until Microsoft initiates failover to the secondary.
 * ZRS accounts cannot be converted later to LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
 * ZRS accounts do not have metrics or logging capability.
 
 ## Geo-redundant storage
-Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
-
-For a storage account with GRS enabled, an update is first committed to the primary region, where it is replicated three times. Then the update is replicated asynchronously to the secondary region, where it is also replicated three times.
-
-With GRS, both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit as described with LRS.
-
-Considerations:
-
-* Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless 21Vianet initiates failover to the secondary region. If 21Vianet does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](../storage-disaster-recovery-guidance.md). 
-* If an application wants to read from the secondary region, the user should enable RA-GRS.
-
-When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
-
-| Primary | Secondary |
-| --- | --- |
-| East China |North China |
-| North China |East China |
-
-For up-to-date information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/regions/).
-
->[!NOTE]  
-> US Gov Virginia secondary region is US Gov Texas. Previously, US Gov Virginia utilized US Gov Iowa as a secondary region. Storage accounts still leveraging US Gov Iowa as a secondary region are being migrated to US Gov Texas as a seconday region. 
-> 
-> 
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## Read-access geo-redundant storage
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS.
@@ -106,7 +72,7 @@ Considerations:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* If Azure initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](./storage-disaster-recovery-guidance.md). 
+* If Azure initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](../storage-disaster-recovery-guidance.md). 
 * RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](../storage-performance-checklist.md).
 
 ## Frequently asked questions
@@ -145,8 +111,8 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
 
 <a id="rpo-rto"></a>
 #### 7. What is the RPO and RTO with GRS?
-
-   Recover Point Objective (RPO): In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. If there is a major regional disaster and a failover has to be performed, then recent delta changes that have not been geo-replicated may be lost. The number of minutes of potential data lost is referred to as the RPO (which means the point in time to which data can be recovered). We typically have a RPO less than 15 minutes, although there is currently no SLA on how long geo-replication takes.
+   
+   Recover Point Objective (RPO): In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. If there is a major regional disaster and a failover has to be performed, then recent delta changes that have not been geo-replicated may be lost. The number of minutes of potential data lost is referred to as the RPO (which means the point in time to which data can be recovered). We typically have an RPO less than 15 minutes, although there is currently no SLA on how long geo-replication takes.
 
    Recovery Time Objective (RTO): This is a measure of how long it takes us to do the failover and get the storage account back online if we have to do a failover. The time to do the failover includes the following:
     * The time it takes us to investigate and determine if we can recover the data at the primary location or if we need to do a failover.
@@ -162,3 +128,4 @@ If you change from GRS to LRS, there is no additional cost, but your data will b
 * [Azure Storage redundancy options and read access geo redundant storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
+<!--Update_Description:wording update-->

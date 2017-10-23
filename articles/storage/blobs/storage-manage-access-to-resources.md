@@ -3,8 +3,8 @@ title: Enable public read access for containers and blobs in Azure Blob storage 
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
 documentationcenter: ''
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/26/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-johch
 ---
 
 # Manage anonymous read access to containers and blobs
@@ -151,5 +151,3 @@ The following table shows which operations may be called by anonymous users when
 * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Using Shared Access Signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2fblobs%2ftoc.json)
 * [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-<!--Update_Description: update link-->

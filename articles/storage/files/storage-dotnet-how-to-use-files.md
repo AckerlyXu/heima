@@ -1,6 +1,6 @@
 ---
-title: Develop for Azure File storage with .NET | Microsoft Docs
-description: Learn how to develop .NET applications and services that use Azure File storage to store file data.
+title: Develop for Azure Files with .NET | Microsoft Docs
+description: Learn how to develop .NET applications and services that use Azure Files to store file data.
 services: storage
 documentationcenter: .net
 author: forester123
@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 05/27/2017
-ms.date: 10/16/2017
+origin.date: 09/19/2017
+ms.date: 10/30/2017
 ms.author: v-johch
 ---
 
-# Develop for Azure File storage with .NET 
+# Develop for Azure Files with .NET 
 > [!NOTE]
-> This article shows how to manage Azure File storage with .NET code. To learn more about Azure File storage, please see the [Introduction to Azure File storage](storage-files-introduction.md).
+> This article shows how to manage Azure Files with .NET code. To learn more about Azure Files, please see the [Introduction to Azure Files](storage-files-introduction.md).
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -28,7 +28,7 @@ ms.author: v-johch
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## About this tutorial
-This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure File storage to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with .NET and Azure File storage:
+This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we create a simple console application and show how to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
 * Set the quota (maximum size) for the file share.
@@ -38,7 +38,7 @@ This tutorial will demonstrate the basics of using .NET to develop applications 
 * Use Azure Storage Metrics for troubleshooting
 
 > [!Note]  
-> Because Azure File storage may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [Azure File storage REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure File storage. 
+> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files. 
 
 
 ## Create the console application and obtain the assembly
@@ -82,7 +82,7 @@ Next, save your credentials in your project's app.config file. Edit the app.conf
 ```
 
 > [!NOTE]
-> The latest version of the Azure storage emulator does not support Azure File storage. Your connection string must target an Azure Storage Account in the cloud to work with Azure File storage.
+> The latest version of the Azure storage emulator does not support Azure Files. Your connection string must target an Azure Storage Account in the cloud to work with Azure Files.
 
 ## Add using directives
 Open the `Program.cs` file from Solution Explorer, and add the following using directives to the top of the file.
@@ -91,7 +91,7 @@ Open the `Program.cs` file from Solution Explorer, and add the following using d
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -100,7 +100,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 Next, add the following code to the `Main()` method (after the code shown above) to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents to the console window.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -134,7 +134,7 @@ if (share.Exists())
 Run the console application to see the output.
 
 ## Set the maximum size for a file share
-Beginning with version 5.x of the Azure Storage Client Library, you can set set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
+Beginning with version 5.x of the Azure Storage Client Library, you can set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
 
 By setting the quota for a share, you can limit the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless those files are empty.
 
@@ -145,7 +145,7 @@ The example below shows how to check the current usage for a share and how to se
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -180,7 +180,7 @@ The following example creates a shared access policy on a share, and then uses t
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -239,7 +239,7 @@ The following example copies a file to another file in the same share. Because t
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -284,7 +284,7 @@ The following example creates a file and copies it to a blob within the same sto
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -325,13 +325,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authenticate access to that blob during the copy operation.
 
-## Troubleshooting Azure File storage using metrics
-Azure Storage Analytics now supports metrics for Azure File storage. With metrics data, you can trace requests and diagnose issues.
+## Troubleshooting Azure Files using metrics
+Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
 You can enable metrics for Azure File storage from the [Azure Portal](https://portal.azure.cn). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
 
-
-The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure File storage.
+The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 
 First, add the following `using` directives to your `Program.cs` file, in addition to those you added above:
 
@@ -340,7 +339,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Note that while Azure Blobs, Azure Table, and Azure Queues use the shared `ServiceProperties` type in the `Microsoft.WindowsAzure.Storage.Shared.Protocol` namespace, Azure File storage uses its own type, the `FileServiceProperties` type in the `Microsoft.WindowsAzure.Storage.File.Protocol` namespace. Both namespaces must be referenced from your code, however, for the following code to compile.
+Note that while Azure Blobs, Azure Table, and Azure Queues use the shared `ServiceProperties` type in the `Microsoft.WindowsAzure.Storage.Shared.Protocol` namespace, Azure Files uses its own type, the `FileServiceProperties` type in the `Microsoft.WindowsAzure.Storage.File.Protocol` namespace. Both namespaces must be referenced from your code, however, for the following code to compile.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -383,26 +382,27 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Also, you can refer to [Azure File storage Troubleshooting Article](storage-troubleshoot-windows-file-connection-problems.md) for end-to-end troubleshooting guidance.
+Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-windows-file-connection-problems.md) for end-to-end troubleshooting guidance.
 
 ## Next steps
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 
 ### Conceptual articles
 
-* [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md)
+* [How to use Azure Files with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage
 * [How to use AzCopy with Azure Storage](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md?toc=%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Troubleshooting Azure File storage problems](/storage/storage-troubleshoot-file-connection-problems)
+* [Troubleshooting Azure Files problems](/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference
 * [Storage Client Library for .NET reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API reference](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### Blog posts
-* [Azure File storage is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure File storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Azure File storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Persisting connections to Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+<!--Update_Description:wording update-->

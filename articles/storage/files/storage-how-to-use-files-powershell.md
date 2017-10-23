@@ -1,9 +1,9 @@
 ---
-title: How to use PowerShell to manage Azure File storage | Azure
-description: Learn to use PowerShell to manage Azure File storage.
+title: How to use PowerShell to manage Azure Files | Microsoft Docs
+description: Learn to use PowerShell to manage Azure Files.
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/27/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+origin.date: 09/19/2017
+ms.date: 10/30/2017
+ms.author: v-johch
 ---
-# How to use PowerShell to manage Azure File storage
+# How to use PowerShell to manage Azure Files
 You can use Azure PowerShell to create and manage file shares.
 
 ## Install the PowerShell cmdlets for Azure Storage
@@ -92,9 +92,9 @@ Start-AzureStorageFileCopy -SrcShareName srcshare -SrcFilePath srcdir/hello.txt 
 Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 ```
 ## Next steps
-See these links for more information about Azure File storage.
+See these links for more information about Azure Files.
 
 * [FAQ](../storage-files-faq.md)
 * [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Troubleshooting on Linux](storage-troubleshoot-linux-file-connection-problems.md)
-<!--Update_Description: update link-->
+* [Troubleshooting on Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+<!--Update_Description: wording update-->

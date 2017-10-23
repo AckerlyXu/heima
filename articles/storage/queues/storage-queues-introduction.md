@@ -3,7 +3,7 @@ title: Introduction to Azure Queue storage | Azure
 description:  Introduction to Azure Queue storage 
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-johch
 
 ---
 # Introduction to Queues
@@ -52,4 +52,3 @@ The Queue service contains the following components:
 
 * [Create a storage account](../storage-create-storage-account.md?toc=%2fstorage%2fqueues%2ftoc.json)
 * [Getting started with Queues using .NET](storage-dotnet-how-to-use-queues.md)
-<!--Update_Description: new file-->
