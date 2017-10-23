@@ -3,7 +3,7 @@ title: Monitor, diagnose, and troubleshoot Azure Storage | Azure
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 services: storage
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: tysonn
 
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-johch
 
 ---
 # Monitor, diagnose, and troubleshoot Azure Storage
@@ -27,7 +27,7 @@ Diagnosing and troubleshooting issues in a distributed application hosted in a c
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
 
 > [!NOTE]
-> The Azure File storage does not support logging at this time.
+> The Azure Files does not support logging at this time.
 > 
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md).
@@ -68,8 +68,8 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
   * [Your issue arises from using the storage emulator for development or test]
   * [You are encountering problems installing the Azure SDK for .NET]
   * [You have a different issue with a storage service]
-  * [Troubleshooting Azure File storage issues with Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [Troubleshooting Azure File storage issues with Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [Troubleshooting Azure Files issues with Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [Troubleshooting Azure Files issues with Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Appendices]
   * [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
   * [Appendix 2: Using Wireshark to capture network traffic]
@@ -651,7 +651,7 @@ It is important to note that these operations have completed successfully and th
 You can find a list of common REST API error codes that the storage services return on the page [Common REST API Error Codes](http://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
-If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired).
+If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application-specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired).
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>You are experiencing unexpected reboots of Azure Virtual Machines that have a large number of attached VHDs
 If an Azure Virtual Machine (VM) has a large number of attached VHDs that are in the same storage account, you could exceed the scalability targets for an individual storage account causing the VM to fail. You should check the minute metrics for the storage account (**TotalRequests**/**TotalIngress**/**TotalEgress**) for spikes that exceed the scalability targets for a storage account. See the section "[Metrics show an increase in PercentThrottlingError]" for assistance in determining if throttling has occurred on your storage account.
@@ -672,7 +672,7 @@ The storage emulator does not support all of the features of the Azure storage s
 For those features that the storage emulator does not support, use the Azure storage service in the cloud.
 
 #### <a name="error-HTTP-header-not-correct-format"></a>Error "The value for one of the HTTP headers is not in the correct format" when using the storage emulator
-You are testing your application that use the Storage Client Library against the local storage emulator and method calls such as **CreateIfNotExists** fail with the error message "The value for one of the HTTP headers is not in the correct format." This indicates that the version of the storage emulator you are using does not support the version of the storage client library you are using. The Storage Client Library adds the header **x-ms-version** to all the requests it makes. If the storage emulator does not recognize the value in the **x-ms-version** header, it rejects the request.
+You are testing your application that uses the Storage Client Library against the local storage emulator and method calls such as **CreateIfNotExists** fail with the error message "The value for one of the HTTP headers is not in the correct format." This indicates that the version of the storage emulator you are using does not support the version of the storage client library you are using. The Storage Client Library adds the header **x-ms-version** to all the requests it makes. If the storage emulator does not recognize the value in the **x-ms-version** header, it rejects the request.
 
 You can use the Storage Library Client logs to see the value of the **x-ms-version header** it is sending. You can also see the value of the **x-ms-version header** if you use Fiddler to trace the requests from your client application.
 
@@ -754,7 +754,7 @@ WireShark will highlight any errors that exist in the **packetlist** window. You
 
 ![][7]
 
-You can also chose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is particularly useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is particularly useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 

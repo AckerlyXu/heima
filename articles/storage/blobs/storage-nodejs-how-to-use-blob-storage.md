@@ -3,8 +3,8 @@ title: How to use Blob storage from Node.js | Azure
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: nodejs
-author: mmacy
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 8b0df222-1ca8-4967-8248-6d6d720947b8
