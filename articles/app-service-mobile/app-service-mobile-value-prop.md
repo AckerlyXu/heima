@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: hero-article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
+ms.date: 11/06/2017
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
 Azure App Service is a fully managed platform as a service (PaaS) offering for professional developers. The service brings a rich set of capabilities to web, mobile, and integration scenarios. 
@@ -64,9 +64,11 @@ The following platform features are useful for mobile production sites:
 
 * **Continuous deployment**: App Service can integrate with common supply chain management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
 
-  Discover more about [deployment options].
+  Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
 
-* **Virtual networking**: App Service can connect to on-premises resources by using virtual network.
+* **Virtual networking**: App Service can connect to on-premises resources by using virtual network, Azure ExpressRoute, or hybrid connections.
+
+  Discover more about [hybrid connections], [virtual networks].
 
   Discover more about [virtual networks].
 
@@ -92,11 +94,11 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.iOS and Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
+[Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[auto scaling]: ../app-service-web/web-sites-scale.md
-[staging environments]: ../app-service-web/web-sites-staged-publishing.md
-[deployment options]: ../app-service-web/web-sites-deploy.md
+[autoscaling]: ../app-service/web-sites-scale.md
+[staging environments]: ../app-service/web-sites-staged-publishing.md
+[hybrid connections]: ../biztalk-services/integration-hybrid-connection-overview.md
+[virtual networks]: ../app-service/web-sites-integrate-with-vnet.md
 
-[virtual networks]: ../app-service-web/web-sites-integrate-with-vnet.md
 [learning map]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

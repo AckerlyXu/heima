@@ -12,8 +12,9 @@ ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2016
+ms.topic: troubleshooting
+origin.date: 07/26/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
 ---
 

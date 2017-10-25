@@ -1,20 +1,22 @@
 ---
-title: How to work with the .NET backend server SDK for Mobile Apps | Azure App Service
+title: How to work with the .NET backend server SDK for Mobile Apps | Microsoft Docs
 description: Learn how to work with the .NET backend server SDK for Azure App Service Mobile Apps.
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
-documentationCenter: ''
-authors: adrianhall
-manager: erikre
+documentationcenter: ''
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
+ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
 ms.author: v-yiso
+ms.date: 11/06/2017
 ---
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -26,7 +28,9 @@ helps you work with mobile clients from your ASP.NET application.
 
 >[!TIP]
 > The [.NET server SDK for Azure Mobile Apps][2] is open source on GitHub. The repository contains all source code including
-the entire server SDK unit test suite and some sample projects.
+> the entire server SDK unit test suite and some sample projects.
+>
+>
 
 ## Reference documentation
 
@@ -169,9 +173,8 @@ initialization by using the **MobileAppConfiguration** object.
      Provides the AppServiceLoginHandler.CreateToken() method, which is a static method used during custom authentication scenarios.   
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
-
-This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of 
-the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-sites-deploy.md).
+This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using [Git](../app-service/app-service-deploy-local-git.md) or any of
+the other methods available there.
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 
@@ -249,10 +252,9 @@ If you have the Azure SDK installed, you can now create a template table control
 
 The quickstart server project contains an example for a simple **TodoItemController**.
 
-### How to: Adjust the table paging size
-
-By default, Azure Mobile Apps returns 50 records per request.  Paging ensures that the client does not tie up their UI thread nor the server for 
-too long, ensuring a good user experience. To change the table paging size, increase the server side "allowed query size" and the client-side page size 
+### <a name="adjust-pagesize"></a>How to: Adjust the table paging size
+By default, Azure Mobile Apps returns 50 records per request.  Paging ensures that the client does not tie up their UI thread nor the server for
+too long, ensuring a good user experience. To change the table paging size, increase the server side "allowed query size" and the client-side page size
 The server side "allowed query size" is adjusted using the `EnableQuery` attribute:
 
 ```
@@ -396,6 +398,8 @@ config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "C
 
 >[!TIP]
 > Using the `loginAsync()` approach ensures that the authentication token is attached to every subsequent call to the service.
+>
+>
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
@@ -556,9 +560,9 @@ registration. For more information, see [Push to users][6] in the App Service Mo
 
 Azure App Service provides several debugging and troubleshooting techniques for ASP.NET applications:
 
-- [Monitoring an Azure App Service](../app-service-web/web-sites-monitor.md)
-- [Enable Diagnostic Logging in Azure App Service](../app-service-web/web-sites-enable-diagnostic-log.md)
-- [Toubleshoot an Azure App Service in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Monitoring an Azure App Service](../app-service/web-sites-monitor.md)
+* [Enable Diagnostic Logging in Azure App Service](../app-service/web-sites-enable-diagnostic-log.md)
+* [Troubleshoot an Azure App Service in Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### Logging
 
@@ -567,8 +571,7 @@ diagnostics in your Mobile App backend.
 
 To enable diagnostics and write to the logs:
 
-1. Follow the steps in [How to enable diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
-
+1. Follow the steps in [How to enable diagnostics](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
 2. Add the following using statement in your code file:
 
     ```
@@ -583,8 +586,7 @@ To enable diagnostics and write to the logs:
     ```
 
 4. Republish your server project, and access the Mobile App backend to execute the code path with the logging.
-
-5. Download and evaluate the logs, as described in [How to: Download logs](../app-service-web/web-sites-enable-diagnostic-log.md#download).
+5. Download and evaluate the logs, as described in [How to: Download logs](../app-service/web-sites-enable-diagnostic-log.md#download).
 
 ### <a name="local-debug"></a>Local debugging with authentication
 

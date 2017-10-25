@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/03/2017
+origin.date: 10/05/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 11/06/2017
 ---
 # Azure Relay Hybrid Connections protocol
 Azure Relay is one of the key capability pillars of the Azure Service Bus
@@ -75,11 +75,7 @@ connections are balanced across them in random order; fair distribution is
 not guaranteed.
 
 #### Accept
-Whenever a sender opens up a new connection on the service, the service will
-choose and notify one of the active listeners on the Hybrid Connection. The
-notification is sent to the listener over the open control channel as a JSON
-message containing the URL of the Web socket endpoint that the listener must
-connect to for accepting the connection.
+When a sender opens a new connection on the service, the service chooses and notifies one of the active listeners on the Hybrid Connection. This notification is sent to the listener over the open control channel as a JSON message containing the URL of the WebSocket endpoint that the listener must connect to for accepting the connection.
 
 The URL can and must be used directly by the listener without any extra work;
 the encoded information is only valid for a short period of time, essentially

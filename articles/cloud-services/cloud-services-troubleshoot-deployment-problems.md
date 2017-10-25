@@ -8,14 +8,15 @@ manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 11/30/2016
+origin.date: 07/26/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
+ms.date: 11/06/2017
 ---
 
 # Troubleshoot cloud service deployment problems
@@ -29,6 +30,8 @@ You can find the **Properties** pane as follows:
 
 > [!NOTE]
 > You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
+>
+>
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -80,8 +83,10 @@ For more information on how to troubleshoot for this problem, see the blog post 
 
 >[!WARNING]
 > If you recycle your cloud service, you reset the properties for the deployment, effectively erasing the information for the original problem.
+>
+>
 
 ## Next steps
-View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
+View more [troubleshooting articles](./cloud-services-allocation-failures.md) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

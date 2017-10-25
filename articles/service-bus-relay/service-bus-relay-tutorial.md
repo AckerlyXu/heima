@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 11/06/2017
 ---
 # Azure WCF Relay tutorial
 
@@ -455,7 +455,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="configure-the-wcf-client"></a> Configure the WCF client
+## Configure the WCF client
 
 In this step, you create an App.config file for a basic client application that accesses the service created previously in this tutorial. This App.config file defines the contract, binding, and name of the endpoint. The code used for these tasks is provided in the example following the procedure.
 
@@ -706,8 +706,6 @@ To learn more about Azure Relay, see the following topics.
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure Relay overview](./relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](./relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
