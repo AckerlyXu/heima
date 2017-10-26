@@ -1,32 +1,37 @@
 ---
-title: Toggle between view and edit mode for reports in Azure Power BI Embedded | Microsoft Docs
-description: Learn how to toggle between view and edit mode for your reports within Power BI Embedded.
+title: Toggle between view and edit mode for reports in Power BI Workspace Collections | Microsoft Docs
+description: Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: ''
 
+ROBOTS: NOINDEX
 ms.assetid: 
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 03/11/2017
+origin.date: 09/20/2017
+ms.date: 10/24/2017
 ms.author: v-junlch
 ---
-# Toggle between view and edit mode for reports in Power BI Embedded
+# Toggle between view and edit mode for reports in Power BI Workspace Collections
 
-Learn how to toggle between view and edit mode for your reports within Power BI Embedded.
+Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
+
+> [!IMPORTANT]
+> Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## Creating an access token
 
-You will need to create an access token that gives you the ability to both view and edit a report. To edit and save a report, you will need the **Report.ReadWrite** token permission. For more information, see [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md).
+You need to create an access token that gives you the ability to both view and edit a report. To edit and save a report, you need the **Report.ReadWrite** token permission. For more information, see [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md).
 
 > [!NOTE]
-> This will allow you to edit and save changes to an existing report. If you would also like the function of supporting **Save As**, you will need to supply additional permissions. For more information, see [Scopes](power-bi-embedded-app-token-flow.md#scopes).
+> This allows you to edit and save changes to an existing report. If you would also like the function of supporting **Save As**, you need to supply additional permissions. For more information, see [Scopes](app-token-flow.md#scopes).
 
 ```
 using Microsoft.PowerBI.Security;
@@ -40,9 +45,9 @@ var token = embedToken.Generate("{access key}");
 
 ## Embed configuration
 
-You will need to supply permissions and a viewMode in order to see the save button when in edit mode. For more information, see [Embed configuration details](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+You need to supply permissions and a viewMode in order to see the save button when in edit mode. For more information, see [Embed configuration details](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
-For example in JavaScript:
+For example, in JavaScript:
 
 ```
    <div id="reportContainer"></div>
@@ -57,7 +62,7 @@ For example in JavaScript:
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.ReadWrite /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.View,
@@ -74,7 +79,7 @@ For example in JavaScript:
     var report = powerbi.embed(reportContainer, config);
 ```
 
-This will indicate to embed the report in view mode based on **viewMode** being set to **models.ViewMode.View**.
+This indicates to embed the report in view mode based on **viewMode** being set to **models.ViewMode.View**.
 
 ## View mode
 
@@ -110,12 +115,13 @@ report.switchMode("edit");
 
 ## See also
 
-[Get started with sample](power-bi-embedded-get-started-sample.md)  
-[Embed a report](power-bi-embedded-embed-report.md)  
-[Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Get started with sample](get-started-sample.md)  
+[Embed a report](embed-report.md)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git Repo](https://github.com/Microsoft/PowerBI-Node)  
+
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
 
