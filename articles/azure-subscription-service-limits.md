@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/01/2017
-ms.date: 09/25/2017
+origin.date: 09/29/2017
+ms.date: 10/26/2017
 ms.author: v-junlch
 
 ---
@@ -25,7 +25,7 @@ This document lists some of the most common Azure limits, which are also sometim
 Please visit [Azure Pricing Overview](https://www.azure.cn/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://www.azure.cn/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://www.azure.cn/pricing/details/virtual-machines#Windows)).
 
 > [!NOTE]
-> If you want to raise the limit or quota above the **Default Limit**, open an online customer support request at no charge. The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
+> The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits. 
 > 
 > 1rmb-trial subscriptions are not eligible for limit or quota increases. If you have a 1rmb-trial, you can upgrade to a Pay-As-You-Go subscription. 
 > 
@@ -44,6 +44,7 @@ In the limits below, a new table has been added to reflect any differences in li
 
 ## Service-specific limits
 - [Active Directory](#active-directory-limits)
+- [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Gateway](#application-gateway-limits)
 - [Automation](#automation-limits) 
@@ -59,7 +60,7 @@ In the limits below, a new table has been added to reflect any differences in li
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
 - [Mobile Services](#mobile-services-limits)
-- [Monitor limits](#monitor-limits)
+- [Monitor](#monitor-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Networking](#networking-limits)
 - [Notification Hub Service](#notification-hub-service-limits)
@@ -107,7 +108,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 #### Networking limits
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-#### Application Gateway limits
+#### Application Gateway limits <a name="application-gateway-limits"></a>
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Traffic Manager limits
@@ -144,7 +145,7 @@ See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fvirtual-machi
 ### Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
-### App Service limits
+### App Service limits <a name="app-service-limits"></a>
 The following App Service limits include limits for Web Apps, Mobile Apps, API Apps, and Logic Apps.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
@@ -152,10 +153,10 @@ The following App Service limits include limits for Web Apps, Mobile Apps, API A
 ### Scheduler limits
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-### Batch limits
+### Batch limits <a name="batch-limits"></a>
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### Azure Cosmos DB limits
+### Azure Cosmos DB limits <a name="azure-cosmos-db-limits"></a>
 Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale Azure Cosmos DB provides, please send email to askcosmosdb@microsoft.com.
 
 ### Media Services limits
@@ -167,7 +168,7 @@ Azure Cosmos DB is a global scale database in which throughput and storage can b
 ### Mobile Services limits
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### Monitor limits
+### Monitor limits <a name="monitor-limits"></a>
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### Notification Hub Service limits
@@ -182,17 +183,20 @@ Azure Cosmos DB is a global scale database in which throughput and storage can b
 ### IoT Hub limits
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
-### Stream Analytics limits
+### Stream Analytics limits <a name="stream-analytics-limits"></a>
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Active Directory limits <a name="active-directory-limits"></a>
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### Backup limits
+### Backup limits <a name="backup-limits"></a>
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+
+### API Management limits <a name="api-management-limits"></a>
+[!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
 ### Azure Redis Cache limits
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
@@ -203,7 +207,7 @@ Azure Cosmos DB is a global scale database in which throughput and storage can b
 ### Multi-Factor Authentication
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
-### Automation limits
+### Automation limits <a name="automation-limits"></a>
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
 ### SQL Database limits <a name="sql-database-limits"></a>
