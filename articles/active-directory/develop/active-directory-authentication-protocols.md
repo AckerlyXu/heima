@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 06/26/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -34,7 +34,6 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 ## See Also
 [Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
 
-[Using Azure AD for Authentication](../../app-service-web/web-sites-authentication-authorization.md)
-
 [Active Directory Code Samples](active-directory-code-samples.md)
 
+<!--Update_Description: wording update-->

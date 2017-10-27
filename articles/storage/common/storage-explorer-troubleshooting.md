@@ -12,9 +12,9 @@ ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-johch
 ---
 
@@ -26,7 +26,7 @@ This guide summarizes solutions for common issues seen in Storage Explorer.
 
 ## Sign in issues
 
-Before you continue, try restarting your application and see whether the problems can be fixed.
+Only Azure Active Directory (AAD) accounts are supported. If you use an ADFS account, it’s expected that signing in to Storage Explorer would not work. Before you continue, try restarting your application and see whether the problems can be fixed.
 
 ### Error: Self-Signed Certificate in Certificate Chain
 
@@ -178,4 +178,4 @@ If none of the solutions work for you, submit your issue through the feedback to
 To do this, click **Help** menu, and then click **Send Feedback**.
 
 ![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)
-<!--Update_Description:add next steps section-->
+<!--Update_Description: add note that ADFS account is not supported-->

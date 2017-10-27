@@ -48,8 +48,8 @@ The following diagram shows an example of a multi-hop topology with multiple pat
 
 ![Multi-hop transit](./media/vpn-gateway-bgp-overview/full-mesh-transit.png)
 
-## BGP FAQ
-[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+## BGP FAQ<a name="faq"></a>
+[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
 ## Next steps
 See [Getting started with BGP on Azure VPN gateways](vpn-gateway-bgp-resource-manager-ps.md) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.

@@ -8,11 +8,11 @@
 | Reserved IPs per subscription |20 |100 |
 | Hosted service certificates per subscription |400 |400 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
-| Alert rules per subscription |250 |250 |
+
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core.
 
 <sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://www.azure.cn/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
 
 
-<!--ms.date: 08/29/2017-->
+<!-- ms.date: 10/26/2017 -->

@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/19/2017
-ms.date: 10/16/2017
+origin.date: 10/08/2017
+ms.date: 10/30/2017
 ms.author: v-johch
 ---
 
@@ -54,4 +54,3 @@ Azure File shares can be used to:
 * [Connect and Mount on Windows](storage-how-to-use-files-windows.md)
 * [Connect and Mount on Linux](storage-how-to-use-files-linux.md)
 * [Connect and Mount on macOS](storage-how-to-use-files-mac.md)
-<!--Update_Descriotion:whole content refine-->

@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/23/2017
-ms.date: 10/16/2017
+origin.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: v-johch
 
 ---
@@ -56,11 +56,8 @@ The URL for accessing an object in a storage account is built by appending the o
 You can also configure a custom domain name to use with your storage account. For more information, see [Configure a custom domain Name for your Blob Storage Endpoint](../blobs/storage-custom-domain-name.md). You can also configure it with PowerShell. For more information, see the [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) cmdlet.  
 
 ## Create a storage account
-
 1. Sign in to the [Azure portal](https://portal.azure.cn).
-
-2. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
-
+2. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
 
     > [!NOTE]
@@ -154,4 +151,4 @@ If you try to delete a storage account associated with an Azure virtual machine,
 * [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
 * Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!--Update_Description: update links-->
+<!--Update_Description: wording update-->

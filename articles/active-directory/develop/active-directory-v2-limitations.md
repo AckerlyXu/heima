@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2017
-ms.date: 06/26/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -79,6 +79,8 @@ In this case, you're referring to a DNS subdomain of login.contoso.com. If you w
 
 You can add the latter two because they are subdomains of the first redirect URI, contoso.com. This limitation will be removed in an upcoming release.
 
+Also note, you can have only 20 reply URLs for a particular application.
+
 To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).
 
 ## Restrictions on services and APIs
@@ -113,3 +115,4 @@ To better understand the scope of protocol functionality supported in the v2.0 e
 ## Restrictions for work and school accounts
 If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. Currently, the SAML assertion grant is not supported on the v2.0 endpoint.
 
+<!--Update_Description: wording update-->

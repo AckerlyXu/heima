@@ -1,10 +1,10 @@
 ---
-title: Understand the OAuth 2.0 authorization code flow in Azure AD  | Azure
+title: Understand the OAuth 2.0 authorization code flow in Azure AD  | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 03/13/2017
+ms.date: 10/19/2017
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Authorize access to web applications using OAuth 2.0 and Azure Active Directory
 Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
@@ -37,7 +38,7 @@ The authorization code flow begins with the client directing the user to the `/a
 ```
 // Line breaks for legibility only
 
-https://login.microsoftonline.com/{tenant}/oauth2/authorize?
+https://login.partner.microsoftonline.cn/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
@@ -49,12 +50,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application.  The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.partner.onmschina.cn` or `common` for tenant-independent tokens |
-| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Classical ManagementPortal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
+| client_id |required |The Application Id assigned to your app when you registered it with Azure AD. You can find this in the Azure Portal. Click **Active Directory**, click the directory, choose the application, and click **Configure** |
 | response_type |required |Must include `code` for the authorization code flow. |
 | redirect_uri |recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recommended |Specifies the method that should be used to send the resulting token back to your app.  Can be `query` or `form_post`. |
 | state |recommended |A value included in the request that is also returned in the token response. A randomly generated unique value is typically used for [preventing cross-site request forgery attacks](http://tools.ietf.org/html/rfc6749#section-10.12).  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| resource |optional |The App ID URI of the web API (secured resource). To find the App ID URI of the web API, in the Azure  Classical Management Portal, click **Active Directory**, click the directory, click the application and then click **Configure**. |
+| resource |optional |The App ID URI of the web API (secured resource). To find the App ID URI of the web API, in the Azure  Portal, click **Active Directory**, click the directory, click the application and then click **Configure**. |
 | prompt |optional |Indicate the type of user interaction that is required.<p> Valid values are: <p> *login*: The user should be prompted to reauthenticate. <p> *consent*: User consent has been granted, but needs to be updated. The user should be prompted to consent. <p> *admin_consent*: An administrator should be prompted to consent on behalf of all users in their organization |
 | login_hint |optional |Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time.  Often apps use this parameter during reauthentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
 | domain_hint |optional |Provides a hint about the tenant or domain that the user should use to sign in. The value of the domain_hint is a registered domain for the tenant. If the tenant is federated to an on-premises directory, AAD redirects to the specified tenant federation server. |
@@ -67,7 +68,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 At this point, the user is asked to enter their credentials and consent to the permissions indicated in the `scope` query parameter. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request.
 
 ### Successful response
-
 A successful response could look like this:
 
 ```
@@ -117,7 +117,7 @@ Now that you've acquired an authorization code and have been granted permission 
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://login.partner.microsoftonline.cn
 Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
@@ -156,9 +156,10 @@ A successful response could look like this:
   "expires_on": "1388444763",
   "resource": "https://service.contoso.com/",
   "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA",
-  "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
-"id_token": " eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ.”
+  "scope": "https%3A%2F%2Fgraph.chinacloudapi.cn%2Fmail.read",
+  "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ."
 }
+
 ```
 
 | Parameter | Description |
@@ -204,7 +205,7 @@ The `id_token` parameter includes the following claim types:
 | Claim type | Description |
 | --- | --- |
 | aud |Audience of the token. When the token is issued to a client application, the audience is the `client_id` of the client. |
-| exp |Expiration time. The time when the token expires. For the token to be valid, the current date/time must be less than or equal to the `exp` value. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
+| exp |Expiration time. The time when the token expires. For the token to be valid, the current date/time must be less than or equal to the `exp` value. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
 | family_name |User’s last name or surname. The application can display this value. |
 | given_name |User’s first name. The application can display this value. |
 | iat |Issued at time. The time when the JWT was issued. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
@@ -235,7 +236,6 @@ A sample error response could look like this:
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-
 | Parameter | Description |
 | --- | --- |
 | error |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
@@ -264,14 +264,13 @@ The following table lists the HTTP status codes that the token issuance endpoint
 | invalid_client |Client authentication failed. |The client credentials are not valid. To fix, the application administrator updates the credentials. |
 | unsupported_grant_type |The authorization server does not support the authorization grant type. |Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
 | invalid_resource |The target resource is invalid because it does not exist, Azure AD cannot find it, or it is not correctly configured. |This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
-| interaction_required |The request requires user interaction. For example, an additional authentication step is required. |Retry the request with the same resource. |
+| interaction_required |The request requires user interaction. For example, an additional authentication step is required. | Instead of a non-interactive request, retry with an interactive authorization request for the same resource. |
 | temporarily_unavailable |The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed due to a temporary condition. |
 
 ## Use the access token to access the resource
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs, by including it in the `Authorization` header. The [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) specification explains how to use bearer tokens in HTTP requests to access protected resources.
 
 ### Sample request
-
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
@@ -285,13 +284,13 @@ The following is an example of an unsuccessful response when the client request 
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.window.net/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.partner.microsoftonline.cn/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
 #### Error parameters
 | Parameter | Description |
 | --- | --- |
-| authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.chinacloudapi.cn or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
+| authorization_uri |The URI (physical endpoint) of the authorization server. This value is also used as a lookup key to get more information about the server from a discovery endpoint. <p><p> The client must validate that the authorization server is trusted. When the resource is protected by Azure AD, it is sufficient to verify that the URL begins with https://login.partner.microsoftonline.cn or another hostname that Azure AD supports. A tenant-specific resource should always return a tenant-specific authorization URI. |
 | error |An error code value defined in Section 5.2 of the [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749). |
 | error_description |A more detailed description of the error. This message is not intended to be end-user friendly. |
 | resource_id |Returns the unique identifier of the resource. The client application can use this identifier as the value of the `resource` parameter when it requests a token for the resource. <p><p> It is important for the client application to verify this value, otherwise a malicious service might be able to induce an **elevation-of-privileges** attack <p><p> The recommended strategy for preventing an attack is to verify that the `resource_id` matches the base of the web API URL that being accessed. For example, if https://service.contoso.com/data is being accessed, the `resource_id` can be htttps://service.contoso.com/. The client application must reject a `resource_id` that does not begin with the base URL unless there is a reliable alternate way to verify the id. |
@@ -319,7 +318,7 @@ A sample request to the **tenant-specific** endpoint (you can also use the **com
 // Line breaks for legibility only
 
 POST /{tenant}/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://login.partner.microsoftonline.cn
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
@@ -328,16 +327,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-
-| Parameter | Description |
-| --- | --- |
-| access_token |The new access token that was requested. |
-| expires_in |The remaining lifetime of the token in seconds. A typical value is 3600 (one hour). |
-| expires_on |The date and time on which the token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. |
-| refresh_token |A new OAuth 2.0 refresh_token that can be used to request new access tokens when the one in this response expires. |
-| resource |Identifies the secured resource that the access token can be used to access. |
-| scope |Impersonation permissions granted to the native client application. The default permission is **user_impersonation**. The owner of the target resource can register alternate values in Azure AD. |
-| token_type |The token type. The only supported value is **bearer**. |
 
 ### Successful response
 A successful token response will look like:
@@ -352,6 +341,15 @@ A successful token response will look like:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| Parameter | Description |
+| --- | --- |
+| token_type |The token type. The only supported value is **bearer**. |
+| expires_in |The remaining lifetime of the token in seconds. A typical value is 3600 (one hour). |
+| expires_on |The date and time on which the token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. |
+| resource |Identifies the secured resource that the access token can be used to access. |
+| scope |Impersonation permissions granted to the native client application. The default permission is **user_impersonation**. The owner of the target resource can register alternate values in Azure AD. |
+| access_token |The new access token that was requested. |
+| refresh_token |A new OAuth 2.0 refresh_token that can be used to request new access tokens when the one in this response expires. |
 
 ### Error response
 A sample error response could look like this:
@@ -379,3 +377,5 @@ A sample error response could look like this:
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
+
+<!--Update_Description: wording update-->

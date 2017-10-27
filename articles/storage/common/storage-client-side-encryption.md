@@ -3,8 +3,8 @@ title: Client-Side Encryption with .NET for Azure Storage | Azure
 description: The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
 documentationcenter: .net
-author: robinsh
-manager: timlt
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-johch
 
 ---
 # Client-Side Encryption and Azure Key Vault for Azure Storage
@@ -241,5 +241,3 @@ Note that encrypting your storage data results in additional performance overhea
 * Download the [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 * Visit the [Azure Key Vault Documentation](../../key-vault/key-vault-whatis.md)
-
-<!--Update_Description: update link-->

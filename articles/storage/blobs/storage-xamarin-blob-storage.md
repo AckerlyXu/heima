@@ -3,8 +3,8 @@ title: How to use Blob Storage from Xamarin | Azure
 description: The Azure Storage Client Library for Xamarin enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an application that uses Azure Blob storage.
 services: storage
 documentationcenter: xamarin
-author: michaelhauss
-manager: vamshik
+author: forester123
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-johch
 
 ---
 # How to use Blob Storage from Xamarin
@@ -242,10 +242,11 @@ Once you run your app, it will create the container `mycontainer` in your Storag
 In this tutorial, you learned how to create a cross-platform application in Xamarin that uses Azure Storage, specifically focusing on one scenario in Blob Storage. However, you can do a lot more with not only Blob Storage, but also with Table, File, and Queue Storage. Please check out the following articles to learn more:
 
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Introduction to Azure Files](../files/storage-files-introduction.md)
+* [Develop for Azure Files with .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Get started with Azure Queue storage using .NET](../queues/storage-dotnet-how-to-use-queues.md)
-* [Get started with Azure File storage on Windows](../files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
 
-<!--Update_Description: update link-->
+<!--Update_Description: add link references to File storage-->
