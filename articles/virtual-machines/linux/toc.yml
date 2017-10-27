@@ -11,7 +11,7 @@
     href: quick-create-cli.md
   - name: Create VM - Portal
     href: quick-create-portal.md
-  - name: Create VM - PowerShell
+  - name: Create VM - Azure PowerShell
     href: quick-create-powershell.md
 - name: Tutorials
   items:
@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor virtual machines
+  - name: 10 - Monitor and update VMs
     href: tutorial-monitoring.md
   - name: 11 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
@@ -51,7 +51,7 @@
   items:
   - name: Azure CLI
     href: cli-samples.md
-  - name: PowerShell
+  - name: Azure PowerShell
     href: powershell-samples.md
 - name: Concepts
   items:
@@ -69,6 +69,8 @@
     href: azure-vm-storage-overview.md
   - name: Networking
     href: network-overview.md
+  - name: Infrastructure automation
+    href: infrastructure-automation.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -350,4 +352,5 @@
     href: https://www.azure.cn/pricing/details/virtual-machines
   - name: FAQ
     href: faq.md
-### ms.date: 10/16/2017
+### ms.date: 10/30/2017
+

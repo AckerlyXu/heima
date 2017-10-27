@@ -158,7 +158,7 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 ## <a name="P2S"></a>Point-to-Site connections
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
+<!--Not Available [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]-->
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and Multi-Site connections
 

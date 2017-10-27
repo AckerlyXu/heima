@@ -5,7 +5,7 @@
 ## [FAQ](faq.md)
 
 # Get Started
-## [Create a Linux VM with the portal](createportal.md)
+## [Create a Linux VM with Azure portal](createportal.md)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
 ## [Create SSH keys](../mac-create-ssh-keys.md)
 
@@ -22,6 +22,8 @@
 ### [Reset Linux passwords or keys, fix SSH, and check disks](reset-access.md)
 ### [Maintenance](planned-maintenance-schedule.md)
 ### [Create a Docker host using the CLI](cli-use-docker.md)
+<!--Not Available ### [Create a Docker host using Azure portal](portal-use-docker.md)-->
+<!--Not Available ### [How to use Docker with Swarm](../../virtual-machines-linux-docker-swarm.md)-->
 
 ## Use Storage
 ### [Attach a data disk](attach-disk.md)
@@ -34,8 +36,10 @@
 ## Deploy images
 ### [Create and upload a VHD](create-upload-vhd.md)
 ### [Create and upload a FreeBSD VHD](freebsd-create-upload-vhd.md)
+<!--Not Available ### [List of Oracle VM images](oracle-images.md)-->
 
 ## Manage workloads
+<!--Not Available ### [SAP](sap-get-started.md)-->
 ### MySQL and MariaDB
 #### [MariaDB cluster tutorial](mariadb-mysql-cluster.md)
 #### [Install MySQL on an OpenSUSE VM](mysql-on-opensuse.md)
@@ -48,6 +52,7 @@
 ### [LAMP stack](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
 ### [Web application with Visual Studio](web-app-visual-studio.md)
+<!--Not Available ### [RDMA cluster to run MPI applications](rdma-cluster.md)-->
 ### [How to use the Azure slave plug-in with Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 
 ## Troubleshoot
@@ -56,14 +61,15 @@
 ### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [Author Resource Manager templates](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-## [Compute REST](https://docs.microsoft.com/rest/api/compute)
-## [Network REST](https://docs.microsoft.com/rest/api)
-## [Storage REST](https://docs.microsoft.com/rest/api/storageservices)
+## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Storage REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Videos](https://www.azure.cn/video-center/)

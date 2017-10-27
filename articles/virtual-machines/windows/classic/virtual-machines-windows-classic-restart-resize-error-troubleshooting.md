@@ -3,20 +3,20 @@ title: VM restarting or resizing issues | Azure
 description: Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: Deland-Han
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue
 
 ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
 ms.service: virtual-machines-windows
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
 origin.date: 06/13/2017
-ms.date: 07/03/2017
+ms.date: 10/30/2017
 ms.devlang: na
-ms.author: v-dazen
+ms.author: v-yeche
 
 ---
 # Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
@@ -81,3 +81,4 @@ If the existing cloud service is not associated with a region-based virtual netw
 
 ## Next steps
 If you encounter issues when you create a Windows VM in Azure, see [Troubleshoot deployment issues with creating a Windows virtual machine in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!--Update_Description: update meta properties-->

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 02/28/2017
-ms.date: 10/16/2017
+origin.date: 09/13/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 
 ---
@@ -29,6 +29,7 @@ Microsoft Corporation is making images of FreeBSD available on Azure with the [A
 
 - FreeBSD 10.3-RELEASE
 - FreeBSD 11.0-RELEASE
+- FreeBSD 11.1-RELEASE
 
 The agent is responsible for communication between the FreeBSD VM and the Azure fabric for operations such as provisioning the VM on first use (user name, password or SSH key, host name, etc.) and enabling functionality for selective VM extensions.
 
@@ -39,9 +40,10 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 
 - [FreeBSD 10.3 on the Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 - [FreeBSD 11.0 on the Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM)
+- [FreeBSD 11.1 on the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
 ### Create a FreeBSD VM through Azure CLI 2.0 on FreeBSD
-First you need to install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+First you need to install [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest) though following command on a FreeBSD machine.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
@@ -133,3 +135,5 @@ The [Azure VM Guest Agent](https://github.com/Azure/WALinuxAgent/) version 2.2.2
 ## Next steps
 * Go to [Azure Marketplace](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM) to create a FreeBSD VM.
 * If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](classic/freebsd-create-upload-vhd.md).
+
+<!--Update_Description: update meta properties， update link-->

@@ -1,10 +1,10 @@
 ---
-title: Convert Azure managed disks storage from standard to premium, and vice versa | Microsoft Docs
+title: Convert Azure managed disks storage from standard to premium, and vice versa | Azure
 description: How to convert Azure managed disks from standard to premium, and vice versa, by using Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
-manager: kavithag
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,27 +15,26 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ---
 
 # Convert Azure managed disks storage from standard to premium, and vice versa
 
 Managed disks offers two storage options: [Premium](../../storage/storage-premium-storage.md) (SSD-based) and [Standard](../../storage/storage-standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
 
-This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure PowerShell. If you need to install or upgrade it, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure PowerShell. If you need to install or upgrade it, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps.md).
 
 ## Before you begin
 
 * The conversion requires a restart of the VM, so schedule the migration of your disks storage during a pre-existing maintenance window. 
 * If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options. 
 
-
 ## Convert all the managed disks of a VM from standard to premium, and vice versa
 
 In the following example, we show how to switch all the disks of a VM from standard to premium storage. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
-```powershell
+```azurepowershell-interactive
 # Name of the resource group that contains the VM
 $rgName = 'yourResourceGroup'
 
@@ -66,7 +65,7 @@ foreach ($disk in $vmDisks)
 {
 	if ($disk.OwnerId -eq $vm.Id)
 	{
-		$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+		$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType
 		Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 		-DiskName $disk.Name
 	}
@@ -78,7 +77,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost. You can accomplish it by upgrading to premium storage, only the disks that require better performance. In the following example, we show how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
-```powershell
+```azurepowershell-interactive
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
@@ -103,7 +102,7 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType
 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name
 
@@ -113,4 +112,4 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ## Next steps
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
-
+<!--Update_Description: update meta properties, wording update-->

@@ -12,9 +12,9 @@ ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 07/15/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 
 ---
@@ -35,5 +35,6 @@ Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
 
 All other series could not be in the same availability set because they require a specific hardware.
 
-A8/A9 VM size can't be mixed due to requirment on dedicated RDMA backend network.
-<!--Update_Description: add A8/A9 VM size can not be mixed in Available Set-->
+<!--Not Available on A8/A9 -->
+
+<!--Update_Description: remove A8/A9 due to unsuitable to azure.cn-->

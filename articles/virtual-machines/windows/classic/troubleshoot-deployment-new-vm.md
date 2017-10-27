@@ -3,8 +3,8 @@ title: Troubleshoot Windows VM deployment-Classic | Azure
 description: Troubleshoot classic deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: JiangChen79
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue
 
@@ -13,10 +13,10 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 12/16/2016
-ms.date: 01/25/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Troubleshoot classic deployment issues with creating a new Windows virtual machine in Azure
@@ -88,3 +88,4 @@ Depending on the constraints of the cloud service you use to create the new VM, 
 
 ## Next steps
 If you encounter issues when you start a stopped Windows VM or resize an existing Windows VM in Azure, see [Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).
+<!--Update_Description: update meta properties-->

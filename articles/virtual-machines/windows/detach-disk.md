@@ -3,7 +3,7 @@ title: Detach a data disk from a Windows VM - Azure| Azure
 description: Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # How to detach a data disk from a Windows virtual machine
@@ -47,7 +47,7 @@ The second command removes the data disk named DataDisk3 from the virtual machin
 
 The final command updates the state of the virtual machine to complete the process of removing the data disk.
 
-```powershell
+```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
@@ -57,4 +57,4 @@ For more information, see [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/
 
 ## Next steps
 If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!--Update_Description: update storage links-->
+<!--Update_Description: update meta properties, wording update-->

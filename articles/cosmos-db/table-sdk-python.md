@@ -54,3 +54,4 @@ New features and functionality and optimizations are only added to the current S
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
 <!--Update_Description: new articles on table sdk python -->
+

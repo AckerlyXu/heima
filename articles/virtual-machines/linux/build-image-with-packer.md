@@ -3,7 +3,7 @@ title: How to create Linux Azure VM Images with Packer | Azure
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,13 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/18/2017
-ms.date: 09/04/2017
-ms.author: iainfou
+ms.date: 10/30/2017
+ms.author: v-yeche
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Linux distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common distributions and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
-
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.

@@ -33,7 +33,7 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Monitor virtual machines
+  - name: 10 - Monitor and update VMs
     href: tutorial-monitoring.md
   - name: 11 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
@@ -59,6 +59,10 @@
     href: about-disks-and-vhds.md
   - name: Networking
     href: network-overview.md
+  - name: Infrastructure automation
+    href: infrastructure-automation.md
+  - name: Monitoring
+    href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
   - name: Deployment considerations
@@ -75,6 +79,8 @@
       href: csharp-template.md
     - name: Create VM with Chef
       href: chef-automation.md
+    - name: Use Java
+      href: java.md
     - name: Use Python
       href: python.md
     - name: Use a template
@@ -88,7 +94,7 @@
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
-      href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -127,7 +133,7 @@
       href: prepare-for-upload-vhd-image.md
     - name: Use generalized image
       href: create-vm-generalized-managed.md
-    - name: Use specialized image
+    - name: Use specialized disk
       href: create-vm-specialized.md
     - name: Capture VM to image
       href: capture-image-resource.md
@@ -148,7 +154,7 @@
   - name: Run applications
     items:
     - name: SQL Server
-      href: /sql/virtual-machines-windows-sql-server-iaas-overview
+      href: sql/virtual-machines-windows-sql-server-iaas-overview.md
     - name: MongoDB
       href: install-mongodb.md
     - name: MATLAB cluster
@@ -306,7 +312,7 @@
   items:
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/vm
-  - name: PowerShell
+  - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute
@@ -328,4 +334,5 @@
     href: https://www.azure.cn/pricing/details/virtual-machines
   - name: FAQ
     href: faq.md
-### ms.date: 10/16/2017
+### ms.date: 10/30/2017
+

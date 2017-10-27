@@ -3,8 +3,8 @@ title: Reset the password or Remote Desktop configuration on a Windows VM | Azur
 description: Learn how to reset an account password or Remote Desktop services on a Windows VM using the Azure portal or Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: genlin
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -13,10 +13,10 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 05/26/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # How to reset the Remote Desktop service or its login password in a Windows VM
@@ -91,3 +91,4 @@ If the Azure VM access extension does not respond and you are unable to reset th
 [Connect to an Azure virtual machine with RDP or SSH](/virtual-machines/linux/overview)
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!--Update_Description: update meta properties-->

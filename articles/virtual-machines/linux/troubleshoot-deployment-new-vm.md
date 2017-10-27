@@ -3,8 +3,8 @@ title: Troubleshoot Linux VM deployment-RM | Azure
 description: Troubleshoot Resource Manager deployment issues when you create a new Linux virtual machine in Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -13,10 +13,10 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 09/09/2016
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Troubleshoot Resource Manager deployment issues with creating a new Linux virtual machine in Azure
@@ -87,4 +87,4 @@ This error arises in situations when the new VM request is pinned to a cluster t
 ## Next steps
 If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: add section "Top Issues"-->
+<!--Update_Description: update meta properties -->

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 10/16/2017
+origin.date: 10/13/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -135,16 +135,14 @@ When prompted, the login user name is *azureuser*. If a passphrase was entered w
 
 ## Install NGINX
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+Use the following commands to update package sources and install the latest NGINX package. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## View the NGIX welcome page
@@ -168,4 +166,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update cmdlet-->

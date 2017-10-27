@@ -3,7 +3,7 @@ title: Use Docker Compose on a Linux VM in Azure | Azure
 description: How to use Docker and Compose on Linux virtual machines with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 05/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/26/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Get started with Docker and Compose to define and run a multi-container application in Azure
@@ -25,23 +25,20 @@ With [Compose](http://github.com/docker/compose), you use a simple text file to 
 ## Set up a Linux VM as a Docker host
 You can use various Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. For example, see [Using the Docker VM Extension to deploy your environment](dockerextension.md) to quickly create an Ubuntu VM with the Azure Docker VM extension by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
->[!NOTE]
-> Templates you are deploying from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn".
-
 When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed.
 
 ### Create Docker host with Azure CLI 2.0
-Install the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-First, create a resource group for your Docker environment with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *chinanorth* location:
+First, create a resource group for your Docker environment with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 
 ```azurecli
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location chinaeast
 ```
 
-Next, deploy a VM with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
+Next, deploy a VM with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own unique values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -49,12 +46,11 @@ az group deployment create --resource-group myResourceGroup \
     "adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
-```
+  --template-file /path/to/azuredeploy.json
 
 It takes a few minutes for the deployment to finish. Once the deployment is finished, [move to next step](#verify-that-compose-is-installed) to SSH to your VM. 
 
-Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you to perform other work in the CLI while the deployment continues for a few minutes. You can then view details about the Docker host status with [az vm show](https://docs.microsoft.com/cli/azure/vm#show). The following example checks the status of the VM named *myDockerVM* (the default name from the template - don't change this name) in the resource group named *myResourceGroup*:
+Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you to perform other work in the CLI while the deployment continues for a few minutes. You can then view details about the Docker host status with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show). The following example checks the status of the VM named *myDockerVM* (the default name from the template - don't change this name) in the resource group named *myResourceGroup*:
 
 ```azurecli
 az vm show \
@@ -67,10 +63,21 @@ az vm show \
 When this command returns *Succeeded*, the deployment has finished and you can SSH to the VM in the following step.
 
 ## Verify that Compose is installed
-Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use  `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` to view details of your VM, including the DNS name.
+To view details of your VM, including the DNS name, use [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
+
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
+```
+
+SSH to your new Docker host. Provide your own DNS name as follows:
 
 ```bash
-ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn
+ssh azureuser@mypublicdns.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 To check that Compose is installed on the VM, run the following command:
@@ -87,19 +94,13 @@ You see output similar to *docker-compose 1.6.2, build 4d72027*.
 ## Create a docker-compose.yml configuration file
 Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](https://docs.docker.com/compose/compose-file/).
 
-Create the *docker-compose.yml* file as follows:
+Create a *docker-compose.yml* file. Use your favorite text editor to add some data to the file. The following example creates the file with a prompt for `sensible-editor` to pick an editor that you wish to use:
 
 ```bash
-touch docker-compose.yml
+sensible-editor docker-compose.yml
 ```
 
-Use your favorite text editor to add some data to the file. The following example uses the *vi* editor:
-
-```bash
-vi docker-compose.yml
-```
-
-Paste the following example into your text file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own *MYSQL_ROOT_PASSWORD* as follows:
+Paste the following example into your Docker Compose file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own *MYSQL_ROOT_PASSWORD* as follows:
 
 ```sh
 wordpress:
@@ -142,7 +143,7 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.chinanorth.chinacloudapp.cn`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
+You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.chinaeast.cloudapp.chinacloudapi.cn`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
 
 ![WordPress start screen][wordpress_start]
 
@@ -156,4 +157,5 @@ You can now connect to WordPress directly on the VM on port 80. Open a web brows
 <!--Image references-->
 
 [wordpress_start]: media/docker-compose-quickstart/WordPress.png
-<!--Update_Description: update cli sample-->
+
+<!--Update_Description: update link, wording update-->
