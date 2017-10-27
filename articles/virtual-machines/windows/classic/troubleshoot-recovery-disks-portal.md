@@ -1,21 +1,21 @@
 ﻿---
 
-title: Troubleshoot an Azure Windows classic VM by attaching the OS disk to a recovery VM| Microsoft Docs
+title: Troubleshoot an Azure Windows classic VM by attaching the OS disk to a recovery VM| Azure
 description: Learn how to troubleshoot an Azure Windows classic VM by attaching the OS disk to a recovery VM
 services: virtual-machines-windows
 documentationCenter: ''
-authors: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/21/2017
-ms.date: 08/28/2017
-ms.author: genli
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 
@@ -27,3 +27,4 @@ ms.author: genli
 If you are having problems connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](../troubleshoot-rdp-connection.md). 
 
 For problems accessing applications that are running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](../troubleshoot-app-connection.md).
+<!--Update_Description: update meta properties-->

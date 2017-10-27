@@ -3,7 +3,7 @@ title: Azure Custom Script Extension for Windows | Azure
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Custom Script Extension for Windows
@@ -29,7 +29,7 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ### Operating System
 
-The Custom Script Extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
+The Custom Script Extension for Windows can be run against Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
 ### Script Location
 
@@ -46,7 +46,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 ```json
 {
 	"apiVersion": "2015-06-15",
-	"type": "extensions",
+	"type": "Microsoft.Compute/virtualMachines/extensions",
 	"name": "config-app",
 	"location": "[resourceGroup().location]",
 	"dependsOn": [
@@ -152,6 +152,7 @@ Path information after the first URI segment is retained for files downloaded vi
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure]
+(https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).
 
-<!--Update_Description: update typeHandlerVersion-->
+<!--Update_Description: update meta properties-->

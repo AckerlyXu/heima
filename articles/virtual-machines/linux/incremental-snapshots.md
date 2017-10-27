@@ -4,8 +4,8 @@ title: Use incremental snapshots for backup and recovery of unmanaged Azure Linu
 description: Create a custom solution for backup and recovery of your Azure Linux virtual machine disks using incremental snapshots.
 services: virtual-machines-linux
 documentationcenter: na
-author: hayley244
-manager: tadb
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
+

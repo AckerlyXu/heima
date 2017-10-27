@@ -3,8 +3,8 @@ title: Select Windows VM images in Azure | Azure
 description: Learn how to use Azure PowerSHell to determine the publisher, offer, SKU, and version for Marketplace VM images.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/12/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # How to find Windows VM images in the Azure Marketplace with Azure PowerShell
@@ -34,9 +34,12 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 | MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
+| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
 | MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
 | MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
 ## Find specific images
 
@@ -56,21 +59,21 @@ If you need to determine these values, you can run the [Get-AzureRMVMImagePublis
 
 First, list the publishers with the following commands:
 
-```powershell
+```azurepowershell-interactive
 $locName="<Azure location, such as China North>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 Fill in your chosen publisher name and run the following commands:
 
-```powershell
+```azurepowershell-interactive
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 Fill in your chosen offer name and run the following commands:
 
-```powershell
+```azurepowershell-interactive
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -79,7 +82,7 @@ From the output of the `Get-AzureRMVMImageSku` command, you have all the informa
 
 The following shows a full example:
 
-```powershell
+```azurepowershell-interactive
 $locName="China North"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
@@ -90,15 +93,22 @@ Output:
 ```
 PublisherName
 -------------
-AsiaInfo.DeepSecurity
-AzureChinaMarketplace
+a10networks
+aiscaler-cache-control-ddos-and-url-rewriting-
+alertlogic
+AlertLogic.Extension
+Barracuda.Azure.ConnectivityAgent
+barracudanetworks
+basho
+boxless
+bssw
 Canonical
 ...
 ```
 
 For the "MicrosoftWindowsServer" publisher:
 
-```powershell
+```azurepowershell-interactive
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
@@ -115,7 +125,7 @@ WindowsServer-HUB
 
 For the "WindowsServer" offer:
 
-```powershell
+```azurepowershell-interactive
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -146,4 +156,4 @@ From this list, copy the chosen SKU name, and you have all the information for t
 ## Next steps
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
 
-<!--Update_Description: update output of some powershell commands-->
+<!--Update_Description: update the powershell cmdlet-->

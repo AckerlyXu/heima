@@ -3,20 +3,20 @@ title: VM restarting or resizing issues | Azure
 description: Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: Deland-Han
-manager: felixwu
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue
 
 ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: required
 origin.date: 01/10/2017
-ms.date: 03/01/2017
+ms.date: 10/30/2017
 ms.devlang: na
-ms.author: v-dazen
+ms.author: v-yeche
 
 ---
 # Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
@@ -79,3 +79,4 @@ If the existing cloud service is not associated with a region-based virtual netw
 
 ## Next steps
 If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](../troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+<!--Update_Description: update meta properties-->

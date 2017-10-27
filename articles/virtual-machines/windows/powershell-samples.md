@@ -3,7 +3,7 @@ title: Azure Virtual Machine PowerShell Samples | Azure
 description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/05/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/20/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 # Azure Virtual Machine PowerShell samples
@@ -30,9 +30,13 @@ The following table includes links to PowerShell scripts samples that create and
 | [Create highly available virtual machines](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates several virtual machines in a highly available and load balanced configuration.|
 | [Create a VM and run configuration script](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install IIS. |
 | [Create a VM and run DSC configuration](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
-| [Upload a VHD and create VMs](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Uplaods a local VHD file to Azure, creates and image from the VHD and then creates a VM from that image. |
+| [Upload a VHD and create VMs](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Uploads a local VHD file to Azure, creates and image from the VHD and then creates a VM from that image. |
 | [Create a VM from a managed OS disk](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine by attaching an existing Managed Disk as OS disk. |
 | [Create a VM from a snapshot](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine from a snapshot by first creating a managed disk from snapshot and then attaching the new managed disk as OS disk. |
+|**Create virtual machines using New-AzVM**||
+| [Create a fully configured virtual machine](./../scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
+| [Create a VM and run configuration script](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install IIS. |
+| [Create a VM and run DSC configuration](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
 |**Manage storage**||
 | [Create managed disk from a VHD in same or different subscription](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a managed disk from a specialized VHD as a OS disk or from a data VHD as data disk in same or different subscription.  |
 | [Create a managed disk from a snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a managed disk from a snapshot. |
@@ -42,5 +46,6 @@ The following table includes links to PowerShell scripts samples that create and
 | [Copy snapshot to same or different subscription](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Copies snapshot to same or different subscription but in the same region as the parent snapshot. |
 |**Secure virtual machines**||
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
+<!-- Not Available |**Monitor virtual machines**||-->
 | | |
 <!--Update_Description: update VM scripts links-->

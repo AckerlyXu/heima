@@ -1,10 +1,10 @@
 ---
-title: How to reset local Linux password on Azure VMs | Microsoft Docs
+title: How to reset local Linux password on Azure VMs | Azure
 description: Introduce the steps to reset the local Linux password on Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
-manager: cshepard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -13,10 +13,10 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 07/03/2017
-ms.date: 07/03/2017
-ms.author: delhan
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 
@@ -76,7 +76,7 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
     ~~~~
 
-8.	Reset the user’s password that you need:
+8.	Reset the user's password that you need:
 
     ~~~~
     passwd <<USER>> 
@@ -106,3 +106,5 @@ You can't log in to the VM, and you receive a message that indicates that the pa
 * [Troubleshoot Azure VM by attaching OS disk to another Azure VM](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
 * [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+
+<!--Update_Description: update meta properties， wording update -->

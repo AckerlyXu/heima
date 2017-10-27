@@ -1,10 +1,10 @@
 ---
-title: Azure Monitoring and Windows Virtual Machines | Azure
-description: Tutorial - Monitor a Windows Virtual Machine with Azure PowerShell 
+title: Azure Monitoring and updating and Windows Virtual Machines | Azure
+description: Tutorial - Monitor and update a Windows Virtual Machine with Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,14 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/04/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
-# Monitor a Windows Virtual Machine with Azure PowerShell
+# Monitor and update a Windows Virtual Machine with Azure PowerShell
 
-Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. In this tutorial, you learn how to:
+Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. Update management allows you to manage updates and patches for your Azure Windows VMs.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enable boot diagnostics on a VM
@@ -75,13 +77,9 @@ In this tutorial, you configured and reviewed VMs with Azure Security Center. Yo
 > * Create a resource group and VM 
 > * Enable boot diagnostics on the VM
 > * View boot diagnostics
-> * View host metrics
+
 > * Install the diagnostics extension
-> * View VM metrics
+
 > * Create an alert
-> * Set up advanced monitoring
+<!--Update_Description: update meta properties, wording update-->
 
-Follow this link to see pre-built virtual machine script samples.
-
-> [!div class="nextstepaction"]
-> [Linux virtual machine script samples](./cli-samples.md)

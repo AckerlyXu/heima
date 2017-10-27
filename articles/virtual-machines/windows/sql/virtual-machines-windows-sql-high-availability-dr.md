@@ -3,8 +3,8 @@ title: High Availability and Disaster Recovery for SQL Server | Azure
 description: A discussion of the various types of HADR strategies for SQL Server running in Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/27/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # High availability and disaster recovery for SQL Server in Azure Virtual Machines
@@ -47,8 +47,8 @@ You can have a high availability solution for SQL Server at a database level wit
 
 | Technology | Example Architectures |
 | --- | --- |
-| **Availability groups** |Availability replicas running in Azure VMs in the same region provide high availability. You need to configure a domain controller VM, because Windows failover clustering requires an Active Directory domain.<br/> ![Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>For more information, see [Configure Availability Groups in Azure (manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md). |
-| **Failover cluster instances** |Failover Cluster Instances (FCI), which require shared storage, can be created in 3 different ways.<br/><br/>1. A two-node failover cluster running in Azure VMs with attached storage using [Windows Server 2016 Storage Spaces Direct \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) to provide a software-based virtual SAN.<br/><br/>2. A two-node failover cluster running in Azure VMs with storage supported by a third-party clustering solution. For a specific example that uses SIOS DataKeeper, see [High availability for a file share using failover clustering and 3rd party software SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. A two-node failover cluster running in Azure VMs with remote iSCSI Target shared block storage via ExpressRoute. For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.<br/><br/>For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.<br/><br/>Note that using FCI on top of [Azure File storage](https://www.azure.cn/home/features/storage/files/) is not supported yet, because this solution does not utilize Premium Storage. We are working to support this soon. |
+| **Availability groups** |Availability replicas running in Azure VMs in the same region provide high availability. You need to configure a domain controller VM, because Windows failover clustering requires an Active Directory domain.<br/> ![Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>For more information, see [Configure Availability Groups in Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
+| **Failover cluster instances** |Failover Cluster Instances (FCI), which require shared storage, can be created in 3 different ways.<br/><br/>1. A two-node failover cluster running in Azure VMs with attached storage using [Windows Server 2016 Storage Spaces Direct \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) to provide a software-based virtual SAN.<br/><br/>2. A two-node failover cluster running in Azure VMs with storage supported by a third-party clustering solution. For a specific example that uses SIOS DataKeeper, see [High availability for a file share using failover clustering and 3rd party software SIOS DataKeeper](https://www.azure.cn/bloghigh-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. A two-node failover cluster running in Azure VMs with remote iSCSI Target shared block storage via ExpressRoute. For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.<br/><br/>For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.<br/><br/>Note that using FCI on top of [Azure File storage](https://www.azure.cn/home/features/storage/files/) is not supported yet, because this solution does not utilize Premium Storage. We are working to support this soon. |
 
 ## Azure-only: Disaster recovery solutions
 You can have a disaster recovery solution for your SQL Server databases in Azure using availability groups, database mirroring, or backup and restore with storage blobs.
@@ -58,6 +58,7 @@ You can have a disaster recovery solution for your SQL Server databases in Azure
 | **Availability Groups** |Availability replicas running across multiple datacenters in Azure VMs for disaster recovery. This cross-region solution protects against complete site outage. <br/> ![Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Within a region, all replicas should be within the same cloud service and the same VNet. Because each region will have a separate VNet, these solutions require VNet to VNet connectivity. For more information, see [Configure a VNet-to-VNet connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). For detailed instructions, see [Configure a SQL Server Availability Group on Azure Virtual Machines in Different Regions](virtual-machines-windows-portal-sql-availability-group-dr.md).|
 | **Database Mirroring** |Principal and mirror and servers running in different datacenters for disaster recovery. You must deploy using server certificates because an active directory domain cannot span multiple datacenters.<br/>![Database Mirroring](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Backup and Restore with Azure Blob Storage Service** |Production databases backed up directly to blob storage in a different datacenter for disaster recovery.<br/>![Backup and Restore](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>For more information, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
+| **Replicate and Failover SQL Server to Azure with Azure Site Recovery** |Production SQL Server of one Azure datacenter  replicated directly to Azure Storage of different Azure datacenter for disaster recovery.<br/>![Replicate using Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>For more information, see [Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
 ## Hybrid IT: Disaster recovery solutions
 You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment using availability groups, database mirroring, log shipping, and backup and restore with Azure blog storage.
@@ -68,6 +69,7 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 | **Database Mirroring** |One partner running in an Azure VM and the other running on-premises for cross-site disaster recovery using server certificates. Partners do not need to be in the same Active Directory domain, and no VPN connection is required.<br/>![Database Mirroring](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Another database mirroring scenario involves one partner running in an Azure VM and the other running on-premises in the same Active Directory domain for cross-site disaster recovery. A [VPN connection between the Azure virtual network and the on-premises network](../../../vpn-gateway/vpn-gateway-site-to-site-create.md) is required.<br/><br/>For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site. |
 | **Log Shipping** |One server running in an Azure VM and the other running on-premises for cross-site disaster recovery. Log shipping depends on Windows file sharing, so a VPN connection between the Azure virtual network and the on-premises network is required.<br/>![Log Shipping](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site. |
 | **Backup and Restore with Azure Blob Storage Service** |On-premises production databases backed up directly to Azure blob storage for disaster recovery.<br/>![Backup and Restore](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>For more information, see [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
+| **Replicate and Failover SQL Server to Azure with Azure Site Recovery** |On-premises production SQL Server replicated directly to Azure Storage for disaster recovery.<br/>![Replicate using Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>For more information, see [Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
 ## Important considerations for SQL Server HADR in Azure
 Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure. A successful implementation of a HADR SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.
@@ -89,7 +91,7 @@ Consider the scenario when a two-node cluster is created and brought online:
 
 This scenario can be avoided by assigning an unused static IP address, such as a link-local IP address like 169.254.1.1, to the cluster network name in order to bring the cluster network name online. To simplify this process, see [Configuring Windows failover cluster in Azure for availability groups](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-For more information, see [Configure availability groups in Azure (manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+For more information, see [Configure availability groups in Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
 ### Availability group listener support
 Availability group listeners are supported on Azure VMs running Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. This support is made possible by the use of load-balanced endpoints enabled on the Azure VMs that are availability group nodes. You must follow special configuration steps for the listeners to work for both client applications that are running in Azure as well as those running on-premises.
@@ -135,4 +137,4 @@ For other topics related to running SQL Server in Azure VMs, see [SQL Server on 
 * [Install a new Active Directory forest in Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
 * [Create Failover Cluster for availability groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

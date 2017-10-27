@@ -1,5 +1,5 @@
 ### Open TCP ports in the Windows firewall for the default instance of the Database Engine
-1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
+1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
 2. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
 
     ![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
@@ -82,3 +82,5 @@ To connect to the Database Engine from another computer, you must create at leas
 9. Click OK.
 
 For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
+<!--Update_Description: update link-->
+<!--ms.date: 10/30/2017-->

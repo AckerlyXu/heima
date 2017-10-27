@@ -3,7 +3,7 @@ title: Create and upload a FreeBSD VM image | Azure
 description: Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/08/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Create and upload a FreeBSD VHD to Azure
@@ -28,8 +28,8 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ## Prerequisites
 This article assumes that you have the following items:
 
-* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. Learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
-* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](/downloads/). A tutorial that describes how to install and configure the module is available here. Use the [Azure Downloads](/downloads/) cmdlet to upload the VHD.
+* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. See [Monthly Azure credit for Visual Studio subscribers](https://www.azure.cn/support/legal/offer-rate-plans/). Learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
+* **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://www.azure.cn/downloads/). A tutorial that describes how to install and configure the module is available here. Use the [Azure Downloads](https://www.azure.cn/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
@@ -170,7 +170,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
     `Import-AzurePublishSettingsFile <PathToFile>`, where
    `<PathToFile>` is the full path to the .publishsettings file.
 
-   For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
+   For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/azure/jj554332.aspx).
 
    For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -207,4 +207,5 @@ After you upload the .vhd file, you can add it as an image to the list of custom
 5. After you complete the provisioning, you'll see your FreeBSD VM running in Azure.
 
     ![FreeBSD image in azure](./media/freebsd-create-upload-vhd/freebsdimageinazure.png)
-<!--Update_Description: update storage link-->
+
+<!--Update_Description: update link, wording update-->

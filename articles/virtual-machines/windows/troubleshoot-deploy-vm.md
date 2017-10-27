@@ -3,7 +3,7 @@ title: Troubleshoot deploying Windows virtual machine issues in Azure | Azure
 description: Troubleshoot deploying Windows virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -13,10 +13,10 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 06/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Troubleshoot deploying Windows virtual machine issues in Azure
@@ -51,6 +51,15 @@ productPesIds="1234, 5678"
     - Create a VM in a different availability set (in the same region).
     - Add the new VM to the same virtual network.
 
+<!--Not Available ## How can I use and deploy a windows client image into Azure?-->
+<!--Not Available ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?-->
+<!--Not Available ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)-->
+<!--Not Available ## How to add Enterprise Dev/Test to my Enterprise Agreement (EA) to get access to Window client images?-->
+<!--Not Available ## My drivers are missing for my Windows N-Series VM-->
+<!--Not Available ## I can't find a GPU instance within my N-Series VM-->
+<!--Not Available ## Are client images supported for N-Series?-->
+<!--Not Available ## Is N-Series VMs available in my region?-->
+<!--Not Available ## What client images can I use and deploy in Azure, and how to I get them?-->
 ## I am not able to see VM Size family that I want when resizing my VM.
 
 When a VM is running, it is deployed to a physical server. The physical servers in Azure regions are grouped in clusters of common physical hardware. Resizing a VM that requires the VM to be moved to different hardware clusters is different depending on which deployment model was used to deploy the VM.
@@ -67,8 +76,8 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability.md#addmachine).
 
-
 ## Next steps
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/).
 
 Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select **Get Support**.
+<!--Update_Description: update meta properties-->

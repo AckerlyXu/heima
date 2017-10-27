@@ -4,18 +4,18 @@ title: Use a Linux troubleshooting VM in the Azure portal | Azure
 description: Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2016
-ms.date: 01/20/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 
@@ -153,9 +153,11 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 ## Create VM from original hard disk
 To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
 
-[![Deploy VM from template from GitHub](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F201-vm-specialized-vhd-existing-vnet%2Fazuredeploy.json)
+![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
 
-The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk.
+The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
+
+![Deploy VM from template](./media/troubleshoot-recovery-disks-portal/deploy-from-image.png)
 
 ## Re-enable boot diagnostics
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
@@ -166,3 +168,5 @@ When you create your VM from the existing virtual hard disk, boot diagnostics ma
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+
+<!--Update_Description: wording update， update link-->

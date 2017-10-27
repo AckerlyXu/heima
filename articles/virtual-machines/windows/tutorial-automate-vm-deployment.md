@@ -3,7 +3,7 @@ title: Customize a Windows VM in Azure | Azure
 description: Learn how to use the custom script extension and Key Vault to customize Windows VMs in Azure 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/11/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -28,7 +28,8 @@ To configure virtual machines (VMs) in a quick and consistent manner, some form 
 > * Create a VM that uses the Custom Script Extension
 > * View a running IIS site after the extension is applied
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+<!-- Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
 
 ## Custom script extension overview
 The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run time.
@@ -166,3 +167,4 @@ Advance to the next tutorial to learn how to create custom VM images.
 
 > [!div class="nextstepaction"]
 > [Create custom VM images](./tutorial-custom-images.md)
+<!--Update_Description: update meta properties, wording update-->

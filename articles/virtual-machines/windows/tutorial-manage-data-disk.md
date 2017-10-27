@@ -3,8 +3,8 @@ title: Manage Azure disks with the Azure PowerShell | Azure
 description: Tutorial - Manage Azure disks with the Azure PowerShell 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -31,7 +31,8 @@ Azure virtual machines use disks to store the VMs operating system, applications
 > * Disk performance
 > * Attaching and preparing data disks
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+<!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
+This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
 
 ## Default Azure disks
 
@@ -48,6 +49,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 | [General purpose](sizes-general.md) | A and D series | 800 |
 | [Compute optimized](sizes-compute.md) | F series | 800 |
 | [Memory optimized](../virtual-machines-windows-sizes-memory.md) | D series | 6144 |
+<!--Not Available on L,N, A and H series-->
 
 ## Azure data disks
 
@@ -81,7 +83,7 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 | IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [Linux VM sizes](./sizes.md).
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [VM types and sizes](./sizes.md).
 
 ## Create and attach disks
 
@@ -147,3 +149,4 @@ Advance to the next tutorial to learn about automating VM configuration.
 
 > [!div class="nextstepaction"]
 > [Automate VM configuration](./tutorial-automate-vm-deployment.md)
+<!--Update_Description: update meta properties, wording update-->

@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -52,11 +52,11 @@ vhdUri=https://contosostorageaccount1.blob.core.chinacloudapi.cn/vhds/contosoumd
 #Provide the storage type for the Managed Disk. Premium_LRS or Standard_LRS.
 storageType=Premium_LRS
 
-#Provide the Azure location (e.g. China North) where Managed Disk will be located. 
+#Provide the Azure location (e.g. chinanorth) where Managed Disk will be located. 
 #The location should be same as the location of the storage account where VHD file is stored.
 #Get all the Azure location supported for your subscription using command below:
 #az account list-locations
-location='China North'
+location=chinanorth
 
 #Set the context to the subscription Id where Managed Disk will be created
 az account set --subscription $subscriptionId
@@ -72,14 +72,14 @@ This script uses following commands to create a managed disk from a VHD. Each co
 
 | Command | Notes |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
+| [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
 
 ## Next steps
 
 [Create a virtual machine by attaching a managed disk as OS disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../app-service-web/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link-->

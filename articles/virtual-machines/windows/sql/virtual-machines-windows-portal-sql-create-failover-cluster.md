@@ -3,7 +3,7 @@ title: SQL Server FCI - Azure Virtual Machines | Azure
 description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: hayley244
+author: rockboyfor
 manager: digimobile
 editor: monicar
 tags: azure-service-management
@@ -15,9 +15,9 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 03/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/26/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 
@@ -127,6 +127,7 @@ With these prerequisites in place, you can proceed with building your failover c
       - **SQL Server 2016 Standard on Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer on Windows Server Datacenter 2016**
 
+<!--Not Available    - **Bring-your-own-license (BYOL)**-->
    >[!IMPORTANT]
    >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You will use the pre-installed SQL Server media to create the SQL Server FCI after you configure the failover cluster and S2D.
 
@@ -422,15 +423,34 @@ Set the cluster probe port parameter in PowerShell.
 To set the cluster probe port parameter, update variables in the following script from your environment.
 
 ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   $ClusterNetworkName = "<Cluster Network Name>" 
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>"
+   $ILBIP = "<10.0.0.x>"
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 ```
+
+In the preceding script, set the values for your environment. The following list describes the values:
+
+   - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
+
+   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
+
+>[!IMPORTANT]
+>The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
+
+After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## Step 7: Test FCI failover
 
@@ -465,3 +485,5 @@ On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) i
 [Storage Space Direct Overview](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
+
+<!--Update_Description: update meta properties, update link-->

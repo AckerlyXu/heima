@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/14/2017
-ms.date: 10/16/2017
+origin.date: 10/13/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -28,11 +28,11 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Create a resource group
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## Create virtual machine
 
-Create a VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. 
+Create a VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. 
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -67,7 +67,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## Open port 80 for web traffic 
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) command to open the desired port.  
+By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) command to open the desired port.  
 
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -83,16 +83,14 @@ ssh <publicIpAddress>
 
 ## Install NGINX
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+Use the following commands to update package sources and install the latest NGINX package. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## View the NGINX welcome page
@@ -103,7 +101,7 @@ With NGINX installed and port 80 now open on your VM from the Internet - you can
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
+When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) command to remove the resource group, VM, and all related resources. Exit the SSH session to your VM, then delete the resources as follows:
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -116,4 +114,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->
