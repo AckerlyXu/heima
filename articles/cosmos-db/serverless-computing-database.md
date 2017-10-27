@@ -155,3 +155,4 @@ Now let's connect Azure Cosmos DB and Azure Functions for real:
 * [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-documentdb.md)
 
 <!--Update_Description: new articles on serverless computing database-->
+

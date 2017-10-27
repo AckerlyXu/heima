@@ -123,3 +123,4 @@ Now that you have Connected Services up and running with your Azure Cosmos DB ac
 * Learn how to [Monitor an Azure Cosmos DB account](monitor-accounts.md).
 
 <!--Update_Description: new articles on cosmosdb connected service-->
+

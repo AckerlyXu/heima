@@ -151,3 +151,4 @@ Edit the document filter by entering a [SQL query](documentdb-sql-query.md) and 
 Now that you have Azure Storage Explorer connected to your Azure Cosmos DB account, learn more about Storage Explorer and connect more services in [Get started with Storage Explorer (Preview)](/vs-azure-tools-storage-manage-with-storage-explorer).
 
 <!--Update_Description: new articles on tutuorial in storage explorer -->
+

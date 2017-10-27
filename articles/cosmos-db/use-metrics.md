@@ -99,3 +99,4 @@ Now that you've learned how to monitor and debug issues using the metrics provid
 * [Performance tips for Azure Cosmos DB](performance-tips.md)
 
 <!--Update_Description: new articles on use metrics -->
+
