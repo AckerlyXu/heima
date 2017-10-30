@@ -3,7 +3,7 @@ title: Enable automatic tuning for Azure SQL Database | Azure
 description: You can enable automatic tuning on your Azure SQL Database easily.
 services: sql-database
 documentationcenter: ''
-author: hayley244
+author: forester123
 manager: digimobile
 editor: vvasic
 
@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-origin.date: 06/05/2016
-ms.date: '07/03/2017'
+origin.date: 09/19/2016
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -39,7 +39,7 @@ The Azure portal enables you to individually specify the automatic tuning config
 > The general recommendation is to manage the automatic tuning configuration at server level so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database if the database is different that others on the same server.
 >
 
-To enable automatic tuning on a single database, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the database by selecting the checkbox or you can specify the configuration for a database individually.
+To enable automatic tuning on a single database, navigate to the database in the Azure portal and then and select **Automatic tuning**. You can configure a single database to inherit the settings from the server by selecting the option or you can specify the configuration for a database individually.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
@@ -49,3 +49,4 @@ Once you have selected appropriate configuration, click **Apply**.
 * Read the [Automatic tuning article](sql-database-automatic-tuning.md) to learn more about automatic tuning and how it can help you improve your performance.
 * See [Performance recommendations](sql-database-advisor.md) for an overview of Azure SQL Database performance recommendations.
 * See [Query Performance Insights](sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
+<!--Update_Description:wording update-->

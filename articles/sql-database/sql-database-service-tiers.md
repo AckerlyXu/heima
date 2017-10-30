@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database service | Microsoft Docs'
-description: Learn about SQL Database service tiers
+description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
 keywords: 
 services: sql-database
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 08/20/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -73,4 +73,3 @@ For details on specific performance levels and storage size choices available, s
 * Learn more about [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
 * Learn about monitoring DTU usage, see [Monitoring and performance tuning](sql-database-troubleshoot-performance.md).
 
-<!--Update_Description: update service tier and limits tables, remove duplicates-->

@@ -1,6 +1,6 @@
 ---
-title: PowerShell example-active geo-replication-single Azure SQL Database | Azure
-description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database 
+title: PowerShell example-active geo-replication-single Azure SQL Database | Microsoft Docs
+description: Azure PowerShell example script to set up active geo-replication for a single Azure SQL database and fail it over.
 services: sql-database
 documentationcenter: sql-database
 author: forester123
@@ -16,7 +16,7 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 ---
 
@@ -24,18 +24,18 @@ ms.author: v-johch
 
 This PowerShell script example configures active geo-replication for a single Azure SQL database and fails it over to a secondary replica of the Azure SQL database.
 
-Before running this script, ensure that a connection with Azure has been created using the `Add-AzureRmAccount` cmdlet.
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## Sample Scripts
+## Sample scripts
 
 ```powershell
 ﻿# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your primary server
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
-$primarylocation = "China East"
+$primarylocation = "China North"
 # Set the resource group name and location for your secondary server
 $secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
-$secondarylocation = "China North"
+$secondarylocation = "China East"
 # Set an admin login and password for your servers
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
@@ -49,6 +49,9 @@ $primarystartip = "0.0.0.0"
 $primaryendip = "0.0.0.0"
 $secondarystartip = "0.0.0.0"
 $secondaryendip = "0.0.0.0"
+
+
+
 
 # Create two new resource groups
 $primaryresourcegroup = New-AzureRmResourceGroup -Name $primaryresourcegroupname -Location $primarylocation
@@ -123,5 +126,3 @@ This script uses the following commands. Each command in the table links to comm
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
-
-<!--Update_Description: update "Clean up deployment" script-->

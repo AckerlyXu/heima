@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database single database | Microsoft Docs
-description: Manage a single Azure SQL database.
+description: Manage the service tier, performance level, and amount of storagea for a single Azure SQL database.
 services: sql-database
 documentationcenter: na
 author: forester123
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 08/25/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -34,7 +34,7 @@ To set or change the service tier, performance level, or storage amount for a ne
 ![Configure service tier and performance level](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
+> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) when selecting a P11 or P15 service tier.
 >
 
 ## Manage single database resources using PowerShell
@@ -53,16 +53,16 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 ## Manage single database resources using the Azure CLI
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount using the Azure CLI, use these [Azure CLI SQL Database](https://docs.microsoft.com/cli/azure/sql/db) commands. [Install](/cli/azure/install-azure-cli) CLI on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To set or change Azure SQL databases service tiers, performance levels, and storage amount using the Azure CLI, use these [Azure CLI SQL Database](/cli/sql/db) commands. [Install](/cli/install-azure-cli) CLI on macOS, Linux, or Windows. For creating and managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) |Creates a database|
-|[az sql db list](https://docs.microsoft.com/cli/azure/sql/db#list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
-|[az sql db list-editions](https://docs.microsoft.com/cli/azure/sql/db#list-editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](https://docs.microsoft.com/cli/azure/sql/db#list-usages)|Returns database usages|
-|[az sql db show](https://docs.microsoft.com/cli/azure/sql/db#show)|Gets a database or data warehouse|
-|[az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update)|Updates a database|
+|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
+
 
 > [!TIP]
 > For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -108,3 +108,4 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 - Learn about service tiers, performance levels, and storage amounts, see [Service tiers](sql-database-service-tiers.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+<!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

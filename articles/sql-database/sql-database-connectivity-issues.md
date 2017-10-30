@@ -4,7 +4,7 @@ description: 'Learn how to troubleshoot, diagnose, and prevent a SQL connection 
 keywords: sql connection,connection string,connectivity issues,transient error,connection error
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile 
 editor: ''
 
@@ -14,10 +14,10 @@ ms.custom: develop apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 06/13/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 
 ---
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
@@ -441,5 +441,3 @@ public bool IsTransient(Exception ex)
 * For troubleshooting other common Azure SQL Database connection issues, visit [Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 * [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* is an Apache 2.0 licensed general-purpose retrying library, written in **Python**, to simplify the task of adding retry behavior to just about anything.](https://pypi.python.org/pypi/retrying)
-
-<!--Update_Description: update word -->

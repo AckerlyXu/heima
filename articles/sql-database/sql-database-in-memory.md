@@ -1,9 +1,9 @@
 ---
-title: Azure SQL Database In-Memory technologies | Azure
-description: Azure SQL Database In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies.
+title: Azure SQL Database In-Memory technologies | Microsoft Docs
+description: Azure SQL Database In-Memory technologies greatly improve the performance of transactional and analytics workloads. 
 services: sql-database
 documentationCenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/24/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
@@ -445,7 +445,7 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 #### Deeper information
 
-- [Learn how Quorum doubles key database's workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -470,5 +470,3 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
 - [SQL Server Data Tools (SSDT)](http://msdn.microsoft.com/library/mt204009.aspx)
-
-<!--Update_Description: wording update-->

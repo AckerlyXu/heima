@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure SQL database auditing | Azure
-description: Get started with Azure SQL database auditing
+title: Get started with Azure SQL database auditing | Microsoft Docs
+description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
 documentationcenter: ''
 author: forester123
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -218,4 +218,3 @@ In production, you are likely to refresh your storage keys periodically. When re
 [104]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
 [105]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
 [106]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
-<!--Update_Description: wording update-->

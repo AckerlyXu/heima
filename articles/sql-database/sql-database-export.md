@@ -3,7 +3,7 @@ title: Export an Azure SQL database to a BACPAC file | Azure
 description: Export an Azure SQL database to a BACPAC file  using the Azure Portal
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -11,9 +11,9 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-origin.date: 06/15/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/11/2017
+ms.date: 11/06/2017
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -22,10 +22,6 @@ ms.tgt_pltfrm: NA
 # Export an Azure SQL database to a BACPAC file
 
 When you need to export a database for archiving or for moving to another platform, you can export the database schema and data to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from a SQL Server database. A BACPAC file can be stored in Azure blob storage or in local storage in an on-premises location and later imported back into Azure SQL Database or into a SQL Server on-premises installation. 
-
-> [!IMPORTANT]
-> If you are exporting from SQL Server as a prelude to migration to Azure SQL Database, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
-> 
 
 ## Considerations when exporting an Azure SQL database
 
@@ -41,7 +37,7 @@ When you need to export a database for archiving or for moving to another platfo
 > BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md) and [SQL Database backups](sql-database-automated-backups.md).  
 > 
 
-## Export to a BACPAC file using the Azure Portal
+## Export to a BACPAC file using the Azure portal
 
 To export a database using the [Azure portal](https://portal.azure.cn), open the page for your database and click **Export** on the toolbar. Specify the BACPAC filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
 
@@ -58,9 +54,15 @@ To export a SQL database using the [SqlPackage](https://msdn.microsoft.com/libra
 
 We recommend the use of the SQLPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
+This example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication:
+
+```cmd
+SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.chinacloudapi.cn;Initial Catalog=MyDB;" /ua:True /tid:"apptest.partner.onmschina.cn"
+```
+
 ## Export to a BACPAC file using SQL Server Management Studio (SSMS)
 
-The newest versions of SQL Server Management Studio also provide a wizard to export an Azure SQL Database to a bacpac file. See the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+The newest versions of SQL Server Management Studio also provide a wizard to export an Azure SQL Database to a BACPAC file. See the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
 ## Export to a BACPAC file using PowerShell
 
@@ -94,4 +96,4 @@ $exportStatus
 * To learn about exporting a BACPAC from a SQL Server database, see [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) and [Migrate your first database](sql-database-migrate-your-sql-server-database.md).
 * If you are exporting from SQL Server as a prelude to migration to Azure SQL Database, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 
-<!--Update_Description: update code : (import -> export)-->
+<!--Update_Description: add example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication-->

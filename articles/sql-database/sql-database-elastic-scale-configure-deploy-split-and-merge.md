@@ -1,9 +1,9 @@
 ---
-title: Deploy a split-merge service | Azure
-description: Splitting and Merging with elastic database tools
+title: Deploy a split-merge service | Microsoft Docs
+description: Use the split-merge too to move data between sharded databases.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
-ms.date: 07/10/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -24,15 +24,17 @@ The split-merge tool lets you move data between sharded databases. See [Moving d
 
 ## Download the Split-Merge packages
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
-2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commmands.
+2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commands.
 3. Download the latest Split-Merge package into the current directory with the below command:
-nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
+   ```
+   nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
+   ```  
 
-The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the split-merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client .dlls) in the **content\splitmerge\powershell** sub-directory.
+The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** where *x.x.xxx.x* reflects the version number. Find the split-merge Service files in the **content\splitmerge\service** sub-directory, and the Split-Merge PowerShell scripts (and required client dlls) in the **content\splitmerge\powershell** sub-directory.
 
 ## Prerequisites
 1. Create an Azure SQL DB database that will be used as the split-merge status database. Go to the [Azure portal](https://portal.azure.cn). Create a new **SQL Database**. Give the database a name and create a new administrator and password. Be sure to record the name and password for later use.
-2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
+2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
 
    ![Allowed services][1]
 3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure Portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
@@ -40,7 +42,7 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 
 ## Configure your Split-Merge service
 ### Split-Merge service configuration
-1. In the folder where you downloaded the Split-Merge assemblies, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and rename it **ServiceConfiguration.cscfg**.
+1. In the folder into which you downloaded the Split-Merge assemblies, create a copy of the **ServiceConfiguration.Template.cscfg** file that shipped alongside **SplitMergeService.cspkg** and rename it **ServiceConfiguration.cscfg**.
 2. Open **ServiceConfiguration.cscfg** in a text editor such as Visual Studio that validates inputs such as the format of certificate thumbprints.
 3. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database. 
 
@@ -128,7 +130,7 @@ Please note that for production deployments separate certificates should be used
 4. Choose the staging environment, then click **Upload a new staging deployment**.
 
    ![Staging][3]
-5. In the dialog box, enter a deployment label. For both 'Package' and 'Configuration', click 'From Local' and choose the **SplitMergeService.cspkg** file and your .cscfg file that you configured earlier.
+5. In the dialog box, enter a deployment label. For both 'Package' and 'Configuration', click 'From Local' and choose the **SplitMergeService.cspkg** file and your cscfg file that you configured earlier.
 6. Ensure that the checkbox labeled **Deploy even if one or more roles contain a single instance** is checked.
 7. Hit the tick button in the bottom right to begin the deployment. Expect it to take a few minutes to complete.
 
@@ -139,12 +141,12 @@ If your web role fails to come online, it is likely a problem with the security 
 
 If your worker role fails to come online, but your web role succeeds, it is most likely a problem connecting to the status database that you created earlier.
 
-* Make sure that the connection string in your .cscfg is accurate.
+* Make sure that the connection string in your cscfg is accurate.
 * Check that the server and database exist, and that the user id and password are correct.
 * For Azure SQL DB, the connection string should be of the form:
 
     ```
-    "Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
+    Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
     ```
 
 * Ensure that the server name does not begin with **https://**.
@@ -210,7 +212,7 @@ The script files included are:
 </table>
 
 ## Use PowerShell to verify your deployment
-1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the "powershell" directory.
+1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
 2. Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
 
    > [!NOTE]
@@ -254,7 +256,7 @@ The script files included are:
       -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
    ```      
 
-   If you receive the below error, it is most likely a problem with your Web endpoint's certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
+   If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
 
      ```
      Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
@@ -305,8 +307,8 @@ The service can move data in both sharded tables and reference tables. A sharded
 
 In order to perform a split-merge operation, you must declare the sharded tables and reference tables that you want to have moved. This is accomplished with the **SchemaInfo** API. This API is in the **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema** namespace.
 
-1. For each sharded table, create a **ShardedTableInfo** object describing the table's parent schema name (optional, defaults to "dbo"), the table name, and the column name in that table that contains the sharding key.
-2. For each reference table, create a **ReferenceTableInfo** object describing the table's parent schema name (optional, defaults to "dbo") and the table name.
+1. For each sharded table, create a **ShardedTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”), the table name, and the column name in that table that contains the sharding key.
+2. For each reference table, create a **ReferenceTableInfo** object describing the table’s parent schema name (optional, defaults to “dbo”) and the table name.
 3. Add the above TableInfo objects to a new **SchemaInfo** object.
 4. Get a reference to a **ShardMapManager** object, and call **GetSchemaInfoCollection**.
 5. Add the **SchemaInfo** to the **SchemaInfoCollection**, providing the shard map name.

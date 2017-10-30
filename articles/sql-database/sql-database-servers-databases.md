@@ -1,6 +1,6 @@
 ---
-title: Create & manage Azure SQL servers & databases | Azure
-description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases using the Azure portal, PowerShell, the Azure CLI, Transact-SQL, and the REST API.
+title: Create & manage Azure SQL servers & databases | Microsoft Docs
+description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases.
 services: sql-database
 documentationcenter: na
 author: forester123
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 07/19/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -137,29 +137,29 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
 
-To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), use the following [Azure CLI SQL Database](https://docs.microsoft.com/cli/azure/sql/db) commands. [Install](https://docs.microsoft.com/cli/azure/install-azure-cli) CLI on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with the [Azure CLI](/cli/overview), use the following [Azure CLI SQL Database](/cli/sql/db) commands. [Install](/cli/install-azure-cli) CLI on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) |Creates a database|
-|[az sql db list](https://docs.microsoft.com/cli/azure/sql/db#list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
-|[az sql db list-editions](https://docs.microsoft.com/cli/azure/sql/db#list-editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](https://docs.microsoft.com/cli/azure/sql/db#list-usages)|Returns database usages|
-|[az sql db show](https://docs.microsoft.com/cli/azure/sql/db#show)|Gets a database or data warehouse|
-|[az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update)|Updates a database|
-|[az sql db delete](https://docs.microsoft.com/cli/azure/sql/db#delete)|Removes a database|
-|[az group create](https://docs.microsoft.com/cli/azure/group#create)|Creates a resource group|
-|[az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create)|Creates a server|
-|[az sql server list](https://docs.microsoft.com/cli/azure/sql/server#list)|Lists servers|
-|[az sql server list-usages](https://docs.microsoft.com/cli/azure/sql/server#list-usages)|Returns  server usages|
-|[az sql server show](https://docs.microsoft.com/cli/azure/sql/server#show)|Gets a server|
-|[az sql server update](https://docs.microsoft.com/cli/azure/sql/server#update)|Updates a server|
-|[az sql server delete](https://docs.microsoft.com/cli/azure/sql/server#delete)|Deletes a server|
-|[az sql server firewall-rule create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create)|Creates a server firewall rule|
-|[az sql server firewall-rule list](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#list)|Lists the firewall rules on a server|
-|[az sql server firewall-rule show](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#show)|Shows the detail of a firewall rule|
-|[az sql server firewall-rule update](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#update)|Updates a firewall rule|
-|[az sql server firewall-rule delete](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#delete)|Deletes a firewall rule|
+|[az sql db create](/cli/sql/db#az_sql_db_create) |Creates a database|
+|[az sql db list](/cli/sql/db#az_sql_db_list)|Lists all databases and data warehouses in a server, or all databases in an elastic pool|
+|[az sql db list-editions](/cli/sql/db#az_sql_db_list_editions)|Lists available service objectives and storage limits|
+|[az sql db list-usages](/cli/sql/db#az_sql_db_list_usages)|Returns database usages|
+|[az sql db show](/cli/sql/db#az_sql_db_show)|Gets a database or data warehouse|
+|[az sql db update](/cli/sql/db#az_sql_db_update)|Updates a database|
+|[az sql db delete](/cli/sql/db#az_sql_db_delete)|Removes a database|
+|[az group create](/cli/group#az_group_create)|Creates a resource group|
+|[az sql server create](/cli/sql/server#az_sql_server_create)|Creates a server|
+|[az sql server list](/cli/sql/server#az_sql_server_list)|Lists servers|
+|[az sql server list-usages](/cli/sql/server#az_sql_server_list-usages)|Returns  server usages|
+|[az sql server show](/cli/sql/server#az_sql_server_show)|Gets a server|
+|[az sql server update](/cli/sql/server#az_sql_server_update)|Updates a server|
+|[az sql server delete](/cli/sql/server#az_sql_server_delete)|Deletes a server|
+|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 > [!TIP]
 > For an Azure CLI quick start tutorial, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -167,7 +167,7 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 
 ## Manage Azure SQL servers, databases, and firewalls using Transact-SQL
 
-To create and manage Azure SQL server, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. For managing SQL elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage Azure SQL server, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!IMPORTANT]
 > You cannot create or delete a server using Transact-SQL.
@@ -227,4 +227,4 @@ To create and manage Azure SQL server, databases, and firewalls use these REST A
 - To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-cloud-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).
 
-<!--Update_Description: remove cloud shell; add rest commands-->
+<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

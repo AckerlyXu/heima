@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/14/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -53,7 +53,7 @@ Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.a
 The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://www.azure.cn/support/service-dashboard/). After the recovery of the region your application's availability will be restored.
 
 ## Fail over to geo-replicated secondary database
-If your application's downtime can result in business liability you should be using geo-replicated database(s) in your application. It will enable the application to quickly restore availability in a different region in case of an outage. Learn how to [configure Geo-Replication](sql-database-geo-replication-portal.md).
+If your application’s downtime can result in business liability you should be using geo-replicated database(s) in your application. It will enable the application to quickly restore availability in a different region in case of an outage. Learn how to [configure geo-replication](sql-database-geo-replication-portal.md).
 
 To restore availability of the database(s) you need to initiate the failover to the geo-replicated secondary using one of the supported methods.
 
@@ -64,7 +64,7 @@ Use one of the following guides to fail over to a geo-replicated secondary datab
 * [Fail over to a geo-replicated secondary using T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database.md)
 
 ## Recover using geo-restore
-If your application's downtime does not result in business liability you can use [geo-restore](sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
+If your application’s downtime does not result in business liability you can use [geo-restore](sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
 
 ## Configure your database after recovery
 If you are using either geo-replication failover or geo-restore to recover from an outage, you must make sure that the connectivity to the new databases is properly configured so that the normal application function can be resumed. This is a checklist of tasks to get your recovered database production ready.

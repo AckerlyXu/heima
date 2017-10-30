@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -30,7 +30,7 @@ Azure has two options for hosting SQL Server workloads in Azure:
 Learn how each option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
 ## Microsoft's data platform
-One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Microsoft's data platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. SQL Server on Azure virtual machines enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
+One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Azure's data platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. SQL Server on Azure virtual machines enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
 
    ![Cloud SQL Server options: SQL server on IaaS, or SaaS SQL database in the cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -53,7 +53,7 @@ In the following sections, you learn about SQL Server in the Microsoft public cl
 In general, these two SQL options are optimized for different purposes:
 
 * **Azure SQL Database** is optimized to reduce overall costs to the minimum for provisioning and managing many databases. It reduces ongoing administration costs because you do not have to manage any virtual machines, operating system or database software. You do not have to manage upgrades, high availability, or [backups](sql-database-automated-backups.md). In general, Azure SQL Database can dramatically increase the number of databases managed by a single IT or development resource.
-* **SQL Server running on Azure VMs** is optimized for migrating existing applications to Azure or extending existing on-premises applications to the cloud in hybrid deployments. In addition, you can use SQL Server in a virtual machine to develop and test traditional SQL Server applications. With SQL Server on Azure VMs, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. These capabilities allow you to build a highly customized system to address your application's specific performance and availability requirements.
+* **SQL Server running on Azure VMs** is optimized for migrating existing applications to Azure or extending existing on-premises applications to the cloud in hybrid deployments. In addition, you can use SQL Server in a virtual machine to develop and test traditional SQL Server applications. With SQL Server on Azure VMs, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. These capabilities allow you to build a highly customized system to address your application’s specific performance and availability requirements.
 
 The following table summarizes the main characteristics of SQL Database and SQL Server on Azure VMs:
 
@@ -63,7 +63,6 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 |  | Teams that need built-in high availability, disaster recovery, and upgrade for the database. |Teams that can configure and manage high availability, disaster recovery, and patching for SQL Server. Some provided automated features dramatically simplify this. | |
 |  | Teams that do not want to manage the underlying operating system and configuration settings. |You need a customized environment with full administrative rights. | |
 |  | Databases of up to 4 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern. |SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. | |
-|  | [Building Software-as-a-Service (SaaS) applications](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrating and building enterprise and hybrid applications. | |
 |  | | |
 | **Resources:** |You do not want to employ IT resources for configuration and management of the underlying infrastructure, but want to focus on the application layer. |You have some IT resources for configuration and management. Some provided automated features dramatically simplify this. |
 | **Total cost of ownership:** |Eliminates hardware costs and reduces administrative costs. |Eliminates hardware costs. |
@@ -117,9 +116,9 @@ With **SQL Server on Azure VMs**, you have full control over the operating syste
 ### Service Level Agreement (SLA)
 For many IT departments, meeting up-time obligations of a Service Level Agreement (SLA) is a top priority. In this section, we look at what SLA applies to each database hosting option.
 
-For **SQL Database** Basic, Standard, Premium, and Premium RS service tiers Microsoft provides an availability SLA of 99.99%. For the latest information, see [Service Level Agreement](https://www.azure.cn/support/sla/sql-data/). For the latest information on SQL Database service tiers and the supported business continuity plans, see [Service Tiers](sql-database-service-tiers.md).
+For **SQL Database** Basic, Standard, Premium, and Premium RS service tiers Azure provides an availability SLA of 99.99%. For the latest information, see [Service Level Agreement](https://www.azure.cn/support/sla/sql-data/). For the latest information on SQL Database service tiers and the supported business continuity plans, see [Service Tiers](sql-database-service-tiers.md).
 
-For **SQL Server running on Azure VMs**, Microsoft provides an availability SLA of 99.95% that covers just the Virtual Machine. This SLA does not cover the processes (such as SQL Server) running on the VM and requires that you host at least two VM instances in an availability set. For the latest information, see the [VM SLA](https://www.azure.cn/support/sla/virtual-machines/). For database high availability (HA) within VMs, you should configure one of the supported high availability options in SQL Server, such as [AlwaysOn Availability Groups](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Using a supported high availability option doesn't provide an additional SLA, but allows you to achieve >99.99% database availability.
+For **SQL Server running on Azure VMs**, Azure provides an availability SLA of 99.95% that covers just the Virtual Machine. This SLA does not cover the processes (such as SQL Server) running on the VM and requires that you host at least two VM instances in an availability set. For the latest information, see the [VM SLA](https://www.azure.cn/support/sla/virtual-machines/). For database high availability (HA) within VMs, you should configure one of the supported high availability options in SQL Server, such as [AlwaysOn Availability Groups](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Using a supported high availability option doesn't provide an additional SLA, but allows you to achieve >99.99% database availability.
 
 ### <a name="market"></a>Time to market
 **SQL Database** is the right solution for cloud-designed applications when developer productivity and fast time-to-market are critical. With programmatic DBA-like functionality, it is perfect for cloud architects and developers as it lowers the need for managing the underlying operating system and database. For example, you can use the [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) and [PowerShell Cmdlets](http://msdn.microsoft.com/library/mt740629.aspx) to automate and manage administrative operations for thousands of databases. Features such as [elastic pools](sql-database-elastic-pool.md) allow you to focus on the application layer and deliver your solution to the market faster.
