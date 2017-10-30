@@ -1,19 +1,21 @@
 ---
-title: How to work with the Node.js backend server SDK for Mobile Apps | Azure App Service
+title: How to work with the Node.js backend server SDK for Mobile Apps | Microsoft Docs
 description: Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps.
 services: app-service\mobile
-documentationCenter: ''
-authors: adrianhall
-manager: erikre
+documentationcenter: ''
+author: ggailey777
+manager: syntaxc4
 editor: ''
 
+ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
 ms.author: v-yiso
+ms.date: 11/06/2017
 ---
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -178,9 +180,7 @@ can add or modify tables and APIs, then republish the project. For more informat
 project code.
 
 1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. See [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) for operating system-specific distributions and installation guidance.
-
-2. Follow the steps in [Enable the App Service app repository](../app-service-web/app-service-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
-
+2. Follow the steps in [Enable the App Service app repository](../app-service/app-service-deploy-local-git.md#Step3) to enable the Git repository for your backend site, making a note of the deployment username and password.
 3. In the blade for your Mobile App backend, make a note of the **Git clone URL** setting.
 
 4. Execute the `git clone` command using the Git clone URL, entering your password when required, as in the 
@@ -493,6 +493,8 @@ Mobile App backend or create a new SQL database.  In this section, we create a S
 > If you already have a database in the same location as the mobile app backend, you can 
 > instead choose **Use an existing database** and then select that database. The use of a database in a 
 > different location is not recommended because of higher latencies.
+>
+>
 
 6. In the new Mobile App backend, click **Settings** > **Mobile App** > **Data** > **+Add**.
 
@@ -1094,12 +1096,12 @@ table or API, then click **Edit script**. The script file is opened in the App S
 [Xamarin.Forms Client QuickStart]: ./app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client QuickStart]: ./app-service-mobile-windows-store-dotnet-get-started.md
 [offline data sync]: ./app-service-mobile-offline-data-sync.md
-[How to configure Azure Active Directory Authentication]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure Microsoft Authentication]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
-[Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
-[Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[Troubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[How to configure Azure Active Directory Authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure Microsoft Authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Azure App Service Deployment Guide]: ../app-service/app-service-deploy-local-git.md
+[Monitoring an Azure App Service]: ../app-service/web-sites-monitor.md
+[Enable Diagnostic Logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
+[Troubleshoot an Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps

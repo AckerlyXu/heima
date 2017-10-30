@@ -3,8 +3,8 @@ title: Troubleshoot Windows virtual machine activation problems in Azure| Azure
 description: Provides the troubleshoot steps for fixing Windows virtual machine activation problems in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: genlin
-manager: willchen
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 05/26/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 ---
 # Troubleshoot Azure Windows virtual machine activation problems
 
@@ -110,9 +110,14 @@ Product activated successfully.**
 
 No. The image in Azure Marketplace has the appropriate KMS client setup key already configured. 
 
+### Does Windows activation work the same way regardless if the VM is using Azure Hybrid Use Benefit (HUB) or not? 
+
+Yes. 
+
 ### What happens if Windows activation period expires? 
 
 When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See  the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) page.   
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://www.azure.cn/support/support-azure/) to get your issue resolved quickly.
+<!--Update_Description: update meta properties-->

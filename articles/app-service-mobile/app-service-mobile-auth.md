@@ -1,18 +1,20 @@
 ---
-title: Authentication and Authorization in Azure Mobile Apps | Azure
+title: Authentication and Authorization in Azure Mobile Apps | Microsoft Docs
 description: Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps
 services: app-service\mobile
-documentationCenter: ''
-authors: mattchenderson
-manager: erikre
+documentationcenter: ''
+author: mattchenderson
+manager: syntaxc4
 editor: ''
 
+ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 11/06/2017
 ms.author: v-yiso
 ---
 
@@ -22,6 +24,8 @@ ms.author: v-yiso
 
 > [!NOTE]
 > This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
+> 
+> 
 
 App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
 
@@ -94,5 +98,5 @@ If you wish to use an identity system other than the ones provided here, you can
 [Add authentication to your Xamarin.Android app]: ./app-service-mobile-xamarin-android-get-started-users.md
 [Add Authentication to your Windows app]: ./app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[How to configure your app to use Azure Active Directory login]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
-[How to configure your app to use Microsoft Account login]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure your app to use Azure Active Directory login]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure your app to use Microsoft Account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md

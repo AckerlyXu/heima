@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
 ms.author: v-yiso
-ms.date: 10/09/2017
+ms.date: 11/06/2017
 ---
 
 # Configuring SSL for an application in Azure
@@ -27,7 +27,7 @@ ms.date: 10/09/2017
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
+> The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service/app-service-web-tutorial-custom-ssl.md).
 >
 
 This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.

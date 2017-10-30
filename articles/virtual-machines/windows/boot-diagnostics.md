@@ -3,7 +3,7 @@ title: Boot diagnostics for Windows virtual machines in Azure | Microsoft Doc
 description: Overview of the two debugging features for Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines-windows
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -13,10 +13,10 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ---
 # How to use boot diagnostics to troubleshoot Windows virtual machines in Azure
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 
 ---
@@ -29,12 +29,11 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 > * Verify installation and configuration
 > * Install WordPress on the LAMP server
 
-
 For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
@@ -68,7 +67,7 @@ With Apache installed, and port 80 open to your VM, the web server can now be ac
 Check the version of MySQL with the following command (note the capital `V` parameter):
 
 ```bash
-msql -V
+mysql -V
 ```
 
 We recommend running the following script to help secure the installation of MySQL:
@@ -106,7 +105,6 @@ Now you can check the PHP info page you created. Open a browser and go to `http:
 ![PHP info page][2]
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
-
 
 ## Next steps
 

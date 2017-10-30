@@ -3,8 +3,8 @@ title: Create a Linux VM in Azure with multiple NICs | Azure
 description: Learn how to create a Linux VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Create a Linux virtual machine with multiple NICs using the Azure CLI 1.0
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
+You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario is to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 > [!WARNING]
 > You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM with the Azure CLI 1.0. You can [add NICs to an existing VM with the Azure CLI 2.0](multiple-nics.md). You can also [create a VM based on the original virtual disk(s)](copy-vm.md) and create multiple NICs as you deploy the VM.
@@ -81,7 +81,7 @@ azure network vnet subnet create \
 ```
 
 ## Create and configure multiple NICs
-You can read more details about [deploying multiple NICs using the Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
+You can read more details about [deploying multiple NICs using the Azure CLI](../../virtual-machines/linux/multiple-nics.md), including scripting the process of looping through to create all the NICs.
 
 The following example creates two NICs, named *myNic1* and *myNic2*, with one NIC connecting to each subnet:
 
@@ -163,3 +163,5 @@ You can read a complete example of [creating multiple NICs using Resource Manage
 Make sure to review [Linux VM sizes](sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
 
 Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when you deploy the VM. Take care when planning your deployments to make sure that you have all the required network connectivity from the outset.
+
+<!--Update_Description: update meta properties， update link-->

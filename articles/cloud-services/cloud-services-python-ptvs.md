@@ -15,7 +15,7 @@ ms.devlang: python
 ms.topic: hero-article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
+ms.date: 11/06/2017
 ---
 
 # Python web and worker roles with Python Tools for Visual Studio
@@ -345,7 +345,7 @@ For more details about using Azure services from your web and worker roles, such
 <!--Link references-->
 
 [What is a Cloud Service?]: ./cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-web sites]: ../app-service/app-service-web-overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: ./cloud-services-choose-me.md
 [Python Developer Center]: https://www.azure.cn/develop/python/

@@ -15,7 +15,7 @@ ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 07/31/2017
+ms.date: 11/06/2017
 ---
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -704,11 +704,11 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/zh-cn/library/azure/jj193161.aspx
-[Dynamic Schema]: https://msdn.microsoft.com/zh-cn/library/azure/jj193175.aspx
-[Create a table]: http://msdn.microsoft.com/zh-cn/library/azure/jj193162.aspx
+[Dynamic Schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
+[CLI to manage Mobile Services tables]: https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-lastest
 [Azure classic management portal]: http://manage.windowsazure.cn
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
@@ -718,9 +718,9 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [4]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
-[8]: ../active-directory/develop/active-directory-devquickstarts-ios.md
-
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[8]: ../active-directory/active-directory-devquickstarts-ios.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
 
 <!--Update_Description: update meta data-->

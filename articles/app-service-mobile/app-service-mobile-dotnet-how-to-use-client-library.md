@@ -1231,15 +1231,15 @@ public async Task CallClientWithHandler()
 [Add authentication to your app]: ./app-service-mobile-windows-store-dotnet-get-started-users.md
 [Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 [Add push notifications to your app]: ./app-service-mobile-windows-store-dotnet-get-started-push.md
-[Register your app to use a Microsoft account login]: ./app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
+[Register your app to use a Microsoft account login]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure App Service for Active Directory login]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/zh-cn/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/zh-cn/library/azure/dn268408(v=azure.10).aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
-[MobileServiceUser]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/zh-cn/library/azure/jj554275(v=azure.10).aspx
 [creates a reference to an untyped table]: https://msdn.microsoft.com/zh-cn/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/zh-cn/library/azure/dn296407(v=azure.10).aspx
@@ -1255,14 +1255,14 @@ public async Task CallClientWithHandler()
 [Select]: https://msdn.microsoft.com/zh-cn/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/zh-cn/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/zh-cn/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/zh-cn/library/azure/dn250579(v=azure.10).aspx
 [Azure portal]: https://portal.azure.cn/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-cn/library/windows/apps/Hh701916.aspx
-[Windows Dev Center]: https://developer.microsoft.com/en-us/dashboard/apps/signup
+[Windows Dev Center]: https://dev.windows.com/en-us/overview
 [DelegatingHandler]: https://msdn.microsoft.com/zh-cn/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/zh-cn/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/zh-cn/library/windows/apps/windows.security.credentials.passwordvault.aspx
@@ -1276,7 +1276,7 @@ public async Task CallClientWithHandler()
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
-[AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
+[AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
 
 

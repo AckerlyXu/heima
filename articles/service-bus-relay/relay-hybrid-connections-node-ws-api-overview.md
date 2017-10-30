@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/05/2017
+origin.date: 10/05/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 11/06/2017
 ---
 
 # Relay Hybrid Connections Node API overview

@@ -3,7 +3,7 @@ title: Prepare a Windows VHD to upload to Azure | Azure
 description: How to prepare a Windows VHD or VHDX before uploading to Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -13,10 +13,10 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 08/01/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Prepare a Windows VHD or VHDX to upload to Azure
@@ -266,7 +266,7 @@ Make sure that the following settings are configured correctly for remote deskto
 
     > [!Note]
     > Make sure you run these commands on an elevated CMD window and **NOT** on PowerShell:
-   
+
    ```CMD
    bcdedit /set {bootmgr} integrityservices enable
 
@@ -308,7 +308,6 @@ Make sure that the following settings are configured correctly for remote deskto
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny access to this computer from the network
 
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny log on through Remote Desktop Services
-
 
 8. Restart the VM to make sure that Windows is still healthy can be reached by using the RDP connection. At this point, you may want to create a VM in your local Hyper-V to make sure the VM is starting completely and then test whether it is RDP reachable.
 
@@ -354,7 +353,7 @@ The ideal configuration is to **have the patch level of the machine at the lates
 |                         |                   |                                    | KB4012216                                   |                                      | KB4013198                            | KB4013198                  |
 |                         |                   | KB4012215                          | KB4012214                                   | KB4012216                            | KB4013429                            | KB4013429                  |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            | KB4013429                  |
-       
+
 ### When to use sysprep <a id="step23"></a>    
 
 Sysprep is a process that you could run into a windows installation that will reset the installation of the system and will provide an "out of the box experience" by removing all personal data and resetting several components. You typically do this if you want to create a template from which you can deploy several other VMs that have a specific configuration. This is called a **generalized image**.
@@ -425,4 +424,4 @@ If there's any data disk that is attached to the VM, the Temporal drive volume's
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
 
-<!--Update_Description: update powershell scripts; update windows update table-->
+<!--Update_Description: update meta properties, wording update-->

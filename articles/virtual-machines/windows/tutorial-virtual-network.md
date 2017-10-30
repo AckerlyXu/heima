@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -277,4 +277,4 @@ Advance to the next tutorial to learn about monitoring securing data on virtual 
 > [!div class="nextstepaction"]
 > [Back up Windows virtual machines in Azure](./tutorial-backup-vms.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

@@ -3,8 +3,8 @@ title: Overview of platform-supported migration of IaaS resources from classic t
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/30/2017
-ms.date: 05/15/2017
-ms.author: v-dazen
+origin.date: 10/10/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 
@@ -31,3 +31,5 @@ ms.author: v-dazen
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!--Update_Description: update meta properties-->

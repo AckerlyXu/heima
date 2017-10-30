@@ -3,8 +3,8 @@ title: Create a Windows VM from a specialized VHD in Azure | Azure
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk using in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # Create a Windows VM from a specialized disk
@@ -122,7 +122,7 @@ New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 Create the new OS disk from the uploaded VHD. 
 
 ```powershell
-$sourceUri = https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd)
+$sourceUri = (https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `

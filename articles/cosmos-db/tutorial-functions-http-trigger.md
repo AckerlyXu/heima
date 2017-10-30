@@ -275,3 +275,4 @@ You can now proceed to the Concepts section for more information about Cosmos DB
 This article is based on a blog from [Brady Gaster's Schemaless & Serverless](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) blog series. Visit his blog for additional posts in the series.
 
 <!--Update_Description: new articles on http triggers -->
+

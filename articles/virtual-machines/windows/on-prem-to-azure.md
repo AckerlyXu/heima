@@ -3,7 +3,7 @@ title: Migrate from AWS and other platforms to Managed Disks in Azure | Azure
 description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 02/07/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 10/07/2017
+ms.date: 10/30/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
 
 # Migrate from Amazon Web Services (AWS) and other platforms to Managed Disks in Azure
 
-You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need of to managing storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure will create and manage the disk for you. 
+You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need of to managing storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
 
 You can upload either generalized and specialized VHDs. 
 - **Generalized VHD** - has had all of your personal account information removed using Sysprep. 
-- **Specialized VHD** - maintains the user accounts, applications and other state data from your original VM. 
+- **Specialized VHD** - maintains the user accounts, applications, and other state data from your original VM. 
 
 > [!IMPORTANT]
 > Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -36,16 +36,16 @@ You can upload either generalized and specialized VHDs.
 
 | Scenario                                                                                                                         | Documentation                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| You have an existing AWS EC2 instances that you could like to migrate to Azure Managed Disks                                     | [Move a VM from Amazon Web Services (AWS) to Azure](aws-to-azure.md)                           |
-| You have a VM from and other virtualization platform that you would like to use to use as an image to create multiple Azure VMs. | [Upload a generalized VHD and use it to create a new VMs in Azure](upload-generalized-managed.md) |
+| You have existing AWS EC2 instances that you would like to migrate to Azure VMs using managed disks                              | [Move a VM from Amazon Web Services (AWS) to Azure](aws-to-azure.md)                           |
+| You have a VM from another virtualization platform that you would like to use as an image to create multiple Azure VMs. | [Upload a generalized VHD and use it to create a new VM in Azure](upload-generalized-managed.md) |
 | You have a uniquely customized VM that you would like to recreate in Azure.                                                      | [Upload a specialized VHD to Azure and create a new VM](create-vm-specialized.md)         |
 
 ## Overview of Managed Disks
 
-Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set will be sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures. 
+Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set are sufficiently isolated from each other to avoid a single point of failure. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures. 
 Based on your needs, you can choose from two types of storage options: 
 
-- [Premium Managed Disks](../../storage/common/storage-premium-storage.md) are Solid State Drive (SSD) based storage storage media which delivers highperformance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.  
+- [Premium Managed Disks](../../storage/common/storage-premium-storage.md) are Solid State Drive (SSD) based storage media, which delivers high performance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.  
 
 - [Standard Managed Disks](../../storage/common/storage-standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.  
 
@@ -55,7 +55,7 @@ This section helps you to make the best decision on VM and disk types.
 
 ### Location
 
-Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to.
+Pick a location where Azure Managed Disks are available. If you are migrating to Premium Managed Disks, also ensure that Premium storage is available in the region where you are planning to migrate to. See [Azure Services by Region](https://www.azure.cn/support/service-dashboard/#services) for up-to-date information on available locations.
 
 ### VM sizes
 
@@ -97,3 +97,4 @@ Review the [pricing for Managed Disks](https://www.azure.cn/pricing/details/mana
 ## Next Steps
 
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!--Update_Description: update meta properties, wording update-->

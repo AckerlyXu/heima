@@ -433,3 +433,4 @@ The following table describes the content of each log entry.
 - Read [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md)
 
 <!--Update_Description: new articles on cosmos db logging -->
+

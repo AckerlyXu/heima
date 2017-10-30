@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storag
 description: Azure PowerShell Script Sample -  Export/Copy snapshot as VHD to a storage account in same different region
 services: virtual-machines-windows
 documentationcenter: storage
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ---
 
 # Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell
@@ -87,3 +87,5 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!--Update_Description: update meta properties-->

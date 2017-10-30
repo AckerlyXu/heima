@@ -6,7 +6,7 @@
 ## [Compare VMs, websites, and cloud services](../../../app-service-web/choose-web-site-cloud-service-vm.md)
 
 # Get started
-## [Create a VM using the portal](tutorial.md)
+## [Create a VM using Azure portal](tutorial.md)
 ## [Log on to a VM](connect-logon.md)
 ## [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Install Azure CLI](../../../cli-install-nodejs.md)
@@ -79,16 +79,18 @@
 ### [Attach virtual hard disk to troubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
 ## [Author Resource Manager templates](../../../resource-group-authoring-templates.md)
 ## [Community templates](https://github.com/Azure/azure-quickstart-templates)
-## [Compute REST](https://docs.microsoft.com/rest/api/compute)
-## [Network REST](https://docs.microsoft.com/rest/api)
-## [Storage REST](https://docs.microsoft.com/rest/api/storageservices)
+## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Storage REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Resources
 ## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Videos](https://www.azure.cn/video-center/)
+<!--ms.date: 10/30/2017-->

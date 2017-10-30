@@ -3,8 +3,8 @@ title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
 description: How to use the Azure Mobile Apps SDK for Android
 services: app-service\mobile
 documentationcenter: android
-author: adrianhall
-manager: adrianhall
+author: ggailey777
+manager: syntaxc4
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 origin.date: 04/25/2017
 ms.author: v-yiso
-ms.date: 07/13/2017
+ms.date: 11/06/2017
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
@@ -104,7 +104,7 @@ package com.example.appname.services;
 import android.content.Context;
 import com.microsoft.windowsazure.mobileservices.*;
 
-public AzureServiceAdapter {
+public class AzureServiceAdapter {
     private String mMobileBackendUrl = "https://myappname.azurewebsites.cn";
     private Context mContext;
     private MobileServiceClient mClient;
@@ -1302,7 +1302,7 @@ This code must be executed before creating a mobile client reference using the *
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 

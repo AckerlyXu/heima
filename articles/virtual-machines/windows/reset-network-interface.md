@@ -3,8 +3,8 @@ title: How to reset network interface for Azure Windows VM| Azure
 description: Shows how to reset network interface for Azure Windows VM
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: genlin
-manager: willchen
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 06/26/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
+ms.date: 10/30/2017
+ms.author: v-yeche
 
 ---
 # How to reset network interface for Azure Windows VM 
@@ -71,3 +71,4 @@ After you can remote desktop to the machine, you must delete the old NICs to avo
     >
 
 6.	Now all unavailable adapter should be cleared out from your system.
+<!--Update_Description: update meta properties-->

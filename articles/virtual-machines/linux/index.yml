@@ -13,10 +13,10 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 10/16/2017
-  ms.author: v-yeche
+  ms.date: 10/30/2017
+  ms.author: v-dazen
 abstract:
-  description: Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice. Learn how to create, configure, manage, and scale Linux VMs with our quickstarts, tutorials, and samples.
+  description: Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Red Hat, Ubuntu, or the Linux distribution of your choice. Learn how to create, configure, manage, update, and scale Linux VMs with our quickstarts, tutorials, and samples.
 ### Not Available aside
 sections:
 - title: 5-Minute Quickstarts
@@ -27,17 +27,17 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /virtual-machines/linux/media/index/cli.svg
+        src: https://docs.azure.cn/virtual-machines/linux/media/index/cli.svg
       text: Azure CLI
-      href: /virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      href: https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
-        src: /virtual-machines/linux/media/index/portal.svg
+        src: https://docs.azure.cn/virtual-machines/linux/media/index/portal.svg
       text: Azure Portal
-      href: /virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      href: https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
-        src: /virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.azure.cn/virtual-machines/linux/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: /virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      href: https://docs.azure.cn/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fvirtual-machines%2flinux%2ftoc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -54,7 +54,7 @@ sections:
     - html: <a href="/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
     - html: <a href="/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
+    - html: <a href="/virtual-machines/linux/tutorial-monitoring">Monitor and update VMs</a>
     - html: <a href="/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
     - html: <a href="/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD with Team Services</a>
     - html: Create a web server stack with <a href="/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/virtual-machines/linux/tutorial-lemp-stack">LEMP</a>, or <a href="/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
@@ -68,4 +68,5 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
-    - html: <a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>  
+### ms.date: 10/23/2017

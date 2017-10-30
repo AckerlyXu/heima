@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample -  Create a snapshot from a VHD to create 
 description: Azure PowerShell Script Sample -  Create a snapshot from a VHD to create multiple identical managed disks in small amount of time
 services: virtual-machines-windows
 documentationcenter: storage
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -15,17 +15,16 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 10/30/2017
+ms.author: v-yeche
 ---
 
 # Create a snapshot from a VHD to create multiple identical managed disks in small amount of time with PowerShell
 
 This script creates a snapshot from a VHD file in a storage account in same or different subscription. Use this script to import a specialized (not generalized/sysprepped) VHD to a snapshot and then use the snapshot to create multiple identical managed disks in small amount of time. Also, use it to import a data VHD to a snapshot and then use the snapshot to create multiple managed disks in small amount of time. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you choose to install and use the PowerShell locally, this tutorial requires that you are Azure PowerShell module version 4.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
 
 ## Sample script
 
@@ -42,11 +41,11 @@ $snapshotName = 'yourSnapshotName'
 #Provide the storage type for snapshot. PremiumLRS or StandardLRS.
 $storageType = 'StandardLRS'
 
-#Provide the Azure region (e.g. China North) where snapshot will be located.
+#Provide the Azure region (e.g. chinanorth) where snapshot will be located.
 #This location should be same as the storage account location where VHD file is stored 
 #Get all the Azure location using command below:
 #Get-AzureRmLocation
-$location = 'China North'
+$location = 'chinanorth'
 
 #Provide the URI of the VHD file (page blob) in a storage account. Please not that this is NOT the SAS URI of the storage container where VHD file is stored. 
 #e.g. https://contosostorageaccount1.blob.core.chinacloudapi.cn/vhds/contosovhd123.vhd
@@ -85,3 +84,4 @@ This script uses following commands to create a managed disk from a VHD in diffe
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!--Update_Description: update meta properties-->

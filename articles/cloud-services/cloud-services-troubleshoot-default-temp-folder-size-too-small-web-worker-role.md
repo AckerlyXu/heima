@@ -2,18 +2,20 @@
 title: Default TEMP folder size is too small for a role | Azure
 description: A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space.
 services: cloud-services
-documentationCenter: ''
-authors: simonxjx
+documentationcenter: ''
+author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2016
+origin.date: 07/26/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
 ---
 

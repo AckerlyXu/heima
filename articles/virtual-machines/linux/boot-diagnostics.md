@@ -13,9 +13,9 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 08/21/2017
-ms.date: 10/16/2017
+ms.date: 10/30/2017
 ms.author: v-yeche
 ---
 # How to use boot diagnostics to troubleshoot Linux virtual machines in Azure
@@ -77,4 +77,4 @@ To enable boot diagnostics through the portal, you can also update an existing v
 
 ![Update Existing VM](./media/boot-diagnostics/screenshot5.png)
 
-<!--Update_Description: update meta properties, new articles of how to use boot diagnostics to troubleshoot Linux virtual machines in Azure-->
+<!--Update_Description: update meta properties-->
