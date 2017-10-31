@@ -51,11 +51,11 @@
 
 # Resources
 ## [Samples](analysis-services-samples.md)
-## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
-## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+<!-- Not Availabel ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)-->
+<!-- Not Availabel ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)-->
 <!-- Not Availabel ## [Azure Roadmap](https://www.azure.cn/roadmap/?category=intelligence-analytics)-->
 ## [Azure status](https://www.azure.cn/support/service-dashboard/)
-## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
+<!-- Not Availabel ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)-->
 ## [Pricing](https://www.azure.cn/pricing/details/analysis-services/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
