@@ -1,10 +1,10 @@
 ---
-title: Report across scaled-out cloud databases (horizontal partitioning) | Azure
-description: how to use cross database database queries
+title: Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Docs
+description: Use cross database database queries to report across multiple databases.
 services: sql-database
-documentationCenter: ''
+documentationcenter: ''
 manager: digimobile
-author: Hayley244
+author: forester123
 
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2016
-ms.date: 07/10/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -127,7 +127,7 @@ You will notice that the query aggregates results from all the shards and gives 
 
 All the rows from **Customers** table, stored in different shards populate the Excel sheet.
 
-You can now use Excel's powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
+You can now use Excel’s powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
 There is no additional charge for using the Elastic Database Query feature.

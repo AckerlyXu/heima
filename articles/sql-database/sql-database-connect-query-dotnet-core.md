@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 07/05/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -70,7 +70,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
     </ItemGroup>
     ```
 
@@ -151,3 +151,4 @@ namespace sqltest
 - Learn how to [connect and query an Azure SQL database using the .NET framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
+<!--Update_Description:update System.Data.SqlClient from 4.3.0 to 4.4.0-->

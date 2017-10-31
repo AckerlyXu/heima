@@ -1,11 +1,11 @@
 ---
-title: Split-merge security configuration | Azure
-description: Set up x409 certificates for encryption
-metaKeywords: Elastic Database certificates security
+title: Split-merge security configuration | Microsoft Docs
+description: Set up x409 certificates for encryption with the split/merge service for elastic scale.
+metakeywords: Elastic Database certificates security
 services: sql-database
-documentationCenter: ''
+documentationcenter: ''
 manager: digimobile
-author: Hayley244
+author: forester123
 
 ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/27/2016
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 
 ---
 # Split-merge security configuration
@@ -84,9 +84,9 @@ Client certificates are required in order to authenticate requests to the servic
 
 ### Use existing client certificates
 1. [Find CA Public Key](#find-ca-public-key)
-2. [Upload CA Certificate to Cloud Service](#upload-ca-certificate-to-cloud-service)
-3. [Update CA Certificate in Service Configuration File](#update-ca-certificate-in-service-configuration-file)
-4. [Copy Client Certificate Thumbprints](#copy-client-certificate-thumbprints)
+2. [Upload CA Certificate to Cloud Service](#Upload-CA-certificate-to-cloud-service)
+3. [Update CA Certificate in Service Configuration File](#Update-CA-Certificate-in-Service-Configuration-File)
+4. [Copy Client Certificate Thumbprints](#Copy-Client-Certificate-Thumbprints)
 5. [Configure Allowed Clients in the Service Configuration File](#configure-allowed-clients-in-the-service-configuration-file)
 6. [Configure Client Certificate Revocation Check](#Configure-Client-Certificate-Revocation-Check)
 
@@ -503,4 +503,3 @@ Credentials stored in this database are encrypted. However, as a best practice, 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!--Update_Description: update bookmark link-->

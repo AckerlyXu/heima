@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 06/05/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -58,7 +58,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 - If your connection policy is set to **Proxy**, all network packets flow via the Azure SQL Database gateway. For this setting, you need to allow outbound to only the Azure SQL Database gateway IP. Using a setting of **Proxy** has more latency than a setting of **Redirect**. 
 - If your connection policy is setting **Redirect**, all network packets flow directly to the middleware proxy. For this setting, you need to allow outbound to multiple IPs. 
 
-## Script to change connection settings
+## Script to change connection settings via PowerShell 
 
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
@@ -117,10 +117,36 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
+## Script to change connection settings via Azure CLI 2.0 
+
+> [!IMPORTANT]
+> This script requires the [Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest).
+>
+
+The following CLI script shows how to change the connection policy.
+
+```azurecli
+ # Get SQL Server ID
+ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+
+# Set URI
+uri="https://management.chinacloudapi.cn/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
+
+# Get Access Token 
+accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+
+# Get current connection policy 
+curl -H "authorization: Bearer $accessToken" -X GET $uri
+
+#Update connection policy 
+curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+
+```
+
 ## Next steps
 
 - For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [Create or Update Server Connection Policy using the REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - For information about Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version, see [Ports beyond 1433 for ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - For general application development overview information, see [SQL Database Application Development Overview](sql-database-develop-overview.md).
 
-<!--Update_Description: update "Script to change connection settings" -->
+<!--Update_Description: add "Script to change connection settings via Azure CLI 2.0 " section-->

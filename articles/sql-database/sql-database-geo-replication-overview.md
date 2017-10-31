@@ -1,6 +1,6 @@
 ---
 title: Failover groups and active geo-replication - Azure SQL Database | Microsoft Docs
-description: Auto-failover groups with active geo-replication enables you to set up four seplicas of your database in any of the Azure datacenters and autoomatically failover in the event of an outage.
+description: Use auto-failover groups with active geo-replication and enable autoomatic failover in the event of an outage.
 services: sql-database
 documentationcenter: na
 author: forester123
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-origin.date: 07/10/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -59,7 +59,7 @@ The active geo-replication feature provides the following essential capabilities
 * **Readable secondary databases**: An application can access a secondary database for read-only operations using the same or different security principals used for accessing the primary database. The secondary databases operate in snapshot isolation mode to ensure replication of the updates of the primary (log replay) is not delayed by queries executed on the secondary.
 
    > [!NOTE]
-   > The log replay is delayed on the secondary database if there are schema updates that it is receiving from the Primary that require a schema lock on the secondary database. 
+   > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database. 
    > 
 
 * **Multiple readable secondaries**: Two or more secondary databases increase redundancy and level of protection for the primary database and application. If multiple secondary databases exist, the application remains protected even if one of the secondary databases fails. If there is only one secondary database, and it fails, the application is exposed to higher risk until a new secondary database is created.
@@ -89,8 +89,8 @@ Auto-failover groups feature provides a powerful abstraction of active geo-repli
 * **Failover group read-write listener**: A DNS CNAME record formed as **&lt;failover-group-name&gt;.database.chinacloudapi.cn** that points to the current primary server URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover. 
 * **Failover group read-only listener**: A DNS CNAME record formed as **&lt;failover-group-name&gt;.secondary.database.chinacloudapi.cn** that points to the secondary server's URL. It allows the read-only SQL applications to transparently connect to the secondary database using the specified load-balancing rules. Optionally you can specify if you want the read-only traffic to be automatically re-directed to the primary server when the secondary server is not available.
 * **Automatic failover policy**: By default, the failover group is configured with an automatic failover policy. The system triggers failover as soon as the failure is detected. If you want to control the failover workflow from the application, you can turn off automatic failover. 
-* **Manual failover**: You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured manual failover is required to recover databases in the failover group. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the active server to the primary region. When failover is completed the DNS records are automatically updated to ensure connectivity to the correct server.
-* **Grace period with data loss**: Because the primary and secondary databases are synchronized using asynchronous replication the failover may result in data loss. You can customize the automatic failover policy to reflect your application's tolerance to data loss. By configuring **GracePeriodWithDataLossHours**, you can control how long the system waits before initiating the failover that is likely to result data loss. 
+* **Manual failover**: You can initiate failover manually at any time regardless of the automatic failover configuration. If automatic failover policy is not configured, manual failover is required to recover databases in the failover group. You can initiate forced or friendly failover (with full data synchronization). The latter could be used to relocate the active server to the primary region. When failover is completed, the DNS records are automatically updated to ensure connectivity to the correct server.
+* **Grace period with data loss**: Because the primary and secondary databases are synchronized using asynchronous replication, the failover may result in data loss. You can customize the automatic failover policy to reflect your application’s tolerance to data loss. By configuring **GracePeriodWithDataLossHours**, you can control how long the system waits before initiating the failover that is likely to result data loss. 
 
    > [!NOTE]
    > When system detects that the databases in the group are still online (for example, the outage only impacted the service control plane), it immediately activates the failover with full data synchronization (friendly failover) regardless of the value set by **GracePeriodWithDataLossHours**. This behavior ensures that there is no data loss during the recovery. The grace period takes effect only when a friendly failover is not possible. If the outage is mitigated before the grace period expires, the failover is not activated.
@@ -106,7 +106,7 @@ To build a highly available service that uses Azure SQL database, you should fol
 - **Use read-write listener for OLTP workload**: When performing OLTP operations use **&lt;failover-group-name&gt;.database.chinacloudapi.cn** as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover.  
 Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
 - **Use read-only listener for read-only workload**: If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions use **&lt;failover-group-name&gt;.secondary.database.chinacloudapi.cn** as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using **ApplicationIntent=ReadOnly**. 
-- **Be prepared for perf degradation**: SQL failover decision is independent from the rest of the application or other services used. The application may be "mixed" with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the guidelines in this article.  
+- **Be prepared for perf degradation**: SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow the guidelines in this article.  
 Note the application in the DR region does not have to use a different connection string.  
 - **Prepare for data loss**: If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by **GracePeriodWithDataLossHours**. If you specified **GracePeriodWithDataLossHours**, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set **GracePeriodWithDataLossHours** to a sufficiently large number, such as 24 hours. 
 
@@ -192,4 +192,3 @@ As discussed previously, auto-failover groups (in-preview) and active geo-replic
 * To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
 * To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
-<!--Update_Description: update link references -->

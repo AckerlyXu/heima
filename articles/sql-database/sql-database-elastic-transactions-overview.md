@@ -2,8 +2,8 @@
 title: Distributed transactions across cloud databases
 description: Overview of Elastic Database Transactions with Azure SQL Database
 services: sql-database
-documentationCenter: ''
-author: Hayley244
+documentationcenter: ''
+author: forester123
 manager: digimobile
 
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: sql-database
 origin.date: 05/27/2016
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 
 ---
 # Distributed transactions across cloud databases
@@ -43,7 +43,7 @@ Remember that elastic database transactions do not require installing MSDTC. Ins
 
 ## Development experience
 ### Multi-database applications
-The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An "ambient transaction" is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
+The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
 ```
 using (var scope = new TransactionScope())
@@ -96,7 +96,7 @@ using (var scope = new TransactionScope())
 ```
 
 ## .NET installation for Azure Cloud Services
-Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
+Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
 
 For Azure App Services, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -148,10 +148,6 @@ The following limitations currently apply to elastic database transactions in SQ
 * Only client-coordinated transactions from a .NET application are supported. Server-side support for T-SQL such as BEGIN DISTRIBUTED TRANSACTION is planned, but not yet available. 
 * Transactions across WCF services are not supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## Next steps
-For questions, please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
-<!--Update_Description: update word & link references-->

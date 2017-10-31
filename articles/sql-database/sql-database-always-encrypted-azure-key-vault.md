@@ -1,6 +1,6 @@
 ---
-title: 'Always Encrypted: SQL Database - Azure Key Vault | Azure'
-description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
+title: 'Always Encrypted: SQL Database - Azure Key Vault | Microsoft Docs'
+description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. 
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -76,7 +76,7 @@ $location = '<datacenter location>'
 $vaultName = 'AeKeyVault'
 
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-$subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+$subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
 New-AzureRmResourceGroup -Name $resourceGroupName –Location $location
@@ -635,4 +635,4 @@ After you create a database that uses Always Encrypted, you may want to do the f
 * [SQL Server encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Always Encrypted blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-<!--Update_Description: wording update-->
+<!--Update_Description: update script-->

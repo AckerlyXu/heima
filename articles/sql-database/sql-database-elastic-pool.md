@@ -1,5 +1,5 @@
 ---
-title: What are elastic pools? Manage multiple SQL databases - Azure | Azure
+title: Manage multiple SQL databases with elastic pools- Azure | Microsoft Docs
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed.
 keywords: multiple databases, database resources, database performance
 services: sql-database
@@ -11,8 +11,8 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-origin.date: 08/25/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
@@ -304,7 +304,7 @@ To create and manage SQL Database elastic pools with Azure PowerShell, use the f
 
 ## Manage elastic pools and databases using the Azure CLI
 
-To create and manage SQL Database elastic pools with the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), use the following [Azure CLI SQL Database](https://docs.microsoft.com/cli/azure/sql/db) commands. Make sure you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) on macOS, Linux, or Windows.
+To create and manage SQL Database elastic pools with the [Azure CLI](https://docs.azure.cn/cli/overview), use the following [Azure CLI SQL Database](https://docs.azure.cn/cli/sql/db) commands. Make sure you have installed the latest [Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli) on macOS, Linux, or Windows.
 
 > [!TIP]
 > For Azure CLI example scripts, see [Use CLI to move an Azure SQL database in a SQL elastic pool](scripts/sql-database-move-database-between-pools-cli.md) and [Use Azure CLI to scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
@@ -312,12 +312,12 @@ To create and manage SQL Database elastic pools with the [Azure CLI](https://doc
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql elastic-pool create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create)|Creates an elastic pool.|
-|[az sql elastic-pool list](https://docs.microsoft.com/cli/azure/sql/elastic-pool#list)|Returns a list of elastic pools in a server.|
-|[az sql elastic-pool list-dbs](https://docs.microsoft.com/cli/azure/sql/elastic-pool#list-dbs)|Returns a list of databases in an elastic pool.|
-|[az sql elastic-pool list-editions](https://docs.microsoft.com/cli/azure/sql/elastic-pool#list-editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
-|[az sql elastic-pool update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update)|Updates an elastic pool.|
-|[az sql elastic-pool delete](https://docs.microsoft.com/cli/azure/sql/elastic-pool#delete)|Deletes the elastic pool.|
+|[az sql elastic-pool create](https://docs.azure.cn/cli/sql/elastic-pool#create)|Creates an elastic pool.|
+|[az sql elastic-pool list](https://docs.azure.cn/cli/sql/elastic-pool#list)|Returns a list of elastic pools in a server.|
+|[az sql elastic-pool list-dbs](https://docs.azure.cn/cli/sql/elastic-pool#list-dbs)|Returns a list of databases in an elastic pool.|
+|[az sql elastic-pool list-editions](https://docs.azure.cn/cli/sql/elastic-pool#list-editions)|Also includes available pool DTU settings, storage limits, and per database settings. In order to reduce verbosity, additional storage limits and per database settings are hidden by default.|
+|[az sql elastic-pool update](https://docs.azure.cn/cli/sql/elastic-pool#update)|Updates an elastic pool.|
+|[az sql elastic-pool delete](https://docs.azure.cn/cli/sql/elastic-pool#delete)|Deletes the elastic pool.|
 
 ## Manage databases within elastic pools using Transact-SQL
 
@@ -365,4 +365,4 @@ To create and manage SQL Database elastic pools use these REST API requests.
 * For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-<!--Update_Description: add table "Manage elastic pools and databases using the REST API"-->
+<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->
