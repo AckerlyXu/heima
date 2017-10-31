@@ -25,7 +25,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 If you don't have an Azure subscription, create a [1rmb account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
@@ -33,7 +33,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Blobs are always uploaded into a container. Containers allow you to organize groups of blobs like you organize files in directories on your computer.
 
-Create a container for storing blobs with the [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) command.
+Create a container for storing blobs with the [az storage container create](https://docs.azure.cn/cli/storage/container#create) command.
 
 ```azurecli
 az storage container create --name mystoragecontainer
@@ -43,7 +43,7 @@ az storage container create --name mystoragecontainer
 
 Blob storage supports block blobs, append blobs, and page blobs. Most files stored in Blob storage are stored as block blobs. Append blobs are used when data must be added to an existing blob without modifying its existing contents, such as for logging. Page blobs back the VHD files of IaaS virtual machines.
 
-In this example, we upload a blob to the container we created in the last step with the [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) command.
+In this example, we upload a blob to the container we created in the last step with the [az storage blob upload](https://docs.azure.cn/cli/storage/blob#upload) command.
 
 ```azurecli
 az storage blob upload \
@@ -56,7 +56,7 @@ This operation creates the blob if it doesn't already exist, and overwrites it i
 
 ## List the blobs in a container
 
-List the blobs in the container with the [az storage blob list](https://docs.microsoft.com/cli/azure/storage/blob#list) command.
+List the blobs in the container with the [az storage blob list](https://docs.azure.cn/cli/storage/blob#list) command.
 
 ```azurecli
 az storage blob list \
@@ -66,7 +66,7 @@ az storage blob list \
 
 ## Download a blob
 
-Use the [az storage blob download](https://docs.microsoft.com/cli/azure/storage/blob#download) command to download a blob you uploaded earlier.
+Use the [az storage blob download](https://docs.azure.cn/cli/storage/blob#download) command to download a blob you uploaded earlier.
 
 ```azurecli
 az storage blob download \
@@ -91,7 +91,7 @@ azcopy \
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command.
+If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](https://docs.azure.cn/cli/group#delete) command.
 
 ```azurecli
 az group delete --name myResourceGroup

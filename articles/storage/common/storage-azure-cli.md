@@ -22,7 +22,7 @@ ms.author: v-johch
 
 The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.cn), including rich data access.
 
-In this guide, we show you how to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
+In this guide, we show you how to use the [Azure CLI 2.0](https://docs.azure.cn/cli/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
 
 The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
 
@@ -37,10 +37,10 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 
 ### Install the Azure CLI 2.0
 
-Download and install the Azure CLI 2.0 by following the instructions outlined in [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Download and install the Azure CLI 2.0 by following the instructions outlined in [Install Azure CLI 2.0](https://docs.azure.cn/cli/install-az-cli2).
 
 > [!TIP]
-> If you have trouble with the installation, check out the [Installation Troubleshooting](https://docs.microsoft.com/cli/azure/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
+> If you have trouble with the installation, check out the [Installation Troubleshooting](https://docs.azure.cn/cli/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
 >
 
 ## Working with the CLI
@@ -265,7 +265,7 @@ az storage blob download \
 
 ### List the blobs in a container
 
-List the blobs in a container with the [az storage blob list](https://docs.microsoft.com/cli/azure/storage/blob#list) command.
+List the blobs in a container with the [az storage blob list](https://docs.azure.cn/cli/storage/blob#list) command.
 
 ```azurecli
 az storage blob list \
@@ -372,7 +372,7 @@ az storage file copy start \
 ## Next steps
 Here are some additional resources for learning more about working with the Azure CLI 2.0.
 
-* [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0 command reference](https://docs.microsoft.com/cli/azure)
+* [Get started with Azure CLI 2.0](https://docs.azure.cn/cli/get-started-with-az-cli2)
+* [Azure CLI 2.0 command reference](https://docs.azure.cn/cli)
 * [Azure CLI 2.0 on GitHub](https://github.com/Azure/azure-cli)
 <!--Update_Description: wording update-->

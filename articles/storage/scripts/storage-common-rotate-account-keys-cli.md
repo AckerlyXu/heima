@@ -75,13 +75,13 @@ This script uses the following commands to create the storage account and retrie
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates an Azure Storage account in the specified resource group. |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | Displays the storage account access keys for the specified account. |
-| [az storage account keys renew](https://docs.microsoft.com/cli/azure/storage/account/keys#renew) | Regenerates the primary or secondary storage account access key. |
+| [az group create](https://docs.azure.cn/cli/group#create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](https://docs.azure.cn/cli/storage/account#create) | Creates an Azure Storage account in the specified resource group. |
+| [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) | Displays the storage account access keys for the specified account. |
+| [az storage account keys renew](https://docs.azure.cn/cli/storage/account/keys#renew) | Regenerates the primary or secondary storage account access key. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/cli/overview).
 
 Additional storage CLI script samples can be found in the [Azure CLI samples for Azure Blob storage](../blobs/storage-samples-blobs-cli.md).

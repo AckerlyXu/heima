@@ -34,11 +34,11 @@ In part one of the series, you learn how to:
 > * Deploy a Web App to Azure
 > * Interact with the web application
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli). 
 
 ## Create a resource group 
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](https://docs.azure.cn/cli/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
  
 The following example creates a resource group named `myResourceGroup`.
  
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## Create a storage account
  
-The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) command. 
+The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](https://docs.azure.cn/cli/storage/account#create) command. 
 
 > [!IMPORTANT] 
 > In part 2 of the tutorial you use Event subscriptions for blob storage. Event subscriptions are currently only supported for Blob storage accounts in the West Central US and West US 2. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.   
@@ -65,7 +65,7 @@ az storage account create --name <blob_storage_account> \
  
 The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. In a later part of the series, an Azure function app uploads resized image thumbnails to the _thumbs_ container. 
 
-Get the storage account key by using the [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) command.  
+Get the storage account key by using the [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](https://docs.azure.cn/cli/storage/container#create) command.  
  
 In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ containers public access is set to `off`, the _thumbs_ containers public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
  
@@ -91,7 +91,7 @@ Make a note of your blob storage account name and key. The sample app uses these
 
 An [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app. 
 
-Create an App Service plan with the [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) command. 
+Create an App Service plan with the [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#create) command. 
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier: 
 
@@ -101,7 +101,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## Create a web app 
 
-The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) command.  
+The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](https://docs.azure.cn/cli/webapp#create) command.  
  
 In the following command, replace `<web_app>` with a unique name (valid characters are `a-z`, `0-9`, and `-`). If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.chinacloudsites.cn`.  
 
@@ -111,7 +111,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository 
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a public GitHub sample repository: [https://github.com/Azure-Samples/storage-blob-upload-from-webapp](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](https://docs.microsoft.com/cli/azure/webapp/deployment/source#config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a public GitHub sample repository: [https://github.com/Azure-Samples/storage-blob-upload-from-webapp](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](https://docs.azure.cn/cli/webapp/deployment/source#config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app that accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web application uses the [Microsoft.WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), and the [Microsoft.WindowsAzure.Storage.Auth](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namespaces from the Azure storage Client Library to interact with Azure storage. 
 
@@ -123,7 +123,7 @@ az webapp deployment source config --name <web_app> \
 
 ## Configure web app settings 
 
-The sample web app uses the [Azure Storage Client Library](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) command. 
+The sample web app uses the [Azure Storage Client Library](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](https://docs.azure.cn/cli/webapp/config/appsettings#set) command. 
 
 In the following command, `<blob_storage_account>` is the name of your Blob storage account and `<blob_storage_key>` is the associated key. Replace `<web_app>` with the name of the web app you created in the preceding step.     
 
