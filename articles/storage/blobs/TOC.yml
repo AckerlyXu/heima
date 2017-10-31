@@ -248,9 +248,9 @@
 - name: Reference
   items:
   - name: PowerShell
-    href: /powershell/module/azure.storage
+    href: https://docs.microsoft.com/powershell/module/azure.storage
   - name: Azure CLI
-    href: /cli/azure/storage
+    href: /cli/storage
   - name: .NET
     items:
     - name: Blobs, Queues, Tables, and Files

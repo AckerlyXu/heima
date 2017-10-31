@@ -209,7 +209,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Client Library for Python](/develop/python/)
 * [Storage Client Library for Ruby](/develop/ruby/)
 * [Storage Cmdlets for PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-* [Storage Commands for CLI 2.0](https://docs.microsoft.com/cli/azure/storage)
+* [Storage Commands for CLI 2.0](https://docs.azure.cn/cli/storage)
 
 ## Next steps
 
