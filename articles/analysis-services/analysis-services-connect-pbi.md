@@ -34,8 +34,9 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 2. In **Server**, enter the server name. 
 
-    Be sure to include the full URL. For example, asazure://chinaeast.asazure.chinacloudapi.cn/advworks.
-
+    Be sure to include the full URL. For example, asazure://chinanorth.asazure.chinacloudapi.cn/advworks.
+    <!--Not Available on China East-->
+    
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank and select a database or perspective later.
 
 4. Leave the default **Connect live** option, then press **Connect**. 

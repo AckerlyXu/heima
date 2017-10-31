@@ -53,7 +53,8 @@ Scale up, scale down, or pause your server. Use the Azure portal or have total c
 Azure Analysis Services servers can be created in the following [Azure regions](https://www.azure.cn/support/service-dashboard/):
 | China |
 |--------------|
-| China East<br> China North<br> |
+| China North |
+<!--Not Available on China East-->
 You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 ## Migrate your existing tabular models
 If you already have existing on-premises SQL Server Analysis Services model solutions, you can migrate to Azure Analysis Services without significant changes. To migrate, you can use SSDT to deploy your model to your server. Or, in SSMS, you can use backup and restore or TMSL.
