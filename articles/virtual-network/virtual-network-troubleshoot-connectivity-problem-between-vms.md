@@ -10,11 +10,11 @@ tags: azure-resource-manager
 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/25/2017
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 ---
 
@@ -111,4 +111,4 @@ Use Network Watcher IP Flow Verify and NSG Flow Logging to determine whether the
 ### Need help? Contact support.
 If you still need help, [contact support](https://www.azure.cn/support/support-azure/) to get your issue resolved quickly.
 
-<!--Update_Description: new articles on virtual network-->
+<!--Update_Description: wording update-->

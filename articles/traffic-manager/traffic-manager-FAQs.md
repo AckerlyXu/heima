@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/15/2017
-ms.date: 09/25/2017
+origin.date: 09/18/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 ---
 
@@ -26,7 +26,7 @@ ms.author: v-yeche
 
 As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager works at the DNS level. It sends DNS responses to direct clients to the appropriate service endpoint. Clients then connect to the service endpoint directly, not through Traffic Manager.
 
-Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. Therefore, if you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
+Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. If you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
 
 ### Does Traffic Manager support 'sticky' sessions?
 
@@ -40,7 +40,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-o
 
 Further investigation should therefore focus on the application.
 
-The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
 ### What is the performance impact of using Traffic Manager?
 
@@ -112,11 +112,13 @@ All the endpoints under a profile with geographic routing need to have at least 
 
 ###  Why is it strongly recommended that customers create nested profiles instead of endpoints under a profile with geographic routing enabled? 
 
-A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn't any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a "parent" of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we will not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
+A region can be assigned to only one endpoint within a profile if its using geographic routing type. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn't any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a "parent" of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we do not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
 
 ### Are there any restrictions on the API version that supports this routing type?
 
 Yes, only API version 2017-03-01 and newer supports the Geographic routing type. Any older API versions cannot be used to created profiles of Geographic routing type or assign geographic regions to endpoints. If an older API version is used to retrieve profiles from an Azure subscription, any profile of Geographic routing type is not returned. In addition, when using older API versions, any profile returned that has endpoints with a geographic region assignment, does not have its geographic region assignment shown.
+<!-- Not Available ## Real User Measurements-->
+<!-- Not Available ## Traffic View-->
 
 ## Traffic Manager endpoints
 

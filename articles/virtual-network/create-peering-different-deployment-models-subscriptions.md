@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 10/23/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 
 ---
 # Create a virtual network peering - different deployment models and subscriptions
 
-In this tutorial, you learn to create a virtual network peering between virtual networks created through different deployment models. The virtual networks exist in different subscriptions. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md). 
+In this tutorial, you learn to create a virtual network peering between virtual networks created through different deployment models. The virtual networks exist in different subscriptions. Peering two virtual networks enables resources in different virtual networks to communicate with each other with the same bandwidth and latency as though the resources were in the same virtual network. Learn more about [Virtual network peering](virtual-network-peering-overview.md).
 
 The steps to create a virtual network peering are different, depending on whether the virtual networks are in the same, or different, subscriptions, and which [Azure deployment model](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json) the virtual networks are created through. Learn how to create a virtual network peering in other scenarios by clicking the scenario from the following table:
 
@@ -110,7 +110,7 @@ Before completing any of the following steps, you must register for the preview.
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
-5. The remaining steps must be completed using a bash shell with the Azure CLI 2.0.4 or later [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). For options on running bash CLI scripts on a Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
+5. The remaining steps must be completed using a bash shell with the Azure CLI 2.0.4 or later [installed](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). For options on running bash CLI scripts on a Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
     <!-- Not Available on Azure Cloud Shell in Azure.cn-->
@@ -192,7 +192,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 Before completing any of the following steps, you must register for the preview. To register, complete the steps in the [Register for the preview](#register) section of this article. Do not continue with the remaining steps until both subscriptions are registered for the preview.
 
-1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, log in to UserB's subscription as UserB by entering the `Add-AzureAccount -Environment AzureChinaCloud` command.
 4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
@@ -349,6 +349,6 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
-- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
+- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
 <!--Update_Description: update meta properties, wording update -->

@@ -3,8 +3,8 @@ title: Create a Traffic Manager profile in Azure| Azure
 description: This article describes how to create a Traffic Manager profile
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -14,21 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/21/2017
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 11/06/2017
+ms.author: v-yeche
 ---
 
 # Create a Traffic Manager profile
 
 This article describes how a profile with **Priority** routing type can be created to route users to two Azure Web Apps endpoints. By using the **Priority** routing type, all traffic is routed to the first endpoint while the second is kept as a backup. As a result, users can be routed to the second endpoint if the first endpoint becomes unhealthy.
 
-In this article, two previously created Azure Web App endpoints are associated to this newly created Traffic Manager profile. To learn more about how to create Azure Web App endpoints, visit the [Azure Web Apps documentation page](/app-service-web/). You can add any endpoint that has a DNS name and is reachable over the public internet and that we are using Azure Web Apps endpoints as an example.
+In this article, two previously created Azure Web App endpoints are associated to this newly created Traffic Manager profile. To learn more about how to create Azure Web App endpoints, visit the [Azure Web Apps documentation page](/app-service/). You can add any endpoint that has a DNS name and is reachable over the public internet and that we are using Azure Web Apps endpoints as an example.
 
 ### Create a Traffic Manager profile
 1. From a browser, sign in to the [Azure portal](http://portal.azure.cn). If you don't already have an account, you can sign-up for a [one-month trial](https://www.azure.cn/pricing/1rmb-trial/). 
 2. On the **Hub** menu, click **New** > **Networking** > **See all**, click **Traffic Manager** profile to open the **Create Traffic Manager profile** blade, then click **Create**.
 3. On the **Create Traffic Manager profile** blade, complete as follows:
-    1. In **Name**, provide a name for your profile. This name needs to be unique within the trafficmanager.cn zone and results in the DNS name \<name\>.trafficmanager.cn which is used to access your Traffic Manager profile.
+    1. In **Name**, provide a name for your profile. This name needs to be unique within the trafficmanager.cn zone and results in the DNS name <name>,trafficmanager.cn which is used to access your Traffic Manager profile.
     2. In **Routing method**, select the **Priority** routing method.
     3. In **Subscription**, select the subscription you want to create this profile under
     4. In **Resource Group**, create a new resource group to place this profile under.
@@ -69,3 +69,4 @@ When no longer needed, delete the resource group and the Traffic Manager profile
 - Learn more about [routing types](traffic-manager-routing-methods.md).
 - Learn more about endpoint types [endpoint types](traffic-manager-endpoint-types.md).
 - Learn more about [endpoint monitoring](traffic-manager-monitoring.md).
+<!--Update_Description: update meta properties， wording update-->

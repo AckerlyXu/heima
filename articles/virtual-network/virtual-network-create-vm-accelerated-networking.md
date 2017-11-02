@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 09/04/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -53,14 +53,14 @@ The following limitations exist when using this capability:
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
 * **Deployment through Azure Resource Manager (ARM) only:** Accelerated Networking is not available for deployment through ASM/RDFE.
 
-Changes to these limitations are announced through the [Azure Virtual Networking updates](https://www.azure.cn/updates/accelerated-networking-in-preview) page.
+Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/zh-cn/updates/accelerated-networking-in-expanded-preview/) page.
 
 ## Create a Windows VM
 You can use the Azure portal or Azure [PowerShell](#windows-powershell) to create the VM.
 
 ### <a name="windows-portal"></a>Portal
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/offers/ms-azr-0044p).
+1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 2. In the portal, click **+ New** > **Compute** > **Windows Server 2016 Datacenter**. 
 3. In the **Windows Server 2016 Datacenter** blade that appears, leave *Resource Manager* selected under **Select a deployment model**, and click **Create**.
 4. In the **Basics** blade that appears, enter the following values, leave the remaining default options or select or enter your own values, and click the **OK** button:
@@ -79,9 +79,9 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
 9. To install the accelerated networking driver for Windows, complete the steps in the [Configure Windows](#configure-windows) section of this article.
 
 ### <a name="windows-powershell"></a>PowerShell
-1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/get-started-azureps?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/get-started-azureps?toc=%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
-3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/offers/ms-azr-0044p).
+3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 4. In your browser, copy the following script:
     ```powershell
     $RgName="MyResourceGroup"
@@ -151,7 +151,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
 ### <a name="configure-windows"></a>Configure Windows
 Once you create the VM in Azure, you must install the accelerated networking driver for Windows. Before completing the following steps, you must have created a Windows VM with accelerated networking using either the [portal](#windows-portal) or [PowerShell](#windows-powershell) steps in this article. 
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/offers/ms-azr-0044p).
+1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *MyVm*. When **MyVm** appears in the search results, click it.
 3. In the **MyVm** blade that appears, click the **Connect** button in the top left corner of the blade. **Note:** If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** only after you no longer see **Creating** under the **Connect** button.
 4. Allow your browser to download the **MyVm.rdp** file.  Once downloaded, click the file to open it. 
@@ -180,9 +180,9 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 >If you create Linux VMs with accelerated networking in a subscription, and then attempt to create a Windows VM with accelerated networking in the same subscription, the Windows VM creation may fail. During this preview, it's recommended that you test Linux and Windows VMs with accelerated networking in separate subscriptions.
 >
 
-1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/get-started-azureps?toc=%2fazure%2fvirtual-network%2ftoc.json) article.
+1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/get-started-azureps?toc=%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
-3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/offers/ms-azr-0044p).
+3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
     - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Please wait for an email confirmation from Microsoft about your subscription being enabled.
     - Enter the following command to confirm you are registered for the preview:
@@ -286,7 +286,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 
 Once you create the VM in Azure, you must install the accelerated networking driver for Linux. Before completing the following steps, you must have created a Linux VM with accelerated networking using either the [portal](#linux-portal) or [PowerShell](#linux-powershell) steps in this article. 
 
-1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/offers/ms-azr-0044p).
+1. From an Internet browser, open the Azure [portal](https://portal.azure.cn) and sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 2. At the top of the portal, to the right of the *Search resources* bar, click the **>_** icon to start a Bash cloud shell (Preview). The Bash cloud shell pane appears at the bottom of the portal and after a few seconds, presents a **username@Azure:~$** prompt. Though you can SSH to the VM from your computer, rather than the cloud shell, the instructions in this tutorial assume you're using the cloud shell.
 3. At the top of the portal, in the box that contains the text *Search resources*, type *MyVm*. When **MyVm** appears in the search results, click it.
 4. In the **MyVm** blade that appears, click the **Connect** button in the top left corner of the blade. **Note:** If **Creating** is visible under the **Connect** button, Azure has not yet finished creating the VM. Click **Connect** only after you no longer see **Creating** under the **Connect** button.
@@ -451,4 +451,4 @@ Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps t
 
 The VM should start with bond0 configured and the Accelerated Networking path enabled.  Run `ifconfig` to confirm.
 
-<!--Update_Description: new articles on virtual network -->
+<!--Update_Description: update meta properties, wording update -->

@@ -509,5 +509,5 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
    > The `-Force` parameter ensures you don't need to confirm the deletion.
    > 
 
-## Next steps
-* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+<!--Not Available ## Next steps-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

@@ -3,8 +3,8 @@ title: Create a VM with multiple NICs - Azure Resource Manager template | Azure
 description: Create a VM with multiple NICs using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
+ms.date: 11/06/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -43,6 +43,7 @@ Before you can create the DB servers, you need to create the *IaaSStory* resourc
     > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
 3. Using PowerShell or CLI to deploy the template.
+<!-- Not Available click **Deploy to Azure**.-->
 
 > [!IMPORTANT]
 > Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure.
@@ -235,6 +236,7 @@ Before you deploy the template provided with this documentation, make sure you u
     }
     ```
 
+<!-- Not Available ## Deploy the ARM template by using click to deploy-->
 ## Deploy the template by using PowerShell
 To deploy the template you downloaded by using PowerShell, install and configure PowerShell by completing the steps in the [Install and configure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article and then complete the following steps:
 
@@ -306,3 +308,6 @@ To deploy the template by using the Azure CLI, follow the steps below.
         data:    Tags: null
         data:
         info:    group create command OK
+
+<!--Not Available the parent file of includes file of virtual-network-deploy-multinic-arm-selectors-include.md-->
+<!--ms.date:11/06/2017-->
