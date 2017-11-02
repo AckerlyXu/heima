@@ -91,4 +91,4 @@ To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, fo
 
 ## Next Steps
 * Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
-* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

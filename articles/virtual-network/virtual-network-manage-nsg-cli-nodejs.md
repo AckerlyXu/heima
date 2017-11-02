@@ -362,5 +362,5 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
         + Deleting network security group "NSG-FrontEnd"
         info:    network nsg delete command OK
 
-## Next steps
-* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+<!--Not Available ## Next steps-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

@@ -205,10 +205,8 @@ Logging at a network level is a key function for any network security scenario. 
 - Counter logs – these logs let you know how many times each NSG rule was applied to deny or allow traffic.
 
 You can also use [Microsoft Power BI operated by 21Vianet](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
-
-Learn more:
-
-- [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
+<!--Not Available Learn more:-->
+<!--Not Available - [Log Analytics for Network Security Groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 ## Name Resolution
 Name resolution is a critical function for all services you host in Azure. From a security perspective, compromise of the name resolution function can lead to an attacker redirecting requests from your sites to an attacker’s site. Secure name resolution is a requirement for all your cloud hosted services.

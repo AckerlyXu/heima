@@ -25,16 +25,18 @@
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
 <!-- Not Available ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md) -->
 ### [Create outputs](stream-analytics-define-outputs.md)
-<!-- Not Available ### [Output to Azure Functions](stream-analytics-functions-redis.md) -->
-<!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
-<!-- Not Available ### [Output to DocumentDB](stream-analytics-documentdb-output.md) -->
+## Use Visual Studio tools
+### [Install](stream-analytics-tools-for-visual-studio-install.md)
+### [Get started](stream-analytics-tools-for-visual-studio.md)
+### [Set up CI/CD pipelines](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Monitor & optimize
 <!-- Not Available ### [Add alerts](stream-analytics-set-up-alerts.md) -->
 ### [Monitor jobs](stream-analytics-monitoring.md)
 ### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
 ### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Optimize Streaming Units](stream-analytics-streaming-unit-consumption.md)
+### [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
+### [Leverage query parallelization](stream-analytics-parallelization.md)
 ### [Scale to increase throughput](stream-analytics-scale-jobs.md)
 <!-- Not Available ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md) -->
 ## Manage
@@ -51,21 +53,20 @@
 <!-- Not Available ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md) -->
 
 ## Automate
-### [Tools for Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
-### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [One-click Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](https://docs.microsoft.com/rest/api/streamanalytics)
 
 # Resources
 <!-- Not Available ## [Azure Roadmap](https://azure.microsoft.com/roadmap/) -->
-## [Blog](http://blogs.msdn.com/b/streamanalytics/)
+<!-- Not Available ## [Blog](http://blogs.msdn.com/b/streamanalytics/) -->
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+<!-- Not Available ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) -->
 ## [Pricing](https://www.azure.cn/pricing/details/stream-analytics/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 <!-- Not Available ## [Release notes](stream-analytics-release-notes.md)  -->

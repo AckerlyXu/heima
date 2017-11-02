@@ -195,5 +195,5 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
 
     ![Azure portal - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
-## Next steps
-* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+<!--Not Available ## Next steps-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->

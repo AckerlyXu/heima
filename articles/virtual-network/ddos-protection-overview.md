@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/22/2017
-ms.date: 10/23/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 
 ---
@@ -84,4 +84,4 @@ We do not advise customers to simulate their own DDoS attacks. Instead, customer
 
 - Learn more about managing DDoS Protection Standard using [Azure PowerShell](ddos-protection-manage-ps.md) or the [Azure portal](ddos-protection-manage-portal.md).
 
-<!--Update_Description: new articles on ddos protection overview-->
+<!--Update_Description: update meta properties-->
