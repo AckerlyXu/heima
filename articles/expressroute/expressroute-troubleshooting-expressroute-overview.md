@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 
-origin.date: 08/01/2017
+origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 11/13/2017
 
 ---
 
@@ -183,14 +183,9 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
 ###Verification via the Azure portal
->[!IMPORTANT]
->There is a known bug in the Azure portal wherein ExpressRoute peerings are *NOT* shown in the portal if configured by the service provider. Adding ExpressRoute peerings via the portal or PowerShell *overwrites the service provider settings*. This action breaks the routing on the ExpressRoute circuit and requires the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
->
->
 
-<p/>
 >[!NOTE]
->If layer 3 is provided by the service provider and the peerings are blank in the portal, PowerShell can be used to see the service provider configured settings.
+>If layer 3 is provided by the service provider and the peerings are blank in the portal, refresh the Circuit configuration using the refresh button on the protal. This operation will apply the right routing configuration on your circuit. 
 >
 >
 
@@ -305,7 +300,7 @@ Get-AzureBGPPeering -AccessType Public -ServiceKey "****************************
 >
 
 ## Validate ARP between Microsoft and the service provider
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription. For troubleshooting using Azure Resource Manager commands please refer to the [Getting ARP tables in the Resource Manager deployment model][ARP] document.
 
 >[!NOTE]
 >To get ARP, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as Classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
@@ -343,8 +338,8 @@ ARP Info:
 >
 >
 
-##Validate BGP and routes on the MSEE
-This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [Azure classic portal][OldPortal]
+## Validate BGP and routes on the MSEE
+This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription.
 
 >[!NOTE]
 >To get BGP information, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.

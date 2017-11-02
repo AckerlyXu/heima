@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
+origin.date: 10/11/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 11/13/2017
 ---
 # Create and modify routing for an ExpressRoute circuit using CLI
 
@@ -31,7 +31,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 
 ## Configuration prerequisites
 
-* Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](https://docs.microfost.com/en-us/cli/azure/install-azure-cli).
+* Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflow](expressroute-workflows.md) pages before you begin configuration.
 * You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the commands in this article.
 
@@ -39,7 +39,7 @@ These instructions only apply to circuits created with service providers offerin
 
 You can configure one or two peerings (Azure private, Azure public) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time.
 
-## Azure private peering
+## <a name="private"></a>Azure private peering
 
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
@@ -121,7 +121,7 @@ This section helps you create, get, update, and delete the Azure private peering
   > 
   > 
 
-### To view Azure private peering details
+### <a name="getprivate"></a>To view Azure private peering details
 
 You can get configuration details by using the following example:
 
@@ -157,7 +157,7 @@ The output is similar to the following example:
 }
 ```
 
-### To update Azure private peering configuration
+### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 100 to 500.
 
@@ -165,7 +165,7 @@ You can update any part of the configuration using the following example. In thi
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-### To delete Azure private peering
+### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your peering configuration by running the following example:
 
@@ -178,7 +178,7 @@ You can remove your peering configuration by running the following example:
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-## Azure public peering
+## <a name="public"></a>Azure public peering
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
@@ -258,7 +258,7 @@ This section helps you create, get, update, and delete the Azure public peering 
   > [!IMPORTANT]
   > Ensure that you specify your AS number as peering ASN, not customer ASN.
 
-### To view Azure public peering details
+### <a name="getpublic"></a>To view Azure public peering details
 
 You can get configuration details using the following example:
 
@@ -293,7 +293,7 @@ The output is similar to the following example:
 }
 ```
 
-### To update Azure public peering configuration
+### <a name="updatepublic"></a>To update Azure public peering configuration
 
 You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 200 to 600.
 
@@ -301,7 +301,7 @@ You can update any part of the configuration using the following example. In thi
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-### To delete Azure public peering
+### <a name="deletepublic"></a>To delete Azure public peering
 
 You can remove your peering configuration by running the following example:
 

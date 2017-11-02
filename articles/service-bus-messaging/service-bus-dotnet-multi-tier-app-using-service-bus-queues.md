@@ -7,19 +7,19 @@ author: sethmanheim
 manager: timlt
 editor: ''
 
+ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-origin.date: 04/11/2017
+origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
+ms.date: 11/13/2017
 ---
 # .NET multi-tier application using Azure Service Bus queues
-## Introduction
 
-Developing for Azure is easy using Visual Studio and the free Azure SDK for .NET. This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment. The steps assume you have no prior experience using Azure.
+Developing for Azure is easy using Visual Studio and the free Azure SDK for .NET. This tutorial walks you through the steps to create an application that uses multiple Azure resources running in your local environment.
 
 You will learn the following:
 
@@ -134,7 +134,7 @@ queue and displays status information about the queue.
    **MultiTierApp**. Then click **OK**.
    
    ![][9]
-3. From **.NET Framework 4.5** roles, double-click **ASP.NET Web
+3. From the **Roles** pane, double-click **ASP.NET Web
    Role**.
    
    ![][10]
@@ -145,13 +145,13 @@ queue and displays status information about the queue.
 5. From the **New ASP.NET Project** dialog box, in the **Select a template** list, click **MVC**.
    
    ![][12]
-6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
+6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, ensure that **No Authentication** is selected, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
    
     ![][16]
 7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
 8. In **Solution Explorer**, in the **FrontendWebRole** project, right-click **References**, then click
    **Manage NuGet Packages**.
-9. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Select the **WindowsAzure.ServiceBus** package, click **Install**, and accept the terms of use.
+9. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package, click **Install**, and accept the terms of use.
    
    ![][13]
    
@@ -246,7 +246,7 @@ In this section, you create the various pages that your application displays.
    **Add View**.
    
    ![][14]
-6. A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, click the **OnlineOrder** class.
+6. A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, select the **OnlineOrder** class.
    
    ![][15]
 7. Click **Add**.
@@ -478,15 +478,15 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 To learn more about Service Bus, see the following resources:  
 
-* [Azure Service Bus documentation][sbdocs]  
+* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+* [Get started using Service Bus queues][sbacomqhowto]
 * [Service Bus service page][sbacom]  
-* [How to Use Service Bus Queues][sbacomqhowto]  
 
 To learn more about multi-tier scenarios, see:  
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -497,8 +497,8 @@ To learn more about multi-tier scenarios, see:
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
   [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
   [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
