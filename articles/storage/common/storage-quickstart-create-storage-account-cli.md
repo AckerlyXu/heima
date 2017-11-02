@@ -25,11 +25,11 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 If you don't have an Azure subscription, create a [1rmb account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli). 
 
 ## Create resource group
 
-Create an Azure resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed. This example creates a resource group named *myResourceGroup* in the *chinaeast* region.
+Create an Azure resource group with the [az group create](https://docs.azure.cn/cli/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed. This example creates a resource group named *myResourceGroup* in the *chinaeast* region.
 
 ```azurecli
 az group create \
@@ -37,7 +37,7 @@ az group create \
     --location chinaeast
 ```
 
-If you're unsure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](https://docs.microsoft.com/cli/azure/account#list) command.
+If you're unsure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](https://docs.azure.cn/cli/account#list) command.
 
 ```azurecli
 az account list-locations \
@@ -54,7 +54,7 @@ There are several types of storage accounts appropriate for different usage scen
 |**Services supported**| Blob, File, Table, Queue services | Blob service | Blob service|
 |**Types of blobs supported**|Block blobs, page blobs, append blobs | Page blobs | Block blobs and append blobs|
 
-Create a general-purpose standard storage account with the [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) command.
+Create a general-purpose standard storage account with the [az storage account create](https://docs.azure.cn/cli/storage/account#create) command.
 
 ```azurecli
 az storage account create \
@@ -67,7 +67,7 @@ az storage account create \
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command.
+If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](https://docs.azure.cn/cli/group#delete) command.
 
 ```azurecli
 az group delete --name myResourceGroup

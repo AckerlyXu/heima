@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2016
-ms.date: 09/11/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
 ---
 
@@ -36,7 +36,7 @@ Do you already undestand what CNAME and A records are? [Jump past the explanatio
 <p/>
 
 > [!NOTE]
-> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service/app-service-web-tutorial-custom-domain.md). For storage accounts, see [this](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

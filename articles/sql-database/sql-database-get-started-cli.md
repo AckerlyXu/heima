@@ -15,8 +15,8 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
-origin.date: 04/17/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 ---
 
@@ -26,6 +26,8 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 If you don't have an Azure subscription, create a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/) account before you begin.
 
+
+This topic requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli). 
 
 ## Define variables
 
@@ -49,14 +51,14 @@ export databasename = mySampleDatabase
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `China East` location.
+Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `China East` location.
 
 ```azurecli
 az group create --name $resourcegroupname --location $location
 ```
 ## Create a logical server
 
-Create an [Azure SQL Database logical server](sql-database-features.md) using the [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL Database logical server](sql-database-features.md) using the [az sql server create](/cli/sql/server#create) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin login named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```azurecli
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -65,7 +67,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## Configure a server firewall rule
 
-Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.  
+Create an [Azure SQL Database server-level firewall rule](sql-database-firewall-configure.md) using the [az sql server firewall create](/cli/sql/server/firewall-rule#create) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL database through the SQL Database service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.  
 
 ```azurecli
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -78,7 +80,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
+Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](/cli/sql/db#create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
 
 ```azurecli
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -110,4 +112,4 @@ Now that you have a database, you can connect and query using your favorite tool
 - [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)
 
-
+<!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

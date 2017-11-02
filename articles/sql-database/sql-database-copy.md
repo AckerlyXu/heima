@@ -1,9 +1,9 @@
 ---
-title: Copy an Azure SQL database | Azure
-description: Create a copy of an Azure SQL database
+title: Copy an Azure SQL database | Microsoft Docs
+description: Create transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -12,8 +12,8 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
 origin.date: 06/15/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -37,7 +37,7 @@ If you use [Azure Active Directory](../active-directory/active-directory-whatis.
 
 After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database. To resolve logins after the copying operation is complete, see [Resolve logins](#resolve-logins).
 
-## Copy a database by using the Azure Portal
+## Copy a database by using the Azure portal
 
 To copy a database by using the Azure Portal, open the page for your database, and then click **Copy**. 
 

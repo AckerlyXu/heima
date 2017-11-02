@@ -10,13 +10,13 @@ tags: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,load & move data
+ms.custom: mvc,migrate
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 09/01/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -276,4 +276,4 @@ Advance to the next tutorial to learn how to secure your database.
 > [!div class="nextstepaction"]
 > [Secure your Azure SQL Database](sql-database-security-tutorial.md).
 
-<!--Update_Description: whole content update-->
+

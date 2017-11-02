@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 08/25/2017
-ms.date: 10/02/2017
+origin.date: 10/11/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -23,24 +23,19 @@ ms.author: v-johch
 
 ## Single database: Storage sizes and performance levels
 
-For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), the [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
+For single databases, the following tables show the resources available for a single database at each service tier and performance level. You can set the service tier, performance level, and storage amount for a single database using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), the [Azure CLI](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli), or the [REST API](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ## Single database: change storage size
 
 - The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and performance levels](#single-database-storage-sizes-and-performance-levels).
-- Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](https://docs.microsoft.com/cli/azure/sql/db#update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/sql/db#az_sql_db_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/).
 
 ## Single database: change DTUs
 
-After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](https://docs.microsoft.com/cli/azure/sql/db#update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). 
-
-The following video shows dynamically changing the performance tier to increase available DTUs for a single database.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
+After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/sql/db#az_sql_db_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). 
 
 Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. The length of time for the switch-over varies, but is generally under 4 seconds is less than 30 seconds 99% of the time. If there are large numbers of transactions in flight at the moment connections are disabled, the length of time for the switch-over may be longer. 
 
@@ -85,12 +80,12 @@ The following table describes the properties for pooled databases.
 ## Elastic pool: change storage size
 
 - The eDTU price for an elastic pool includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Elastic pool: storage sizes and performance levels](#elastic-pool-storage-sizes-and-performance-levels).
-- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools#Update).
+- Extra storage for an elastic pool can be provisioned by increasing its max size using the [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - The price of extra storage for an elastic pool is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/).
 
 ## Elastic pool: change eDTUs
 
-You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](https://docs.microsoft.com/cli/azure/sql/elastic-pool#update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools#Update).
+You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - When rescaling pool eDTUs, database connections are briefly dropped. This is the same behavior as occurs when rescaling DTUs for a single database (not in a pool). For details on the duration and impact of dropped connections for a database during rescaling operations, see [Rescaling DTUs for a single database](#single-database-change-storage-size). 
 - The duration to rescale pool eDTUs can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under five minutes regardless of the amount of space used.
@@ -132,4 +127,4 @@ When encountering high session or worker utilization, mitigation options include
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
-<!--Update_Description: whole content update-->
+<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

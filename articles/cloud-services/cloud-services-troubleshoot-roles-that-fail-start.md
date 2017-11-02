@@ -2,20 +2,21 @@
 title: Troubleshoot roles that fail to start | Azure
 description: Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided.
 services: cloud-services
-documentationCenter: ''
-authors: simonxjx
+documentationcenter: ''
+author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 09/02/2016
+origin.date: 07/26/2017
 ms.author: v-yiso
-ms.date: 05/22/2017
+ms.date: 11/06/2017
 ---
 
 # Troubleshoot Cloud Service roles that fail to start
@@ -120,8 +121,7 @@ For best results in using this method of diagnosis, you should use a computer or
 7. When the role starts, you will see detailed error information in Internet Explorer. You can also use standard Windows troubleshooting tools to further diagnose the problem.
 
 ## Diagnose issues by using IntelliTrace
-
-For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://msdn.microsoft.com/zh-cn/library/dd264915.aspx), which is available in [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
+For worker and web roles that use .NET Framework 4, you can use [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), which is available in Microsoft Visual Studio Enterprise.
 
 Follow these steps to deploy the service with IntelliTrace enabled:
 

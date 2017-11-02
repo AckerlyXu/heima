@@ -1,22 +1,22 @@
 ---
-title: Connection libraries for SQL Database | Azure
-description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. The modules are released by the community or by Microsoft.
+title: Connection libraries for SQL Database | Microsoft Docs
+description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. 
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: genemi
 
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 
 ---
 # Connectivity libraries and frameworks for Microsoft SQL Server
@@ -54,5 +54,3 @@ The table below lists a few examples of Object Relational Mapping (ORM) framewor
 - [Connect to SQL Database by using Java](sql-database-connect-query-java.md)
 - [Connect to SQL Database by using Python](sql-database-connect-query-python.md)
 - [Connect to SQL Database by using Ruby](sql-database-connect-query-ruby.md)
-
-<!--Update_Description: update link references-->

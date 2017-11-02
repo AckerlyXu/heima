@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/02/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 11/06/2017
 ---
 # Azure WCF Relay tutorial
 
-This tutorial describes how to build a simple WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial describes how to build a simple WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -455,7 +455,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="configure-the-wcf-client"></a> Configure the WCF client
+## Configure the WCF client
 
 In this step, you create an App.config file for a basic client application that accesses the service created previously in this tutorial. This App.config file defines the contract, binding, and name of the endpoint. The code used for these tasks is provided in the example following the procedure.
 
@@ -699,15 +699,13 @@ namespace Microsoft.ServiceBus.Samples
 12. You can continue sending text messages from the client to the service in this manner. When you are finished, press Enter in the client and service console windows to end both applications.
 
 ## Next steps
-This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 To learn more about Azure Relay, see the following topics.
 
 * [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure Relay overview](./relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](./relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

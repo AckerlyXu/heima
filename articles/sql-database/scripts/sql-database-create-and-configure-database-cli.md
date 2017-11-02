@@ -1,9 +1,9 @@
 ---
-title: CLI example-create an Azure SQL database | Azure
-description: Azure CLI example script to create a SQL database
+title: CLI example-create an Azure SQL database | Microsoft Docs
+description: Use this Azure CLI example script to create a SQL database.
 services: sql-database
 documentationcenter: sql-database
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -15,9 +15,9 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 07/31/2017
-ms.author: v-haiqya
+origin.date: 10/11/2017
+ms.date: 11/06/2017
+ms.author: v-johch
 ---
 
 # Use CLI to create a single Azure SQL database and configure a firewall rule
@@ -25,7 +25,7 @@ ms.author: v-haiqya
 This Azure CLI script example creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( https://docs.microsoft.com/cli/azure/install-azure-cli). 
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli). 
 
 ## Sample script
 
@@ -33,24 +33,24 @@ This topic requires that you are running the Azure CLI version 2.0 or later. Run
 #!/bin/bash
 
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
+export adminlogin=ServerAdmin
+export password=ChangeYourAdminPassword1
 # The logical server name has to be unique in the system
-servername=server-$RANDOM
+export servername=server-$RANDOM
 # The ip address range that you want to allow to access your DB
-startip=0.0.0.0
-endip=0.0.0.0
+export startip=0.0.0.0
+export endip=0.0.0.0
 
 # Create a resource group
 az group create \
 	--name myResourceGroup \
-	--location "China East"
+	--location chinaeast
 
 # Create a logical server in the resource group
 az sql server create \
 	--name $servername \
 	--resource-group myResourceGroup \
-	--location "China East"  \
+	--location chinaeast  \
 	--admin-user $adminlogin \
 	--admin-password $password
 
@@ -69,6 +69,7 @@ az sql db create \
 	--name mySampleDatabase \
 	--sample-name AdventureWorksLT \
 	--service-objective S0
+
 ```
 ## Clean up deployment
 
@@ -84,16 +85,16 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Creates a logical server that hosts the SQL Database. |
-| [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Creates the SQL Database in the logical server. |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.azure.cn/cli/group#create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](https://docs.azure.cn/cli/sql/server#create) | Creates a logical server that hosts the SQL Database. |
+| [az sql server firewall create](https://docs.azure.cn/cli/sql/server/firewall-rule#create) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
+| [az sql db create](https://docs.azure.cn/cli/sql/db#create) | Creates the SQL Database in the logical server. |
+| [az group delete](https://docs.azure.cn/cli/resource#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/cli/overview).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update sample scripts; update Global CLI 2.0 links to Mooncake CLI 2.0-->

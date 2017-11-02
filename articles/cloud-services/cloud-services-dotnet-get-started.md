@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 07/17/2017
+ms.date: 11/06/2017
 ms.author: v-yiso
 ---
 
@@ -36,7 +36,7 @@ The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/
 
 ## Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/app-service-web/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/app-service/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and virtual machines comparison](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## What you'll learn
 
@@ -188,7 +188,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 4. Set the **Replication** drop-down list to **Locally redundant storage**.
 
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
 
 5. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 6. Set the **Location** drop-down list to the same region you chose for the cloud service.
@@ -402,8 +402,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 3. Look for the *WindowsAzure.Storage* package, and if it's in the list, select it and select the web and worker projects to update it in, and then click **Update**.
 
-    The storage client library is updated more frequently than Visual Studio project templates, so you'll often find that the version in a newly created projected needs to be updated.
-
+    The storage client library is updated more frequently than Visual Studio project templates, so you'll often find that the version in a newly-created project needs to be updated.
 4. At the top of the window, select **Browse**.
 
 5. Find the *EntityFramework* NuGet package, and install it in all three projects.

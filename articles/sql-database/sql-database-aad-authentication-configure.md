@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 07/10/2017
-ms.date: 09/18/2017
+ms.date: 11/06/2017
 ms.author: v-haiqya
 
 ---
@@ -154,12 +154,12 @@ You can also provision an Azure Active Directory Administrator by using the REST
 You can also provision an Azure AD admin by calling the following CLI commands:
 | Command | Description |
 | --- | --- |
-|[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
-|[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
-|[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
-|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Updates the Active Directory administrator for an Azure SQL server or Azure SQL Data Warehouse. |
+|[az sql server ad-admin create](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_create) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
+|[az sql server ad-admin delete](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Removes an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. |
+|[az sql server ad-admin list](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_list) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure SQL Data Warehouse. |
+|[az sql server ad-admin update](https://docs.azure.cn/cli/sql/server/ad-admin#az_sql_server_ad_admin_update) |Updates the Active Directory administrator for an Azure SQL server or Azure SQL Data Warehouse. |
 
-For more information about CLI commands, see [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
+For more information about CLI commands, see [SQL - az sql](https://docs.azure.cn/cli/sql/server).  
 
 ## Configure your client computers
 On all client machines, from which your applications or users connect to Azure SQL Database or Azure SQL Data Warehouse using Azure AD identities, you must install the following software:
@@ -345,4 +345,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn -U bob@contoso.com -
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
 
-<!--Update_Description: add "Provision an Azure Active Directory administrator" by Azure portal-->
+<!--Update_Description: update Global CLI 2.O links to Mooncake CLI 2.O links-->

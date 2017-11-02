@@ -105,6 +105,8 @@ with
 
 >[!NOTE]
 > If you wish to learn more about the new .NET server SDK and how to add/remove features from your app, please see the [How to use the .NET server SDK] topic.
+>
+>
 
 If your app makes use of the authentication features, you will also need to register an OWIN middleware. In this case, you should move the above configuration code into a new OWIN Startup class.
 
@@ -296,7 +298,7 @@ When you have the new client version ready, try it out against your upgraded ser
 [Add push notifications to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: ../scheduler/index.md
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md

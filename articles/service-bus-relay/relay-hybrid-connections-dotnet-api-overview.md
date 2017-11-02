@@ -1,6 +1,6 @@
 ---
-title: Overview of the Azure Relay .NET Standard APIs | Azure
-description: Relay .NET Standard API overview
+title: Overview of Azure Relay .NET Standard APIs | Microsoft Docs
+description: Azure Relay .NET Standard API overview
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/05/2017
+origin.date: 10/05/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 11/06/2017
 ---
 
 # Azure Relay Hybrid Connections .NET Standard API overview
@@ -57,10 +57,10 @@ catch (ArgumentException ae)
 }
 ```
 
-## Hybrid Connection Stream
+## Hybrid connection stream
 The [HybridConnectionStream][HCStream] class is the primary object used to send and receive data from an Azure Relay endpoint, whether you are working with a [HybridConnectionClient][HCClient], or a [HybridConnectionListener][HCListener].
 
-### Getting a Hybrid Connection Stream
+### Getting a Hybrid connection stream
 
 #### Listener
 Using a [HybridConnectionListener][HCListener], you can obtain a `HybridConnectionStream` object as follows:

@@ -1,9 +1,9 @@
 ---
-title: Azure SQL Database performance tuning guidance | Azure
-description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
+title: Azure SQL Database performance tuning guidance | Microsoft Docs
+description: Learn about using recommendations to improve Azure SQL Database query performance.
 services: sql-database
 documentationcenter: na
-author: Hayley244
+author: forester123
 manager: digimobile
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 02/09/2017
-ms.date: 07/03/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -35,13 +35,12 @@ These are manual methods because you need to decide what [service tiers](sql-dat
 Azure SQL Database offers four [service tiers](sql-database-service-tiers.md) that you can choose from: Basic, Standard, Premium, and Premium RS (performance is measured in database throughput units, or [DTUs](sql-database-what-is-a-dtu.md). Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
-> This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
->
->
+> This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
+> 
 
 * **Basic**: The Basic service tier offers good performance predictability for each database, hour over hour. In a Basic database, sufficient resources support good performance in a small database that doesn't have multiple concurrent requests. Typical use cases when you would use Basic service tier are:
   * **You're just getting started with Azure SQL Database**. Applications that are in development often don't need high-performance levels. Basic databases are an ideal environment for database development or testing, at a low price point.
-  * **You have a database with a single user**. Applications that associate a single user with a database typically don't have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
+  * **You have a database with a single user**. Applications that associate a single user with a database typically don’t have high concurrency and performance requirements. These applications are candidates for the Basic service tier.
 * **Standard**: The Standard service tier offers improved performance predictability and provides good performance for databases that have multiple concurrent requests, like workgroup and web applications. When you choose a Standard service tier database, you can size your database application based on predictable performance, minute over minute.
   * **Your database has multiple concurrent requests**. Applications that service more than one user at a time usually need higher performance levels. For example, workgroup or web applications that have low to medium IO traffic requirements supporting multiple concurrent queries are good candidates for the Standard service tier.
 * **Premium**: The Premium service tier provides predictable performance, second over second, for each Premium database. When you choose the Premium service tier, you can size your database application based on the peak load for that database. The plan removes cases in which performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles for applications that need to make strong statements about peak resource needs, performance variance, or query latency. Most Premium service tier use cases have one or more of these characteristics:
@@ -278,4 +277,6 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 ## Next steps
 * For more information about service tiers, see [SQL Database options and performance](sql-database-service-tiers.md)
 * For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
-* For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool.md)
+* For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
+
+<!--Update_Description:update elastic pool guidance link-->

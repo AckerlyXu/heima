@@ -1,6 +1,6 @@
 ---
-title: Design your first Azure SQL database | Azure
-description: Learn to design your first Azure SQL database.
+title: Design your first Azure SQL database | Microsoft Docs
+description: Learn to design your first Azure SQL database in the Azure portal and with SQL Server Management Studio.
 services: sql-database
 documentationcenter: ''
 author: forester123
@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 08/25/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-johch
 
 ---
@@ -336,5 +336,3 @@ Advance to the next tutorial to learn about designing a database using Visual St
 
 > [!div class="nextstepaction"]
 >[Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md)
-
-<!--Update_Description: update steps for "Create a server-level firewall rule"-->
