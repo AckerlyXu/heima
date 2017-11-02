@@ -12,9 +12,9 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 09/21/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
 
 ---
@@ -124,4 +124,4 @@ For online recovery points, there are five recovery types:
 ## Next steps
 - [Azure Backup FAQ](backup-azure-backup-faq.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metadata properties-->
