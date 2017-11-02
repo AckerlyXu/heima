@@ -5,6 +5,8 @@
 ## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
+<!--Not Available ## [Real User Measurements](traffic-manager-rum-overview.md)-->
+<!--Not Available ## [Traffic View](traffic-manager-traffic-view-overview.md)-->
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
@@ -21,14 +23,14 @@
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
-## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
+## [Use Azure PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 ## Troubleshoot
 ### [Troubleshoot degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/traffic-manager?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
@@ -38,12 +40,13 @@
 # Related
 ## [Application Gateway](/application-gateway/)
 ## [Load Balancer](/load-balancer/)
+<!--Not Available ## [Azure DNS](/dns/)-->
 
 # Resources
 ## [Blog](https://www.azure.cn/blog/tags/网络服务)
 ## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://www.azure.cn/pricing/details/traffic-manager/)
-## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Service updates](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/sla/traffic-manager/)
