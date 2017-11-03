@@ -34,7 +34,7 @@ See [Accounts you can use to sign in](active-directory/active-directory-how-subs
 Another name for [App Service app](#app-service-app).
 
 ## App Service app <a name="app-service-app"></a>
-The compute resources that [Azure App Service](app-service/app-service-value-prop-what-is.md) provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](app-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*.
+The compute resources that Azure App Service provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](app-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*.
 
 ## Availability Set <a name="availability-set"></a>
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
