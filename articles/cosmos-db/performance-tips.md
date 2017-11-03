@@ -72,7 +72,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="same-region"></a>
 4. **Collocate clients in same Azure region for performance**
 
-    When possible, place any applications calling Cosmos DB in the same region as the Cosmos DB database. For an approximate comparison, calls to Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
+    When possible, place any applications calling Cosmos DB in the same region as the Cosmos DB database. For an approximate comparison, calls to Cosmos DB within the same region complete within 1-2 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
