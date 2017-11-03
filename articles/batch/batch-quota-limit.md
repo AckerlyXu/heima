@@ -13,8 +13,8 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 08/02/2017
+origin.date: 09/28/2017
+ms.date: 11/02/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
 
-Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account, or a regional VM cores quota for your subscription.
+Keep these quotas in mind as you design and scale up your Batch workloads. For example, if your pool doesn't reach the target number of compute nodes you specified, you might have reached the core quota limit for your Batch account.
 
 You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
@@ -37,6 +37,10 @@ If you plan to run production workloads in Batch, you may need to increase one o
 ## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+### Quotas in user subscription mode
+
+If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+
 ## Other limits
 | **Resource** | **Maximum Limit** |
 | --- | --- |
@@ -49,47 +53,46 @@ If you plan to run production workloads in Batch, you may need to increase one o
 <sup>1</sup> Azure Storage limit for maximum block blob size<br />
 <sup>2</sup> Includes resource files and environment variables
 
+
+
 ## View Batch quotas
 View your Batch account quotas in the [Azure portal][portal].
 
 1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
-2. Select **Properties** on the Batch account's menu blade.
-3. The Properties blade displays the **quotas** currently applied to the Batch account
+2. Select **Quotas** on the Batch account's menu.
+3. View the quotas currently applied to the Batch account
    
     ![Batch account quotas][account_quotas]
 
+
+
 ## Increase a quota
-Follow these steps to request a quota increase using the [Azure portal][portal].
+Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal]. The type of quota increase depends on the pool allocation mode of your Batch account.
+
+### Increase a Batch cores quota 
 
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
-2. Select **New support request** > **Basics**.
-3. On the **Basics** blade:
+2. Select **New support request**.
+3. update following basic types.
+
+    a. Input your basic information such as **name**, **phone number**, **email**.
    
-    a. **Issue Type** > **Quota**
+    b. **Issue Type** > **Quota**
    
-    b. Select your subscription.
+    c. Select your subscription.
    
-    c. **Quota type** > **Batch**
+    d. **Quota type** > **Batch**
    
-    d. **Support plan** > **Quota support - Included**
+    e. Input **Support question title**
    
-    Click **Next**.
-4. On the **Problem** blade:
+    f. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
    
-    a. Select a **Severity** according to your [business impact][support_sev].
-   
-    b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
-   
-    Click **Next**.
-5. On the **Contact information** blade:
-   
-    a. Select a **Preferred contact method**.
-   
-    b. Verify and enter the required contact details.
-   
+    g. upload attachment.
+    
     Click **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
+
 
 ## Related topics
 - [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
@@ -100,6 +103,6 @@ Once you've submitted your support request, Azure support will contact you. Note
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
 [support_sev]: http://aka.ms/supportseverity
 
-[account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
+[account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
 
 <!-- Update_Description: wording update -->
