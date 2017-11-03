@@ -26,7 +26,7 @@ This script creates a Recovery Services vault with Geo-redundant storage (GRS) f
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-[!INCLUDE [quickstarts-1rmb-trial-note](../../../includes/quickstarts-1rmb-trial-note.md)]
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 ## Sample script
 

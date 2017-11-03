@@ -53,7 +53,7 @@ Before you can back up Windows Server, you must create a place for the backups, 
     - Type *myRecoveryServicesVault* in **Name**.
     - The current subscription ID appears in **Subscription**.
     - For **Resource group**, select **Use existing** and choose *myResourceGroup*. If *myResourceGroup* doesn't exist, select **Create New** and type *myResourceGroup*. 
-    - From the **Location** drop-down menu, choose *West Europe*.
+    - From the **Location** drop-down menu, choose *China North*.
     - Click **Create** to create your Recovery Services vault.
  
 Once your vault is created, it appears in the list of Recovery Services vaults.

@@ -44,7 +44,7 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 ## Managing your Recovery Services vaults
 The following screens show a new Recovery Services vault, upgraded from Backup vault, in the Azure portal. The upgraded vault will be present in a default Resource group named “Default-RecoveryServices-ResourceGroup-geo”. 
-Example: If your Backup vault was located in China North, it will be put up in a default RG named Default-RecoveryServices-ResourceGroup-westus.
+Example: If your Backup vault was located in China North, it will be put up in a default RG named Default-RecoveryServices-ResourceGroup-chinanorth.
 > [!NOTE]
 > For CPS Standard customers, Resource group is not changed after the vault upgrade and remains the same as it was before the upgrade.
 

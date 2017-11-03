@@ -97,7 +97,7 @@ The following tasks can be automated with PowerShell:
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
-1. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
+1. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"

@@ -28,7 +28,7 @@ Azure Backup creates recovery points that are stored in geo-redundant recovery v
 > * Restore a disk from a recovery point
 > * Create a VM from the restored disk
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/install-azure-cli?view=azure-cli-latest). 
 
 
 ## Prerequisites

@@ -43,10 +43,10 @@ The Recovery Services vault contains the backup data, and the backup policy appl
     - Type *myRecoveryServicesVault* in **Name**,
     - The current subscription ID appears in **Subscription**. If you have additional subscriptions, you could choose another subscription for the new vault.
     - For **Resource group** select **Use existing** and choose *myResourceGroup*. If *myResourceGroup* doesn't exist, select **Create new** and type *myResourceGroup*.
-    - From the **Location** drop-down menu, choose *West Europe*.
+    - From the **Location** drop-down menu, choose *China North*.
     - Click **Create** to create your Recovery Services vault.
 
-A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions,create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *West Europe* because that is where *myVM* (the virtual machine created with the quickstart) was created.
+A Recovery Services vault must be in the same location as the virtual machines being protected. If you have virtual machines in multiple regions,create a Recovery Services vault in each region. This tutorial creates a Recovery Services vault in *China North* because that is where *myVM* (the virtual machine created with the quickstart) was created.
 
 It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults.
 
