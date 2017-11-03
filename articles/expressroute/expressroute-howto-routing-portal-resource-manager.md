@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/21/2017
+origin.date: 10/11/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 11/13/2017
 ---
 # Create and modify peering for an ExpressRoute circuit
 
@@ -26,7 +26,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 ## Configuration prerequisites
 
 - Make sure that you have reviewed the [prerequisites](./expressroute-prerequisites.md) page, the [routing requirements](./expressroute-routing.md) page, and the [workflows](./expressroute-workflows.md) page before you begin configuration.
-- You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](./expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
+* You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets in the next sections.
 - If you plan to use a shared key/MD5 hash, be sure to use this on both sides of the tunnel and limit the number of characters to a maximum of 25.
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider configures and manages routing for you. 
@@ -36,10 +36,9 @@ These instructions only apply to circuits created with service providers offerin
 > 
 > 
 
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
+You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
-## Azure private peering
-
+## <a name="private"></a>Azure private peering
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
 ### To create Azure private peering
@@ -64,25 +63,25 @@ This section helps you create, get, update, and delete the Azure private peering
 
   ![save private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### To view Azure private peering details
+### <a name="getprivate"></a>To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
 ![view private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### To update Azure private peering configuration
+### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can select the row for peering and modify the peering properties.
 
 ![update private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### To delete Azure private peering
+### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your peering configuration by selecting the delete icon, as shown in the following image:
 
 ![delete private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
-## Azure public peering
+## <a name="public"></a>Azure public peering
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
@@ -108,19 +107,19 @@ This section helps you create, get, update, and delete the Azure public peering 
 
   ![Save public peering configuration](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### To view Azure public peering details
+### <a name="getpublic"></a>To view Azure public peering details
 
 You can view the properties of Azure public peering by selecting the peering.
 
 ![view public peering properties](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### To update Azure public peering configuration
+### <a name="updatepublic"></a>To update Azure public peering configuration
 
 You can select the row for peering and modify the peering properties.
 
 ![select public peering row](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### To delete Azure public peering
+### <a name="deletepublic"></a>To delete Azure public peering
 
 You can remove your peering configuration by selecting the delete icon, as shown in the following example:
 

@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/27/2017
+origin.date: 10/06/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 11/13/2017
 ---
 
 # AMQP 1.0 support in Service Bus
@@ -72,13 +72,13 @@ The following figure illustrates an example deployment in which Java clients run
 
 At this time the following client libraries are known to work with Service Bus:
 
-| Language | Library                                                                       |
-|----------|-------------------------------------------------------------------------------|
-| Java     | Apache Qpid Java Message Service (JMS) client<br/>IIT Software SwiftMQ Java client |
-| C        | Apache Qpid Proton-C                                                          |
-| PHP      | Apache Qpid Proton-PHP                                                        |
-| Python   | Apache Qpid Proton-Python                                                     |
-| C#   	   | AMQP .Net Lite                                                                |
+| Language | Library |
+| --- | --- |
+| Java |Apache Qpid Java Message Service (JMS) client<br/>IIT Software SwiftMQ Java client |
+| C |Apache Qpid Proton-C |
+| PHP |Apache Qpid Proton-PHP |
+| Python |Apache Qpid Proton-Python |
+| C# |AMQP .Net Lite |
 
 **Figure 2: Table of AMQP 1.0 client libraries**
 

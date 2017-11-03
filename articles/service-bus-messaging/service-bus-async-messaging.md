@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/19/2017
+origin.date: 10/06/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 11/13/2017
 ---
 # Asynchronous messaging patterns and high availability
 Asynchronous messaging can be implemented in a variety of different ways. With queues, topics, and subscriptions, Azure Service Bus supports asynchronism via a store and forward mechanism. In normal (synchronous) operation, you send messages to queues and topics, and receive messages from queues and subscriptions. Applications you write depend on these entities always being available. When the entity health changes, due to a variety of circumstances, you need a way to provide a reduced capability entity that can satisfy most needs.
@@ -140,7 +140,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ```
 
 ## Next steps
-Now that you've learned the basics of asynchronous messaging in Service Bus, you can read more details about [paired namespaces][paired namespaces].
+Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [paired namespaces][paired namespaces].
 
 [ServerBusyException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
