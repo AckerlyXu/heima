@@ -64,7 +64,7 @@ This command installs the latest version of azure-batch node SDK.
 
 ### Step 2: Create an Azure Batch account
 
-You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)).
+You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/overview)).
 
 Following are the commands to create one through Azure CLI.
 

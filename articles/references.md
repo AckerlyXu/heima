@@ -423,7 +423,7 @@ ms.date: 06/13/2017
     </ul>
 </div>
 
-### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure CLI](/cli/)
 <div class="panelItem">
     <ul class="directory panelContent" style="margin-top: 0px; display: flex;">
         <li>
@@ -435,43 +435,43 @@ ms.date: 06/13/2017
                     <h3>Compute</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/vm" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/vm" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VirtualMachine.svg" data-linktype="relative-path">
                                 <p>Virtual Machine</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/vmss" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/vmss" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AvailabilitySetOld.svg" data-linktype="relative-path">
                                 <p>Virtual Machine Scale Sets</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/webapp" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/webapp" data-linktype="relative-path">
                                 <img alt = "" src="media/index/app-service-web.svg" data-linktype="relative-path">
                                 <p>Web App</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/appservice" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/appservice" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AppService.svg" data-linktype="relative-path">
                                 <p>App Service</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/batch" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/batch" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Batch.svg" data-linktype="relative-path">
                                 <p>Batch</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/sf" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/sf" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Fabric.svg" data-linktype="relative-path">
                                 <p>Service Fabric</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/cloud" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/cloud" data-linktype="relative-path">
                                 <img alt = "" src="media/index/CloudService.svg" data-linktype="relative-path">
                                 <p>Cloud Services</p>
                             </a>
@@ -491,31 +491,31 @@ ms.date: 06/13/2017
                     <h3>Database</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/sql" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/sql" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDatabase.svg" data-linktype="relative-path">
                                 <p>SQL Database</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/sql/dw" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/sql/dw" data-linktype="relative-path">
                                 <img alt = "" src="media/index/SQLDataWarehouse.svg" data-linktype="relative-path">
                                 <p>SQL Data Warehouse</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/cosmosdb" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/cosmosdb" data-linktype="relative-path">
                                 <img alt = "" src="media/index/DocumentDB.svg" data-linktype="relative-path">
                                 <p>DocumentDB</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/mysql" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/mysql" data-linktype="relative-path">
                                 <img alt = "" src="media/index/MySQL.svg" data-linktype="relative-path">
                                 <p>MySQL</p>
                             </a>
                         </li>
                         <li style = "list-style-type:none !important" >
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/redis" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/redis" data-linktype="relative-path">
                                 <img alt = "" src="media/index/RedisCache.svg" data-linktype="relative-path">
                                 <p>Redis Cache</p>
                             </a>
@@ -534,37 +534,37 @@ ms.date: 06/13/2017
                     <h3>Networking</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/vnet" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/network/vnet" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VirtualNetwork.svg" data-linktype="relative-path">
                                 <p>Virtual Network</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/lb" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/network/lb" data-linktype="relative-path">
                                 <img alt = "" src="media/index/LoadBalancer.svg" data-linktype="relative-path">
                                 <p>Load Balancer</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/application-gateway" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/network/application-gateway" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ApplicationGateway.svg" data-linktype="relative-path">
                                 <p>Application Gateway</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/vnet-gateway" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/network/vnet-gateway" data-linktype="relative-path">
                                 <img alt = "" src="media/index/VPNGateway.svg" data-linktype="relative-path">
                                 <p>VPN Gateway</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/traffic-manager" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/network/traffic-manager" data-linktype="relative-path">
                                 <img alt = "" src="media/index/TrafficManager.svg" data-linktype="relative-path">
                                 <p>Traffic Manager</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/network/express-route" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/network/express-route" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ExpressRoute.svg" data-linktype="relative-path">
                                 <p>ExpressRoute</p>
                             </a>
@@ -584,7 +584,7 @@ ms.date: 06/13/2017
                     <h3>Storage</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/storage" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/storage" data-linktype="relative-path">
                                 <img alt = "" src="media/index/Storage.svg" data-linktype="relative-path">
                                 <p>Storage</p>
                             </a>
@@ -605,7 +605,7 @@ ms.date: 06/13/2017
                     <h3>Internet of Things</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/iot" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/iot" data-linktype="relative-path">
                                 <img alt = "" src="media/index/IoTHub.svg" data-linktype="relative-path">
                                 <p>IoT Hubs</p>
                             </a>
@@ -625,13 +625,13 @@ ms.date: 06/13/2017
                     <h3>Security + Identity</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/keyvault" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/keyvault" data-linktype="relative-path">
                                 <img alt = "" src="media/index/KeyVault.svg" data-linktype="relative-path">
                                 <p>Key Vault</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/ad" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/ad" data-linktype="relative-path">
                                 <img alt = "" src="media/index/ActiveDirectory.svg" data-linktype="relative-path">
                                 <p>Azure Active Directory</p>
                             </a>
@@ -651,13 +651,13 @@ ms.date: 06/13/2017
                     <h3>Monitoring + Management</h3>
                     <ul style = "margin-left:0px !important" >
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/monitor" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/monitor" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AzureMonitoring.svg" data-linktype="relative-path">
                                 <p>Monitoring and Diagnostics</p>
                             </a>
                         </li>
                         <li style="list-style-type:none !important">
-                            <a class="barLink" href="https://docs.microsoft.com/cli/azure/resource" data-linktype="relative-path">
+                            <a class="barLink" href="/cli/resource" data-linktype="relative-path">
                                 <img alt = "" src="media/index/AzureDefaultBlack.svg" data-linktype="relative-path">
                                 <p>Azure Resource Manager</p>
                             </a>

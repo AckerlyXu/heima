@@ -75,7 +75,7 @@
 ## [PowerShell (classic)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0#networking)
 ## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
+## [Azure CLI](/cli/network/vnet-gateway)
 
 # Related
 ## [Virtual Network](/virtual-network/)

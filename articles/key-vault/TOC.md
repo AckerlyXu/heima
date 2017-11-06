@@ -26,7 +26,7 @@
 
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure 2.0 CLI (Preview)](https://docs.microsoft.com/cli/azure/keyvault)
+## [Azure 2.0 CLI (Preview)](/cli/keyvault)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
