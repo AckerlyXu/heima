@@ -28,7 +28,6 @@ The Azure glossary is a short dictionary of cloud terminology for the Azure plat
 
 ## <a name="account"></a>Account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [trial](https://www.azure.cn/pricing/1rmb-trial).  
-See [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in).
 
 ## API app
 Another name for [App Service app](#app-service-app).
