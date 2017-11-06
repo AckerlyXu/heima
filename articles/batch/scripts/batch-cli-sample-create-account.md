@@ -25,7 +25,7 @@ can be queried and updated.
 
 ## Prerequisites
 
-Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
+Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](/cli/install-azure-cli), if you have not already done so.
 
 ## Batch account sample script
 
@@ -129,20 +129,20 @@ This script uses the following commands to create a resource group, Batch accoun
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | Creates the Batch account.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | Updates properties of the Batch account.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | Retrieves details of the specified Batch account.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Retrieves the access keys of the specified Batch account.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Authenticates against the specified Batch account for further CLI interaction.  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creates a storage account. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | Creates a key vault. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Update the security policy of the specified key vault. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/group#create) | Creates a resource group in which all resources are stored. |
+| [az batch account create](/cli/batch/account#create) | Creates the Batch account.  |
+| [az batch account set](/cli/batch/account#set) | Updates properties of the Batch account.  |
+| [az batch account show](/cli/batch/account#show) | Retrieves details of the specified Batch account.  |
+| [az batch account keys list](/cli/batch/account/keys#list) | Retrieves the access keys of the specified Batch account.  |
+| [az batch account login](/cli/batch/account#login) | Authenticates against the specified Batch account for further CLI interaction.  |
+| [az storage account create](/cli/storage/account#create) | Creates a storage account. |
+| [az keyvault create](/cli/keyvault#create) | Creates a key vault. |
+| [az keyvault set-policy](/cli/keyvault#set-policy) | Update the security policy of the specified key vault. |
+| [az group delete](/cli/group#delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/overview).
 
 Additional Batch CLI script samples can be found in the [Azure Batch CLI documentation](../batch-cli-samples.md).
 

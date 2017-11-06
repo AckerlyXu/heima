@@ -164,7 +164,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             <div class="cardText">
                                                 <h3>Command-line tools</h3>
                                                 <div class="ico48Link">
-                                                    <a href="https://docs.microsoft.com/cli/azure/overview">
+                                                    <a href="/cli/overview">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Azure<br />CLI</span>
                                                     </a>
@@ -1906,13 +1906,13 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <h3>Azure CLI 2.0
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure/get-started/">Get Started</a>
+                                                    <a target="_blank" href="/cli/get-started/">Get Started</a>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://github.com/Azure/azure-cli">Download Azure CLI 2.0</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/cli/azure">Reference</a>
+                                                    <a target="_blank" href="/cli">Reference</a>
                                                 </p>
                                             </div>
                                         </div>

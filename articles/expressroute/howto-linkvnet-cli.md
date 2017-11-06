@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/25/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 11/13/2017
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI
@@ -32,7 +32,7 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 ## Configuration prerequisites
 
-* You need the latest version of the command-line interface (CLI). For more information, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* You need the latest version of the command-line interface (CLI). For more information, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest).
 * You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](howto-circuit-cli.md) and have the circuit enabled by your connectivity provider. 

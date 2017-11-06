@@ -3,8 +3,8 @@ title: Use CLI 2.0 to create an Azure AD app and configure it to access Azure Me
 description: This topic shows how to use CLI 2.0 to create an Azure AD app and configure it to access Azure Media Services API.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.service: media-services
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+ms.date: 11/06/2017
+ms.author: v-johch
 
 ---
 # Use CLI 2.0 to create an AAD app and configure it to access Azure Media Services API
@@ -48,7 +48,7 @@ For example, it could be one of the following levels:
 - The **resource group** level.
 - The **resource** level (for example, a Media account).
 
-For more information, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+For more information, see [Create an Azure service principal with Azure CLI 2.0](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli)
 
 Also see [Manage Role-Based Access Control with the Azure command-line interface](../active-directory/role-based-access-control-manage-access-azure-cli.md).
 

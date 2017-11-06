@@ -2,7 +2,7 @@
 title: Azure Batch Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use Batch to run large-scale parallel and high-performance computing applications efficiently. Tutorials, API references, and other documentation.
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -19,7 +19,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/batch/batch-technical-overview">
+        <a href="/batch/batch-technical-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -37,25 +37,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
         </a>
     </li>
     <li>
-        <a href="/documentation/videos/index/?services=batch">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -73,7 +55,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
         </a>
     </li>
      <li>
-        <a href="/azure/batch/batch-dotnet-get-started">
+        <a href="/batch/batch-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,7 +73,7 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
         </a>
     </li>
      <li>
-        <a href="/azure/batch/batch-python-tutorial">
+        <a href="/batch/batch-python-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -102,6 +84,24 @@ Learn how to use Batch to run large-scale parallel and high-performance computin
                     </div>
                     <div class="cardText">
                         <h3>Get Started with Batch using Python</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/batch/batch-nodejs-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/media/logos/logo_nodejs.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Batch using Node.js</h3>
                     </div>
                 </div>
             </div>

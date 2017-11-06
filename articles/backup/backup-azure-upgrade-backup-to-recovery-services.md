@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 08/03/2017
-ms.date: 10/10/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
 
 ---
@@ -65,7 +65,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 
 >[!NOTE]
 > Resource Group names have constraints. Be sure to follow the guidance; failure to do so could cause vault upgrades to fail.
-> Azure China customers need to set the environment to “AzureChinaCloud” while running the script.
+>**Azure China** customers need to set the environment to “AzureChinaCloud” while running the script.
 
 The following code snippet is an example of what your PowerShell command should look like:
 

@@ -3,8 +3,8 @@ title: 'How to configure routing (peering) for an ExpressRoute circuit: Resource
 description: This article walks you through the steps for creating and provisioning the private, public peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 documentationcenter: na
 services: expressroute
-author: ganesr
-manager: timlt
+author: osamazia
+manager: jonor
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
+origin.date: 10/11/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 11/13/2017
 ---
 # Create and modify peering for an ExpressRoute circuit using PowerShell
 
@@ -24,8 +24,8 @@ This article helps you create and manage routing configuration for an ExpressRou
 
 > [!div class="op_single_selector"]
 
-> * [Resource Manager- Azure Portal](./expressroute-howto-routing-portal-resource-manager.md)
-> *[Resource Manager - PowerShell](./expressroute-howto-routing-arm.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
@@ -42,16 +42,17 @@ These instructions only apply to circuits created with service providers offerin
 > 
 > 
 
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
+You can configure one or two peerings (Azure private and Azure public) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
-## Azure private peering
+## <a name="private"></a>Azure private peering
 
 This section helps you create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit.
 
 ### To create Azure private peering
+
 1. Import the PowerShell module for ExpressRoute.
 
-     You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+  You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
   ```powershell
   Install-Module AzureRM
@@ -70,21 +71,20 @@ This section helps you create, get, update, and delete the Azure private peering
   Import-Module AzureRM.Network 
   ```
 
-    Sign in to your account.
+  Sign in to your account.
 
   ```powershell
-    Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
-    ```
+  Login-AzureRmAccount -EnvironmentName $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+  ```
 
-    Select the subscription you want to create ExpressRoute circuit
+  Select the subscription you want to create ExpressRoute circuit.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
-
 2. Create an ExpressRoute circuit.
 
-    Follow the instructions to create an [ExpressRoute circuit](./expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. 
+  Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider.
 
   If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
@@ -95,39 +95,37 @@ This section helps you create, get, update, and delete the Azure private peering
 
   The response is similar to the following example:
 
-    ```
-    Name                             : ExpressRouteARMCircuit
-    ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
-    Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-    Etag                             : W/"################################"
-    ProvisioningState                : Succeeded
-    Sku                              : {
-                                         "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
-    CircuitProvisioningState         : Enabled
-    ServiceProviderProvisioningState : Provisioned
-    ServiceProviderNotes             : 
-    ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
-    ServiceKey                       : **************************************
-    Peerings                         : []
-    ```
-
-4. Configure Azure private peering for the circuit.
-
-    Make sure that you have the following items before you proceed with the next steps:
+  ```
+  Name                             : ExpressRouteARMCircuit
+  ResourceGroupName                : ExpressRouteResourceGroup
+  Location                         : chinanorth
+  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+  Etag                             : W/"################################"
+  ProvisioningState                : Succeeded
+  Sku                              : {
+                                       "Name": "Standard_MeteredData",
+                                       "Tier": "Standard",
+                                       "Family": "MeteredData"
+                                     }
+  CircuitProvisioningState         : Enabled
+  ServiceProviderProvisioningState : Provisioned
+  ServiceProviderNotes             : 
+  ServiceProviderProperties        : {
+                                       "ServiceProviderName": "Beijing Telecom Ethernet",
+                                       "PeeringLocation": "Beijing",
+                                       "BandwidthInMbps": 200
+                                     }
+  ServiceKey                       : **************************************
+  Peerings                         : []
+  ```
+4. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks.
   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks.
   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
   * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Ensure that you are not using 65515.
-  * **Optional -** An MD5 hash if you choose to use one.
+  * Optional:
+    * An MD5 hash if you choose to use one.
 
   Use the following example to configure Azure private peering for your circuit:
 
@@ -148,7 +146,7 @@ This section helps you create, get, update, and delete the Azure private peering
   > 
   >
 
-### To view Azure private peering details
+### <a name="getprivate"></a>To get Azure private peering details
 
 You can get configuration details by using the following example:
 
@@ -158,7 +156,7 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 ```
 
-### To update Azure private peering configuration
+### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 100 to 500.
 
@@ -168,7 +166,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### To delete Azure private peering
+### <a name="deleteprivate"></a>To delete Azure private peering
 
 You can remove your peering configuration by running the following example:
 
@@ -183,7 +181,7 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Expr
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## Azure public peering
+## <a name="public"></a>Azure public peering
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
@@ -238,7 +236,7 @@ This section helps you create, get, update, and delete the Azure public peering 
     ```
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
-    Location                         : westus
+    Location                         : chinanorth
     Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
@@ -251,8 +249,8 @@ This section helps you create, get, update, and delete the Azure public peering 
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
+                                         "ServiceProviderName": "Beijing Telecom Ethernet",
+                                         "PeeringLocation": "Beijing",
                                          "BandwidthInMbps": 200
                                        }
     ServiceKey                       : **************************************
@@ -267,7 +265,8 @@ This section helps you create, get, update, and delete the Azure public peering 
   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-  * **Optional -** An MD5 hash if you choose to use one.
+  * Optional:
+    * An MD5 hash if you choose to use one.
 
   Run the following example to configure Azure public peering for your circuit
 
@@ -290,7 +289,7 @@ This section helps you create, get, update, and delete the Azure public peering 
   > 
   >
 
-### To view Azure public peering details
+### <a name="getpublic"></a>To get Azure public peering details
 
 You can get configuration details using the following cmdlet:
 
@@ -300,7 +299,7 @@ You can get configuration details using the following cmdlet:
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### To update Azure public peering configuration
+### <a name="updatepublic"></a>To update Azure public peering configuration
 
 You can update any part of the configuration using the following example. In this example, the VLAN ID of the circuit is being updated from 200 to 600.
 
@@ -310,7 +309,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### To delete Azure public peering
+### <a name="deletepublic"></a>To delete Azure public peering
 
 You can remove your peering configuration by running the following example:
 

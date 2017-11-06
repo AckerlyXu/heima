@@ -25,10 +25,10 @@ how to monitor a job and its tasks. Finally, it shows how to query the Batch ser
 
 ## Prerequisites
 
-- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
+- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](/cli/install-azure-cli), if you have not already done so.
 - Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](/batch/scripts/batch-cli-sample-create-account/) for a sample script that creates an account.
 - Configure an application to run from a start task if you haven't yet done so. See [Adding applications to Azure Batch with Azure CLI](/batch/scripts/batch-cli-sample-add-application/) for a sample script that creates an application and uploads an application package to Azure.
-- Configure a pool on which the job will run. See [Managing Azure Batch pools with Azure CLI](/batch/batch-cli-sample-manage-pool/) for a sample script that creates a pool with either a Cloud Service Configuration or a Virtual Machine Configuration.
+- Configure a pool on which the job will run. See [Managing Azure Batch pools with Azure CLI](/batch/scripts/batch-cli-sample-manage-pool/) for a sample script that creates a pool with either a Cloud Service Configuration or a Virtual Machine Configuration.
 
 ## Sample script
 
@@ -83,17 +83,17 @@ This script uses the following commands to create a Batch job and tasks. Each co
 
 | Command | Notes |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Authenticate against a Batch account.  |
-| [az batch job create](https://docs.microsoft.com/cli/azure/batch/job#create) | Creates a Batch job.  |
-| [az batch job set](https://docs.microsoft.com/cli/azure/batch/job#set) | Updates properties of a Batch job.  |
-| [az batch job show](https://docs.microsoft.com/cli/azure/batch/job#show) | Retrieves details of a specified Batch job.  |
-| [az batch task create](https://docs.microsoft.com/cli/azure/batch/task#create) | Adds a task to the specified Batch job.  |
-| [az batch task show](https://docs.microsoft.com/cli/azure/batch/task#show) | Retrieves the details of a task from the specified Batch job.  |
-| [az batch task list](https://docs.microsoft.com/cli/azure/batch/task#list) | Lists the tasks associated with the specified job.  |
+| [az batch account login](/cli/batch/account#login) | Authenticate against a Batch account.  |
+| [az batch job create](/cli/batch/job#create) | Creates a Batch job.  |
+| [az batch job set](/cli/batch/job#set) | Updates properties of a Batch job.  |
+| [az batch job show](/cli/batch/job#show) | Retrieves details of a specified Batch job.  |
+| [az batch task create](/cli/batch/task#create) | Adds a task to the specified Batch job.  |
+| [az batch task show](/cli/batch/task#show) | Retrieves the details of a task from the specified Batch job.  |
+| [az batch task list](/cli/batch/task#list) | Lists the tasks associated with the specified job.  |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/overview).
 
 Additional Batch CLI script samples can be found in the [Azure Batch CLI documentation](../batch-cli-samples.md).
 

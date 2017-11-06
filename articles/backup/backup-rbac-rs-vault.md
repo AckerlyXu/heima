@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 09/21/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
 
 ---
@@ -44,7 +44,7 @@ The following table captures the Backup management actions and corresponding min
 | Enable backup of Azure VMs | Backup Operator on vault, Virtual machine contributor on VMs |
 | On-demand backup of VM | Backup operator |
 | Restore VM | Backup operator, Resource group contributor in which VM and Vnets are going to get deployed |
-| Restore disks, individual files from VM backup | Backup operator |
+| Restore disks, individual files from VM backup | Backup operator, Virtual machine contributor on VMs |
 | Create backup policy for Azure VM backup | Backup contributor |
 | Modify backup policy of Azure VM backup | Backup contributor |
 | Delete backup policy of Azure VM backup | Backup contributor |
@@ -60,4 +60,4 @@ The following table captures the Backup management actions and corresponding min
   - [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 - [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
 
-<!--Update_Description: update meta properties --> 
+<!--Update_Description: wording update-->

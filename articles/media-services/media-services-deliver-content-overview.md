@@ -3,8 +3,8 @@ title: Delivering content to customers | Microsoft Docs
 description: This topic gives an overview of what is involved in delivering your content with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: forester123
+manager: digimobile
 editor: ''
 
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+origin.date: 09/28/2017
+ms.date: 11/06/2017
+ms.author: v-johch
 
 ---
 # Deliver content to customers
@@ -23,15 +23,18 @@ When you're delivering your streaming or video-on-demand content to customers, y
 
 To achieve this goal, you can:
 
-- Encode your stream to a multi-bitrate (adaptive bitrate) video stream. This will take care of quality and network conditions.
-* Use Azure Media Services [dynamic packaging](./media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG-DASH.
+* Encode your stream to a multi-bitrate (adaptive bitrate) video stream. This will take care of quality and network conditions.
+* Use Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: <br/>
+    * **HTTP Live Streaming** (HLS) - add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on **Apple iOS** native devices (for details, see [locators](#locators) and [URLs](#URLs)),
+    * **MPEG-DASH** - add "(format=mpd-time-csf)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back MPEG-DASH (for details, see [locators](#locators) and [URLs](#URLs)),
+    * **Smooth Streaming**.
 
 >[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 This article gives an overview of important content delivery concepts.
 
-To check known issues, see [Known issues](./media-services-deliver-content-overview.md#known-issues).
+To check known issues, see [Known issues](media-services-deliver-content-overview.md#known-issues).
 
 ## Dynamic packaging
 With the dynamic packaging that Media Services provides, you can deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG-DASH, HLS, Smooth Streaming,) without having to re-package into these streaming formats. We recommend delivering your content with dynamic packaging.
@@ -42,14 +45,14 @@ With dynamic packaging, you store and pay for the files in single storage format
 
 Dynamic packaging is available for standard and premium streaming endpoints. 
 
-For more information see [Dynamic Packaging](./media-services-dynamic-packaging-overview.md).  
+For more information, see [Dynamic packaging](media-services-dynamic-packaging-overview.md).
 
 ## Filters and dynamic manifests
 You can define filters for your assets with Media Services. These filters are server-side rules that help your customers do things like play a specific section of a video or specify a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering is achieved through *dynamic manifests* that are created when your customer requests to stream a video based on one or more specified filters.
 
-For more information, see [Filters and dynamic manifests](./media-services-dynamic-manifest-overview.md).
+For more information, see [Filters and dynamic manifests](media-services-dynamic-manifest-overview.md).
 
-## Locators
+## <a id="locators"/>Locators
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
 * OnDemandOrigin locators. These are used to stream media (for example, MPEG-DASH, HLS, or Smooth Streaming) or progressively download files.
@@ -66,7 +69,7 @@ Locators have expiration dates. The Azure portal sets an expiration date 100 yea
 
 To update an expiration date on a locator, use [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
-Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](http://msdn.microsoft.com/zh-cn/library/azure/dn282272.aspx).
+Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
 When you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
@@ -81,18 +84,19 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 
 You can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.chinacloudapi.cn.” Streaming URLs that contain “origin.mediaservices.chinacloudapi.cn” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over SSL.
 
-## Streaming URL formats
+## <a id="URLs"/>Streaming URL formats
+
 ### MPEG-DASH format
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
 
 http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
-###Apple HTTP Live Streaming (HLS) V4 format
+### Apple HTTP Live Streaming (HLS) V4 format
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-###Apple HTTP Live Streaming (HLS) V3 format
+### Apple HTTP Live Streaming (HLS) V3 format
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
 http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
@@ -104,7 +108,7 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 For more information, see [Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
-###Smooth Streaming format
+### Smooth Streaming format
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
 
 Example:
@@ -171,10 +175,9 @@ In the July 2016 service release, the generated Smooth Streaming manifest confor
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Some of the legacy Smooth Streaming clients may not support the repeat tags and will fail to load the manifest. To mitigate this issue, you can use the legacy manifest format parameter **(format=fmp4-v20)** or update your client to the latest version, which supports repeat tags. For more information, see [Smooth Streaming 2.0](./media-services-deliver-content-overview.md#fmp4_v20).
+Some of the legacy Smooth Streaming clients may not support the repeat tags and will fail to load the manifest. To mitigate this issue, you can use the legacy manifest format parameter **(format=fmp4-v20)** or update your client to the latest version, which supports repeat tags. For more information, see [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
 
-##Related topics
+## Related topics
+[Update Media Services locators after rolling storage keys](media-services-roll-storage-access-keys.md)
 
-[Update Media Services locators after rolling storage keys](./media-services-roll-storage-access-keys.md)
-
-<!--Update_Description: add Premium Streaming endpoint information-->
+<!--Update_Description: wording update-->

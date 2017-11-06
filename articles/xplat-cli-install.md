@@ -1,3 +1,3 @@
 ---
-redirect_url: /cli/azure/install-azure-cli
+redirect_url: /cli/install-azure-cli
 ---

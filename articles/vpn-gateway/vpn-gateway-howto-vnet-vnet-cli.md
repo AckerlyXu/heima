@@ -65,7 +65,7 @@ In this article, you see two different sets of steps. One set of steps for [VNet
 
 ### Before you begin
 
-Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/install-azure-cli).
 
 ### <a name="Plan"></a>Plan your IP address ranges
 
@@ -121,7 +121,7 @@ We use the following values in the examples:
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l chinaeast --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Create an additional address space for the backend subnet. Notice that in this step, we specify both the address space that we created earlier, and the additional address space that we want to add. This is because the [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) command overwrites the previous settings. Make sure to specify all of the address prefixes when using this command.
+3. Create an additional address space for the backend subnet. Notice that in this step, we specify both the address space that we created earlier, and the additional address space that we want to add. This is because the [az network vnet update](/cli/network/vnet#update) command overwrites the previous settings. Make sure to specify all of the address prefixes when using this command.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
