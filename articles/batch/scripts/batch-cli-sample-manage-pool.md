@@ -31,7 +31,7 @@ or a Virtual Machine configuration (Windows and Linux). The sample scripts below
 
 ## Prerequisites
 
-- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
+- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](/cli/install-azure-cli), if you have not already done so.
 - Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](/batch/scripts/batch-cli-sample-create-account/) for a sample script that creates an account.
 - Configure an application to run from a start task if you haven't yet done so. See [Adding applications to Azure Batch with Azure CLI](/batch/scripts/batch-cli-sample-add-application/) for a sample script that creates an application and uploads an application package to Azure.
 
@@ -132,23 +132,23 @@ Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Authenticate against a Batch account.  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | List the available applications in the Batch account.  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | Create a pool of VMs.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | Update properties of a pool.  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | List available node agent SKUs and image information.  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | Resize the number of running VMs in the specified pool.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | Display the properties of a pool.  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | Delete the specified pool.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | Enable auto-scaling on a pool and apply a formula.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | Disable auto-scaling on a pool.  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | List all the compute node in the specified pool.  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | Reboot the specified compute node.  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | Delete the listed nodes from the specified pool.  |
+| [az batch account login](/cli/batch/account#login) | Authenticate against a Batch account.  |
+| [az batch application summary list](/cli/batch/application/summary#list) | List the available applications in the Batch account.  |
+| [az batch pool create](/cli/batch/pool#create) | Create a pool of VMs.  |
+| [az batch pool set](/cli/batch/pool#set) | Update properties of a pool.  |
+| [az batch pool node-agent-skus list](/cli/batch/pool/node-agent-skus#list) | List available node agent SKUs and image information.  |
+| [az batch pool resize](/cli/batch/pool#resize) | Resize the number of running VMs in the specified pool.  |
+| [az batch pool show](/cli/batch/pool#show) | Display the properties of a pool.  |
+| [az batch pool delete](/cli/batch/pool#delete) | Delete the specified pool.  |
+| [az batch pool autoscale enable](/cli/batch/pool/autoscale#enable) | Enable auto-scaling on a pool and apply a formula.  |
+| [az batch pool autoscale disable](/cli/batch/pool/autoscale#disable) | Disable auto-scaling on a pool.  |
+| [az batch node list](/cli/batch/node#list) | List all the compute node in the specified pool.  |
+| [az batch node reboot](/cli/batch/node#reboot) | Reboot the specified compute node.  |
+| [az batch node delete](/cli/batch/node#delete) | Delete the listed nodes from the specified pool.  |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/overview).
 
 Additional Batch CLI script samples can be found in the [Azure Batch CLI documentation](../batch-cli-samples.md).
 

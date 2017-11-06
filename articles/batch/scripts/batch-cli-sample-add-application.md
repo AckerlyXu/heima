@@ -26,7 +26,7 @@ into a .zip file. In this example the executable zip file is called 'my-applicat
 
 ## Prerequisites
 
-- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), if you have not already done so.
+- Install the Azure CLI using the instructions provided in the [Azure CLI installation guide](/cli/install-azure-cli), if you have not already done so.
 - Create a Batch account if you don't already have one. See [Create a Batch account with the Azure CLI](/batch/scripts/batch-cli-sample-create-account/) for a sample script that creates an account.
 
 ## Sample script
@@ -81,13 +81,13 @@ Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#create) | Creates an application.  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#set) | Updates properties of an application.  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#create) | Adds an application package to the specified application.  |
+| [az batch application create](/cli/batch/application#create) | Creates an application.  |
+| [az batch application set](/cli/batch/application#set) | Updates properties of an application.  |
+| [az batch application package create](/cli/batch/application/package#create) | Adds an application package to the specified application.  |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/overview).
 
 Additional Batch CLI script samples can be found in the [Azure Batch CLI documentation](../batch-cli-samples.md).
 

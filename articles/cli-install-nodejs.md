@@ -23,10 +23,10 @@ ms.author: v-junlch
 > [!div class="op_single_selector"]
 >- [PowerShell](./powershell-install-configure.md)
 >- [Azure CLI 1.0](./cli-install-nodejs.md)
->- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli/)
+>- [Azure CLI 2.0](/cli/install-azure-cli/)
 
 > [!IMPORTANT]
-> This topic describes how to install the Azure CLI 1.0, which is built on nodeJs and supports all classic deployment API calls as well as a large number of Resource Manager deployment activities. You should use the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview) for new or forward-looking CLI deployments and management.
+> This topic describes how to install the Azure CLI 1.0, which is built on nodeJs and supports all classic deployment API calls as well as a large number of Resource Manager deployment activities. You should use the [Azure CLI 2.0](/cli/overview) for new or forward-looking CLI deployments and management.
 
 Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of open-source shell-based commands for creating and managing resources in Azure. You have several options to install these cross-platform tools on your computer:
 
@@ -132,5 +132,5 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli
+[cliasm]:/cli/get-started-with-azure-cli
 [cliarm]:./virtual-machines/azure-cli-arm-commands.md
