@@ -32,7 +32,7 @@ provider "azurerm" {
   client_id       = "your_client_id_from_script_execution"
   client_secret   = "your_client_secret_from_script_execution"
   tenant_id       = "your_tenant_id_from_script_execution"
-  environment     = "china"
+  environment     = "china"         # environment = "china" is Correct
 }
 
 # create a resource group 
@@ -132,7 +132,9 @@ resource "azurerm_storage_account" "helloterraformstorage" {
     name = "helloterraformstorage"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "chinanorth"
-    account_type = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_tier = "Standard"           # account_tier = "Standard"  is Correct
+
 
     tags {
         environment = "staging"
@@ -210,7 +212,7 @@ provider "azurerm" {
   client_id       = "XXX"
   client_secret   = "XXX"
   tenant_id       = "XXX"
-  environment     = "china"
+  environment     = "china"  # environment  = "china" is Correct
 }
 
 # create a resource group if it doesn't exist
@@ -267,7 +269,8 @@ resource "azurerm_storage_account" "helloterraformstorage" {
     name = "helloterraformstorage"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "chinanorth"
-    account_type = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS"  is Correct 
+    account_tier = "Standard"           # account_tier = "Standard" is Correct
 
     tags {
         environment = "staging"
