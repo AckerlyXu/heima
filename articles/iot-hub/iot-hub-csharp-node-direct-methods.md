@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/30/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
 ---
 
@@ -34,7 +34,7 @@ In this tutorial, we are going to develop a .NET and a Node.js console app:
 To complete this tutorial, you need:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -49,8 +49,8 @@ In this section, you create a Node.js console app that responds to a method call
     ```
     npm init
     ```
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
-
+2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+   
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
     ```

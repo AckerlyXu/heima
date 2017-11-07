@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/25/2017
+origin.date: 10/13/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 
 # Scale your IoT hub solution

@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/31/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
 ---
 
@@ -29,12 +29,10 @@ At the end of this tutorial, you have three Node.js console apps:
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
-> 
-> 
 
 To complete this tutorial, you need the following:
 
-+ Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
@@ -46,17 +44,20 @@ You have now created your IoT hub. You have the IoT Hub hostname and the IoT Hub
 
 In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device can only connect to IoT hub if it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. Run this app to generate the unique device ID and key your device uses to identify itself when it sends device-to-cloud messages.
 
-1. Create a new empty folder called **createdeviceidentity**. In the **createdeviceidentity** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create a new empty folder called `createdeviceidentity`. In the `createdeviceidentity` folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 
     ```cmd/sh
     npm init
     ```
-2. At your command prompt in the **createdeviceidentity** folder, run the following command to install the **azure-iothub** Service SDK package:
+
+2. At your command prompt in the `createdeviceidentity` folder, run the following command to install the `azure-iothub` Service SDK package:
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
-3. Using a text editor, create a **CreateDeviceIdentity.js** file in the **createdeviceidentity** folder.
+
+3. Using a text editor, create a **CreateDeviceIdentity.js** file in the `createdeviceidentity` folder.
+
 4. Add the following `require` statement at the start of the **CreateDeviceIdentity.js** file:
 
     ```nodejs

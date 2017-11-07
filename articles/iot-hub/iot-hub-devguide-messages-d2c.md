@@ -12,9 +12,9 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 09/19/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 11/20/2017
 ---
 # Send device-to-cloud messages to IoT Hub
 

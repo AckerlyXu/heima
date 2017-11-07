@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/30/2016
-ms.date: 09/25/2017
+origin.date: 10/06/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
 ---
 
@@ -37,10 +37,10 @@ Learn more about each of these capabilities in these articles:
 
 This tutorial shows you how to:
 
-* Create a simulated device app that has a direct method which enables **lockDoor** which can be called by the solution back end.
+* Create a Node.js simulated device app that has a direct method, which enables **lockDoor**, which can be called by the solution back end.
 * Create a Node.js console app that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
-At the end of this tutorial, you have two Node.js console apps:
+At the end of this tutorial, you have two Node.js apps:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
@@ -48,7 +48,7 @@ At the end of this tutorial, you have two Node.js console apps:
 
 To complete this tutorial, you need the following:
 
-* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 4.0.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -56,7 +56,7 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated **lockDoor** method.
 
 1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
@@ -122,8 +122,8 @@ In this section, you create a Node.js console app that responds to a direct meth
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 In this section, you create a Node.js console app that initiates a remote **lockDoor** on a device using a direct method and update the device twin's properties.
 
-1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
-
+1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+   
     ```
     npm init
     ```
@@ -150,8 +150,8 @@ In this section, you create a Node.js console app that initiates a remote **lock
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
-6. Add the following function that will be used to monitor the execution of the job:
-
+6. Add the following function that is used to monitor the execution of the job:
+   
     ```
     function monitorJob (jobId, callback) {
         var jobMonitorInterval = setInterval(function() {
@@ -200,14 +200,16 @@ In this section, you create a Node.js console app that initiates a remote **lock
     });
     ```
 8. Add the following code to schedule the job to update the device twin:
-
+   
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
 
     var twinJobId = uuid.v4();
