@@ -33,6 +33,7 @@ provider "azurerm" {
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    environment     = "china"         # environment = "china" is Correct
 }
 ```
 
@@ -164,7 +165,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraform.name}"
     location            = "China East"
-    account_type        = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_tier = "Standard"
 
     tags {
         environment = "Terraform Demo"
@@ -236,6 +238,7 @@ provider "azurerm" {
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    environment     = "china"  # environment     = "china" is correct
 }
 
 # Create a resource group if it doesn't exist
@@ -337,7 +340,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraform.name}"
     location            = "China East"
-    account_type        = "Standard_LRS"
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_tier = "Standard"   # account_tier = "Standard" is Correct
+
 
     tags {
         environment = "Terraform Demo"
