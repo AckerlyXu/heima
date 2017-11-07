@@ -54,11 +54,8 @@ This tutorial covers the following tasks:
 
    ![Update NuGet packages](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. In the **Browse** tab, enter **azure.graphs** to find the **Microsoft.Azure.Graphs** package, and then  click **Install**. This package contains the Graph API .NET Client SDK.
 
-   ![Install the Graph API](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
-
-    c. In the **Browse** tab, enter **mono.csharp** to find the **Mono.CSharp** package, and then click **Install**.
+    b. In the **Browse** tab, enter **mono.csharp** to find the **Mono.CSharp** package, and then click **Install**.
 
    ![Install Mono.CSharp](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
