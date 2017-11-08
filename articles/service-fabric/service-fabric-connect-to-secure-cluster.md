@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 10/02/2017
+origin.date: 09/29/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
-
 # Connect to a secure cluster
+
 When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that connects to the cluster. 
 
 <a id="connectsecureclustercli"></a> 
@@ -108,7 +108,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 When the parameters are filled in, the command looks like the following example: 
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.chinaeast.chinacloudapp.cn:19000 `
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.chinanorth.cloudapp.chinacloudapi.cn:19000 `
           -KeepAliveIntervalInSec 10 `
           -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
           -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
@@ -152,8 +152,8 @@ using System.Security.Cryptography.X509Certificates;
 
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string CommonName = "www.clustername.chinaeast.chinacloudapp.cn";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string CommonName = "www.clustername.chinanorth.chinacloudapi.cn";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
 
 var xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
 var fc = new FabricClient(xc, connection);
@@ -190,7 +190,7 @@ A dialog window automatically pops up for interactive sign-in upon connecting to
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
 
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
@@ -226,7 +226,8 @@ string token = GetAccessToken(
     "urn:ietf:wg:oauth:2.0:oob");
 
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
+
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
 claimsCredentials.LocalClaims = token;
@@ -270,7 +271,7 @@ The following example uses non-interactive token acquisition, but the same appro
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
-string connection = "clustername.chinaeast.chinacloudapp.cn:19000";
+string connection = "clustername.chinanorth.cloudapp.chinacloudapi.cn:19000";
 
 var claimsCredentials = new ClaimsCredentials();
 claimsCredentials.ServerThumbprints.Add(serverCertThumb);
@@ -316,7 +317,7 @@ To reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) f
 
 The full URL is also available in the cluster essentials pane of the Azure portal.
 
-<!--Update_Description: wording update-->
+For connecting to a secure cluster on Windows or OS X using a browser, you can import the client certificate, and the browser will prompt you for the certificate to use for connecting to the cluster.  On Linux machines, the certificate will have to be imported using advanced browser settings (each browser has different mechanisms) and point it to tehe certificate location on disk.
 
 ### Connect to a secure cluster using Azure Active Directory
 
@@ -361,4 +362,4 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Service Fabric Health model introduction](service-fabric-health-introduction.md)
 * [Application Security and RunAs](service-fabric-application-runas-security.md)
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update reference link, wording update-->

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 08/08/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -157,11 +157,11 @@ The second event indicates that the request failed while forwarding to service, 
 
     If collection is enabled for critical/error events only, you see one event with details about the timeout and the number of resolve attempts. 
 
-    If the service intends to send a 404 status code back to the user, it should be accompanied by an "X-ServiceFabric" header. After fixing this, you will see that reverse proxy forwards the status code back to the client.  
+    Services that intend to send a 404 status code back to the user, should add an "X-ServiceFabric" header in the response. After the header is added to the response, reverse proxy forwards the status code back to the client.  
 
 4. Cases when the client has disconnected the request.
 
-    The below event is recorded when reverse proxy is forwarding the response to client but the client disconnects:
+    Following event is recorded when reverse proxy is forwarding the response to client but the client disconnects:
 
     ```
     {
@@ -179,6 +179,18 @@ The second event indicates that the request failed while forwarding to service, 
       }
     }
     ```
+5. Reverse Proxy returns 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+
+    FABRIC_E_SERVICE_DOES_NOT_EXIST error is returned if the URI scheme is not specified for the service endpoint in the service manifest.
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    To resolve the problem, specify the URI scheme in the manifest.
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > Events related to websocket request processing are not currently logged. This will be added in the next release.
@@ -189,4 +201,4 @@ The second event indicates that the request failed while forwarding to service, 
 * Refer to [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) for Azure Resource Manager template samples to configure secure reverse proxy with the different service certificate validation options.
 * Read [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to learn more.
 
-<!--Update_Description: new articles of reverse proxy diagnostics in service fabric -->
+<!--Update_Description: add content of error FABRIC_E_SERVICE_DOES_NOT_EXIST -->

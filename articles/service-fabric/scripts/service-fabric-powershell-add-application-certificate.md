@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 06/20/2017
-ms.date: 10/02/2017
+origin.date: 09/29/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -59,5 +59,4 @@ This script uses the following commands: Each command in the table links to comm
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
-
-<!--Update_Description: update link -->
+<!--Update_Description: update meta properties-->

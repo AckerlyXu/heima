@@ -14,13 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ---
 
-# Specifying volume plugins and logging drivers for your container
+# Using volume plugins and logging drivers in your container
 
-Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. The plugins are specified in the application manifest as shown in the following manifest:
+Service Fabric supports specifying [Docker volume plugins](https://docs.docker.com/engine/extend/plugins_volume/) and [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/) for your container service. 
+## Specify the plugin or driver in the manifest
+The plugins are specified in the application manifest as shown in the following manifest:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -41,7 +43,9 @@ Service Fabric supports specifying [Docker volume plugins](https://docs.docker.c
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
         <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
-        <Volume Source="myexternalvolume" Destination="c:\testmountlocation3" Driver="sf" IsReadOnly="true"></Volume>
+        <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+        </Volume>
        </ContainerHostPolicies>
    </Policies>
     </ServiceManifestImport>
@@ -67,6 +71,6 @@ If a Docker log driver is specified, it is necessary to deploy agents (or contai
 
 Refer to the following articles to deploy containers to a Service Fabric cluster:
 
-<!-- Not Available [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-deploy-container.md) -->
+<!-- Not Available [Deploy a container on Service Fabric](service-fabric-deploy-container.md) -->
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update, update link -->

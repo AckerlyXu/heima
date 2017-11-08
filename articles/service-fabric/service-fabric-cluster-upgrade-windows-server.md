@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/30/2017
-ms.date: 09/11/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,6 @@ You can upgrade your cluster to the new version only if you are using a producti
 Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that do not have connectivity to download the latest Service Fabric version.
 
 ### Upgrade clusters that have connectivity to download the latest code and configuration
-
 Use these steps to upgrade your cluster to a supported version if your cluster nodes have Internet connectivity to [http://download.microsoft.com](http://download.microsoft.com).
 
 For clusters that have connectivity to [http://download.microsoft.com](http://download.microsoft.com), we periodically checks for the availability of new Service Fabric versions.
@@ -52,7 +51,6 @@ When a new Service Fabric version is available, the package is downloaded locall
 After the cluster is running the latest version, the warning goes away.
 
 #### Cluster upgrade workflow
-
 After you see the cluster health warning, do the following:
 
 1. Connect to the cluster from any machine that has administrator access to all the machines that are listed as nodes in the cluster. The machine that this script is run on does not have to be part of the cluster.
@@ -82,7 +80,6 @@ After you see the cluster health warning, do the following:
     You should get an output similar to this:
 
     ![get fabric versions][getfabversions]
-
 3. Start a cluster upgrade to an available version by using the
    [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) PowerShell cmd.
 
@@ -107,7 +104,6 @@ After you see the cluster health warning, do the following:
 After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 ### Upgrade clusters that have <U>no connectivity</u> to download the latest code and configuration
-
 Use these steps to upgrade your cluster to a supported version if your cluster nodes do not have Internet connectivity to [http://download.microsoft.com](http://download.microsoft.com).
 
 > [!NOTE]
@@ -121,7 +117,7 @@ For manual process, follow the instructions below.
 
 Modify your cluster configuration to set the following property to false before you start a configuration upgrade.
 
-     "fabricClusterAutoupgradeEnabled": false,
+    "fabricClusterAutoupgradeEnabled": false,
 
 Refer to [Start-ServiceFabricClusterConfigurationUpgrade PS cmd ](https://msdn.microsoft.com/library/mt788302.aspx) for usage details. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
@@ -220,6 +216,7 @@ Technically, three options are supported:
 1. Single certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate B (Primary) -> Certificate C (Primary) -> ...'.   
 2. Double certificate upgrade: The upgrade path is 'Certificate A (Primary) -> Certificate A (Primary) and B (Secondary) -> Certificate B (Primary) -> Certificate B (Primary) and C (Secondary) -> Certificate C (Primary) -> ...'.
 3. Certificate type upgrade: Thumbprint-based certificate configuration <-> CommonName-based certificate configuration. For example, Certificate Thumbprint A (Primary) and Thumbprint B (Secondary) -> Certificate CommonName C.
+4. Certificate Issuer Thumbprint Upgrade: The upgrade path is 'Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary)'
 
 ## Next steps
 * Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
@@ -229,4 +226,4 @@ Technically, three options are supported:
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

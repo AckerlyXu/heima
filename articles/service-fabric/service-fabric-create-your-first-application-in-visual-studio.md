@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/28/2017
-ms.date: 08/14/2017
+origin.date: 10/04/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ---
 
@@ -142,4 +142,4 @@ Read more about [reliable services](service-fabric-reliable-services-introductio
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

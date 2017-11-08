@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Create a Service Fabric cluster| Azure
+title: Azure PowerShell Script Sample - Create a Service Fabric cluster | Azure
 description: Azure PowerShell Script Sample - Create a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 06/20/2017
-ms.date: 10/02/2017
+origin.date: 09/29/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # Create a Service Fabric cluster
 
-This sample script creates a Service Fabric cluster a five-node cluster secured with an X.509 certificate.  The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
+This sample script creates a five-node Service Fabric cluster secured with an X.509 certificate.  The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview) and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
 
@@ -82,5 +82,4 @@ This script uses the following commands. Each command in the table links to comm
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).
-
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update-->

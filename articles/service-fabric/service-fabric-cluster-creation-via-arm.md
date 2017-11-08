@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/22/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -67,7 +67,8 @@ The first step is to create a resource group specifically for your key vault. We
 If you plan to deploy clusters in multiple regions, we suggest that you name the resource group and the key vault in a way that indicates which region it belongs to.  
 
 ```powershell
-    New-AzureRmResourceGroup -Name chinaeast-mykeyvault -Location 'China East'
+
+    New-AzureRmResourceGroup -Name chinanorth-mykeyvault -Location 'China North'
 ```
 The output should look like this:
 
@@ -75,11 +76,11 @@ The output should look like this:
 
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
 
-    ResourceGroupName : chinaeast-mykeyvault
-    Location          : chinaeast
+    ResourceGroupName : chinanorth-mykeyvault
+    Location          : chinanorth
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault
+    ResourceId        : /subscriptions/<guid>/resourceGroups/chinanorth-mykeyvault
 
 ```
 <a id="new-key-vault"></a>
@@ -89,18 +90,19 @@ The key vault _must be enabled for deployment_ to allow the compute resource pro
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mychinaeastvault' -ResourceGroupName 'chinaeast-mykeyvault' -Location 'China East' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'mychinanorthvault' -ResourceGroupName 'chinanorth-mykeyvault' -Location 'China North' -EnabledForDeployment
 
 ```
 
 The output should look like this:
 
 ```powershell
-    Vault Name                       : mychinaeastvault
-    Resource Group Name              : chinaeast-mykeyvault
-    Location                         : China East
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
-    Vault URI                        : https://mychinaeastvault.vault.azure.cn
+
+    Vault Name                       : mychinanorthvault
+    Resource Group Name              : chinanorth-mykeyvault
+    Location                         : China North
+    Resource ID                      : /subscriptions/<guid>/resourceGroups/chinanorth-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinanorthvault
+    Vault URI                        : https://mychinanorthvault.vault.azure.cn
     Tenant ID                        : <guid>
     SKU                              : Standard
     Enabled For Deployment?          : False
@@ -123,7 +125,9 @@ The output should look like this:
 To use an existing key vault, you _must enable it for deployment_ to allow the compute resource provider to get certificates from it and install it on cluster nodes:
 
 ```powershell
+
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+
 ```
 
 <a id="add-certificate-to-key-vault"></a>
@@ -171,14 +175,14 @@ The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically f
 
 ```powershell
 
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinaeast-mykeyvault -Location "China East" -VaultName mychinaeastvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName chinanorth-mykeyvault -Location "China North" -VaultName mychinanorthvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
 ```
 
 If you get an error, such as the one shown here, it usually means that you have a resource URL conflict. To resolve the conflict, change the key vault name.
 
 ```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.azure.cn'
+Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinanorthkv.vault.azure.cn'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
 +           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -192,21 +196,20 @@ After the conflict is resolved, the output should look like this:
 ```
 
     Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup chinaeast-mykeyvault in China East
+    Ensuring ResourceGroup chinanorth-mykeyvault in China North
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
-    Using existing value mychinaeastvault in China East
+    Using existing value mychinanorthvault in China North
     Reading pfx file from C:\path\to\key.pfx
-    Writing secret to mychinaeastvault in vault mychinaeastvault
-
+    Writing secret to mychinanorthvault in vault mychinanorthvault
 
 Name  : CertificateThumbprint
 Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
 
 Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
+Value : /subscriptions/<guid>/resourceGroups/chinanorth-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinanorthvault
 
 Name  : CertificateURL
-Value : https://mychinaeastvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+Value : https://mychinanorthvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 
 ```
 
@@ -220,12 +223,13 @@ Value : https://mychinaeastvault.vault.azure.cn:443/secrets/mycert/4d087088df974
 If you have already uploaded your certificates to the key vault, skip this step. This step is for generating a new self-signed certificate and uploading it to your key vault. After you change the parameters in the following script and then run it, you should be prompted for a certificate password.  
 
 ```powershell
-$ResouceGroup = "chackochinaeastkv"
+
+$ResourceGroup = "chackochinanorthkv"
 $VName = "chackokv2"
 $SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
-$locationRegion = "chinaeast" 
+$locationRegion = "chinanorth"
 $newCertName = "chackotestcertificate1"
-$dnsName = "www.mycluster.chinaeast.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
+$dnsName = "www.mycluster.chinanorth.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
 $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
  Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResourceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
@@ -235,7 +239,7 @@ $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be st
 If you get an error, such as the one shown here, it usually means that you have a resource URL conflict. To resolve the conflict, change the key vault name, RG name, and so forth.
 
 ```
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.azure.cn'
+Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinanorthkv.vault.azure.cn'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
 +           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -249,21 +253,21 @@ After the conflict is resolved, the output should look like this:
 ```
 PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
-Ensuring ResourceGroup chackochinaeastkv in chinaeast
+Ensuring ResourceGroup chackochinanorthkv in chinanorth
 WARNING: The output object type of this cmdlet will be modified in a future release.
-Creating new vault chinaeastkv1 in chinaeast
+Creating new vault chinanorthkv1 in chinanorth
 Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
 Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
-Writing secret to chackonewcertificate1 in vault chinaeastkv1
+Writing secret to chackonewcertificate1 in vault chinanorthkv1
 
 Name  : CertificateThumbprint
 Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
 
 Name  : SourceVault
-Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackochinaeastkv/providers/Microsoft.KeyVault/vaults/chinaeastkv1
+Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackochinanorthkv/providers/Microsoft.KeyVault/vaults/chinanorthkv1
 
 Name  : CertificateURL
-Value : https://chinaeastkv1.vault.azure.cn:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
+Value : https://chinanorthkv1.vault.azure.cn:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
 
 ```
 
@@ -296,7 +300,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 4. Run `SetupApplications.ps1`, and provide the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
 
     ```powershell
-    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html'
+    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/index.html'
     ```
 
     You can find your TenantId by executing the PowerShell command `Get-AzureSubscription`. Executing this command displays the TenantId for every subscription.
@@ -448,7 +452,8 @@ The Azure AD configuration that you created earlier can be inserted directly int
 }
 ```
 
-### <a name="configure-arm" ></a>Configure Resource Manager template parameters
+<a name="configure-arm" ></a>
+### Configure Resource Manager template parameters
 Finally, use the output values from the key vault and Azure AD PowerShell commands to populate the parameters file:
 
 ```json

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 09/11/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -30,12 +30,12 @@ Log Analytics collects data from managed resources, including an Azure storage t
 
 When OMS is configured, you will have access to a specific *OMS workspace*, from where data can be queried or visualized in dashboards.
 
-After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions . Each solution that you choose to use for a cluster will be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and visualization of data, and modifications to the data you want to collect, process, and analyze.
+After data is received by Log Analytics, OMS has several *Management Solutions* that are prepackaged solutions to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. There are several others as well that are worth exploring, and OMS also allows for the creation of custom solutions . Each solution that you choose to use for a cluster can be configured in the same OMS workspace, alongside Log Analytics. Workspaces allow for custom dashboards and visualization of data, and modifications to the data you want to collect, process, and analyze.
 <!-- Not Available [here](/operations-management-suite/operations-management-suite-solutions). -->
 
-## Setting up an OMS workspace with the Service Fabric Solution
+## Setting up an OMS workspace with the Service Fabric Analytics Solution
 
-It is recommended that you include the Service Fabric Solution in your OMS workspace, since it provides a useful dashboard that shows the various incoming log channels from the platform and application level, and the able to query Service Fabric specific logs. Here is what a relatively simple Service Fabric Solution looks like, with a single application deployed on the cluster:
+It is recommended that you include the Service Fabric Solution in your OMS workspace - it includes a dashboard that shows the various incoming log channels from the platform and application level, and provides the ability to query Service Fabric specific logs. Here is what a relatively simple Service Fabric Solution looks like, with a single application deployed on the cluster:
 
 ![OMS SF solution](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -43,7 +43,7 @@ There are two ways to provision and configure an OMS workspace, either through a
 
 ### Deploying OMS using a Resource Management template
 
-This happens at the cluster creation stage - when deploying a cluster using a Resource Manager template, the template can also create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
+When deploying a cluster using a Resource Manager template, the template can also create a new OMS workspace, add the Service Fabric Solution to it, and configure it to read data from the appropriate storage tables.
 
 >[!NOTE]
 >For this to work, Diagnostics has to be enabled in order for the Azure storage tables to exist for OMS / Log Analytics to read information in from.

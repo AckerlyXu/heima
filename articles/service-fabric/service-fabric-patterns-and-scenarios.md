@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/16/2017
-ms.date: 07/17/2017
+origin.date: 10/04/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -97,3 +97,5 @@ Get the answer to the question, "Why containers?" Learn about the preview for Wi
 
 ## Next steps
 Now that you've learned about Service Fabric patterns and scenarios, read more about how to [create and manage clusters](service-fabric-deploy-anywhere.md), [migrate Cloud Services apps to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [set up continuous delivery](service-fabric-set-up-continuous-integration.md), and [deploy containers](service-fabric-containers-overview.md).
+
+<!--Update_Description: update meta properties-->

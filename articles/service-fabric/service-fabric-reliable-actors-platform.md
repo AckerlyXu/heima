@@ -3,8 +3,8 @@ title: Reliable Actors on Service Fabric | Azure
 description: Describes how Reliable Actors are layered on Reliable Services and use the features of the Service Fabric platform.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: amanbha
 
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
-ms.author: v-johch
+origin.date: 09/20/2017
+ms.date: 11/13/2017
+ms.author: v-yeche
 
 ---
 # How Reliable Actors use the Service Fabric platform
@@ -27,7 +28,7 @@ This article explains how Reliable Actors work on the Azure Service Fabric platf
 These components together form the Reliable Actor framework.
 
 ## Service layering
-Because the actor service itself is a reliable service, all the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-package-apps.md), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to actor services. 
+Because the actor service itself is a reliable service, all the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-package-apps.md), [deployment](service-fabric-deploy-remove-applications.md), upgrade, and scaling concepts of Reliable Services apply the same way to actor services.
 
 ![Actor service layering][1]
 
@@ -63,7 +64,6 @@ CompletableFuture<?> MyActorMethod()
     String applicationInstanceName = this.getActorService().getServiceContext().getCodePackageActivationContext().getApplicationName();
 }
 ```
-
 
 Like all Reliable Services, the actor service must be registered with a service type in the Service Fabric runtime. For the actor service to run your actor instances, your actor type must also be registered with the actor service. The `ActorRuntime` registration method performs this work for actors. In the simplest case, you can just register your actor type, and the actor service with default settings will implicitly be used:
 
@@ -353,7 +353,6 @@ ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
 ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
-
 Every `ActorId` is hashed to an Int64. This is why the actor service must use an Int64 partitioning scheme with the full Int64 key range. However, custom ID values can be used for an `ActorID`, including GUIDs/UUIDs, strings, and Int64s.
 
 ```csharp
@@ -369,11 +368,41 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 
 When you're using GUIDs/UUIDs and strings, the values are hashed to an Int64. However, when you're explicitly providing an Int64 to an `ActorId`, the Int64 will map directly to a partition without further hashing. You can use this technique to control which partition the actors are placed in.
 
+## Actor using Remoting V2 Stack
+With 2.8 nuget package, users can now use Remoting V2 stack, which is more performant and provides features like custom Serialization. Remoting V2 is not backward compatible with existing Remoting stack (we are calling now it as V1 Remoting stack).
+
+Following changes are required to use the Remoting V2 Stack.
+ 1. Add the following assembly attribute on Actor Interfaces.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. Build and Upgrade ActorService And Actor Client projects to start using V2 Stack.
+
+### Actor Service Upgrade to Remoting V2 Stack without impacting Service Availability.
+This change will be a 2-step upgrade. Follow the steps in the same sequence as listed.
+
+1.  Add the following assembly attribute on Actor Interfaces. This attribute will start two listeners for ActorService, V1 (existing) and V2 Listener. Upgrade ActorService with this change.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. Upgrade ActorClients after completing the above upgrade.
+This step makes sure Actor Proxy is using Remoting V2 Stack.
+
+3. This step is optional. Change the above attribute to remove V1 Listener.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
+
 ## Next steps
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
@@ -381,3 +410,5 @@ When you're using GUIDs/UUIDs and strings, the values are hashed to an Int64. Ho
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
+
+<!--Update_Description: update meta properties, add content of Actor using Remoting V2 Stacks-->
