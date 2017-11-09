@@ -37,7 +37,7 @@ This article describes how to complete the following steps:
 ![System architecture](./media/mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> This topic uses the [Azure CLI](../../../cli-install-nodejs.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, see the [Azure CLI command reference](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). You will also need to [create an SSH key for authentication] and make note of the .pem file location.
+> This topic uses the [Azure CLI](../../../cli-install-nodejs.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, see the [Azure CLI command reference](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest). You will also need to [create an SSH key for authentication] and make note of the .pem file location.
 >
 >
 

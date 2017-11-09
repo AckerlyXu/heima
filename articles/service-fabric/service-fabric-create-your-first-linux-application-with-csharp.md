@@ -13,28 +13,29 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/21/2017
-ms.date: 10/02/2017
+origin.date: 09/19/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
 # Create your first Azure Service Fabric application
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java - Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Linux (Preview)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we look at how to create an application for Linux and build a service using C# (.NET Core).
+Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we look at how to create an application for Linux and build a service using C# on .NET Core 2.0.
 
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
 
 You will also want to install the [Service Fabric CLI](service-fabric-cli.md)
 
-### Install and set up the generators for CSharp
-Service Fabric provides scaffolding tools which will help you create a Service Fabric CSharp application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator for CSharp working on your machine.
+### Install and set up the generators for C#
+Service Fabric provides scaffolding tools which help you create Service Fabric applications from a terminal using Yeoman template generators. Follow these steps to set up the Service Fabric Yeoman template generators for C#:
+
 1. Install nodejs and NPM on your machine
 
     ```bash
@@ -53,7 +54,7 @@ Service Fabric provides scaffolding tools which will help you create a Service F
     ```
 
 ## Create the application
-A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for CSharp, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
+A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for C#, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 
 1. In a terminal, type the following command to start building the scaffolding: `yo azuresfcsharp`
 2. Name your application.
@@ -75,6 +76,7 @@ cd myapp
 ```
 
 ## Deploy the application
+
 Once the application is built, you can deploy it to the local cluster.
 
 1. Connect to the local Service Fabric cluster.
@@ -127,7 +129,7 @@ To add another service to an application already created using `yo`, perform the
 3. Update the project file names to csproj files in build.sh.
 
 ## Next steps
-* [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
+
 * [Interacting with Service Fabric clusters using the Service Fabric CLI](service-fabric-cli.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)
@@ -136,4 +138,4 @@ To add another service to an application already created using `yo`, perform the
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, update reference link, wording update -->

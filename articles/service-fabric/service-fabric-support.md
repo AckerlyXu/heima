@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/15/2017
-ms.date: 09/11/2017
+origin.date: 10/12/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -23,22 +23,20 @@ ms.author: v-yeche
 To deliver the appropriate support for your Service Fabric clusters that you are running your application work loads on, we have set up various options for you. Depending on the level of support needed and the severity of the issue, you get to pick the right options. 
 
 <a name="getlivesitesupportonazure"></a>
+## Report production issues or request paid support for Azure
 
-## Report production or live-site issues or request paid support for Azure
-
-For reporting live-site issues on your Service Fabric cluster deployed on Azure, Open a ticket for professional support [on Azure portal](https://www.azure.cn/support/support-ticket-form)
-or [Azure support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+For reporting issues on your Service Fabric cluster deployed on Azure, open a ticket for support [on Azure portal](https://www.azure.cn/support/support-ticket-form)
+<!--Duplicated [Azure support portal](https://www.azure.cn/support/support-ticket-form).-->
 
 Learn more about:
 
-- [Professional Support from Microsoft for Azure](https://www.azure.cn/support/plans/?b=16.44).
+- [Support from Microsoft for Azure](https://www.azure.cn/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/premier).
 
 <a name="getlivesitesupportonprem"></a>
+## Report production issues or request paid support for standalone Service Fabric clusters
 
-## Report production or live-site issues or request paid support for standalone Service Fabric clusters
-
-For reporting live-site issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Azure support portal](https://www.azure.cn/support/support-ticket-form).
+For reporting issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Azure support portal](https://www.azure.cn/support/support-ticket-form).
 
 Learn more about:
 
@@ -53,7 +51,6 @@ We have set up a GitHub repo for reporting Service Fabric issues.  We are also a
 Report Azure Service Fabric Issues on [Service-Fabric-issues git repo](https://github.com/Azure/service-fabric-issues). This repo is intended for reporting and tracking issues with Azure Service Fabric and for making small feature requests. **Do not use this to report live-site issues**.
 
 ### StackOverflow and MSDN forums
-
 The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] are best used for asking questions about how the platform works and how you might accomplish certain tasks with it.
 
 ### Azure Feedback forum
@@ -61,7 +58,7 @@ The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric
 The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting big feature ideas you have for the product as we review the most popular requests are part of our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
 
 <a name="releasesuport"></a>
-## Supported Service Fabric versions
+## Supported Service Fabric versions.
 
 Make sure that your cluster is always running a supported Service Fabric version. As and when we announce the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
@@ -76,10 +73,11 @@ Here are the list of the Service Fabric versions that are supported and their su
 | --- | --- | --- |
 | All cluster versions prior to 5.3.121 |Less than or equal to version  2.3 |January 20, 2017 |
 | 5.3.* |Less than or equal to version  2.3 |February 24, 2017 |
-| 5.4.* |Less than or equal to version  2.4 |May 10,2017     |
+| 5.4.* |Less than or equal to version  2.4 |May 10,2017       |
 | 5.5.* |Less than or equal to version  2.5 |August 10,2017    |
-| 5.6.* |Less than or equal to version  2.6 |October 13,2017    |
-| 5.7.* |Less than or equal to version  2.7 |Current version and so no end date
+| 5.6.* |Less than or equal to version  2.6 |October 13,2017   |
+| 5.7.* |Less than or equal to version  2.7 |December 15,2017  |
+| 6.0.* |Less than or equal to version  2.8 |Current version and so no end date
 
 <a name="previewversion"></a>
 ## Service Fabric Preview Versions - unsupported for production use.
@@ -96,7 +94,7 @@ There is no paid support option for these preview releases. Use one of the optio
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: http://aka.ms/servicefabricdocs
+[acom-docs]: ../service-fabric/index.yml
 [sample-repos]: http://aka.ms/servicefabricsamples
 
 <!--Update_Description: update meta properties, wording update-->

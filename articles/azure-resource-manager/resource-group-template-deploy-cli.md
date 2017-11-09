@@ -110,7 +110,7 @@ az group deployment create \
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](https://docs.microsoft.com/cli/azure/group/deployment#validate). 
+To test your template and parameter values without actually deploying any resources, use [az group deployment validate](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#validate). 
 
 ```azurecli
 az group deployment validate \
@@ -222,7 +222,7 @@ The following template is used for the examples in this topic. Copy and save it 
 ```
 
 ## Next steps
-* The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli).
+* The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 * For a complete sample script that deploys a template, see [Resource Manager template deployment script](resource-manager-samples-cli-deploy.md).
 * To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).

@@ -332,7 +332,7 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 ## <a name="use-azure-cli"></a>Use Azure CLI
 
-To move existing resources to another resource group or subscription, use the [az resource move](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_move) command. Provide the resource IDs of the resources to move. The following example shows how to move multiple resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
+To move existing resources to another resource group or subscription, use the [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_move) command. Provide the resource IDs of the resources to move. The following example shows how to move multiple resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

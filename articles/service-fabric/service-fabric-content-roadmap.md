@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/30/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -138,9 +138,9 @@ Running Service Fabric clusters on Azure provides integration with other Azure f
 
 You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-The preview of Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux, in addition to C# (.NET Core). You can also build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. In addition, the preview also supports orchestrating Docker containers. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks. For more information, read [Service Fabric on Linux](service-fabric-linux-overview.md).
+Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. The Service Fabric frameworks (Reliable Services and Reliable Actors) are available in Java on Linux, in addition to C# (.NET Core). You can also build [guest executable services](service-fabric-deploy-existing-app.md) with any language or framework. Orchestrating Docker containers is also supported. Docker containers can run guest executables or native Service Fabric services, which use the Service Fabric frameworks. For more information, read about [Service Fabric on Linux](service-fabric-deploy-anywhere.md).
 
-Since Service Fabric on Linux is a preview, there are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
+There are some features that are supported on Windows, but not on Linux. To learn more, read [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
 
 ### Standalone clusters
 Service Fabric provides an installation package for you to create standalone Service Fabric clusters on-premises or on any cloud provider. Standalone clusters give you the freedom to host a cluster wherever you want. If your data is subject to compliance or regulatory constraints, or you want to keep your data local, you can host your own cluster and applications. Service Fabric applications can run in multiple hosting environments with no changes, so your knowledge of building applications carries over from one hosting environment to another. 
@@ -166,7 +166,7 @@ If you add new nodes to the cluster, Service Fabric rebalances the partition rep
 ### Cluster upgrades
 Periodically, new versions of the Service Fabric runtime are released. Perform runtime, or fabric, upgrades on your cluster so that you are always running a [supported version](service-fabric-support.md). In addition to fabric upgrades, you can also update cluster configuration such as certificates or application ports.
 
-A Service Fabric cluster is a resource that you own, but is partly managed by Azure.  We are responsible for patching the underlying OS and performing fabric upgrades on your cluster.  You can set your cluster to receive automatic fabric upgrades, when we releases a new version, or choose to select a supported fabric version that you want.  Fabric and configuration upgrades can be set through the Azure Portal or through Resource Manager.  For more information, read [Upgrade a Service Fabric cluster](service-fabric-cluster-upgrade.md).  
+A Service Fabric cluster is a resource that you own, but is partly managed by Azure.  We are responsible for patching the underlying OS and performing fabric upgrades on your cluster.  You can set your cluster to receive automatic fabric upgrades, when we releases a new version, or choose to select a supported fabric version that you want.  Fabric and configuration upgrades can be set through the Azure portal or through Resource Manager.  For more information, read [Upgrade a Service Fabric cluster](service-fabric-cluster-upgrade.md).  
 
 A standalone cluster is a resource that you entirely own. You are responsible for patching the underlying OS and initiating fabric upgrades. If your cluster can connect to [https://www.microsoft.com/download](https://www.microsoft.com/download), you can set your cluster to automatically download and provision the new Service Fabric runtime package. You would then initiate the upgrade. If your cluster can't access [https://www.microsoft.com/download](https://www.microsoft.com/download), you can manually download the new runtime package from an internet connected machine and then initiate the upgrade. For more information, read [Upgrade a standalone Service Fabric cluster](service-fabric-cluster-upgrade-windows-server.md).
 
@@ -185,7 +185,7 @@ Out of the box, Service Fabric components report health on all entities in the c
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.
-* Health queries (through [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/), the [C# FabricClient APIs](https://docs.microsoft.com/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](https://docs.azure.cn/java/api/system.fabric._health_client), or [REST APIs](https://docs.microsoft.com/rest/api/servicefabric)).
+* Health queries (through [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/), the [C# FabricClient APIs](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](https://docs.azure.cn/java/api/system.fabric._health_client), or [REST APIs](https://docs.microsoft.com/rest/api/servicefabric)).
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
 
 The following Microsoft Virtual Academy video describes the Service Fabric health model and how it's used:
@@ -207,4 +207,4 @@ The following Microsoft Virtual Academy video describes the Service Fabric healt
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update reference link, wording update -->

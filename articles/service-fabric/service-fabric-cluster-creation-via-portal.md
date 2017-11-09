@@ -1,4 +1,3 @@
-
 ---
 title: Create Service Fabric cluster in the Azure portal | Azure
 description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
@@ -15,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/21/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -71,11 +70,12 @@ The following diagram illustrates the relationship between Key Vault, a Service 
 The first step is to create a new resource group specifically for Key Vault. Putting Key Vault into its own resource group is recommended so that you can remove compute and storage resource groups - such as the resource group that has your Service Fabric cluster - without losing your keys and secrets. The resource group that has your Key Vault must be in the same region as the cluster that is using it.
 
 ```powershell
-    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China East'
+
+    PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China North'
     WARNING: The output object type of this cmdlet will be modified in a future release.
 
     ResourceGroupName : mycluster-keyvault
-    Location          : chinaeast
+    Location          : chinanorth
     ProvisioningState : Succeeded
     Tags              :
     ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
@@ -87,12 +87,12 @@ Create a Key Vault in the new resource group. The Key Vault **must be enabled fo
 
 ```powershell
 
-    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China East' -EnabledForDeployment
+    PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China North' -EnabledForDeployment
 
 
     Vault Name                       : myvault
     Resource Group Name              : mycluster-keyvault
-    Location                         : China East
+    Location                         : China North
     Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
     Vault URI                        : https://myvault.vault.azure.cn
     Tenant ID                        : <guid>
@@ -169,12 +169,12 @@ To make this process easier, a PowerShell module is [available on GitHub][servic
 The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to Key Vault. Use it to add the cluster certificate and any additional application certificates to Key Vault. Repeat this step for any additional certificates you want to install in your cluster.
 
 ```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China North" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
     Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup mycluster-keyvault in China East
+    Ensuring ResourceGroup mycluster-keyvault in China North
     WARNING: The output object type of this cmdlet will be modified in a future release.
-    Using existing valut myvault in China East
+    Using existing valut myvault in China North
     Reading pfx file from C:\path\to\key.pfx
     Writing secret to myvault in vault myvault
 
@@ -186,6 +186,7 @@ Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Micros
 
 Name  : CertificateURL
 Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+
 ```
 
 These are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following setup in Azure:
@@ -267,7 +268,6 @@ Value : https://myvault.vault.azure.cn:443/secrets/mycert/4d087088df974e869f1c09
 * Check the **Configure advanced settings** box to enter client certificates for **admin client** and **read-only client**. In these fields, enter the thumbprint of your admin client certificate and the thumbprint of your read-only user client certificate, if applicable. When administrators attempt to connect to the cluster, they are granted access only if they have a certificate with a thumbprint that matches the thumbprint values entered here.  
 
 #### 4. Summary
-![Screen shot of the start board displaying "Deploying Service Fabric Cluster." ][Notifications]
 
 To complete the cluster creation, click **Summary** to see the configurations that you have provided, or download the Azure Resource Manager template that that used to deploy your cluster. After you have provided the mandatory settings, the **OK** button becomes green and you can start the cluster creation process by clicking it.
 
@@ -285,12 +285,12 @@ Once your cluster is created, you can inspect your cluster in the portal:
 The **Node Monitor** section on the cluster's dashboard blade indicates the number of VMs that are healthy and not healthy. You can find more details about the cluster's health at [Service Fabric health model introduction][service-fabric-health-introduction].
 
 > [!NOTE]
-> Service Fabric clusters require a certain number of nodes to be up always to maintain availability and preserve state - referred to as "maintaining quorum". Therfore, it is typically not safe to shut down all machines in the cluster unless you have first performed a [full backup of your state][service-fabric-reliable-services-backup-restore].
+> Service Fabric clusters require a certain number of nodes to be up always to maintain availability and preserve state - referred to as "maintaining quorum". Therefore, it is typically not safe to shut down all machines in the cluster unless you have first performed a [full backup of your state][service-fabric-reliable-services-backup-restore].
 > 
 > 
 
 ## Remote connect to a Virtual Machine Scale Set instance or a cluster node
-Each of the NodeTypes you specify in your cluster results in a Virtual Machine Scale Set getting set-up. See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details.
+Each of the NodeTypes you specify in your cluster results in a Virtual Machine Scale Set getting set-up.
 
 ## Next steps
 At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).  Also, learn about [Service Fabric support options](service-fabric-support.md).
@@ -307,7 +307,7 @@ At this point, you have a secure cluster using certificates for management authe
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
 [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/07/2017
-ms.date: 08/21/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -32,7 +32,7 @@ There are currently three possible kinds of Image Store providers and their corr
 
 2. File System: "file:[file system path]"
 
-3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.chinacloudapi.cn"
+3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.cloudapp.chinacloudapi.cn"
 
 The provider type used in production is the Image Store Service, which is a stateful persisted system service that you can see from Service Fabric Explorer. 
 
@@ -55,4 +55,4 @@ So while the ImageStoreConnectionString is configurable, you generally just use 
 [11]: service-fabric-cluster-creation-via-portal.md
 [12]: service-fabric-publish-app-remote-cluster.md
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

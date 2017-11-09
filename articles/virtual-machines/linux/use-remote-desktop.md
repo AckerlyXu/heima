@@ -81,7 +81,7 @@ sudo passwd azureuser
 ## Create a Network Security Group rule for Remote Desktop traffic
 To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../../virtual-network/virtual-networks-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-The following examples create a network security group rule with [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) named *myNetworkSecurityGroupRule* to *allow* traffic on *tcp* port *3389*.
+The following examples create a network security group rule with [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) named *myNetworkSecurityGroupRule* to *allow* traffic on *tcp* port *3389*.
 
 ```azurecli
 az network nsg rule create \

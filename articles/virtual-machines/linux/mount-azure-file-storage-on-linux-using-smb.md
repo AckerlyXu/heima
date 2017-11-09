@@ -68,7 +68,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) to hold the file share.
+1. Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) to hold the file share.
 
     To create a resource group named `myResourceGroup` in the "China North" location, use the following example:
 
@@ -76,7 +76,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     az group create --name myResourceGroup --location chinanorth
     ```
 
-2. Create an Azure storage account with [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) to store the actual files.
+2. Create an Azure storage account with [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create) to store the actual files.
 
     To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
 
@@ -91,7 +91,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
     When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, ensuring that you always have at least one unused storage account key ready to switch to.
 
-    View the storage account keys with the [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
+    View the storage account keys with the [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#list). The storage account keys for the named `mystorageaccount` are listed in the following example:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -108,7 +108,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 4. Create the File storage share.
 
-    The File storage share contains the SMB share with [az storage share create](https://docs.microsoft.com/cli/azure/storage/share#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
+    The File storage share contains the SMB share with [az storage share create](https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#create). The quota is always expressed in gigabytes (GB). Pass in one of the keys from the preceding `az storage account keys list` command. Create a share named mystorageshare with a 10-GB quota by using the following example:
 
     ```azurecli
     az storage share create --name mystorageshare \

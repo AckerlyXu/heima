@@ -33,7 +33,7 @@ When you are done, you will have a MEAN application (MongoDB, Express, Angular, 
 <!-- Not Available [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)] -->
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 ## Prerequisites 
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
@@ -65,7 +65,7 @@ The application will try to connect to a MongoDB source and fail, go ahead and e
 
 ## Log in to Azure
 
-If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
+If you are using an installed Azure CLI, log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) command and follow the on-screen directions.
 
 ```azurecli
 az cloud set -n AzureChinaCloud
@@ -78,11 +78,11 @@ az login
 
 If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command.
 
-If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](https://docs.microsoft.com/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the China East region. Choose a unique name for the resource group.
 
@@ -94,7 +94,7 @@ az group create --name myResourceGroup --location "China East"
 
 ## Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB account with the [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) command.
+Create an Azure Cosmos DB account with the [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#create) command.
 
 In the following command, please substitute your own unique Azure Cosmos DB account name where you see the `<cosmosdb-name>` placeholder. This unique name will be used as part of your Azure Cosmos DB endpoint (`https://<cosmosdb-name>.documents.azure.cn/`), so the name needs to be unique across all Azure Cosmos DB accounts in Azure. 
 
@@ -107,7 +107,7 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
 
 > [!NOTE]
-> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI 2.0 commands](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI 2.0 commands](https://docs.azure.cn/zh-cn/cli/format-output-azure-cli?view=azure-cli-latest).
 
 ```json
 {

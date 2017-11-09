@@ -24,7 +24,7 @@ ms.author: v-haiqya
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## Prerequisites
-This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to your Azure subscription with [az login](https://docs.microsoft.com/cli/azure/#login) before you [create a VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+This topic assumes you already have a working Azure subscription ([trial signup](https://www.azure.cn/pricing/1rmb-trial/)) and have already provisioned a VM into your Azure subscription. Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to your Azure subscription with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) before you [create a VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

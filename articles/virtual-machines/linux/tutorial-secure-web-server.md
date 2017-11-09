@@ -32,7 +32,7 @@ To secure web servers, a Secure Sockets Later (SSL) certificate can be used to e
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).  
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).  
 
 ## Overview
 Azure Key Vault safeguards cryptographic keys and secrets, such certificates or passwords. Key Vault helps streamline the certificate management process and enables you to maintain control of keys that access those certificates. You can create a self-signed certificate inside Key Vault, or upload an existing, trusted certificate that you already own.
@@ -40,13 +40,13 @@ Azure Key Vault safeguards cryptographic keys and secrets, such certificates or 
 Rather than using a custom VM image that includes certificates baked-in, you inject certificates into a running VM. This process ensures that the most up-to-date certificates are installed on a web server during deployment. If you renew or replace a certificate, you don't also have to create a new custom VM image. The latest certificates are automatically injected as you create additional VMs. During the whole process, the certificates never leave the Azure platform or are exposed in a script, command-line history, or template.
 
 ## Create an Azure Key Vault
-Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *chinanorth* location:
+Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *chinanorth* location:
 
 ```
 az group create --name myResourceGroupSecureWeb --location chinanorth
 ```
 
-Next, create a Key Vault with [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *<mykeyvault>* in the following example with your own unique Key Vault name:
 
 ```azurecli 
 keyvault_name=<mykeyvault>
@@ -57,7 +57,7 @@ az keyvault create \
 ```
 
 ## Generate a certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.microsoft.com/cli/azure/certificate#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.microsoft.com/cli/azure/certificate#create) that uses the default certificate policy:
+For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#create) that uses the default certificate policy:
 
 ```azurecli 
 az keyvault certificate create \
@@ -67,7 +67,7 @@ az keyvault certificate create \
 ```
 
 ### Prepare a certificate for use with a VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret](https://docs.microsoft.com/cli/azure/vm#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.microsoft.com/cli/azure/keyvault/secret#list-versions). Convert the certificate with [az vm format-secret]((https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -107,7 +107,7 @@ runcmd:
 ```
 
 ### Create a secure VM
-Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
+Now create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). The certificate data is injected from Key Vault with the `--secrets` parameter. You pass in the cloud-init config with the `--custom-data` parameter:
 
 ```azurecli 
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access your site in a web browser.
 
-To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
+To allow secure web traffic to reach your VM, open port 443 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port):
 
 ```azurecli 
 az vm open-port \

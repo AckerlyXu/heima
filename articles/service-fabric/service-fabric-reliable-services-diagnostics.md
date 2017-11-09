@@ -1,6 +1,6 @@
 ---
-title: Stateful Reliable Services diagnostics | Azure
-description: Diagnostic functionality for Stateful Reliable Services
+title: Azure Service Fabric Stateful Reliable Services Diagnostics | Azure
+description: Diagnostic functionality for Stateful Reliable Services in Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/30/2017
-ms.date: 08/21/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
-
 # Diagnostic functionality for Stateful Reliable Services
 The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
 
@@ -31,7 +30,6 @@ Examples of tools and technologies that help in collecting and/or viewing EventS
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
-
 | Event name | Event ID | Level | Event description |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informational |Emitted when service RunAsync task is started |
@@ -41,7 +39,6 @@ Examples of tools and technologies that help in collecting and/or viewing EventS
 | StatefulRunAsyncFailure |5 |Error |Emitted when service RunAsync task throws an exception |
 
 ## Interpret events
-
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion, and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service--as well as the timing for when a service is started, cancelled, or completed. This can be useful when debugging service issues or understanding the service lifecycle.
 
 Service writers should pay close attention

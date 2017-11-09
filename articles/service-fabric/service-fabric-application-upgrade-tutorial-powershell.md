@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -109,6 +109,12 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 If the preceding command doesn't succeed, it is likely that you need a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
 
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues.
+
+```powershell
+Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
+```
+
 ## Step 5: Start the application upgrade
 Now, we're all set to start the application upgrade by using the [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) command:
 
@@ -139,4 +145,4 @@ Learn how to use advanced functionality while upgrading your application by refe
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md).
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: add cmdlet of Remove-ServiceFabricApplicationPackage -->

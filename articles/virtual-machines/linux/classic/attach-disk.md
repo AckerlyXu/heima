@@ -223,7 +223,7 @@ You can read more about using your Linux VM in the following articles:
 
 * [How to log on to a virtual machine running Linux][Logon]
 * [How to detach a disk from a Linux virtual machine](detach-disk.md)
-* [Using the Azure CLI with the Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Using the Azure CLI with the Classic deployment model](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 * [Configure RAID on a Linux VM in Azure](../configure-raid.md)
 * [Configure LVM on a Linux VM in Azure](../configure-lvm.md)
 

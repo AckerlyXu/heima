@@ -23,20 +23,20 @@ ms.author: v-dazen
 
 To quickly create a virtual machine (VM) in Azure, you can use a single Azure CLI command that uses default values to create any required supporting resources. Resources such as a virtual network, public IP address, and network security group rules are automatically created. For more control of your environment in production use, you may create these resources ahead of time and then add your VMs to them. This article guides you through how to create a VM and each of the supporting resources one by one.
 
-Make sure that you have installed the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](https://docs.microsoft.com/cli/azure/#login).
+Make sure that you have installed the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and logged to an Azure account in with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
 ## Create resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine and supporting virtual network resources. Create the resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine and supporting virtual network resources. Create the resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
 ```
 
-By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](https://docs.microsoft.com/cli/azure/#configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
+By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
 
 ```json                       
 {
@@ -51,7 +51,7 @@ By default, the output of Azure CLI commands is in JSON (JavaScript Object Notat
 ```
 
 ## Create a virtual network and subnet
-Next you create a virtual network in Azure and a subnet in to which you can create your VMs. Use [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) to create a virtual network named *myVnet* with the *192.168.0.0/16* address prefix. You also add a subnet named *mySubnet* with the address prefix of *192.168.1.0/24*:
+Next you create a virtual network in Azure and a subnet in to which you can create your VMs. Use [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#create) to create a virtual network named *myVnet* with the *192.168.0.0/16* address prefix. You also add a subnet named *mySubnet* with the address prefix of *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -102,7 +102,7 @@ The output shows the subnet as logically created inside the virtual network:
 ```
 
 ## Create a public IP address
-Now let's create a public IP address with [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create). This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, we also create a named DNS entry with the `--domain-name-label` option. The following example creates a public IP named *myPublicIP* with the DNS name of *mypublicdns*. Because the DNS name must be unique, provide your own unique DNS name:
+Now let's create a public IP address with [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#create). This public IP address enables you to connect to your VMs from the Internet. Because the default address is dynamic, we also create a named DNS entry with the `--domain-name-label` option. The following example creates a public IP named *myPublicIP* with the DNS name of *mypublicdns*. Because the DNS name must be unique, provide your own unique DNS name:
 
 ```azurecli
 az network public-ip create \
@@ -140,7 +140,7 @@ Output:
 ```
 
 ## Create a network security group
-To control the flow of traffic in and out of your VMs, create a network security group. A network security group can be applied to a NIC or subnet. The following example uses [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) to create a network security group named *myNetworkSecurityGroup*:
+To control the flow of traffic in and out of your VMs, create a network security group. A network security group can be applied to a NIC or subnet. The following example uses [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#create) to create a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -148,7 +148,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-You define rules that allow or deny the specific traffic. To allow inbound connections on port 22 (to support SSH), create an inbound rule for the network security group with [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
+You define rules that allow or deny the specific traffic. To allow inbound connections on port 22 (to support SSH), create an inbound rule for the network security group with [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -174,7 +174,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Examine the network security group and rules with [az network nsg show](https://docs.microsoft.com/cli/azure/network/nsg#show):
+Examine the network security group and rules with [az network nsg show](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -331,7 +331,7 @@ Output:
 ```
 
 ## Create a virtual NIC
-Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. You can also have more than one. In the following [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) command, you create a NIC named *myNic* and associate it with the network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
+Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. You can also have more than one. In the following [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create) command, you create a NIC named *myNic* and associate it with the network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
 
 ```azurecli
 az network nic create \
@@ -442,7 +442,7 @@ Update domains indicate groups of virtual machines and underlying physical hardw
 
 Azure automatically distributes VMs across the fault and update domains when placing them in an availability set. For more information, see [managing the availability of VMs](manage-availability.md).
 
-Create an availability set for your VM with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set#create). The following example creates an availability set named *myAvailabilitySet*:
+Create an availability set for your VM with [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#create). The following example creates an availability set named *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -474,11 +474,11 @@ The output notes fault domains and update domains:
 ```
 
 ## Create the Linux VMs
-You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this case, we're going to create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](https://docs.microsoft.com/cli/azure/vm/image#list), as described in [finding Azure VM images](cli-ps-findimage.md).
+You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this case, we're going to create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#list), as described in [finding Azure VM images](cli-ps-findimage.md).
 
 We also specify an SSH key to use for authentication. If you do not have an SSH public key pair, you can [create them](mac-create-ssh-keys.md) or use the `--generate-ssh-keys` parameter to create them for you. If you already a key pair, this parameter uses existing keys in `~/.ssh`.
 
-Create the VM by bringing all our resources and information together with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. The following example creates a VM named *myVM*:
+Create the VM by bringing all our resources and information together with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) command. The following example creates a VM named *myVM*:
 
 ```azurecli
 az vm create \
@@ -554,7 +554,7 @@ To see the default NGINX site in action, open your web browser and enter your FQ
 ![Default NGINX site on your VM](media/create-cli-complete/nginx.png)
 
 ## Export as a template
-What if you now want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](https://docs.microsoft.com/cli/azure/group#export) to export your resource group as follows:
+What if you now want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#export) to export your resource group as follows:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -562,7 +562,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 This command creates the `myResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the `az group export` command. Edit your JSON template to specify the resource names, or [create a parameters.json file](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) that specifies the resource names.
 
-To create an environment from your template, use [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) as follows:
+To create an environment from your template, use [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) as follows:
 
 ```azurecli
 az group deployment create \

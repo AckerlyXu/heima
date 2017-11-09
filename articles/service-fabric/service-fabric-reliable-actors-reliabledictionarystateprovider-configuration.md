@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/29/2017
-ms.date: 08/21/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ---
 # Configuring Reliable Actors--ReliableDictionaryActorStateProvider

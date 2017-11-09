@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/19/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -315,4 +315,4 @@ The health model is used heavily for monitoring and diagnosis, for evaluating cl
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

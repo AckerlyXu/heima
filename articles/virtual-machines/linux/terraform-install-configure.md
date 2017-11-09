@@ -32,10 +32,10 @@ Next, you need to allow Terraform access to your Azure subscription to perform i
 ## Set up Terraform access to Azure
 To enable Terraform to provision resources into Azure, you need to create two entities in Azure Active Directory (Azure AD): an Azure AD application and an Azure AD service principal. Then, you use these entities' identifiers in your Terraform scripts. A service principal is a local instance of a global Azure AD application. A service principal allows granular local access control to global resources.
 
-There are several ways to create an Azure AD application and an Azure AD service principal. The easiest and fastest way today is to use Azure CLI 2.0, which [you can download and install on Windows, Linux, or a Mac](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). You also can use PowerShell or Azure CLI 1.0 to create the necessary security infrastructure. The instructions that follow show you how to configure Terraform for Azure by using all of these approaches.
+There are several ways to create an Azure AD application and an Azure AD service principal. The easiest and fastest way today is to use Azure CLI 2.0, which [you can download and install on Windows, Linux, or a Mac](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). You also can use PowerShell or Azure CLI 1.0 to create the necessary security infrastructure. The instructions that follow show you how to configure Terraform for Azure by using all of these approaches.
 
 ### Use Azure CLI 2.0 (for Windows, Linux, or Mac users) 
-After you download and install the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), sign in to administer your Azure subscription by issuing the following command:
+After you download and install the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest), sign in to administer your Azure subscription by issuing the following command:
 
 ```
 az login
@@ -91,7 +91,7 @@ To use a Windows machine to write and execute your Terraform scripts and to use 
 ### Use Azure CLI 1.0 (for Linux or Mac users)
 To get started with Terraform on Linux machines or Macs with Azure CLI 1.0, install the proper libraries on your machine.  
 
-1. Install Azure xPlat CLI tools by following the steps in [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+1. Install Azure xPlat CLI tools by following the steps in [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 2. Download and install a JSON processor by following the instructions in [Download jq](https://stedolan.github.io/jq/download/).
 

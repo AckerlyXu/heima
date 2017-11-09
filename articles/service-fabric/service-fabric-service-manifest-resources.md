@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ---
 # Specify resources in a service manifest
@@ -124,7 +124,7 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
-      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
@@ -134,6 +134,8 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
   </Certificates>
 </ApplicationManifest>
 ```
+
+For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
 
 ## Overriding Endpoints in ServiceManifest.xml
 
@@ -196,4 +198,4 @@ And the Port1 and Protocol1 value for Application parameters is null or empty. T
 Suppose you specify a wrong value. Like for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error :
 The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.
 
-<!--Update_Description: add new feature of overriding Endpoints in ServiceManifest.xml file-->
+<!--Update_Description: wording update -->

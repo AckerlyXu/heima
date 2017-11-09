@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/23/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -48,6 +48,10 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     sudo mount -t cifs //sfjenkinsstorage1.file.core.chinacloudapi.cn/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
     ```
 
+    > [!NOTE]
+    > To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 
+    >
+
 4. Update the placeholder values in the ```setupentrypoint.sh``` script with corresponding azure-storage details.
     ```sh
     vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
@@ -66,7 +70,7 @@ This installs a Jenkins container on the cluster, and can be monitored by using 
 1. From your browser, go to ``http://PublicIPorFQDN:8081``. It provides the path of the initial admin password required to sign in. You can continue to use Jenkins as an admin user. Or you can create and change the user, after you sign in with the initial admin account.
 
     > [!NOTE]
-    > Ensure that the 8081 port is specified as the application endpoint port while you are creating the cluster.
+    > Ensure that the 8081 port is specified as the application endpoint port while you are creating the application (and the port is open in the cluster).
     >
 
 2. Get the container instance ID by using ``docker ps -a``.
