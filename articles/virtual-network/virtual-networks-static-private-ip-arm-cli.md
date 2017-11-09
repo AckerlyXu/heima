@@ -48,9 +48,9 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). 
+1. If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). 
 
-2. Create a public IP for the VM with the [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) command. The list shown after the output explains the parameters used.
+2. Create a public IP for the VM with the [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#create) command. The list shown after the output explains the parameters used.
 
     > [!NOTE]
     > You may want or need to use different values for your arguments in this and subsequent steps, depending upon your environment.
@@ -81,7 +81,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    * `--name`: Name of the public IP.
    * `--location`: Azure region in which to create the public IP.
 
-3. Run the [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
+3. Run the [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create) command to create a NIC with a static private IP. The list shown after the output explains the parameters used. 
 
     ```azurecli
     az network nic create \
@@ -133,7 +133,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     * `--vnet-name`: Name of the VNet in wihch to create the NIC.
     * `--subnet`: Name of the subnet in which to create the NIC.
 
-4. Run the [azure vm create](https://docs.microsoft.com/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
+4. Run the [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
 
     ```azurecli
     az vm create \
@@ -161,7 +161,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     }
     ```
 
-   Parameters other than the basic [az vm create](https://docs.microsoft.com/cli/azure/vm#create) parameters.
+   Parameters other than the basic [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) parameters.
 
    * `--nics`: Name of the NIC to which the VM is attached.
 

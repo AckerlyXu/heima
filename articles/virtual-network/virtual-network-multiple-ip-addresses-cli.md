@@ -33,7 +33,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) if you don't already have it installed.
+1. Install the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) if you don't already have it installed.
 2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login` and select the subscription you're using.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
@@ -169,7 +169,7 @@ Add the private IP addresses to the VM operating system by completing the steps 
 
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
-1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.microsoft.com/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.
+1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.azure.cn/zh-cn/cli/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest) article and login to your Azure account with the `az-login` command.
 
 2. Complete the steps in one of the following sections, based on your requirements:
 

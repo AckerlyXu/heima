@@ -40,12 +40,12 @@ You can complete the task using one of the following CLI versions:
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Prerequisite
-If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). 
+If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## View existing NSGs
-To view the list of NSGs in a specific resource group, run the [az network nsg list](https://docs.microsoft.com/cli/azure/network/nsg#list) command with a `-o table` output format:
+To view the list of NSGs in a specific resource group, run the [az network nsg list](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#list) command with a `-o table` output format:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -59,7 +59,7 @@ Expected output:
     chinaeast   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## List all rules for an NSG
-To view the rules of an NSG named **NSG-FrontEnd**, run the [az network nsg show](https://docs.microsoft.com/cli/azure/network/nsg#show) command using a [JMESPATH query filter](https://docs.microsoft.com/cli/azure/query-az-cli2) and the `-o table` output format:
+To view the rules of an NSG named **NSG-FrontEnd**, run the [az network nsg show](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#show) command using a [JMESPATH query filter](https://docs.azure.cn/zh-cn/cli/query-az-cli2?view=azure-cli-latest) and the `-o table` output format:
 
 ```azurecli
     az network nsg show \
@@ -82,7 +82,7 @@ Expected output:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> You can also use [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) to list only the custom rules from an NSG .
+> You can also use [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#list) to list only the custom rules from an NSG .
 >
 
 ## View NSG associations
@@ -158,7 +158,7 @@ Expected output:
 ```
 
 ## Change a rule
-To change the rule created above to allow inbound traffic from the **Internet** only, run the [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) command:
+To change the rule created above to allow inbound traffic from the **Internet** only, run the [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#update) command:
 
 ```azurecli
 az network nsg rule update \
@@ -200,7 +200,7 @@ az network nsg rule delete \
 ```
 
 ## Associate an NSG to a NIC
-To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, use the [az network nic update](https://docs.microsoft.com/cli/azure/network/nic#update) command:
+To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, use the [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#update) command:
 
 ```azurecli
 az network nic update \
@@ -283,7 +283,7 @@ Expected output:
 
 ## Dissociate an NSG from a NIC
 
-To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, run the [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) command again but replace the `--network-security-group` argument with an empty string (`""`).
+To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, run the [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#update) command again but replace the `--network-security-group` argument with an empty string (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -292,7 +292,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 In the output, the `networkSecurityGroup` key is set to null.
 
 ## Dissociate an NSG from a subnet
-To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, again run the [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#update) command again but replace the `--network-security-group` argument with an empty string (`""`).
+To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, again run the [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#update) command again but replace the `--network-security-group` argument with an empty string (`""`).
 
 ```azurecli
 az network vnet subnet update \

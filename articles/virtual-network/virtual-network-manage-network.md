@@ -38,7 +38,7 @@ Before you begin the tasks that are described in this article, complete the foll
 - To learn about limits for virtual networks, review [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Sign in to the Azure portal, the Azure command-line tool (Azure CLI), or Azure PowerShell by using your Azure account. If you don't have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If you plan to use PowerShell commands to complete the tasks described in this article, you must first [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of the Azure PowerShell cmdlets installed. To get help for PowerShell commands in the examples, enter `get-help <command> -full`.
-- If you plan to use Azure CLI commands to complete the tasks described in this article, you must first [install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure that you have the most recent version of Azure CLI installed. To get help with Azure CLI commands, enter `az <command> --help`.
+- If you plan to use Azure CLI commands to complete the tasks described in this article, you must first [install and configure Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure that you have the most recent version of Azure CLI installed. To get help with Azure CLI commands, enter `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -80,7 +80,7 @@ To create a virtual network:
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|Azure CLI|[az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
 |PowerShell|[New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name = "view-vnet"></a>View virtual networks and settings
@@ -114,7 +114,7 @@ To view virtual networks and settings:
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[az network vnet show](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|Azure CLI|[az network vnet show](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show)|
 |PowerShell|[Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="add-address-spaces"></a>Add or remove an address space
@@ -142,7 +142,7 @@ To add or remove an address space:
 
 |Tool|Command|
 |---|---|
-|Azure CLI|Resource Manager only|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|Resource Manager only|[az network vnet update](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Add, change, or remove a DNS server
@@ -167,7 +167,7 @@ All VMs that are connected to the virtual network register with the DNS servers 
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|Azure CLI|[az network vnet update](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Delete a virtual network
@@ -185,7 +185,7 @@ You can delete a virtual network only if there are no resources connected to it.
 
 |Tool|Command|
 |---|---|
-|Azure CLI|[azure network vnet delete](https://docs.microsoft.com/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|Azure CLI|[azure network vnet delete](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete)|
 |PowerShell|[Remove-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps

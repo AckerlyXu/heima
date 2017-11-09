@@ -33,7 +33,7 @@ Complete the following tasks before completing any steps in any section of this 
 - Learn about how many network interfaces each Linux and Windows VM size supports by reviewing the [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json) VM sizes articles.
 - Log in to the Azure [portal](https://portal.azure.cn), Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. Rather than installing the CLI and its pre-requisites, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell **>_** button at the top of the [portal](https://portal.azure.cn).
+- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. Rather than installing the CLI and its pre-requisites, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell **>_** button at the top of the [portal](https://portal.azure.cn).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -66,7 +66,7 @@ When you create a VM through the portal, the portal creates a network interface 
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm create](https://docs.microsoft.com/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az vm create](https://docs.azure.cn/zh-cn/cli/vm?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
 |PowerShell|[New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Add an existing network interface to an existing VM
@@ -76,7 +76,7 @@ You can add as many network interfaces to a VM as the VM size you're adding netw
 <!-- Not Available IPv6-->
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic add](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) (reference) or [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|CLI|[az vm nic add](https://docs.azure.cn/zh-cn/cli/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#add) (reference) or [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference) or [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a> View network interfaces for a VM
@@ -92,7 +92,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm show](https://docs.microsoft.com/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
+|CLI|[az vm show](https://docs.azure.cn/zh-cn/cli/vm?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show)|
 |PowerShell|[Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a>  Remove a network interface from a VM
@@ -110,7 +110,7 @@ The VM you want to remove (or detach) a network interface from must be in the st
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm nic remove](https://docs.microsoft.com/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) (reference) or [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|CLI|[az vm nic remove](https://docs.azure.cn/zh-cn/cli/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#remove) (reference) or [detailed steps](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (reference) or [detailed steps](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>Next steps
