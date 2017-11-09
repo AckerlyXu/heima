@@ -33,7 +33,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Before you begin
 
@@ -70,13 +70,13 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.microsoft.com/cli//azure/vm#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate). 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
+Finally, set the state of the VM as generalized with [az vm generalize](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
 
 ```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -84,7 +84,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### Create the image
 
-Now you can create an image of the VM by using [az image create](https://docs.microsoft.com/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
+Now you can create an image of the VM by using [az image create](https://docs.azure.cn/zh-cn/cli//azure/image?view=azure-cli-latest#create). The following example creates an image named *myImage* from a VM named *myVM*.
 
 ```azurecli 
 az image create \
@@ -95,7 +95,7 @@ az image create \
 
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli 
 az vm create \

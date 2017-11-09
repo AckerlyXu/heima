@@ -43,7 +43,7 @@ You can use the Azure CLI, PowerShell, REST API, and the Azure portal to query f
 
 ## Find VMs scheduled for maintenance using CLI
 
-Planned maintenance information can be seen using [azure vm get-instance-view](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view).
+Planned maintenance information can be seen using [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_get_instance_view).
 
 Maintenance information is returned only if there is maintenance planned. If there is no maintenance scheduled that impacts the VM, the command does not return any maintenance information. 
 

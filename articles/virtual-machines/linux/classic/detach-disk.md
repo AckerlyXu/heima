@@ -29,4 +29,4 @@ ms.author: v-dazen
 You can read more about using your Linux VM in the following articles:
 
 * [How to Attach a Data Disk to a Linux Virtual Machine](attach-disk.md)
-* [Using the Azure CLI with the Classic deployment model](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Using the Azure CLI with the Classic deployment model](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)

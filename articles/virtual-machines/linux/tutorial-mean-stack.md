@@ -34,11 +34,11 @@ This tutorial shows you how to implement a MongoDB, Express, AngularJS, and Node
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 
 ## Create a Linux VM
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command and create a Linux VM with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example uses the Azure CLI to create a resource group named *myResourceGroupMEAN* in the *China North* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 

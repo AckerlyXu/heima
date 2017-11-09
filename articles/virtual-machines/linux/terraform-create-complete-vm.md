@@ -453,7 +453,7 @@ If everything looks correct and you ready to build the infrastructure in Azure, 
 terraform apply
 ```
 
-Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):
+Once Terraform completes, your VM infrastructure is ready. Obtain the public IP address of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

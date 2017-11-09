@@ -32,5 +32,5 @@ When you create a Linux virtual machine in the Azure portal, an endpoint for Sec
 [!INCLUDE [virtual-machines-common-classic-setup-endpoints](../../../../includes/virtual-machines-common-classic-setup-endpoints.md)]
 
 ## Next steps
-* You can also create a VM endpoint by using the [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Run the **azure vm endpoint create** command.
+* You can also create a VM endpoint by using the [Azure Command-Line Interface](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest). Run the **azure vm endpoint create** command.
 * If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) to control traffic to the VM.

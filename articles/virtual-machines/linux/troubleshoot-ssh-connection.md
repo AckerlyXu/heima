@@ -65,14 +65,14 @@ To reset the credentials of an existing user, select either `Reset SSH public ke
 You can also create a user with sudo privileges on the VM from this menu. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
 ## Use the Azure CLI 2.0
-If you haven't already, install the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+If you haven't already, install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 If you created and uploaded a custom Linux disk image, make sure the [Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH credentials for a user
-The following example uses [az vm user update](https://docs.microsoft.com/cli/azure/vm/user#update) to reset the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
+The following example uses [az vm user update](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#update) to reset the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -98,7 +98,7 @@ Create a file named `settings.json` with the following content:
 }
 ```
 
-Using the Azure CLI, you then call the `VMAccessForLinux` extension to reset your SSHD connection by specifying your json file. The following example uses [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#set) to reset SSHD on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
+Using the Azure CLI, you then call the `VMAccessForLinux` extension to reset your SSHD connection by specifying your json file. The following example uses [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#set) to reset SSHD on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -179,7 +179,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
 ### Azure CLI 2.0
-The following example uses [az vm restart](https://docs.microsoft.com/cli/azure/vm#restart) to restart the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
+The following example uses [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#restart) to restart the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -206,7 +206,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ### Azure CLI 2.0
-The following example use [az vm redeploy](https://docs.microsoft.com/cli/azure/vm#redeploy) to redeploy the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
+The following example use [az vm redeploy](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#redeploy) to redeploy the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

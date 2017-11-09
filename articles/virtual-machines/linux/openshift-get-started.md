@@ -33,19 +33,19 @@ This guide describes how to deploy OpenShift Origin on Azure Virtual Machines us
 
 If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+This quick start requires the Azure CLI version 2.0.8 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Log in to Azure 
-Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
+Log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) command and follow the on-screen directions.
 
 ```azurecli 
 az login
 ```
 ## Create a resource group
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *chinaeast* location.
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location chinaeast
 ```
 
 ## Create a Key Vault
-Create a KeyVault to store the SSH keys for the cluster with the [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) command.  
+Create a KeyVault to store the SSH keys for the cluster with the [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) command.  
 
 ```azurecli 
 az keyvault create --resource-group myResourceGroup --name myKeyVault \
@@ -85,7 +85,7 @@ az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.s
 ## Create a service principal 
 OpenShift communicates with Azure using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like OpenShift. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
 
-Create a service principal with [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#create-for-rbac) and output the credentials that OpenShift needs:
+Create a service principal with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) and output the credentials that OpenShift needs:
 
 ```azurecli
 az ad sp create-for-rbac --name openshiftsp \
@@ -106,13 +106,13 @@ Take note of the appId property returned from the command.
  > Don't create an insecure password.  Follow the
  > [Azure AD password rules and restrictions](/active-directory/active-directory-passwords-policy) guidance.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+For more information on service principals, see [Create an Azure service principal with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
 ## Deploy the OpenShift Origin template
 Next deploy OpenShift Origin using an Azure Resource Manager template. 
 
 > [!NOTE] 
-> The following command requires az CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> The following command requires az CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 
 Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter.
 
@@ -146,7 +146,7 @@ $ ssh ocpadmin@myopenshiftmaster.chinacloudapp.cn
 ```
 
 ## Clean up resources
-When no longer needed, you can use the [az group delete](https://docs.microsoft.com/cli/azure/group#delete) command to remove the resource group, OpenShift cluster, and all related resources.
+When no longer needed, you can use the [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) command to remove the resource group, OpenShift cluster, and all related resources.
 
 ```azurecli 
 az group delete --name myResourceGroup

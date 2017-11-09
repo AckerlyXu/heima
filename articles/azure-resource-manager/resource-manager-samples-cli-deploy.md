@@ -157,10 +157,10 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group exists](https://docs.microsoft.com/cli/azure/group#exists) | Checks whether resource group exists. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) | Start a deployment.  |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Deletes a resource group including all its resources. |
+| [az group exists](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#exists) | Checks whether resource group exists. |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) | Creates a resource group in which all resources are stored. |
+| [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) | Start a deployment.  |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) | Deletes a resource group including all its resources. |
 
 ## Next steps
 * For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy-cli.md).
