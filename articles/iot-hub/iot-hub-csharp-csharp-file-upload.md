@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
-ms.date: 08/14/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
 ---
 # Upload files from your device to the cloud with IoT Hub using .NET

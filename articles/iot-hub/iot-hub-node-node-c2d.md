@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 origin.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 11/20/2017
 ---
 
 # Send cloud-to-device messages with IoT Hub (Node)
@@ -45,7 +45,7 @@ At the end of this tutorial, you run two Node.js console apps:
 
 To complete this tutorial, you need the following:
 
-+ Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.)
 
@@ -80,7 +80,7 @@ In this section, you modify the simulated device app you created in [Get started
     ```
 
    > [!NOTE]
-   > If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
+   > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
    > 
    > 
 

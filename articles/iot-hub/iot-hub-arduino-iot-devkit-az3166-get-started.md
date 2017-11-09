@@ -1,6 +1,6 @@
 ---
 title: IoT DevKit to cloud - Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs
-description: Learn how to setup and connect IoT DevKit AZ3166 to Azure IoT Hub for it to send data to the Azure cloud platform in this tutorial.
+description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
 services: iot-hub
 documentationcenter: ''
 author: shizn
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/11/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 # Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud
 
@@ -98,6 +98,12 @@ The default app running on the DevKit checks the latest version of the firmware 
 
 ### Upgrade to the latest firmware
 
+> [!NOTE] 
+> Since v1.1, DevKit enables ST-SAFE in bootloader. You need to upgrade firmware if you are running under v1.1 in order to make it work probably.
+>
+>
+
+
 If you need a firmware upgrade, the screen will show the current and latest firmware versions. To upgrade, follow the [Upgrade firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) guide.
 
 ![Display of current and latest firmware versions](./media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
@@ -107,7 +113,7 @@ If you need a firmware upgrade, the screen will show the current and latest firm
 
 ### Test various sensors
 
-Press button B to test sensors. Continue pressing and releasing button B to cycle through each sensor.
+Press button B to test sensors. Continue pressing and releasing the button B to cycle through each sensor.
 
 ![Button B and sensor display](./media/iot-hub-arduino-devkit-az3166-get-started/getting-started/sensors.jpg)
 
@@ -125,13 +131,12 @@ We encourage you to use the installation package to prepare the development envi
 The .zip file that you download contains all the necessary tools and packages for DevKit development.
 
 > [!div class="button"]
-[Download](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
-
+[Download](https://aka.ms/devkit/prod/installpackage/latest)
 
 The .zip file contains the following tools and packages. If you already have some components installed, the script will detect and skip them.
 
 * Node.js and Yarn: Runtime for the setup script and automated tasks.
-* [Azure CLI 2.0 MSI](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
+* [Azure CLI 2.0 MSI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-lastest): Cross-platform command-line experience for managing Azure resources. The MSI contains dependent Python and pip.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): Lightweight code editor for DevKit development.
 * [Visual Studio Code extension for Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): Extension that enables Arduino development in Visual Studio Code.
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): Tool that the extension for Arduino relies on.
@@ -140,7 +145,7 @@ The .zip file contains the following tools and packages. If you already have som
 
 #### Run the installation script
 
-In Windows File Explorer, locate the .zip file and extract it. Find install.cmd, right-click it, and select **Run as administrator**.
+In Windows File Explorer, locate the .zip file and extract it. Find `install.cmd`, right-click it, and select **Run as administrator**.
 
 ![File Explorer](./media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
 
@@ -157,8 +162,7 @@ The VS Code for Arduino extension relies on the Arduino IDE. If this is the firs
 Installation should take around 10 minutes, depending on your internet speed. After the installation is complete, you should see Visual Studio Code and Arduino IDE shortcuts on your desktop.
 
 > [!NOTE] 
-> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. Close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
-
+> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. To solve it, close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
 
 ### macOS (preview)
 
@@ -178,7 +182,7 @@ Follow these steps to prepare the development environment on macOS.
    exec -l $SHELL
    ```
 
-For more information about installing Azure CLI 2.0, see the [official guide](https://docs.microsoft.com//cli/azure/install-azure-cli).
+For more information about installing Azure CLI 2.0, see the [official guide](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-lastest).
 
 #### Install the Arduino IDE
 
@@ -245,12 +249,13 @@ Make sure your DevKit is not connected. Start VS Code first and connect the DevK
 ![Introduction page](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
 
 > [!NOTE] 
-> Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. Close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
-
+> Occasionally, when you launch VS Code, you are prompted with error that cannot find Arduino IDE or related board package. Close VS Code, launch Arduino IDE once again, and VS Code should locate Arduino IDE path correctly.
+>
+>
 
 ### Open the Arduino Examples folder
 
-On the **Arduino Examples** tab, browse to **Examples for MXCHIP AZ3166** > **AzureIoT**, and select **GetStarted**.
+Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **GetStarted**. This will open a new VS Code window with project folder in it.
 
 ![Arduino Examples tab](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
 
@@ -268,13 +273,17 @@ In the VS Code terminal, an interactive command line guides you through provisio
 
 ### Install the required library
 
-1. Select F1 or Ctrl+Shift+P (macOS: Cmd+Shift+P) to open the command palette, type **Arduino**, and then find and select **Arduino: Library Manager**.
+1. Press `F1` or `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Library Manager**.
 
-2. Search for the **ArduinoJson** library and select **Install**.
+2. Search for the **ArduinoJson** library and select **Install**:
 
-### Build and upload the device code
+    ![Install Arduino library](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
 
-Use Ctrl+P (macOS: Cmd+P) to run `task device-upload`. The terminal prompts you to enter configuration mode. To do so, hold down button A, and then push and release the reset button. The screen displays **Configuration**. This is to set the connection string that's retrieved from the `task cloud-provision` step.
+### Build and upload the device code (Windows)
+1. Use `Ctrl+P` to run `task device-upload`.
+2. The terminal prompts you to enter configuration mode. To do so, hold down button A, then push and release the reset button. The screen displays the DevKit id and 'Configuration'.
+
+This is to set the connection string that retrieves from `task cloud-provision` step.
 
 Then the terminal starts verifying and uploading the Arduino sketch:
 
@@ -282,14 +291,36 @@ Then the terminal starts verifying and uploading the Arduino sketch:
 
 The DevKit reboots and starts running the code.
 
+### Build and upload the device code (Mac)
+
+1. Put DevKit into configuration mode: Hold down button A, then push and release the reset button. The screen displays 'Configuration'.
+2. Use `Cmd+P` to run `task device-upload`.
+
+This is to set the connection string that retrieves from `task cloud-provision` step.
+
+Then VS Code starts verifying and uploading the Arduino sketch:
+
+![device-upload](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+
+The DevKit reboots and starts running the code.
+
 ## Test the project
 
-In VS Code, select the power plug icon on the status bar to open Serial Monitor.
+In VS Code, following these steps to open and set up the Serial Monitor:
+
+1. Click the `COM[X]` word on the status bar to set the right COM port with `STMicroelectronics`:
+   ![com-port](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
+
+2. Click power plug icon on the status bar to open the Serial Monitor:
+  ![serial-monitor](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+
+3. On the status bar, click the number that represents the Baud Rate and set to `115200`:
+  ![baud-rate](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 
 The sample application is running successfully when you see the following results:
 
-* Serial Monitor displays the same information as the content in the following screenshot.
-* The LED on the MXChip IoT DevKit is blinking.
+* The Serial Monitor displays the same information as the content in the screenshot below.
+* The LED on MXChip IoT DevKit is blinking.
 
 ![Final output in VS Code](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

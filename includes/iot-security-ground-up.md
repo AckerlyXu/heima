@@ -32,13 +32,13 @@ The [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) within the [
 
 To best communicate security and privacy features built into the Azure IoT Suite, we’ve broken down the suite into the three primary security areas. 
 
-![Azure IoT Suite](./media/iot-security-ground-up/securing-iot-ground-up-fig2.png)
+![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### Secure device provisioning and authentication
 
 The Azure IoT Suite secures devices while they are out in the field by providing a unique identity key for each device, which can be used by the IoT infrastructure to communicate with the device while it is in operation. The process is quick and easy to setup. The generated key with a user-selected device ID forms the basis of a token used in all communication between the device and the Azure IoT Hub.
 
-Device IDs can be associated with a device during manufacturing (i.e. flashed in a hardware trust module) or can use an existing fixed identity as a proxy (e.g. CPU serial numbers). Since changing this identifying information in the device is not simple, it is important to introduce logical device IDs in case the underlying device hardware changes but the logical device remains the same. In some cases, the association of a device identity can happen at device deployment time (i.e. an authenticated field engineer physically configures a new device while communicating with the IoT solution backend). The [Azure IoT Hub identity registry](../articles/iot-hub/iot-hub-devguide.md) provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
+Device IDs can be associated with a device during manufacturing (i.e. flashed in a hardware trust module) or can use an existing fixed identity as a proxy (for example CPU serial numbers). Since changing this identifying information in the device is not simple, it is important to introduce logical device IDs in case the underlying device hardware changes but the logical device remains the same. In some cases, the association of a device identity can happen at device deployment time (i.e. an authenticated field engineer physically configures a new device while communicating with the solution backend). The [Azure IoT Hub identity registry](../articles/iot-hub/iot-hub-devguide.md) provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
 
 Azure IoT Hub access control policies in the cloud enable activation and disabling any device identity, providing a way to disassociate a device from an IoT deployment when required. This association and disassociation of devices is based on each device identity.
 
@@ -72,7 +72,7 @@ to the Azure IoT Suite.
 
 Once data is in the cloud, it can be processed and stored in any user-defined workflow. Access to each part of the data is controlled with Azure Active Directory, depending on the storage service used.
 
-All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be re-provisioned. Data can be stored in [DocumentDB](../articles/documentdb/documentdb-introduction.md) or in [SQL databases](../articles/sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
+All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be re-provisioned. Data can be stored in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) or in [SQL databases](../articles/sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
 
 ## Conclusion
 
@@ -85,7 +85,7 @@ The Azure IoT Suite builds in security measures by design, enabling secure monit
 Each Azure IoT Suite pre-configured solution creates instances of Azure services, such as the following:
 
 - [**Azure IoT Hub**](https://www.azure.cn/home/features/iot-hub/): Your gateway that connects the cloud to “things”. You can scale to millions of connections per hub and process massive volumes of data with per-device authentication support helping you secure your solution.
-- [**Azure DocumentDB**](https://www.azure.cn/home/features/documentdb/): A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. DocumentDB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
+- [**Azure Cosmos DB**](https://www.azure.cn/home/features/documentdb/): A scalable, fully-indexed database service for semi-structured data that manages metadata for the devices you provision, such as attributes, configuration, and security properties. Azure Cosmos DB offers high-performance and high-throughput processing, schema-agnostic indexing of data, and a rich SQL query interface.
 - [**Azure Stream Analytics**](https://www.azure.cn/home/features/stream-analytics/): Real-time stream processing in the cloud that enables you to rapidly develop and deploy a low-cost analytics solution to uncover real-time insights from devices, sensors, infrastructure, and applications. The data from this fully-managed service can scale to any volume while still achieving high throughput, low latency, and resiliency.
 - [**Azure App Services**](https://www.azure.cn/home/features/app-service/): A cloud platform to build powerful web and mobile apps that connect to data anywhere; in the cloud or on-premises. Build engaging mobile apps for iOS, Android, and Windows. Integrate with your Software as 
 a Service (SaaS) and enterprise applications with out-of-the-box connectivity to dozens of cloud-based services and enterprise applications. Code in your favorite language and IDE—.NET, NodeJS, PHP, Python, or Java—to build web apps and APIs faster than ever.

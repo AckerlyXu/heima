@@ -16,7 +16,7 @@ ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 # Connect your device to your IoT hub using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -156,7 +156,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.13.0</version> 
+        <version>0.15.0</version> 
     </dependency>
     ```
 
@@ -167,7 +167,6 @@ In this section, you create a Java console app that reads device-to-cloud messag
     ```java
     import java.io.IOException;
     import com.microsoft.azure.eventhubs.*;
-    import com.microsoft.azure.servicebus.*;
 
     import java.nio.charset.Charset;
     import java.time.*;
@@ -251,7 +250,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
       client0.closeSync();
       client1.closeSync();
       System.exit(0);
-    } catch (ServiceBusException sbe) {
+    } catch (Exception e) {
       System.exit(1);
     }
     ```
@@ -317,7 +316,8 @@ In this section, you create a Java console app that simulates a device that send
     private static DeviceClient client;
     ```
    
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTP protocol to communicate with IoT Hub.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTPS protocol to communicate with IoT Hub.
+
 8. Add the following nested **TelemetryDataPoint** class inside the **App** class to specify the telemetry data your device sends to your IoT hub:
 
     ```java
@@ -335,8 +335,7 @@ In this section, you create a Java console app that simulates a device that send
 9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the device app. This method also notifies the main thread in the app when the message has been processed:
    
     ```java
-    private static class EventCallback implements IotHubEventCallback
-    {
+    private static class EventCallback implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    

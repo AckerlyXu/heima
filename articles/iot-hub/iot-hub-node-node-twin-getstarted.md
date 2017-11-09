@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
 ---
 
@@ -25,7 +25,7 @@ ms.author: v-yiso
 At the end of this tutorial, you will have two Node.js console apps:
 
 * **AddTagsAndQuery.js**, a Node.js back-end app, which adds tags and queries device twins.
-* **TwinSimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
+* **TwinSimulatedDevice.js**, a Node.js app, which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.
@@ -34,7 +34,7 @@ At the end of this tutorial, you will have two Node.js console apps:
 
 To complete this tutorial you need the following:
 
-+ Node.js version 0.10.x or later.
+* Node.js version 4.0.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
 
@@ -45,8 +45,8 @@ To complete this tutorial you need the following:
 ## Create the service app
 In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that are reporting a cellular connection.
 
-1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
-
+1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command prompt. Accept all the defaults:
+   
     ```
     npm init
     ```
@@ -88,8 +88,8 @@ In this section, you create a Node.js console app that adds location metadata to
         });
    
     The **Registry** object exposes all the methods required to interact with device twins from the service. The previous code first initializes the **Registry** object, then retrieves the device twin for **myDeviceId**, and finally updates its tags with the desired location information.
-
-    After the updating the tags it calls the **queryTwins** function.
+   
+    After updating the tags it calls the **queryTwins** function.
 5. Add the following code at the end of  **AddTagsAndQuery.js** to implement the **queryTwins** function:
    
         var queryTwins = function() {
@@ -113,8 +113,8 @@ In this section, you create a Node.js console app that adds location metadata to
         };
    
     The previous code executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
-
-    Note that the previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **hasMoreResults** boolean property that you can use to invoke the **nextAsTwin** methods multiple times to retrieve all results. A method called **next** is available for results that are not device twins for example, results of aggregation queries.
+   
+    The previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **hasMoreResults** boolean property that you can use to invoke the **nextAsTwin** methods multiple times to retrieve all results. A method called **next** is available for results that are not device twins, for example, results of aggregation queries.
 6. Run the application with:
    
         node AddTagsAndQuery.js
@@ -123,7 +123,7 @@ In this section, you create a Node.js console app that adds location metadata to
 
     ![][1]
 
-In the next section you create a device app that reports the connectivity information and changes the result of the query in the previous section.
+In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
 ## Create the device app
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.

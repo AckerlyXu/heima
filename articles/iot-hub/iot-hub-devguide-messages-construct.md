@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/25/2017
 ms.author: v-yiso
-ms.date: 07/03/2017
+ms.date: 11/20/2017
 
 ---
 # Create and read IoT Hub messages
@@ -28,7 +28,7 @@ To support seamless interoperability across protocols, IoT Hub defines a common 
 
 Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you:
 
-* Send device-to-cloud messages using the HTTP protocol.
+* Send device-to-cloud messages using the HTTPS protocol.
 * Send cloud-to-device messages.
 
 For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs][lnk-sdks].
