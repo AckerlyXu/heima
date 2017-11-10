@@ -1,10 +1,10 @@
 ---
-title: 'Connect a virtual network to multiple sites using VPN Gateway and PowerShell : Classic | Azure'
+title: 'Connect a virtual network to multiple sites using VPN Gateway and PowerShell : Classic | Microsoft Docs'
 description: This article will walk you through connecting multiple local on-premises sites to a virtual network using a VPN Gateway for the classic deployment model.
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/20/2017
-ms.date: 07/17/2017
-ms.author: v-dazen
+ms.date: 11/07/2017
+ms.author: v-junlch
 
 ---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection (classic)
@@ -57,22 +57,22 @@ You should feel comfortable using the network configuration file by the time you
 
 Before you begin configuration, verify that you have the following:
 
-* Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
-* An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
-* You'll need to install the latest version of the Azure PowerShell cmdlets. Make sure you install the Service Management (SM) version in addition to the Resource Manager version. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information.
-* Someone who is proficient at configuring your VPN hardware. You'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
-* The IP address ranges that you want to use for your virtual network (if you haven't already created one).
-* The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap. Otherwise, the portal or the REST API will reject the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
+- Compatible VPN hardware for each on-premises location. Check [About VPN Devices for Virtual Network Connectivity](vpn-gateway-about-vpn-devices.md) to verify if the device that you want to use is something that is known to be compatible.
+- An externally facing public IPv4 IP address for each VPN device. The IP address cannot be located behind a NAT. This is requirement.
+- You'll need to install the latest version of the Azure PowerShell cmdlets. Make sure you install the Service Management (SM) version in addition to the Resource Manager version. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information.
+- Someone who is proficient at configuring your VPN hardware. You'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.
+- The IP address ranges that you want to use for your virtual network (if you haven't already created one).
+- The IP address ranges for each of the local network sites that you'll be connecting to. You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap. Otherwise, the portal or the REST API will reject the configuration being uploaded.<br>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping. To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.
 
 ## 1. Create a Site-to-Site VPN
 If you already have a Site-to-Site VPN with a dynamic routing gateway, great! You can proceed to [Export the virtual network configuration settings](#export). If not, do the following:
 
 ### If you already have a Site-to-Site virtual network, but it has a static (policy-based) routing gateway:
-1. Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic (also known as route-based) routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [How to change the VPN routing type for your gateway](vpn-gateway-configure-vpn-gateway-mp.md#how-to-change-the-vpn-routing-type-for-your-gateway).  
-2. Configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Azure Classic Management Portal](vpn-gateway-configure-vpn-gateway-mp.md). First, change your gateway type to dynamic routing.
+1. Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic (also known as route-based) routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one.
+2. Configure your new gateway and create your VPN tunnel. For instructions, For instructions, see [Specify the SKU and VPN type](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Make sure you specify the Routing Type as 'Dynamic'.
 
 ### If you don't have a Site-to-Site virtual network:
-1. Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Azure Classic Management Portal](vpn-gateway-site-to-site-create.md).  
+1. Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md).  
 2. Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
 ## <a name="export"></a>2. Export the network configuration file
@@ -155,7 +155,7 @@ To add additional site references (create a multi-site configuration), simply ad
 ```
 
 ## 5. Import the network configuration file
-Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. You can either use the Classic Management Portal, or PowerShell to import the file.
+Import the network configuration file. When you import this file with the changes, the new tunnels will be added. The tunnels will use the dynamic gateway that you created earlier. You can use PowerShell to import the file.
 
 ## 6. Download keys
 Once your new tunnels have been added, use the PowerShell cmdlet 'Get-AzureVNetGatewayKey' to get the IPsec/IKE pre-shared keys for each tunnel.
@@ -207,3 +207,5 @@ Example return:
 ## Next steps
 
 To learn more about VPN Gateways, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
+
+<!--Update_Description: wording update-->

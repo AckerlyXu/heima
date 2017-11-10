@@ -10,11 +10,11 @@ tags: ''
 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/23/2017
-ms.date: 10/09/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -261,4 +261,4 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 
 To resolve the problem, delete the old VPN client configuration files from **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, and then run the VPN client installer again.
 
-<!--Update_Description: wording update --> 
+<!--Update_Description: update metadata properties-->

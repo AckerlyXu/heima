@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/09/2017
-ms.date: 08/31/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
 
 ---
@@ -54,11 +54,11 @@ You can use the following values to create a test environment, or refer to these
 
 VnetName                = TestVNet1 
 ResourceGroup           = TestRG1 
-Location                = chinaeast 
-AddressSpace            = 10.12.0.0/16 
+Location                = chinanorth 
+AddressSpace            = 10.11.0.0/16 
 SubnetName              = Subnet1 
-Subnet                  = 10.12.0.0/24 
-GatewaySubnet           = 10.12.255.0/27 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
 LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
@@ -76,10 +76,10 @@ ConnectionName          = VNet1toSite2
 
 ## <a name="rg"></a>2. Create a resource group
 
-The following example creates a resource group named 'TestRG1' in the 'chinaeast' location. If you already have a resource group in the region that you want to create your VNet, you can use that one instead.
+The following example creates a resource group named 'TestRG1' in the 'chinanorth' location. If you already have a resource group in the region that you want to create your VNet, you can use that one instead.
 
 ```azurecli
-az group create --name TestRG1 --location chinaeast
+az group create --name TestRG1 --location chinanorth
 ```
 
 ## <a name="VNet"></a>3. Create a virtual network
@@ -89,7 +89,7 @@ If you don't already have a virtual network, create one using the [az network vn
 The following example creates a virtual network named 'TestVNet1' and a subnet, 'Subnet1'.
 
 ```azurecli
-az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location chinaeast --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location chinanorth --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Create the gateway subnet
@@ -103,7 +103,7 @@ The size of the gateway subnet that you specify depends on the VPN gateway confi
 Use the [az network vnet subnet create](/cli/network/vnet/subnet#create) command to create the gateway subnet.
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Create the local network gateway
@@ -169,7 +169,7 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 Create the connection using the [az network vpn-connection create](/cli/network/vpn-connection#create) command.
 
 ```azurecli
-az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l chinaeast --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l chinanorth --shared-key abc123 --local-gateway2 Site2
 ```
 
 After a short while, the connection will be established.
@@ -194,8 +194,9 @@ This section contains common commands that are helpful when working with site-to
 
 -  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute).
 - For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-- For information about forced tunneling, see [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md).
+- For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
 - For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 - For a list of networking Azure CLI commands, see [Azure CLI](/cli/network).
-
+- For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+- For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 <!--Update_Description: wording update-->
