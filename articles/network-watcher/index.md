@@ -1,0 +1,139 @@
+---
+
+title: Azure Network Watcher Documentation - Tutorials, API Reference | Azure
+description: Learn how to use Network Watcher to monitor and diagnose conditions at a network level.
+services: network-watcher
+author: rockboyfor
+manager: digimobile
+layout: LandingPage
+
+ms.assetid:	
+ms.service: network-watcher
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+origin.date: 01/23/2017
+ms.date: 11/20/2017
+ms.author: v-yeche
+---
+# Azure Network Watcher Documentation
+
+Learn how to use Network Watcher, a service that enables you to monitor and diagnose conditions at a network scenario level. Tutorials, API references, and other documentation show you how to  gain insights into your Azure Network with tools like packet capture, topology, and more.
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/network-watcher/network-watcher-monitoring-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/network-watcher.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Learn about Network Watcher</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<!--Not Available VIDEO -->
+    <li>
+        <a href="/network-watcher/network-watcher-packet-capture-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with packet capture</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li> 
+     <li>
+        <a href="/network-watcher/network-watcher-security-group-view-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with security group view</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/network-watcher/network-watcher-ip-flow-verify-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with IP flow verify</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/network-watcher/network-watcher-next-hop-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with next hop</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+
+     <li>
+        <a href="/network-watcher/network-watcher-topology-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with topology</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+
+</ul>
+
+---
+
+<!--Not Available <h2>Reference</h2>-->
