@@ -83,13 +83,13 @@ This script uses the following commands to create a managed disk, virtual machin
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Gets snapshot using snapshot name and resource group name. Id property of the returned object is used to create a managed disk.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates managed disks from a snapshot using snapshot Id, disk name, storage type, and size  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates a VM using a managed OS disk |
+| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_show) | Gets snapshot using snapshot name and resource group name. Id property of the returned object is used to create a managed disk.  |
+| [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create) | Creates managed disks from a snapshot using snapshot Id, disk name, storage type, and size  |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | Creates a VM using a managed OS disk |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 

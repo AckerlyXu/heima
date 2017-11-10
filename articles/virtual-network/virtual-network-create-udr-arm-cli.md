@@ -50,7 +50,7 @@ To create the route table and route needed for the front end subnet based on the
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. Create a route table for the front-end subnet with the [az network route-table create](https://docs.microsoft.com/cli/azure/network/route-table#create) command:
+1. Create a route table for the front-end subnet with the [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table?view=azure-cli-latest#create) command:
 
     ```azurecli
     az network route-table create \
@@ -76,7 +76,7 @@ To create the route table and route needed for the front end subnet based on the
     }
     ```
 
-2. Create a route that sends all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4) using the [az network route-table route create](https://docs.microsoft.com/cli/azure/network/route-table/route#create) command:
+2. Create a route that sends all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4) using the [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#create) command:
 
     ```azurecli 
     az network route-table route create \
@@ -109,7 +109,7 @@ To create the route table and route needed for the front end subnet based on the
     * **--next-hop-type**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
     * **--next-hop-ip-address**. IP address for next hop. For our scenario, *192.168.0.4*.
 
-3. Run the [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) command to associate the route table created above with the **FrontEnd** subnet:
+3. Run the [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update) command to associate the route table created above with the **FrontEnd** subnet:
 
     ```azurecli
     az network vnet subnet update \
@@ -190,7 +190,7 @@ To create the route table and route needed for the back-end subnet based on the 
 
 To enable IP forwarding in the NIC used by **FW1**, complete the following steps:
 
-1. Run the [az network nic show](https://docs.microsoft.com/cli/azure/network/nic#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
+1. Run the [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#show) command with a JMESPATH filter to display the current **enable-ip-forwarding** value for **Enable IP forwarding**. It should be set to *false*.
 
     ```azurecli
     az network nic show \

@@ -44,7 +44,7 @@ When creating a VM from the `azure-cli` you can choose between standard and prem
 
 ## Creating a VM with a Managed Disk
 
-The following example requires the Azure CLI 2.0, which you can [install here](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The following example requires the Azure CLI 2.0, which you can [install here](https://docs.azure.cn/zh-cn/cli/install-azure-cli).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

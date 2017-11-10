@@ -32,7 +32,7 @@ You can also perform these steps with the [Azure CLI 1.0](deploy-linux-vm-into-e
 ## Quick Commands
 If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](#detailed-walkthrough).
 
-To create this custom environment, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+To create this custom environment, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -56,13 +56,13 @@ az vm create \
 
 Azure assets like virtual networks and network security groups should be static and long lived resources that are rarely deployed. Once a virtual network has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure. Think about a virtual network as being a traditional hardware network switch - you would not need to configure a brand new hardware switch with each deployment. With a correctly configured virtual network, you can continue to deploy new VMs into that virtual network over and over with few, if any, changes required over the life of the virtual network.
 
-To create this custom environment, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+To create this custom environment, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
 ## Create the resource group
 
-First, create an Azure resource group to organize everything you create in this walkthrough. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md). Create the resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
+First, create an Azure resource group to organize everything you create in this walkthrough. For more information on resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md). Create the resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 
 ```azurecli
 az group create \
@@ -72,7 +72,7 @@ az group create \
 
 ## Create the virtual network
 
-Lets build an Azure virtual network to launch the VMs into. For more information on virtual networks, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md). Create the virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* and subnet named *mySubnet*:
+Lets build an Azure virtual network to launch the VMs into. For more information on virtual networks, see [Create a virtual network by using the Azure CLI](../../virtual-network/virtual-networks-create-vnet-arm-cli.md). Create the virtual network with [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#create). The following example creates a virtual network named *myVnet* and subnet named *mySubnet*:
 
 ```azurecli
 az network vnet create \
@@ -86,7 +86,7 @@ az network vnet create \
 
 ## Create the network security group
 
-Azure network security groups are equivalent to a firewall at the network layer. For more information on network security groups, see [How to create network security groups in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md). Create the network security group with [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). The following example creates a network security group named *myNetworkSecurityGroup*:
+Azure network security groups are equivalent to a firewall at the network layer. For more information on network security groups, see [How to create network security groups in the Azure CLI](../../virtual-network/virtual-networks-create-nsg-arm-cli.md). Create the network security group with [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#create). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -97,7 +97,7 @@ az network nsg create \
 
 ## Add an inbound SSH allow rule
 
-The VM needs access from the internet, so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the VM is needed. Add an inbound rule for the network security group with [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
+The VM needs access from the internet, so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the VM is needed. Add an inbound rule for the network security group with [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -111,7 +111,7 @@ az network nsg rule create \
 
 ## Attach the subnet to the network security group
 
-The network security group rules can be applied to a subnet or a specific virtual network interface. Lets attach the network security group to our subnet. Attach your subnet to the network security group with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update):
+The network security group rules can be applied to a subnet or a specific virtual network interface. Lets attach the network security group to our subnet. Attach your subnet to the network security group with [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update):
 
 ```azurecli
 az network vnet subnet update \
@@ -123,7 +123,7 @@ az network vnet subnet update \
 
 ## Add a virtual network interface card to the subnet
 
-Virtual network interface cards (VNics) are important as you can reuse them by connecting them to different VMs. This reuse allows you to keep the VNic as a static resource while the VMs can be temporary. Create a VNic and associate it with the subnet with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create). The following example creates a VNic named *myNic*:
+Virtual network interface cards (VNics) are important as you can reuse them by connecting them to different VMs. This reuse allows you to keep the VNic as a static resource while the VMs can be temporary. Create a VNic and associate it with the subnet with [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create). The following example creates a VNic named *myNic*:
 
 ```azurecli
 az network nic create \
@@ -138,7 +138,7 @@ az network nic create \
 
 You now have a virtual network and subnet, and a network security group to protect the subnet by blocking all inbound traffic except port 22 for SSH. The VM can now be deployed inside this existing network infrastructure.
 
-Create your VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). For more information on the flags to use with the Azure CLI 2.0 to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md).
+Create your VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). For more information on the flags to use with the Azure CLI 2.0 to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](create-cli-complete.md).
 
 The following example creates a VM using Azure Managed Disks. These disks are handled by the Azure platform and do not require any preparation or location to store them. For more information about managed disks, see [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md). If you wish to use unmanaged disks, see the additional note below.
 
