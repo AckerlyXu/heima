@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/09/2017
-ms.date: 08/31/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
 
 ---
@@ -89,13 +89,13 @@ The following steps walk you through generating a client certificate from a self
 
 ### <a name="install"></a>Install an exported client certificate
 
-[!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+To install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## Next steps
 
 Continue with your Point-to-Site configuration. 
 
-- For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+- For **Resource Manager** deployment model steps, see [Configure P2S using native Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 - For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 <!--Update_Description: wording update --> 

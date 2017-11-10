@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services 
 origin.date: 08/02/2017
-ms.date: 08/31/2017
+ms.date: 11/07/2017
 ms.author: v-junlch
 
 ---
@@ -56,7 +56,7 @@ The examples in this article use the following values. You can use these values 
   - BackEnd: 10.12.0.0/24 (optional for this exercise)
 - **GatewaySubnet:** 10.11.255.0/27
 - **Resource Group:** TestRG1
-- **Location:** China East
+- **Location:** China North
 - **DNS Server:** Optional. The IP address of your DNS server.
 - **Virtual Network Gateway Name:** VNet1GW
 - **Public IP:** VNet1GWIP
@@ -128,5 +128,6 @@ For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-
 - For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 - For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
 - For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
-
+- For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+- For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 <!--Update_Description: wording update-->
