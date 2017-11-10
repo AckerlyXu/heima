@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Network Watcher connectivity check is currently in public preview release and may not have the same level of availability and reliability as features that are in general availability release. Certain features may not be supported, may have constrained capabilities, and may not be available in all [Azure locations](https://www.azure.cn/support/service-dashboard/). For the most up-to-date notifications on availability and status of this feature, check the [Azure Network Watcher updates](https://www.azure.cn/what-is-new/) page.

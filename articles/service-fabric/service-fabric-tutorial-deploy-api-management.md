@@ -39,12 +39,12 @@ In this tutorial series you learn how to:
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli).
+- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 - Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
 - If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 - If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
 
-?view=azure-cli-latest## Sign in to Azure and select your subscription
+## Sign in to Azure and select your subscription
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
@@ -170,10 +170,10 @@ payload = {
     "description": "My Service Fabric backend",
     "url": "fabric:/ApiApplication/ApiWebService",
     "protocol": "http",
-    "resourceId": "https://tutorialcluster.chinaeast.chinacloudapp.cn:19080",
+    "resourceId": "https://tutorialcluster.chinaeast.cloudapp.chinacloudapi.cn:19080",
     "properties": {
         "serviceFabricCluster": {
-            "managementEndpoints": [ "https://tutorialcluster.chinaeast.chinacloudapp.cn:19080" ],
+            "managementEndpoints": [ "https://tutorialcluster.cloudapp.chinacloudapi.cn:19080" ],
             "clientCertificateThumbprint": "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80",
             "serverCertificateThumbprints": [ "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80" ],
             "maxPartitionResolutionRetries" : 5
@@ -231,7 +231,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
 
     This is the endpoint that you expose through API Management in Azure.
 
- 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.chinaeast.chinacloudapp.cn:19000`) to deploy the application to your Service Fabric cluster in Azure.
+ 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.chinaeast.cloudapp.chinacloudapi.cn:19000`) to deploy the application to your Service Fabric cluster in Azure.
 
 An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` should now be running in your Service Fabric cluster in Azure.
 
@@ -262,13 +262,13 @@ For this tutorial, we deploy a basic web server which echoes messages back to th
 
    ```bash
    cd Scripts
-   sfctl cluster select --endpoint http://mycluster.chinaeast.chinacloudapp.cn:19080
+   sfctl cluster select --endpoint http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080
    ./install.sh
    ```
 
    A Java stateless service named `fabric:/EchoServerApplication/EchoServerService` should now be running in your Service Fabric cluster in Azure.
 
-5. Open a browser and type in http://mycluster.chinaeast.chinacloudapp.cn:8081/getMessage, you should see "[version 1.0]Hello World !!!" displayed.
+5. Open a browser and type in http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:8081/getMessage, you should see "[version 1.0]Hello World !!!" displayed.
 
 ## Create an API operation
 
@@ -403,4 +403,4 @@ In this tutorial, you learned how to:
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
 
-<!--Update_Description: new articles on service fabric deploy api management -->
+<!--Update_Description: update meta properties, wording update -->
