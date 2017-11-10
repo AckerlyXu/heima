@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 10/30/2017
+ms.date: 12/01/2017
 ms.author: v-yeche
 ---
 # Provision a Windows SQL Server virtual machine in the Azure portal
@@ -21,7 +21,7 @@ ms.author: v-yeche
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-<!-- Not Avaialble > * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)-->
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 In this quick start tutorial, you use the Azure portal to create a Windows virtual machine with SQL Server installed.
 
@@ -304,4 +304,4 @@ The following sections show how to connect to your SQL Server instance on your V
 ## Next Steps
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) and the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->
