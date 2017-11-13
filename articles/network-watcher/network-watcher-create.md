@@ -52,7 +52,7 @@ ARMclient is used to call the REST API using PowerShell. ARMClient is found on c
 ### Log in with ARMClient
 
 ```powerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ### Create the network watcher

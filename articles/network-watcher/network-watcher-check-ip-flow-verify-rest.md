@@ -48,7 +48,7 @@ In this scenario, you:
 ## Log in with ARMClient
 
 ```PowerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ## Retrieve a virtual machine

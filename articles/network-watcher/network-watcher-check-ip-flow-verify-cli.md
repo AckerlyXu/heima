@@ -45,6 +45,9 @@ This scenario uses IP Flow Verify to verify if a virtual machine can talk to a k
 
 IP flow verify tests traffic to or from an IP address on a virtual machine to or from a remote destination. An Id of a virtual machine is required for the cmdlet. If you already know the ID of the virtual machine to use, you can skip this step.
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+
 ```azurecli
 az vm show --resource-group MyResourceGroup5431 --name MyVM-Web
 ```
