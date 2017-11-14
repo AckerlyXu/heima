@@ -50,6 +50,8 @@ To get the next hop we call the `az network watcher show-next-hop` cmdlet. We pa
 
 If you haven't yet, install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). Then run the following command:
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
 

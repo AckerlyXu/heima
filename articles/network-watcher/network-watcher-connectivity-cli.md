@@ -43,6 +43,8 @@ This article assumes you have the following resources:
 
 Connectivity check is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 ```azurecli 
 az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
 

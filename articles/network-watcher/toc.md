@@ -82,9 +82,9 @@
 ## [Virtual machines](/virtual-machines/)
 ## [VPN gateway](/vpn-gateway/)
 # Resources
-## [Azure Roadmap](https://www.azure.cn/roadmap/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+<!--Not Available ## [Azure Roadmap](https://www.azure.cn/roadmap/)-->
+<!--Not Available ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)-->
 ## [Pricing](https://www.azure.cn/pricing/details/network-watcher/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+<!--Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)-->

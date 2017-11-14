@@ -72,7 +72,7 @@ AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
 Log in to armclient with your Azure credentials.
 
 ```PowerShell
-armclient login
+armclient login "MOONCAKE"
 ```
 
 ## Retrieve a virtual machine

@@ -42,7 +42,7 @@ This scenario uses IP flow verify to verify if a virtual machine can talk to a k
 The first step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the IP flow verify cmdlet.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinaeast" } 
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
