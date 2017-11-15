@@ -15,20 +15,19 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 
 ---
-
 # Best practices for Azure SQL Data Warehouse
 This article is a collection of many best practices that will help you to achieve optimal performance from your Azure SQL Data Warehouse.  Some of the concepts in this article are basic and easy to explain, other concepts are more advanced and we just scratch the surface in this article.  The purpose of this article is to give you some basic guidance and to raise awareness of important areas to focus as you build your data warehouse.  Each section introduces you to a concept and then point you to more detailed articles which cover the concept in more depth.
 
 If you are just getting started with Azure SQL Data Warehouse, do not let this article overwhelm you.  The sequence of the topics is mostly in the order of importance.  If you start by focusing on the first few concepts, you'll be in good shape.  As you get more familiar and comfortable with using SQL Date Warehouse, come back and look at a few more concepts.  It won't take long for everything to make sense.
 
 ## Reduce cost with pause and scale
-A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure Portal or through PowerShell commands.  Become familiar with these features as they can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
+A key feature of SQL Data Warehouse is the ability to pause when you are not using it, which stops the billing of compute resources.  Another key feature is the ability to scale resources.  Pausing and Scaling can be done via the Azure portal or through PowerShell commands.  Become familiar with these features as they can greatly reduce the cost of your data warehouse when it is not in use.  If you always want your data warehouse accessible, you may want to consider scaling it down to the smallest size, a DW100 rather than pausing.
 
-See also [Pause compute resources][Pause compute resources], [Resume compute resources][Resume compute resources], [Scale compute resources][Scale compute resources]
+See also [Pause compute resources][Pause compute resources], [Resume compute resources][Resume compute resources], [Scale compute resources][Scale compute resources].
 
 ## Drain transactions before pausing or scaling
 When you pause or scale your SQL Data Warehouse, behind the scenes your queries are canceled when you initiate the pause or scale request.  Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly.  **Transactional queries, by definition, must either complete in their entirety or rollback their changes.**  Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying.  For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted.  If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
@@ -84,7 +83,7 @@ When you are temporarily landing data on SQL Data Warehouse, you may find that u
 See also [Temporary tables][Temporary tables], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## Optimize clustered columnstore tables
-Clustered columnstore indexes are one of the most efficient ways you can store your data in Azure SQL Data Warehouse.  By default, tables in SQL Data Warehouse are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high quality columnstore segments is important, it's a good idea to use users ids which are in the medium or large resource class for loading data.  The fewer DWUs you use, the larger the resource class you will want to assign to your loading user. 
+Clustered columnstore indexes are one of the most efficient ways you can store your data in Azure SQL Data Warehouse.  By default, tables in SQL Data Warehouse are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  Because high quality columnstore segments is important, it's a good idea to use users ids which are in the medium or large resource class for loading data.  The fewer DWUs you use, the larger the resource class you will want to assign to your loading user.
 
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Data Warehouse table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions * 100 partitions * 1 million rows).  If your table does not have 6 billion rows in this example, either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained with a heap table with secondary indexes rather than a columnstore table.  Columnstore tables do not yet support secondary indexes.
 
@@ -131,7 +130,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
 [Load data]: ./sql-data-warehouse-overview-load.md
-[Move data with Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
@@ -145,23 +144,23 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[ALTER TABLE]: https://msdn.microsoft.com/zh-cn/library/ms190273.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
-[CREATE TABLE]: https://msdn.microsoft.com/zh-cn/library/mt203953.aspx
-[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/zh-cn/library/mt204017.aspx
-[INSERT]: https://msdn.microsoft.com/zh-cn/library/ms174335.aspx
-[OPTION]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
-[TRUNCATE TABLE]: https://msdn.microsoft.com/zh-cn/library/ms177570.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
-[sys.dm_exec_sessions]: https://msdn.microsoft.com/zh-cn/library/ms176013.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/zh-cn/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/zh-cn/library/mt203889.aspx
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/zh-cn/library/mt203878.aspx
-[sys.dm_pdw_waits]: https://msdn.microsoft.com/zh-cn/library/mt203893.aspx
-[Columnstore indexes guide]: https://msdn.microsoft.com/zh-cn/library/gg492088.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
+[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE AS SELECT]: https://msdn.microsoft.com/library/mt204041.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
+[INSERT]: https://msdn.microsoft.com/library/ms174335.aspx
+[OPTION]: https://msdn.microsoft.com/library/ms190322.aspx
+[TRUNCATE TABLE]: https://msdn.microsoft.com/library/ms177570.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
+[sys.dm_exec_sessions]: https://msdn.microsoft.com/library/ms176013.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_waits]: https://msdn.microsoft.com/library/mt203893.aspx
+[Columnstore indexes guide]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 [Selecting table distribution]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
@@ -169,3 +168,5 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
 <!-- Not Available [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies-->
+
+<!--Update_Description: wording update-->
