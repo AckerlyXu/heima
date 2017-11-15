@@ -13,11 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2017
-ms.date: 07/03/2017
+origin.date: 10/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
-
 # Send events to Azure Event Hubs using the .NET Framework
 
 ## Introduction
@@ -29,7 +28,7 @@ This tutorial shows how to use the [Azure portal](https://portal.azure.cn) to cr
 To complete this tutorial, you need the following prerequisites:
 
 * [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
-* An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
+* An active Azure account. If you don't have one, you can create a trial account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 ## Create an Event Hubs namespace and an event hub
 
@@ -43,7 +42,7 @@ In this section, you'll write a Windows console app that sends events to your ev
 
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 2. In Solution Explorer, right-click the **Sender** project, and then click **Manage NuGet Packages for Solution**. 
-3. Click the **Browse** tab, then search for `Azure Service Bus`. Click **Install**, and accept the terms of use. 
+3. Click the **Browse** tab, then search for `WindowsAzure.ServiceBus`. Click **Install**, and accept the terms of use. 
 
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
 
@@ -111,3 +110,5 @@ Now that you've built a working application that creates an event hub and sends 
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
+
+<!--Update_Description: update meta properties, wording update -->
