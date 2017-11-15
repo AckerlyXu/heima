@@ -1,4 +1,4 @@
-The following table lists quotas and limits specific to [Azure Event Hubs](/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://www.azure.cn/pricing/details/event-hubs/).
+The following table lists quotas and limits specific to [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://www.azure.cn/pricing/details/event-hubs/).
 
 | Limit | Scope | Type | Behavior when exceeded | Value |
 | --- | --- | --- | --- | --- |
@@ -12,5 +12,5 @@ The following table lists quotas and limits specific to [Azure Event Hubs](/even
 | Maximum retention period of event data |Entity |Static |- |1-7 days |
 | Maximum throughput units |Namespace |Static |Exceeding the throughput unit limit causes your data to be throttled and generates a **[ServerBusyException](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
 | Number of authorization rules per namespace |Namespace|Static |Subsequent requests for authorization rule creation will be rejected.|12 |
-
-<!-- ms.date: 10/26/2017 -->
+<!-- ms.date: 11/20/2017 -->
+<!-- Update_Description: update meta properties -->

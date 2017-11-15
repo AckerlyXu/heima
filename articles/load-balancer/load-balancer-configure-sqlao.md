@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 12/05/2016
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Configure load balancer for SQL always on
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 SQL Server AlwaysOn Availability Groups can now be run with ILB. Availability Group is SQL Server's flagship solution for high availability and disaster recovery. The Availability Group Listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of the replicas in the configuration.
 
@@ -52,15 +54,17 @@ Figure 1 - SQL AlwaysOn configured with Internet-facing load balancer
     Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
     ```
 
-In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc". After creating the ILB with `DirectServerReturn` switch, you add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.
+    In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc". After creating the ILB with `DirectServerReturn` switch, you add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.
 
 For more information about SQL AlwaysOn, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## See Also
-[Get started configuring an Internet facing load balancer](./load-balancer-get-started-internet-arm-ps.md)
+[Get started configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
-[Get started configuring an Internal load balancer](./load-balancer-get-started-ilb-arm-ps.md)
+[Get started configuring an Internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a Load balancer distribution mode](./load-balancer-distribution-mode.md)
+[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

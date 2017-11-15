@@ -14,7 +14,7 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
@@ -72,14 +72,14 @@ In this section we write a C app to send events to your event hub. The code uses
     #include <unistd.h>
     #include <stdlib.h>
 
-    #define check(messenger)                                                     
-      {                                                                          
-        if(pn_messenger_errno(messenger))                                        
-        {                                                                        
-          printf("check\n");                                                     
-          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); 
-        }                                                                        
-      }  
+    #define check(messenger)
+      {
+        if(pn_messenger_errno(messenger))
+        {
+          printf("check\n");
+          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger)));
+        }
+      }
 
     pn_timestamp_t time_now(void)
     {
@@ -96,7 +96,7 @@ In this section we write a C app to send events to your event hub. The code uses
     }
 
     int sendMessage(pn_messenger_t * messenger) {
-        char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.chinacloudapi.cn/{event hub name}";
+        char * address = (char *) "amqps://{SAS Key Name}:{SAS key}@{namespace name}.servicebus.chinacloudapi.cn/{event hub name}";
         char * msgtext = (char *) "Hello from C!";
 
         pn_message_t * message;
@@ -158,4 +158,4 @@ You can learn more about Event Hubs by visiting the following links:
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,11 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/12/2017
-ms.date: 07/03/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
-
 # Event Hubs quotas
 This section lists basic quotas and limits in Azure Event Hubs.
 
@@ -27,5 +26,9 @@ This section lists basic quotas and limits in Azure Event Hubs.
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-<!-- Not Available * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md) -->
+* [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
+
+<!--Not Available the parent file of includes file of event-hubs-limits.md-->
+<!--ms.date:11/20/2017-->
+<!--Update_Description: update link-->

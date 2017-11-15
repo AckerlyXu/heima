@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 origin.date: 09/13/2017
+ms.date: 11/20/2017
 ms.custom: loading
-ms.date: 10/02/2017
 ms.author: v-yeche
 ---
 # Guide for using PolyBase in SQL Data Warehouse
@@ -129,7 +129,7 @@ To achieve optimal loading performance with PolyBase we suggest the following:
 
 ## PolyBase Limitations
 PolyBase in SQL DW has the following limitations that need to be taken into consideration when designing a loading job:
-- A single row cannot be wider than 1,000,000 bytes. This is true regardless of the table schema defined, including (n)varchar(max) columns. This means for External Tables (n)varchar(max) columns can be at max 1,000,000 bytes wide, not the 2GB limit defined by the data type.
+- A single row cannot be wider than 1,000,000 bytes. This is true regardless of the table schema defined.
 - When exporting data into an ORC File Format from SQL Server or Azure SQL Data Warehouse text heavy columns can be limited to as few as 50 columns due to java out of memory errors. To work around this, export only a subset of the columns.
 
 ## Next steps
@@ -166,4 +166,4 @@ To learn more about moving data to SQL Data Warehouse, see the [data migration o
 
 <!-- External Links -->
 
-<!--Update_Description: update meta properties, add feature on PolyBase performance optimizations -->
+<!--Update_Description: wording update -->

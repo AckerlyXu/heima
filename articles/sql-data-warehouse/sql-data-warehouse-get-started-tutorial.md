@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
 origin.date: 01/26/2017
-ms.date: 10/02/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 
 ---
@@ -140,7 +140,6 @@ Since you are currently logged in as the server admin you have permissions to cr
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Now querying the *SQL Data Warehouse database*, create a database user based on the login you created to access and perform operations on the database.
@@ -666,4 +665,4 @@ savings by pausing and scaling to meet your business needs.
 [Visual Studio]: https://www.visualstudio.com/
 [SQL Server Management Studio]: https://msdn.microsoft.com/library/mt238290.aspx
 
-<!--Update_Description: wording update, update reference link-->
+<!-- Update_Description: wording update -->

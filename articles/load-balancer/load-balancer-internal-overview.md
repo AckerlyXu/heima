@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 05/08/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Internal load balancer overview
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Unlike the Internet facing load balancer, the internal load balancer (ILB) directs traffic only to resources inside the cloud service or using VPN to access the Azure infrastructure. The infrastructure restricts access to the load balanced virtual IP addresses (VIPs) of a Cloud Service or a Virtual Network so that they will never be directly exposed to an Internet endpoint. This enables internal line of business (LOB) applications to run in Azure and be accessed from within the cloud or from resources on-premises.
 
@@ -74,7 +76,7 @@ Figure 4 - On-premises network traffic routed to the ILB endpoint
 
 Internal Load Balancer configurations do not support SNAT. In the context of this document, SNAT refers to port masquerading source  network address translation.  This applies to scenarios where a VM in a load balancer pool needs to reach the respective internal Load Balancer's frontend IP address. This scenario is not supported for internal Load Balancer. Connection failures will occur when the flow is load balanced to the VM which originated the flow. You must use a proxy style load balancer for such scenarios.
 
-## Next Steps
+## Next steps
 
 [Azure Resource Manager support for Azure Load Balancer](load-balancer-arm.md)
 
@@ -85,3 +87,5 @@ Internal Load Balancer configurations do not support SNAT. In the context of thi
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->
