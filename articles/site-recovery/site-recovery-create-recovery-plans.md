@@ -13,11 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 07/23/2017
-ms.date: 08/28/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
-
 # Create recovery plans
 
 This article provides information about creating and customizing recovery plans in [Azure Site Recovery](site-recovery-overview.md).
@@ -37,6 +36,7 @@ This article provides information about creating and customizing recovery plans 
     - For VMM to Azure, select **Source Type** > **VMM**.  Select the source VMM server, and **Azure** as the target.
     - For Hyper-V replication to Azure (without VMM), select **Source Type** > **Hyper-V site**. Select the site as the source, and **Azure** as the target.
     - For a VMware VM or a physical on-premises server to Azure, select a configuration server as the source, and **Azure** as the target.
+    - For a Azure to Azure recovery plan, select a Azure region as the source, and a secondary Azure region as the target. The secondary Azure regions are only those to which virtual machines are protected.
 2. In **Select virtual machines**, select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
 
 ## Customize and extend recovery plans
@@ -69,10 +69,13 @@ If you're using VMM in your deployment:
 * Ensure you have at least one library server in your VMM deployment. By default, the library share path for a VMM server is located locally on the VMM server, with the folder name MSCVMMLibrary.
     * If your library share path is remote (or local but not shared with MSCVMMLibrary), configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
       * Open the Registry Editor and navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location.
+      * Edit the value **ScriptLibraryPath** and place it as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location. Note that this is the root node of the share. **To check this, you can open the browse the library at the root node in VMM. The path that opens will be the root of the path - the one you will need to use in the variable**.
       * Ensure that you test the script with a user account that has the same permissions as the VMM service account. This checks that standalone tested scripts run in the same way as they will in recovery plans. On the VMM server, set the execution policy to bypass as follows:
-        * Open the 64-bit Windows PowerShell console using elevated privileges.
+        * Open the **64-bit Windows PowerShell** console using elevated privileges.
         * Type: **Set-executionpolicy bypass**. [Learn more](https://technet.microsoft.com/library/ee176961.aspx).
+
+> [!IMPORTANT]
+> You should set execution policy to Bypass on the 64-bit powershell only. If you have set it for the 32-bit powershell, the scripts will not exeute.
 
 ## Add a script or manual action to a plan
 
@@ -97,4 +100,4 @@ If you have a VMM source site, you can create a script on the VMM server, and in
 
 [Learn more](site-recovery-failover.md) about running failovers.
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update -->

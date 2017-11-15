@@ -14,11 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 05/24/2017
-ms.date: 07/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 
 ---
-
 # Support matrix for replication to a secondary site with Azure Site Recovery
 
 This article summarizes what's supported when you use Azure Site Recovery to replicate to a secondary on-premises site.
@@ -42,7 +41,7 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 
   > [!NOTE]
   > VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.
-
+  > Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
 ### Host servers
 
 **Deployment** | **Support**
@@ -58,7 +57,7 @@ The following table summarizes operating system support in various deployment sc
 --- | --- | ---
 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 or 6.5 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
->[!NOTE]
+> [!NOTE]
 >Only Linux machines with the following storage can be replicated:
 >File system (EXT3, ETX4, ReiserFS, XFS);
 >Multipath software-device Mapper;
@@ -130,9 +129,12 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19 ([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/zh-cn/kb/3155002)
+**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19 ([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Mobility service** | Coordinates replication between on-premises VMware servers or physical servers, and the secondary site<br/><br/> Installed on VMware VM or physical servers that you want to replicate  | N/A (available from portal) | N/A
 
 ## Next steps
 
 - [Replicate Hyper-V VMs in VMM clouds to a secondary site](site-recovery-vmm-to-vmm.md)
+- [Replicate VMware VMs and physical servers to a secondary site](site-recovery-vmware-to-vmware.md)
+
+<!-- Update_Description: update meta properties, wording update -->
