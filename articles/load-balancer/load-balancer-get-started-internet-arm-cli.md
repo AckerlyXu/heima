@@ -14,23 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 04/17/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
-
 # Creating an internet load balancer using the Azure CLI
+
 > [!div class="op_single_selector"]
->- [Portal](./load-balancer-get-started-internet-portal.md)
->- [PowerShell](./load-balancer-get-started-internet-arm-ps.md)
->- [Azure CLI](./load-balancer-get-started-internet-arm-cli.md)
->- [Template](./load-balancer-get-started-internet-arm-template.md)
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment](./load-balancer-get-started-internet-classic-portal.md)
+This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -46,7 +48,7 @@ You must create and configure the following objects to deploy a load balancer:
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-For more information see [Azure Resource Manager support for Load Balancer](./load-balancer-arm.md).
+For more information see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 ## Set up CLI to use Resource Manager
 
@@ -84,7 +86,7 @@ For more information see [Azure Resource Manager support for Load Balancer](./lo
     ```
 
     > [!IMPORTANT]
-    > The load balancer will use the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
+    > The load balancer uses the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
     > In this example, the FQDN is *loadbalancernrp.chinaeast.chinacloudapp.cn*.
 
 ## Create a load balancer
@@ -143,12 +145,12 @@ This example creates the following items.
 4. Check your settings.
 
     ```azurecli
-        azure network lb show nrprg nrplb
+    azure network lb show nrprg nrplb
     ```
 
-Expected output:
+    Expected output:
 
-```
+    ```
     info:    Executing command network lb show
     + Looking up the load balancer "nrplb"
     + Looking up the public ip "NRPPublicIP"
@@ -207,7 +209,7 @@ Expected output:
     data:      Number of probes              : 4
     data:
     info:    network lb show command OK
-```
+    ```
 
 ## Create NICs
 
@@ -219,9 +221,9 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
         azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" chinaeast
     ```
 
-Expected output:
+    Expected output:
 
-```
+    ```
     info:    Executing command network nic create
     + Looking up the network interface "lb-nic1-be"
     + Looking up the subnet "nrpvnetsubnet"
@@ -245,7 +247,7 @@ Expected output:
     data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
     data:
     info:    network nic create command OK
-```
+    ```
 
 2. Create a NIC named *lb-nic2-be*, and associate it with the *rdp2* NAT rule, and the *NRPbackendpool* back-end address pool.
 
@@ -309,8 +311,10 @@ azure network lb delete --resource-group nrprg --name nrplb
 ```
 
 ## Next steps
-[Get started configuring an internal load balancer](./load-balancer-get-started-ilb-arm-cli.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-cli.md)
 
-[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

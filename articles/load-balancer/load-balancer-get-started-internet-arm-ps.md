@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 05/08/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
+
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -92,9 +95,9 @@ Make sure you have the latest production version of the Azure Resource Manager m
     $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'China North' -AllocationMethod Static -DomainNameLabel loadbalancernrp
     ```
 
-   > [!IMPORTANT]
-   > The load balancer uses the domain label of the public IP as a prefix for its FQDN. This is different from the classic deployment model, which uses the cloud service as the load balancer FQDN.
-   > In this example, the FQDN is **loadbalancernrp.chinanorth.chinacloudapp.cn**.
+    > [!IMPORTANT]
+    > The load balancer uses the domain label of the public IP as a prefix for its FQDN. This is different from the classic deployment model, which uses the cloud service as the load balancer FQDN.
+    > In this example, the FQDN is **loadbalancernrp.chinanorth.chinacloudapp.cn**.
 
 ## Create a front-end IP pool and a back-end address pool
 
@@ -236,7 +239,7 @@ Create network interfaces (or modify existing ones) and then associate them to N
 
 ## Create a virtual machine
 
-For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-quick-create-powershell.md?toc=%2fload-balancer%2ftoc.json).
+For guidance on creating a virtual machine and assigning a NIC, see [Create an Azure VM using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fload-balancer%2ftoc.json).
 
 ## Add the network interface to the load balancer
 
@@ -312,3 +315,5 @@ Remove-AzureRmLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->
