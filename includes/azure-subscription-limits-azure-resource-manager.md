@@ -13,7 +13,7 @@
 
 <sup>1</sup>Default limits vary by offer Category Type, such as 1rmb-trial, and series, such as Dv2, F, G, etc.
 
-<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://www.azure.cn/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
+<sup>2</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://www.azure.cn/support/contact/). The Azure Storage team will review your business case and may approve up to 250 storage accounts.
 
 <sup>3</sup>You can apply an unlimited number of tags per subscription. The number of tags per resource or resource group is limited to 15. Resource Manager only returns a [list of unique tag name and values](https://docs.microsoft.com/rest/api/resources/tags#Tags_List) in the subscription when the number of tags is 10,000 or less. However, you can still find a resource by tag when the number exceeds 10,000.  
 
