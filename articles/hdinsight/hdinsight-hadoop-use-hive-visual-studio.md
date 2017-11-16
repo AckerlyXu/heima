@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 09/28/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Run Hive queries using the Data Lake tools for Visual Studio
@@ -71,7 +71,7 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
    * `ROW FORMAT`: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
 
-   * `STORED AS TEXTFILE LOCATION`: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
+   * `STORED AS TEXTFILE LOCATION`: Tells Hive that the data is stored in the example/data directory, and that it is stored as text.
 
    * `SELECT`: Select a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are three rows that contain this value.
 
@@ -130,7 +130,7 @@ For more information about the HDInsight tools for Visual Studio:
 
 * [Getting started with HDInsight tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
-[hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

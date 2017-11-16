@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/06/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 09/06/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
-# Set up clusters in HDInsight with Hadoop, Spark, and more
+# Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Interactive Hive, HBase, or Storm.
+Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. Also, learn how to customize clusters and add security by joining them to a domain.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
 
@@ -77,7 +77,9 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [HBase](hdinsight-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
 | [Storm](hdinsight-storm-overview.md) |Real-time event processing |
 | [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
-| [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
+| [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
+| [R Server](hdinsight-hadoop-r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
+| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
 
 ### Number of nodes for each cluster type
 Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
@@ -94,6 +96,15 @@ For more information, see [Default node configuration and virtual machine sizes 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+### <a name="cluster-tiers"></a>Cluster tier: HDInsight service tiers
+
+Azure HDInsight provides the big data cloud offerings in two service tiers: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
+
+The following screenshot shows the Azure portal information for choosing cluster types.
+
+![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
+
 ## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
@@ -102,7 +113,7 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 
 ## <a name="location"></a>Location (regions) for clusters and storage
 
-You don't need to specify the cluster location explicitly: The cluster is in the same location as the default storage. For a list of supported regions, see the **listed area** on [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
+You don't need to specify the cluster location explicitly: The cluster is in the same location as the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ## Storage endpoints for clusters
 

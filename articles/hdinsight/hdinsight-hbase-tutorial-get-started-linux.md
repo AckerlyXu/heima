@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Get started with an Apache HBase example in HDInsight
@@ -34,7 +34,7 @@ Before you begin trying this HBase example, you must have the following items:
 * [curl](http://curl.haxx.se/download.html).
 
 ## Create HBase cluster
-The following procedure uses an Azure Resource Manager template to create a version 3.5 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a version 3.4 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open the template in the Azure portal. The template is located in a public blob container. 
 
@@ -55,7 +55,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
      Other parameters are optional.  
 
      Each cluster has an Azure Storage account dependency. After you delete a cluster, the data retains in the storage account. The cluster default storage account name is the cluster name with "store" appended. It is hardcoded in the template variables section.
-3. Click **Legal terms**, and then click **Purchase**. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**.
+3. Select **I agree to the terms and conditions stated above**, and then click **Purchase**. It takes about 20 minutes to create a cluster.
 
 > [!NOTE]
 > After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.

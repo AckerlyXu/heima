@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Use Ambari Views to debug Tez Jobs on HDInsight

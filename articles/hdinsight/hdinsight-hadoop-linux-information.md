@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Information about using HDInsight on Linux
@@ -33,13 +33,15 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services
 * [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview) - used to remotely manage Azure services
+* [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) (preview) - used to remotely manage Azure services
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Users
 
-HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
+Unless [domain-joined](hdinsight-domain-joined-introduction.md), HDInsight should be considered a **single-user** system. A single SSH user account is created with the cluster, with administrator level permissions. Additional SSH accounts can be created, but they also have administrator access to the cluster.
+
+Domain-joined HDInsight supports multiple users and more granular permission and role settings. For more information, see [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 
 ## Domain names
 
@@ -47,13 +49,13 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster fro
 
 Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, see the **Hosts** page on the Ambari Web UI. You can also use the following to return a list of hosts from the Ambari REST API:
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Replace **PASSWORD** with the password of the admin account, and **CLUSTERNAME** with the name of your cluster. This command returns a JSON document that contains a list of the hosts in the cluster. Jq is used to extract the `host_name` element value for each host.
+Replace **CLUSTERNAME** with the name of your cluster. When prompted, enter the password for the admin account. This command returns a JSON document that contains a list of the hosts in the cluster. Jq is used to extract the `host_name` element value for each host.
 
 If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following command:
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
 This command returns a JSON document describing the service, and then jq pulls out only the `host_name` value for the hosts.
 
@@ -132,16 +134,16 @@ When using __Azure Storage__, use one of the following URI schemes:
 
 You can use Ambari to retrieve the default storage configuration for the cluster. Use the following command to retrieve HDFS configuration information using curl, and filter it using [jq](https://stedolan.github.io/jq/):
 
-```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
+```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> This returns the first configuration applied to the server (`service_config_version=1`), which contains this information. You may need to list all configuration versions to find the latest one.
+> This command returns the first configuration applied to the server (`service_config_version=1`), which contains this information. You may need to list all configuration versions to find the latest one.
 
 This command returns a value similar to the following URIs:
 
 * `wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn` if using an Azure Storage account.
 
-    The account name is the name of the Azure Storage account, while the container name is the blob container that is the root of the cluster storage.
+    The account name is the name of the Azure Storage account. The container name is the blob container that is the root of the cluster storage.
 
 You can also find the storage information using the Azure portal by using the following steps:
 
@@ -155,7 +157,7 @@ There are a various ways to access data from outside the HDInsight cluster. The 
 
 If using __Azure Storage__, see the following links for ways that you can access your data:
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
+* [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 * Various SDKs:
 
@@ -174,7 +176,7 @@ The cluster scaling feature allows you to dynamically change the number of data 
 The different cluster types are affected by scaling as follows:
 
 * **Hadoop**: When scaling down the number of nodes in a cluster, some of the services in the cluster are restarted. Scaling operations can cause jobs running or pending to fail at the completion of the scaling operation. You can resubmit the jobs once the operation is complete.
-* **HBase**: Regional servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance regional servers, use the following steps:
+* **HBase**: Regional servers are automatically balanced within a few minutes, once the scaling operation completes. To manually balance regional servers, use the following steps:
 
     1. Connect to the HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -208,12 +210,11 @@ For specific information on scaling your HDInsight cluster, see:
 
 HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md). A script action can be used to make the following changes:
 
-* Install and configure a service or web site such as Spark or Hue.
-* Install and configure a component that requires configuration changes on multiple nodes in the cluster. For example, a required environment variable, creating of a logging directory, or creation of a configuration file.
+* Install and configure a service or web site.
+* Install and configure a component that requires configuration changes on multiple nodes in the cluster.
 
-Script Actions are Bash scripts. The scripts run during cluster provisioning, and can be used to install and configure additional components on the cluster. Example scripts are provided for installing the following components:
+Script Actions are Bash scripts. The scripts run during cluster creation, and are used to install and configure additional components. Example scripts are provided for installing the following components:
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
@@ -221,7 +222,7 @@ For information on developing your own Script Actions, see [Script Action develo
 
 ### Jar files
 
-Some Hadoop technologies are provided in self-contained jar files that contain functions used as part of a MapReduce job, or from inside Pig or Hive. While these can be installed using Script Actions, they often don't require any setup and can be uploaded to the cluster after provisioning and used directly. If you want to make sure the component survives reimaging of the cluster, you can store the jar file in the default storage for your cluster (WASB or ADL).
+Some Hadoop technologies are provided in self-contained jar files that contain functions used as part of a MapReduce job, or from inside Pig or Hive. They often don't require any setup, and can be uploaded to the cluster after creation and used directly. If you want to make sure the component survives reimaging of the cluster, you can store the jar file in the default storage for your cluster (WASB or ADL).
 
 For example, if you want to use the latest version of [DataFu](http://datafu.incubator.apache.org/), you can download a jar containing the project and upload it to the HDInsight cluster. Then follow the DataFu documentation on how to use it from Pig or Hive.
 
@@ -245,5 +246,3 @@ To use a different version of a component, upload the version you need and use i
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
-
-<!--Update_Description: change 'wasbs' into 'wasb'-->

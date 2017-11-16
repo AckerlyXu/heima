@@ -15,10 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ROBOTS: NOINDEX
+origin.date: 09/25/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Use Sqoop with Hadoop in HDInsight
@@ -68,26 +67,25 @@ HDInsight cluster comes with some sample data. You use the following two samples
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-First, you export *sample.log* and *hivesampletable* to the Azure 
-SQL database or to SQL Server, and then import the table that contains the 
-mobile device data back to HDInsight by using the following path:
-
-    /tutorials/usesqoop/importeddata
+In this tutorial, you use these two datasets to test Sqoop import and export.
 
 ## Create cluster and SQL database
-This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
-
-        "storageKeyType": "Primary",
-        "storageKey": "<TheAzureStorageAccountKey>",
+This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+   
+```json
+"storageKeyType": "Primary",
+"storageKey": "<TheAzureStorageAccountKey>",
+```
 
 If you prefer to use Azure PowerShell to create the cluster and the SQL Database, see [Appendix A](#appendix-a---a-powershell-sample).
 
+> [!NOTE]
+> Import using a template or the Azure portal only supports importing a BACPAC file from Azure blob storage.
+
+**To configure the environment using a resource management template**
 1. Click the following image to open a Resource Manager template in the Azure portal.         
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-    >[!NOTE]
-    > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change the allowed location to "China North" and "China East"; change the HDInsight Linux version to Azure China supported one, 3.5.
 
 2. Enter the following properties:
 
@@ -101,23 +99,17 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **_artifacts Location**: Use the default value unless you want to use your own backpac file in a different location.
     - **_artifacts Location Sas Token**: Leave it blank.
     - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
-
-     The following values are hardcoded in the variables section:
-
-     | Default storage account name | <CluterName>store |
-     | --- | --- |
-     | Azure SQL database server name |<ClusterName>dbserver |
-     | Azure SQL database name |<ClusterName>db |
-
-     Please write down these values.  You need them later in the tutorial.
-
-3.Click **OK** to save the parameters.
-
-4.From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group. The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
-
-5.Click **Legal terms**, and then click **Purchase**.
-
-6.Click **Create**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
+     
+        The following values are hardcoded in the variables section:
+        
+        |Name|Value|
+        |----|-----|
+        | Default storage account name | &lt;CluterName>store |
+        | Azure SQL database server name | &lt;ClusterName>dbserver |
+        | Azure SQL database name | &lt;ClusterName>db |
+     
+3. Select **I agree to the terms and conditions stated above**.
+4. Click **Purchase**. You see a new tile titled Submitting deployment for Template deployment. It takes about around 20 minutes to create the cluster and SQL database.
 
 If you choose to use existing Azure SQL database or Microsoft SQL Server
 
@@ -150,6 +142,20 @@ If you choose to use existing Azure SQL database or Microsoft SQL Server
     > 
     > 
 
+**To validate the configuration**
+
+1. Open the resource group in the Azure portal. You shall see four resources in the group:
+
+    - the cluster
+    - the database server
+    - the database
+    - the default storage account
+
+2. Open the database in Microsoft SQL Server Management Studio.  You shall see two databases deployed:
+
+    ![Azure HDInsight Sqoop SQL Management Studio](./media/hdinsight-use-sqoop/hdinsight-sqoop-sql-management-studio.png)
+
+
 ## Run Sqoop jobs
 HDInsight can run Sqoop jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
@@ -168,8 +174,6 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use Oozie with HDInsight][hdinsight-use-oozie]: Use Sqoop action in an Oozie workflow.
-* [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]: Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
 * [Upload data to HDInsight][hdinsight-upload-data]: Find other methods for uploading data to HDInsight/Azure Blob storage.
 
 ## Appendix A - a PowerShell sample
@@ -213,9 +217,9 @@ The PowerShell sample performs the following steps:
 
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
-
-    This is fine for other examples that use this data, but we must remove these exceptions before we can import into the Azure SQL database or SQL Server. Sqoop export  fails if there is an empty string or a line with a fewer elements than the number of fields defined in the Azure SQL database table. The log4jlogs table has 7 string-type fields.
-
+   
+    This is fine for other examples that use this data, but we must remove these exceptions before we can import into the Azure SQL database or SQL Server. Sqoop export  fails if there is an empty string or a line with a fewer element than the number of fields defined in the Azure SQL database table. The log4jlogs table has seven string-type fields.
+   
     This procedure creates a new file on the cluster: tutorials/usesqoop/data/sample.log. To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell. [Get started with HDInsight][hdinsight-get-started] has a code sample for using Azure PowerShell to download a file and display the file content.
 6. Export a data file to the Azure SQL database.
 
@@ -235,26 +239,31 @@ The PowerShell sample performs the following steps:
     To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample about using Azure PowerShell to download a file and display the file content.
 
 ### The PowerShell sample
-    # Prepare an Azure SQL database to be used by the Sqoop tutorial
 
-    #region - provide the following values
+```powershell
+# Prepare an Azure SQL database to be used by the Sqoop tutorial
 
-    $subscriptionID = "<Enter your Azure Subscription ID>"
+#region - provide the following values
 
-    $sqlDatabaseLogin = "<Enter a SQL Database Login name>" #SQL Database server login
-    $sqlDatabasePassword = "<Enter a Password>"
+$subscriptionID = "<Enter your Azure Subscription ID>"
 
-    $httpUserName = "admin"  #HDInsight cluster username
-    $httpPassword = "<Enter a Password>"
+$sqlDatabaseLogin = "<Enter a SQL Database Login name>" #SQL Database server login
+$sqlDatabasePassword = "<Enter a Password>"
 
-    # used for creating Azure service names
-    $nameToken = "<Enter an alias>" 
-    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-    #endregion
+$httpUserName = "admin"  #HDInsight cluster username
+$httpPassword = "<Enter a Password>"
 
-    #region - variables
+$sshUserName = "sshuser" #HDInsight ssh username
+$sshPassword = $httpPassword 
 
-    # Resource group variables
+# used for creating Azure service names
+$nameToken = "<Enter an alias>" 
+$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+#endregion
+
+#region - variables
+
+# Resource group variables
     $resourceGroupName = $namePrefix + "rg"
     $location = "China East" # used by all Azure services defined in this tutorial
 
@@ -435,9 +444,11 @@ The PowerShell sample performs the following steps:
         -ClusterName $HDInsightClusterName `
         -Location $location `
         -ClusterType Hadoop `
-        -OSType Windows `
-        -ClusterSizeInNodes 2 `
-        -HttpCredential $httpCredential `
+    -OSType Linux `
+    -Version 3.6 `
+    -ClusterSizeInNodes 2 `
+    -HttpCredential $httpCredential `
+    -SshCredential $sshCredential `
         -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
         -DefaultStorageAccountKey $defaultStorageAccountKey `
         -DefaultStorageContainer $defaultBlobContainerName 
@@ -640,6 +651,6 @@ The PowerShell sample performs the following steps:
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
