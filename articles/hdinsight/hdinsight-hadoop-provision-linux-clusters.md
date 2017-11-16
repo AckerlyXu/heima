@@ -98,7 +98,7 @@ Choose the version of HDInsight for this cluster. For more information, see [Sup
 
 ### <a name="cluster-tiers"></a>Cluster tier: HDInsight service tiers
 
-Azure HDInsight provides the big data cloud offerings in two service tiers: Standard and Premium.  For more information, see [HDInsight Standard and HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
+Azure HDInsight provides the big data cloud offerings in two service tiers: Standard and Premium.  But only Standard tier is supported for now in China. 
 
 The following screenshot shows the Azure portal information for choosing cluster types.
 
