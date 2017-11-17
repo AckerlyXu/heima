@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/02/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
@@ -49,9 +49,9 @@ To use a C# topology with a Linux-based cluster, you must update the Microsoft.S
 
 You can develop C# topologies with SCP.NET by using one of the following versions of Visual Studio:
 
-* Visual Studio 2012 with Update 4
+* Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-* Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=45326) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 

@@ -15,9 +15,9 @@ ms.devlang: 'dotnet'
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Migrate .NET solutions for Windows-based HDInsight to Linux-based HDInsight
@@ -28,7 +28,7 @@ Linux-based HDInsight clusters use [Mono (http://mono-project.com)](http://mono-
 
 Mono version 4.2.1 is included with HDInsight version 3.5. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
 
-For detailed information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
+For more information on compatibility between Mono and .NET, see the [Mono compatibility (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) document.
 
 > [!IMPORTANT]
 > The SCP.NET framework is compatible with Mono. For more information on using SCP.NET with Mono, see [Use Visual Studio to develop C# topologies for Apache Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
@@ -52,7 +52,7 @@ The [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemN
     ![Portability analyzer results dialog](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK because Mono runs on Windows and the path is valid in that context. However, the path is not valid on a Linux platform.
+> The analyzer cannot catch every problem with your solution. For example, a file path of `c:\temp\file.txt` is considered OK if Mono is running on Windows. The same path is not valid on a Linux platform.
 
 ## Manual portability analysis
 
@@ -66,7 +66,7 @@ You can continue to use Visual Studio to build your .NET solutions for HDInsight
 
 Once you have modified your solution using the recommendations from the .NET Portability Analyzer or from a manual analysis, you must test it with HDInsight. Testing the solution on a Linux-based HDInsight cluster may reveal subtle problems that need to be corrected. We recommend that you enable additional logging in your application while testing it.
 
-For more information on accessing logs, see the following document:
+For more information on accessing logs, see the following documents:
 
 * [Access YARN application logs on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 

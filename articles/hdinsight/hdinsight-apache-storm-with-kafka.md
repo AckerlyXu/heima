@@ -3,8 +3,8 @@ title: Use Apache Kafka with Storm on HDInsight - Azure | Microsoft Docs
 description: Apache Kafka is installed with Apache Storm on HDInsight. Learn how to write to Kafka, and then read from it, using the KafkaBolt and KafkaSpout components provided with Storm. Also learn how to use the Flux framework to define and submit Storm topologies.
 services: hdinsight
 documentationcenter: ''
-author: hayley244
-manager: digimobile
+author: Blackmist
+manager: jhubbard
 editor: cgronlun
 
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
@@ -14,9 +14,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/21/2017
-ms.date: 07/21/2017
-ms.author: v-haiqya
+origin.date: 10/12/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 ---
 # Use Apache Kafka (preview) with Storm on HDInsight
 
@@ -76,7 +76,7 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
   > [!WARNING]
   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
-2. Use the following guidance to populate the entries on the **Custom deployment** blade:
+2. Use the following guidance to populate the entries on the **Custom deployment** section:
    
     ![HDInsight custom deployment](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
@@ -98,9 +98,9 @@ While you can create an Azure virtual network, Kafka, and Storm clusters manuall
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
-Once the resources have been created, the blade for the resource group is displayed.
+Once the resources have been created, the section for the resource group is displayed.
 
-![Resource group blade for the vnet and clusters](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
+![Resource group section for the vnet and clusters](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Notice that the names of the HDInsight clusters are **storm-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.

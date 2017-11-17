@@ -14,9 +14,9 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/15/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/06/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ---
@@ -89,7 +89,11 @@ Use the following steps to create a Storm on HDInsight cluster:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
-    If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`.
+    > [!TIP]
+    > Your SSH client may say that the authenticity of the host can't be established. If so, enter `yes` to continue.
+
+    > [!NOTE]
+    > If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

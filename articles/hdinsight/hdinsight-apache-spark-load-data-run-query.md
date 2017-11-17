@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 09/22/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Run interactive queries on an HDInsight Spark cluster
@@ -63,6 +63,7 @@ To run queries, we use sample data that is by default available in the storage a
 
 5. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
+	from pyspark.sql import *
         from pyspark.sql.types import *
 
     Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell.

@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/09/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
@@ -285,10 +285,7 @@ The Resource Manager template used in this document is located in a public blob 
 
 1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-    >[!NOTE]
-    > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change the allowed location to "China North" and "China East"; change the HDInsight Linux version to Azure China supported one, 3.5.
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet-3.6.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. From the **Custom deployment** section, enter the following values:
 
@@ -305,8 +302,8 @@ The Resource Manager template used in this document is located in a public blob 
 
 3. Use the **Basics** section to create a resource group or select an existing one.
 4. In the **Resource group location** dropdown menu, select the same location as you selected for the **Location** parameter in the **Settings** section.
-5. Click **Legal terms**, and then click **Purchase**.
-6. Verify the **Pin to dashboard** checkbox is selected, and then click **Create**. It takes about 20 minutes to create the clusters.
+5. Read the terms and conditions, and then select **I agree to the terms and conditions stated above**.
+6. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, information about the resource group is displayed.
 
@@ -380,7 +377,7 @@ To write to HBase from the Storm cluster, you must provide the HBase bolt with t
     > When prompted, enter the password for the HDInsight admin login.
 
     ```powershell
-    $clusterName = 'your_HDInsight_cluster_name`
+    $clusterName = 'your_HDInsight_cluster_name'
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
@@ -390,7 +387,7 @@ To write to HBase from the Storm cluster, you must provide the HBase bolt with t
     > [!NOTE]
     > Replace `your_HDInsight_cluster_name with the name of your HDInsight cluster. When prompted, enter the password for the HDInsight admin login.
     >
-    > This example requires Azure PowerShell. For more information on using Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
+    > This example requires Azure PowerShell. For more information on using Azure PowerShell, see [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
 
     The information returned by these examples is similar to the following text:
 

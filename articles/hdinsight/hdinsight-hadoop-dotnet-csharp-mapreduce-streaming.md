@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Use C# with MapReduce streaming on Hadoop in HDInsight
@@ -55,7 +55,7 @@ For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.
 
 * A way to upload .exe files to the cluster. The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.
 
-* Azure PowerShell or a SSH client.
+* Azure PowerShell or an SSH client.
 
 * A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).
 

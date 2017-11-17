@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 09/26/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Create HDInsight clusters using the Azure CLI
