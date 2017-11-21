@@ -3706,6 +3706,96 @@
       "redirect_document_id": "false"
     },
     {
+		"source_path": "articles/virtual-machines/linux/endpoints-in-resource-manager.md",
+		"redirect_url": "/virtual-machines/linux/nsg-quickstart",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/app-frameworks.md",
+		"redirect_url": "//virtual-machines/linux/index",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/extensions-authoring-templates.md",
+		"redirect_url": "/virtual-machines/windows/template-description",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/create-aad-work-id.md",
+		"redirect_url": "/active-directory/active-directory-users-create-azure-portal",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/create-aad-work-id.md",
+		"redirect_url": "/active-directory/active-directory-users-create-azure-portal",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-resource-groups-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "False"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-subscription-accounts-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-naming-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/cli-deploy-templates.md",
+		"redirect_url": "//virtual-machines/linux/create-ssh-secured-vm-from-template",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/endpoints-in-resource-manager.md",
+		"redirect_url": "/virtual-machines/windows/nsg-quickstart-portal",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/linux/extensions-authoring-templates.md",
+		"redirect_url": "/virtual-machines/windows/template-description",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-virtual-machine-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/load-balance.md",
+		"redirect_url": "/virtual-machines/windows/tutorial-load-balancer",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-storage-solutions-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-availability-sets-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/infrastructure-networking-guidelines.md",
+		"redirect_url": "/virtual-machines/windows/infrastructure-example",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/app-frameworks.md",
+		"redirect_url": "/virtual-machines/windows/index",
+		"redirect_document_id": "false"
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/cli-deploy-templates.md",
+		"redirect_url": "/virtual-machines/linux/create-ssh-secured-vm-from-template",
+		"redirect_document_id": "false"
+	},
+    {
       "source_path": "articles/virtual-network/virtual-network-accelerated-networking-powershell.md",
       "redirect_url": "/virtual-network/virtual-network-create-vm-accelerated-networking",
       "redirect_document_id": "false"
