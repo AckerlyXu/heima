@@ -47,7 +47,7 @@ To complete this tutorial:
 
 ### Set up an Azure account
 
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
+Get an  [Azure account](https://www.azure.cn/).
 
 - You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://www.azure.cn/pricing/details/site-recovery/).
