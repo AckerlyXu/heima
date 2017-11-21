@@ -2496,11 +2496,6 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
-      "redirect_url": "/virtual-machines/windows/agent-user-guide",
-      "redirect_document_id": "false"
-    },
-    {
       "source_path": "articles/virtual-machines/virtual-machines-windows-app-frameworks.md",
       "redirect_url": "/virtual-machines/windows/app-frameworks",
       "redirect_document_id": "false"
