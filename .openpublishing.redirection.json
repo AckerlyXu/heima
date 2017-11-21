@@ -3712,7 +3712,7 @@
 	},
 	{
 		"source_path": "articles/virtual-machines/linux/app-frameworks.md",
-		"redirect_url": "//virtual-machines/linux/index",
+		"redirect_url": "/virtual-machines/linux/index",
 		"redirect_document_id": "false"
 	},
 	{
@@ -3747,7 +3747,7 @@
 	},
 	{
 		"source_path": "articles/virtual-machines/linux/cli-deploy-templates.md",
-		"redirect_url": "//virtual-machines/linux/create-ssh-secured-vm-from-template",
+		"redirect_url": "/virtual-machines/linux/create-ssh-secured-vm-from-template",
 		"redirect_document_id": "false"
 	},
 	{
