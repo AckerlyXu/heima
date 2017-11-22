@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ---
 
@@ -154,7 +154,7 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 Run the `New-AzureRmNetworkWatcherPacketCapture` cmdlet to start the packet capture process, passing the required values retrieved in the preceding steps.
 ```powershell
 
-New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filters $filter1, $filter2
+New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
 The following example is the expected output from running the `New-AzureRmNetworkWatcherPacketCapture` cmdlet.
@@ -279,4 +279,4 @@ Find if certain traffic is allowed in orr out of your VM by visiting [Check IP f
 
 <!-- Image references -->
 
-<!--Update_Description: new articles on network watcher packet capture manage powershell -->
+<!--Update_Description: wording update -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ---
 
@@ -117,7 +117,7 @@ Feel free to customize this template for your needs. There are many numerous way
 
 ## Next Steps
 
-Learn how to visualize your NSG flow logs with the Elastick Stack by visiting [Visualize network traffic patterns to and from your VMs using open source tools](network-watcher-using-open-source-tools.md)
+Learn how to visualize your NSG flow logs with the Elastick Stack by visiting [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
@@ -133,4 +133,4 @@ Learn how to visualize your NSG flow logs with the Elastick Stack by visiting [V
 [12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
 
-<!--Update_Description: new articles on network watcher visulaize nsg flow logs power bi -->
+<!--Update_Description: update link -->
