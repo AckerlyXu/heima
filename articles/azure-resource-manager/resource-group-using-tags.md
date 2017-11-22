@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-origin.date: 10/02/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -144,16 +144,18 @@ You can retrieve information about the usage comma-separated values (CSV) file. 
 <!-- Not Available [EA portal](https://ea.azure.com) -->
 <!-- Not Available [Gain insights into your Azure resource consumption](../billing/billing-usage-rate-card-overview.md) -->
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](../billing-understand-your-bill.md).
+When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](../billing/billing-understand-your-bill.md).
 
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
 ## Next steps
 
-* You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [Use policies to manage resources and control access](resource-manager-policy.md).
+<!-- Not Available on [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
 * For an introduction to using Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * For an introduction to using the Azure CLI when you're deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
-<!--Update_Description: update meta properties, wording update, update cmdlet sample -->
+<!--Not Available the parent file of includes file of resource-manager-tag-resources-powershell.md-->
+<!--ms.date:11/27/2017-->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/26/2017
-ms.date: 08/21/2017
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -23,6 +23,8 @@ This topic shows you how to iterate in your Azure Resource Manager template to c
 
 If you need to add logic to your template that enables you to specify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).
 
+For an example of creating multiple elements in an array variable, see [Variables](resource-group-authoring-templates.md#variables).
+
 ## Resource iteration
 To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Serial copy](#serial-copy). 
 
@@ -30,26 +32,26 @@ The resource to create multiple times takes the following format:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 3
-            }
-        }
-    ],
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"resources": [
+		{
+			"apiVersion": "2016-01-01",
+			"type": "Microsoft.Storage/storageAccounts",
+			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+			"location": "[resourceGroup().location]",
+			"sku": {
+				"name": "Standard_LRS"
+			},
+			"kind": "Storage",
+			"properties": {},
+			"copy": {
+				"name": "storagecopy",
+				"count": 3
+			}
+		}
+	],
+	"outputs": {}
 }
 ```
 
@@ -405,20 +407,20 @@ You specify that a resource is deployed after another resource by using the `dep
     "parameters": {},
     "resources": [
         {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 3
-            }
-        },
+			"apiVersion": "2016-01-01",
+			"type": "Microsoft.Storage/storageAccounts",
+			"name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+			"location": "[resourceGroup().location]",
+			"sku": {
+				"name": "Standard_LRS"
+			},
+			"kind": "Storage",
+			"properties": {},
+			"copy": {
+				"name": "storagecopy",
+				"count": 3
+			}
+		},
         {
             "apiVersion": "2015-06-15", 
             "type": "Microsoft.Compute/virtualMachines", 
@@ -508,4 +510,4 @@ For an example of using a password or SSH key to deploy virtual machine, see [Us
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
 
-<!--Update_Description: wording update, add template code of copy element.-->
+<!--Update_Description: update meta properties, wording update -->
