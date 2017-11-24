@@ -40,7 +40,7 @@ ms.author: v-yeche
 <!-- Not Avaialble ## Release notes -->
 <!-- Not Avaialble ## Release and Retirement dates --》
 
-## Troubleshooting
+## <a name="troubleshooting"></a> Troubleshooting
 
 If you get the error 
 
