@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/26/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -22,38 +22,10 @@ ms.author: v-junlch
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
 ## Microsoft Cloud Germany
-The [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by a German data trustee.
-
-| URLs to open in proxy server |
-| --- |
-| \*.microsoftonline.de |
-| \*.chinacloudapi.cn |
-| +Certificate Revocation Lists |
-
-When you sign in to your Azure AD tenant, you must use an account in the onmicrosoft.de domain.
-
+The Microsoft Cloud Germany is a sovereign cloud operated by a German data trustee.
 
 ## Azure Government cloud <a name="microsoft-azure-government-cloud"></a>
 The Azure Government cloud is a cloud for US government.
-
-This cloud has been supported by earlier releases of DirSync. From build 1.1.180 of Azure AD Connect, the next generation of the cloud is supported. This generation is using US-only based endpoints and have a different list of URLs to open in your proxy server.
-
-| URLs to open in proxy server |
-| --- |
-| \*.microsoftonline.com |
-| \*.microsoftonline.us |
-| \*.gov.us.microsoftonline.com |
-| +Certificate Revocation Lists |
-
-Azure AD Connect is not able to automatically detect that your Azure AD tenant is located in the Government cloud. Instead you need to take the following actions when you install Azure AD Connect.
-
-1. Start the Azure AD Connect installation.
-2. When you see the first page where you are supposed to accept the EULA, do not continue but leave the installation wizard running.
-3. Start regedit and change the registry key `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` to the value `2`.
-4. Go back to the Azure AD Connect installation wizard, accept the EULA, and continue. During installation, make sure to use the **custom configuration** installation path (and not Express installation). Then continue the installation as usual.
-
-
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!-- Update_Description: wording update -->

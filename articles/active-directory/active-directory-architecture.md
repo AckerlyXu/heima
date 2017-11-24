@@ -13,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/02/2017
-ms.date: 08/22/2017
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -77,7 +77,7 @@ Azure AD maintains a zero [Recovery Time Objective (RTO)](https://en.wikipedia.o
 
 ### Data centers
 
-Azure AD’s replicas are stored in datacenters located throughout the world. For more information, see [Azure datacenters](https://azure.microsoft.com/en-us/overview/datacenters).
+Azure AD’s replicas are stored in datacenters located throughout the world. For more information, see [Azure datacenters](https://azure.microsoft.com/overview/datacenters).
 
 Azure AD operates across data centers with the following characteristics:
 
@@ -111,10 +111,10 @@ If any Azure AD service is not working as expected, we immediately take action t
 
 **Secure operations**
 
-We employ operational controls such as multi-factor authentication (MFA) for any operation, as well as auditing of all operations. In addition, we use a just-in-time elevation system to grant necessary temporary access for any operational task-on-demand on an ongoing basis. For more information, see [The Trusted Cloud](https://azure.microsoft.com/en-us/support/trust-center).
+We employ operational controls such as multi-factor authentication (MFA) for any operation, as well as auditing of all operations. In addition, we use a just-in-time elevation system to grant necessary temporary access for any operational task-on-demand on an ongoing basis. For more information, see [The Trusted Cloud](https://www.trustcenter.cn/).
 
 ## Next steps
 [Azure Active Directory developer's guide](/active-directory/develop/active-directory-developers-guide)
 
 
-<!--Update_Description: wording update -->   
+<!--Update_Description: link update -->   

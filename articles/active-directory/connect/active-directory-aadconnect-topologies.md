@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -109,7 +109,7 @@ Some Office 365 workloads have certain restrictions on supported topologies:
 
 | Workload | Restrictions |
 --------- | ---------
-| Exchange Online | If there's more than one on-premises Exchange organization (that is, Exchange has been deployed to more than one forest), you must use Exchange 2013 SP1 or later. For more information, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx). |
+| Exchange Online | For more information about hybrid topologies supported by Exchange Online, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype for Business | When you're using multiple on-premises forests, only the account-resource forest topology is supported. For more information, see [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 
