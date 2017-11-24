@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ---
 
 # Connect your device to the remote monitoring preconfigured solution (Linux)

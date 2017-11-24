@@ -8,7 +8,7 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-<!-- If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial. -->
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## Choose the devices to display
 

@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying the def
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: cfowler
 editor: ''
 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
@@ -12,9 +12,9 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 origin.date: 06/14/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ---

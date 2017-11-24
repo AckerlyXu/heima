@@ -8,7 +8,7 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -17,7 +17,7 @@ ms.workload: NA
 
 # Deploy the remote monitoring preconfigured solution using the CLI
 
-This tutorial shows you how to provision the remote monitoring preconfigured solution. You deploy the solution using the CLI. <!--You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md).-->
+This tutorial shows you how to provision the remote monitoring preconfigured solution. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.cn, to learn about this option see [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md).
 
 ## Prerequisites
 
@@ -100,6 +100,6 @@ In this tutorial, you learned how to:
 > * Deploy the preconfigured solution
 > * Sign in to the preconfigured solution
 
-<!-- Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-deploy.md). -->
+Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-suite-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

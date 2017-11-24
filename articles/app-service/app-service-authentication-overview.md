@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 
 ---
@@ -71,9 +71,9 @@ If you want to use App Service authentication to handle a service-to-service sce
 You have full control over the requests that can access your application. App Service Authentication / Authorization can be configured with any of the following behaviors:
 
 * Allow only authenticated requests to reach your application.
-
-    If a browser receives an anonymous request, App Service will redirect to a page for the identity provider that you choose so that users can sign in. If the request comes from a mobile device, the returned response is an HTTP *401 Unauthorized* response.
-
+  
+    If a browser sends an anonymous request, App Service will redirect to a page for the identity provider that you choose so that users can sign in. If the request comes from a mobile device, the returned response is an HTTP *401 Unauthorized* response.
+  
     With this option, you don't need to write any authentication code at all in your app. If you need finer authorization, information about the user is available to your code.
 * Allow all requests to reach your application, but validate authenticated requests, and pass along authentication information in the HTTP headers.
 
