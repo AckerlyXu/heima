@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 07/31/2017
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -43,6 +43,7 @@ For information on how you can get your third-party identity provider listed her
 - [Centrify](#centrify) 
 - [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 - [DigitalPersona Composite Authentication](#digitalpersona-composite-authentication)
+- [ForgeRock Identity Platform Access Management V5.x](#forgerock-identity-platform-access-management-v5x)
 - [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 - [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 - [Memority](#memority)
@@ -167,9 +168,6 @@ The following is the scenario support matrix for this single sign-on experience:
 | Rich client applications such as Lync, Office Subscription, CRM |Supported |None |
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
-For more information about Dell One Identity Cloud Access Manager, see [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager).
-
- For the instructions on how to configure this STS to provide the single sign-on experience to your Office 365 Users, see [Configure Office 365 Users](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
 
 ## DigitalPersona Composite Authentication  <a name="digitalpersona-composite-authentication"></a>
 
@@ -183,8 +181,19 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information see [DigitalPersona Composite Authentication](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## ForgeRock Identity Platform Access Management V5.x <a name="forgerock-identity-platform-access-management-v5x"></a>
 
-## IBM Tivoli Federated Identity Manager 6.2.2  <a name="ibm-tivoli-federated-identity-manager-622"></a>
+The following is the scenario support matrix for this single sign-on experience:
+
+| Client | Support | Exceptions |
+| --- | --- | --- |
+| Web-based clients such as Exchange Web Access and SharePoint Online |Supported |None|
+| Rich client applications such as Lync, Office Subscription, CRM |Supported |None|
+| Email-rich clients such as Outlook and ActiveSync |Supported |None |
+
+For more information see [ForgeRock Identity Platform Access Management V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
+
+## IBM Tivoli Federated Identity Manager 6.2.2 <a name="ibm-tivoli-federated-identity-manager-622"></a>
 
 The following is the scenario support matrix for this single sign-on experience: 
 
@@ -374,4 +383,4 @@ The following is the scenario support matrix for this single sign-on experience:
 
 For more information about see [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

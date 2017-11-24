@@ -1,11 +1,10 @@
 ---
-title: Azure AD NodeJS Getting Started | Azure
-description: How to build a Node.js REST Web API that integrates with Azure AD for authentication.
+title: Azure Active Directory Node.js Getting Started | Microsoft Docs
+description: How to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
 author: alexchen2016
-manager: mbaldwin
-editor: ''
+manager: digimobile
 
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
@@ -13,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 02/07/2017
+origin.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: v-junlch
+ms.custom: aaddev
 ---
 
 # Getting Started With WEB-API for Node
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory. We will install this module and then add the Azure Active Directory `passport-azure-ad` plug-in.
+**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password and more. We have developed a strategy for Azure Active Directory. We will install this module and then add the Azure Active Directory `passport-azure-ad` plug-in.
 
-In order to do this, you’ll need to:
+In order to do this, you�ll need to:
 
 1. Register an application with Azure AD
 2. Set up your app to use Passport's azure-ad-passport plug-in.
@@ -61,7 +61,7 @@ Be sure to:
     - The **name** of the application will describe your application to end-users
     - The **Sign-On URL** is the base URL of your app.  The sample code's default is `https://localhost:8080`.
     - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.partner.onmschina.cn/my-first-aad-app`
-- Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the Configure tab.
+- Once you�ve completed registration, AAD will assign your app a unique client identifier.  You�ll need this value in the next sections, so copy it from the Configure tab.
 - REMINDER:Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - REMINDER: Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
@@ -127,25 +127,25 @@ The output of this command should appear similar to the following:
 
 ```
 restify@2.6.1 node_modules/restify
-├── assert-plus@0.1.4
-├── once@1.3.0
-├── deep-equal@0.0.0
-├── escape-regexp-component@1.0.2
-├── qs@0.6.5
-├── tunnel-agent@0.3.0
-├── keep-alive-agent@0.0.1
-├── lru-cache@2.3.1
-├── node-uuid@1.4.0
-├── negotiator@0.3.0
-├── mime@1.2.11
-├── semver@2.2.1
-├── spdy@1.14.12
-├── backoff@2.3.0
-├── formidable@1.0.14
-├── verror@1.3.6 (extsprintf@1.0.2)
-├── csv@0.3.6
-├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-└── bunyan@0.22.0 (mv@0.0.5)
++-- assert-plus@0.1.4
++-- once@1.3.0
++-- deep-equal@0.0.0
++-- escape-regexp-component@1.0.2
++-- qs@0.6.5
++-- tunnel-agent@0.3.0
++-- keep-alive-agent@0.0.1
++-- lru-cache@2.3.1
++-- node-uuid@1.4.0
++-- negotiator@0.3.0
++-- mime@1.2.11
++-- semver@2.2.1
++-- spdy@1.14.12
++-- backoff@2.3.0
++-- formidable@1.0.14
++-- verror@1.3.6 (extsprintf@1.0.2)
++-- csv@0.3.6
++-- http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
++-- bunyan@0.22.0 (mv@0.0.5)
 ```
 
 ## 6. Install Passport.js in to your Web API
@@ -163,8 +163,8 @@ The output of the commadn should appear similar to the following:
 
 ```
 passport@0.1.17 node_modules\passport
-├── pause@0.0.1
-└── pkginfo@0.2.3
++-- pause@0.0.1
++-- pkginfo@0.2.3
 ```
 
 ## 7. Add Passport-Azure-AD to your Web API
@@ -187,17 +187,17 @@ The output of the command should appear similar to the following:
 
 ```
 passport-azure-ad@1.0.0 node_modules/passport-azure-ad
-├── xtend@4.0.0
-├── xmldom@0.1.19
-├── passport-http-bearer@1.0.1 (passport-strategy@1.0.0)
-├── underscore@1.8.3
-├── async@1.3.0
-├── jsonwebtoken@5.0.2
-├── xml-crypto@0.5.27 (xpath.js@1.0.6)
-├── ursa@0.8.5 (bindings@1.2.1, nan@1.8.4)
-├── jws@3.0.0 (jwa@1.0.1, base64url@1.0.4)
-├── request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-└── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
++-- xtend@4.0.0
++-- xmldom@0.1.19
++-- passport-http-bearer@1.0.1 (passport-strategy@1.0.0)
++-- underscore@1.8.3
++-- async@1.3.0
++-- jsonwebtoken@5.0.2
++-- xml-crypto@0.5.27 (xpath.js@1.0.6)
++-- ursa@0.8.5 (bindings@1.2.1, nan@1.8.4)
++-- jws@3.0.0 (jwa@1.0.1, base64url@1.0.4)
++-- request@2.58.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, tunnel-agent@0.4.1, oauth-sign@0.8.0, isstream@0.1.2, extend@2.0.1, json-stringify-safe@5.0.1, node-uuid@1.4.3, qs@3.1.0, combined-stream@1.0.5, mime-types@2.0.14, form-data@1.0.0-rc1, http-signature@0.11.0, bl@0.9.4, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
++-- xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 ```
 
 ## 8. Add MongoDB modules to your Web API
@@ -720,7 +720,7 @@ The easiest way to do this is by using curl in a command line. Before we do that
 $npm install -g jsontool 
 ```
 
-This installs the JSON tool globally. Now that we’ve accomplished that - let’s play with the server:
+This installs the JSON tool globally. Now that we�ve accomplished that - let�s play with the server:
 
 First, make sure that your monogoDB isntance is running..
 
@@ -805,11 +805,11 @@ First, we need to indicate that we want to use Passport. Put this right after yo
 ```
 
 > [!TIP]
-> When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
+> When writing APIs you should always link the data to something unique from the token that the user can�t spoof. When this server stores TODO items, it stores them based on the object ID of the user in the token (called through token.oid) which we put in the �owner� field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of �owner� so an external user can request other�s TODOs even if they are authenticated.
 > 
 > 
 
-Next, let’s use the Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I’ll explain it shortly. Put this after what you pated above:
+Next, let�s use the Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I�ll explain it shortly. Put this after what you pated above:
 
 ```Javascript
     /**
@@ -857,10 +857,10 @@ Next, let’s use the Bearer strategy that comes with passport-azure-ad. Just lo
     passport.use(bearerStrategy);
 ```
 
-Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it’s work. Once it does we’ll want to store the user and stash the token so we won’t need to ask for it again.
+Passport uses a similar pattern for all it�s Strategies (Twitter, Facebook, etc.) that all Strategy writers adhere to. Looking at the strategy you see we pass it a function() that has a token and a done as the parameters. The strategy will dutifully come back to us once it does all it�s work. Once it does we�ll want to store the user and stash the token so we won�t need to ask for it again.
 
 > [!IMPORTANT]
-> The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn’t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn’t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
+> The code above takes any user that happens to authenticate to our server. This is known as auto registration. In production servers you wouldn�t want to let anyone in without first having them go through a registration process you decide. This is usually the pattern you see in consumer apps who allow you to register with Facebook but then ask you to fill out additional information. If this wasn�t a command line program, we could have just extracted the email from the token object that is returned and then asked them to fill out additional information. Since this is a test server we simply add them to the in-memory database.
 > 
 > 
 
@@ -868,7 +868,7 @@ Passport uses a similar pattern for all it’s Strategies (Twitter, Facebook, et
 
 You protect endpoints by specifying the `passport.authenticate()` call with the protocol you wish to use.
 
-Let’s edit our route in our server code to do something more interesting:
+Let�s edit our route in our server code to do something more interesting:
 
 ```Javascript
     server.get('/tasks', passport.authenticate('oauth-bearer', {
@@ -953,3 +953,5 @@ Simply clone down to your developer machine and configure as stated in the Walkt
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+
+<!--Update_Description: update meta properties --> 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -45,6 +45,8 @@ This method is preferred when you have a single server and less than about 100,0
 If you've made changes to the out-of-box synchronization rules, then these rules are set back to the default configuration on upgrade. To make sure that your configuration is kept between upgrades, make sure that you make changes as they're described in [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 During in-place upgrade, there may be changes introduced that require specific synchronization activities (including Full Import step and Full Synchronization step) to be executed after upgrade completes. To defer such activities, refer to section [How to defer full synchronization after upgrade](#how-to-defer-full-synchronization-after-upgrade).
+
+If you are using Azure AD Connect with non-standard connector (for example, Generic LDAP Connector and Generic SQL Connector), you must refresh the corresponding connector configuration in the [Synchronization Service Manager](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) after in-place upgrade. For details on how to refresh the connector configuration, refer to article section [Connector Version Release History - Troubleshooting](/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). If you do not refresh the configuration, import and export run steps will not work correctly for the connector. You will receive the following error in the application event log with message *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## Swing migration <a name="swing-migration"></a>
 If you have a complex deployment or many objects, it might be impractical to do an in-place upgrade on the live system. For some customers, this process might take multiple days--and during this time, no delta changes are processed. You can also use this method when you plan to make substantial changes to your configuration and you want to try them out before they're pushed to the cloud.

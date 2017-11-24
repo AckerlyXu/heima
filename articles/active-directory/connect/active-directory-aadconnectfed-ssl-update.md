@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 08/24/2017
+origin.date: 11/15/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---    
@@ -35,7 +35,7 @@ You can perform the whole operation of updating SSL certificate for the AD FS fa
 ## Prerequisites
 
 - **AD FS Farm**: Make sure that your AD FS farm is Windows Server 2012 R2-based or later.
-- **Azure AD Connect**: Ensure that the version of Azure AD Connect is 1.1.443.0 or later. You'll use the task **Update AD FS SSL certificate**.
+- **Azure AD Connect**: Ensure that the version of Azure AD Connect is 1.1.553.0 or higher. You'll use the task **Update AD FS SSL certificate**.
 
 ![Update SSL task](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 
