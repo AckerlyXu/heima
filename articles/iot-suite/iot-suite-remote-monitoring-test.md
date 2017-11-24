@@ -8,7 +8,7 @@ manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
 origin.date: 11/10/2017
-ms.date: 11/27/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -36,6 +36,10 @@ The following table shows the data the ligthbulb reports to the cloud as a data 
 | Name   | Values      |
 | ------ | ----------- |
 | Status | "on", "off" |
+| online | true, false |
+
+> [!NOTE]
+> The **online** telemetry value is mandatory for all simulated types.
 
 *Methods*
 
@@ -73,7 +77,7 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-<!-- If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.-->
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 <!-- Dominic please this use as your reference https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models -->
 
@@ -170,7 +174,7 @@ The `lightbulb-01.json` file defines the characteristics of the type, such as th
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      }
+      },
     }
     ```
 
@@ -264,7 +268,11 @@ To test the **Lightbulb** device type, you can first test your device type behav
 
 To test and debug your changes locally, see [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Configure the project to copy the new **Lightbulb** device files to the output directory.
+Configure the project to copy the new **Lightbulb** device files to the output directory:
+
+* If you are using Visual Studio, make sure you add the three new lightbulb files you created in the previous section to the **Services** project in the solution. Then use **Solution explorer** to mark them to be copied to the output directory.
+
+* If you are using Visual Studio Code, open the **Services.csproj** file and add the three new lightbulb files you created in the previous section. See the existing device model file entries in the **Services.csproj** file as examples.
 
 To test the new device in a deployed solution, see one of:
 
@@ -296,13 +304,12 @@ The following steps show you how to find the files that define the built-in **Ch
 1. If you have not already done so, use the following command to clone the **device-simulation** GitHub repository to your local machine:
 
     ```cmd/sh
-    git clone https://github.com/Azure/device-simulation-dotnet.git
+    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
     ```
 
-1. Each device type has a JSON model file and associated scripts in the `Services/data/devicemodels` folder. The files that define the simulated **Chiller** device type are:
-
-    * `Services/data/devicemodels/chiller-01.json`
-    * `Services/data/devicemodels/scripts/chiller-01-state.js`
+1. Each device type has a JSON model file and associated scripts in the `data/devicemodels` folder. The files that define the simulated **Chiller** device type are:
+    * `data/devicemodels/chiller-01.json`
+    * `data/devicemodels/scripts/chiller-01-state.js`
 
 ### Specify the new telemetry type
 

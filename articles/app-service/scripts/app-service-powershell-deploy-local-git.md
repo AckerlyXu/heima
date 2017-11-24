@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository | Azure
+title: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 03/20/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ---
 
 # Create a web app and deploy code from a local Git repository
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code in a local Git repository.
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a local Git repository.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/powershell/azure/overview), and then run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. Also, your application code needs to be committed into a local Git repository.
 

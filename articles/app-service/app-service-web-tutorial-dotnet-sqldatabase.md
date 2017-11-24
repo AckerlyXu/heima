@@ -12,11 +12,11 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 origin.date: 06/09/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 
 # Build an ASP.NET app in Azure with SQL Database
@@ -257,7 +257,7 @@ Make some changes in your code to use the `Done` property. For simplicity in thi
 
 Open _Controllers\TodosController.cs_.
 
-Find the `Create()` method and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
+Find the `Create()` method on line 52 and add `Done` to the list of properties in the `Bind` attribute. When you're done, your `Create()` method signature looks like the following code:
 
 ```csharp
 public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo todo)
@@ -378,7 +378,7 @@ In the **Application Logging (File System)** dropdown, select **Verbose**. Click
 
 In your browser navigate to your web app again at *http://&lt;your app name>.chinacloudsites.cn*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create

@@ -4,7 +4,7 @@ description: Learn how to run web apps in App Service by deploying a basic Java 
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: ''
 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
@@ -13,14 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 06/07/2017
-ms.date: 10/30/2017
+origin.date: 11/08/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ---
 # Create your first Java web app in Azure
 
 Azure [Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+
+When you have completed this quickstart, your application will look similar to the following illustration when you view it in a web browser:
 
 !["Hello Azure!" example web app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -29,7 +31,7 @@ Azure [Web Apps](app-service-web-overview.md) provides a highly scalable, self-p
 To complete this quickstart, install:
 
 * The free [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). This quickstart uses Eclipse Neon.
-* The [Azure Toolkit for Eclipse](/azure-toolkit-for-eclipse-installation).
+* The [Azure Toolkit for Eclipse](https://docs.azure.cn/zh-cn/java/eclipse/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

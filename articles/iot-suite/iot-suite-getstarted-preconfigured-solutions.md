@@ -341,10 +341,10 @@ You can also view the source code for the preconfigured solution. The remote mon
 - The **Simulator** folder contains the source code for the simulated device.
 - The **EventProcessor** folder contains the source code for the back-end process that handles the incoming telemetry.
 
-When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.com][lnk-azureiotsuite] site. This site enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
+When you are done, you can delete the preconfigured solution from your Azure subscription on the [azureiotsuite.cn][lnk-azureiotsuite] site. This site enables you to easily delete all the resources that were provisioned when you created the preconfigured solution.
 
 > [!NOTE]
-> To ensure that you delete everything related to the preconfigured solution, delete it on the [azureiotsuite.com][lnk-azureiotsuite] site and do not delete the resource group in the portal.
+> To ensure that you delete everything related to the preconfigured solution, delete it on the [azureiotsuite.cn][lnk-azureiotsuite] site and do not delete the resource group in the portal.
 
 ## Next Steps
 
@@ -352,7 +352,7 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 
 - [Remote monitoring preconfigured solution walkthrough][lnk-rm-walkthrough]
 - [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
-- [Permissions on the azureiotsuite.com site][lnk-permissions]
+- [Permissions on the azureiotsuite.cn site][lnk-permissions]
 
 [img-launch-solution]: ./media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: ./media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -397,7 +397,7 @@ Now that you’ve deployed a working preconfigured solution, you can continue ge
 [img-healthy]: ./media/iot-suite-getstarted-preconfigured-solutions/healthy.png
 [1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-preconfigured-solutions]:./iot-suite-what-are-preconfigured-solutions.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn
 [lnk-portal]: http://portal.azure.cn/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-rm-walkthrough]: ./iot-suite-remote-monitoring-sample-walkthrough.md
