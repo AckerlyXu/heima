@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/23/2017
-ms.date: 10/23/2017
+origin.date: 09/21/2017
+ms.date: 11/27/2017
 ms.author: v-yiso
 
 ---
@@ -31,6 +31,9 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 
 > [!WARNING]
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
+
+> [!IMPORTANT]
+> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
 
 ## Planning
 
@@ -325,7 +328,7 @@ The examples in this section demonstrate how to create network security group ru
 
 The following Resource Management template creates a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
 
-* [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-secure-vnet/)
+* [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]
 > Change the IP addresses used in this example to match the Azure region you are using. You can find this information in the [HDInsight with network security groups and user-defined routes](#hdinsight-ip) section.
@@ -668,7 +671,8 @@ After completing these steps, you can connect to resources in the virtual networ
 ## Next steps
 
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
-
+* For configuring Hbase clusters in Azure virtual networks, see [Create HBase clusters on HDInsight in Azure Virtual Network](./hdinsight-hbase-provision-vnet.md).
+* For configuring HBase geo-replication, see [Set up HBase cluster replication in Azure virtual networks](./hdinsight-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 * For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).

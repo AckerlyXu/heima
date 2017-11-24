@@ -13,9 +13,9 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 09/20/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 ---
 # High availability of your data with Apache Kafka (preview) on HDInsight
 

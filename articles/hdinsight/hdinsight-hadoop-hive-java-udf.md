@@ -14,9 +14,9 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 09/26/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Use a Java UDF with Hive in HDInsight
@@ -41,7 +41,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 * A text editor or Java IDE
 
     > [!IMPORTANT]
-    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending.
+    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character.
 
 ## Create an example Java UDF 
 
@@ -205,7 +205,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Hiv
 1. Use the following to start the Beeline client from the SSH session.
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
     This command assumes that you used the default of **admin** for the login account for your cluster.

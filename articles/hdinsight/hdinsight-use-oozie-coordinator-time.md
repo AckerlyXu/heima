@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/25/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/04/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
@@ -434,7 +434,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
     $hiveOutputFolder = "$storageUri/tutorials/useoozie/output"
 
     #Sqoop action variables
-    $sqlDatabaseConnectionString = "jdbc:sqlserver://$sqlDatabaseServer.database.chinacloudapi.cn;user=$sqlDatabaseLogin@$sqlDatabaseServer;password=$sqlDatabaseLoginPassword;database=$sqlDatabaseName"
+    $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.chinacloudapi.cn;user=$sqlDatabaseLogin@$sqlDatabaseServer;password=$sqlDatabaseLoginPassword;database=$sqlDatabaseName"
     $sqlDatabaseTableName = "log4jLogsCount"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
@@ -560,7 +560,6 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
         if($oozieServerSatus -notmatch "NORMAL")
         {
             Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
-            exit 1
         }
     }
     ```
@@ -615,7 +614,6 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
         if($JobStatus -notmatch "SUCCEEDED")
         {
             Write-Host "Check logs at http://headnode0:9014/cluster for detais."
-            exit -1
         }
     }
     ```
@@ -763,4 +761,3 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-<!--Update_Description: update storage link and change 'wasbs' into 'wasb'-->

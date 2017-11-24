@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 09/18/2017
+origin.date: 09/26/2017
+ms.date: 11/27/2017
 ms.author: v-haiqya
 
 ---

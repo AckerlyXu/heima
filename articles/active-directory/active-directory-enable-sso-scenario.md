@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/05/2017
-ms.date: 07/18/2017
+origin.date: 10/17/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
+ms.reviewer: asteen
 
 ---
 # Managing Applications with Azure Active Directory

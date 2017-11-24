@@ -17,8 +17,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # What are the Hadoop components and versions available with HDInsight?
@@ -37,27 +37,28 @@ The component versions associated with HDInsight cluster versions are listed in 
 > [!NOTE]
 > The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure CLI.
 
-| Component | HDInsight 3.6 (default) | HDInsight 3.5 |HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Hortonworks Data Platform |2.6 |2.5 |2.3 |2.2 |2.1.7 |2.0 |
-| Apache Hadoop and YARN |2.7.3 |2.7.3 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
-| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
-| Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
-| Apache Hive and HCatalog |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
-| Apache Hive2 | 2.1.0 |-|-|-|-|-|
-| Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|
-| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|
-| Apache HBase |1.1.2 |1.1.2 |0.98.4 |0.98.0 |-|
-| Apache Sqoop |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
-| Apache Oozie |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
-| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
-| Apache Storm |1.1.0 |1.0.1 |0.9.3 |0.9.1 |-|
-| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
-| Apache Phoenix |4.7.0 |4.7.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0 (Linux only) |1.6.2 + 2.0 (Linux only) |1.3.1 (Windows-only) |-|-|
-| Apache Ambari | 2.5.0 | 2.4.0 |-|-|-|
-| Apache Zeppelin | 0.7.0 |-|-|-|-|
-| Mono |4.2.1 |4.2.1 |-|-|-|
+| Component | HDInsight 3.6 (default) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| --- | --- | --- | --- | --- | --- | --- |--- |
+| Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Apache Hadoop and YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
+| Apache Hive and HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
+| Apache Tez Hive2 | 0.8.4 |-|-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
+| Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
+| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
+| Apache Spark |2.1.0 (Linux only) |1.6.2 + 2.0 (Linux only) |1.6.0 (Linux only) |1.5.2 (Linux experimental build only) |1.3.1 (Windows only) |-|-|
+| Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
+| Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
 ## Check for current Hadoop component version information
 
@@ -75,19 +76,23 @@ See [HDInsight release notes](hdinsight-release-notes.md) for additional release
 ## Supported HDInsight versions
 The following table lists the versions of HDInsight that are currently available on the Azure portal. The HDP versions that correspond to each HDInsight version are listed along with the product release dates. The support expiration and retirement dates are also provided, when they're known.
 
-* Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure portal. The following table indicates which versions are available on the Azure Classic Management Portal. Cluster versions  continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its retirement date.
+> [!NOTE]
+> After support for a version has expired, it might not be available through the Microsoft Azure classic portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until the version retirement date.
+> 
+> Highly available clusters with two head nodes are deployed by default for HDInsight version 2.1 and later. They are not available for HDInsight version 1.6 clusters.
 
-| HDInsight Version | HDP Version | VM OS | High Availability | Available on Azure portal |
-| --- | --- | --- | --- | --- |
-| HDI 3.6 |HDP 2.6 |Ubuntu 16 |Yes |Yes |
-| HDI 3.5 |HDP 2.5 |Ubuntu 16 |Yes |Yes |
-| HDI 3.3 |HDP 2.3 |Windows Server 2012R2 |Yes |Yes |
-| HDI 3.2 |HDP 2.2 |Windows Server 2012R2 |Yes |No |
-| HDI 3.1 |HDP 2.1 |Windows Server 2012R2 |Yes |No |
-| HDI 3.0 |HDP 2.0 |Windows Server 2012R2 |Yes |No |
-| HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |Yes |No |
-| HDI 1.6 |HDP 1.1 | |No |No |
+| HDInsight version | HDP version | VM OS | High availability | Release date | Availability on the Azure portal | Support expiration date | Retirement date |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Yes |April 4, 2017 |Yes | | |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Yes |September 30, 2016 |Yes |September 5, 2017 |May 31, 2018 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Yes |March 29, 2016 |Yes |December 29, 2016 |January 9, 2018 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2018 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Yes |December 2, 2015 |Yes |June 27, 2016 |July 31, 2017 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS or Windows Server 2012 R2 |Yes |February 18, 2015 |No |March 1, 2016 |April 1, 2017 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Yes |June 24, 2014 |No |May 18, 2015 |June 30, 2016 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Yes |February 11, 2014 |No |September 17, 2014 |June 30, 2015 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Yes |October 28, 2013 |No |May 12, 2014 |May 31, 2015 |
+| HDInsight 1.6 |HDP 1.1 | |No |October 28, 2013 |No |April 26, 2014 |May 31, 2015 |
 
 ## HDInsight Windows retirement
 Azure HDInsight version 3.3 was the last version of HDInsight on Windows. The retirement date for HDInsight on Windows is July 31, 2018. If you have any HDInsight clusters on Windows 3.3 or earlier, you must migrate to HDInsight on Linux (HDInsight version 3.5 or later) before July 31, 2018. Migrating to the Linux OS enables you to retain the ability to create or resize your HDInsight clusters. Support for HDInsight version 3.3 on Windows expired on June 27, 2016.
@@ -140,7 +145,7 @@ The service level agreement (SLA) is defined in terms of a _support window_. The
 The _retirement date_ is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize an HDInsight cluster after its retirement date. 
 
 > [!NOTE]
-> Windows-based HDInsight clusters (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
+> HDInsight Windows clusters (including versions 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family version 4, which uses the 64-bit version of Windows Server 2012 R2. Azure Guest OS Family version 4 supports the .NET Framework versions 4.0, 4.5, 4.5.1, and 4.5.2.
 >
 >
 
@@ -160,7 +165,7 @@ The section provides links to release notes for the Hortonworks Data Platform di
 * HDInsight cluster version 3.1 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. HDInsight 3.1 clusters created before November, 7, 2014, are based on [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 * HDInsight cluster version 3.0 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * HDInsight cluster version 2.1 uses a Hadoop distribution that is based on [Hortonworks Data Platform 1.3][hdp-1-3-0].
-* HDInsight cluster version 1.6 uses a Hadoop distribution that is based on Hortonworks Data Platform 1.1.
+* HDInsight cluster version 1.6 uses a Hadoop distribution that is based on [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
 ### Pricing and SLA
 For information on pricing and SLA for HDInsight, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
@@ -198,7 +203,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 
-[hdp-2-2]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/bk_HDP_RelNotes/content/ch_relnotes_v220.html
+[hdp-2-2]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html
 
 [hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
@@ -207,6 +212,8 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 [hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
 [hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
+
+[hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
