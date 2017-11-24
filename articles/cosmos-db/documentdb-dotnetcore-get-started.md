@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
+ms.custom: devcenter
 
 ---
 # Azure Cosmos DB: Getting started with the DocumentDB API and .NET Core
@@ -55,7 +56,7 @@ Now let's get started!
 ## Prerequisites
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/). 
+* An active Azure account. If you don't have one, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -580,7 +581,7 @@ Congratulations! You've completed the tutorial and have a working C# console app
 ## <a id="GetSolution"></a> Get the complete tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/).
+* An active Azure account. If you don't have one, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/).
 * An [Azure Cosmos DB account][create-documentdb-dotnet.md#create-account].
 * The [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) solution available on GitHub.
 
@@ -597,4 +598,4 @@ To restore the references to the DocumentDB API for Azure Cosmos DB .NET Core SD
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

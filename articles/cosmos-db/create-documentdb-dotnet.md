@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/10/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -94,24 +94,29 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized on line 73.
+* The DocumentClient is initialized on line 78.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* A new database is created on line 88.
+* A new database is created on line 93.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* A new collection is created on line 107.
+* A new collection is created on line 112.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
         new DocumentCollection { Id = CollectionId },
+        new DocumentCollection
+            {
+               Id = CollectionId,
+               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+            },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
@@ -166,4 +171,6 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
 
+<!--Not Available the parent file of includes file of cosmos-db-create-collection.md-->
+<!--ms.date:11/27/2017-->
 <!--Update_Description: update meta properties, wording update -->

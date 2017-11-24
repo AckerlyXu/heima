@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -301,4 +301,5 @@ Azure Cosmos DB supports automatic, server-side sharding. Azure Cosmos DB does n
 - Learn how to [use Robo 3T](mongodb-robomongo.md) with an API for MongoDB database.
 - Explore Azure Cosmos DB with protocol support for MongoDB [samples](mongodb-samples.md).
 
-<!-- Update_Description: new articles on cosmos db mongodb feature support -->
+<!-- Update_Description: update meta properties -->
+<!-- ONLY UPDATE META, NO NEED TO OVERWRITE TO ZH-CN LIVE BRANCH -->

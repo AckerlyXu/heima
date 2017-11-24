@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -122,4 +122,4 @@ The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/
 
 For more information about partitioning data in Azure Cosmos DB, see [Partition and scale data in Azure Cosmos DB](partition-data.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

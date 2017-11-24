@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -41,7 +41,6 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
-> * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
 > * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
 >
 >
@@ -57,7 +56,7 @@ If you don't have an Azure subscription, create a [trial account](https://www.az
 
 ## Set up your MongoDB app
 
-You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
+You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.  
 
 1. Follow the tutorial, with one modification.  Replace the Dal.cs code with this:
 
@@ -225,4 +224,4 @@ You can proceed to the next tutorial and import your MongoDB data to Azure Cosmo
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

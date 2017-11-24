@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
+ms.custom: devcenter
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB
@@ -42,7 +43,7 @@ This walk-through shows you how to use the Azure Cosmos DB service to store and 
 ## <a name="_Toc395637760"></a>Prerequisites for this database tutorial
 Before following the instructions in this article, you should ensure that you have the following:
 
-* An active Azure account.  If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/) before you begin. 
+* An active Azure account.  If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -547,4 +548,4 @@ To add additional functionality to your application, review the APIs available i
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->
