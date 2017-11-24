@@ -129,7 +129,7 @@ During deployment, you will need to do the following:
 
     You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. For the **App Service plan**, the default plan (in the [Standard tier](https://www.azure.cn/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://www.azure.cn/pricing/details/app-service/) associated with your app. 
+4. For the **App Service plan**, the default plan (in the [Standard tier](https://www.azure.cn/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). The App Service plan's settings determine the [location, features, cost and compute resources](https://www.azure.cn/pricing/details/app-service/) associated with your app. 
 
     After you decide on the plan, click **Create**. This creates the Mobile App backend. 
 
