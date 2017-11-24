@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -108,7 +108,6 @@ The services that enable moving to both a new resource group and subscription ar
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Azure Cosmos DB
 * Event Hubs
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
@@ -140,8 +139,10 @@ The services that currently do not enable moving a resource are:
 * Express Route
 
 
+* Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
 * Security
+* Virtual Networks (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 ## Virtual Machines limitations
 
 Managed disks do not support move. This restriction means that several related resources cannot be moved too. You cannot move:
@@ -298,6 +299,7 @@ You can move HDInsight clusters to a new subscription or resource group. However
 
 When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
+<!--Not Available ## Search limitations-->
 ## <a name="use-portal"></a>Use portal
 
 To move resources, select the resource group containing those resources, and then select the **Move** button.

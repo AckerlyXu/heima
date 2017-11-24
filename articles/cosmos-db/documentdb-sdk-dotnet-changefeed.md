@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/29/2017
-ms.date: 09/25/2017
+origin.date: 10/31/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -29,20 +29,13 @@ ms.author: v-yeche
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
-> 
-> 
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Change Feed Processor library API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB Change Feed Processor .NET SDK](change-feed.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
-
+|   |   |
+|---|---|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**API documentation**|[Change Feed Processor library API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Get started**|[Get started with the DocumentDB Change Feed Processor .NET SDK](change-feed.md)|
+|**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 <!-- Not Available ## Release notes -->
 <!-- Not Available ## Release & Retirement dates -->
 

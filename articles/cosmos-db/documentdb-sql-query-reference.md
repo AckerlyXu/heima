@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
-origin.date: 06/13/2017
-ms.date: 09/25/2017
+origin.date: 10/18/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -2445,12 +2445,12 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
 
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
- Returns a Boolean indicating whether the array contains the specified value.  
+Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. 
 
  **Syntax**  
 
 ```  
-ARRAY_CONTAINS (<arr_expr>, <expr>)  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
 ```  
 
  **Arguments**  
@@ -2462,6 +2462,10 @@ ARRAY_CONTAINS (<arr_expr>, <expr>)
 -   `expr`  
 
      Is any valid expression.  
+
+-   `bool_expr`  
+
+     Is any boolean expression.       
 
  **Return Types**  
 
@@ -2481,6 +2485,25 @@ SELECT
 
 ```  
 [{"$1": true, "$2": false}]  
+```  
+
+ The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
+
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true), 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}),
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) 
+```  
+
+ Here is the result set.  
+
+```  
+[{
+  "$1": true,
+  "$2": false,
+  "$3": false
+}] 
 ```  
 
 ####  <a name="bk_array_length"></a> ARRAY_LENGTH  
@@ -2769,4 +2792,4 @@ SELECT ST_ISVALIDDETAILED({
  [SQL syntax and SQL query for Azure Cosmos DB](documentdb-sql-query.md)   
  [Azure Cosmos DB documentation](/cosmos-db/)
  
- <!--Update_Description: wording update-->
+ <!--Update_Description: update meta properties, wording update -->

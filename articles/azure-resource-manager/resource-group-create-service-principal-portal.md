@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/08/2017
-ms.date: 10/23/2017
+origin.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -25,11 +25,11 @@ When you have an application that needs to access or modify resources, you must 
 * You do not have to change the app's credentials if your responsibilities change. 
 * You can use a certificate to automate authentication when executing an unattended script.
 
-This topic shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+This article shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
 
 ## <a name="required-permissions"></a>Required permissions
 
-To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
+To complete this article, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
 ### Check Azure Active Directory permissions
 
@@ -102,7 +102,7 @@ To check your subscription permissions:
 
     ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
+1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You cannot create credentials for a **Native** application; therefore, that type does not work for an automated application. After setting the values, select **Create**.
 
     ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -198,4 +198,4 @@ Your application is now set up in Azure Active Directory. You have an ID and key
 * To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).
 
-<!--Update_Description: wording update, update referecne link-->
+<!--Update_Description: wording update -->

@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -41,7 +41,7 @@ This tutorial covers the following tasks by using the [DocumentDB .NET API](docu
 ## Prerequisites
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://www.azure.cn/pricing/1rmb-trial/). 
+* An active Azure account. If you don't have one, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial/). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -53,7 +53,6 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
 > [!TIP]
 > * Already have an Azure Cosmos DB account? If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)
-> * Did you have an Azure DocumentDB account? If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).  
 > * If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS). 
 >
 >
@@ -314,4 +313,4 @@ You can now proceed to the next tutorial and import additional data to your Cosm
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

@@ -13,13 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-origin.date: 12/08/2016
-origin.date: 08/28/2017
-ms.date: ''
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
-# How to use table storage from PHP
+# How to use Azure Table storage from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -492,3 +491,5 @@ Now that you've learned the basics of the Azure Table service, follow these link
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+
+<!-- Update_Description: update meta properties, wording update -->

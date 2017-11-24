@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: How to query using the DocumentDB API? | Azure'
-description: Learn to query with the DocumentDB API for Azure Cosmos DB
+title: 'Azure Cosmos DB: How to query using the MongoDB API? | Azure'
+description: Learn to query with the MongoDB API for Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -310,3 +310,5 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+
+<!-- Update_Description: update meta properties -->

@@ -1,5 +1,5 @@
 ---
-title: Web app with table storage (Node.js) | Azure
+title: 'Azure Table storage: Build a web app Node.js | Azure'
 description: A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.
 services: cosmos-db
 documentationcenter: nodejs
@@ -13,12 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 09/25/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
-# Node.js Web Application using Storage
+# Azure Table storage: Node.js Web Application
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## Overview
 In this tutorial, the application you created in the
 [Node.js Web Application using Express] tutorial is extended using the Microsoft
@@ -442,4 +444,4 @@ The following steps show you how to stop and delete your application.
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Node.js Web Application]: http://azure.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link-->
