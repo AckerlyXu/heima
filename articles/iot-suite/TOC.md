@@ -1,40 +1,72 @@
 # Overview
-## [Azure and IoT](iot-suite-what-is-azure-iot.md)
-## [What is IoT Suite?](iot-suite-overview.md)
-## [What are the preconfigured solutions?](iot-suite-what-are-preconfigured-solutions.md)
+## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
+## [Compare Azure IoT options](iot-suite-options.md)
+## [Preconfigured solutions overview](iot-suite-what-are-preconfigured-solutions.md)
 
 
 # Get Started
-## [Get started with the preconfigured solutions](iot-suite-getstarted-preconfigured-solutions.md)
-## [Permissions on azureiotsuite.com](iot-suite-permissions.md)
-## [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
-## [Remote monitoring solution walkthrough](iot-suite-remote-monitoring-sample-walkthrough.md)
-## [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
-## [Connect your Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
-### Use C
-#### [Simulated data](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
-#### [Use real sensors](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
-#### [Implement firmware update](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
-### Use Node.js
-#### [Simulated data](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
-#### [Use real sensors](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
-#### [Implement firmware update](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
-## Connect your Intel NUC gateway
-### [Simulated data](iot-suite-gateway-kit-get-started-simulator.md)
-### [Use real sensor](iot-suite-gateway-kit-get-started-sensortag.md)
+## Remote monitoring
+### [Deploy the preconfigured solution](iot-suite-remote-monitoring-deploy.md)
+### [Operate the preconfigured solution](iot-suite-remote-monitoring-explore.md)
 
-# How To
-## Connect a simulated device
-### [C on Windows](iot-suite-connecting-devices.md)
-### [C on Linux](iot-suite-connecting-devices-linux.md)
-### [Node.js](iot-suite-connecting-devices-node.md)
+## Remote monitoring (previous version)
+### [What are the preconfigured solutions?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [FAQ](iot-suite-v1-faq.md)
 
-## [Customize a preconfigured solution](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Use dynamic telemetry with the remote monitoring solution](iot-suite-dynamic-telemetry.md)
-## [Create a custom rule in the remote monitoring solution](iot-suite-custom-rule.md)
-## [Device information in the remote monitoring solution](iot-suite-remote-monitoring-device-info.md)
+### Get Started
+#### [Get started with the preconfigured solutions](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Permissions on azureiotsuite.cn](iot-suite-v1-permissions.md)
+#### [Remote monitoring solution walkthrough](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Connect your Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Use C
+###### [Simulated data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Implement firmware update](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Use Node.js
+###### [Simulated data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Implement firmware update](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+
+### How-to guides
+#### Connect a simulated device
+##### [C on Windows](iot-suite-v1-connecting-devices.md)
+##### [C on Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Customize a preconfigured solution](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Use dynamic telemetry with the remote monitoring solution](iot-suite-v1-dynamic-telemetry.md)
+#### [Create a custom rule in the remote monitoring solution](iot-suite-v1-custom-rule.md)
+#### [Device information in the remote monitoring solution](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
+## Predictive maintenance
+### [Predictive maintenance solution overview](iot-suite-predictive-overview.md)
+### [Predictive maintenance solution walkthrough](iot-suite-predictive-walkthrough.md)
+
+# How-to guides
+## Remote monitoring
+### [Perform advanced monitoring](iot-suite-remote-monitoring-monitor.md)
+### [Use rules to detect issues](iot-suite-remote-monitoring-automate.md)
+### [Manage your devices](iot-suite-remote-monitoring-manage.md)
+### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
+### [Use simulated devices](iot-suite-remote-monitoring-test.md)
+### [Customize the solution](iot-suite-remote-monitoring-customize.md)
+### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
+### Connect a physical device
+#### [C on Windows](iot-suite-connecting-devices.md)
+#### [C on Linux](iot-suite-connecting-devices-linux.md)
+#### [Node.js (generic)](iot-suite-connecting-devices-node.md)
+#### [Node.js on Raspberry Pi](iot-suite-connecting-pi-node.md)
+#### [C on Raspberry Pi](iot-suite-connecting-pi-c.md)
+
+### Concepts
+#### [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+## [Permissions on azureiotsuite.cn](iot-suite-permissions.md)
 
 # Reference
+## [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+## [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Security architecture](iot-security-architecture.md)
 ## [Security best practices](iot-security-best-practices.md)
 ## [Secure your IoT deployment](iot-suite-security-deployment.md)

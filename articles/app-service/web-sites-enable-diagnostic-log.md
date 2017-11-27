@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 
 ---
@@ -46,19 +46,19 @@ At runtime you can retrieve these logs to help with troubleshooting. For more in
 App Service web apps also log deployment information when you publish content to a web app. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 ## <a name="enablediag"></a>How to enable diagnostics
-To enable diagnostics in the [Azure Portal](https://portal.azure.cn), go to the blade for your web app and click **Settings > Diagnostics logs**.
+To enable diagnostics in the [Azure Portal](https://portal.azure.cn), go to the page for your web app and click **Settings > Diagnostics logs**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-When you enable **application diagnostics** you also choose the **Level**. This setting allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application.
+When you enable **application diagnostics**, you also choose the **Level**. This setting allows you to filter the information captured to **informational**, **warning**, or **error** information. Setting this to **verbose** logs all information produced by the application.
 
 > [!NOTE]
 > Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
 >
 >
 
-In the [Classic Management Portal](https://manage.windowsazure.cn) Web app **Configure** tab, you can select **storage** or **file system** for **web server logging**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs will be written to. All other logs for **site diagnostics** are written to the file system only.
+In the [Classic Management Portal](https://manage.windowsazure.cn) Web app **Configure** tab, you can select **storage** or **file system** for **web server logging**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. All other logs for **site diagnostics** are written to the file system only.
 
 The [Classic Management Portal](https://manage.windowsazure.cn) Web app **Configure** tab also has additional settings for application diagnostics:
 
@@ -111,7 +111,7 @@ To download the log files, start a new instance of Azure PowerShell and use the 
 
     Save-AzureWebSiteLog -Name webappname
 
-This will save the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
+This command saves the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
 > [!NOTE]
 > If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/powershell-install-configure).
@@ -123,7 +123,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 
     azure site log download webappname
 
-This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
+This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
 > If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
@@ -137,7 +137,7 @@ While developing an application, it is often useful to see logging information i
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
 >
 > [!NOTE]
-> Log streaming will also stream information written to any text file stored in the **D:\\home\\LogFiles\\** folder.
+> Log streaming also streams information written to any text file stored in the **D:\\home\\LogFiles\\** folder.
 >
 >
 
@@ -146,7 +146,7 @@ To stream logging information, start a new instance of Azure PowerShell and use 
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-This will connect to the web app specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
+This command connects to the web app specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) is streamed to the local console.
 
 To filter specific events, such as errors, use the **-Message** parameter. For example:
 
@@ -166,17 +166,17 @@ To see a list of available paths, use the -ListPath parameter.
 ### Streaming with Azure Command-Line Interface
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
-This will connect to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
+This command connects to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) is streamed to the local console.
 
 To filter specific events, such as errors, use the **--Filter** parameter. For example:
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../cli-install-nodejs.md).
@@ -185,11 +185,11 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 ## <a name="understandlogs"></a> How to: Understand diagnostics logs
 ### Application diagnostics logs
-Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage. The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error,) and the event message.
+Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage. The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message.
 
 **File system**
 
-Each line logged to the file system or received using streaming will be in the following format:
+Each line logged to the file system or received using streaming is in the following format:
 
     {Date}  PID[{process id}] {event type/level} {message}
 
@@ -239,12 +239,12 @@ The data stored in a blob would look similar to the following:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> The first line of the log will contain the column headers as represented in this example.
+> The first line of the log contains the column headers as represented in this example.
 >
 >
 
 ### Failed request traces
-Failed request traces are stored in XML files named **fr######.xml**. To make it easier to view the logged information, an XSL stylesheet named **freb.xsl** is provided in the same directory as the XML files. Opening one of the XML files in Internet Explorer will use the XSL stylesheet to provide a formatted display of the trace information. This will appear similar to the following:
+Failed request traces are stored in XML files named **fr######.xml**. To make it easier to view the logged information, an XSL stylesheet named **freb.xsl** is provided in the same directory as the XML files. If you open one of the XML files in Internet Explorer, Internet Explorer uses the XSL stylesheet to provide a formatted display of the trace information. This appears similar to the following:
 
 ![failed request viewed in the browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -264,6 +264,3 @@ The web server logs are formatted using the [W3C extended log file format](http:
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](app-service-web-overview.md)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal](app-service-web-app-azure-portal.md)

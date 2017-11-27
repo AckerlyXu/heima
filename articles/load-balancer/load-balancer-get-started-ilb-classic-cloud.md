@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 07/31/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
@@ -95,4 +95,4 @@ The network traffic will be load balanced using the testLB load balancer using p
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

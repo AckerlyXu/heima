@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/23/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yiso
 
 ---
@@ -153,6 +153,13 @@ Examples:
 | HMaster info Web UI |Head nodes |16010 |HTTP |The port for the HBase Master web UI |
 | Region server |All worker nodes |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |The port that clients use to connect to ZooKeeper |
+
+### Kafka ports
+
+| Service | Nodes | Port | Protocol | Description |
+| --- | --- | --- | --- | --- |
+| Broker |Worker nodes |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Used for client communication |
+| &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
 
 ### Spark ports
 

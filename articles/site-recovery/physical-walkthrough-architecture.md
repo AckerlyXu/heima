@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 07/31/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
@@ -52,6 +52,7 @@ The table summarizes the components you need.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, then machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
 5. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+<!-- Sync late on azure-public-peering -->
 
 **Figure 2: Physical to Azure replication**
 
@@ -82,4 +83,4 @@ Failback components include:
 
 Go to [Step 2: Verify prerequisites and limitations](physical-walkthrough-prerequisites.md)
 
-<!--Update_Description: new article about walkthrought architecture from physical to azure -->
+<!--Update_Description: wording update -->

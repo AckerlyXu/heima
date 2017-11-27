@@ -14,13 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 07/04/2017
-ms.date: 10/02/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 
 ---
 # Azure Site Recovery support matrix for replicating from on-premises to Azure
 
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about Azure Site Recovery requirements, see the [prerequisites](site-recovery-prereq.md).
+
+> [!NOTE]
+> Ensure that you update to the latest version of Site Recovery provider and agent to achieve compatability with the updates in the support matrix.
 
 ## Support for deployment options
 
@@ -41,7 +44,7 @@ This article summarizes supported configurations and components for Azure Site R
 
   >[!Note]
   > A System Center Virtual Machine Manager 2016 cloud with a mixture of Windows Server 2016 and 2012 R2 hosts isn't currently supported.
-
+  > Configurations that include upgrade of an existing SCVMM 2012 R2 to 2016 is currently not supported.
 ### Host servers
 
 **Deployment** | **Support**
@@ -220,4 +223,4 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 ## Next steps
 [Check prerequisites](site-recovery-prereq.md)
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: wording update-->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/23/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -36,6 +36,8 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 
 > [!NOTE]
 > We recommend that you use a CNAME for all custom DNS names except a root domain (for example, `contoso.com`). 
+
+To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## Prerequisites
 
@@ -264,7 +266,7 @@ Browse to the DNS name(s) that you configured earlier (for example, `contoso.com
 
 ## Automate with scripts
 
-You can automate management of custom domains with scripts, using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+You can automate management of custom domains with scripts, using the [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 ### Azure CLI 
 
@@ -273,10 +275,10 @@ You can automate management of custom domains with scripts, using the [Azure CLI
 The following command adds a configured custom DNS name to an App Service app. 
 
 ```bash 
-az appservice web config hostname add \
-    --webapp <app_name> \
+az webapp config hostname add \
+    --webapp-name <app_name> \
     --resource-group <resource_group_name> \ 
-    --name <fully_qualified_domain_name> 
+    --hostname <fully_qualified_domain_name> 
 ``` 
 
 For more information, see [Map a custom domain to a web app](scripts/app-service-cli-configure-custom-domain.md). 

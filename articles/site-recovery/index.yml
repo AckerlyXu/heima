@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Site Recovery Documentation
+metadata:
+  title: Azure Site Recovery Documentation - Tutorials, API Reference | Azure
+  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+  services: site-recovery
+  author: rockboyfor
+  manager: digimobile
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 09/23/2017
+  ms.date: 11/20/2017
+  ms.author: v-yeche
+abstract:
+  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back with our quickstarts and tutorials.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: 'Quickly set up disaster recovery for an Azure VM'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /site-recovery/media/index/portal.svg
+      text: Azure portal
+      href: /site-recovery/azure-to-azure-quickstart
+- title: Step-by-step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to set up disaster recovery for VMs and physical servers.'
+  - type: text
+    html: <h3>Azure to Azure</h3>
+  - type: list    
+    style: ordered
+    items:
+    - html: <a href="azure-to-azure-tutorial-enable-replication">Set up disaster recovery</a>
+    - html: <a href="azure-to-azure-tutorial-dr-drill">Run a disaster recovery drill</a>
+    - html: <a href="azure-to-azure-tutorial-failover-failback">Run failover and failback</a>
+  - type: text
+    html: <h3>VMware</h3> 
+  - type: list    
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
+    - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
+    - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
+    - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
+  - type: text
+    html: <h3>Migrate to Azure</h3>  
+  - type: list        
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
+    - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
+### Invalid Items - title: Reference
+### ms.date: 11/20/2017
+ 

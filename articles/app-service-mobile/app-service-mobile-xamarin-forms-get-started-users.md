@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/07/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
+ms.date: 12/04/2017
 ---
 # Add authentication to your Xamarin Forms app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -204,7 +204,7 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
 
     If you are using an identity provider other than MicrosoftAccount, choose a different value for [MobileServiceAuthenticationProvider].
 
-6. Add the following code inside <application> node of AndroidManifest.xml:
+6. Update the **AndroidManifest.xml** file by adding the following XML inside the `<application>` element:
 
 ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
@@ -215,9 +215,9 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. Add the following code to the **OnCreate** method of the **MainActivity** class before the call to `LoadApplication()`:
+    ```
+    Replace `{url_scheme_of_your_app}` with your URL scheme.
+7. Add the following code to the **OnCreate** method of the **MainActivity** class before the call to `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
@@ -284,7 +284,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 
     If you are using an identity provider other than MicrosoftAccount, choose a different value for [MobileServiceAuthenticationProvider].
 
-6. Update the AppDelegate class by adding OpenUrl(UIApplication app, NSUrl url, NSDictionary options) method overload
+6. Update the **AppDelegate** class by adding the **OpenUrl** method overload, as follows:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
@@ -307,7 +307,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 This section shows how to implement the **IAuthenticate** interface in the Windows 10 app projects. The same steps apply for
 Universal Windows Platform (UWP) projects, but using the **UWP** project (with noted changes). Skip this section if you are not supporting Windows devices.
 
-1. "In Visual Studio, right-click either the **UWP** project, then **Set as StartUp Project**.
+1. In Visual Studio, right-click the **UWP** project, then **Set as StartUp Project**.
 2. Press F5 to start the project in the debugger, then verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after
    the app starts. The 401 response happens because access on the backend is restricted to authorized users only.
 3. Open MainPage.xaml.cs for the Windows app project and add the following `using` statements:
@@ -390,10 +390,7 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 
        }
 
-   When the method override already exists, add the conditional code from the preceding snippet.  This code is not required for Universal Windows
-   projects.
-
-3. Add **{url_scheme_of_your_app}** in Package.appxmanifest. 
+3. Open Package.appxmanifest and add a **Protocol** declaration. Set the **Display name** to a name of your choosing, and the **Name** to the URL scheme for you app.
 
 4. Rebuild the app, run it, then sign in with the authentication provider you chose and verify you are able to access data as an authenticated user.
 

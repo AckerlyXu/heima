@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/16/2017
-ms.date: 08/22/2017
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -25,7 +25,7 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure Classic Management Portal (https://manage.windowsazure.cn)?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure Classic Management Portal?**
 
 **A:** To access the Azure Classic Management Portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) or a paid subscription.
 
@@ -117,7 +117,7 @@ For Office 365 users, your admin can reset the password by using the steps outli
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Classic Management Portal](active-directory-create-users-reset-password.md)
-- [Using PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0/)
+- [Using PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
@@ -174,4 +174,4 @@ For more information, see:
 
 **A:**  No. Azure AD does not support the LDAP protocol.
 
-<!--Update_Description: update metadata properties -->  
+<!--Update_Description: wording update -->

@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 04/17/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Create an internal load balancer by using the Azure CLI
+
 > [!div class="op_single_selector"]
-> * [Azure Portal](./load-balancer-get-started-ilb-arm-portal.md)
-> * [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
-> * [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
-> * [Template](./load-balancer-get-started-ilb-arm-template.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./load-balancer-get-started-ilb-classic-cli.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-cli.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -44,7 +47,7 @@ You need to create and configure the following objects to deploy a load balancer
 * **Inbound NAT rules**: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool
 * **Probes**: contains health probes that are used to check the availability of virtual machines instances in the back-end address pool
 
-For more information, see [Azure Resource Manager support for Load Balancer](./load-balancer-arm.md).
+For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 ## Set up CLI to use Resource Manager
 
@@ -213,6 +216,8 @@ azure network lb delete --resource-group nrprg --name ilbset
 
 ## Next steps
 
-[Configure a load balancer distribution mode by using source IP affinity](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode by using source IP affinity](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

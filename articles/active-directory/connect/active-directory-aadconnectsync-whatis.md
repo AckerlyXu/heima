@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect sync: Understand and customize synchronization | Azure'
+title: 'Azure AD Connect sync: Understand and customize synchronization | Microsoft Docs'
 description: Explains how Azure AD Connect sync works and how to customize.
 services: active-directory
 documentationcenter: ''
-author: andkjell
-manager: femila
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2016
+origin.date: 11/08/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
-ms.date: 12/09/2016
----
 
+---
 # Azure AD Connect sync: Understand and customize synchronization
 The Azure Active Directory Connect synchronization services (Azure AD Connect sync) is a main component of Azure AD Connect. It takes care of all the operations that are related to synchronize identity data between your on-premises environment and Azure AD. Azure AD Connect sync is the successor of DirSync, Azure AD Sync, and Forefront Identity Manager with the Azure Active Directory Connector configured.
 
 This topic is the home for **Azure AD Connect sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**. The service is common for DirSync, Azure AD Sync, and Azure AD Connect.
+The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**. 
 
 ## Azure AD Connect sync topics
 | Topic | What it covers and when to read |
@@ -61,3 +61,5 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 
 ## Additional Resources
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+<!--Update_Description: wording update -->

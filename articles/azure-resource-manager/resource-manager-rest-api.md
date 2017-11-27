@@ -105,7 +105,7 @@ One of the simplest operations you can do is to list the available subscriptions
 
 ```HTTP
 GET /subscriptions?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
@@ -138,7 +138,7 @@ All resources available with the Resource Manager APIs are nested inside a resou
 
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
@@ -180,7 +180,7 @@ So far, we've only been querying the Resource Manager APIs for information. It's
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 
@@ -221,7 +221,7 @@ For this example, we use a publicly exposed template available on [GitHub](https
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
-Host: management.azure.com
+Host: management.chinacloudapi.cn
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 

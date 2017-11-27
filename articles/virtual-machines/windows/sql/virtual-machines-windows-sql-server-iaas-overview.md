@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/02/2017
-ms.date: 10/30/2017
+ms.date: 12/01/2017
 ms.author: v-yeche
 ---
 # Overview of SQL Server on Azure Virtual Machines (Windows)
@@ -26,7 +26,7 @@ ms.author: v-yeche
 This topic describes your options for running SQL Server on Azure Windows virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
 
 > [!NOTE]
-> If you're already familiar with SQL Server and just want to see how to deploy a SQL Server VM, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
+> If you're already familiar with SQL Server and just want to see how to deploy a SQL Server Windows VM, see [Provision a Windows SQL Server VM in the Azure](virtual-machines-windows-portal-sql-server-provision.md). Or if you want to create a Linux VM with SQL Server, see [Provision a Linux SQL Server VM in the Azure](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 > 
 > 
 
@@ -112,4 +112,4 @@ For questions about pricing, see [Pricing guidance for SQL Server Azure VMs](vir
 
 More question? First, see the [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md). But also add your questions or comments to the bottom of any SQL VM topics to interact with Azure.cn and the community.
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

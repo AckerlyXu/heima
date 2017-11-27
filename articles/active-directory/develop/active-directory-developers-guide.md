@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/07/2017
-ms.date: 06/26/2017
+ms.date: 11/23/2017
 ms.author: v-junlch
 ms.custom: aaddev
 ---
@@ -41,6 +41,7 @@ These articles inform you how to perform common tasks with Azure Active Director
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
+|[App registration](active-directory-integrating-applications.md)           | How to register an app in Azure AD |
 |[Multi-tenant apps](active-directory-devhowto-multi-tenant-overview.md)    | How to sign in any Microsoft work account |
 |[OAuth & OpenID Connect](active-directory-protocols-openid-connect-code.md)| How to sign-in users and call web APIs using our modern auth protocols |
 |[More guides...](active-directory-developers-guide-index.md#guides)        |     |
@@ -55,17 +56,11 @@ These articles provide detailed information on APIs, protocol messages, and term
 | [Glossary](active-directory-dev-glossary.md)                                      | Terminology and definitions of words used throughout this documentation |
 | [More reference material...](active-directory-developers-guide-index.md#reference)|     |
 
-## Help & Support
-These are the best places to get help with developing on Azure Active Directory.
-
-|  |  
-|---|
-|[Stack Overflow's `azure-active-directory` and `adal` tags](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Feedback on Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Try out Microsoft Dev Chat (free for a limited time)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > If you need to sign-in Microsoft personal accounts, you may want to consider using the [Azure AD v2.0 endpoint](active-directory-appmodel-v2-overview.md).  The Azure AD v2.0 endpoint is the unification of Microsoft personal accounts & Microsoft work accounts (from Azure AD) into a single authentication system.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+
+<!--Update_Description: wording update -->

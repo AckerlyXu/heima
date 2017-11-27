@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/31/2017
-ms.date: 08/22/2017
+origin.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: asteen
 
@@ -68,15 +68,15 @@ Each of your applications may have different authentication requirements. With A
 ### Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
 
-- [Determining which Active Directory to use](./active-directory-administer.md)
-- [Using applications in the Azure application gallery](./active-directory-appssoaccess-whatis.md)
+- [Determining which Active Directory to use](active-directory-administer.md)
+- [Using applications in the Azure application gallery](active-directory-appssoaccess-whatis.md)
 
 ## Managing access to applications
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD.
 
-- [Managing access to apps using Azure AD](./active-directory-managing-access-to-apps.md)
-- [Assigning users to an application](./active-directory-applications-guiding-developers-assigning-users.md)
-- [Sharing accounts](./active-directory-sharing-accounts.md)
+- [Managing access to apps using Azure AD](active-directory-managing-access-to-apps.md)
+- [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md)
+- [Sharing accounts](active-directory-sharing-accounts.md)
 
 ## Integrating custom applications
 If you are writing a new application and want to assist developers in leveraging the power Azure AD, see [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md).

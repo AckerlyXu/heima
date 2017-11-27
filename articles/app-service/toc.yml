@@ -23,22 +23,22 @@
     href: app-service-web-get-started-html.md
 - name: Tutorials
   items:
-  - name: 1 - .NET with SQL DB
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: PHP with MySQL
-    href: app-service-web-tutorial-php-mysql.md 
-  - name: 1 - Node.js with MongoDB
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: Java with MySQL
-    href: app-service-web-tutorial-java-mysql.md
+  - name: 1 - App with DB
+    items:
+    - name: .NET with SQL DB
+      href: app-service-web-tutorial-dotnet-sqldatabase.md
+    - name: PHP with MySQL
+      href: app-service-web-tutorial-php-mysql.md 
+    - name: Node.js with MongoDB
+      href: app-service-web-tutorial-nodejs-mongodb-app.md
+    - name: Java with MySQL
+      href: app-service-web-tutorial-java-mysql.md
   - name: 1 - Create RESTful API
     href: app-service-web-tutorial-rest-api.md
   - name: 2 - Map Custom Domain
     href: app-service-web-tutorial-custom-domain.md
   - name: 3 - Bind SSL Certificate
     href: app-service-web-tutorial-custom-ssl.md
-  - name: 5 - Monitor your app
-    href: app-service-web-tutorial-monitoring.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -51,6 +51,8 @@
     href: app-service-how-works-readme.md
   - name: App Service plans
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+  - name: OS functionality
+    href: web-sites-available-operating-system-functionality.md
   - name: Authentication and authorization
     href: app-service-authentication-overview.md
   - name: Traffic Manager integration
@@ -138,7 +140,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/appservice
+    href: https://docs.azure.cn/zh-cn/cli/appservice?view=azure-cli-latest
   - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell
   - name: REST API

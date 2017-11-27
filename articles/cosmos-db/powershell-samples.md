@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-origin.date: 05/10/2017
-ms.date: 08/07/2017
+origin.date: 10/16/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB.
+The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time you can only manage the Azure Cosmos DB accountlayer via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
 
 | |  |
 |---|---|

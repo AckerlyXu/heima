@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 08/28/2017
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -53,7 +53,8 @@ To create a service principal with the Contributor role for your subscription, u
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
+$password = convertto-securestring {provide-password} -asplaintext -force
+$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password $password
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
@@ -409,34 +410,11 @@ You may encounter the following errors when creating a service principal:
 ## Sample applications
 For information about logging in as the application through different platforms, see:
 
-**.NET**
-
-* [Deploy an SSH Enabled VM with a Template with .NET](https://github.com/Azure-Samples/resource-manager-dotnet-template-deployment/)
-* [Manage Azure resources and resource groups with .NET](https://github.com/Azure-Samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
+* [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
-* [Getting Started with Resources - Deploy Using Azure Resource Manager Template - in Java](https://github.com/Azure-Samples/resources-java-deploy-using-arm-template/)
-* [Getting Started with Resources - Manage Resource Group - in Java](https://github.com/Azure-Samples/resources-java-manage-resource-group/)
-
-**Python**
-
-* [Deploy an SSH Enabled VM with a Template in Python](https://github.com/Azure-Samples/resource-manager-python-template-deployment/)
-* [Managing Azure Resource and Resource Groups with Python](https://github.com/Azure-Samples/resource-manager-python-resources-and-groups/)
-<!-- Need to translate * [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)-->
-
-**Node.js**
-
-* [Deploy an SSH Enabled VM with a Template in Node.js](https://github.com/Azure-Samples/resource-manager-node-template-deployment/)
-* [Manage Azure resources and resource groups with Node.js](https://github.com/Azure-Samples/resource-manager-node-resources-and-groups/)
-<!-- Need to translate * [Node.js](https://docs.microsoft.com/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)-->
-
-**Ruby**
-
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template in Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/)
-* [Managing Azure Resource and Resource Groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## Next steps
 * For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
@@ -445,4 +423,4 @@ For information about logging in as the application through different platforms,
 <!-- Notice: active-directory/develop/ is correct-->
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).
 
-<!--Update_Description: wording update, Update link-->
+<!--Update_Description: wording update， update link-->

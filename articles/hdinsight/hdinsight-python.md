@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 09/18/2017
-ms.author: v-haiyqa
+origin.date: 10/06/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
@@ -200,6 +200,8 @@ For more information on using SSH, see [Use SSH with HDInsight](hdinsight-hadoop
     ssh myuser@mycluster-ssh.azurehdinsight.cn
     ```
 
+    For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+
 3. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
     ```bash
@@ -211,9 +213,15 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 #### Use the Hive UDF
 
-1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
+1. To connect to Hive, use the following command:
 
-2. Enter the following query at the `hive>` prompt:
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
+
+    This command starts the Beeline client.
+
+2. Enter the following query at the `0: jdbc:hive2://headnodehost:10001/>` prompt:
 
    ```hive
    add file wasb:///hiveudf.py;
@@ -232,9 +240,19 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
+4. To exit Beeline, use the following command:
+
+    ```hive
+    !q
+    ```
+
 #### Use the Pig UDF
 
-1. Use the `pig` command to start the shell. You see a `grunt>` prompt once the shell has loaded.
+1. To connect to pig, use the following command:
+
+    ```bash
+    pig
+    ```
 
 2. Enter the following statements at the `grunt>` prompt:
 
@@ -266,7 +284,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
     #from pig_util import outputSchema
     ```
 
-    Once the change has been made, use Ctrl+X to exit the editor. Select Y, and then enter to save the changes.
+    This modifies the Python script to work with C Python instead of Jython. Once the change has been made, use **Ctrl+X** to exit the editor. Select **Y**, and then **Enter** to save the changes.
 
 6. Use the `pig` command to start the shell again. Once you are at the `grunt>` prompt, use the following to run the Python script using the C Python interpreter.
 

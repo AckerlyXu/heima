@@ -6,9 +6,9 @@ keywords: hadoop on windows,hadoop for windows
 author: cjgronlund
 manager: jhubbard
 
-ms.author: v-dazen
+ms.author: v-yiso
 origin.date: 05/17/2017
-ms.date: 07/24/2017
+ms.date: 11/27/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -86,5 +86,5 @@ If you encounter a situation where you must use a tool or technology that is onl
 
 ## Next steps
 If you're new to working in Linux-based clusters, see the follow articles:
-* [Set up Hadoop, Spark, or other clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Set up Hadoop, Kafka, Spark, or other clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Tips for HDInsight clusters on Linux](hdinsight-hadoop-linux-information.md)

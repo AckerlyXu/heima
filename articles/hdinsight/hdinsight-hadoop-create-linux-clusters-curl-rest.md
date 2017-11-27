@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/10/2017
-ms.date: 09/18/2017
+ms.date: 11/27/2017
 ms.author: v-haiqya
 
 ---
@@ -224,7 +224,7 @@ This example is used in the steps in this document. Replace the example *values*
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
+Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 

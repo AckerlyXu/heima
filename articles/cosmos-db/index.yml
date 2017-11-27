@@ -12,11 +12,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 07/24/2017
-  ms.date: 10/23/2017
+  origin.date: 11/15/2017
+  ms.date: 11/27/2017
   ms.author: v-yeche
 abstract:
-  description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
+  description: Azure Cosmos DB is a globally distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, and wide-column by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefitting from comprehensive SLAs. 
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -26,9 +26,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: media/index/logo_net.svg
-      - image:
           src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_net.svg
       - image:
           src: media/index/logo_nodejs.svg
       - image:
@@ -36,31 +36,39 @@ sections:
     rows:
       - title: DocumentDB API
         values:
-        - href: /cosmos-db/create-documentdb-dotnet
         - href: /cosmos-db/create-documentdb-java
+        - href: /cosmos-db/create-documentdb-dotnet
         - href: /cosmos-db/create-documentdb-nodejs
         - href: /cosmos-db/create-documentdb-python
       - title: MongoDB API
         values:
-          - href: /cosmos-db/create-mongodb-dotnet
           - href: /cosmos-db/create-mongodb-java
+          - href: /cosmos-db/create-mongodb-dotnet
           - href: /cosmos-db/create-mongodb-nodejs
           - href: 
       - title: Table API
         values:
+          - href: /cosmos-db/create-table-java
           - href: /cosmos-db/create-table-dotnet
+          - href: /cosmos-db/create-table-nodejs
+          - href: /cosmos-db/create-table-python
           - href:
-          - href:
+      - title: Cassandra API
+        values:
+          - href: /cosmos-db/create-cassandra-java
+          - href: /cosmos-db/create-cassandra-dotnet
+          - href: /cosmos-db/create-cassandra-nodejs
+          - href: /cosmos-db/create-cassandra-python
           - href:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to develop apps using Azure Cosmos DB&#58;
+    text: 'Learn how to develop apps using Azure Cosmos DB&#58;'
   - type: list
     style: ordered
     items:
-    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a>
-    - html: Import data into Cosmos DB&#58; <a href="import-data">DocumentDB</a> | <a href="mongodb-migrate">MongoDB</a>
+    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a>| <a href="/cosmos-db/tutorial-develop-cassandra-java">Cassandra</a>
+    - html: Import data into Cosmos DB&#58; <a href="/cosmos-db/import-data">DocumentDB</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">Table</a> | <a href="/cosmos-db/cassandra-import-data">Cassandra</a>
     - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a>
     - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
     - html: <a href="local-emulator">Develop your application locally using the emulator</a>
@@ -74,4 +82,4 @@ sections:
     - html: <a href="/cosmos-db/cli-samples">Azure CLI</a>
     - html: <a href="/cosmos-db/powershell-samples">Azure PowerShell</a>
 ### Not Available - title: Reference
-### ms.date: 10/23/2017
+### ms.date: 11/27/2017

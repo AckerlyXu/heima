@@ -1,5 +1,5 @@
 ---
-title: How to use Table storage from Java | Azure
+title: How to use Azure Table storage from Java | Azure
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: java
@@ -13,20 +13,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 12/08/2016
-origin.date: 08/28/2017
-ms.date: ''
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
-# How to use Table storage from Java
+# How to use Azure Table storage from Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
 This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Microsoft Azure Storage SDK for Java][Microsoft Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#Next-Steps) section.
 
-Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Microsoft Azure Storage SDK for Android][Microsoft Azure Storage SDK for Android].
+> [!NOTE]
+> An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Microsoft Azure Storage SDK for Android][Microsoft Azure Storage SDK for Android].
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -72,7 +73,11 @@ The following samples assume that you have used one of these two methods to get 
 ## How to: Create a table
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
-and uses it to create a new **CloudTable** object which represents a table named "people". (Note: There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
+and uses it to create a new **CloudTable** object which represents a table named "people". 
+
+> [!NOTE]
+> There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
+>
 
 ```java
 try
@@ -573,7 +578,7 @@ catch (Exception e)
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage Team Blog][Azure Storage Team Blog]
 
-For more information, visit [Azure for Java developers](https://docs.microsoft.com/java/azure).
+For more information, visit [Azure for Java developers](https://docs.azure.cn/java/azure).
 
 [Azure SDK for Java]: /develop/java/
 [Microsoft Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
@@ -582,3 +587,5 @@ For more information, visit [Azure for Java developers](https://docs.microsoft.c
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+
+<!-- Update_Description: update meta properties, update link -->

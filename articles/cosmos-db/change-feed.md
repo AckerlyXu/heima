@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-origin.date: 10/10/2017
-ms.date: 10/23/2017
+origin.date: 10/30/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -155,7 +155,7 @@ This section walks through how to use the DocumentDB SDK to work with a change f
 
 If you have multiple readers, you can use **ChangeFeedOptions** to distribute read load to different threads or different clients.
 
-And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [azure-cosmos-db-DocumentFeed GitHub repo](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed).
+And that's it, with these few lines of code you can start reading the change feed. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
 In the code in step 4 above, the **ResponseContinuation** in the last line has the last logical sequence number (LSN) of the document, which you will use the next time you read new documents after this sequence number. By using the **StartTime** of the **ChangeFeedOption** you can widen your net to get the documents. So, if your **ResponseContinuation** is null, but your **StartTime** goes back in time then you will get all the documents that changed since the **StartTime**. But, if your **ResponseContinuation** has a value then system will get you all the documents since that LSN.
 
@@ -280,11 +280,11 @@ For more information on using the Change Feed Processor library, use the followi
 
 * [Information page](documentdb-sdk-dotnet-changefeed.md) 
 * [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Sample code showing steps 1-6 above](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Sample code showing steps 1-6 above](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 For more information on using the change feed via the SDK, use the following resources:
 
 * [SDK information page](documentdb-sdk-dotnet.md)
 
-<!--Update_Description: update meta properties, restructure the cmdlet sample-->
+<!--Update_Description: update meta properties, update link -->

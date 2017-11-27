@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/12/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/03/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Run MapReduce jobs with Hadoop on HDInsight using REST
@@ -38,17 +38,17 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 > [!NOTE]
 > When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the HDInsight cluster administrator user name and password. You must use the cluster name as part of the URI that is used to send the requests to the server.
 >
-> For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
+> For the commands in this section, replace **admin** with the user to authenticate to the cluster. Replace **CLUSTERNAME** with the name of your cluster. When prompted, provide the password for the user account.
 >
 > The REST API is secured by using [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
     ```
 
-    You should receive a response similar to the following JSON:
+    You receive a response similar to the following JSON:
 
         {"status":"ok","version":"v1"}
 
@@ -62,7 +62,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 2. To submit a MapReduce job, use the following command:
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/mapreduce/jar
+    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/mapreduce/jar
     ```
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request starts a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
@@ -75,14 +75,12 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
      This command should return a job ID that can be used to check the status of the job:
 
-    ```
-    {"id":"job_1415651640909_0026"}
-    ```
+       {"id":"job_1415651640909_0026"}
 
 3. To check the status of the job, use the following command:
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     Replace the **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then the JOBID would be `job_1415651640909_0026`.
@@ -94,7 +92,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
 4. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
-You can list and download these files by using the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+You can list and download these files by using the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Next steps
 

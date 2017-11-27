@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 10/23/2017
+origin.date: 11/14/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -45,7 +45,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
-<tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 <!-- Not Available ## Release Notes -->
@@ -57,4 +57,4 @@ ms.custom: H1Hack27Feb2017
 ## See Also
 To learn more about Cosmos DB, see [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) service page.
 
-<!--Update_Description: update meta properties, wroding update, update link-->
+<!--Update_Description: update meta properties, wroding update -->

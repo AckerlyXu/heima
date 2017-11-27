@@ -15,20 +15,21 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 03/03/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Get started creating an internal load balancer (classic) using PowerShell
+
 > [!div class="op_single_selector"]
->- [PowerShell](./load-balancer-get-started-ilb-classic-ps.md)
->- [Azure CLI](./load-balancer-get-started-ilb-classic-cli.md)
->- [Cloud services](./load-balancer-get-started-ilb-classic-cloud.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Cloud services](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](./load-balancer-get-started-ilb-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -55,7 +56,7 @@ $IP="<The IPv4 address to use on the subnet-optional>"
 Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb -SubnetName $subnet -StaticVNetIPAddress $IP
 ```
 
-Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/zh-cn/library/dn495300.aspx) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](https://msdn.microsoft.com/zh-cn/library/dn495300.aspx).
+Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
 ### Step 2: Add endpoints to the Internal Load Balancing instance
 
@@ -183,6 +184,8 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 
 ## Next steps
 
-[Configure a load balancer distribution mode using source IP affinity](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

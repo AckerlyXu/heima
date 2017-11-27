@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2017
-ms.date: 09/04/2017
+origin.date: 10/10/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 
 ---
@@ -33,7 +33,7 @@ The [Event Processor Host][EventProcessorHost] is a .NET class that simplifies r
 To complete this tutorial, you need the following prerequisites:
 
 * [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). The screen shots in this tutorial use Visual Studio 2017.
-* An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
+* An active Azure account. If you don't have one, you can create a trial account in just a couple of minutes. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 ## Create an Event Hubs namespace and an event hub
 
@@ -183,4 +183,4 @@ Now that you've built a working application that creates an event hub and sends 
 [Event Processor Host]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.cn
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties -->

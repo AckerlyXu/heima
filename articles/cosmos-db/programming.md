@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2016
-ms.date: 09/18/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -663,7 +663,7 @@ In addition to the DocumentDB API for [Node.js](documentdb-sdk-node.md) client, 
     document.Year = 1949;
 
     // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
+    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 This sample shows how to use the [DocumentDB .NET API](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) to create a pre-trigger and create a document with the trigger enabled. 
 
@@ -783,4 +783,4 @@ You may also find the following references and resources useful in your path to 
 * [Service Oriented Database Architecture](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hosting the .NET Runtime in Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: wording update-->

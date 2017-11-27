@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus WCF Relay tutorial | Azure
-description: Build a Service Bus client application and service using WCF Relay.
+title: Azure Service Bus WCF Relay tutorial | Microsoft Docs
+description: Build a client and service application using WCF Relay.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
+origin.date: 11/02/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 12/04/2017
 ---
 # Azure WCF Relay tutorial
 

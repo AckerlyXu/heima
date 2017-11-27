@@ -22,6 +22,7 @@
 
 # How to
 ## Plan and design
+<!-- Not Available ### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md) -->
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
@@ -62,6 +63,7 @@
 ## [Pricing](https://www.azure.cn/pricing/details/event-hubs/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
+<!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub) -->
 
 <!--Update_Description: update link-->
+<!--ms.date: 11/20/2017 -->

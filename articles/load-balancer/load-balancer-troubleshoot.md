@@ -13,12 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/10/2017
-ms.date: 07/31/2017
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Troubleshoot Azure Load Balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 This page provides troubleshooting information for common Azure Load Balancer questions. When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
 - VMs behind the Load Balancer are not responding to health probes 
@@ -133,4 +135,4 @@ If you decide to open a support case, collect the following information for a qu
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://www.azure.cn/support/contact/).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

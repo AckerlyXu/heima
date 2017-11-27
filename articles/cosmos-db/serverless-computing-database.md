@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 10/23/2017
+origin.date: 10/24/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ---
 
@@ -99,7 +99,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Cosmos DB triggers listening to one collection
 
-1. You can create up multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. 
+1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function.
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
     * One function may use the contents of the current basket to change the display of other items the user might be interested in.
     * Another function may update inventory totals.
@@ -154,5 +154,5 @@ Now let's connect Azure Cosmos DB and Azure Functions for real:
 * [Store unstructured data using Azure Functions and Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-documentdb.md)
 
-<!--Update_Description: new articles on serverless computing database-->
+<!--Update_Description: update meta properties, wording update -->
 
