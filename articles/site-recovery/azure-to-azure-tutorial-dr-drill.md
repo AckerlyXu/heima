@@ -10,8 +10,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -62,4 +62,4 @@ This tutorial shows you how to run a disaster recovery drill for an Azure VM, fr
 > [!div class="nextstepaction"]
 > [Run a production failover](azure-to-azure-tutorial-failover-failback.md)
 
-<!-- Update_Description: new articles on site recovery azure to azure tutorial dr drill -->
+<!-- Update_Description: update meta properties -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2017
-ms.date: 11/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -38,7 +38,7 @@ To complete this tutorial:
 
 - Review the [scenario architecture and components](concepts-hyper-v-to-secondary-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
-- Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md#on-premises-servers).
+- Make sure that VMM servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
 - Check that VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 - Prepare VMM servers for network mapping.
 
@@ -154,4 +154,4 @@ You can track progress of the **Enable Protection** action in **Jobs** > **Site 
 
 [Run a disaster recovery drill](tutorial-dr-drill-secondary.md)
 
-<!-- Update_Description: new articles on site recovery tutorial vmm to vmm -->
+<!-- Update_Description: update meta properties, wording update -->

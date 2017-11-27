@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/24/2017
-ms.date: 09/11/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -79,8 +79,8 @@ After you've used the [the Deployment Planner tool](site-recovery-deployment-pla
 
 * **Throttle bandwidth**: VMware traffic that replicates to Azure goes through a specific process server. You can throttle bandwidth on the machines running as process servers.
 * **Influence bandwidth**: You can influence the bandwidth used for replication by using a couple of registry keys:
-  * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth used for replication.
-  * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** specifies the number of threads used for data transfer during failback.
+  * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** registry value specifies the number of threads that are used for data transfer (initial or delta replication) of a disk. A higher value increases the network bandwidth used for replication.
+  * The **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** specifies the number of threads used for data transfer during failback.
 
 ### Throttle bandwidth
 
@@ -139,4 +139,4 @@ If you have to scale out your deployment beyond 200 source machines, or you have
 
 Download and run the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 
-<!--Update_Description: new articles on vmware plan capacity in site recovery -->
+<!--Update_Description: wording update -->
