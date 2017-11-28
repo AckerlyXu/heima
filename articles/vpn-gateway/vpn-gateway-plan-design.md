@@ -66,10 +66,6 @@ Start by looking at the diagrams in the [About VPN Gateway](vpn-gateway-about-vp
 
 The following sections discuss the VPN gateway basics. 
 
-#### <a name="servicelimits"></a>Networking services limits
-
-Scroll through the tables to view [networking services limits](../azure-subscription-service-limits.md#networking-limits). The limits listed may impact your design.
-
 #### <a name="subnets"></a>About subnets
 
 When you are creating connections, you must consider your subnet ranges. You cannot have overlapping subnet address ranges. An overlapping subnet is when one virtual network or on-premises location contains the same address space that the other location contains. This means that you need your network engineers for your local on-premises networks to carve out a range for you to use for your Azure IP addressing space/subnets. You need address space that is not being used on the local on-premises network.

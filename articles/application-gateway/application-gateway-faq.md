@@ -107,10 +107,6 @@ Network Security Groups are supported on the Application Gateway subnet with the
 
 - Traffic from the AzureLoadBalancer tag must be allowed.
 
-**Q. What are the limits on Application Gateway? Can I increase these limits?**
-
-Visit [Application Gateway Limits](../azure-subscription-service-limits.md#application-gateway-limits) to view the limits.
-
 **Q. Can I use Application Gateway for both external and internal traffic simultaneously?**
 
 Yes, Application Gateway supports having one internal IP and one external IP per Application Gateway.

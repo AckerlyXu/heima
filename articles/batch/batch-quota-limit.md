@@ -39,7 +39,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 ### Quotas in user subscription mode
 
-If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied.
 
 ## Other limits
 | **Resource** | **Maximum Limit** |
@@ -97,7 +97,6 @@ Once you've submitted your support request, Azure support will contact you. Note
 ## Related topics
 - [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 - [Azure Batch feature overview](batch-api-basics.md)
-- [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.cn
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

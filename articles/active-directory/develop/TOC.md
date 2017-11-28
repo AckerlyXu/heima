@@ -73,7 +73,6 @@
 ### [Apps and Azure AD](active-directory-how-applications-are-added.md)
 ## [Application manifest](active-directory-application-manifest.md)
 ## [Token lifetimes](../active-directory-configurable-token-lifetimes.md)
-## [Service limits](../active-directory-service-limits-restrictions.md)
 # v2.0 endpoint
 ## [Overview](active-directory-appmodel-v2-overview.md)
 ### [Types of apps](active-directory-v2-flows.md)

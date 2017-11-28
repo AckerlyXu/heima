@@ -67,7 +67,7 @@ An Azure Database logical server:
 - Provides a connection endpoint for database access (<serverName>.database.chinacloudapi.cn)
 - Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
 - Provides the scope for management policies that apply to its databases - logins, firewall, audit, threat detection, etc. 
-- Is restricted by a quota within the parent subscription (six servers per subscription by default - [see Subscription limits here](../azure-subscription-service-limits.md))
+- Is restricted by a quota within the parent subscription (six servers per subscription by default)
 - Provides the scope for database quota and DTU quota for the resources it contains (such as 45,000 DTU)
 - Is the versioning scope for capabilities enabled on contained resources 
 - Server-level principal logins can manage all databases on a server

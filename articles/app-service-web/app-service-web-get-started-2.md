@@ -35,9 +35,7 @@ that require higher pricing tiers. Rest assured that your web app remains in **F
 pricing tier.
 
 > [!NOTE]
-> The web app you created with Azure CLI runs in **Free** tier, which only allows one shared VM instance with resource quotas. For more
-> information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
-> 
+> The web app you created with Azure CLI runs in **Free** tier, which only allows one shared VM instance with resource quotas. 
 > 
 
 ## Authenticate your users

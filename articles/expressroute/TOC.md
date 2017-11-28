@@ -63,5 +63,4 @@
 ## [Pricing](https://www.azure.cn/pricing/details/expressroute/)
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
-## [Subscription and Service Limits](../azure-subscription-service-limits.md)
 <!--Update_Description: remove the video related references-->

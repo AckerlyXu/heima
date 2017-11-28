@@ -72,8 +72,6 @@ ms.custom: H1Hack27Feb2017
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription
 
 [dbms-guide]:../virtual-machines-windows-sap-dbms-guide.md 
 [dbms-guide-2.1]:../virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 

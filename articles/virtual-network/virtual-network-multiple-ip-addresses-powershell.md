@@ -116,7 +116,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
     When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
 
     > [!NOTE]
-    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. 
 
 7. Define the secondary IP configurations for the NIC. You can add or remove configurations as necessary. Each IP configuration must have a private IP address assigned. Each configuration can optionally have one public IP address assigned.
 
@@ -249,7 +249,7 @@ You can add private and public IP addresses to a NIC by completing the steps tha
     A public IP address is added by associating a public IP address resource to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
     > [!NOTE]
-    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription.
     >
 
     - **Associate the public IP address resource to a new IP configuration**
