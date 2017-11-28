@@ -13,9 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-origin.date: 02/28/2017
-origin.date: 08/28/2017
-ms.date: ''
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -1552,3 +1551,5 @@ We would also like to thank the following Microsoft MVP's for their valuable fee
 [27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
+
+<!-- Update_Description: update meta properties -->

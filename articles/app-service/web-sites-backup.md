@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 
 ---
@@ -55,47 +55,47 @@ The following database solutions are supported with backup feature:
 <a name="manualbackup"></a>
 
 ## Create a manual backup
-1. In the [Azure Portal](https://portal.azure.cn), navigate to your app's blade, select **Backups**. The **Backups** blade will be displayed.
-
+1. In the [Azure portal](https://portal.azure.cn), navigate to your app's page, select **Backups**. The **Backups** page is displayed.
+   
     ![Backups page][ChooseBackupsPage]
 
    > [!NOTE]
-   > If you see the message below, click it to upgrade your App Service plan before you can proceed with backups.
-   > See [Scale up an app in Azure](web-sites-scale.md) for more information.  
+   > If you see the following message, click it to upgrade your App Service plan before you can proceed with backups.
+   > For more information, see [Scale up an app in Azure](web-sites-scale.md).  
    > ![Choose storage account](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. In the **Backup** blade, Click **Configure**
+2. In the **Backup** page, Click **Configure**
 ![Click Configure](./media/web-sites-backup/ClickConfigure1.png)
-3. In the **Backup Configuration** blade, click **Storage: Not configured** to configure a storage account.
-
+3. In the **Backup Configuration** page, click **Storage: Not configured** to configure a storage account.
+   
     ![Choose storage account][ChooseStorageAccount]
-4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective blades. When you're done, click **Select**.
-
+4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective pages. When you're done, click **Select**.
+   
     ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. In the **Backup Configuration** blade that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
-
+5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
+   
     ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase1.png)
-
+   
    > [!NOTE]
-   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** blade for your app.
+   > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app.
    > 
    > 
-6. In the **Backup Configuration** blade, click **Save**.    
-7. In the  **Backups** blade, click **Backup**.
-
+6. In the **Backup Configuration** page, click **Save**.    
+7. In the  **Backups** page, click **Backup**.
+   
     ![BackUpNow button][BackUpNow]
 
     You see a progress message during the backup process.
 
-Once the storage account and container is configured you can initiate a manual backup at any time.  
+Once the storage account and container is configured, you can initiate a manual backup at any time.  
 
 <a name="automatedbackups"></a>
 
 ## Configure automated backups
-1. In the **Backup Configuration** blade, set **Scheduled backup** to **On**. 
-
+1. In the **Backup Configuration** page, set **Scheduled backup** to **On**. 
+   
     ![Choose storage account](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Backup schedule options will show up, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
 
@@ -110,10 +110,10 @@ Sometimes you don't want to backup everything on your app. Here are a few exampl
 * Your app has over 10 GB of content (that's the max amount you can backup at a time).
 * You don't want to backup the log files.
 
-Partial backups allows you choose exactly which files you want to backup.
+Partial backups allow you choose exactly which files you want to back up.
 
 ### Exclude files from your backup
-Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 
+Suppose you have an app that contains log files and static images that have been backup once and are not going to change. In such cases, you can exclude those folders and files from being stored in your future backups. To exclude files and folders from your backups, create a `_backup.filter` file in the `D:\home\site\wwwroot` folder of your app. Specify the list of files and folders you want to exclude in this file. 
 
 An easy way to access your files is to use Kudu . Click **Advanced Tools -> Go** setting for your web app to access Kudu.
 
@@ -123,7 +123,7 @@ Identify the folders that you want to exclude from your backups.  For example , 
 
 ![Images Folder][ImagesFolder]
 
-Create a file called `_backup.filter` and put the list above in the file, but remove `D:\home`. List one directory or file per line. So the content of the file should be:
+Create a file called `_backup.filter` and put the preceding list in the file, but remove `D:\home`. List one directory or file per line. So the content of the file should be:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
@@ -140,10 +140,11 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 > When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site, but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 > 
 
+
 <a name="aboutbackups"></a>
 
 ## How backups are stored
-After you have made one or more backups for your app, the backups are visible on the **Containers** blade of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
+After you have made one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
 The database backup for the app is stored in the root of the.zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
@@ -151,6 +152,15 @@ The database backup for the app is stored in the root of the.zip file. For a SQL
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 > 
 > 
+
+## Automate with scripts
+
+You can automate backup management with scripts, using the [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) or [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview).
+
+For samples, see:
+
+- [Azure CLI samples](app-service-cli-samples.md)
+- [Azure PowerShell samples](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

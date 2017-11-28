@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 07/14/2017
-ms.date: 10/23/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -22,8 +22,9 @@ ms.custom: mvc
 # Welcome to Azure Cosmos DB
 
 Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://www.azure.cn/support/sla/documentdb/) (SLAs), something no other database service can offer.
+<!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
-![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
+![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale-out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
 ## Key capabilities
@@ -38,7 +39,8 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * APIs for the following data models are supported with SDKs available in multiple languages:
         * [DocumentDB API](documentdb-introduction.md): A schema-less JSON database engine with SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A MongoDB database service built on top of Cosmos DB. Compatible with existing MongoDB libraries, drivers, tools and applications.
-        * [Table API](table-introduction.md): A key-value storage database service built to provide premium capabilities for Azure Table storage applications.
+        * [Table API](table-introduction.md): A key-value database service built to provide premium capabilities for Azure Table storage applications.
+        * [Cassandra API](cassandra-introduction.md): A key/value store built on the [Apache Cassandra](https://cassandra.apache.org/) implementation. 
         * Additional data models coming soon!
 <!--Not Available        * [Graph (Gremlin) API](graph-introduction.md)-->
 
@@ -51,7 +53,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * For a typical 1-KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
 * **Ensure "always on" availability**
-    * 99.99% availability within a single region.
+    * 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.
     * Deploy to any number of [Azure regions](https://www.azure.cn/support/service-dashboard/) for higher availability.
     * [Simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees. 
 
@@ -95,4 +97,4 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 <!-- Not Available * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md) -->
 * [Get started with Azure Cosmos DB's Table API](create-table-dotnet.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties, update link, wording update-->

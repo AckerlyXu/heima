@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/13/2017
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 
@@ -31,7 +31,7 @@ This quickstart shows how to create a REST API, written with Node.js [Express](h
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest). 
 
 ## Prepare your environment
 
@@ -206,7 +206,7 @@ When Swaggerize asks for a project name, use *ContactList*.
 
 In this section, you use the Azure CLI 2.0 to create the resources to host the API on Azure App Service. 
 
-1.  Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
+1.  Log in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest#az_login) command and follow the on-screen directions.
 
     ```azurecli
     az login

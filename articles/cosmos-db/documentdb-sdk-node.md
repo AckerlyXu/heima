@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/14/2017
-ms.date: 09/18/2017
+origin.date: 11/14/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -29,10 +29,9 @@ ms.custom: H1Hack27Feb2017
 > * [Python](documentdb-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
 > 
 > 
-<!-- https://msdn.microsoft.com/library/azure/dn782250.aspx redirect to documentdb-sql-query-reference.md -->
 
 <table>
 
@@ -50,7 +49,7 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
-<tr><td>**Current supported platform**</td><td>
+<tr><td>**Current supported platform**</td><td> 
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
 [Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
 [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 

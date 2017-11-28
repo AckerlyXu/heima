@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2016
-ms.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -99,24 +99,24 @@ Azure App Service makes it easy to avoid the infrastructure costs associated wit
 * Automatically move your SQL database along with your legacy application.
 
 ### <a id="smallbusiness"></a>I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.
-Azure App Service is a great solution for this scenario, because you can start using it for free and then add more capabilities when you need them. Each free web app comes with a domain provided by Azure (*your_company*.chinacloudsites.cn), and the platform includes integrated deployment and management tools. There are many other services and scaling options that allow the site to evolve with increased user demand. With Azure App Service, you can:
+Azure App Service is a great solution for this scenario, because you can start using it for free and then add more capabilities when you need them. Each free web app comes with a domain provided by Azure (*your_company*.chinacloudsites.cn), and the platform includes integrated deployment and management tools as well as an application gallery that make it easy to get started. There are many other services and scaling options that allow the site to evolve with increased user demand. With Azure App Service, you can:
 
 * Begin with the free tier and then scale up as needed.
-* set up popular web applications, such as WordPress.
+* Use the Application Gallery to quickly set up popular web applications, such as WordPress.
 * Add additional Azure services and features to your application as needed.
 * Secure your web app with HTTPS.
 
 ### <a id="designer"></a> I'm a web or graphic designer, and I want to design and build websites for my customers
 For web developers and designers, Azure App Service integrates easily with a variety of frameworks and tools, includes deployment support for Git and FTP, and offers tight integration with tools and services such as Visual Studio and SQL Database. With App Service, you can:
 
-* Use command-line tools for automated tasks.
+* Use command-line tools for [automated tasks][scripting].
 * Work with popular languages such as [.Net][dotnet], [PHP][PHP], [Node.js][nodejs], and [Python][Python].
 * Select three different scaling levels for scaling up to very high capacities.
 * Integrate with other Azure services, such as [SQL Database][sqldatabase], [Service Bus][servicebus] and [Storage][Storage].
-* Integrate with tools such as Visual Studio, Git, WebMatrix, WebDeploy, and FTP.
+* Integrate with tools such as Visual Studio, Git, WebMatrix, WebDeploy, TFS, and FTP.
 
 ### <a id="multitier"></a>I'm migrating my multi-tier application with a web front-end to the Cloud
-If you're running a multi-tier application, such as a web server that connects to a database, Azure App Service is a good option that offers tight integration with Azure SQL Database. And you can use the WebJobs feature for running backend processes.
+If you’re running a multi-tier application, such as a web server that connects to a database, Azure App Service is a good option that offers tight integration with Azure SQL Database. And you can use the WebJobs feature for running backend processes.
 
 Choose Service Fabric for one or more of your tiers if you need more control over the server environment, such as the ability to remote into your server or configure server startup tasks.
 
@@ -133,7 +133,7 @@ If your open source framework is supported on App Service, the languages and fra
 
 * Use many popular open source languages, such as [.NET][dotnet], [PHP][PHP], [Node.js][nodejs], and [Python][Python].
 * Set up WordPress, Drupal, Umbraco, DNN, and many other third-party web applications.
-* Migrate an existing application.
+* Migrate an existing application or create a new one from the Application Gallery.
 
 If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
@@ -164,8 +164,7 @@ To get started with the chosen options for your application, see the following r
 [Cloud Services]: /cloud-services/
 [Virtual Machines]: /virtual-machines/
 [Service Fabric]: /service-fabric/
-[ClearDB]: http://www.cleardb.com/
-[WebJobs]: https://github.com/Azure/azure-webjobs-sdk/wiki
+[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/marketplace/apps
 [scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites

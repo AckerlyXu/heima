@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2016
-ms.date: 09/25/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -24,7 +24,7 @@ ms.author: v-yeche
 > * [.NET Examples](documentdb-dotnet-samples.md)
 > * [Node.js Examples](documentdb-nodejs-samples.md)
 > * [Python Examples](documentdb-python-samples.md)
-> * [Azure Code Sample Gallery](https://github.com/Azure-Samples/?service=documentdb)
+> * [Azure Code Sample Gallery](https://github.com/Azure-Samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 > 
 > 
 
@@ -71,4 +71,4 @@ The [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/sa
 | [Change performance tier of a collection](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Delete a collection](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update link, wording update-->

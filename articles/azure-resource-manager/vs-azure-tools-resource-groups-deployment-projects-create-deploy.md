@@ -14,23 +14,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
-ms.date: 08/21/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
----
 
+---
 # Creating and deploying Azure resource groups through Visual Studio
-With Visual Studio and the [Azure SDK](/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virtual Machine. The **Azure Resource Group** deployment project enables you to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](resource-group-overview.md).
+With Visual Studio and the [Azure SDK](https://www.azure.cn/downloads/), you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Or, you can define a Virtual Machine, Virtual Network and Storage Account, and deploy that infrastructure along with a script that is executed on Virtual Machine. The **Azure Resource Group** deployment project enables you to deploy all the needed resources in a single, repeatable operation. For more information about deploying and managing your resources, see [Azure Resource Manager overview](resource-group-overview.md).
 
 Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the resources that you deploy to Azure. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). Visual Studio enables you to edit these templates, and provides tools that simplify working with templates.
 
 In this article, you deploy a web app and SQL Database. However, the steps are almost the same for any type resource. You can as easily deploy a Virtual Machine and its related resources. Visual Studio provides many different starter templates for deploying common scenarios.
 
-This article shows Visual Studio 2017. If you use Visual Studio 2015 Update 2 and Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same. You can use versions of the Azure SDK from 2.6 or later; however, your experience of the user interface may be different than the user interface shown in this article. We strongly recommend that you install the latest version of the [Azure SDK](/downloads/) before starting the steps. 
+This article shows Visual Studio 2017. If you use Visual Studio 2015 Update 2 and Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same. You can use versions of the Azure SDK from 2.6 or later; however, your experience of the user interface may be different than the user interface shown in this article. We strongly recommend that you install the latest version of the [Azure SDK](https://www.azure.cn/downloads/) before starting the steps. 
 
 ## Create Azure Resource Group project
 In this procedure, you create an Azure Resource Group project with a **Web app + SQL** template.
 
-1. In Visual Studio, choose **File**, **New Project**, choose **C#** or **Visual Basic**. Then choose **Cloud**, and **Azure Resource Group** project.
+1. In Visual Studio, choose **File**, **New Project**, choose either **C#** or **Visual Basic** (which language you choose has no impact on the later stages as these projects contain only JSON and PowerShell content). Then choose **Cloud**, and **Azure Resource Group** project.
 
     ![Cloud Deployment Project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Choose the template that you want to deploy to Azure Resource Manager. Notice there are many different options based on the type of project you wish to deploy. For this article, choose the **Web app + SQL** template.
@@ -222,4 +222,4 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
 * To learn about managing your resources through the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
 * To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

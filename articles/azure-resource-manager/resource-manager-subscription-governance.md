@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/31/2017
-ms.date: 08/21/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
----
 
+---
 # Azure enterprise scaffold - prescriptive subscription governance
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They are utilizing the cloud's strengths to generate revenue or optimize resources for the business. Azure provides a multitude of services that enterprises can assemble like building blocks to address a wide array of workloads and applications. 
 
@@ -87,7 +87,8 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 > The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
-The second pillar of the scaffold involves creating [Azure Resource Manager policies](resource-manager-policy.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+The second pillar of the scaffold involves creating Azure policies and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+<!--Not Available on [Azure policies](../azure-policy/azure-policy-introduction.md) -->
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).

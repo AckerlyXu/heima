@@ -2,17 +2,19 @@
 title: Upgrade from Mobile Services to Azure App Service - Node.js
 description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
-documentationCenter: ''
-authors: adrianhall
+documentationcenter: ''
+author: ggailey777
 manager: yochayk
 editor: ''
 
+ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 12/04/2017
 ms.author: v-yiso
 ---
 
@@ -20,7 +22,7 @@ ms.author: v-yiso
 
 App Service Mobile is a new way to build mobile applications using Azure. To learn more, see [What are Mobile Apps?].
 
-This topic describes how to upgrade an existing Node.js backend application from Azure Mobile Services to a new App Service 
+This article describes how to upgrade an existing Node.js backend application from Azure Mobile Services to a new App Service
 Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.  If you
 need to upgrade a Node.js backend application, refer to [Upgrading your .NET Mobile Services](./app-service-mobile-net-upgrading-from-mobile-services.md).
 
@@ -30,14 +32,15 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[!TIP]
-> It is recommended that you [perform a migration](./app-service-mobile-migrating-from-mobile-services.md) before going 
-through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional 
-cost.
+> [!TIP]
+> It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going
+> through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional
+> cost.
+>
+>
 
 ### Improvements in Mobile Apps Node.js server SDK
-
-Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides a lot of improvements, including:
+Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) provides many improvements, including:
 
 - Based on the [Express framework](http://expressjs.com/en/index.html), the new Node SDK is light-weight and designed to keep up 
 with new Node versions as they come out. You can customize the application behavior with Express middleware.
@@ -73,8 +76,8 @@ The full outline for the upgrade process is as follows:
 2. Convert the project to an Azure Mobile App using the compatibility package.
 3. Correct any differences (such as authentication settings).
 4. Deploy your converted Azure Mobile App project to a new App Service.
-4. Release a new version of your client application that use the new Mobile App.
-5. (Optional) Delete your original migrated mobile service app.
+5. Release a new version of your client application that uses the new Mobile App.
+6. (Optional) Delete your original migrated mobile service app.
 
 Deletion can occur when you don't see any traffic on your original migrated mobile service.
 
@@ -126,7 +129,7 @@ During deployment, you will need to do the following:
 
     You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. For the **App Service plan**, the default plan (in the [Standard tier](https://www.azure.cn/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://www.azure.cn/pricing/details/app-service/) associated with your app. 
+4. For the **App Service plan**, the default plan (in the [Standard tier](https://www.azure.cn/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). The App Service plan's settings determine the [location, features, cost and compute resources](https://www.azure.cn/pricing/details/app-service/) associated with your app. 
 
     After you decide on the plan, click **Create**. This creates the Mobile App backend. 
 
@@ -134,7 +137,7 @@ During deployment, you will need to do the following:
 
 The scaffolded app contains a file called `createViews.sql`.  This script must be executed against the
 target database.  The connection string for the target database can be obtained from your migrated mobile
-service from the **Settings** blade under **Connection Strings**.  It is named `MS_TableConnectionString`.
+service from the **Settings** page under **Connection Strings**.  It is named `MS_TableConnectionString`.
 
 You can run this script from within SQL Server Management Studio or Visual Studio.
 
@@ -142,13 +145,13 @@ You can run this script from within SQL Server Management Studio or Visual Studi
 
 Link the existing database to your App Service:
 
-- In the [Azure Portal], open your App Service.
-- Select **All Settings** -> **Data Connections**.
-- Click on **+ Add**.
-- In the drop-down, select **SQL Database**
-- Under **SQL Database**, select your existing database, then click on **Select**.
-- Under **Connection string**, enter the username and password for the database, then click on **OK**.
-- In the **Add data connections** blade, click on **OK**.
+* In the [Azure Portal], open your App Service.
+* Select **All Settings** -> **Data Connections**.
+* Click on **+ Add**.
+* In the drop-down, select **SQL Database**
+* Under **SQL Database**, select your existing database, then click on **Select**.
+* Under **Connection string**, enter the username and password for the database, then click on **OK**.
+* In the **Add data connections** page, click on **OK**.
 
 The username and password can be found by viewing the Connection String for the target database in your 
 migrated Mobile Service.
@@ -203,7 +206,7 @@ completely upgraded to an App Service Mobile App using the latest Mobile Apps se
 [Add push notifications to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: ../scheduler/index.md
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md

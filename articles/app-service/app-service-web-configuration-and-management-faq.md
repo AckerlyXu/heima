@@ -14,8 +14,8 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/04/2017
 ms.author: v-yiso
 
 ---
@@ -70,6 +70,17 @@ To set up a dedicated or reserved IP address for inbound calls made to your Azur
 
 Note that to use a dedicated or reserved IP address for inbound calls, your App Service plan must be in a Basic or higher service plan.
 
+## Can I export my App Service certificate to use outside Azure, such as for a website hosted elsewhere? 
+
+App Service certificates are considered Azure resources. They are not intended to use outside your Azure services. You cannot export them to use outside Azure. For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+
+## Can I export my App Service certificate to use with other Azure cloud services?
+
+The portal provides a first-class experience for deploying an App Service certificate through Azure Key Vault to App Service apps. However, we have been receiving requests from customers to use these certificates outside the App Service platform, for example, with Azure Virtual Machines. To learn how to create a local PFX copy of your App Service certificate so you can use the certificate with other Azure resources, see [Create a local PFX copy of an App Service certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+
+For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+
+
 ## Why do I see the message "Partially Succeeded" when I try to back up my web app?
 
 A common cause of backup failure is that some files are in use by the application. Files that are in use are locked while you perform the backup. This prevents these files from being backed up and might result in a "Partially Succeeded" status. You can potentially prevent this from occurring by excluding files from the backup process. You can choose to back up only what is needed. For more information, see [Backup just the important parts of your site with Azure web apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
@@ -103,6 +114,18 @@ To review WebJob logs:
 5. For individual runs, select **Individual Invoke**.
 6. Select the **Toggle Output** button.
 7. Select the download link.
+
+## I'm trying to use Hybrid Connections with SQL Server. Why do I see the message "System.OverflowException: Arithmetic operation resulted in an overflow"?
+
+If you use Hybrid Connections to access SQL Server, a Microsoft .NET update on May 10, 2016, might cause connections to fail. You might see this message:
+
+```
+Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
+```
+
+### Resolution
+
+We are working to update Hybrid Connection Manager to fix this issue. For workarounds, see [Hybrid Connections error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
 
 ## How do I add or edit a URL rewrite rule?
 
@@ -176,9 +199,32 @@ You can create a scheduled WebJob by using Cron expressions:
 
 For more information about scheduled WebJobs, see [Create a scheduled WebJob by using a Cron expression](web-sites-create-web-jobs.md#CreateScheduledCRON).
 
+## How do I perform penetration testing for my App Service app?
+
+To perform penetration testing, [submit a request](https://security-forms.azure.com/penetration-testing/terms).
+
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 
 To learn how to use a custom domain name with an App Service app that uses Azure Traffic Manager for load balancing, see [Configure a custom domain name for an Azure web app with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md).
+
+## My App Service certificate is flagged for fraud. How do I resolve this?
+
+During the domain verification of an App Service certificate purchase, you might see the following message:
+
+“Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support.”
+
+As the message indicates, this fraud verification process might take up to 24 hours to complete. During this time, you'll continue to see the message.
+
+If your App Service certificate continues to show this message after 24 hours, please run the following PowerShell script. The script contacts the [certificate provider](https://www.godaddy.com/) directly to resolve the issue.
+
+```
+Login-AzureRmAccount
+Set-AzureRmContext -SubscriptionId <subId>
+$actionProperties = @{
+    "Name"= "<Customer Email Address>"
+    };
+Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+```
 
 ## How do authentication and authorization work in App Service?
 

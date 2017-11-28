@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 08/23/2017
-ms.date: 09/25/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -39,3 +39,5 @@ You can use Table storage to store flexible datasets like user data for web appl
     * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
     * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+
+<!-- Update_Description: update meta properties -->

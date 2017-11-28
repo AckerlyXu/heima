@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/15/2017
+origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 12/04/2017
 ---
 
-# Permissions on the azureiotsuite.com site
+# Permissions on the azureiotsuite.cn site
 ## What happens when you sign in
-The first time you sign in at [azureiotsuite.com][lnk-azureiotsuite], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
+The first time you sign in at [azureiotsuite.cn][lnk-azureiotsuite], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
 
 1. First, to populate the list of tenants seen next to your username, the site finds out from Azure which AAD tenants you belong to. Currently, the site can only obtain user tokens for one tenant at a time. Therefore, when you switch tenants using the dropdown in the top right corner, the site logs you in to that tenant to obtain the tokens for that tenant.
 2. Next, the site finds out from Azure which subscriptions you have associated with the selected tenant. You see the available subscriptions when you create a new preconfigured solution.
@@ -39,18 +39,14 @@ You can find more information about administrator roles in AAD in [Assigning adm
 There can be many global administrators per AAD tenant:
 
 * When you create an AAD tenant, you are by default the global administrator of that tenant.
-* The global administrator can provision a preconfigured solution and is assigned an **Admin** role for the application inside their AAD tenant.
-* If another user in the same AAD tenant creates an application, the default role granted to the global administrator is **ReadOnly**.
-* A global administrator can assign users to roles for applications using the [Azure portal][lnk-portal].
+* The global administrator can provision a basic and standard preconfigured solutions.
 
 ### Domain user
 
 There can be many domain users per AAD tenant:
 
-* A domain user can provision a preconfigured solution through the [azureiotsuite.cn][lnk-azureiotsuite] site. By default, the domain user is granted the **Admin** role in the provisioned application.
-* A domain user can create an application using the build.cmd script in the [azure-iot-remote-monitoring][lnk-rm-github-repo],  [azure-iot-predictive-maintenance][lnk-pm-github-repo] repository. However, the default role granted to the domain user is **ReadOnly**, because a domain user does not have permission to assign roles.
-* If another user in the AAD tenant creates an application, the domain user is assigned the **ReadOnly** role by default for that application.
-* A domain user cannot assign roles for applications; therefore a domain user cannot add users or roles for users for an application even if they provisioned it.
+* A domain user can provision a basic preconfigured solution through the [azureiotsuite.cn][lnk-azureiotsuite] site.
+* A domain user can create a basic preconfigured solution using the CLI.
 
 ### Guest User
 
@@ -65,57 +61,13 @@ For more information about users and roles in AAD, see the following resources:
 
 The Azure admin roles control the ability to map an Azure subscription to an AD tenant.
 
-
-## Application roles
-
-The application roles control access to devices in your preconfigured solution.
-
-There are two defined roles and one implicit role defined in a provisioned application:
-
-* **Admin:** Has full control to add, manage, remove devices, and modify settings.
-* **ReadOnly:** Can view devices, rules, actions, jobs, and telemetry.
-
-You can find the permissions assigned to each role in the [RolePermissions.cs][lnk-resource-cs] source file.
-
-### Changing application roles for a user
-
-You can use the following procedure to make a user in your Active Directory an administrator of your preconfigured solution.
-
-You must be an AAD global administrator to change roles for a user:
-
-1. Go to the [Azure portal][lnk-portal].
-2. Select **Azure Active Directory**.
-3. Make sure you are using the directory you chose on azureiotsuite.com when you provisioned your solution. If you have multiple directories associated with your subscription, you can switch between them if you click your account name at the top-right of the portal.
-4. Click **Enterprise applications**, then **All applications**.
-4. Show **All applications** with **Any** status. Then search for an application with name of your preconfigured solution.
-5. Click the name of the application that matches your preconfigured solution name.
-6. Click **Users and groups**.
-7. Select the user you want to switch roles.
-8. Click **Assign** and select the role (such as **Admin**) you'd like to assign to the user, click the check mark.
+Find out more about the Azure admin roles in the article [How to add or change Azure Co-Administrator, Service Administrator, and Account Administrator][lnk-admin-roles].
 
 ## FAQ
+
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I complete this task?
-1. Go to the [Azure classic management portal][lnk-classic-portal], click **Settings** in the list of services on the left-hand side.
-2. Select the subscription you'd like to change the directory mapping to.
-3. Click **Edit Directory**.
-4. Select the **Directory** you would like to use in the dropdown. Click the forward arrow.
-5. Confirm the directory mapping and affected co-administrators. If you are moving from another directory, all the co-administrators from the original directory are removed.
 
-### I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?
-
-Ask a global administrator to make you a global administrator on the AAD tenant and then assign roles to users yourself. Alternatively, ask a global administrator to assign you a role directly. If you'd like to change the AAD tenant your preconfigured solution has been deployed to, see the next question.
-
-### How do I switch the AAD tenant my remote monitoring preconfigured solution and application are assigned to?
-
-You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-monitoring> and redeploy with a newly created AAD tenant. Because you are, by default, a global administrator when you create an AAD tenant, you have permissions to add users and assign roles to those users.
-
-1. Create an AAD directory in the [Azure Management portal][lnk-classic-portal].
-
-2. Go to <https://github.com/Azure/azure-iot-remote-monitoring>.
-
-3. Run `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (For example, `build.cmd cloud debug myRMSolution`)
-
-4. When prompted, set the **tenantid** to be your newly created tenant instead of your previous tenant.
+See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### I want to change a Service Administrator or Co-Administrator when logged in with an organisational account
 
@@ -138,7 +90,7 @@ To continue learning about IoT Suite, see how you can [customize a preconfigured
 
 [img-flowchart]: ./media/iot-suite-permissions/flowchart.png
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md

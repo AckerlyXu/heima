@@ -217,7 +217,7 @@ The default is 200. You can change this number in [TelemetryApiController.cs][ln
 The default is 10 minutes. You can change this value in [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
 ## Manually set up application roles
-The following procedure describes how to add **Admin** and **ReadOnly** application roles to a preconfigured solution. Note that preconfigured solutions provisioned from the azureiotsuite.com site already include the **Admin** and **ReadOnly** roles.
+The following procedure describes how to add **Admin** and **ReadOnly** application roles to a preconfigured solution. Note that preconfigured solutions provisioned from the azureiotsuite.cn site already include the **Admin** and **ReadOnly** roles.
 
 Members of the **ReadOnly** role can see the dashboard and the device list, but are not allowed to add devices, change device attributes, or send commands.  Members of the **Admin** role have full access to all the functionality in the solution.
 
@@ -268,7 +268,7 @@ Members of the **ReadOnly** role can see the dashboard and the device list, but 
 10. In the Azure classic portal, at the bottom of the page, select **Manage Manifest** then **Upload Manifest** to upload the .json file you saved in the previous step.
 11. You have now added the **Admin** and **ReadOnly** roles to your application.
 
-12. To assign one of these roles to a user in your directory, see [Permissions on the azureiotsuite.com site][lnk-permissions].
+12. To assign one of these roles to a user in your directory, see [Permissions on the azureiotsuite.cn site][lnk-permissions].
 
 ## Feedback
 Do you have a customization you'd like to see covered in this document? Add feature suggestions to [User Voice](https://feedback.azure.com/forums/321918-azure-iot), or comment on this article. 
