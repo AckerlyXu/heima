@@ -222,7 +222,7 @@ You can have multiple storage accounts in your subscription. You can choose one 
     ```
 
 ### How to list all Azure storage accounts in a subscription
-Each Azure subscription can have up to 100 storage accounts. For the most up-to-date information on limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
+Each Azure subscription can have up to 100 storage accounts. 
 
 Run the following cmdlet to find out the name and status of the storage accounts in the current subscription:
 

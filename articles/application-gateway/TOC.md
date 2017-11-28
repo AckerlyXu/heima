@@ -8,7 +8,6 @@
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Service limits](../azure-subscription-service-limits.md?toc=%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Get started
 ## Create an Application Gateway
 ### Public facing

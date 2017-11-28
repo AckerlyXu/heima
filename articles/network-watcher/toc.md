@@ -8,7 +8,6 @@
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
 ## [Connectivity check](network-watcher-connectivity-overview.md)
-## [Service limits](../azure-subscription-service-limits.md?toc=%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Get Started
 ## [Configure Network Watcher](network-watcher-create.md)
 ## Manage packet capture

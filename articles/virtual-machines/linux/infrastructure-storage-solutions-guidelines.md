@@ -62,7 +62,7 @@ You can read [more about the replication options for high availability](../../st
 
 Operating system disks and data disks have a maximum size of 4TB. You can use Logical Volume Manager (LVM) to surpass this limit by pooling together data disks to present logical volumes larger than 1023GB to your VM.
 
-There are some scalability limits when designing your Azure Storage deployments - for more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md#storage-limits). Also see [Azure storage scalability and performance targets](../../storage/storage-scalability-targets.md).
+There are some scalability limits when designing your Azure Storage deployments. Also see [Azure storage scalability and performance targets](../../storage/storage-scalability-targets.md).
 
 For application storage, you can store unstructured object data such as documents, images, backups, configuration data, logs, etc. using blob storage. Rather than your application writing to a virtual disk attached to the VM, the application can write directly to Azure blob storage. Blob storage also provides the option of [hot and cool storage tiers](../../storage/storage-blob-storage-tiers.md) depending on your availability needs and cost constraints.
 

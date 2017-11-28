@@ -20,7 +20,7 @@ ms.author: v-haiqya
 ---
 # Azure Storage Scalability and Performance Targets
 ## Overview
-This topic describes the scalability and performance topics for Azure Storage. For a summary of other Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
+This topic describes the scalability and performance topics for Azure Storage. 
 
 > [!NOTE]
 > All storage accounts run on the new flat network topology and support the scalability and performance targets outlined below, regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
@@ -75,7 +75,6 @@ Detailed recommendations for designing partitioning strategy for tables can be f
 
 ## See Also
 * [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)
-* [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
 * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage.md)
 * [Azure Storage Replication](../storage-redundancy.md)
 * [Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)

@@ -36,7 +36,6 @@ This article describes the available sizes and options for the Azure virtual mac
 <br> 
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows). 
-- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
 - Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 

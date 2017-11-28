@@ -64,7 +64,7 @@ Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). 
 Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.
 
 ### Is there a limit to the number of subnets in my VNet?
-Yes. Read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. Subnet address spaces cannot overlap one another.
+Yes. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 Yes. Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
@@ -120,9 +120,6 @@ Use the decision table on the [Name Resolution for VMs and Role Instances](virtu
 
 ### Can I specify DNS servers for a VNet?
 Yes. You can specify DNS server IP addresses in the VNet settings. This will be applied as the default DNS server(s) for all VMs in the VNet.
-
-### How many DNS servers can I specify?
-Reference the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details.
 
 ### Can I modify my DNS servers after I have created the network?
 Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.

@@ -66,9 +66,7 @@ Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quotas
-Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  For more details on quota limits:
-
-* [Azure Subscription Service Limits](../../azure-subscription-service-limits.md)
+Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  
 
 ## Partners
 Microsoft works closely with our partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on our partners check their marketplace pages below.

@@ -117,7 +117,7 @@ To troubleshoot traffic flowing across your peering connection, you can [check y
 
 ## Limits
 
-There are limits on the number of peerings that are allowed for a single virtual network. For details, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There are limits on the number of peerings that are allowed for a single virtual network. 
 
 ## Pricing
 

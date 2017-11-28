@@ -49,7 +49,7 @@ For help mitigating such allocation failures, see [Cloud Service allocation fail
 
 
 ## Why does deploying a cloud service sometime fail due to limits/quotas/constraints on my subscription or service?
-Deployment of a cloud service may fail if the resources that are required to be allocated exceed the default or maximum quota allowed for your service at the region/datacenter level. For more information, see [Cloud Services limits](../azure-subscription-service-limits.md#cloud-services-limits).
+Deployment of a cloud service may fail if the resources that are required to be allocated exceed the default or maximum quota allowed for your service at the region/datacenter level. 
 
 You could also track the current usage/quota for your subscription at the portal: Azure Portal => Subscriptions => \<appropriate subscription> => “Usage + quota”.
 
