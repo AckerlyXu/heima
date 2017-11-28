@@ -76,8 +76,6 @@
 ##### [PowerShell](./role-based-access-control-manage-access-powershell.md)
 ##### [REST](./role-based-access-control-manage-access-rest.md)
 #### [Troubleshoot](./role-based-access-control-troubleshooting.md)
-### [Configure token lifetimes](./active-directory-configurable-token-lifetimes.md)
-
 
 ## [Deploy on Azure VMs](./virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](./active-directory-deploying-ws-ad-guidelines.md)
