@@ -77,7 +77,8 @@ In the Azure portal, you can filter your Activity Log by these fields:
 Once you have defined a set of filters, you can save it as a query that is persisted across sessions if you ever need to perform the same query with those filters applied again in the future. You can also pin a query to your Azure dashboard to always keep an eye on specific events.
 
 Clicking "Apply" runs your query and show all matching events. Clicking on any event in the list shows the summary of that event as well as the full raw JSON of that event.
-## Export the Activity Log with a Log Profile
+
+## <a name="export-the-activity-log-with-log-profiles"></a> Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs)
