@@ -14,9 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 
-origin.date: 06/27/2017
+origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 12/11/2017
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
@@ -493,8 +493,8 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx).|  
-
+|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+  
 The **sql-rule-action** map must include the following entries:  
   
 |Key|Value Type|Required|Value Contents|  
@@ -616,11 +616,11 @@ The response message must include the following application properties:
 to learn more about AMQP and Service bus, visit the following links:
 
 * [Service Bus AMQP overview]
-* [AMQP 1.0 support for Service Bus partitioned queues and topics]
+* [AMQP 1.0 protocol guide]
 * [AMQP in Service Bus for Windows Server]
 
 [Service Bus AMQP overview]: ./service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
+[AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.asp
 
 

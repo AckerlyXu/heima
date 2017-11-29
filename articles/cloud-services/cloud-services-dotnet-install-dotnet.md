@@ -13,9 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/24/2017
+origin.date: 10/31/2017
 ms.author: v-yiso
-ms.date: 10/09/2017
+ms.date: 12/11/2017
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -31,7 +31,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
-* [.NET 4.7 web installer](http://go.microsoft.com/fwlink/?LinkId=825298)
+* [.NET 4.7.1 web installer](http://go.microsoft.com/fwlink/?LinkId=852095)
 * [.NET 4.6.1 web installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 To add the installer for a *web* role:
@@ -83,7 +83,7 @@ You can use startup tasks to perform operations before a role starts. Installing
 2. Create a file named **install.cmd** and add the following install script to the file.
 
     The script checks whether the specified version of the .NET Framework is already installed on the machine by querying the registry. If the .NET version is not installed, then the .NET web installer is opened. To help troubleshoot any issues, the script logs all activity to the file startuptasklog-(current date and time).txt that is stored in **InstallLogs** local storage.
-
+  
     > [!IMPORTANT]
     > Use a basic text editor like Windows Notepad to create the install.cmd file. If you use Visual Studio to create a text file and change the extension to .cmd, the file might still contain a UTF-8 byte order mark. This mark can cause an error when the first line of the script is run. To avoid this error, make the first line of the script a REM statement that can be skipped by the byte order processing. 
     > 
@@ -96,8 +96,9 @@ You can use startup tasks to perform operations before a role starts. Installing
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    set netfx="NDP47"
-
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    set netfx="NDP471"
+    
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
     set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
@@ -109,8 +110,9 @@ You can use startup tasks to perform operations before a role starts. Installing
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
-
+    
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP471" goto NDP471
     if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
@@ -132,11 +134,18 @@ You can use startup tasks to perform operations before a role starts. Installing
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
-
-    :NDP47
+    goto logtimestamp
+    
+    :NPD47
     set "netfxinstallfile=NDP47-KB3186500-Web.exe"
     set netfxregkey="0x707FE"
-
+    goto logtimestamp
+    
+    :NDP471
+    set "netfxinstallfile=NDP471-KB4033344-Web.exe"
+    set netfxregkey="0x709fc"
+    goto logtimestamp
+    
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
     md "%PathToNETFXInstall%\log"
@@ -177,11 +186,6 @@ You can use startup tasks to perform operations before a role starts. Installing
     :exit
     EXIT /B 0
     ```
-   
-   > [!NOTE]
-   > This script shows how to install .NET 4.5.2 or version 4.6 for continuity, even though .NET 4.5.2 is already available on the Azure Guest OS. You should directly install .NET 4.6.1 rather than version 4.6, as described in the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750).
-   > 
-   > 
 
 3. Add the install.cmd file to each role by using **Add** > **Existing Item** in **Solution Explorer** as described earlier in this topic. 
 
@@ -212,9 +216,9 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 * [Determine which .NET Framework versions are installed][How to: Determine Which .NET Framework Versions Are Installed]
 * [Troubleshooting .NET Framework installations][Troubleshooting .NET Framework Installations]
 
-[How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/zh-cn/library/hh925568.aspx
-[Installing the .NET Framework]: https://msdn.microsoft.com/zh-cn/library/5a4x27ek.aspx
-[Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/zh-cn/library/hh925569.aspx
+[How to: Determine Which .NET Framework Versions Are Installed]: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
+[Installing the .NET Framework]: https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers
+[Troubleshooting .NET Framework Installations]: https://docs.microsoft.com/en-us/dotnet/framework/install/troubleshoot-blocked-installations-and-uninstallations
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png

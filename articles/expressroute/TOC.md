@@ -35,6 +35,12 @@
 ## [Migrate associated virtual networks from classic to Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configure a router for ExpressRoute
 ### [Configure a router](expressroute-config-samples-routing.md)
+## Classic deployment model articles
+### [Modify a circuit](expressroute-howto-circuit-classic.md)
+### [Create and modify peering configuration](expressroute-howto-routing-classic.md)
+### [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+### [Configure ExpressRoute and S2S coexisting connections](expressroute-howto-coexist-classic.md)
+### [Add a gateway to a VNet](expressroute-howto-add-gateway-classic.md)
 
 ## Best Practices
 ### [Optimize routing](expressroute-optimize-routing.md)

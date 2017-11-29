@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2017
-ms.date: 11/13/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 
 ---
@@ -42,7 +42,7 @@ In the portal, the feature is turned on during entity creation with the **Enable
 
 Programmatically, you set the flag with the [QueueDescription.requiresDuplicateDetection](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) property on the full framework .NET API. With the Azure Resource Manager API, the value is set with the [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property.
 
-The duplicate detection time history defaults to 30 seconds for queues and topics, with a maximum value of 40 minutes. You can change this setting in the queue and topic properties window in the Azure portal.
+The duplicate detection time history defaults to 30 seconds for queues and topics, with a maximum value of 7 days. You can change this setting in the queue and topic properties window in the Azure portal.
 
 ![][2]
 
