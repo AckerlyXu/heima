@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/13/2017
-ms.date: 07/17/2017
+origin.date: 10/06/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -154,3 +154,5 @@ Note that an actor cannot call delete on itself from one of its actor methods be
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
+
+<!--Update_Description: update meta properties-->

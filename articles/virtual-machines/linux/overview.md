@@ -66,9 +66,7 @@ Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quotas
-Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  For more details on quota limits:
-
-* [Azure Subscription Service Limits](../../azure-subscription-service-limits.md)
+Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  
 
 ## Partners
 Microsoft works closely with our partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on our partners check their marketplace pages below.
@@ -89,7 +87,7 @@ To begin using Azure you need an Azure account, the Azure CLI installed, and a p
 The first step in using the Azure Cloud is to sign up for an Azure account.  Go to the [Azure Account Signup](https://www.azure.cn/pricing/1rmb-trial/) page to get started.
 
 ### Install the CLI
-With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) on your Mac or Linux workstation.
+With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) on your Mac or Linux workstation.
 
 ### Create an SSH key pair
 Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) to enable password-less logins and better security.

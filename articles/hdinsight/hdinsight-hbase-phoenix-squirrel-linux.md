@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 10/23/2017
-ms.author: v-dazen
+origin.date: 09/22/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ---
 # Use Apache Phoenix with Linux-based HBase clusters in HDInsight
@@ -33,14 +33,13 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight
 ### Prerequisites
 Before you can use SQLLine, you must have the following items:
 
-* **An HBase cluster in HDInsight**. For information about provisioning an HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
-* **Connect to the HBase cluster via the remote desktop protocol**. For more information, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal].
+* **An HBase cluster in HDInsight**. To create one, see [Get started with Apache HBase in HDInsight](./hdinsight-hbase-tutorial-get-started.md).
 
 When you connect to an HBase cluster, you need to connect to one of the ZooKeeper VMs. Each HDInsight cluster has three ZooKeeper VMs.
 
 **To get the ZooKeeper host name**
 
-1. Open Ambari by going to **https://\<cluster name\>.azurehdinsight.cn**.
+1. Open Ambari by browsing to **https://\<cluster name\>.azurehdinsight.cn**.
 2. To sign in, enter the HTTP (cluster) user name and password.
 3. In the left menu, select **ZooKeeper**. Three **ZooKeeper Server** instances are listed.
 4. Select one of the **ZooKeeper Server** instances. On the **Summary** pane, find the **Hostname**. It looks similar to *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.chinacloudapp.cn*.
@@ -52,7 +51,7 @@ When you connect to an HBase cluster, you need to connect to one of the ZooKeepe
 2. In SSH, use the following commands to run SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. To create an HBase table, and insert some data, run the following commands:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));

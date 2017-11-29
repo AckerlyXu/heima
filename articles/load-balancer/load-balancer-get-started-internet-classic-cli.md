@@ -14,25 +14,26 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 04/17/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Get started creating an Internet facing load balancer (classic) in the Azure CLI
+
 > [!div class="op_single_selector"]
-> * [Azure Classic Management Portal](./load-balancer-get-started-internet-classic-portal.md)
-> * [PowerShell](./load-balancer-get-started-internet-classic-ps.md)
-> * [Azure CLI](./load-balancer-get-started-internet-classic-cli.md)
-> * [Azure Cloud Services](./load-balancer-get-started-internet-classic-cloud.md)
+> * [Azure Classic Management Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](./load-balancer-get-started-internet-arm-ps.md).
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Step by step creating an Internet facing load balancer using CLI
+## Create an Internet facing load balancer using CLI
 
 This guide shows how to create an Internet load balancer based on the scenario above.
 
@@ -62,7 +63,7 @@ Create the first endpoint and load balancer set using `azure network vm endpoint
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## Step 2
+### Step 2
 
 Add a second virtual machine "web2" to the load balancer set.
 
@@ -70,7 +71,7 @@ Add a second virtual machine "web2" to the load balancer set.
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## Step 3
+### Step 3
 
 Verify the load balancer configuration using `azure vm show` .
 
@@ -147,8 +148,10 @@ azure vm endpoint delete web1 tcp-80-80
 
 ## Next steps
 
-[Get started configuring an internal load balancer](./load-balancer-get-started-ilb-arm-ps.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

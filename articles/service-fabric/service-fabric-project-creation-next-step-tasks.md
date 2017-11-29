@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 09/28/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -82,4 +82,4 @@ To learn how you can set up a continuous integration process for your Service Fa
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

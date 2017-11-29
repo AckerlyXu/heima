@@ -13,7 +13,7 @@ If you haven't already provisioned the remote monitoring preconfigured solution 
 4. Click the tile to see the details of your solution in the right-hand pane.
 
 > [!NOTE]
-> If you are encountering issues deploying the pre-configured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
+> If you are encountering issues deploying the pre-configured solution, review [Permissions on the azureiotsuite.cn site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
 > 
 > 
 

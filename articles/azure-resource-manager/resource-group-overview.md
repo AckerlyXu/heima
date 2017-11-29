@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/19/2017
-ms.date: 09/04/2017
+origin.date: 11/14/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -78,14 +78,14 @@ When creating a resource group, you need to provide a location for that resource
 ## <a name="resource-providers"></a> Resource providers
 Each resource provider offers a set of resources and operations for working with an Azure service. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault. 
 
-The name of a resource type is in the format: **{resource-provider}/{resource-type}**. For example, the key vault type is **Microsoft.KeyVault\vaults**.
+The name of a resource type is in the format: **{resource-provider}/{resource-type}**. For example, the key vault type is **Microsoft.KeyVault/vaults**.
 
 Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources helps you define resources you want to deploy to Azure. Also, you need to know the valid locations and API versions for each resource type. For more information, see [Resource providers and types](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a> Template deployment
 With Resource Manager, you can create a template (in JSON format) that defines the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. When you create a solution from the portal, the solution automatically includes a deployment template. You do not have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. You can retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](resource-manager-export-template.md) is a helpful way to learn about the template syntax.
 
-To learn about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](./resource-manager-create-first-template.md).
+To learn about the format of the template and how you construct it, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/templates/).
 
 Resource Manager processes the template like any other request (see the image for [Consistent management layer](#consistent-management-layer)). It parses the template and converts its syntax into REST API operations for the appropriate resource providers. For example, when Resource Manager receives a template with the following resource definition:
 
@@ -250,7 +250,7 @@ The following example shows a policy that ensures tag consistency by specifying 
 }
 ```
 
-There are many more types of policies you can create. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+<!-- Not Available  [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).-->
 
 ## SDKs
 Azure SDKs are available for multiple languages and platforms. Each of these language implementations is available through its ecosystem package manager and GitHub.
@@ -267,7 +267,7 @@ Here are our Open Source SDK repositories. We welcome feedback, issues, and pull
 For information about using these languages with your resources, see:
 
 * [Azure for .NET developers](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet)
-* [Azure for Java developers](https://docs.azure.cn/java/azure/)
+* [Azure for Java developers](https://docs.azure.cn/java/)
 * [Azure for Node.js developers](/nodejs/azure/)
 * [Azure for Python developers](https://docs.microsoft.com/python/azure/)
 
@@ -286,4 +286,4 @@ For information about using these languages with your resources, see:
 <!--Not Available channel9 video -->
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, update reference link, wording update -->

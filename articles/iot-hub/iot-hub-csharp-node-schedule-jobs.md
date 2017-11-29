@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 11/20/2017
 
 ---
 # Schedule and broadcast jobs (.NET/Node.js)
@@ -49,7 +49,7 @@ At the end of this tutorial, you have a Node.js console device app and a .NET (C
 To complete this tutorial, you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.12.x or later. The article [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 4.0.x or later. The article [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

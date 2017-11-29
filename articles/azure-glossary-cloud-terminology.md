@@ -28,13 +28,12 @@ The Azure glossary is a short dictionary of cloud terminology for the Azure plat
 
 ## <a name="account"></a>Account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [trial](https://www.azure.cn/pricing/1rmb-trial).  
-See [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in).
 
 ## API app
 Another name for [App Service app](#app-service-app).
 
 ## App Service app <a name="app-service-app"></a>
-The compute resources that [Azure App Service](app-service/app-service-value-prop-what-is.md) provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](app-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*.
+The compute resources that Azure App Service provides for hosting a [website or web application](app-service-web/app-service-web-overview.md), [web API](app-service-api/app-service-api-apps-why-best-platform.md), or [mobile app backend](app-service-mobile/app-service-mobile-value-prop.md). App Service apps are also referred to as *App Services*, *web apps*, *API apps*, and *mobile apps*.
 
 ## Availability Set <a name="availability-set"></a>
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
@@ -44,7 +43,7 @@ See [Manage the availability of Windows virtual machines](virtual-machines/windo
 One of two [deployment models](resource-manager-deployment-model.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
 
 ## <a name="cli"></a>Azure command-line interface (CLI)
-A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview)
+A command-line interface that can be used to manage Azure services from Windows, macOS, and Linux.  Some services or service features can be managed only via PowerShell or the CLI. See [Azure CLI 2.0](/cli/overview)
 
 ## <a name="powershell"></a>Azure PowerShell
 A command-line interface to manage Azure services via a command line from Windows PCs. Some services or service features can be managed only via PowerShell or the CLI.
@@ -67,7 +66,6 @@ See [Navigate and select Windows virtual machine images in Azure with PowerShell
 
 ## <a name="limits"></a>Limits
 The number of resources that can be created or the performance benchmark that can be achieved. Limits are typically associated with subscriptions, services, and offerings.  
-See [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>Load Balancer
 A resource that distributes incoming traffic among computers in a network. In Azure, a load balancer distributes traffic to virtual machines defined in a load-balancer set. A [load balancer](load-balancer/load-balancer-overview.md) can be internet-facing, or it can be internal.  

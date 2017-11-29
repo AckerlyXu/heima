@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 05/22/2017
-ms.date: 07/17/2017
+origin.date: 10/20/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -77,13 +77,13 @@ In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStr
 ```json
 {
     "type":"Polygon",
-    "coordinates":[
+    "coordinates":[ [
         [ 31.8, -5 ],
         [ 31.8, -4.7 ],
         [ 32, -4.7 ],
         [ 32, -5 ],
         [ 31.8, -5 ]
-    ]
+    ] ]
 }
 ```
 
@@ -147,7 +147,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/zh-cn/library/ff701713.aspx).
+If you don't have the latitude and longitude information, but have the physical addresses or location name like city or country, you can look up the actual coordinates by using a geocoding service like Bing Maps REST Services. Learn more about Bing Maps geocoding [here](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## Querying spatial types
 Now that we've taken a look at how to insert geospatial data, let's take a look at how to query this data using Azure Cosmos DB using SQL and LINQ.
@@ -196,7 +196,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
       "id": "WakefieldFamily"
     }]
 
-If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more details on spatial indexing, please see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/zh-cn/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
+If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more details on spatial indexing, please see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
 
 ST_WITHIN can be used to check if a point lies within a Polygon. Commonly Polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
 
@@ -394,3 +394,5 @@ Now that you've learnt about how to get started with geospatial support in Azure
 * Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 * Learn more about [Azure Cosmos DB Query](documentdb-sql-query.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](indexing-policies.md)
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -33,7 +33,7 @@ The Azure Resource Manager template set up a FreeBSD virtual machine that perfor
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
 
 ### Deploy through Azure CLI
-You need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login). Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group name `myResourceGroup` in the `China North` location.
+You need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login). Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group name `myResourceGroup` in the `China North` location.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -41,7 +41,7 @@ You need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install
 az group create --name myResourceGroup --location chinanorth
 ```
 
-Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create). Download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
+Next, deploy the template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create). Download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under the same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

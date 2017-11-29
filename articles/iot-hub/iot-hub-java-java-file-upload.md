@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 09/25/2017
+ms.date: 11/20/2017
 ---
 # Upload files from your device to the cloud with IoT Hub
 
@@ -33,7 +33,7 @@ The [Get started with IoT Hub](./iot-hub-java-java-getstarted.md) and [Send Clou
 * Vibration data sampled at high frequency
 * Some form of preprocessed data.
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](/data-factory/) or the [Hadoop](/hdinsight/) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
+These files are typically batch processed in the cloud using tools such as the [Hadoop](/hdinsight/) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
 At the end of this tutorial you run two Java console apps:
 

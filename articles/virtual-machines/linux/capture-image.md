@@ -34,7 +34,7 @@ Ensure that you meet the following prerequisites:
 
 * You need an Azure VM created in the Resource Manager deployment model using managed disks. If you haven't created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
 
-* You also need to have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and be logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+* You also need to have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and be logged in to an Azure account using [az login](https://docs.azure.cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -61,7 +61,7 @@ You deprovision the VM, using the Azure VM agent, to delete machine specific fil
 ## Step 2: Create VM image
 Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-1. Deallocate the VM that you deprovisioned with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
+1. Deallocate the VM that you deprovisioned with [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*:
 
     ```azurecli
     az vm deallocate \
@@ -69,7 +69,7 @@ Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In th
       --name myVM
     ```
 
-2. Mark the VM as generalized with [az vm generalize](https://docs.microsoft.com/cli//azure/vm#generalize). The following example marks the the VM named *myVM* in the resource group named *myResourceGroup* as generalized:
+2. Mark the VM as generalized with [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#generalize). The following example marks the the VM named *myVM* in the resource group named *myResourceGroup* as generalized:
 
     ```azurecli
     az vm generalize \
@@ -77,7 +77,7 @@ Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In th
       --name myVM
     ```
 
-3. Now create an image of the VM resource with [az image create](https://docs.microsoft.com/cli//azure/image#create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*:
+3. Now create an image of the VM resource with [az image create](https://docs.azure.cn/zh-cn/cli/azure/image?view=azure-cli-latest#create). The following example creates an image named *myImage* in the resource group named *myResourceGroup* using the VM resource named *myVM*:
 
     ```azurecli
     az image create \
@@ -89,7 +89,7 @@ Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In th
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
 
 ## Step 3: Create a VM from the captured image
-Create a VM using the image you created with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). The following example creates a VM named *myVMDeployed* from the image named *myImage*:
+Create a VM using the image you created with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). The following example creates a VM named *myVMDeployed* from the image named *myImage*:
 
 ```azurecli
 az vm create \
@@ -102,7 +102,7 @@ az vm create \
 
 ### Creating the VM in another resource group 
 
-You can create VMs from an image in any resource group within your subscription. To create a VM in a different resource group than the image, specify the full resource ID to your image. Use [az image list](https://docs.microsoft.com/cli/azure/image#list) to view a list of images. The output is similar to the following example:
+You can create VMs from an image in any resource group within your subscription. To create a VM in a different resource group than the image, specify the full resource ID to your image. Use [az image list](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#list) to view a list of images. The output is similar to the following example:
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -110,7 +110,7 @@ You can create VMs from an image in any resource group within your subscription.
    "name": "myImage",
 ```
 
-The following example uses [az vm create](https://docs.microsoft.com/cli/azure/vm#create) to create a VM in a different resource group than the source image by specifying the image resource ID:
+The following example uses [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) to create a VM in a different resource group than the source image by specifying the image resource ID:
 
 ```azurecli
 az vm create \
@@ -123,7 +123,7 @@ az vm create \
 
 ## Step 4: Verify the deployment
 
-Now SSH to the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address or FQDN of your VM with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):
+Now SSH to the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address or FQDN of your VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
 
 ```azurecli
 az vm show \
@@ -140,6 +140,6 @@ You can create multiple VMs from your source VM image. If you need to make chang
 - Follow the steps again to deprovision, deallocate, generalize, and create an image.
 - Use this new image for future deployments. If desired, delete the original image.
 
-For more information on managing your VMs with the CLI, see [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview).
+For more information on managing your VMs with the CLI, see [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
 <!--Update_Description: wording update-->

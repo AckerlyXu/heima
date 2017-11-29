@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 09/07/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yiso
 
 ---

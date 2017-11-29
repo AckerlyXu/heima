@@ -107,7 +107,6 @@ When you reach the request limit, Resource Manager returns the **429** HTTP stat
 
 ## Next steps
 
-* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 * To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
 
 <!--Update_Description: update meta properties, wroding update-->

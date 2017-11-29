@@ -31,7 +31,7 @@ NSGs contain the following properties:
 | Property | Description | Constraints | Considerations |
 | --- | --- | --- | --- |
 | Name |Name for the NSG |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs. |
-| Region |Azure region where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. |To learn about how many NSGs you can have per region, read the [Azure limits](../azure-subscription-service-limits.md#virtual-networking-limits-classic) article.|
+| Region |Azure region where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. | |
 | Resource group |The [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) the NSG exists in. |Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG. |Resource groups are used to manage multiple resources together, as a deployment unit.<br/>You may consider grouping the NSG with resources it is associated to. |
 | Rules |Inbound or outbound rules that define what traffic is allowed or denied. | |See the [NSG rules](#Nsg-rules) section of this article. |
 
@@ -137,7 +137,7 @@ Before implementing NSGs, you need to answer the following questions:
 Once you know the answers to the questions in the [Planning](#Planning) section, review the following sections before defining your NSGs:
 
 ### Limits
-There are limits to the number of NSGs you can have in a subscription and number of rules per NSG. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+There are limits to the number of NSGs you can have in a subscription and number of rules per NSG. 
 
 ### VNet and subnet design
 Since NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet, and applying NSGs to subnets.  If you decide to apply NSGs to subnets, you may find that existing VNets and subnets you have were not defined with NSGs in mind. You may need to define new VNets and subnets to support your NSG design and deploy your new resources to your new subnets. You could then define a migration strategy to move existing resources to the new subnets. 
@@ -256,7 +256,7 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 ## Next steps
 * [Deploy NSGs (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).
 * [Deploy NSGs (classic)](virtual-networks-create-nsg-classic-ps.md).
-* [Manage NSG logs](virtual-network-nsg-manage-log.md).
+<!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md).-->
 * [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)
 
 <!--Update_Description: wording update-->

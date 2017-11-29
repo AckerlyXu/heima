@@ -17,7 +17,7 @@ ms.workload: na
 origin.date: 09/14/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)
@@ -76,7 +76,13 @@ If you don't have the optional items, you can use simulated sensor data.
 Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
-   1. [Download Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   1. [Download Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (the .zip file).
+
+   > [!WARNING]
+   > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
+   >
+   >
+   
    1. Extract the Raspbian image to a folder on your computer.
 1. Install Raspbian to the microSD card.
    1. [Download and install the Etcher SD card burner utility](https://etcher.io/).
@@ -217,7 +223,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub, or to send messages to your Raspberry Pi in a command line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](./iot-hub-explorer-cloud-device-messaging.md).
+You’ve run a sample application to collect sensor data and send it to your IoT hub. To see the messages that your Raspberry Pi has sent to your IoT hub, or to send messages to your Raspberry Pi in a command-line interface, see the [Manage cloud device messaging with iothub-explorer tutorial](./iot-hub-explorer-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

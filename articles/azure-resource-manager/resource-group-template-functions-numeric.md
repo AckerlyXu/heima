@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/05/2017
-ms.date: 10/23/2017
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -120,11 +120,13 @@ Returns the index of an iteration loop.
 
 ### Remarks
 
-This function is always used with a **copy** object. If no value is provided for **offset**, the current iteration value is returned. The iteration value starts at zero.
+This function is always used with a **copy** object. If no value is provided for **offset**, the current iteration value is returned. The iteration value starts at zero. You can use iteration loops when defining either resources or variables.
 
 The **loopName** property enables you to specify whether copyIndex is referring to a resource iteration or property iteration. If no value is provided for **loopName**, the current resource type iteration is used. Provide a value for **loopName** when iterating on a property. 
 
 For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+For an example of using **copyIndex** when defining a variable, see [Variables](resource-group-authoring-templates.md#variables).
 
 ### Example
 
@@ -658,4 +660,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update -->

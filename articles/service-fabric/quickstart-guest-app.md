@@ -10,13 +10,11 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/13/2017
-ms.date: 08/14/2017
-wacn.date: ''
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ---
 
@@ -30,7 +28,7 @@ Before you get started, make sure that you have [set up your development environ
 
 You also need to have an existing Node.js application for deployment. This quickstart uses a simple Node.js website that can be downloaded [here][download-sample]. Extract this file to your `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` folder after you create the project in the next step.
 
-If you don't have an Azure subscription, create a [free account][create-account].
+If you don't have an Azure subscription, create a [trial account][create-account].
 
 ## Create the service
 
@@ -43,7 +41,7 @@ In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 Name the application **MyGuestApp** and press **OK**.
 
 >[!IMPORTANT]
->Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**.
+>Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**. Optionally, you can follow [these instructions](https://stackoverflow.com/a/41687101/1664231) to enable long file paths in Windows 10.
 
 ![New project dialog in Visual Studio][new-project]
 
@@ -149,5 +147,4 @@ Read more about [guest executables](service-fabric-deploy-existing-app.md).
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
 [create-account]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
-
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

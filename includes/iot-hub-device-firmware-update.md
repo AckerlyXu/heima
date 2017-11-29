@@ -69,8 +69,9 @@ In this section, you:
       callback(error);
     }
     ```
-8. Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample deplays for four seconds before proceeding to download the firmware image:
 
+8. Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
+   
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
       var now = new Date();

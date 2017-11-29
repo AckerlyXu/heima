@@ -1,10 +1,9 @@
 ## WordPress and Azure App Service
 * [What is WordPress?](https://wordpress.org/)
-* [How to setup enterprise-class WordPress web app](../articles/app-service-web/web-sites-php-enterprise-wordpress.md)
 
 ## Troubleshooting WordPress Application
 * [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
-* [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Use various auto-heal rules to resolving incidents automatically](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [How to backup your web app](../articles/app-service/web-sites-backup.md) and [How to restore your web app](../articles/app-service/web-sites-restore.md)
 
 ## Performance

@@ -134,7 +134,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 [Tomcat](windows/classic/java-run-tomcat-app-server.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Reference
-[Azure CLI commands in Service Management mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+[Azure CLI commands in Service Management mode](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 
 [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 

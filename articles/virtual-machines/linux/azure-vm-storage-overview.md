@@ -31,11 +31,11 @@ Azure VMs are now available using [Azure Managed Disks](../windows/managed-disks
 
 Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../windows/managed-disks-overview.md#pricing-and-billing).
 
-You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
+You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
 
-- Copy the virtual hard disk (VHD) with [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
-- Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](https://docs.microsoft.com/cli/azure/vm#create), or
-- Attach the copied VHD with [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) to a running VM with managed disks.
+- Copy the virtual hard disk (VHD) with [az storage blob copy start](https://docs.azure.cn/zh-cn/cli/storage/blob/copy?view=azure-cli-latest#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
+- Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create), or
+- Attach the copied VHD with [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#attach) to a running VM with managed disks.
 
 ## Azure Storage: Standard and Premium
 Azure VMs -- whether using Managed Disks or unmanaged -- can be built upon standard storage disks or premium storage disks. When using the portal to choose your VM you must toggle a dropdown on the **Basics** screen to view both standard and premium disks. When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard-storage-enabled VMs backed by spinning disk drives are shown, along with premium storage VMs backed by SSD.
@@ -44,17 +44,17 @@ When creating a VM from the `azure-cli` you can choose between standard and prem
 
 ## Creating a VM with a Managed Disk
 
-The following example requires the Azure CLI 2.0, which you can [install here](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The following example requires the Azure CLI 2.0, which you can [install here](https://docs.azure.cn/zh-cn/cli/install-azure-cli).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-First, create a resource group to manage the resources with [az group create](https://docs.microsoft.com/cli/azure/group#create):
+First, create a resource group to manage the resources with [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#create):
 
 ```azurecli
 az group create --location chinanorth --name myResourceGroup
 ```
 
-Now create the VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Specify a unique `--public-ip-address-dns-name` argument, as `mypublicdns` is likely taken.
+Now create the VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). Specify a unique `--public-ip-address-dns-name` argument, as `mypublicdns` is likely taken.
 
 ```azurecli
 az vm create \
@@ -199,6 +199,4 @@ For more information on how Azure uses the temporary disk, see [Understanding th
 * [Storage cost](https://www.azure.cn/pricing/details/storage/)
 * [Storage cost calculator](https://www.azure.cn/pricing/calculator/)
 
-## Storage limits
-* [Storage Service limits](../../azure-subscription-service-limits.md#storage-limits)
 <!--Update_Description: update scripts for managed disks-->

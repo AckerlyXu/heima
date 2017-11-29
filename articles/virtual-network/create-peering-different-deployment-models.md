@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 10/23/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 
 ---
@@ -92,7 +92,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
 
-5. Create a resource group and a virtual network (Resource Manager). You can use either the CLI 1.0 or 2.0 ([install](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In this tutorial, the CLI 2.0 is used to create the virtual network (Resource Manager), since 2.0 must be used to create the peering. Execute the following bash CLI script from your local machine with the CLI 2.0.4 or later installed. For options on running bash CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
+5. Create a resource group and a virtual network (Resource Manager). You can use either the CLI 1.0 or 2.0 ([install](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)). In this tutorial, the CLI 2.0 is used to create the virtual network (Resource Manager), since 2.0 must be used to create the peering. Execute the following bash CLI script from your local machine with the CLI 2.0.4 or later installed. For options on running bash CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
     <!-- Not Available on Azure Cloud Shell in Azure.cn-->
@@ -147,7 +147,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
-1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, log in to Azure by entering the `Add-AzureAccount -Environment AzureChinaCloud` command.
 4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
@@ -276,6 +276,6 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
-- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
+- Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
-<!--Update_Description: update meta properties, wording update, add new feature on register for the global VNet peering preview -->
+<!--Update_Description: update meta properties, wording update -->

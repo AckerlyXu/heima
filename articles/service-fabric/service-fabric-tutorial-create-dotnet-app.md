@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -37,10 +37,11 @@ In this tutorial series you learn how to:
 > * Build a .NET Service Fabric application
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
 - [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 

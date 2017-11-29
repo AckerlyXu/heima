@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 10/23/2017
+origin.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ Azure Cosmos DB automatically takes backups of all your data at regular interval
 This article starts with a quick recap of the data redundancy and availability in Cosmos DB, and then discusses backups. 
 
 ## High availability with Cosmos DB - a recap
-Cosmos DB is designed to be [globally distributed](distribute-data-globally.md) - it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. As a database system offering [99.99% availability SLAs](https://www.azure.cn/support/sla/cosmos-db), all the writes in Cosmos DB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. Note that the high availability of Cosmos DB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
+Cosmos DB is designed to be [globally distributed](distribute-data-globally.md) - it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. Auzre Cosmos DB offers [99.99% availability SLAs](https://www.azure.cn/support/sla/cosmos-db) for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts. All the writes in Azure Cosmos DB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. Note that the high availability of Cosmos DB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
 
 As illustrated in the following diagram, a single Cosmos DB container is [horizontally partitioned](partition-data.md). A "partition" is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions - China East, China North and Central India). The "partition set" is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and Cosmos DB will transparently failover to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
 
@@ -63,4 +63,4 @@ To replicate your database in multiple data centers, see [distribute your data g
 
 To file contact Azure Support, [file a ticket from the Azure portal](https://www.azure.cn/support/support-azure/).
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

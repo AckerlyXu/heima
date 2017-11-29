@@ -35,9 +35,6 @@ Before you begin this article, you must have the following items:
 
 * **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
 
-    > [!WARNING]
-    > As of September 15, 2017, the HDInsight .NET SDK only supports returning Hive query results from Azure Storage accounts. If you use this example with an HDInsight cluster that uses Azure Data Lake Store as primary storage, you cannot retrieve search results using the .NET SDK.
-
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit Hive queries using HDInsight .NET SDK

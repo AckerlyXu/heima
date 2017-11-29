@@ -22,19 +22,19 @@ ms.author: v-dazen
 # Different ways to create a Linux VM
 You have the flexibility in Azure to create a Linux virtual machine (VM) using tools and workflows comfortable to you. This article summarizes these differences and examples for creating your Linux VMs, including the Azure CLI 2.0. You can also view creation choices including the [Azure CLI 1.0](creation-choices-nodejs.md).
 
-The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is available across platforms via an npm package, distro-provided packages, or Docker container. Install the most appropriate build for your environment and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login)
+The [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) is available across platforms via an npm package, distro-provided packages, or Docker container. Install the most appropriate build for your environment and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 * [Create a Linux VM with the Azure CLI 2.0](quick-create-cli.md)
 
-  * Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) named *myResourceGroup*: 
+  * Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) named *myResourceGroup*: 
 
     ```azurecli
     az group create --name myResourceGroup --location chinaeast
     ```
 
-  * Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do not already exist in *~/.ssh*:
+  * Create a VM with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) named *myVM* using the latest *UbuntuLTS* image and generate SSH keys if they do not already exist in *~/.ssh*:
 
     ```azurecli
     az vm create \
@@ -46,7 +46,7 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is ava
 
 * [Create a Linux VM with an Azure template](create-ssh-secured-vm-from-template.md)
 
-  * The following example uses [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) to create a VM from a template stored on GitHub:
+  * The following example uses [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) to create a VM from a template stored on GitHub:
 
     ```azurecli
     az group deployment create --resource-group myResourceGroup \ 
@@ -66,7 +66,7 @@ The [Azure portal](https://portal.azure.cn) allows you to quickly create a VM si
 When creating a VM, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, upload one of your own images (see [the following section](#use-your-own-image)).
 
 ### Azure images
-Use the [az vm image](https://docs.microsoft.com/cli/azure/vm/image) commands to see what's available by publisher, distro release, and builds.
+Use the [az vm image](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest) commands to see what's available by publisher, distro release, and builds.
 
 List available publishers:
 
@@ -94,7 +94,7 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 
 For more examples on browsing and using available images, see [Navigate and select Azure virtual machine images with the Azure CLI](cli-ps-findimage.md).
 
-The [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command has aliases you can use to quickly access the more common distros and their latest releases. Using aliases is often quicker than specifying the publisher, offer, SKU, and version each time you create a VM:
+The [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#create) command has aliases you can use to quickly access the more common distros and their latest releases. Using aliases is often quicker than specifying the publisher, offer, SKU, and version each time you create a VM:
 
 | Alias | Publisher | Offer | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/18/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 
 # Reference - IoT Hub quotas and throttling
@@ -38,7 +38,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Device connections | Higher of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
 | Device-to-cloud sends | Higher of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
 | Cloud-to-device sends | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
-| Cloud-to-device receives <br/> (only when device uses HTTP)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
+| Cloud-to-device receives <br/> (only when device uses HTTPS)| 16.67/sec/unit (1000/min/unit) | 16.67/sec/unit (1000/min/unit) | 833.33/sec/unit (50000/min/unit) |
 | File upload | 1.67 file upload notifications/sec/unit (100/min/unit) | 1.67 file upload notifications/sec/unit (100/min/unit) | 83.33 file upload notifications/sec/unit (5000/min/unit) |
 | Direct methods | 20/sec/unit | 60/sec/unit | 3000/sec/unit | 
 | Device twin reads | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
@@ -76,7 +76,7 @@ IoT Hub enforces other operational limits:
 | Cloud-to-device messaging | Maximum pending messages for delivery is 50 |
 
 > [!NOTE]
-> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://www.azure.cn/support/contact/).
 
 ## Latency
 IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a maximum latency. When designing your solution, you should:

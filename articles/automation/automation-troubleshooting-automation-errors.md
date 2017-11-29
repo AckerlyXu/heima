@@ -78,7 +78,7 @@ Your runbook fails with the error ""The job was tried three times but it failed.
 **Reason for the error:**
 This error can be caused by the following reasons:  
 
-1. Memory Limit.  We have documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure-subscription-service-limits.md#automation-limits) so a job may fail it if is using more than 400 MB of memory. 
+1. Memory Limit.  We have limits on how much memory allocated to a Sandbox Automation service limits so a job may fail it if is using more than 400 MB of memory. 
 
 2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a "Command not found" or "Cannot bind parameter" message. 
 

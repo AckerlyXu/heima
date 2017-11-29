@@ -1,5 +1,5 @@
 ---
-title: How to use Azure Table Storage from Ruby | Azure
+title: How to use Azure Table Storage with Ruby | Azure
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: ruby
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 09/25/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
-# How to use Azure Table Storage from Ruby
+# How to use Azure Table storage with Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -164,4 +164,4 @@ azure_table_service.delete_table("testtable")
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

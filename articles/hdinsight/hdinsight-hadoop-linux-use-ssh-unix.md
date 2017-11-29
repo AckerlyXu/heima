@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/03/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/06/2017
+ms.date: 11/27/2017
+ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -30,6 +30,7 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 
 | Address | Port | Connects to... |
 | ----- | ----- | ----- |
+| `<clustername>-ed-ssh.azurehdinsight.cn` | 22 | Edge node (R Server on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.cn` | 22 | Edge node (any other cluster type, if an edge node exists) |
 | `<clustername>-ssh.azurehdinsight.cn` | 22 | Primary headnode |
 | `<clustername>-ssh.azurehdinsight.cn` | 23 | Secondary headnode |
@@ -42,6 +43,11 @@ HDInsight can use Linux (Ubuntu) as the operating system for nodes within the Ha
 > If your cluster contains an edge node, we recommend that you __always connect to the edge node__ using SSH. The head nodes host services that are critical to the health of Hadoop. The edge node runs only what you put on it.
 >
 > For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+
+> [!TIP]
+> When you first connect to HDInsight, your SSH client may display a warning that the authenticity of the host can't be established. When prompted select 'yes' to add the host to your SSH client's trusted server list.
+>
+> If you have previously connected to a server with the same name, you may receive a warning that the stored host key does not match the host key of the server. The SSH client may refuse to connect to the cluster when this occurrs. Consult the documentation for your SSH client on how to remove the existing entry for the server name.
 
 ## SSH clients
 
@@ -100,7 +106,7 @@ You are prompted for information during the key creation process. For example, w
 | **Azure portal** | Uncheck __Use same password as cluster login__, and then select __Public Key__ as the SSH authentication type. Finally, select the public key file or paste the text contents of the file in the __SSH public key__ field.</br>![SSH public key dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | Use the `-SshPublicKey` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass the contents of the public key as a string.|
 | **Azure CLI 1.0** | Use the `--sshPublicKey` parameter of the `azure hdinsight cluster create` command and pass the contents of the public key as a string. |
-| **Resource Manager Template** | For an example of using SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
+| **Resource Manager Template** | For an example of using SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
 
 ## <a id="sshpassword"></a>Authentication: Password
 
@@ -116,11 +122,17 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 | **Azure portal** | By default, the SSH user account has the same password as the cluster login account. To use a different password, uncheck __Use same password as cluster login__, and then enter the password in the __SSH password__ field.</br>![SSH password dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | **Azure PowerShell** | Use the `--SshCredential` parameter of the `New-AzureRmHdinsightCluster` cmdlet and pass a `PSCredential` object that contains the SSH user account name and password. |
 | **Azure CLI 1.0** | Use the `--sshPassword` parameter of the `azure hdinsight cluster create` command and provide the password value. |
-| **Resource Manager Template** | For an example of using a password with a template, see [Deploy HDInsight on Linux with SSH password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
+| **Resource Manager Template** | For an example of using a password with a template, see [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
 
 ### Change the SSH password
 
 For information on changing the SSH user account password, see the __Change passwords__ section of the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
+
+## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
+
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+
+For more information, see [Configure domain-joined HDInsight](hdinsight-domain-joined-configure.md).
 
 ## Connect to nodes
 

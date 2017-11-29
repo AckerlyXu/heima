@@ -20,7 +20,7 @@ ms.author: v-dazen
 
 ---
 # Deploy LAMP stack on Azure
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest). You can also perform these steps with the [Azure CLI 1.0](create-lamp-stack-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick command summary
 
@@ -46,7 +46,7 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ## Deploy LAMP on new VM walkthrough
 
-1. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) to contain the new VM:
+1. Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) to contain the new VM:
 
     ```azurecli
     az group create -l chinanorth -n myResourceGroup

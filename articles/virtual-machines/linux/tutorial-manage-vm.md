@@ -33,11 +33,11 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Create resource group
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) command. 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *chinaeast* region. 
 
@@ -49,7 +49,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 ## Create virtual machine
 
-Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. 
+Create a virtual machine with the [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) command. 
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. 
 
@@ -90,7 +90,7 @@ exit
 
 The Azure marketplace includes many images that can be used to create VMs. In the previous steps, a virtual machine was created using an Ubuntu image. In this step, the Azure CLI is used to search the marketplace for a CentOS image, which is then used to deploy a second virtual machine.  
 
-To see a list of the most commonly used images, use the [az vm image list](https://docs.microsoft.com/cli/azure/vm/image#list) command.
+To see a list of the most commonly used images, use the [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#list) command.
 
 ```azurecli 
 az vm image list --output table
@@ -156,7 +156,7 @@ The following table categorizes sizes into use cases.
 
 ### Find available VM sizes
 
-To see a list of VM sizes available in a particular region, use the [az vm list-sizes](https://docs.microsoft.com/cli/azure/vm#list-sizes) command. 
+To see a list of VM sizes available in a particular region, use the [az vm list-sizes](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#list-sizes) command. 
 
 ```azurecli 
 az vm list-sizes --location chinaeast --output table
@@ -187,7 +187,7 @@ Partial output:
 
 ### Create VM with specific size
 
-In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](https://docs.microsoft.com/cli/azure/vm#create) and the `--size` argument. 
+In the previous VM creation example, a size was not provided, which results in a default size. A VM size can be selected at creation time using [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) and the `--size` argument. 
 
 ```azurecli 
 az vm create \
@@ -200,24 +200,24 @@ az vm create \
 
 ### Resize a VM
 
-After a VM has been deployed, it can be resized to increase or decrease resource allocation. You can view the current of size of a VM with [az vm show](https://docs.microsoft.com/cli/azure/vm#show):
+After a VM has been deployed, it can be resized to increase or decrease resource allocation. You can view the current of size of a VM with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
 
 ```azurecli
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](https://docs.microsoft.com/cli/azure/vm#list-vm-resize-options) command returns the list of sizes. 
+Before resizing a VM, check if the desired size is available on the current Azure cluster. The [az vm list-vm-resize-options](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#list-vm-resize-options) command returns the list of sizes. 
 
 ```azurecli 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize](https://docs.microsoft.com/cli/azure/vm#resize) command to perform the resize.
+If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. Use the [az vm resize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#resize) command to perform the resize.
 
 ```azurecli 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -253,7 +253,7 @@ An Azure VM can have one of many power states. This state represents the current
 
 ### Find power state
 
-To retrieve the state of a particular VM, use the [az vm get instance-view](https://docs.microsoft.com/cli/azure/vm#get-instance-view) command. Be sure to specify a valid name for a virtual machine and resource group. 
+To retrieve the state of a particular VM, use the [az vm get instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#get-instance-view) command. Be sure to specify a valid name for a virtual machine and resource group. 
 
 ```azurecli 
 az vm get-instance-view \

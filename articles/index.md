@@ -510,9 +510,9 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/power-bi-embedded/">
+                                            <a href="/power-bi-workspace-collections/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
-                                                <p>Power BI Embedded</p>
+                                                <p>Power BI Workspace Collections</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1516,7 +1516,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
-                                <a href="/power-bi-embedded/">
+                                <a href="/power-bi-workspace-collections/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1526,7 +1526,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Power BI Embedded</h3>
+                                                    <h3>Power BI Workspace Collections</h3>
                                                     <p>Embed fully interactive, stunning data visualizations in your applications</p>
                                                 </div>
                                             </div>

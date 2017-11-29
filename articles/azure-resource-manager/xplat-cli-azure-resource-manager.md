@@ -32,7 +32,7 @@ This article does not show how to deploy a Resource Manager template to your sub
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-To install and use the CLI locally, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To install and use the CLI locally, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 
 ## Set subscription
 

@@ -12,9 +12,9 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 06/13/2017
-ms.date: 06/29/2017
+ms.date: 10/31/2017
 ms.author: v-junlch
 
 ---

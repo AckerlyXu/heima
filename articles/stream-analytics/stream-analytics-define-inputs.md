@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 07/05/2017
-ms.date: 10/02/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 
 ---
 # Data connection: Learn about data stream inputs from events to Stream Analytics
-The data connection to a Stream Analytics job is a stream of events from a data source, which is referred to as the job's *input*. Stream Analytics has first-class integration with Azure data stream sources, including [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/), [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/), and [Azure Blob storage](https://www.azure.cn/home/features/storage/blobs/). These input sources can be from the same Azure subscription as your analytics job, or from a different subscription.
+The data connection to a Stream Analytics job is a stream of events from a data source, which is referred to as the job's *input*. Stream Analytics has first-class integration with Azure data stream sources, including [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/), [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/), and [Azure Blob storage](https://www.azure.cn/home/features/storage/). These input sources can be from the same Azure subscription as your analytics job, or from a different subscription.
 
 ## Data input types: Data stream and reference data
 As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.
@@ -32,6 +32,12 @@ A data stream is an unbounded sequence of events over time. Stream Analytics job
 Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. It's typically used for performing correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
 
 To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md).  
+
+## Compression
+
+Azure Stream Analytics will soon be deploying a compression feature across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Supported types are currently None, GZip, and Deflate compression. 
+
+Compression is not supported in tandem with Avro serialization, and is not applicable to reference data. 
 
 ## Create data stream input from Event Hubs
 
@@ -54,6 +60,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Event hub consumer group** (optional) |The consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the default consumer group. We recommend that you use a distinct consumer group for each Stream Analytics job. |
 | **Event serialization format** |The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from an event hub, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -99,6 +106,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Consumer group** (optional) |The consumer group to use to ingest data from the IoT hub. If no consumer group is specified, a Stream Analytics job uses the default consumer group. We recommend that you use a different consumer group for each Stream Analytics job. |
 | **Event serialization format** |The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** |UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from an IoT hub, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -140,6 +148,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH`. |
 | **Event serialization format** | The serialization format (JSON, CSV, or Avro) for incoming data streams. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from a Blob storage source, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -160,9 +169,7 @@ SELECT
 FROM Input
 ```
 
-## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
-
+<!-- Not Available ## Get help-->
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:
 
@@ -179,4 +186,4 @@ You've learned about data connection options in Azure for your Stream Analytics 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, add feature Compress optional soon -->

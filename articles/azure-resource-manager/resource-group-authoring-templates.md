@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/14/2017
-ms.date: 07/03/2017
+origin.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
 # Understand the structure and syntax of Azure Resource Manager templates
-This topic describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
+This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a> Template format
 In its simplest structure, a template contains the following elements:
@@ -34,6 +34,7 @@ In its simplest structure, a template contains the following elements:
     "outputs": {  }
 }
 ```
+<!-- the schema link is correct to download the http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json# -->
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
@@ -64,11 +65,31 @@ Each element contains properties you can set. The following example contains the
             }
         }
     },
-    "variables": {  
+    "variables": {
         "<variable-name>": "<variable-value>",
-        "<variable-name>": { 
-            <variable-complex-type-value> 
-        }
+        "<variable-object-name>": {
+            <variable-complex-type-value>
+        },
+        "<variable-object-name>": {
+            "copy": [
+                {
+                    "name": "<name-of-array-property>",
+                    "count": <number-of-iterations>,
+                    "input": {
+                        <properties-to-repeat>
+                    }
+                }
+            ]
+        },
+        "copy": [
+            {
+                "name": "<variable-array-name>",
+                "count": <number-of-iterations>,
+                "input": {
+                    <properties-to-repeat>
+                }
+            }
+        ]
     },
     "resources": [
       {
@@ -115,7 +136,7 @@ Each element contains properties you can set. The following example contains the
 }
 ```
 
-We examine the sections of the template in greater detail later in this topic.
+This article describes the sections of the template in greater detail.
 
 ## Expressions and functions
 The basic syntax of the template is JSON. However, expressions and functions extend the JSON values available within the template.  Expressions are written within JSON string literals whose first and last characters are the brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array or integer, depending on the actual expression.  To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
@@ -281,7 +302,85 @@ The next example shows a variable that is a complex JSON type, and variables tha
 }
 ```
 
-## <a name="resources"></a>Resources
+You can use the **copy** syntax to create a variable with an array of multiple elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. Both approaches are shown in the following example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
+
+You can also specify more than one object when using copy to create variables. The following example defines two arrays as variables. One is named **disks-top-level-array** and has five elements. The other is named **a-different-array** and has three elements.
+
+```json
+"variables": {
+    "copy": [
+        {
+            "name": "disks-top-level-array",
+            "count": 5,
+            "input": {
+                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('disks-top-level-array')]"
+            }
+        },
+        {
+            "name": "a-different-array",
+            "count": 3,
+            "input": {
+                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('a-different-array')]"
+            }
+        }
+    ]
+},
+```
+
+## Resources
 In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you are deploying to provide the right values. For the resource-specific values (apiVersion, type, and properties) that you need to set, see [Define resources in Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/templates/). 
 
 You define resources with the following structure:
@@ -474,11 +573,13 @@ You are also limited to:
 * 64 output values
 * 24,576 characters in a template expression
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object.
-<!-- Not Available [Objects as parameters](resource-manager-objects-as-parameters.md) -->
+You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](http://docs.microsoft.com/zh-cn/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+<!-- [Objects as parameters](resource-manager-objects-as-parameters.md) redirect to /azure/architecture/building-blocks/extending-templates/objects-as-parameters -->
 
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+
+<!--Update_Description: wording update, add the copy index usage in templates, update link -->

@@ -22,7 +22,7 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 - Azure CLI 2.0 - If you don't have this setup for your environment, see [Manage Key Vault using CLI 2.0](key-vault-manage-with-cli2.md).
 
-For Key Vault specific reference information for CLI, see [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
+For Key Vault specific reference information for CLI, see [Azure CLI 2.0 Key Vault reference](/cli/keyvault).
 
 ## Required permissions
 

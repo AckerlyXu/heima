@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 10/23/2017
+origin.date: 09/22/2017
+ms.date: 11/27/2017
 ms.author: v-yiso
 
 ---
@@ -69,7 +69,7 @@ You must have the following:
     | HDInsight version | Command |
     |-------------------|---------|
     |For HDInsight 3.3 and HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
-    | For HDInsight 3.5 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
+    | For HDInsight 3.5 and HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}`|
 
 6. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
 
@@ -86,6 +86,13 @@ You must have the following:
 7. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
 
         val df = sqlContext.read.format("com.databricks.spark.csv").
+        option("header", "true").
+        option("inferSchema", "true").
+        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+
+    For HDInsight 3.6, you should use the following snippet.
+
+        val df = spark.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")

@@ -33,5 +33,5 @@ The following table includes links to bash scripts built using the Azure CLI tha
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/overview).
 

@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/23/2017
-ms.date: 10/23/2017
+origin.date: 11/08/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -72,8 +72,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="same-region"></a>
 4. **Collocate clients in same Azure region for performance**
 
-    When possible, place any applications calling Cosmos DB in the same region as the Cosmos DB database. For an approximate comparison, calls to Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
-
+    When possible, place any applications calling Cosmos DB in the same region as the Cosmos DB database. For an approximate comparison, calls to Cosmos DB within the same region complete within 1-2 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://www.azure.cn/support/service-dashboard/#services).
+    <!--Not Available on time span between East to West coast-->
+    
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 5. **Increase number of threads/tasks**
@@ -165,7 +166,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     Cosmos DB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers - all operating on the documents within a database collection. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
-    [Request units](request-units.md) are provisioned for each database account based on the number of capacity units that you purchase. Request unit consumption is evaluated as a rate per second. Applications that exceed the provisioned request unit rate for their account is limited until the rate drops below the reserved level for the account. If your application requires a higher level of throughput, you can purchase additional capacity units.
+    Throughput is provisioned based on the amount of [request units](request-units.md) set for each container. Request unit consumption is evaluated as a rate per second. Applications that exceed the provisioned request unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional request units. 
 
     The complexity of a query impacts how many Request Units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 

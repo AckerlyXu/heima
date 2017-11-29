@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/24/2016
-ms.date: 12/05/2016
+origin.date: 09/25/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 ---
 
 # Configure the distribution mode for load balancer
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## Hash-based distribution mode
 
@@ -29,7 +31,7 @@ Figure 1 - 5-tuple distribution
 
 ## Source IP affinity mode
 
-We have another distribution mode called Source IP Affinity (also known as session affinity or client IP affinity). Azure Load Balancer can be configured to use a 2-tuple (Source IP, Destination IP) or 3-tuple (Source IP, Destination IP, Protocol) to map traffic to the available servers. By using Source IP affinity, connections initiated from the same client computer goes to the same DIP endpoint.
+We have another distribution mode called Source IP Affinity (also known as session affinity or client IP affinity). Azure Load Balancer can be configured to use a 2-tuple (Source IP, Destination IP) or 3-tuple (Source IP, Destination IP, Protocol) to map traffic to the available servers. By using Source IP affinity, connections initiated from the same client computer go to the same DIP endpoint.
 
 The following diagram illustrates a 2-tuple configuration. Notice how the 2-tuple runs through the load balancer to virtual machine 1 (VM1) which is then backed up by VM2 and VM3.
 
@@ -61,27 +63,25 @@ LoadBalancerDistribution can be set to sourceIP for 2-tuple (Source IP, Destinat
 
 Use the following to retrieve an endpoint load balancer distribution mode configuration:
 
-```
-PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
+    PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
 
-VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
-LBSetName : MyLoadBalancedSet
-LocalPort : 80
-Name : HTTP
-Port : 80
-Protocol : tcp
-Vip : 65.52.xxx.xxx
-ProbePath :
-ProbePort : 80
-ProbeProtocol : tcp
-ProbeIntervalInSeconds : 15
-ProbeTimeoutInSeconds : 31
-EnableDirectServerReturn : False
-Acl : {}
-InternalLoadBalancerName :
-IdleTimeoutInMinutes : 15
-LoadBalancerDistribution : sourceIP
-```
+    VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
+    LBSetName : MyLoadBalancedSet
+    LocalPort : 80
+    Name : HTTP
+    Port : 80
+    Protocol : tcp
+    Vip : 65.52.xxx.xxx
+    ProbePath :
+    ProbePort : 80
+    ProbeProtocol : tcp
+    ProbeIntervalInSeconds : 15
+    ProbeTimeoutInSeconds : 31
+    EnableDirectServerReturn : False
+    Acl : {}
+    InternalLoadBalancerName :
+    IdleTimeoutInMinutes : 15
+    LoadBalancerDistribution : sourceIP
 
 If the LoadBalancerDistribution element is not present then the Azure Load balancer uses the default 5-tuple algorithm.
 
@@ -95,7 +95,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### Cloud Service configuration to change distribution mode
 
-You can leverage the Azure SDK for .NET 2.5 (to be released in November) to update your Cloud Service. Endpoint settings for Cloud Services are made in the .csdef. In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
+You can leverage the Azure SDK for .NET 2.5 to update your Cloud Service. Endpoint settings for Cloud Services are made in the .csdef. In order to update the load balancer distribution mode for a Cloud Services deployment, a deployment upgrade is required.
 Here is an example of .csdef changes for endpoint settings:
 
 ```xml
@@ -124,47 +124,45 @@ You can configure the load balancer distribution using the service management AP
 
 #### Request example
 
-```
-POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
-Content-Type: application/xml
+    POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
+    Content-Type: application/xml
 
-<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-  <InputEndpoint>
-    <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
-    <LocalPort> local-port-number </LocalPort>
-    <Port> external-port-number </Port>
-    <LoadBalancerProbe>
-      <Port> port-assigned-to-probe </Port>
-      <Protocol> probe-protocol </Protocol>
-      <IntervalInSeconds> interval-of-probe </IntervalInSeconds>
-      <TimeoutInSeconds> timeout-for-probe </TimeoutInSeconds>
-    </LoadBalancerProbe>
-    <Protocol> endpoint-protocol </Protocol>
-    <EnableDirectServerReturn> enable-direct-server-return </EnableDirectServerReturn>
-    <IdleTimeoutInMinutes>idle-time-out</IdleTimeoutInMinutes>
-    <LoadBalancerDistribution>sourceIP</LoadBalancerDistribution>
-  </InputEndpoint>
-</LoadBalancedEndpointList>
-```
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+      <InputEndpoint>
+        <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
+        <LocalPort> local-port-number </LocalPort>
+        <Port> external-port-number </Port>
+        <LoadBalancerProbe>
+          <Port> port-assigned-to-probe </Port>
+          <Protocol> probe-protocol </Protocol>
+          <IntervalInSeconds> interval-of-probe </IntervalInSeconds>
+          <TimeoutInSeconds> timeout-for-probe </TimeoutInSeconds>
+        </LoadBalancerProbe>
+        <Protocol> endpoint-protocol </Protocol>
+        <EnableDirectServerReturn> enable-direct-server-return </EnableDirectServerReturn>
+        <IdleTimeoutInMinutes>idle-time-out</IdleTimeoutInMinutes>
+        <LoadBalancerDistribution>sourceIP</LoadBalancerDistribution>
+      </InputEndpoint>
+    </LoadBalancedEndpointList>
 
 The value of LoadBalancerDistribution can be sourceIP for 2-tuple affinity, sourceIPProtocol for 3-tuple affinity or none (for no affinity. i.e. 5-tuple)
 
 #### Response
 
-```
-HTTP/1.1 202 Accepted
-Cache-Control: no-cache
-Content-Length: 0
-Server: 1.0.6198.146 (rd_rdfe_stable.141015-1306) Microsoft-HTTPAPI/2.0
-x-ms-servedbyregion: ussouth2
-x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
-Date: Thu, 16 Oct 2014 22:49:21 GMT
-```
+    HTTP/1.1 202 Accepted
+    Cache-Control: no-cache
+    Content-Length: 0
+    Server: 1.0.6198.146 (rd_rdfe_stable.141015-1306) Microsoft-HTTPAPI/2.0
+    x-ms-servedbyregion: ussouth2
+    x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af
+    Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-## Next Steps
+## Next steps
 
-[Internal load balancer overview](./load-balancer-internal-overview.md)
+[Internal load balancer overview](load-balancer-internal-overview.md)
 
-[Get started Configuring an Internet facing load balancer](./load-balancer-get-started-internet-arm-ps.md)
+[Get started Configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md)
 
-[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+<!-- Update_Description: update meta properties, wording update -->

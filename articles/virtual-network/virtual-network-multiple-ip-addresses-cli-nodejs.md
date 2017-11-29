@@ -81,7 +81,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
       ```
 
       > [!NOTE]
-      > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+      > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. 
 
     **IPConfig-2**
 
@@ -146,7 +146,7 @@ You can add additional private and public IP addresses to an existing NIC by com
         A public IP address is added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
         > [!NOTE]
-        > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+        > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription.
         >
 
         **Associate the resource to a new IP configuration**
@@ -212,3 +212,6 @@ You can add additional private and public IP addresses to an existing NIC by com
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+
+<!--Not Available the parent file of includes file of virtual-network-multiple-ip-addresses-scenario.md-->
+<!--ms.date:11/06/2017-->

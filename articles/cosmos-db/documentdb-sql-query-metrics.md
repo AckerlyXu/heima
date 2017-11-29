@@ -14,9 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2017
-origin.date: 08/28/2017
-ms.date: ''
+origin.date: 11/02/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -251,7 +250,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milliseconds | Time spent in loading documents  | 
 | `systemFunctionExecuteTimeInMs` | milliseconds | Total time spent executing system (built-in) functions in milliseconds  | 
 | `userFunctionExecuteTimeInMs` | milliseconds | Total time spent executing user-defined functions in milliseconds | 
-| `retrievedDocumentCount` | milliseconds | Total number of retrieved documents  | 
+| `retrievedDocumentCount` | count | Total number of retrieved documents  | 
 | `retrievedDocumentSize` | bytes | Total size of retrieved documents in bytes  | 
 | `outputDocumentCount` | count | Number of output documents | 
 | `writeOutputTimeInMs` | milliseconds | Query execution time in milliseconds | 
@@ -276,3 +275,5 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 * To learn about the supported SQL query operators and keywords, see [SQL query](documentdb-sql-query.md). 
 * To learn about request units, see [request units](request-units.md).
 * To learn about indexing policy, see [indexing policy](indexing-policies.md)
+
+<!-- Update_Description: update meta properties, wording update -->

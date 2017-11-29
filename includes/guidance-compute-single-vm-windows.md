@@ -52,7 +52,7 @@ For best disk I/O performance, we recommend [Premium Storage][premium-storage], 
 
 Create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs) in order to avoid hitting the IOPS limits for storage accounts.
 
-Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk. If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
+Add one or more data disks. When you create a new VHD, it is unformatted. Log into the VM to format the disk. If you have a large number of data disks, be aware of the total I/O limits of the storage account. 
 
 When possible, install applications on a data disk, not the OS disk. However, some legacy applications might need to install components on the C: drive. In that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
@@ -192,11 +192,9 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [security-center]: https://www.azure.cn/home/features/security-center/
 [select-vm-image]:../articles/virtual-machines/windows/cli-ps-findimage.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
-[storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://www.azure.cn/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/windows/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
 [vm-sla]: https://www.azure.cn/support/sla/virtual-machines
 [vm-size-tables]: ../articles/virtual-machines/windows/sizes.md

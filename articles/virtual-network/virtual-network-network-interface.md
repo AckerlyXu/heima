@@ -30,10 +30,9 @@ If you need to add, change, or remove IP addresses for a network interface, read
 
 Complete the following tasks before completing any steps in any section of this article:
 
-- Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for network interfaces.
 - Log in to the Azure [portal](https://portal.azure.cn), Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -68,7 +67,7 @@ The portal doesn't provide the option to assign a public IP address to the netwo
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic create](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
 |PowerShell|[New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json#create)|
 
 ## <a name="view-nics"></a>View network interface settings
@@ -95,7 +94,7 @@ You can view and change most settings for a network interface after it's created
 <!-- Not Available IPv6 -->
 |Tool|Command|
 |---|---|
-|CLI|[az network nic list](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to view network interfaces in the subscription; [az network nic show](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to view settings for a network interface|
+|CLI|[az network nic list](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#list) to view network interfaces in the subscription; [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show) to view settings for a network interface|
 |PowerShell|[Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json) to view network interfaces in the subscription or view settings for a network interface|
 
 <a name="dns"></a>
@@ -116,7 +115,7 @@ The DNS server is assigned by the Azure DHCP server to the network interface wit
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic update](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-forwarding"></a>Enable or disable IP forwarding
@@ -137,7 +136,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic update](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="subnet"></a>Change subnet assignment
@@ -158,7 +157,7 @@ You can change the subnet, but not the virtual network, that a network interface
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.microsoft.com/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
+|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-nic"></a>Delete a network interface
@@ -176,7 +175,7 @@ When you delete a network interface, any MAC or IP addresses assigned to it are 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic delete](https://docs.microsoft.com/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
+|CLI|[az network nic delete](https://docs.azure.cn/zh-cn/cli/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete)|
 |PowerShell|[Remove-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="next-steps"></a>Next steps

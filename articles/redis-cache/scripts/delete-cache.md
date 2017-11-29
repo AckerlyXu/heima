@@ -43,12 +43,12 @@ This script uses the following commands to delete an Azure Redis Cache instance.
 
 | Command | Notes |
 |---|---|
-| [az redis delete](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | Delete Redis Cache instance. |
+| [az redis delete](/cli/redis#az_redis_delete) | Delete Redis Cache instance. |
 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/overview).
 
 Additional Azure Redis Cache CLI script samples can be found in the [Azure Redis Cache documentation](../cli-samples.md).
 

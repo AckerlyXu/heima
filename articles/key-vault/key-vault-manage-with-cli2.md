@@ -39,7 +39,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 - A subscription to Azure. If you do not have one, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial/).
-- Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/azure/install-azure-cli/).
+- Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](/cli/install-azure-cli/).
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
 ## Getting help with Azure Cross-Platform Command-Line Interface
@@ -56,8 +56,8 @@ When in doubt about the parameters needed by a command, refer to help using --he
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure Cross-Platform Command-Line Interface:
 
-- [Install Azure CLI](/cli/azure/install-azure-cli/)
-- [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli/)
+- [Install Azure CLI](/cli/install-azure-cli/)
+- [Get started with Azure CLI 2.0](/cli/get-started-with-azure-cli/)
 
 ## Connect to your subscriptions
 To log in using an organizational account, use the following command:
@@ -84,7 +84,7 @@ Then, to specify the subscription to use, type:
 az account set --subscription <subscription name or ID>
 ```
 
-For more information about configuring Azure Cross-Platform Command-Line Interface, see [Install Azure CLI](/cli/azure/install-azure-cli/).
+For more information about configuring Azure Cross-Platform Command-Line Interface, see [Install Azure CLI](/cli/install-azure-cli/).
 
 ## Create a new resource group
 When using Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group 'ContosoResourceGroup' for this tutorial.
@@ -220,7 +220,7 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 
 ## Next steps
-For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault/)
+For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/keyvault/)
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 

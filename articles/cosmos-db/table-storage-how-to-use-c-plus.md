@@ -1,5 +1,5 @@
 ---
-title: How to use Table storage (C++) | Azure
+title: How to use Azure Table storage with C++ | Azure
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: cosmos-db
 documentationcenter: .net
@@ -13,13 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/28/2017
-origin.date: 08/28/2017
-ms.date: ''
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
-# How to use Table storage from C++
+# How to use Azure Table storage with C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
@@ -61,7 +60,7 @@ An Azure storage client uses a storage connection string to store endpoints and 
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
-To test your application in your local Windows-based computer, you can use the Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with the [Azure SDK](/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
+To test your application in your local Windows-based computer, you can use the Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with the [Azure SDK](https://www.azure.cn/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
@@ -455,3 +454,5 @@ Now that you've learned the basics of table storage, follow these links to learn
 * [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](/storage/)
+
+<!-- Update_Description: update meta properties, update link -->

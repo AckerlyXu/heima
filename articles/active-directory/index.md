@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
-title: Azure Active Directory Documentation - Tutorials, API Reference | Azure
+title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
 services: active-directory
-author: carolz
-manager: carolz
+author: alexchen2016
+manager: digimobile
 layout: LandingPage
 ms.assetid:	
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 01/23/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 ---
 
@@ -23,7 +23,7 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/active-directory/active-directory-whatis">
+        <a href="/active-directory/active-directory-whatis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -41,25 +41,7 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure Active Directory Video Library</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-howto-tenant">
+        <a href="/active-directory/active-directory-howto-tenant">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,4 +58,22 @@ Learn how to synchronize directories and enable single sign-on with Azure Active
         </div>
         </a>
     </li>
+    <li>
+        <a href="/active-directory/develop/active-directory-developers-guide">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Develop apps with Azure Active Directory</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li> 
 </ul>

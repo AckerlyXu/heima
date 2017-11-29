@@ -24,19 +24,19 @@ ms.author: v-dazen
 
 In the Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by Key Vault. To learn more about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md) In order for Key Vault to be used with Azure Resource Manager VMs, the *EnabledForDeployment* property on Key Vault must be set to true. This article shows you how to set up Key Vault for use with Azure virtual machines (VMs) using the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-To perform these steps, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+To perform these steps, you need the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## Create a Key Vault
-Create a key vault and assign the deployment policy with [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Create a key vault and assign the deployment policy with [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create). The following example creates a key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault create -l chinanorth -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## Update a Key Vault for use with VMs
-Set the deployment policy on an existing key vault with [az keyvault update](https://docs.microsoft.com/cli/azure/keyvault#update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
+Set the deployment policy on an existing key vault with [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#update). The following updates the key vault named `myKeyVault` in the `myResourceGroup` resource group:
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true

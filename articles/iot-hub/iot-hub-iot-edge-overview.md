@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/04/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 # Azure IoT Edge architectural concepts
 
@@ -48,7 +48,7 @@ A module uses the **Broker_Publish** function to publish a message to the broker
 
 There are two ways to direct messages to the correct IoT Edge modules:
 
-* You can pass a set of links can be passed to the broker so the broker knows the source and sink for each module.
+* You can pass a set of links to the broker so the broker knows the source and sink for each module.
 * A module can filter on the properties of the message.
 
 A module should only act upon a message if the message is intended for it. Links and message filtering effectively create a message pipeline.

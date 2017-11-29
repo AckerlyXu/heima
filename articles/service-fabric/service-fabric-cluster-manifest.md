@@ -1,6 +1,6 @@
 ---
 title: Configure your Azure Service Fabric standalone cluster | Azure
-description: Learn how to configure your standalone or private Service Fabric cluster.
+description: Learn how to configure your standalone or on premise Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
-ms.date: 10/02/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
 # Configuration settings for standalone Windows cluster
 This article describes how to configure a standalone Service Fabric cluster using the ***ClusterConfig.JSON*** file. You can use this file to specify information such as the Service Fabric nodes and their IP addresses, different types of nodes on the cluster, the security configurations as well as the network topology in terms of fault/upgrade domains, for your standalone cluster.
 
-When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples having *DevCluster* in their names will help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these, at least one node must be marked as a primary node. This cluster is useful for a development or test environment and is not supported as a production cluster. The samples having *MultiMachine* in their names, will help you create a production quality cluster, with each node on a separate machine.
+When you [download the standalone Service Fabric package](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), a few samples of the ClusterConfig.JSON file are downloaded to your work machine. The samples having *DevCluster* in their names will help you create a cluster with all three nodes on the same machine, like logical nodes. Out of these, at least one node must be marked as a primary node. This cluster is useful for a development or test environment and is not supported as a production cluster. The samples having *MultiMachine* in their names, will help you create a production quality cluster, with each node on a separate machine. The number of primary nodes for these clusters will be based on the [reliability level](#reliability). In release 5.7 API Version 05-2017, we removed the reliability level property. Instead, our code is calculating the most optimized reliability level for your cluster. Please do not use this property in 5.7 and later code version.
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* and *ClusterConfig.Unsecure.MultiMachine.JSON* show how to create an unsecured test or production cluster respectively. 
+1. *ClusterConfig.Unsecure.DevCluster.JSON* and *ClusterConfig.Unsecure.MultiMachine.JSON* show how to create an unsecured test or production cluster respectively.
 2. *ClusterConfig.Windows.DevCluster.JSON* and  *ClusterConfig.Windows.MultiMachine.JSON* show how to create test or production cluster, secured using [Windows security](service-fabric-windows-cluster-windows-security.md).
-3. *ClusterConfig.X509.DevCluster.JSON* and *ClusterConfig.X509.MultiMachine.JSON* show how to create test or production cluster, secured using [X509 certificate-based security](service-fabric-windows-cluster-x509-security.md). 
+3. *ClusterConfig.X509.DevCluster.JSON* and *ClusterConfig.X509.MultiMachine.JSON* show how to create test or production cluster, secured using [X509 certificate-based security](service-fabric-windows-cluster-x509-security.md).
 
 Now we will examine the various sections of a ***ClusterConfig.JSON*** file as below.
 
@@ -141,7 +141,6 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
 The **name** is the friendly name for this particular node type. To create a node of this node type, assign its friendly name to the **nodeTypeRef** variable for that node, as mentioned [above](#clusternodes). For each node type, define the connection endpoints that will be used. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. In a multi-node cluster, there will be one or more primary nodes (i.e. **isPrimary** set to *true*), depending on the [**reliabilityLevel**](#reliability). Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for information on **nodeTypes** and **reliabilityLevel**, and to know what are primary and the non-primary node types. 
 
 #### Endpoints used to configure the node types
-
 * *clientConnectionEndpointPort* is the port used by the client to connect to the cluster, when using the client APIs. 
 * *clusterConnectionEndpointPort* is the port at which the nodes communicate with each other.
 * *leaseDriverEndpointPort* is the port used by the cluster lease driver to find out if the nodes are still active. 
@@ -195,4 +194,4 @@ To enable container support for both windows server container and hyper-v contai
 ## Next steps
 Once you have a complete ClusterConfig.JSON file configured as per your standalone cluster setup, you can deploy your cluster by following the article [Create a standalone Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md) and then proceed to [visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update-->

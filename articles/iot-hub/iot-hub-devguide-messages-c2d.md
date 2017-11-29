@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 11/20/2017
 ---
 # Send cloud-to-device messages from IoT Hub
 
@@ -39,7 +39,7 @@ When the IoT Hub service sends a message to a device, the service sets the messa
 A device can also choose to:
 
 * *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Devices that connect over the MQTT protocol cannot reject cloud-to-device messages.
-* *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**.
+* *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**. Devices that connect over the MQTT protocol cannot abandon cloud-to-device messages.
 
 A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
 

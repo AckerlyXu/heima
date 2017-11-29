@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/24/2017
-ms.date: 08/14/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
-
 # Monitor and diagnose services in a local machine development setup
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -67,4 +66,4 @@ The same tracing code that you added to your application above for local diagnos
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
 * [Event aggregation and collection using EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties -->

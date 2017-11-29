@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/02/2017
-ms.date: 08/14/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -99,7 +99,7 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready, you can publish the application to a remote cluster or check in the solution to source control.
 7. Go to the end of this article to see how to view your guest executable service running in Service Fabric Explorer.
 
-## Use Yoeman to package and deploy an existing executable on Linux
+## Use Yeoman to package and deploy an existing executable on Linux
 
 The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
 
@@ -120,8 +120,7 @@ The process of manually packaging a guest executable is based on the following g
 4. Edit the application manifest file.
 
 <!--
-> [!NOTE]
-> We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
 -->
 
 ### Create the package directory structure
@@ -354,4 +353,4 @@ In this article, you have learned how to package a guest executable and deploy i
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
 * [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

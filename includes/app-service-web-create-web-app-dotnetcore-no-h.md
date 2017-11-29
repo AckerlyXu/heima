@@ -1,0 +1,32 @@
+Create a [web app](../articles/app-service/containers/app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create
+) command. 
+
+In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `dotnetcore|1.1`. To see all supported runtimes, run [az webapp list-runtimes](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
+```
+
+When the web app has been created, the Azure CLI shows output similar to the following example:
+
+```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.chinacloudsites.cn",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+You’ve created an empty web app in a Linux container, with git deployment enabled.
+
+> [!NOTE]
+> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git`. Save this URL as you'll need it later.
+>

@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/03/2017
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
----
 
+---
 # Examples of implementing Azure enterprise scaffold
 This topic provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](resource-manager-subscription-governance.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
 
@@ -67,7 +67,8 @@ Dave has the following requirements for managing resources in the subscription:
 * He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.  
 * Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
-He creates the following [Resource Manager policies](resource-manager-policy.md):
+He creates the following Azure policies:
+<!--Not Available on (../azure-policy/azure-policy-introduction.md) -->
 
 | Field | Effect | Description |
 | --- | --- | --- |
@@ -197,4 +198,4 @@ To fulfill these requirements, Dave enables Azure Security Center. He ensures th
 ## Next steps
 * To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](resource-manager-template-best-practices.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update -->

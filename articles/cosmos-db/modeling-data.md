@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2016
-ms.date: 07/17/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -69,7 +69,7 @@ Now let's take a look at how we would model the same data as a self-contained en
             }
         ],
         "contactDetails": [
-            {"email: "thomas@andersen.com"},
+            {"email": "thomas@andersen.com"},
             {"phone": "+1 555 555-5555", "extension": 5555}
         ] 
     }
@@ -393,3 +393,5 @@ Just as there is no single way to represent a piece of data on a screen, there i
 To learn more about Azure Cosmos DB, refer to the service's [documentation](/cosmos-db/) page. 
 
 To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](documentdb-partition-data.md).
+
+<!-- Update_Description: wording update -->

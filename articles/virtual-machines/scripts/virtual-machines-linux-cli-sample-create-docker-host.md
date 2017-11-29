@@ -66,15 +66,15 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also specifies the virtual machine image to be used, and administrative credentials.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/vm#az_vm_open_port) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Adds and runs a virtual machine extension to a VM. In this sample, the Docker VM extension is used to configure a Docker host.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group, including all nested resources. |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also specifies the virtual machine image to be used, and administrative credentials.  |
+| [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
+| [azure vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | Adds and runs a virtual machine extension to a VM. In this sample, the Docker VM extension is used to configure a Docker host.|
+| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | Deletes a resource group, including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -51,9 +51,9 @@ You can complete the task using one of the following CLI versions:
 
 To create a virtual network using the Azure CLI 2.0, complete the following steps:
 
-1. Install and configure the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) and log in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
+1. Install and configure the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
-2. Create a resource group for your VNet using the [az group create](https://docs.microsoft.com/cli/azure/group#create) command with the `--name` and `--location` arguments:
+2. Create a resource group for your VNet using the [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) command with the `--name` and `--location` arguments:
 
     ```azurecli
     az group create --name TestRG --location chinaeast
@@ -111,7 +111,7 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
     - `--subnet-name FrontEnd`: The name of the subnet.
     - `--subnet-prefix 192.168.1.0/24`: The address prefix and block.
 
-    To list the basic information to use in the next command, you can query the VNet using a [query filter](https://docs.microsoft.com/cli/azure/query-az-cli2):
+    To list the basic information to use in the next command, you can query the VNet using a [query filter](https://docs.azure.cn/zh-cn/cli/query-az-cli2?view=azure-cli-latest):
 
     ```azurecli
     az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table

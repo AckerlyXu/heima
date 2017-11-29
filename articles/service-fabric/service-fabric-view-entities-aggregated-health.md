@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -33,9 +33,9 @@ To demonstrate these options, let's use a local cluster with five nodes and the 
 
 ```xml
 <Service Name="WordCountService">
-    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="3">
-      <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
-    </StatefulService>
+  <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
+    <UniformInt64Partition PartitionCount="[WordCountService_PartitionCount]" LowKey="1" HighKey="26" />
+  </StatefulService>
 </Service>
 ```
 

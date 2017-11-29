@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/06/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 11/13/2017
 ms.date: ''
 ---
 # Migrate ExpressRoute associated virtual networks from classic to Resource Manager
@@ -72,8 +72,9 @@ This section describes the steps to be followed to migrate a virtual network, ga
 4. Validate, prepare, and migrate. To move the virtual network, use the following PowerShell snippet:
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   You can also abort migration by running the following PowerShell cmdlet:

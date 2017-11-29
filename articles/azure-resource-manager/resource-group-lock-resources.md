@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 08/21/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
----
 
+---
 # Lock resources to prevent unexpected changes 
 As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. 
 You can set the lock level to **CanNotDelete** or **ReadOnly**. 
@@ -107,7 +107,7 @@ Azure PowerShell provides other commands for working locks, such as [Set-AzureRm
 
 ## Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](https://docs.microsoft.com/cli/azure/lock#create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -124,7 +124,7 @@ az lock create --name LockGroup --lock-type CanNotDelete \
   --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](https://docs.microsoft.com/cli/azure/lock#list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list
@@ -143,7 +143,7 @@ To get all locks for a resource group, use:
 az lock list --resource-group exampleresourcegroup
 ```
 
-Azure CLI provides other commands for working locks, such as [az lock update](https://docs.microsoft.com/cli/azure/lock#update) to update a lock, and [az lock delete](https://docs.microsoft.com/cli/azure/lock#delete) to delete a lock.
+Azure CLI provides other commands for working locks, such as [az lock update](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#update) to update a lock, and [az lock delete](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#delete) to delete a lock.
 
 ## REST API
 You can lock deployed resources with the [REST API for management locks](https://docs.microsoft.com/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and 
@@ -168,7 +168,7 @@ In the request, include a JSON object that specifies the properties for the lock
 * For more information about working with resource locks, see [Lock Down Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+<!-- Not Available * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
 <!--Update_Description: update meta properties, wording update-->

@@ -10,11 +10,11 @@ tags: azure-resource-manager
 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/17/2017
-ms.date: 09/04/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 
 ---
@@ -99,4 +99,4 @@ If the virtual network is stuck in a migration state, it cannot be deleted. Run 
 - [Azure Virtual Network](virtual-networks-overview.md)
 - [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
 
-<!--Update_Description: wording update, add feature on check vm enable in ADD-->
+<!--Update_Description: update meta properties-->

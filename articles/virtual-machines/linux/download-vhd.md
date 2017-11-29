@@ -25,7 +25,7 @@ In this article, you learn how to download a [Linux virtual hard disk (VHD)](abo
 
 Virtual machines (VMs) in Azure use [disks](../windows/managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) as a place to store an operating system, applications, and data. All Azure VMs have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is initially created from an image, and both the operating system disk and the image are VHDs stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
 
-If you haven't already done so, install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+If you haven't already done so, install [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -43,7 +43,7 @@ To use the VHD as an image to create other VMs, complete these steps:
     exit 
     ```
 
-2. Sign in to your Azure account with [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Sign in to your Azure account with [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 3. Stop and deallocate the VM.
 
     ```azurecli

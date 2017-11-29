@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
+origin.date: 10/31/2017
+ms.date: 11/22/2017
 ms.author: v-junlch
 
 ---
@@ -289,7 +289,7 @@ If you choose the Stored Procedure option, Export requires three different Store
 - **Add SP Name**: This SP runs if any object comes to connector for insertion in the respective table.
 - **Update SP Name**: This SP runs if any object comes to connector for update in the respective table.
 - **Delete SP Name**: This SP runs if any object comes to connector for deletion in the respective table.
-- Attribute selected from the schema used as a parameter value to the stored procedure. For example, `EmployeeName: INPUT: @EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
+- Attribute selected from the schema used as a parameter value to the stored procedure. For example, `@EmployeeName: INPUT: EmployeeName` (EmployeeName is selected in the connector schema and the connector replaces the respective value while doing export)
 - To run parameterized stored procedure, provide parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 
 **SQL query**  
@@ -305,4 +305,4 @@ If you choose the SQL query option, Export requires three different queries to p
 ## Troubleshooting
 - For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

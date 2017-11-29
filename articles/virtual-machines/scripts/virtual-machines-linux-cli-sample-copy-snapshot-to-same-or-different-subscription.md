@@ -78,7 +78,7 @@ This script uses following commands to create a snapshot in the target subscript
 
 [Create a virtual machine from a snapshot](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 

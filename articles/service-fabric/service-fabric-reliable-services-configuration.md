@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 6/29/2017
-ms.date: 08/21/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 ---
 # Configure stateful reliable services
@@ -185,4 +185,4 @@ possible should specify the same shared log. Shared log files should be placed o
 * [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
 * [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!--Update_Description: update meta properties， update link-->
+<!--Update_Description: update meta properties -->

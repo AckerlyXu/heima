@@ -13,10 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 04/10/2017
-origin.date: 08/28/2017
-ms.date: ''
-ms.date: 10/23/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-yeche
 
 ---
@@ -495,4 +493,5 @@ Now that you've learned the basics of Table storage, follow these links to learn
 [dotnet_TableQuery]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablequery.aspx
 [dotnet_TableResult]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.aspx
 [dotnet_TableResult_Result]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableresult.result.aspx
-<!--Update_Description: update link-->
+
+<!-- Update_Description: update meta properties -->

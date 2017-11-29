@@ -25,7 +25,7 @@ Each virtual machine (VM) in Azure is created from an image that defines the Lin
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
+Create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroup* in the *chinaeast* location:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -37,7 +37,7 @@ az group create -n myResourceGroup -l chinaeast
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
-Create a service principal with [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp#create-for-rbac) and output the credentials that Packer needs:
+Create a service principal with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) and output the credentials that Packer needs:
 
 ```azurecli
 az ad sp create-for-rbac --query [appId,password,tenant]
@@ -51,7 +51,7 @@ An example of the output from the preceding commands is as follows:
 "72f988bf-86f1-41af-91ab-2d7cd011db47"
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](https://docs.microsoft.com/cli/azure/account#show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#show):
 
 ```azurecli
 az account show --query [id] --output tsv
@@ -195,7 +195,7 @@ ManagedImageLocation: chinaeast
 
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
 
 ```azurecli
 az vm create \
@@ -208,7 +208,7 @@ az vm create \
 
 It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 
-To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port):
+To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port):
 
 ```azurecli
 az vm open-port \

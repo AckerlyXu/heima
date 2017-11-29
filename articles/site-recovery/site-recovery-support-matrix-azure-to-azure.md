@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 08/31/2017
-ms.date: 10/02/2017
+ms.date: 11/20/2017
 ms.author: v-yeche
 
 ---
@@ -74,11 +74,13 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+<!-- Not Available - Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3 -->
 - CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
 - Ubuntu 14.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS Server [ (supported kernel versions)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)
+- Debian 7
+- Debian 8
+<!-- Not Available - Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)-->
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
@@ -174,6 +176,6 @@ VNET to VNET connection	| Supported | Refer to [networking guidance document.](s
 
 ## Next steps
 - Learn more about [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md)
-<!-- Not Available [replicating Azure VMs](site-recovery-azure-to-azure.md) -->
+- Start protecting your workloads by [replicating Azure VMs](site-recovery-azure-to-azure.md)
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties, update reference link, wording update -->

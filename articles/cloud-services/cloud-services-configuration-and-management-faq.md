@@ -91,9 +91,6 @@ To set up a static IP address, you need to create a reserved IP. This reserved I
 * [Associate a reserved IP to a running deployment](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
 * [Associate a reserved IP to a cloud service by using a service configuration file](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-## What is the quota limit for my cloud service?
-See [Service-specific limits](../azure-subscription-service-limits.md#subscription-limits).
-
 ## Why does the drive on my cloud service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %uproot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
 

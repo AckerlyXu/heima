@@ -10,11 +10,11 @@ editor: 'vturecek'
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: quickstart
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/05/2017
-ms.date: 10/02/2017
+origin.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -34,7 +34,7 @@ Using this quickstart you learn how to:
 > * Deploy the container application to Azure
 
 ## Prerequisites
-* An Azure subscription (you can create a [free account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)).
+* An Azure subscription (you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)).
 * A development computer running:
   * Visual Studio 2015 or Visual Studio 2017.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
@@ -48,7 +48,7 @@ Select **Service Fabric application**, name it "MyFirstContainer", and click **O
 
 Select **Container** from the list of **service templates**.
 
-In **Image Name**, enter "nanoserver/iis", the [Windows Server 2016 Nano Server and IIS base image](https://hub.docker.com/r/nanoserver/iis/). 
+In **Image Name**, enter "microsoft/iis:nanoserver", the [Windows Server Nano Server and IIS base image](https://hub.docker.com/r/microsoft/iis/). 
 
 Name your service "MyContainerService", and click **OK**.
 
@@ -65,6 +65,7 @@ Configure the container port-to-host port mapping by specifying a `PortBinding` 
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -91,7 +92,7 @@ Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**
 
 ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the party cluster, the Connection Endpoint is provided in the browser - for example, `winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`.
+Type in the connection endpoint of the cluster in the **Connection Endpoint** field. When signing up for the party cluster, the connection endpoint is provided in the browser - for example, `winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`.  Click **Publish** and the application deploys.
 
 Open a browser and navigate to http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
@@ -118,7 +119,7 @@ Here are the complete service and application manifests used in this quickstart.
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -197,4 +198,4 @@ In this quickstart, you learned how to:
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
 
-<!--Update_Description: new articles on service fabric quickstart via using container -->
+<!--Update_Description: wording update -->

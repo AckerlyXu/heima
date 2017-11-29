@@ -153,7 +153,7 @@
 #### [Native module host](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Reference
-## [Azure CLI](https://doc.microsoft.com/cli/azure/iot)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/iot?view=azure-cli-latest)
 ## [.NET (Service)](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](https://doc.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service)

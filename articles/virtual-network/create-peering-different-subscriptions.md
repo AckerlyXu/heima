@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 10/23/2017
+ms.date: 11/06/2017
 ms.author: v-yeche
 
 ---
@@ -103,7 +103,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 The following script:
 
-- Requires the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Requires the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 - Works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -181,7 +181,7 @@ Any Azure resources you create in either virtual network are now able to communi
 
 This tutorial uses different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of Azure, and remove the lines of script that create user role assignments. Replace UserA@azure.com and UserB@azure.com in all of the following scripts with the usernames you're using for UserA and UserB.
 
-1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, see [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, log in to Azure as UserA by entering the `login-azurermaccount` command. The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 4. Create a resource group and virtual network A. Copy the following script to a text editor on your PC. Replace `<SubscriptionA-Id>` with the ID of SubscriptionA. If you don't know your subscription Id, enter the `Get-AzureRmSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. To execute the script, copy the modified script, paste it in to PowerShell, and then press `Enter`.
@@ -343,4 +343,4 @@ When you've finished this tutorial, you might want to delete the resources you c
 - Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
 - Learn how to [create a hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering.
 
-<!--Update_Description: add new feature on Register for the Global VNet Peering preview  -->
+<!--Update_Description: wording update -->

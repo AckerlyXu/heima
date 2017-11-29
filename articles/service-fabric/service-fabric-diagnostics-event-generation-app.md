@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/26/2017
-ms.date: 07/17/2017
+origin.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: v-yeche
 
 ---
@@ -175,3 +175,5 @@ If your application relies on high performance, **EventSource** is usually a goo
 ## Next steps
 
 Once you have chosen your logging provider to instrument your applications and services, your logs and events need to be aggregated before they can be sent to any analysis platform. Read about [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) and [WAD](service-fabric-diagnostics-event-aggregation-wad.md) to better understand some of the recommended options.
+
+<!--Update_Description: update meta properties-->

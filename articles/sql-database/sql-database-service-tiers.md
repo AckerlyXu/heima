@@ -69,7 +69,6 @@ For details on specific performance levels and storage size choices available, s
 
 - Learn about [Single database resources](sql-database-single-database-resources.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
-- Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 * Learn more about [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
 * Learn about monitoring DTU usage, see [Monitoring and performance tuning](sql-database-troubleshoot-performance.md).
 

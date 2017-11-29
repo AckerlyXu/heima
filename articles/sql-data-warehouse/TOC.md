@@ -8,9 +8,9 @@
 # Get Started
 
 ## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+## [Elastic Query tutorial](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
-
 
 # How To
 
@@ -19,7 +19,7 @@
 ### [Backup Overview](sql-data-warehouse-backups.md)
 ### [Restore Overview](sql-data-warehouse-restore-database-overview.md)
 #### [Azure portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Connect
@@ -33,7 +33,7 @@
 
 ## Create
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Develop
@@ -78,6 +78,8 @@
 <!-- Not Available ### [Power BI](sql-data-warehouse-integrate-power-bi.md)-->
 <!-- Not Available ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)-->
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Elastic Query with SQL Database and SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Load
 
@@ -146,11 +148,10 @@
 
 # Resources
 
-## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
 <!-- Not Available ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse)-->
 <!-- Not Available ## Partners -->

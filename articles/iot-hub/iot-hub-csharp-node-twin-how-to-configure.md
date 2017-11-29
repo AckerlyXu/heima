@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/30/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 11/20/2017
 ---
 # Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -34,7 +34,7 @@ To complete this tutorial you need the following:
 
 + Visual Studio 2015 or Visual Studio 2017.
 
-+ Node.js version 0.10.x or later.
++ Node.js version 4.0.x or later.
 
 + An active Azure account. If you don't have an account, you can create a [trial account][lnk-free-trial] in just a couple of minutes.
 

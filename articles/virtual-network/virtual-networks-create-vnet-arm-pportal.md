@@ -58,7 +58,7 @@ To create the second subnet, in the **Search resources** box at the top of the p
 Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The script in the following steps executes in a Bash shell. 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-1. [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+1. [Install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 <!-- Not Available  Azure Cloud Shell.-->
 2. If running the CLI locally, log in to Azure with the `az cloud set -n AzureChinaCloud` and `az login` command.
 3. Review the following script and its comments. In your browser, copy the script and paste it into your CLI session:
@@ -165,7 +165,7 @@ Optional steps after you deploy the template:
 
 ### <a name="template-cli"></a>Azure CLI
 
-1. [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
+1. [Install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 2. If running the CLI locally, log in to Azure with the `az cloud set -n AzureChinaCloud' and 'az login` command.
 3. To create a resource group for the virtual network, copy the following command and paste it into your CLI session:
 
