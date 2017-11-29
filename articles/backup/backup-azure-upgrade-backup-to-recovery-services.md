@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/03/2017
-ms.date: 10/31/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 
 ---
@@ -112,7 +112,7 @@ When the enhanced security is turned on, data is retained up to 14 days after th
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **If I don’t plan on upgrading soon, what happens to my vaults?**</br>
-Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the Classic Management Portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. By November 1, 2017, Microsoft will complete the upgrade process. Your vault can be automatically upgraded any time during September or October. Microsoft recommends you upgrade your vault as soon as possible.
+Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the Classic Management Portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. After November 30,2017, you can no longer create Backup vaults using PowerShell. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
 
 **What does this upgrade mean for my existing tooling?**</br>
 Update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 

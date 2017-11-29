@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 10/31/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 ---
 
@@ -65,6 +65,11 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
 
 ## The specified Disk configuration is not supported
+
+> [!NOTE]
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
 
 Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - If you have disks greater than 1 TB , [attach new disks](/virtual-machines/windows/attach-managed-disk-portal) which are less than 1 TB <br>
