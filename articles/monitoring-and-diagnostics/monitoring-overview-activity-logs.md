@@ -78,7 +78,7 @@ Once you have defined a set of filters, you can save it as a query that is persi
 
 Clicking "Apply" runs your query and show all matching events. Clicking on any event in the list shows the summary of that event as well as the full raw JSON of that event.
 
-## <a name="export-the-activity-log-with-log-profiles"></a> Export the Activity Log with a Log Profile
+## <a name="export-the-activity-log-with-a-log-profile"></a> Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
 
 * Where the Activity Log should be sent (Storage Account or Event Hubs)
