@@ -248,7 +248,7 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 
   * [SAS Getting Started Tutorial](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
-## Encryption in Transit
+## <a name="encryption-in-transit"></a>Encryption in Transit
 ### Transport-Level Encryption - Using HTTPS
 Another step you should take to ensure the security of your Azure Storage data is to encrypt the data between the client and Azure Storage. The first recommendation is to always use the [HTTPS](https://en.wikipedia.org/wiki/HTTPS) protocol, which ensures secure communication over the public Internet.
 
@@ -256,7 +256,7 @@ To have a secure communication channel, you should always use HTTPS when calling
 
 You can enforce the use of HTTPS when calling the REST APIs to access objects in storage accounts by enabling [Secure transfer required](../storage-require-secure-transfer.md) for the storage account. Connections using HTTP will be refused once this is enabled.
 
-### Using encryption during transit with Azure File shares
+### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Using encryption during transit with Azure File shares
 Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop.
 
 Note that while Azure File shares can be used with Unix, the Linux SMB client does not yet support encryption, so access is only allowed within an Azure region. Encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. When they add encryption, you will have the same ability for accessing an Azure File share on Linux as you do for Windows.
@@ -273,12 +273,12 @@ You can enforce the use of encryption with the Azure Files service by enabling [
 
   This article shows how to mount an Azure File share on a Linux system and upload/download files.
 
-### Using Client-side encryption to secure data that you send to storage
+### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Using Client-side encryption to secure data that you send to storage
 Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
 
 Client-side encryption is also a method for encrypting your data at rest, as the data is stored in its encrypted form. We'll talk about this in more detail in the section on [Encryption at Rest](#encryption-at-rest).
 
-## Encryption at Rest
+## <a name="encryption-at-rest"></a>Encryption at Rest
 There are three Azure features that provide encryption at rest. Azure Disk Encryption is used to encrypt the OS and data disks in IaaS Virtual Machines. The other two - Client-side Encryption and SSE - are both used to encrypt data in Azure Storage. Let's look at each of these, and then do a comparison and see when each one can be used.
 
 While you can use Client-side Encryption to encrypt the data in transit (which is also stored in its encrypted form in Storage), you may prefer to simply use HTTPS during the transfer, and have some way for the data to be automatically encrypted when it is stored. There are two ways to do this -- Azure Disk Encryption and SSE. One is used to directly encrypt the data on OS and data disks used by VMs, and the other is used to encrypt data written to Azure Blob Storage.
@@ -315,7 +315,7 @@ For the encryption itself, you can generate and manage your own encryption keys.
 
   This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
 
-### Using Azure Disk Encryption to encrypt disks used by your virtual machines
+### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Using Azure Disk Encryption to encrypt disks used by your virtual machines
 Azure Disk Encryption is a new feature. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
 
 The solution supports the following scenarios for IaaS VMs when they are enabled in Azure:
