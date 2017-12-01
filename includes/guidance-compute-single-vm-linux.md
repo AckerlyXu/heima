@@ -65,7 +65,7 @@ sudo mkdir /data1
 sudo mount /dev/sdc1 /data1
 ```
 
-If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
+If you have a large number of data disks, be aware of the total I/O limits of the storage account. 
 
 When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an application that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
@@ -199,11 +199,9 @@ For higher availability, deploy two or more VMs behind a load balancer.
 [select-vm-image]:../articles/virtual-machines/linux/cli-ps-findimage.md
 [ssh-linux]:../articles/virtual-machines/linux/mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
-[storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
 [storage-price]: https://www.azure.cn/pricing/details/storage/
 [virtual-machine-sizes]:../articles/virtual-machines/linux/sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]:../articles/virtual-machines/linux/change-vm-size.md
 [vm-size-tables]:../articles/virtual-machines/windows/sizes.md#size-tables
 [vm-sla]: https://www.azure.cn/support/sla/virtual-machines

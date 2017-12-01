@@ -199,6 +199,4 @@ For more information on how Azure uses the temporary disk, see [Understanding th
 * [Storage cost](https://www.azure.cn/pricing/details/storage/)
 * [Storage cost calculator](https://www.azure.cn/pricing/calculator/)
 
-## Storage limits
-* [Storage Service limits](../../azure-subscription-service-limits.md#storage-limits)
 <!--Update_Description: update scripts for managed disks-->

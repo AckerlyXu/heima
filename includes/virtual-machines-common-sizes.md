@@ -186,5 +186,3 @@ In the classic deployment model, some VM size names are slightly different in CL
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-## Next steps
-* Learn about [azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).

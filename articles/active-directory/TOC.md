@@ -76,8 +76,6 @@
 ##### [PowerShell](./role-based-access-control-manage-access-powershell.md)
 ##### [REST](./role-based-access-control-manage-access-rest.md)
 #### [Troubleshoot](./role-based-access-control-troubleshooting.md)
-### [Configure token lifetimes](./active-directory-configurable-token-lifetimes.md)
-
 
 ## [Deploy on Azure VMs](./virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory on Azure VMs](./active-directory-deploying-ws-ad-guidelines.md)
@@ -93,7 +91,6 @@
 ## [PowerShell cmdlets](http://docs.microsoft.com/powershell/ )
 ## [Java API Reference](/java/api/overview)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Service limits and restrictions](./active-directory-service-limits-restrictions.md)
 
 # Related
 ## [Multi-Factor Authentication](/multi-factor-authentication/)

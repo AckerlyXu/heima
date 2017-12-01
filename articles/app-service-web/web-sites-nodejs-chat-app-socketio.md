@@ -170,7 +170,7 @@ You can connect to your web app from multiple browsers or computers to verify th
 
 ## Troubleshooting
 ### Connection limits
-Azure Web Apps is available in multiple SKUs, which determine the resources available to your site. This includes the number of allowed WebSocket connections. For more information, see the [Web Apps Pricing page].
+Azure Web Apps is available in multiple SKUs, which determine the resources available to your site. This includes the number of allowed WebSocket connections. 
 
 ### Messages aren't being sent using WebSockets
 If client browsers keep falling back to long polling instead of using WebSockets, it may be because of one of the following.
@@ -278,7 +278,6 @@ For more information, see also the [Node.js Developer Center].
 
 [Azure Redis Cache]: /redis-cache/
 [App Service Web Apps]: /app-service-web/app-service-changes-existing-services
-[Web Apps Pricing page]: /azure-subscription-service-limits
 [Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
 [Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Azure App Service and Its Impact on Existing Azure Services]: /app-service-web/app-service-changes-existing-services

@@ -20,6 +20,7 @@ ms.author: v-nany
 ---
 # Azure Storage Scalability and Performance Targets
 ## Overview
+
 This article describes the scalability and performance topics for Azure Storage. For a summary of other Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
@@ -57,6 +58,7 @@ If the needs of your application exceed the scalability targets of a single stor
 
 ## See Also
 * [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)
+
 * [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
 * [Azure Storage Replication](../storage-redundancy.md)
 * [Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)

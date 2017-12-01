@@ -107,5 +107,4 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 - Learn about service tiers, performance levels, and storage amounts, see [Service tiers](sql-database-service-tiers.md).
 - Learn about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
-- Learn about [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 <!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

@@ -64,7 +64,7 @@ Yes. Any solution that exists today continues to work in your Azure subscription
 
 ### How many IoT Hub instances can I provision in a subscription?
 
-By default you can provision [10 IoT hubs per subscription](../azure-subscription-service-limits.md#iot-hub-limits). You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription.
+By default you can provision 10 IoT hubs per subscription. You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to 10 preconfigured solutions in a given subscription.
 
 ### How many Azure Cosmos DB instances can I provision in a subscription?
 
@@ -91,7 +91,6 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-predictive-overview]: ./iot-suite-predictive-overview.md
 [lnk-security-groundup]: ./securing-iot-ground-up.md
 [link-azuresupportticket]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
-[link-azuresublimits]: ../azure-subscription-service-limits.md#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.cn
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk-classic-portal]: https://manage.windowsazure.cn

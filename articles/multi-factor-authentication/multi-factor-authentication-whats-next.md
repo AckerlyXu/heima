@@ -3,9 +3,8 @@ title: Configure Azure MFA | Microsoft Docs
 description: This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
-manager: femila
-editor: yossib
+author: alexchen2016
+manager: digimobile
 
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
@@ -13,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/21/2017
+origin.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
+ms.reviewer: richagi
 
 ---
 # Configure Azure Multi-Factor Authentication settings
@@ -38,12 +38,14 @@ When your users enroll their accounts for MFA, they choose their preferred verif
 | Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every thirty seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### How to enable/disable authentication methods
-1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn/).
-2. On the left, click Active Directory.
-3. Under Active Directory, click on the directory you wish to enable or disable authentication methods.
-4. On the Directory you have selected, click Configure.
-5. In the multi-factor authentication section, click Manage service settings.
-6. On the Service Settings page, under verification options, select/unselect the options you wish to use.</br></br>
+1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
+2. On the left, select **Active Directory**.
+3. Select the directory you want to manage. 
+4. Select **Configure**
+5. Under Multi-Factor Authentication, select **Manage service settings**.
+6. On the Service Settings page, under verification options, select/unselect the options you wish to use.
    ![Verification options](./media/multi-factor-authentication-whats-next/authmethods.png)
 7. Click **Save**.
 8. Click **Close**.
+
+<!--Update_Description: wording update -->
