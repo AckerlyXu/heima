@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -31,10 +31,8 @@ The most frequently used and recommended upgrade approach is the monitored rolli
 
 A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST. For instructions on performing an upgrade using Visual Studio, see [Upgrading your application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-With Service Fabric monitored rolling upgrades, the application administrator can configure the health evaluation policy that Service Fabric uses to determine if the application is healthy. In addition, the administrator can configure the action to be taken when the health evaluation fails (for example, doing an automatic rollback.) This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell. The following Microsoft Virtual Academy video also walks you through an app upgrade:
-<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+With Service Fabric monitored rolling upgrades, the application administrator can configure the health evaluation policy that Service Fabric uses to determine if the application is healthy. In addition, the administrator can configure the action to be taken when the health evaluation fails (for example, doing an automatic rollback.) This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell.
+<!-- Not Avaialble on MVA VEDIO -->
 
 ## Step 1: Build and deploy the Visual Objects sample
 Build and publish the application by right-clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command.  For more information, see [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md).  Alternatively, you can use PowerShell to deploy your application.
@@ -44,7 +42,7 @@ Build and publish the application by right-clicking on the application project, 
 > 
 > 
 
-After building the project in Visual Studio, you can use the PowerShell command [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) to copy the application package to the ImageStore. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. The next step is to register the application to the Service Fabric runtime using the [Register-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. The final step is to start an instance of the application by using the [New-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  These three steps are analogous to using the **Deploy** menu item in Visual Studio.
+After building the project in Visual Studio, you can use the PowerShell command [Copy-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) to copy the application package to the ImageStore. If you want to verify the app package locally, use the [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. The next step is to register the application to the Service Fabric runtime using the [Register-ServiceFabricApplicationType](https://docs.microsoft.com/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. The following step is to start an instance of the application by using the [New-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  These three steps are analogous to using the **Deploy** menu item in Visual Studio.  Once provisioning is completed, you should clean up the copied application package from the image store in order to reduce the resources consumed.  If an application type is no longer required, it should be unregistered for the same reason. See [Deploy and remove applications using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) for more information.
 
 Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, you can use [Get-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) to check the application status.
 
@@ -145,4 +143,4 @@ Learn how to use advanced functionality while upgrading your application by refe
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md).
 
-<!--Update_Description: add cmdlet of Remove-ServiceFabricApplicationPackage -->
+<!--Update_Description: Update meta properties, wording update -->

@@ -13,9 +13,10 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/29/2017
-ms.date: 10/02/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
 # Get started with Reliable Services
 > [!div class="op_single_selector"]
@@ -176,4 +177,4 @@ $ ./install.sh
 
 * [Getting started with Service Fabric CLI](service-fabric-cli.md)
 
-<!--Update_Description: update meta properties, add reference feature on deploy with service fabric CLI  -->
+<!--Update_Description: update meta properties -->

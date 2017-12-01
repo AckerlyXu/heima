@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
 # Getting started with Reliable Actors
 > [!div class="op_single_selector"]
@@ -146,4 +147,4 @@ Learn more about [how Reliable Actors use the Service Fabric platform](service-f
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

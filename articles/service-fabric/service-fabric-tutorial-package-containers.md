@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/12/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -215,7 +215,7 @@ To deploy the application to a cluster in Azure, use your own cluster, or use a 
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. It is maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
-For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## Build and deploy the application to the cluster
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it. 
@@ -223,7 +223,7 @@ You can deploy the application the Azure cluster using the Service Fabric CLI. I
 Connect to the Service Fabric cluster in Azure.
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.chinanorth.chinacloudapp.cn:19080
+sfctl cluster select --endpoint http://lin4hjim3l4.chinanorth.cloudapp.chinacloudapi.cn:19080
 ```
 
 Use the install script provided in the **TestContainer** directory to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -232,11 +232,11 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://lin4hjim3l4.chinanorth.chinacloudapp.cn:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at http://lin4hjim3l4.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
-In order to connect to the running application, open a web browser and go to the cluster url - for example http://lin0823ryf2he.chinacloudapp.cn:80. You should see the Voting application in the web UI.
+In order to connect to the running application, open a web browser and go to the cluster url - for example http://lin0823ryf2he.cloudapp.chinacloudapi.cn:80. You should see the Voting application in the web UI.
 
 ![votingapp][votingapp]
 
@@ -371,4 +371,4 @@ Advance to the next tutorial to learn about failover and scaling of the applicat
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
 
-<!--Update_Description: new articles on service fabric package container -->
+<!--Update_Description: update link -->

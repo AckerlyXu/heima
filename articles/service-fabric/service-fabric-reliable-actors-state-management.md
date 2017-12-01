@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
 # Reliable Actors state management
 Reliable Actors are single-threaded objects that can encapsulate both logic and state. Because actors run on Reliable Services, they can maintain state reliably by using the same persistence and replication mechanisms that Reliable Services uses. This way, actors don't lose their state after failures, upon reactivation after garbage collection, or when they are moved around between nodes in a cluster due to resource balancing or upgrades.
@@ -38,7 +39,6 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 class MyActorImpl  extends FabricActor implements MyActor
@@ -54,7 +54,6 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.Volatile)
 class MyActorImpl extends FabricActor implements MyActor
@@ -70,7 +69,6 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
-
 ```Java
 @StatePersistenceAttribute(statePersistence = StatePersistence.None)
 class MyActorImpl extends FabricActor implements MyActor
@@ -329,7 +327,6 @@ interface MyActor {
 ```
 
 ### Removing state
-
 You can remove state permanently from an actor's state manager by calling the *Remove* method. This method throws `KeyNotFoundException`(C#) or `NoSuchElementException`(Java) when it tries to remove a key that doesn't exist.
 
 ```csharp
@@ -412,4 +409,4 @@ State that's stored in Reliable Actors must be serialized before its written to 
 
 Next, learn more about [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md).
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

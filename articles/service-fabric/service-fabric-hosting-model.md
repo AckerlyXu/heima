@@ -3,16 +3,17 @@ title: Azure Service Fabric Hosting Model | Azure
 description: Describes relationship between replicas (or instances) of a deployed Servic Fabric service and service-host process.
 services: service-fabric
 documentationcenter: .net
-author: harahma
-manager: timlt
+author: rockboyfor
+manager: digimobile
 
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/15/2017
-ms.author: v-johch
+origin.date: 04/15/2017
+ms.date: 12/04/2017
+ms.author: v-yeche
 
 ---
 # Service Fabric hosting model
@@ -23,7 +24,7 @@ Before proceeding further, make sure that you are familiar with [Service Fabric 
 > [!NOTE]
 > In this article, for simplicity, unless explicitly mentioned:
 >
-> - All uses of word *replica* refers to both a replica of a stateful service or an instance of a statless service.
+> - All uses of word *replica* refers to both a replica of a stateful service or an instance of a stateless service.
 > - *CodePackage* is treated equivalent to *ServiceHost* process that registers a *ServiceType* and hosts replicas of services of that *ServiceType*.
 >
 
@@ -50,7 +51,7 @@ As we can see Service Fabric placed the new replica for partition **P3** of serv
 This time Service Fabric has activated a new copy of 'MyServicePackage' which starts a new copy of 'MyCodePackage' and replicas from both partitions of service **fabric:/App2/ServiceA** (i.e. **P4** & **P5**) are placed in this new copy 'MyCodePackage'.
 
 ## Shared process model
-What we saw above is the default hosting model provided by Service Fabric and is referred to as **Shared Process** model. In this model, for a given *application*, only one copy of a given *ServicePackage* is activated on a *Node* (which starts all the *CodePackages* contained in it) and all the replicas of all services of a given  *ServiceType* are placed in the *CodePackage* that registers that *ServiceType*. In other words, all the replicas of all services of a given *ServiceType* share the same process.
+What we saw above is the default hosting model provided by Service Fabric and is referred to as **Shared Process** model. In this model, for a given *application*, only one copy of a given *ServicePackage* is activated on a *Node* (which starts all the *CodePackages* contained in it) and all the replicas of all services of a given  *ServiceType* are placed in the *CodePackage* that registers that *ServiceType*. In other words, all the replicas of all services on a node of a given *ServiceType* share the same process.
 
 ## Exclusive process model
 The other hosting model provided by Service Fabric is **Exclusive Process** model. In this model, on a given *Node*, for placing each replica, Service Fabric activates a new copy of *ServicePackage* (which starts all the *CodePackages* contained in it) and replica is placed in the *CodePackage* that registered the *ServiceType* of the service to which replica belongs. In other words, each replica lives in its own dedicated process. 
@@ -93,16 +94,16 @@ Continuing with our example above, lets create another service **fabric:/App1/Se
 ![Node view of deployed application][node-view-four]
 </center>
 
-As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**) and placed each replica in its dedicated copy of *CodePackage*. Another thing to note here is, when **Exclusive Process** model is used, for a given *application*, multiple copies of a given *ServicePackage* can be active on a *Node*. In above example, we see that three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageAtivationId** associated with it which identifies that copy within *application* **fabric:/App1**.
+As you can see, Service Fabric activated two new copies of 'MyServicePackage' (one for each replica from partition **P6** & **P7**) and placed each replica in its dedicated copy of *CodePackage*. Another thing to note here is, when **Exclusive Process** model is used, for a given *application*, multiple copies of a given *ServicePackage* can be active on a *Node*. In above example, we see that three copies of 'MyServicePackage' are active for **fabric:/App1**. Each of these active copies of 'MyServicePackage' has a **ServicePackageActivationId** associated with it which identifies that copy within *application* **fabric:/App1**.
 
-When only **Shared Process** model is used for an *application*, like **fabric:/App2** in above example, there is only one active copy of *ServicePackage* on a *Node* and **ServicePackageAtivationId** for this activation of *ServicePackage* is 'empty string'.
+When only **Shared Process** model is used for an *application*, like **fabric:/App2** in above example, there is only one active copy of *ServicePackage* on a *Node* and **ServicePackageActivationId** for this activation of *ServicePackage* is 'empty string'.
 
 > [!NOTE]
->- **Shared Process** hosting model corresponds to **ServicePackageAtivationMode** equal **SharedProcess**. This is the default hosting model and **ServicePackageAtivationMode** need not be specified at the time of creating the service.
+>- **Shared Process** hosting model corresponds to **ServicePackageActivationMode** equal **SharedProcess**. This is the default hosting model and **ServicePackageActivationMode** need not be specified at the time of creating the service.
 >
->- **Exclusive Process** hosting model corresponds to **ServicePackageAtivationMode** equal **ExclusiveProcess** and need to be explicitly specified at the time of creating the service. 
+>- **Exclusive Process** hosting model corresponds to **ServicePackageActivationMode** equal **ExclusiveProcess** and need to be explicitly specified at the time of creating the service. 
 >
->- Hosting model of a service can be known by querying the [service description][p2] and looking at value of **ServicePackageAtivationMode**.
+>- Hosting model of a service can be known by querying the [service description][p2] and looking at value of **ServicePackageActivationMode**.
 >
 >
 
@@ -116,9 +117,9 @@ An active copy of a *ServicePackage* on a node is referred as [deployed service 
 >
 > - Under **Exclusive Process** hosting model, on a given *node*, for a given *application*, one or more copies of a *ServicePackage* can be active. Each activation has a *non-empty* **ServicePackageActivationId** and needs to be specified while performing deployed service package related operations. 
 >
-> - If **ServicePackageActivationId** is ommited it defaults to 'empty string'. If a deployed service package that was activated under **Shared Process** model is present, then operation will be performed on it, otherwise the operation will fail.
+> - If **ServicePackageActivationId** is omitted it defaults to 'empty string'. If a deployed service package that was activated under **Shared Process** model is present, then operation will be performed on it, otherwise the operation will fail.
 >
-> - It is not recommended to query once and cache **ServicePackageActivationId** as it is dynamically generated and can change for various reasons. Before performing an operation that needs **ServicePackageActivationId**, you should first query the list of [deployed service packages][p3] on a node and then use *ServicePackageActivationId** from query result to perform the original operation.
+> - It is not recommended to query once and cache **ServicePackageActivationId** as it is dynamically generated and can change for various reasons. Before performing an operation that needs **ServicePackageActivationId**, you should first query the list of [deployed service packages][p3] on a node and then use **ServicePackageActivationId** from query result to perform the original operation.
 >
 >
 
@@ -138,7 +139,7 @@ Both these hosting models have its pros and cons and user needs to evaluate whic
 ## Exclusive process model and application model considerations
 The recommended way to model your application in Service Fabric is to keep one *ServiceType* per *ServicePackage* and this model works well for most of the applications. 
 
-However, to enable special scenarios where one *ServiceType* per *ServicePackage* may not be desirable, functionally, Service Fabric allows to have more than one *ServiceType* per *ServicePackage* (and one *CodePackage* can register more than one *ServiceType*). Following are some of the scenarios where these configurations can be useful:
+Intended for certain use cases, Service Fabric also allows more than one *ServiceType* per *ServicePackage* (and one *CodePackage* can register more than one *ServiceType*). The following are some of the scenarios where these configurations can be useful:
 
 - You want to optimize OS resource utilization by spawning fewer processes and having higher replica density per process.
 - Replicas from different ServiceTypes need to share some common data that has a high initialization or memory cost.
@@ -163,7 +164,7 @@ On a given node, both the services will have two replicas each. Since we used **
 </center>
 
  As we can see, in the activation of 'MultiTypeServicePackge' for replica of partition **P1** of service **fabric:/SpecialApp/ServiceA**, 'MyCodePackageA' is hosting the replica and 'MyCodePackageB' is just up and running. Similarly, in activation of 'MultiTypeServicePackge' for replica of partition **P3** of service **fabric:/SpecialApp/ServiceB**, 'MyCodePackageB' is hosting the replica and 'MyCodePackageA' is just up and running and so on. Hence, more the number of *CodePackages* (registering different *ServiceTypes*) per *ServicePackage*, higher will be redundant resource usage. 
- 
+
  On the other hand if we create services **fabric:/SpecialApp/ServiceA** and **fabric:/SpecialApp/ServiceB** with **Shared Process** model, Service Fabric will activate only one copy of 'MultiTypeServicePackge' for *application* **fabric:/SpecialApp** (as we saw previously). 'MyCodePackageA' will host all replicas for service **fabric:/SpecialApp/ServiceA** (or of any service of type 'MyServiceTypeA' to be more precise) and 'MyCodePackageB' will host all replicas for service **fabric:/SpecialApp/ServiceB** (or of any service of type 'MyServiceTypeB' to be more precise). Following diagram shows the node view in this setting: 
 
 <center>
@@ -205,3 +206,5 @@ In the above example, you might think if 'MyCodePackageA' registers both 'MyServ
 [p6]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedservicetype
 [p7]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedreplica
 [p8]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedcodepackage
+
+<!-- Update_Description: wording update -->

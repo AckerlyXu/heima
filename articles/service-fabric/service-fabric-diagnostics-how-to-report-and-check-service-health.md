@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/19/2017
-ms.date: 09/11/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -150,4 +150,4 @@ activationContext.ReportApplicationHealth(healthInformation);
 * [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

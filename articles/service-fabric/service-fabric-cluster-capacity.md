@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/12/2017
-ms.date: 10/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -51,6 +51,7 @@ For a cluster with multiple node types, you need to choose one of them to be pri
 
 * The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 * The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take. 
+
 * The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
 
 ![Screen shot of a cluster that has two Node Types ][SystemServices]
@@ -89,6 +90,11 @@ You get to choose durability level for each of your node-types.You can choose on
 ### Recommendations on when to use Silver or Gold durability levels
 
 Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
+
+### Changing durability levels
+- Node types with durability levels of Silver or Gold cannot be downgraded to Bronze.
+- Upgrading from Bronze to Silver or Gold can take a few hours.
+- When changing durability level, be sure to update it in both the Service Fabric extension configuration in your VMSS resource, and in the node type definition in your Service Fabric cluster resource. These values must match.
 
 ### Operational Recommendations for the node type that you have set to silver or gold durability level.
 
@@ -205,4 +211,4 @@ Once you finish your capacity planning and set up a cluster, read the following:
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!--Update_Description: update meta properties, wording update, update reference link-->
+<!--Update_Description: add Changing durability levels content, wording update -->

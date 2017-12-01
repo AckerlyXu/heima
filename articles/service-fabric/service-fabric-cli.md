@@ -7,8 +7,8 @@ manager: digimobile
 
 ms.service: service-fabric
 ms.topic: get-started-article
-origin.date: 08/22/2017
-ms.date: 11/13/2017
+origin.date: 10/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=2)  | Latest (~=6.0)            |
+| Latest (~=3)  | Latest (~=6.0)            |
 | 1.1.0         | 5.6, 5.7                  |
 
 You can optionally specify a target version of the CLI to install by suffixing the `pip install` command with `==<version>`. For example, for version 1.1.0 the syntax would be:
@@ -40,6 +40,8 @@ pip install -I sfctl==1.1.0
 ```
 
 Replace the following `pip install` command with the previously mentioned command when necessary.
+
+For more information on Service Fabric CLI releases, see the [GitHub documentation](https://github.com/Azure/service-fabric-cli/releases).
 
 ## Install pip, Python, and the Service Fabric CLI
 
@@ -250,4 +252,4 @@ pip install sfctl
 * [Deploy an application with the Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Get started with Service Fabric on Linux](service-fabric-get-started-linux.md)
 
-<!--Update_Description: add content of Service Fabric target runtime-->
+<!--Update_Description: update meta properties, wording update -->

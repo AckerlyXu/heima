@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/05/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
 # Deploy and remove applications using FabricClient
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
@@ -40,7 +41,7 @@ After an application is deployed and an instance is running in the cluster, you 
 1. Remove (or delete) the running application instance
 2. Unregister the application type if you no longer need it
 
-If you use [Visual Studio for deploying and debugging applications](service-fabric-publish-app-remote-cluster.md) on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
+If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
 
 ## Connect to the cluster
 Connect to the cluster by creating a [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following:
@@ -340,4 +341,4 @@ static void Main(string[] args)
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: wording update, update link -->
