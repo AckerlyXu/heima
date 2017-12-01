@@ -3,7 +3,7 @@ title: Introduction to Azure Storage | Azure
 description: Introduction to Azure Storage, Microsoft's data storage in the cloud.
 services: storage
 documentationcenter: ''
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 
@@ -13,9 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/09/2017
-ms.date: 10/30/2017
-ms.author: v-johch
+origin.date: 11/10/2017
+ms.date: 12/04/2017
+ms.author: v-nany
 ---
 
 # Introduction to Azure Storage
@@ -78,7 +78,7 @@ For example, say you want your customers to be able to upload pictures, and you 
 
 ## Table storage
 
-Standard Azure Table Storage is now part of Cosmos DB. To see that documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). Also available is Premium Tables for Azure Table storage, offering throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables).
+Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
 
 ## Disk storage
 
@@ -299,4 +299,4 @@ To learn more about Azure Storage, explore these resources:
 * [Develop for Azure Files with Python](../files/storage-python-how-to-use-file-storage.md)
 * [How to use Table storage from Python](../../cosmos-db/table-storage-how-to-use-python.md)
 * [How to use Queue storage from Python](../storage-python-how-to-use-queue-storage.md)
-<!--Update_Description: update wording and links according to MVC-->
+<!--Update_Description: update wording -->
