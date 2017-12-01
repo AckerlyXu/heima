@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 08/07/2017
+origin.date: 11/08/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -31,7 +31,7 @@ Azure supports two types of queue mechanisms: **Storage queues** and **Service B
 While both queuing technologies exist concurrently, Storage queues were introduced first, as a dedicated queue storage mechanism built on top of Azure Storage services. Service Bus queues are built on top of the broader "messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
 ## Technology selection considerations
-Both Storage queues and Service Bus queues are implementations of the message queuing service currently offered on Azure. Each has a slightly different feature set, which means you can choose one or the other, or use both, depending on the needs of your particular solution or business/technical problem you are solving.
+Both Storage queues and Service Bus queues are implementations of the message queuing service currently offered by Azure. Each has a slightly different feature set, which means you can choose one or the other, or use both, depending on the needs of your particular solution or business/technical problem you are solving.
 
 When determining which queuing technology fits the purpose for a given solution, solution architects and developers should consider the recommendations below. For more details, see the next section.
 
@@ -219,10 +219,9 @@ The following articles provide more guidance and information about using Storage
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to Use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md)
 - [Best practices for performance improvements using Service Bus brokered messaging](./service-bus-performance-improvements.md)
-- [Introducing Queues and Topics in Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
+- [Introducing Queues and Topics in Azure Service Bus (blog post)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 - [Using the Queuing Service in Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-- [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.cn
 

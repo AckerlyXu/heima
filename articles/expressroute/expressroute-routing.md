@@ -3,7 +3,7 @@ title: Routing requirements for ExpressRoute | Azure
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationCenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ---
 # ExpressRoute routing requirements
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements:

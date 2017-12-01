@@ -2,25 +2,25 @@
 title: How to update a cloud service | Azure
 description: Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability.
 services: cloud-services
-documentationCenter: ''
-authors: Thraka
+documentationcenter: ''
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/14/2016
+origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 12/26/2016
+ms.date: 12/11/2017
 ---
 
 # How to update a cloud service
 
-## Overview
-At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
+Updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
 
 ## Update an Azure Service
 
@@ -47,26 +47,29 @@ This topic covers the following information about Azure updates:
 ## Allowed service changes during an update
 The following table shows the allowed changes to a service during an update:
 
-|Changes permitted to hosting, services, and roles|In-place update|Staged (VIP swap)|Delete and re-deploy|
-|---|---|---|---|
-|Operating system version|Yes|Yes|Yes
-|.NET trust level|Yes|Yes|Yes|
-|Virtual machine size<sup>1</sup>|Yes<sup>2</sup>|Yes|Yes|
-|Local storage settings|Increase only<sup>2</sup>|Yes|Yes|
-|Add or remove roles in a service|Yes|Yes|Yes|
-|Number of instances of a particular role|Yes|Yes|Yes|
-|Number or type of endpoints for a service|Yes<sup>2</sup>|No|Yes|
-|Names and values of configuration settings|Yes|Yes|Yes|
-|Values (but not names) of configuration settings|Yes|Yes|Yes|
-|Add new certificates|Yes|Yes|Yes|
-|Change existing certificates|Yes|Yes|Yes|
-|Deploy new code|Yes|Yes|Yes|
-<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
+| Changes permitted to hosting, services, and roles | In-place update | Staged (VIP swap) | Delete and re-deploy |
+| --- | --- | --- | --- |
+| Operating system version |Yes |Yes |Yes |
+| .NET trust level |Yes |Yes |Yes |
+| Virtual machine size<sup>1</sup> |Yes<sup>2</sup> |Yes |Yes |
+| Local storage settings |Increase only<sup>2</sup> |Yes |Yes |
+| Add or remove roles in a service |Yes |Yes |Yes |
+| Number of instances of a particular role |Yes |Yes |Yes |
+| Number or type of endpoints for a service |Yes<sup>2</sup> |No |Yes |
+| Names and values of configuration settings |Yes |Yes |Yes |
+| Values (but not names) of configuration settings |Yes |Yes |Yes |
+| Add new certificates |Yes |Yes |Yes |
+| Change existing certificates |Yes |Yes |Yes |
+| Deploy new code |Yes |Yes |Yes |
+
+<sup>1</sup> Size change limited to the subset of sizes available for the cloud service.
 
 <sup>2</sup>Requires Azure SDK 1.5 or later versions.
 
 > [!WARNING]
 > Changing the virtual machine size will destroy local data.
+>
+>
 
 The following items are not supported during an update:
 
@@ -115,6 +118,8 @@ Azure provides flexibility in managing services during an update by letting you 
 
 > [!NOTE]
 > It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
+>
+>
 
 Rollback of an in-progress update has the following effects on the deployment:
 
@@ -168,8 +173,10 @@ The following diagram illustrates how a service than contains two roles are dist
 
 > [!NOTE]
 > Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
+>
+>
 
 ## Next steps
-[How to Manage Cloud Services](./cloud-services-how-to-manage.md)
+[How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)  
 [How to Monitor Cloud Services](./cloud-services-how-to-monitor.md)
-[How to Configure Cloud Services](./cloud-services-how-to-configure.md)
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)  

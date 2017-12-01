@@ -12,9 +12,9 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 
@@ -852,6 +852,6 @@ For a video introduction to Azure Storage best practices and patterns, see [Micr
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction)
-* [How to manage Cloud Services](./cloud-services-how-to-manage.md)
+* [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](/storage/)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
