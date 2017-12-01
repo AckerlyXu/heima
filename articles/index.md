@@ -5,6 +5,8 @@ experimental: true
 experiment_id: "81ba5f65-59fb-4d"
 title: Azure Documentation
 description: Learn how to build and manage powerful applications using Azure cloud services. Get documentation, sample code, tutorials, and more.
+featureFlags:
+- clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -406,6 +408,12 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 <p>ExpressRoute</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>AI + Cognitive Services</h3>
                                     <ul>
@@ -447,6 +455,12 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Disk Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/storage/queues/storage-queues-introduction/">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
@@ -456,12 +470,6 @@ description: Learn how to build and manage powerful applications using Azure clo
                                             <a href="/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -613,6 +621,12 @@ description: Learn how to build and manage powerful applications using Azure clo
                                     </ul>
                                     <h3>Security + Identity</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/active-directory/develop">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory for Developers</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
@@ -977,6 +991,25 @@ description: Learn how to build and manage powerful applications using Azure clo
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>Monitor and diagnose conditions at a network scenario level</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1021,6 +1054,25 @@ description: Learn how to build and manage powerful applications using Azure clo
                                 </a>
                             </li>
                             <li>
+                                <a href="/virtual-machines/windows/about-disks-and-vhds">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disk Storage</h3>
+                                                    <p>Disk storage for VMs</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1051,26 +1103,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Simple, distributed, cross platform file system</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/virtual-machines/windows/managed-disks-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Disk Storage</h3>
-                                                    <p>Disks storage for VMs</p>
+                                                    <p>Simple, distributed, cross-platform file system</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1601,7 +1634,7 @@ description: Learn how to build and manage powerful applications using Azure clo
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Hub</h3>
+                                                    <h3>IoT Hub</h3>
                                                     <p>Connect, monitor, and control billions of IoT assets</p>
                                                 </div>
                                             </div>
