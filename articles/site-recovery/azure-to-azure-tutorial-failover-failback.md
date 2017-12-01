@@ -10,8 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -80,4 +80,4 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 
 After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, follow the [failover](#run-a-failover) instructions.
 
-<!-- Update_Description: new articles on site recovery azure to azure tutorial failover failback -->
+<!-- Update_Description: update meta properties -->

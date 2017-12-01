@@ -14,17 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 06/05/2017
-ms.date: 07/10/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
-
 # Monitor and troubleshoot protection for virtual machines and physical servers
 This monitoring and troubleshooting guide helps you learn how to track replication health and troubleshoot techniques for Azure Site Recovery.
 
 ## Understand the components
 ### VMware virtual machine or physical server site deployment for replication between on-premises and Azure
-To set up database recovery between an on-premises VMware virtual machine or physical server and Azure, you need to set up the configuration server, master target server, and process server components on your virtual machine or server. When you enable protection for the source server, Azure Site Recovery installs the Mobile Apps feature of Azure App Service. After an on-premises outage and after the source server fails over to Azure, customers need to set up a process server in Azure and a master target server on premises to rebuild the source server on premises.
+To set up database recovery between an on-premises VMware virtual machine or physical server and Azure, you need to set up the configuration server, master target server, and process server components on your virtual machine or server. When you enable protection for the source server, Azure Site Recovery installs the Mobility Service from the chosen Process server if an up-to-date version is not already deployed. After an on-premises outage and after the source server fails over to Azure, customers need to set up a process server in Azure and a master target server on premises to rebuild the source server on premises.
 
 ![VMware/Physical site deployment for replication between on-premises and Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 
@@ -34,13 +33,12 @@ To set up database recovery between two on-premises locations, you need to downl
 ![Virtual Machine Manager site deployment for replication between on-premises sites](media/site-recovery-monitoring-and-troubleshooting/image1.png)
 
 ### Virtual Machine Manager site deployment for replication between on-premises locations and Azure
-When you set up database recovery between on-premises locations and Azure, you need to download the Azure Site Recovery provider and install it on the Virtual Machine Manager server. You also need to install the Azure Recovery Services Agent, which needs to be installed on each Hyper-V host. 
-<!-- Not Available site-recovery-hyper-v-azure-architecture.md -->
+When you set up database recovery between on-premises locations and Azure, you need to download the Azure Site Recovery provider and install it on the Virtual Machine Manager server. You also need to install the Azure Recovery Services Agent, which needs to be installed on each Hyper-V host. [Learn more](site-recovery-hyper-v-azure-architecture.md) for more information.
 
 ![Virtual Machine Manager site deployment for replication between on-premises locations and Azure](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### Hyper-V site deployment for replication between on-premises locations and Azure
-This process is similar to Virtual Machine Manager deployment. The only difference is that the Azure Site Recovery provider and Azure Recovery Services Agent get installed on the Hyper-V host itself.
+This process is similar to Virtual Machine Manager deployment. The only difference is that the Azure Site Recovery provider and Azure Recovery Services Agent get installed on the Hyper-V host itself. [Learn more](site-recovery-hyper-v-azure-architecture.md). .
 
 ## Monitor configuration, protection, and recovery operations
 Every operation in Azure Site Recovery is audited and tracked under the **JOBS** tab. For any configuration, protection, or recovery error, go to the **JOBS** tab and look for failures.
@@ -55,7 +53,7 @@ The error details will help you identify a possible cause and recommendation for
 
 ![Dialog box that shows error details for a specific job](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-In the previous example, another operation that is in progress seems to be causing the protection configuration to fail. Resolve the issue based on the recommendation, and then click **RESART** to initiate the operation again.
+In the previous example, another operation that is in progress seems to be causing the protection configuration to fail. Resolve the issue based on the recommendation, and then click **RESTART** to initiate the operation again.
 
 ![The RESTART button in the JOBS tab](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
@@ -124,7 +122,7 @@ under **Data Collector Sets.**
 
 To view the collected information, first stop the tracing session by disabling the log. Save the log, and open it again in Event Viewer or use other tools to convert it as desired.
 
-## Reach out for Microsoft Support
+## Reach out for Azure Support
 ### Log collection
 For Virtual Machine Manager site protection, refer to [Azure Site Recovery log collection using Support
 Diagnostics Platform (SDP)
@@ -146,17 +144,17 @@ To raise a support ticket for Azure Site Recovery, reach out to Azure Support by
 URL at <http://aka.ms/getazuresupport>.
 
 ## KB articles
-* [How to preserve the drive letter for protected virtual machines that are failed over or migrated to Azure](http://support.microsoft.com/zh-cn/kb/3031135)
-* [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/zh-cn/kb/3056159)
-* [Azure Site Recovery: "The cluster resource could not be found" error when you try to enable protection for a virtual  machine](http://support.microsoft.com/zh-cn/kb/3010979)
+* [How to preserve the drive letter for protected virtual machines that are failed over or migrated to Azure](http://support.microsoft.com/kb/3031135)
+* [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159)
+* [Azure Site Recovery: "The cluster resource could not be found" error when you try to enable protection for a virtual  machine](http://support.microsoft.com/kb/3010979)
 * [Understand and Troubleshoot Hyper-V replication guide](http://social.technet.microsoft.com/wiki/contents/articles/21948.hyper-v-replica-troubleshooting-guide.aspx)
 
 ## Common Azure Site Recovery errors and their resolutions
 Following are common errors and their resolutions. Each error is documented in a separate wiki page.
 
 ### General
-* <span style="color:green;">NEW</span> [Jobs failing with error "An operation is in progress." Error 505, 514, 532](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
-* <span style="color:green;">NEW</span> [Jobs failing with error "Server isn't connected to the Internet". Error 25018](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
+* <span style="color:green;">NEW</span> [Jobs failing with error "An operation is in progress." Error 505, 514, 532.](http://social.technet.microsoft.com/wiki/contents/articles/32190.azure-site-recovery-jobs-failing-with-error-an-operation-is-in-progress-error-505-514-532.aspx)
+* <span style="color:green;">NEW</span> [Jobs failing with error "Server isn't connected to the Internet". Error 25018.](http://social.technet.microsoft.com/wiki/contents/articles/32192.azure-site-recovery-jobs-failing-with-error-server-isn-t-connected-to-the-internet-error-25018.aspx)
 
 ### Setup
 * [The Virtual Machine Manager server cannot be registered due to an internal error. Please refer to the jobs view in the Site Recovery portal for more details on the error. Run setup again to register the server.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
@@ -203,3 +201,5 @@ Following are common errors and their resolutions. Each error is documented in a
 If the **Connect** button in the portal is dimmed, and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, you need to create and assign your virtual machine a public IP address before you can use Remote Desktop/Shared Shell. You can then add a Public IP on the network interface of the virtual machine.  
 
 ![Adding a Public IP on the network interface of failed over virtual machine](media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

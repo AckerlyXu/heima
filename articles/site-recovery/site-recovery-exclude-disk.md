@@ -13,13 +13,18 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 06/05/2017
-ms.date: 08/28/2017
+origin.date: 10/24/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
 # Exclude disks from replication
 This article describes how to exclude disks from replication. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. The feature is supported for scenarios of VMware to Azure and Hyper-V to Azure.
+
+## Supported scenarios
+**Feature** | **VMware to Azure** | **Hyper-V to Azure** | **Azure to Azure**| **Hyper-V to Hyper-V** 
+--|--|--|--|--
+Exclude disk | Yes | Yes | No | No
 
 ## Prerequisites
 
@@ -257,3 +262,5 @@ Here are the paging file settings on the Azure virtual machine:
 
 ## Next steps
 After your deployment is set up and running, [learn more](site-recovery-failover.md) about different types of failover.
+
+<!-- Update_Description: update meta properties, wording update -->

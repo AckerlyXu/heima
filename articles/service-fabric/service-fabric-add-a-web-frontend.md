@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/01/2017
-ms.date: 07/17/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -143,8 +143,6 @@ With the `ICounter` interface implemented, the final step is to open the Service
 
 > [!NOTE]
 > The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
->
->
 
 In this case, we replace the existing `CreateServiceReplicaListeners` method and provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through `ServiceProxy`.  
 
@@ -210,12 +208,6 @@ Our stateful service is now ready to receive traffic from other services over RP
 
     Refresh the browser periodically to see the counter value update.
 
-## Kestrel and WebListener
-
-The default ASP.NET Core web server, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). As a result, the ASP.NET Core stateless service template for Service Fabric uses [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) by default. 
-
-To learn more about Kestrel and WebListener in Service Fabric services, please refer to [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
-
 ## Connecting to a Reliable Actor service
 This tutorial focused on adding a web front end that communicated with a stateful service. However, you can follow a very similar model to talk to actors. When you create a Reliable Actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically. So you do not need to do anything that is equivalent to establishing a `ServiceRemotingListener` like you did for the stateful service in this tutorial.
 
@@ -250,3 +242,5 @@ Once you have a good understanding of how service communication works, [create a
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
+
+<!-- Update_Description: update meta properties, wording update -->

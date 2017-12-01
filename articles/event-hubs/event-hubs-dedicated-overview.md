@@ -6,15 +6,17 @@ documentationcenter: na
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: ''
+
+ms.assetid:
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/29/2017
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
 
 # Overview of Event Hubs Dedicated
@@ -31,7 +33,7 @@ The following table compares the available service tiers of Event Hubs. The Even
 | Publisher policies | Yes | Yes |	 
 | Consumer groups | 20 | 20 |
 | Message replay | Yes | Yes |
-| Maximum throughput units | 20 (flexible to 100)	| 1 CU≈200 |
+| Maximum throughput units | 20 (flexible to 100)	| 1 CU≈50 |
 | Brokered connections | 1,000 included | 100 K included |
 | Additional Brokered connections | Yes | Yes |
 | Message Retention | 1 day included | Up to 7 days included |
@@ -45,18 +47,25 @@ The following benefits are available when using Event Hubs Dedicated:
 * Message size increases to 1 MB as compared to 256 KB for Standard.
 * Repeatable performance every time.
 * Guaranteed capacity to meet your burst needs.
-* Scalable between 1 and 8 capacity units (CU) - providing up to 2 million ingress events per second.
-  * CUs manage the scale for Event Hubs Dedicated, where each CU can provide approximately the equivalent of 200 throughput units (TU).
+* Includes the [Capture](/event-hubs/event-hubs-capture-overview) feature of Azure Event Hubs, to provide integration with micro-batch and long-term retention
 * Zero maintenance: we manage load balancing, OS updates, security patches, and partitioning.
-* Fixed monthly pricing.
+* Fixed hourly pricing.
+* Message retention up to 7 days with no extra charge
 
 Event Hubs Dedicated also removes some of the throughput limitations of the Standard offering. Throughput units in the Standard tier entitle you to 1000 events per second or 1 MB per second of ingress per TU and double that amount of egress. The Dedicated scale offering has no restrictions on ingress and egress event counts. These limits are governed only by the processing capacity of the purchased event hubs.
+
+This reserved, dedicated environment provides other capabilities unique to this tier, such as:
+
+* Control the number of namespaces in your cluster
+* Specify throughput limitson each of your namespaces
+* Configure the number of Event Hubs under each namespace
+* Determine the limit on number of partitions
 
 This service is targeted at the largest telemetry users and is available to customers with an enterprise agreement.
 
 ## How to onboard
 
-The Event Hubs Dedicated platform is offered through an enterprise agreement with varying sizes of CUs. Each CU provides approximately the equivalent of 200 throughput units. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. To onboard to this SKU, contact (billing support)[https://www.azure.cn/support/support-ticket-form] or your Azure representative.
 
 ## Next steps
 Contact your Microsoft sales representative or Azure Support to get additional details about Event Hubs Dedicated Capacity. You can also learn more about Event Hubs by visiting the following links:
@@ -66,4 +75,4 @@ For detailed information about pricing, visit the following links:
 - [Event Hubs Dedicated pricing](https://www.azure.cn/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Azure Support to get additional details about Event Hubs Dedicated capacity.
 - The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs.
 
-<!--Update_Description: update meta properties, wording update, remove the basic column in overview of event hubs dedicated-->
+<!--Update_Description: update meta properties, wording update, update link -->

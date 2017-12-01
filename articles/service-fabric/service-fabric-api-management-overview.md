@@ -14,8 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/22/2017
-ms.date: 08/14/2017
-wacn.date: ''
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -108,7 +107,7 @@ Each service instance is also partitioned using the Int64 partition scheme with 
 
 ## Next steps
 
-Follow the [quick start guide](service-fabric-api-management-quick-start.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
+Follow the [tutorial](service-fabric-tutorial-deploy-api-management.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
 
 <!-- links -->
 
@@ -119,3 +118,5 @@ Follow the [quick start guide](service-fabric-api-management-quick-start.md) to 
 [sf-apim-static-stateful]: ./media/service-fabric-api-management-overview/sf-apim-static-stateful.png
 [sf-apim-dynamic-stateless]: ./media/service-fabric-api-management-overview/sf-apim-dynamic-stateless.png
 [sf-apim-dynamic-stateful]: ./media/service-fabric-api-management-overview/sf-apim-dynamic-stateful.png
+
+<!-- Update_Description: update meta properties, update link -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -94,7 +94,7 @@ The following snippet shows the different kinds of resources that can be managed
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package zip file"
+          "description": "The URL to the application package sfpkg file"
         }
       },
       "applicationName": {
@@ -139,10 +139,35 @@ The following snippet shows the different kinds of resources that can be managed
     "resources": [
       {
         "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
+        "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
+        "location": "[variables('clusterLocation')]",
+        "dependsOn": [],
+        "properties": {
+          "provisioningState": "Default"
+        }
+      },
+      {
+        "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
+        "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
+        "location": "[variables('clusterLocation')]",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'))]"
+        ],
+        "properties": {
+          "provisioningState": "Default",
+          "appPackageUrl": "[parameters('appPackageUrl')]"
+        }
+      },
+      {
+        "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
-        "dependsOn": [],
+        "dependsOn": [
+          "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]"
+        ],
         "properties": {
           "provisioningState": "Default",
           "typeName": "[parameters('applicationTypeName')]",
@@ -212,7 +237,7 @@ The following snippet shows the different kinds of resources that can be managed
             "partitionScheme": "UniformInt64Range",
             "count": "5",
             "lowKey": "1",
-            "highKey": "26"
+            "highKey": "5"
           },
           "hasPersistedState": "true",
           "correlationScheme": [],
@@ -239,4 +264,4 @@ If your cluster is already up and some applications that you would like to manag
 * Use the [Service Fabric CLI](service-fabric-cli.md) or [PowerShell](service-fabric-deploy-remove-applications.md) to deploy other applications to your cluster. 
 * [Upgrade your Service Fabric cluster](service-fabric-cluster-upgrade.md)
 
-<!--Update_Description: new articles on service fabric application with ARM resource -->
+<!--Update_Description: add resource and depend on object of Microsoft.ServiceFabric/clusters in json template -->

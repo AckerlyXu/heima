@@ -3,9 +3,9 @@ title: Introduction to Reliable Collections in Azure Service Fabric stateful ser
 description: Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
-editor: masnider,rajak
+author: rockboyfor
+manager: digimobile
+editor: masnider,rajak,zhol
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: v-johch
+origin.date: 11/06/2017
+ms.date: 12/04/2017
+ms.author: v-yeche
 
 ---
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
@@ -66,3 +67,5 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+
+<!-- Update_Description: update meta properties -->

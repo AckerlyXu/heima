@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/02/2017
-ms.date: 08/14/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -29,7 +29,7 @@ Get started with guest executables by deploying your first [guest executable app
 ## Containers
 By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in [containers](service-fabric-containers-overview.md). Service Fabric supports deployment of Linux containers and Windows containers on Windows Server 2016. Container images can be pulled from any container repository and deployed to the machine. You can deploy existing applications as guest exectuables, Service Fabric stateless or stateful Reliable services or Reliable Actors in containers, and you can mix services in processes and services in containers in the same application.
 
-<!-- Not Available [Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md) -->
+[Learn more about containerizing your services in Windows or Linux](service-fabric-deploy-container.md)
 
 ## Reliable Services
 Reliable Services is a light-weight framework for writing services that integrate with the Service Fabric platform and benefit from the full set of platform features. Reliable Services provide a minimal set of APIs that allow the Service Fabric runtime to manage the lifecycle of your services and that allow your services to interact with the runtime. The application framework is minimal, giving you full control over design and implementation choices, and can be used to host any other application framework, such as ASP.NET Core.
@@ -40,15 +40,17 @@ Reliable Services can also be stateful, exclusive to Service Fabric, where state
 
 [Learn more about Reliable Services](service-fabric-reliable-services-introduction.md) or get started by [writing your first Reliable Service](service-fabric-reliable-services-quick-start.md).
 
+## ASP.NET Core
+ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. Service Fabric integrates with ASP.NET Core so you can write both stateless and stateful ASP.NET Core applications that take advantage of Reliable Collections and Service Fabric's advanced orchestration capabilities.
+
+[Learn more about ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) or get started by [writing your first ASP.NET Core Service Fabric application](service-fabric-add-a-web-frontend.md).
+
 ## Reliable Actors
 Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
 
 As Reliable Actors itself is an application framework built on Reliable Services, it is fully integrated with the Service Fabric platform and benefits from the full set of features offered by the platform.
 
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
-
-## ASP.NET Core
-Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) for building Web and API services that can be included as part of your application. 
 
 [Build a front end service using ASP.NET Core](service-fabric-add-a-web-frontend.md)
 
@@ -57,8 +59,8 @@ Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-c
 
 [Reliable Services overview](service-fabric-reliable-services-introduction.md)
 
-[Reliable Services overview](service-fabric-reliable-actors-introduction.md)
+[Reliable Actors overview](service-fabric-reliable-actors-introduction.md)
 
 [Service Fabric and ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties, wording update -->
