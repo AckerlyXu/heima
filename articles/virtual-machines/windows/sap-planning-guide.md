@@ -72,8 +72,6 @@ ms.custom: H1Hack27Feb2017
 [azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:sap-dbms-guide.md
 [dbms-guide-2.1]:sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -375,8 +373,6 @@ The following SAP Notes are related to the topic of SAP on Azure:
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
 
 Please also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
-
-General default limitations and maximum limitations of Azure subscriptions can be found in [this article][azure-subscription-service-limits-subscription]
 
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly very complex and ensuring that you meet requirements on availability and performance is important.

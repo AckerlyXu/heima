@@ -22,11 +22,6 @@ ms.date: 07/31/2017
 
 This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](./cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://www.azure.cn/pricing/details/cloud-services/) page.
 
-> [!NOTE]
->To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
->
->
-
 ## Sizes for web and worker role instances
 There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
 
@@ -157,8 +152,5 @@ You can use PowerShell or the REST API to get a list of sizes. The REST API is d
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
 ```
-
-## Next steps
-* Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 <!--Update_Description: update wording-->

@@ -82,7 +82,7 @@ Subnets contain the following properties.
 By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
 
 ### Limits
-Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a support ticket.
+Ensure that your design doesn't conflict with any of limits. Some limits can be increased by opening a support ticket.
 
 ### Role-Based Access Control (RBAC)
 You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs.
@@ -110,9 +110,9 @@ The table below shows some common design patterns for using subscriptions and VN
 
 | Scenario | Diagram | Pros | Cons |
 | --- | --- | --- | --- |
-| Single subscription, two VNets per app |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Only one subscription to manage. |Maximum number of VNets per Azure region. You need more subscriptions after that. Review the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. |
+| Single subscription, two VNets per app |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Only one subscription to manage. |Maximum number of VNets per Azure region. You need more subscriptions after that. |
 | One subscription per app, two VNets per app |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Uses only two VNets per subscription. |Harder to manage when there are too many apps. |
-| One subscription per business unit, two VNets per app. |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balance between number of subscriptions and VNets. |Maximum number of VNets per business unit (subscription). Review the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. |
+| One subscription per business unit, two VNets per app. |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Balance between number of subscriptions and VNets. |Maximum number of VNets per business unit (subscription).  |
 | One subscription per business unit, two VNets per group of apps. |![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Balance between number of subscriptions and VNets. |Apps must be isolated by using subnets and NSGs. |
 
 ### Number of subnets
@@ -130,7 +130,7 @@ The table below shows some common design patterns for using subnets.
 | --- | --- | --- | --- |
 | Single subnet, NSGs per application layer, per app |![Single subnet](./media/virtual-network-vnet-plan-design-arm/figure5.png) |Only one subnet to manage. |Multiple NSGs necessary to isolate each application. |
 | One subnet per app, NSGs per application layer |![Subnet per app](./media/virtual-network-vnet-plan-design-arm/figure6.png) |Fewer NSGs to manage. |Multiple subnets to manage. |
-| One subnet per application layer, NSGs per app. |![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Balance between number of subnets and NSGs. |Maximum number of NSGs per subscription. Review the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. |
+| One subnet per application layer, NSGs per app. |![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Balance between number of subnets and NSGs. |Maximum number of NSGs per subscription. |
 | One subnet per application layer, per app, NSGs per subnet |![Subnet per layer per app](./media/virtual-network-vnet-plan-design-arm/figure8.png) |Possibly smaller number of NSGs. |Multiple subnets to manage. |
 
 ## Sample design

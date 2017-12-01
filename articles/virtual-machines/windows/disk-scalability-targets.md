@@ -27,6 +27,4 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fvirtual-ma
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## See also
 
-[Azure subscription and service limits, quotas, and constraints](/azure-subscription-service-limits)

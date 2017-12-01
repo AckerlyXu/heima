@@ -83,10 +83,6 @@ Three conditions can cause this error:
 
 To see what is causing the error and to resolve the issue, follow the steps in [Web Apps: "Error 403 - This web app is stopped"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
-## Where can I learn more about quotas and limits for various App Service plans?
-
-For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
-
 ## How do I decrease the response time for the first request after idle time?
 
 By default, web apps are unloaded if they are idle for a set period of time. This way, the system can conserve resources. The downside is that the response to the first request after the web app is unloaded is longer, to allow the web app to load and start serving responses. In Basic and Standard service plans, you can turn on the **Always On** setting to keep the app always loaded. This eliminates longer load times after the app is idle. To change the **Always On** setting:

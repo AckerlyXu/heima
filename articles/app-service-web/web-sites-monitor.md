@@ -59,10 +59,6 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 The only quota applicable to apps hosted on **Basic**, **Standard** and
 **Premium** plans is **Filesystem**.
 
-More information about the specific quotas, limits and features available to
-the different App Service SKUs can be found here:
-[Azure Subscription Service Limits](../azure-subscription-service-limits.md#app-service-limits)
-
 #### Quota Enforcement
 If an application in its usage exceeds the **CPU (short)**, **CPU (Day)**, or
 **bandwidth** quota then the application will be stopped until the quota
