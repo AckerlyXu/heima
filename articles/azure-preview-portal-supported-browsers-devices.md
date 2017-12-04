@@ -14,10 +14,9 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 08/01/2017
+ms.date: 12/04/2017
 ms.author: v-junlch
-
+ms.custom: accessibility
 ---
 # Supported browsers and devices for the Azure portal
 You can run the [Azure portal](https://portal.azure.cn) on all modern desktop, tablet devices, and browsers.
@@ -28,11 +27,9 @@ The Azure portal runs great on modern PCs, Macs, and tablets. If you need to man
 ### Supported browsers
 We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
 
-- Microsoft Edge (latest version)
-- Internet Explorer 11
-- Safari (latest version, Mac only)
-- Chrome (latest version)
-- Firefox (latest version)
+* Microsoft Edge (latest version)
+* Internet Explorer 11
+* Safari (latest version, Mac only)
+* Chrome (latest version)
+* Firefox (latest version)
 
-
-<!-- Update_Description: wording update -->
