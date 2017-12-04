@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
+ms.date: 12/11/2017
 ---
 # Application and service availability issues for Azure Cloud Services: Frequently asked questions (FAQs)
 

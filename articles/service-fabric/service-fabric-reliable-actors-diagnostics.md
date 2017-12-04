@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 10/26/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
----
 
+---
 # Diagnostics and performance monitoring for Reliable Actors
 The Reliable Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). These provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 

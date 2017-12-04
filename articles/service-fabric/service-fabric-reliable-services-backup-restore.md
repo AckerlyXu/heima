@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: subramar,jessebenson
+editor: subramar,zhol
 
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/18/2017
-ms.date: 09/11/2017
+origin.date: 11/06/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
 # Back up and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
@@ -265,4 +266,4 @@ This step ensures that the recovered state is consistent.
   - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
   - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

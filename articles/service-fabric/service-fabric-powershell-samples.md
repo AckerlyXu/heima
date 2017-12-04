@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 08/16/2017
-ms.date: 11/13/2017
+origin.date: 11/15/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
-# Azure PowerShell Samples
+# Azure PowerShell samples
 
 The following table includes links to PowerShell scripts samples that create and manage Service Fabric clusters, applications, and services.
 
@@ -37,6 +37,6 @@ The following table includes links to PowerShell scripts samples that create and
 | [Remove an application](./scripts/service-fabric-powershell-remove-application.md)| Remove an application from a cluster.|
 | [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer. |
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->
 <!--Not Available the parent file of includes file of service-fabric-powershell.md-->
 <!--ms.date:11/13/2017-->

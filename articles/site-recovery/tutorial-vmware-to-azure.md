@@ -10,9 +10,10 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+ms.custom: MVC
 
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs
@@ -98,20 +99,14 @@ On the configuration server VM, make sure that the system clock is synchronized 
 Time must be synchronized to within 15 minutes. If the time difference is greater than 15 minutes,
 setup fails.
 
-Make sure the configuration server VM can access these URLs:
+Make sure that the configuration server can access these URLs:
 
-- *.accesscontrol.chinacloudapi.cn. Used for access control and identity management.
-- *.backup.windowsazure.cn. Used for replication data transfer and coordination.
-- *.blob.core.chinacloudapi.cn. Used for access to the storage account that stores replicated data.
-- *.hypervrecoverymanager.windowsazure.cn. Used for replication management operations and coordination.
-- time.nist.gov and time.windows.com. Used to check time synchronization between system and global time.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-URLs for the Azure Government cloud:
+    - Any IP address-based firewall rules should allow communication to Azure.
 
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=42064), and the HTTPS (443) port.
+    - Allow IP address ranges for the Azure region of your subscription, and for China North (used for access control and identity management).
 
 Any IP address-based firewall rules should allow communication to [Azure Datacenter IP
 Ranges](https://www.microsoft.com/download/details.aspx?id=42064), and ports 443 (HTTPS) and
@@ -292,4 +287,4 @@ configuration server (don't click it), and click **Refresh**.
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
 
-<!-- Update_Description: new articles on site recovery tutorial vmware to azure -->
+<!-- Update_Description: wording update -->

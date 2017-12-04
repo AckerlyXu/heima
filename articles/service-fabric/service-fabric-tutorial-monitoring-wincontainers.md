@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 Before you begin this tutorial, you should:
-- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Deploy a containerized application to it](service-fabric-host-app-in-a-container.md)
 
 ## Setting up OMS with your cluster in the Resource Manager template
@@ -244,4 +244,4 @@ Now that you have set up monitoring for your containerized application, try the 
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics.
 
-<!--Update_Description: new articles on service fabric monitor wincontainers -->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/19/2017
-ms.date: 07/17/2017
+origin.date: 10/12/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -60,3 +60,5 @@ This subsystem provides reliable messaging within the cluster and service discov
 
 ## Testability subsystem
 Testability is a suite of tools specifically designed for testing services built on Service Fabric. The tools let a developer easily induce meaningful faults and run test scenarios to exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled and safe manner. Testability also provides a mechanism to run longer tests that can iterate through various possible failures without losing availability. This provides you with a test-in-production environment.
+
+<!-- Update_Description: update meta properties -->

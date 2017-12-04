@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 07/31/2017
+origin.date: 11/16/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -41,7 +41,6 @@ The basic requirement in a multi-tenant scenario is to isolate the various tenan
 The architecture is presented in the following diagram:
 
 ![Shared HSP with one vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
-
 **Shared-hosting scenario with one vCenter**
 
 As seen in the preceding diagram, each customer has a separate management server. This configuration limits tenant access to tenant-specific VMs and enables tenant isolation. A VMware virtual-machine replication scenario uses the configuration server to manage accounts to discover VMs and install agents. We follow the same principles for multi-tenant environments, with the addition of restricting VM discovery through vCenter access control.
@@ -49,7 +48,7 @@ As seen in the preceding diagram, each customer has a separate management server
 The data-isolation requirement necessitates that all sensitive infrastructure information (such as access credentials) remain undisclosed to tenants. For this reason, we recommend that all components of the management server remain under the exclusive control of the partner. The management server components are:
 * Configuration server (CS)
 * Process server (PS)
-* Master target server (MT) 
+* Master target server (MT)
 
 A scale-out PS is also under the partner's control.
 
@@ -81,7 +80,7 @@ The vCenter account-access procedure is as follows:
 
     * **Tasks**: Create task, Update task
 
-    * **Virtual machine**: 
+    * **Virtual machine**:
         * Configuration > all
         * Interaction > Answer question, Device connection, Configure CD media, Configure floppy media, Power off, Power on, VMware tools install
         * Inventory > Create from existing, Create new, Register, Unregister
@@ -137,7 +136,7 @@ The VM prerequisites are the same as described in the [Azure Site Recovery docum
 
 ### Step 1: Create a tenant account
 
-1. Through [Microsoft Partner Center](https://partnercenter.microsoft.com/), sign in to your CSP account. 
+1. Through [Microsoft Partner Center](https://partnercenter.microsoft.com/), sign in to your CSP account.
 
 2. On the **Dashboard** menu, select **Customers**.
 
@@ -159,7 +158,7 @@ The VM prerequisites are the same as described in the [Azure Site Recovery docum
 
     ![The Review page](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    After you've created the tenant account, a confirmation page appears, displaying the details of the default account and the password for that subscription. 
+    After you've created the tenant account, a confirmation page appears, displaying the details of the default account and the password for that subscription.
 
 7. Save the information, and change the password later as necessary through the Azure portal sign-in page.  
 
@@ -167,7 +166,7 @@ The VM prerequisites are the same as described in the [Azure Site Recovery docum
 
 ### Step 2: Access the tenant account
 
-You can access the tenant's subscription through the Microsoft Partner Center Dashboard, as described in "Step 1: Create a tenant account." 
+You can access the tenant's subscription through the Microsoft Partner Center Dashboard, as described in "Step 1: Create a tenant account."
 
 1. Go to the **Customers** page, and then click the name of the tenant account.
 
@@ -182,7 +181,7 @@ You can access the tenant's subscription through the Microsoft Partner Center Da
 You can now perform all site-recovery operations for the tenant through the Azure portal and manage the disaster-recovery operations. To access the tenant subscription through CSP for managed disaster recovery, follow the previously described process.
 
 ### Step 3: Deploy resources to the tenant subscription
-1. On the Azure portal, create a resource group, and then deploy a Recovery Services vault per the usual process. 
+1. On the Azure portal, create a resource group, and then deploy a Recovery Services vault per the usual process.
 
 2. Download the vault registration key.
 

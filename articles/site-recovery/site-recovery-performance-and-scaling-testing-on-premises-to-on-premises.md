@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/24/2017
-ms.date: 07/10/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
-
 # Test results for on-premises to on-premises Hyper-V replication with Site Recovery
+
 You can use Azure Site Recovery to orchestrate and manage replication of virtual machines and physical servers to Azure, or to a secondary datacenter. This article provides the results of performance testing we did when replicating Hyper-V virtual machines between two on-premises datacenters.
 
 ## Test goals
@@ -91,7 +91,8 @@ The following graph shows the throughput of virtual machines running different w
 ![Results replica effects](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
 
 ## Conclusion
-The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica, scales well with minimum overhead for a large cluster.  Azure Site Recovery provides simple deployment, replication, management and monitoring. Hyper-V Replica provides the necessary infrastructure for successful replication scaling. For planning an optimum deployment we suggest you download the [Hyper-V Replica Capacity Planner](https://www.microsoft.com/en-us/download/details.aspx?id=39057).
+
+The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica, scales well with minimum overhead for a large cluster.  Azure Site Recovery provides simple deployment, replication, management and monitoring. Hyper-V Replica provides the necessary infrastructure for successful replication scaling. For planning an optimum deployment we suggest you download the [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
 
 ## Test environment details
 
@@ -99,7 +100,7 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 
 * The primary site has a cluster containing five Hyper-V servers running 470 virtual machines.
 * The virtual machines run different workloads, and all have Azure Site Recovery protection enabled.
-* Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
+* Storage for the cluster node is provided by an iSCSI SAN. Model - Hitachi HUS130.
 * Each cluster server has four network cards (NICs) of one Gbps each.
 * Two of the network cards are connected to an iSCSI private network and two are connected to an external enterprise network. One of the external networks is reserved for cluster communications only.
 
@@ -113,7 +114,7 @@ The results clearly show that Azure Site Recovery, coupled with Hyper-V Replica,
 ### Secondary (recovery) site
 
 * The secondary site has a six-node failover cluster.
-* Storage for the cluster node is provided by an iSCSI SAN. Model – Hitachi HUS130.
+* Storage for the cluster node is provided by an iSCSI SAN. Model - Hitachi HUS130.
 
 ![Primary hardware specification](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
 
@@ -182,3 +183,5 @@ The table summarizes the performance metrics and counters that were measured in 
 ## Next steps
 
 [Set up replication between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
+
+<!-- Update_Description: update meta properties, wording update -->

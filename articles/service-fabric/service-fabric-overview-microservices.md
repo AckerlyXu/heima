@@ -14,8 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
 # Why a microservices approach to building applications?
 As software developers, there is nothing new in how we think about factoring an application into component parts. It is the central paradigm of object orientation, software abstractions, and componentization. Today, this factorization tends to take the form of classes and interfaces between shared libraries and technology layers. Typically, a tiered approach is taken with a back-end store, middle-tier business logic, and a front-end user interface (UI). What *has* changed over the last few years is that we, as developers, are building distributed applications that are for the cloud and driven by the business.
@@ -144,10 +145,10 @@ Service Fabric provides three broad areas to help you build applications that us
 ### Migrating existing applications to Service Fabric
 A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are;
 
-1) Take a traditional monolithic application
-2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.
-3) Modernization - New microservices added alongside existing containerized code. 
-4) Innovate - Break the monolithic into microservices purely based on need.
+1) Take a traditional monolithic application  
+2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.  
+3) Modernization - New microservices added alongside existing containerized code.  
+4) Innovate - Break the monolithic into microservices purely based on need.  
 5) Transformed into microservices - the transformation of existing monolithic applications or building new greenfield applications.
 
 ![Migration to Microservices][Image3]
@@ -159,7 +160,7 @@ It is important to emphasize again that you can **start and stop at any of these
 - Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
 - Consistent deployment contract between development and operations.
 
-Cost reductions are understandable and within Microsoft large numbers of existing applications are being containerized simply to millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
 
 Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
 
@@ -184,4 +185,4 @@ The objective of Service Fabric is to reduce the complexities of building applic
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update -->

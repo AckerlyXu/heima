@@ -10,8 +10,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -71,4 +71,4 @@ In this quickstart, you replicated a single VM to a secondary region.
 > [!div class="nextstepaction"]
 > [Configure disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)
 
-<!-- Update_Description: new articles on site recovery azure to azure quickstart -->
+<!-- Update_Description: update meta properties -->

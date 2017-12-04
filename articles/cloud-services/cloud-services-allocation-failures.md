@@ -2,19 +2,20 @@
 title: Troubleshooting Cloud Service allocation failure | Azure
 description: Troubleshooting allocation failure when you deploy Cloud Services in Azure
 services: azure-service-management, cloud-services
-documentationCenter: ''
-authors: simonxjx
+documentationcenter: ''
+author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
 
+ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 07/26/2017
-ms.date: 11/06/2017
+origin.date: 11/03/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 

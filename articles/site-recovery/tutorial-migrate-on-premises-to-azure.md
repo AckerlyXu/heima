@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/16/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
-
+ms.custom: MVC
 ---
 # Migrate on-premises machines to Azure
 
@@ -107,4 +107,4 @@ In some scenarios, failover requires additional processing that takes around eig
 > [!div class="nextstepaction"]
 > [Replicating Azure VMs to another region after migration to Azure](site-recovery-azure-to-azure-after-migration.md)
 
-<!-- Update_Description: new articles on site recovery tutorial migrate on premises to azure-->
+<!-- Update_Description: update meta properties, update link -->

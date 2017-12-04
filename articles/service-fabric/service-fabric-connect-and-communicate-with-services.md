@@ -3,8 +3,8 @@ title: Connect and communicate with services in Azure Service Fabric | Azure
 description: Learn how to resolve, connect, and communicate with services in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: msfussell
 
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/09/2017
-ms.author: v-johch
+origin.date: 11/01/2017
+ms.date: 12/04/2017
+ms.author: v-yeche
 
 ---
 # Connect and communicate with services in Service Fabric
@@ -50,7 +51,6 @@ Resolving and connecting to services involves the following steps run in a loop:
 ## Connecting to other services
 Services connecting to each other inside a cluster generally can directly access the endpoints of other services because the nodes in a cluster are on the same local network. To make is easier to connect between services, Service Fabric provides additional services that use the Naming Service. A DNS service and a reverse proxy service.
 
-
 ### DNS service
 Since many services, especially containerized services, can have an existing URL name, being able to resolve these using the standard DNS protocol (rather than the Naming Service protocol) is very convenient, especially in application "lift and shift" scenarios. This is exactly what the DNS service does. It enables you to map DNS names to a service name and hence resolve endpoint IP addresses. 
 
@@ -61,7 +61,7 @@ As shown in the following diagram, the DNS service, running in the Service Fabri
 For more details on how to use the DNS service see [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) article.
 
 ### Reverse proxy service
-The reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS. The reverse proxy greatly simplifies calling other services and their methods by having a specific URI format and handles the resolve, connect, retry steps required for one service to communicate with another using the Naming Serivce. In other words, it hides the Naming Service from you when calling other services by making this as simple as calling a URL.
+The reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS. The reverse proxy greatly simplifies calling other services and their methods by having a specific URI format and handles the resolve, connect, retry steps required for one service to communicate with another using the Naming Service. In other words, it hides the Naming Service from you when calling other services by making this as simple as calling a URL.
 
 ![service endpoints][10]
 
@@ -161,11 +161,9 @@ For example, in order to accept external traffic on port **80**, the following t
 2. Create a Service Fabric Cluster in Azure and specify port **80** as a custom endpoint port for the node type that will host the service. If you have more than one node type, you can set up a *placement constraint* on the service to ensure it only runs on the node type that has the custom endpoint port opened.
 
     ![Open a port on a node type][4]
-
 3. Once the cluster has been created, configure the Azure Load Balancer in the cluster's Resource Group to forward traffic on port 80. When creating a cluster through the Azure portal, this is set up automatically for each custom endpoint port that was configured.
 
     ![Forward traffic in the Azure Load Balancer][5]
-
 4. The Azure Load Balancer uses a probe to determine whether or not to send traffic to a particular node. The probe periodically checks an endpoint on each node to determine whether or not the node is responding. If the probe fails to receive a response after a configured number of times, the load balancer stops sending traffic to that node. When creating a cluster through the Azure portal, a probe is automatically set up for each custom endpoint port that was configured.
 
     ![Forward traffic in the Azure Load Balancer][8]
@@ -180,7 +178,7 @@ The Reliable Services framework ships with several pre-built communication optio
 * **WCF**: If you have existing code that uses WCF as your communication framework, then you can use the `WcfCommunicationListener` for the server side and `WcfCommunicationClient` and `ServicePartitionClient` classes for the client. This however is only available for C# applications on Windows based clusters. For more details, see this article about [WCF-based implementation of the communication stack](service-fabric-reliable-services-communication-wcf.md).
 
 ## Using custom protocols and other communication frameworks
-Services can use any protocol or framework for communication, whether its a custom binary protocol over TCP sockets, or streaming events through [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) or [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/). Service Fabric provides communication APIs that you can plug your communication stack into, while all the work to discover and connect is abstracted from you. See this article about the [Reliable Service communication model](./service-fabric-reliable-services-communication.md) for more details.
+Services can use any protocol or framework for communication, whether its a custom binary protocol over TCP sockets, or streaming events through [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) or [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/). Service Fabric provides communication APIs that you can plug your communication stack into, while all the work to discover and connect is abstracted from you. See this article about the [Reliable Service communication model](service-fabric-reliable-services-communication.md) for more details.
 
 ## Next steps
 Learn more about the concepts and APIs available in the [Reliable Services communication model](service-fabric-reliable-services-communication.md), then get started quickly with [service remoting](service-fabric-reliable-services-communication-remoting.md) or go in-depth to learn how to write a communication listener using [Web API with OWIN self-host](service-fabric-reliable-services-communication-webapi.md).
@@ -194,3 +192,5 @@ Learn more about the concepts and APIs available in the [Reliable Services commu
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
 [9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
 [10]: ./media/service-fabric-reverseproxy/internal-communication.png
+
+<!-- Update_Description: update meta properties, wording update -->

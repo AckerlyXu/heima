@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.author: v-yiso
-ms.date: ''
+ms.date: 12/11/2017
 ---
 # Create metric alerts in Azure Monitor for Azure services - Cross-platform CLI
 > [!div class="op_single_selector"]
@@ -137,5 +137,5 @@ azure insights alerts actions email create -help
 * Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
 * Learn more about [configuring alerts on Activity log events](./monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
-
-* Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* Get an [overview of collecting diagnostic logs](monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics on your service.
+* Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

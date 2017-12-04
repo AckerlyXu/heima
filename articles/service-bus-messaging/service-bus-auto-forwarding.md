@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/07/2017
+origin.date: 11/08/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ---
 # Chaining Service Bus entities with auto-forwarding
 

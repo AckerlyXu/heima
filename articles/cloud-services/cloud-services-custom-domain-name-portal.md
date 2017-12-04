@@ -13,17 +13,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/0/2017
-ms.date: 11/06/2017
+origin.date: 07/05/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 
 # Configuring a custom domain name for an Azure cloud service
-
-> [!div class="op_single_selector"]
->- [Azure portal](./cloud-services-custom-domain-name-portal.md)
->- [Azure classic portal](./cloud-services-custom-domain-name.md)
-
 When you create a Cloud Service, Azure assigns it to a subdomain of **chinacloudapp.cn**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.chinacloudapp.cn. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
@@ -51,15 +46,17 @@ CNAME (or alias records) and A records both allow you to associate a domain name
 A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **[myapp].chinacloudapp.cn** domain name of your Azure hosted application. Once created, the CNAME creates an alias for the **[myapp].chinacloudapp.cn**. The CNAME entry will resolve to the IP address of your **[myapp].chinacloudapp.cn** service automatically, so if the IP address of the cloud service changes, you do not have to take any action.
 
 > [!NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME record](http://zh.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035) document.
+> Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME record](http://en.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035) document.
+> 
+> 
 
 ### A record
 An *A* record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of an Azure Cloud Service, the virtual IP of the service. So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as \***.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
 
 > [!NOTE]
 > Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service. The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.) If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.
->
-> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](./cloud-services-how-to-manage.md).
+> 
+> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -128,7 +125,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
 2.  Now find where you can select or enter A record's. You may have to select the record type from a drop down, or go to an advanced settings page.
 
-3. Select or enter the domain or subdomain that will use this A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '__*__'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
+4. Select or enter the domain or subdomain that will use this A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '*****'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
 
     If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
 
@@ -149,7 +146,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 
 ## Next steps
 
-* [How to Manage Cloud Services](./cloud-services-how-to-manage.md)
+* [How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)
 
 * [General configuration of your cloud service](./cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy-portal.md).

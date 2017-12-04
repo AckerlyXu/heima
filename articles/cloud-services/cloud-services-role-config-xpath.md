@@ -7,10 +7,12 @@ authors: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
+ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2016
-ms.date: 12/26/2016
+origin.date: 04/19/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 
@@ -175,4 +177,5 @@ Learn more about the [ServiceConfiguration.cscfg](./cloud-services-model-and-pac
 
 Create a [ServicePackage.cspkg](./cloud-services-model-and-package.md#cspkg) package.
 
-Enable [remote desktop](./cloud-services-role-enable-remote-desktop.md) for a role.
+Enable [remote desktop](cloud-services-role-enable-remote-desktop-new-portal.md) for a role.
+
