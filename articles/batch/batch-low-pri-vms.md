@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 origin.date: 09/28/2017
-ms.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-junlch
 
 ---
@@ -117,7 +117,7 @@ benefit from low-priority VMs:
 -   When tasks are interrupted, Batch detects and automatically
     requeues tasks to run again.
 
--   Low-priority VMs have a separate core quota, differs from the one for dedicated VMs. 
+-   Low-priority VMs have a separate vCPU quota, differs from the one for dedicated VMs. 
     The quota for low-priority VMs is higher than the quota for dedicated VMs, because 
     low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).    
 
