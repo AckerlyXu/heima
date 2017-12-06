@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/24/2017
+origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ---
 
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
@@ -24,7 +24,7 @@ ms.date: 10/16/2017
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

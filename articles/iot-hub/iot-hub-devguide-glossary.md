@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ---
 
 # Glossary of IoT Hub terms
@@ -41,7 +41,7 @@ IoT Edge enables you to write applications that enable gateway-connected devices
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
 
 ## Azure portal
-The [Microsoft Azure portal](https://portal.azure.cn) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_. In some of the IoT Hub tutorials, you may be asked to use the [Azure classic portal](https://manage.windowsazure.cn).
+The [Microsoft Azure portal](https://portal.azure.cn) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_.
 
 ## Azure PowerShell
 [Azure PowerShell](../powershell-install-configure.md) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.

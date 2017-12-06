@@ -13,20 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/25/2017
-ms.date: 11/20/2017
+origin.date: 10/19/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
 # Understand and invoke direct methods from IoT Hub
-## Overview
 IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 
 Each device method targets a single device. [Jobs][lnk-devguide-jobs] provide a way to invoke direct methods on multiple devices, and schedule method invocation for disconnected devices.
 
 Anyone with **service connect** permissions on IoT Hub may invoke a method on a device.
 
-### When to use
 Direct methods follow a request-response pattern and are meant for communications that require immediate confirmation of their result, usually interactive control of the device, for example to turn on a fan.
 
 Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt between using desired properties, direct methods, or cloud-to-device messages.
@@ -43,10 +41,7 @@ Direct methods are synchronous and either succeed or fail after the timeout peri
 
 Direct methods are HTTPS-only from the cloud side, and MQTT or AMQP from the device side.
 
-The payload for method requests and responses is a JSON document up to 8KB.
-
-## Reference topics:
-The following reference topics provide you with more information about using direct methods.
+The payload for method requests and responses is a JSON document up to 8 KB.
 
 ## Invoke a direct method from a back-end app
 ### Method invocation

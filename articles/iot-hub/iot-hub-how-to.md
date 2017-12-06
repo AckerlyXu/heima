@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/25/2017
-ms.date: 09/25/2017
+origin.date: 10/13/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
@@ -29,7 +29,7 @@ You have various options to learn how to develop for the IoT Hub service:
 
 As a developer, you can read detailed conceptual guidance about IoT Hub in the [Developer Guide][lnk-devguide]. This guide includes:
 
-* Detailed descriptions of all IoT Hub features that help you to learn how to use them.
+* Detailed descriptions of all the IoT Hub features to help you to learn how to use them.
 * Guidance on how to choose when multiple options are available.
 
 ## Tutorials

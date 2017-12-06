@@ -128,14 +128,15 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 ![Connected Pi and BME280](./media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
 
 ### Connect Pi to the network
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network.
+
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
 
 ## Run a sample application on Pi
 
-### Install the prerequisite packages
+### Login to your Raspberry Pi
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
    
@@ -151,41 +152,26 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    > [!NOTE] 
    The default username is `pi` , and the password is `raspberry`.
 
-1. Install the prerequisite packages for the Microsoft Azure IoT Device SDK for C and Cmake by running the following commands:
-
-   ```bash
-   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-   sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-   git clone git://git.drogon.net/wiringPi
-   cd ./wiringPi
-   ./build
-   ```
-
 
 ### Configure the sample application
 
 1. Clone the sample application by running the following command:
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   sudo apt-get install git-core
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
-1. Open the config file by running the following commands:
+
+2. Run setup script:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-client-app
-   nano config.h
+   cd ./iot-hub-c-raspberrypi-client-app
+   sudo chmod u+x setup.sh
+   sudo ./setup.sh
    ```
 
-   ![Config file](./media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
-
-   There are two macros in this file you can configurate. The first one is `INTERVAL`, which defines the time interval (in milliseconds) between two messages that send to cloud. The second one `SIMULATED_DATA`,which is a Boolean value for whether to use simulated sensor data or not.
-
-   If you **don't have the sensor**, set the `SIMULATED_DATA` value to `1` to make the sample application create and use simulated sensor data.
-
-1. Save and exit by pressing Control-O > Enter > Control-X.
+   > [!NOTE] 
+   > If you **don't have a physical BME280**, you can use '--simulated-data' as command line parameter to simulate temperature&humidity data. `sudo ./setup.sh --simulated-data`
 
 ### Build and run the sample application
 
@@ -199,7 +185,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Run the sample application by running the following command:
 
    ```bash
-   sudo ./app '<device connection string>'
+   sudo ./app '<DEVICE CONNECTION STRING>'
    ```
 
    > [!NOTE] 

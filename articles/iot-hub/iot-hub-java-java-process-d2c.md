@@ -1,6 +1,6 @@
 ---
-title: Process Azure IoT Hub device-to-cloud messages (Java) | Azure
-description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
+title: Routing messages with Azure IoT Hub (Java) | Microsoft Docs
+description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,10 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ---
-
-# Process IoT Hub device-to-cloud messages (Java)
+# Routing messages with IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -44,7 +43,7 @@ To complete this tutorial, you need the following:
 * [Maven 3](https://maven.apache.org/install.html)
 + An active Azure account. <br/>If you don't have an account, you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
 
-You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
+We also recommend reading about [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages from a device app
 In this section, you modify the device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
@@ -65,9 +64,15 @@ In this section, you modify the device app you created in the [Get started with 
                     String msgStr;
                     Message msg;
                     if (new Random().nextDouble() > 0.7) {
-                        msgStr = "This is a critical message.";
-                        msg = new Message(msgStr);
-                        msg.setProperty("level", "critical");
+                        if (new Random().nextDouble() > 0.5) {
+                            msgStr = "This is a critical message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "critical");
+                        } else {
+                            msgStr = "This is a storage message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "storage");
+                        }
                     } else {
                         double currentTemperature = minTemperature + rand.nextDouble() * 15;
                         double currentHumidity = minHumidity + rand.nextDouble() * 20; 
@@ -97,9 +102,9 @@ In this section, you modify the device app you created in the [Get started with 
         }
     }
     ```
-
-    This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
-
+   
+    This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+   
    > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot path example shown here.
    > 
@@ -107,10 +112,8 @@ In this section, you modify the device app you created in the [Get started with 
 
 2. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
-   > [!NOTE]
-   > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
-   > 
-   > 
+    > [!NOTE]
+    > We strongly recommend that you implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 3. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
@@ -209,7 +212,6 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
 [lnk-c2d]: ./iot-hub-java-java-c2d.md
-
 [lnk-suite]: /iot-suite/
 
 <!--Update_Description:update wording and link references-->
