@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -31,11 +31,10 @@ Learn about a public IP address and how to create, change, and delete one. A pub
 
 Complete the following tasks before completing any steps in any section of this article:
 
+<!-- Not Available on azure\-subscription\-service\-limits.md -->
 - Log in to the Azure [portal](https://portal.azure.cn), Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`.
 
 Public IP addresses have a nominal charge. To view the pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. 
 
@@ -57,12 +56,14 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
     |Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
     |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
     |Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the resource you want to associate the public IP address to.|
+<!-- Not Available on Available zone -->
 
 **Commands**
 
+<!-- Not Available on two version for IPv4 and IPv6 -->
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#create)|
+|CLI|[az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
 |PowerShell|[New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 <a name="change"></a>
@@ -83,10 +84,10 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip-list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#list) to list public IP addresses, [az network public-ip-show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#show) to show settings; [az network public-ip update](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#update) to update; [az network public-ip delete](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#delete) to delete|
+|CLI|[az network public-ip-list](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#list) to list public IP addresses, [az network public-ip-show](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#show) to show settings; [az network public-ip update](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update) to update; [az network public-ip delete](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete) to delete|
 |PowerShell|[Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fvirtual-network%2ftoc.json) to retrieve a public IP address object and view its settings, [Set-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fvirtual-network%2ftoc.json) to update settings; [Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress) to delete|
 
-<!-- Not Available ## Register for the standard SKU preview-->
+<!-- Not Available on 20171206 ## Register for the standard SKU preview -->
 ## <a name="next-steps"></a>Next steps
 Assign public IP addresses when creating the following Azure resources:
 

@@ -61,7 +61,7 @@ Prices vary depending on the storage type and availability that you select.
 See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
 ## Availability sets
-An availability set is a logical grouping of VMs within a datacenter that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/common/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. 
+An availability set is a logical grouping of VMs within a datacenter that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md), the Azure SLA applies for unplanned maintenance events. 
 
 An availability set is composed of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs). You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md) or [Windows VMs](../articles/virtual-machines/windows/manage-availability.md).
 
@@ -78,5 +78,5 @@ For VMs using [Azure Managed Disks](../articles/virtual-machines/windows/faq-for
 ## Next steps
 You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
 
-<!--Update_Description: wording update-->
-<!--ms.date: 10/30/2017-->
+<!--Update_Description: wording update, update link -->
+<!--ms.date: 12/11/2017-->
