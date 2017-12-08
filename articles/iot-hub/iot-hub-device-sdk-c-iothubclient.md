@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
@@ -281,7 +281,7 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 

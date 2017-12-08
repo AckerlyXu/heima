@@ -567,7 +567,7 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: ./iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: ./iot-hub-rm-template-powershell.md

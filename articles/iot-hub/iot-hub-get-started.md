@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/25/2017
+origin.date: 08/22/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ---
 # Azure IoT Hub get started tutorials
 
@@ -35,7 +35,7 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 
 | IoT device                       | Programming language |
 |----------------------------------|----------------------|
-| Raspberry Pi                     | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]    |
+| Raspberry Pi                     | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
 | IoT DevKit                       | [Arduino in VSCode][DevKit]     |
 | Intel Edison                     | [Node.js][Ed_Nd], [C][Ed_C]    |
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
@@ -43,13 +43,6 @@ Connect an IoT device or gateway to Azure IoT Hub. You can choose a physical or 
 | Adafruit Feather M0              | [Arduino][M0_Ard]              |
 | Simulated device on PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Online device simulator         | [Raspberry Pi (Node.js)][Ol_Sim] |
-
-In addition, you can use an IoT Edge gateway to enable devices to connect to your IoT hub:
-
-| Gateway device               | Programming language | Platform         |
-|------------------------------|----------------------|------------------|
-| Intel NUC (model DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
-| Simulated gateway            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
