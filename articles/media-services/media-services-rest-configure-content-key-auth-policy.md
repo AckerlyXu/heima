@@ -3,7 +3,7 @@ title: Configure content key authorization policy with REST - Azure | Azure
 description: Learn how to configure an authorization policy for a content key using Media Services REST API.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 11/14/2017
+ms.date: 12/11/2017
+ms.author: v-nany
 ---
 # Dynamic encryption: Configure Content Key Authorization Policy
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -461,20 +461,23 @@ public enum ContentKeyRestrictionType
 {
     Open = 0,
     TokenRestricted = 1,
-    IPRestricted = 2,
+    IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
 }
 ```
 
-###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+> [!NOTE]
+> IP restriction on content key authorization policies is not yet available in the service.
 
-```
-public enum ContentKeyDeliveryType
-{
-    None = 0,
-    PlayReadyLicense = 1,
-    BaselineHttp = 2
-}
-```
+
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+    public enum ContentKeyDeliveryType
+    {
+        None = 0,
+        PlayReadyLicense = 1,
+        BaselineHttp = 2,
+        Widevine = 3
+    }
+
 
 ## Next Steps
 Now that you have configured content key's authorization policy, go to the [How to configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md) topic.

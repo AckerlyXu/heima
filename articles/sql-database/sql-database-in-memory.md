@@ -3,7 +3,7 @@ title: Azure SQL Database In-Memory technologies | Microsoft Docs
 description: Azure SQL Database In-Memory technologies greatly improve the performance of transactional and analytics workloads. 
 services: sql-database
 documentationCenter: ''
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -14,9 +14,9 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/24/2017
-ms.date: 11/06/2017
-ms.author: v-johch
+origin.date: 11/16/2017
+ms.date: 12/11/2017
+ms.author: v-nany
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
@@ -115,7 +115,6 @@ But downgrading the pricing tier can negatively impact your database. The impact
 
 *Downgrading to Basic/Standard*: In-Memory OLTP isn't supported in databases in the Standard or Basic tier. In addition, it isn't possible to move a database that has any In-Memory OLTP objects to the Standard or Basic tier.
 
-Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules.
 
 There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
 
@@ -124,6 +123,14 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
 If the query returns **1**, In-Memory OLTP is supported in this database.
+
+Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules. The following queries identify all objects that need to be removed before a database can be downgraded to Standard/Basic:
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Downgrading to a lower Premium tier*: Data in memory-optimized tables must fit within the In-Memory OLTP storage that is associated with the pricing tier of the database or is available in the elastic pool. If you try to lower the pricing tier or move the database into a pool that doesn't have enough available In-Memory OLTP storage, the operation fails.
 
