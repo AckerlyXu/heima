@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/01/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -60,4 +60,4 @@ If deployment fails on a table, it's likely because your server couldn't connect
 ## Next steps
 Now that you have your tabular model deployed to your server, you're ready to connect to it. You can [connect to it with SSMS](analysis-services-manage.md) to manage it. And, you can [connect to it using a client tool](analysis-services-connect.md) like Power BI, Power BI Desktop, or Excel, and start creating reports.
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties -->

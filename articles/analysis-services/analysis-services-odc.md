@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/23/2017
-ms.date: 09/25/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -146,4 +146,4 @@ function init() {
 
 ```
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

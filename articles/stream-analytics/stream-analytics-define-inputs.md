@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 07/05/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -35,7 +35,7 @@ To learn how to create reference data inputs, see [Use Reference Data](stream-an
 
 ## Compression
 
-Azure Stream Analytics will soon be deploying a compression feature across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Supported types are currently None, GZip, and Deflate compression. 
+Azure Stream Analytics supports compression across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Supported types are currently None, GZip, and Deflate compression. 
 
 Compression is not supported in tandem with Avro serialization, and is not applicable to reference data. 
 
@@ -78,7 +78,11 @@ SELECT
     EventEnqueuedUtcTime,
     PartitionId
 FROM Input
-```
+````
+
+> [!NOTE]
+> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/library/azure/mt793845.aspx).
+> 
 
 ## Create data stream input from IoT Hub
 Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.
@@ -186,4 +190,4 @@ You've learned about data connection options in Azure for your Stream Analytics 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: wording update, add feature Compress optional soon -->
+<!--Update_Description: wording update -->

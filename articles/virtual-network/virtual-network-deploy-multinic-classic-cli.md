@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -187,5 +187,8 @@ Now that you downloaded and changed the script based on your needs, run the scri
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
 
-<!--Not Available the parent file of includes file of virtual-network-deploy-multinic-classic-selectors-include.md-->
-<!--ms.date:11/06/2017-->
+### Step 5 - Configure routing within the VM's operating system
+
+Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -1,10 +1,10 @@
 ---
-title: VM with multiple IP addresses using the Azure CLI 2.0 | Azure
-description: Learn how to assign multiple IP addresses to a virtual machine using the Azure CLI 2.0 | Resource Manager.
+title: VM with multiple IP addresses using the Azure CLI | Azure
+description: Learn how to assign multiple IP addresses to a virtual machine using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 12/11/2017
+ms.author: v-yeche
 
 ---
-# Assign multiple IP addresses to virtual machines using the Azure CLI 2.0
+# Assign multiple IP addresses to virtual machines using the Azure CLI
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI 2.0. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Change the values, as appropriate, for your environment. The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable values in "" and IP address types as required for your implementation. 
+The steps that follow explain how to create an example virtual machine with multiple IP addresses, as described in the scenario. Change variable values in "" and IP address types, as required, for your implementation. 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -169,7 +169,7 @@ Add the private IP addresses to the VM operating system by completing the steps 
 
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
-1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.azure.cn/zh-cn/cli/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest) article and login to your Azure account with the `az-login` command.
+1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.azure.cn/zh-cn/cli/install-az-cli2?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) article and login to your Azure account with the `az-login` command.
 
 2. Complete the steps in one of the following sections, based on your requirements:
 
@@ -191,7 +191,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 
     A public IP address is added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
-    Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. 
+    Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the Azure limits article.
 
     - **Associate the resource to a new IP configuration**
 
@@ -275,3 +275,6 @@ You can add additional private and public IP addresses to an existing NIC by com
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+<!--Not Available the parent file of includes file of virtual-network-multiple-ip-addresses-intro.md-->
+<!--ms.date:12/11/2017-->
+<!-- Update_Description: update meta properties, update link, wording update -->

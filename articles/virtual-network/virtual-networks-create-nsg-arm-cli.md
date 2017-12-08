@@ -1,11 +1,11 @@
 ---
-title: Create network security groups - Azure CLI 2.0 | Azure
-description: Learn how to create and deploy network security groups using the Azure CLI 2.0.
+title: Create network security groups - Azure CLI | Azure
+description: Learn how to create and deploy network security groups using the Azure CLI.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: tysonn
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
@@ -15,30 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/17/2017
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 12/11/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create network security groups using the Azure CLI 2.0
+# Create network security groups using the Azure CLI
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## CLI versions to complete the task 
-
-You can complete the task using one of the following CLI versions: 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample Azure CLI 2.0 commands following expect a simple environment already created based on the scenario preceding. Download the template, do some necessary modification, and deploy it with Azure CLI. 
-
->[!NOTE]
-> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+The following sample Azure CLI commands expect an existing simple environment based on the previous scenario. 
 
 ## Create the NSG for the `FrontEnd` subnet
 
@@ -360,3 +350,5 @@ To create an NSG named *NSG-BackEnd* based on the scenario preceding, follow the
     "routeTable": null
     }
     ```
+
+<!-- Update_Description: update meta properties, update link -->

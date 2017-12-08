@@ -13,18 +13,25 @@
 <!-- Not Available ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md) -->
 <!-- Not Available ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md) -->
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+<!-- Not Available ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md) -->
 <!-- Not Available ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)-->
+### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
 ### [Sample input data](stream-analytics-sample-data-input.md)
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ### [Window functions](stream-analytics-window-functions.md)
+
 ### [Use reference data](stream-analytics-use-reference-data.md)
 ### [Test queries](stream-analytics-test-query.md)
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
+<!-- Not Available ### [Integrate JavaScript UDAs](stream-analytics-javascript-user-defined-aggregates.md) -->
 <!-- Not Available ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md) -->
 ### [Create outputs](stream-analytics-define-outputs.md)
+<!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
+<!-- Not Available ### [Output to Cosmos DB](stream-analytics-documentdb-output.md) -->
+
 ## Use Visual Studio tools
 ### [Install](stream-analytics-tools-for-visual-studio-install.md)
 ### [Get started](stream-analytics-tools-for-visual-studio.md)
@@ -39,6 +46,7 @@
 ### [Leverage query parallelization](stream-analytics-parallelization.md)
 ### [Scale to increase throughput](stream-analytics-scale-jobs.md)
 <!-- Not Available ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md) -->
+<!-- ms.date: 12/11/2017 -->
 ## Manage
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 <!-- Not Available ### [Job reliability during updates](stream-analytics-job-reliability.md) -->

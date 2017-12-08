@@ -1,10 +1,10 @@
 ---
-title: Create a VM with a static public IP address - Azure CLI 2.0 | Azure
-description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI) 2.0.
+title: Create a VM with a static public IP address - Azure CLI | Azure
+description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,18 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 12/11/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM with a static public IP address using the Azure CLI 2.0
+# Create a VM with a static public IP address using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Template](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
@@ -38,7 +37,7 @@ Azure has two different deployment models for creating and working with resource
 
 ## <a name = "create"></a>Create the VM
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
+The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -150,3 +149,5 @@ It's recommended that you delete the resources created in this exercise if you w
 ## Next steps
 
 Any network traffic can flow to and from the VM created in this article. You can define inbound and outbound rules within an NSG that limit the traffic that can flow to and from the network interface, the subnet, or both. To learn more about NSGs, read the [NSG overview](virtual-networks-nsg.md) article.
+
+<!-- Update_Description: update meta properties, wording update -->

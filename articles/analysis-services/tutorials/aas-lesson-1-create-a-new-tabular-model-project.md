@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 # Lesson 1: Create a tabular model project
@@ -79,4 +79,4 @@ Explore some of the dialogs and locations for various features specific to autho
 ## What's next?
 [Lesson 2: Get data](../tutorials/aas-lesson-2-get-data.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

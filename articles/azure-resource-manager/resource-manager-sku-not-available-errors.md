@@ -122,6 +122,6 @@ It returns available SKUs and regions in the following format:
 }
 ```
 
-If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
-
+If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, submit a [SKU request](https://support.windowsazure.cn/support/support-azure) to Azure Support.
+<!-- Redirect  https://aka.ms/skurestriction to https://support.windowsazure.cn/support/support-azure -->
 <!--Update_Description: new articles on resource manager sku not available errors-->

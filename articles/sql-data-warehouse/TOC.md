@@ -2,8 +2,6 @@
 
 ## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Data warehouse workload](sql-data-warehouse-overview-workload.md)
-## [Distributed data](sql-data-warehouse-distributed-data.md)
-## [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 # Get Started
 
@@ -13,6 +11,13 @@
 ## [Manage](sql-data-warehouse-overview-manage.md)
 
 # How To
+
+## Service features
+### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
+### [Performance tiers](performance-tiers.md)
+### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
+### [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 ## Backup and restore
 
@@ -116,13 +121,17 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+<!-- Not Available ### [Automate compute levels](manage-compute-with-azure-functions.md)-->
+
+### Resource classes
+#### [Guidelines](resource-classes-for-workload-management.md)
+#### [Analyze your workload](analyze-your-workload.md)
 
 ## Performance
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
-### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Security
 
@@ -138,7 +147,6 @@
 
 # Reference
 
-## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
 ## T-SQL
 ### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW language elements](sql-data-warehouse-reference-tsql-language-elements.md)
@@ -151,10 +159,11 @@
 ## [Pricing](https://www.azure.cn/pricing/details/sql-data-warehouse/)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [Service updates](https://www.azure.cn/what-is-new/)
+<!-- Not Available  ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) -->
+<!-- Not Available  ## [Support](sql-data-warehouse-get-started-create-support-ticket.md) -->
+<!-- Not Available  ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse) -->
 
-<!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) -->
-<!-- Not Available ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse)-->
-<!-- Not Available ## Partners -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->
+<!-- ms.date: 12/11/2017 -->

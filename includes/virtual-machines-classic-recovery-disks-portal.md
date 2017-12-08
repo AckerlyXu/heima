@@ -60,4 +60,4 @@ To create a VM from your original virtual hard disk, use [Azure portal](https://
 3. In the **Choose an Image** section, select **My disks**, and then select the original virtual hard disk. Check the location information. This is the region where the VM must be deployed. Select the next button.
 4. In the **Virtual machine configuration** section, type the VM name and select a size for the VM.
 <!--Update_Description: wording update-->
-<!--ms.date: 10/30/2017-->
+<!--ms.date: 12/11/2017-->
