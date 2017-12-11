@@ -14,7 +14,7 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 09/14/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
 
 ---
@@ -29,7 +29,7 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
+For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Prerequisites
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
@@ -40,8 +40,6 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
 First, you must log in to Azure with this command.
 
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-
-[!INCLUDE [azurerm-azurechinacloud-environment-parameter](../../includes/azurerm-azurechinacloud-environment-parameter.md)]
 
 Specify the email address of your Azure account and its password in the Azure sign-in dialog.
 
@@ -64,6 +62,22 @@ To get detailed help for any cmdlet you see in this tutorial, use the Get-Help c
 For example, to get help for the `New-AzureRmRedisCache` cmdlet, type:
 
     Get-Help New-AzureRmRedisCache -Detailed
+
+### To connect to the Azure China Cloud
+To connect to the Azure China Cloud, use one of the following commands.
+
+    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+or
+
+    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+To create a cache in the Azure China Cloud, use one of the following locations.
+
+- China East
+- China North
+
+For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.azure.cn/).
 
 ### Properties used for Azure Redis Cache PowerShell
 The following table contains properties and descriptions for commonly used parameters when creating and managing your Azure Redis Cache instances using Azure PowerShell.
@@ -301,7 +315,7 @@ After this command is issued, the status of the cache is returned (similar to ca
     Name               : mycache
     Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/mygroup/providers/Mi
                          crosoft.Cache/Redis/mycache
-    Location           : China East
+    Location           : China North
     Type               : Microsoft.Cache/Redis
     HostName           : mycache.redis.cache.chinacloudapi.cn
     Port               : 6379
@@ -383,7 +397,7 @@ To return information about a specific cache, run `Get-AzureRmRedisCache` with t
     Name               : mycache
     Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/myGroup/providers/Mi
                          crosoft.Cache/Redis/mycache
-    Location           : China East
+    Location           : China North
     Type               : Microsoft.Cache/Redis
     HostName           : mycache.redis.cache.chinacloudapi.cn
     Port               : 6379
