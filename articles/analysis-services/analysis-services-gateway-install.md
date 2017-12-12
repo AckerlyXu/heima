@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 10/23/2017
+origin.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -70,7 +70,10 @@ In order to create a gateway resource in Azure, you must register the local inst
 
 2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+    > [!IMPORTANT]
+    > Save your recovery key in a safe place. The recovery key is required in-order to takeover, migrate, or restore a gateway. 
+
+    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 <a name="create-resource"></a>
 ## Create an Azure gateway resource

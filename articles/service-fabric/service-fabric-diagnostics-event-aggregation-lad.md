@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/17/2017
-ms.date: 10/02/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -52,4 +52,5 @@ This configures the LAD agent to monitor specified log files. Whenever a new lin
 
 1. To understand in more detail what events you should examine while troubleshooting issues, see [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 2. [Set up the OMS agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs
-<!--Update_Description: wording update, update reference link-->
+
+<!--Update_Description: update meta properties -->

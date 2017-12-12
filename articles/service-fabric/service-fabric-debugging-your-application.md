@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/29/2017
-ms.date: 08/14/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,6 @@ ms.author: v-yeche
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
 >
-
 
 ## Debug a local Service Fabric application
 You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2017 or Visual Studio 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.

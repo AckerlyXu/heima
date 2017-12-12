@@ -68,12 +68,48 @@ If a device cannot use the device SDKs, it can still connect to the public devic
   4. Click **Generate** to create your token.
 
      The SAS token that's generated has this structure:
-     `HostName={your hub name}.azure-devices.cn;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
+     `HostName={your hub name}.azure-devices.cn;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.cn%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
      The part of this token to use as the **Password** field to connect using MQTT is:
      `SharedAccessSignature sr={your hub name}.azure-devices.cn%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel with additional information that can help you to troubleshoot connectivity issues.
+
+### TLS/SSL configuration
+
+To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this will fail with connection errors.
+
+In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This is the certificate that Azure uses to secure the connection, and can be found in the [Azure-iot-sdk-c repository][lnk-sdk-c-certs]. More information about these certificates can be found on [Digicert's website][lnk-digicert-root-certs].
+
+An example of how to implement this using the Python version of the [Paho MQTT library][lnk-paho] by the Eclipse Foundation might look like the following.
+
+First, install the Paho library from your command-line environment:
+
+```
+>pip install paho-mqtt
+```
+
+Then, implement the client in a Python script:
+
+```
+from paho.mqtt import client as mqtt
+import ssl
+  
+path_to_root_cer = "...local\\path\\to\\digicert.cer"
+device_id = "<device id from device registry>"
+sas_token = "<generated SAS token>"
+subdomain = "<iothub subdomain>"
+
+client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
+
+client.username_pw_set(username=subdomain+".azure-devices.cn/" + device_id, password=sas_token)
+
+client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+client.tls_insecure_set(False)
+
+client.connect(subdomain+".azure-devices.cn", port=8883)
+```
+
 
 ### Sending device-to-cloud messages
 After making a successful connection, a device can send messages to IoT Hub using `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as a **Topic Name**. The `{property_bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:

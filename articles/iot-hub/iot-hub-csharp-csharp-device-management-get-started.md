@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/15/2017
 ms.author: v-jamebr
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ---
 # Get started with device management (.NET/.NET)
 
@@ -134,7 +134,7 @@ In this section, you will
             {
                 Console.WriteLine("Rebooting!");
 
-                // Update device twim with reboot time. 
+                // Update device twin with reboot time. 
                 TwinCollection reportedProperties, reboot, lastReboot;
                 lastReboot = new TwinCollection();
                 reboot = new TwinCollection();

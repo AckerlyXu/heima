@@ -14,7 +14,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-dotnet-get-started-with-queues.md)
+### [REST](https://docs.microsoft.com/en-us/rest/api/servicebus/queues)
 ## Use topics and subscriptions
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -28,6 +28,7 @@
 ## Plan and design
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
+### [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
 ### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
@@ -73,10 +74,10 @@
 
 # Reference
 ## .NET
-### [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Standard)](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/servicebus)
-## [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus)
+## [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.servicebus)
 ## [REST](https://docs.microsoft.com/en-us/rest/api/servicebus)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)

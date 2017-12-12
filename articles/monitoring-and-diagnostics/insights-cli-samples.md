@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/09/2017
 ms.author: v-yiso
-ms.date: 09/04/2017
+ms.date: 12/11/2017
 ---
 # Azure Monitor  Cross-platform CLI 1.0 quick start samples
 This article shows you sample command-line interface (CLI) commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
@@ -105,6 +105,31 @@ Example to list logs by caller on a resource type, within a start and end date
 azure insights logs list --resourceProvider "Microsoft.Web" --caller "myname@company.com" --startTime 2016-03-08T00:00:00Z --endTime 2016-03-16T00:00:00Z
 ```
 
+## Work with alerts
+You can use the information in the section to work with alerts.
+
+### Get alert rules in a resource group
+```console
+azure insights alerts rule list abhingrgtest123
+azure insights alerts rule list abhingrgtest123 --ruleName andy0323
+```
+
+### Create a metric alert rule
+```console
+azure insights alerts actions email create --customEmails foo@microsoft.com
+azure insights alerts actions webhook create https://someuri.com
+azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
+```
+
+### Create webtest alert rule
+```console
+azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
+```
+
+### Delete an alert rule
+```console
+azure insights alerts rule delete abhingrgtest123 andy0323
+```
 
 ## Log profiles
 Use the information in this section to work with log profiles.
@@ -137,3 +162,40 @@ azure insights logprofile add --name default --storageId /subscriptions/1a66ce04
 ```
 
 
+## Diagnostics
+Use the information in this section to work with diagnostic settings.
+
+### Get a diagnostic setting
+```console
+azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
+```
+
+### Disable a diagnostic setting
+```console
+azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
+```
+
+### Enable a diagnostic setting without retention
+```console
+azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
+```
+
+
+## <a name="autoscale"></a> Autoscale
+Use the information in this section to work with autoscale settings. You need to modify these examples.
+
+### Get autoscale settings for a resource group
+```console
+azure insights autoscale setting list montest2
+```
+
+### Get autoscale settings by name in a resource group
+```console
+azure insights autoscale setting list montest2 -n setting2
+```
+
+
+### Set auotoscale settings
+```console
+azure insights autoscale setting set montest2 -n setting2 --settingSpec
+```

@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/28/2017
+origin.date: 10/18/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 12/11/2017
 ---
 
 # Service Bus quotas

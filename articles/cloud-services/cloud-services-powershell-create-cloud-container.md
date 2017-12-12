@@ -7,10 +7,12 @@ authors: cawaMS
 manager: timlt
 editor: ''
 
+ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
+ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/29/2016
-ms.date: 01/03/2017
+origin.date: 11/18/2016
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 
@@ -23,7 +25,9 @@ This article explains how to quickly create a Cloud Services container using Azu
 
     > [!NOTE]
     > For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
+    >
+    >
+    
 4. Use the **New-AzureService** cmdlet to create an empty Azure cloud service container.
 
     ```
@@ -43,6 +47,6 @@ Get-help New-AzureService
 
 ### Next steps
 
- * To manage the cloud service deployment, refer to the [Get-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495120.aspx), and [Set-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495242.aspx) commands. You may also refer to [How to configure cloud services](./cloud-services-how-to-configure.md) for further information.
+ * To manage the cloud service deployment, refer to the [Get-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495120.aspx), and [Set-AzureService](https://msdn.microsoft.com/zh-cn/library/azure/dn495242.aspx) commands. You may also refer to [How to configure cloud services](./cloud-services-how-to-configure-portal.md) for further information.
 
  * To publish your cloud service project to Azure, refer to the  **PublishCloudService.ps1** code sample from [Continuous delivery for cloud service in Azure](./cloud-services-dotnet-continuous-delivery.md).

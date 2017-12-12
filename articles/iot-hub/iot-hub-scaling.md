@@ -2,11 +2,12 @@
 title: Azure IoT Hub scaling | Azure
 description: How to scale your IoT hub to support your anticipated message throughput. Includes a summary of the supported throughput for each tier and options for sharding
 services: iot-hub
-documentationCenter: ''
-authors: fsautomata
+documentationcenter: ''
+author: fsautomata
 manager: timlt
 editor: ''
 
+ms.assetid: e7bd4968-db46-46cf-865d-9c944f683832
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/13/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ---
 
 # Scale your IoT hub solution
@@ -51,7 +52,7 @@ While a single IoT hub can scale to millions of devices, sometimes your solution
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: ./iot-hub-devguide-quotas-throttling.md

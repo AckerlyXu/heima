@@ -1,6 +1,6 @@
 ---
-title: What workloads can you protect with Azure Site Recovery?
-description: Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site
+title: What workloads can you protect with Azure Site Recovery? | Azure
+description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
 services: site-recovery
 documentationcenter: ''
 author: rockboyfor
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/08/2017
-ms.date: 10/02/2017
+origin.date: 10/30/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
 # What workloads can you protect with Azure Site Recovery?
-This article describes workloads and applications you can replicate with the Azure Site Recovery service.
+
+This article describes workloads and applications you can replicate with the [Azure Site Recovery](site-recovery-overview.md) service.
 
 ## Overview
+
 Organizations need a business continuity and disaster recovery (BCDR) strategy to keep workloads and data safe and available during planned and unplanned downtime, and recover to regular working conditions as soon as possible.
 
 Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
@@ -29,6 +31,7 @@ Site Recovery is an Azure service that contributes to your BCDR strategy. Using 
 Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP and Red Hat. You can customize replication solutions on an app-by-app basis.
 
 ## Why use Site Recovery for application replication?
+
 Site Recovery contributes to application-level protection and recovery as follows:
 
 * App-agnostic, providing replication for any workloads running on a supported machine.
@@ -84,6 +87,7 @@ Azure Site Recovery helps protect SharePoint deployments, as follows:
 * Simplifies SharePoint application development and testing by creating a production-like copy on-demand replica environment for testing and debugging.
 * Simplifies transition to the cloud by using Site Recovery to migrate SharePoint deployments to Azure.
 
+[Learn more](site-recovery-sharepoint.md) about protecting SharePoint.
 
 ## Protect Dynamics AX
 Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
@@ -135,6 +139,7 @@ Azure Site Recovery provides disaster recovery by replicating the critical compo
 -	Ability to test the recovery plans in an isolated environment for DR drills.
 
 [Learn more](https://aka.ms/asr-iis) about protecting IIS web farm.
+<!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
 
 ## Protect Citrix XenApp and XenDesktop
 Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as follows:
@@ -143,7 +148,10 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 * Simplify cloud migration, by using Site Recovery to migrate your Citrix XenApp and XenDesktop deployment to Azure.
 * Simplify Citrix XenApp/XenDesktop testing, by creating a production-like copy on-demand for testing and debugging.
 * This solution is only applicable for Windows Server operating system virtual desktops and not client virtual desktops as client virtual desktops are not yet supported for licensing in Azure.
-## Next steps
-[Check prerequisites](site-recovery-prereq.md) 
+<!-- Not Available [Learn More](https://www.azure.cn/pricing/licensing-faq/) -->
 
-<!--Update_Description: update meta properties, wording update-->
+<!-- Not Available [Learn more](site-recovery-citrix-xenapp-and-xendesktop.md) -->
+## Next steps
+
+[Get started](azure-to-azure-quickstart.md) with Azure VM replication.
+<!--Update_Description: update meta properties, wording update, update link -->

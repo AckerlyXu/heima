@@ -179,7 +179,7 @@ ms.author: v-johch
 ## Scale and Performance
 * **What are the scale limits of Azure Files?** 
 
-    For information on scalability and performance targets of Azure Files, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fstorage%2ffiles%2ftoc.json#scalability-targets-for-blobs-queues-tables-and-files).
+    For information on scalability and performance targets of Azure Files, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fstorage%2ffiles%2ftoc.json).
 
 * **How many clients can access the same file simultaneously?** 
 

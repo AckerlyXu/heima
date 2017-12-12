@@ -13,9 +13,10 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+ms.custom: MVC
 
 ---
 # Prepare Azure resources for replication of on-premises machines
@@ -117,4 +118,4 @@ When Azure VMs are created from storage after failover, they're joined to this n
 > [!div class="nextstepaction"]
 > [Prepare the on-premises VMware infrastructure for disaster recovery to Azure](tutorial-prepare-on-premises-vmware.md)
 
-<!-- Update_Description: new articles on site recovery tutorial prepare azure-->
+<!-- Update_Description: update meta properties -->

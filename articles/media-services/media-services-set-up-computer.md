@@ -3,7 +3,7 @@ title: Set up your Azure Media Services development environment | Azure
 description: Set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: yunan2016
 manager: erikre
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/10/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+origin.date: 10/24/2017
+ms.date: 12/11/2017
+ms.author: v-nany
 ---
 
 # Set up your Media Services development environment
@@ -39,4 +39,6 @@ To set up REST dev environment, see [this](./media-services-rest-how-to-use.md) 
 
 To connect to the Azure Media Services API, see [access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).  
 
-<!--Update_Description: wording update-->
+## Next steps
+
+Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media Services code samples](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).

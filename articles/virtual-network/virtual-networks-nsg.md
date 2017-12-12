@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 09/04/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,8 @@ NSGs contain the following properties:
 | Property | Description | Constraints | Considerations |
 | --- | --- | --- | --- |
 | Name |Name for the NSG |Must be unique within the region.<br/>Can contain letters, numbers, underscores, periods, and hyphens.<br/>Must start with a letter or number.<br/>Must end with a letter, number, or underscore.<br/>Cannot exceed 80 characters. |Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs. |
-| Region |Azure region where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. | |
+| Region |Azure [region](https://www.azure.cn/support/service-dashboard/) where the NSG is created. |NSGs can only be associated to resources within the same region as the NSG. ||
+<!-- Not Available on azure\-subscription\-service\-limits.md -->
 | Resource group |The [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups) the NSG exists in. |Although an NSG exists in a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG. |Resource groups are used to manage multiple resources together, as a deployment unit.<br/>You may consider grouping the NSG with resources it is associated to. |
 | Rules |Inbound or outbound rules that define what traffic is allowed or denied. | |See the [NSG rules](#Nsg-rules) section of this article. |
 
@@ -123,7 +124,7 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 | --- | --- | --- |
 | Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
+| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
 | Azure Resource Manager template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
@@ -133,6 +134,7 @@ Before implementing NSGs, you need to answer the following questions:
 1. What types of resources do you want to filter traffic to or from? You can connect resources such as NICs (Resource Manager), VMs (classic), Cloud Services, Application Service Environments, and VM Scale Sets. 
 2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets?
 
+<!-- Not Available on [Cloud services and network security](../best-practices-network-security.md) -->
 ## Design considerations
 Once you know the answers to the questions in the [Planning](#Planning) section, review the following sections before defining your NSGs:
 
@@ -259,4 +261,4 @@ Since some of the NSGs are associated to individual NICs, the rules are for reso
 <!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md).-->
 * [Troubleshoot NSGs](virtual-network-nsg-troubleshoot-portal.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update, update link-->

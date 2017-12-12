@@ -13,8 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 07/14/2017
-ms.date: 11/20/2017
+origin.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -27,7 +27,7 @@ This article gives recommendations for designing replicated tables in your SQL D
 > 
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see [Distributed data](sql-data-warehouse-distributed-data.md). 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -135,7 +135,7 @@ SQL Data Warehouse implements a replicated table by maintaining a master version
 
 Rebuilds are required after:
 - Data is loaded or modified
-- The data warehouse is scaled to a different DWU setting
+- The data warehouse is scaled to a different [service level](performance-tiers.md#service-levels)
 - Table definition is updated
 
 Rebuilds are not required after:
@@ -199,4 +199,4 @@ To create a replicated table, use one of these statements:
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+ms.custom: MVC
 
 ---
 # Fail over and fail back VMware VMs and physical servers replicated to Azure
@@ -199,4 +200,4 @@ replicating to Azure again as follows:
 After the reprotection finishes, the VM replicates back to Azure, and you can run a failover as
 required.
 
-<!-- Update_Description: new articles on site recovery tutorial vmware to azure failover failback -->
+<!-- Update_Description: update meta properties -->

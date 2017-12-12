@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/17/2017
-ms.date: 09/25/2017
+origin.date: 11/17/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-yeche
 
 Azure Event Hubs is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs?](event-hubs-what-is-event-hubs.md) for a high-level overview of the service.
 
-This article builds on the information in the [overview](event-hubs-what-is-event-hubs.md), and provides technical and implementation details about Event Hubs components and features.
+This article builds on the information in the [overview article](event-hubs-what-is-event-hubs.md), and provides technical and implementation details about Event Hubs components and features.
 
 ## Event publishers
 
@@ -52,6 +52,7 @@ You don't have to create publisher names ahead of time, but they must match the 
 ## Capture
 
 [Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of a Blob storage account. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, which is used to store the captured data. Captured data is written in the Apache Avro format.
+<!-- Not Available on Azure Data Lake Service account -->
 
 ## Partitions
 
@@ -171,4 +172,4 @@ For more information about Event Hubs, visit the following links:
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Event Hubs samples]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 
-<!--Update_Description: update meta properties, wording update, update reference link->
+<!--Update_Description: update meta properties -->

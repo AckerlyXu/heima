@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Event Hub | Azure
-description: Create an Azure Event Hubs namespace and an Event Hub using the Azure Portal
+title: Create an Azure event hub | Azure
+description: Create an Azure Event Hubs namespace and an event hub using the Azure portal
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/01/2017
-ms.date: 09/04/2017
+origin.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -22,12 +22,11 @@ ms.author: v-yeche
 # Create an Event Hubs namespace and an event hub using the Azure portal
 
 ## Create an Event Hubs namespace
-
-1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
+1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
 2. Click **Internet of Things**, and then click **Event Hubs**.
 
     ![](./media/event-hubs-create/create-event-hub9.png)
-3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
+3. In **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
 
     ![](./media/event-hubs-create/create-event-hub1.png)
 4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 

@@ -13,19 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/02/2017
-ms.date: 10/02/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
-
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
-
-After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your business needs may change and you might need to add or remove nodes to your cluster. This article provides detailed steps to achieve this. Please note that add/remove node functionality is not supported in local development clusters.
+After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your (business) needs may change and you will need to add or remove nodes to your cluster. This article provides detailed steps to achieve this. Please note that add/remove node functionality is not supported in local development clusters.
 
 ## Add nodes to your cluster
 
-1. Prepare the VM/machine you want to add to your cluster by following the steps mentioned in the [Prepare the machines to meet the prerequisites for cluster deployment](service-fabric-cluster-creation-for-windows-server.md) section
+1. Prepare the VM/machine you want to add to your cluster by following the steps outlined in [Plan and prepare your Service Fabric cluster deployment](service-fabric-cluster-creation-for-windows-server.md)
 2. Identify which fault domain and upgrade domain you are going to add this VM/machine to
 3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster
 4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to the VM/machine and unzip the package
@@ -130,4 +128,4 @@ The replacement of primary nodes should be performed one node after another, ins
 * [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
 * [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

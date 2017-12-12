@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/13/2017
-ms.date: 11/20/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -43,7 +43,7 @@ To complete this tutorial:
 
 ### Set up an Azure account
 
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
+Get a Microsoft [Azure account](https://www.azure.cn/).
 
 - You can start with a [trial](https://www.azure.cn/pricing/1rmb-trial/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://www.azure.cn/pricing/details/site-recovery/).
@@ -69,7 +69,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
+- The storage account can be standard or [premium](../virtual-machines/windows/premium-storage.md).
 - If you set up a premium account, you will also need an additional standard account for log data.
 
 ### Prepare an account for Mobility service installation
@@ -172,4 +172,4 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
 
-<!-- Update_Description: new articles on site recovery tutorial physical to azure-->
+<!-- Update_Description: update meta properties, update link -->

@@ -1,7 +1,7 @@
 ---
 title: Configure webhooks on Azure metric alerts | Azure
 description: Reroute Azure alerts to other non-Azure systems.
-author: kamathashwin
+author: johnkemnetz
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/03/2017
 ms.author: v-yiso
-ms.date: 05/02/2017
+ms.date: 12/11/2017
 ---
 
 # Configure a webhook on an Azure metric alert
@@ -30,7 +30,7 @@ You can add or update the webhook URI in the Create/Update Alerts screen in the 
 
 ![Add an alert Rule](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
+You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-metric-alerts), [Cross-Platform CLI](insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## Authenticating the webhook
 The webhook can authenticate using token-based authorization. The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -62,7 +62,7 @@ The POST operation contains the following JSON payload and schema for all metric
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+            "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",

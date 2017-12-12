@@ -13,8 +13,8 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 07/31/2017
+origin.date: 11/16/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -24,9 +24,9 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
 Azure Site Recovery provides 3 built-in roles to control Site Recovery management operations. Learn more on [Azure RBAC built-in roles](../active-directory/role-based-access-built-in-roles.md)
 
-* [Site Recovery Contributor](../active-directory/role-based-access-built-in-roles.md) - This role has all permissions required to manage Azure Site Recovery operations in a Recovery Services vault. A user with this role, however, can't create or delete a Recovery Services vault or assign access rights to other users. This role is best suited for disaster recovery administrators who can enable and manage disaster recovery for applications or entire organizations, as the case may be.
-* [Site Recovery Operator](../active-directory/role-based-access-built-in-roles.md) - This role has permissions to execute and manager Failover and Failback operations. A user with this role can't enable or disable replication, create or delete vaults, register new infrastructure or assign access rights to other users. This role is best suited for a disaster recovery operator who can failover virtual machines or applications when instructed by application owners and IT administrators in an actual or simulated disaster situation such as a DR drill. Post resolution of the disaster, the DR operator can re-protect and failback the virtual machines.
-* [Site Recovery Reader](../active-directory/role-based-access-built-in-roles.md) - This role has permissions to view all Site Recovery management operations. This role is best suited for an IT monitoring executive who can monitor the current state of protection and raise support tickets if required.
+* [Site Recovery Contributor](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) - This role has all permissions required to manage Azure Site Recovery operations in a Recovery Services vault. A user with this role, however, can't create or delete a Recovery Services vault or assign access rights to other users. This role is best suited for disaster recovery administrators who can enable and manage disaster recovery for applications or entire organizations, as the case may be.
+* [Site Recovery Operator](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - This role has permissions to execute and manager Failover and Failback operations. A user with this role can't enable or disable replication, create or delete vaults, register new infrastructure or assign access rights to other users. This role is best suited for a disaster recovery operator who can failover virtual machines or applications when instructed by application owners and IT administrators in an actual or simulated disaster situation such as a DR drill. Post resolution of the disaster, the DR operator can re-protect and failback the virtual machines.
+* [Site Recovery Reader](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - This role has permissions to view all Site Recovery management operations. This role is best suited for an IT monitoring executive who can monitor the current state of protection and raise support tickets if required.
 
 If you're looking to define your own roles for even more control, see how to [build Custom roles](../active-directory/role-based-access-control-custom-roles.md) in Azure.
 
@@ -81,4 +81,4 @@ Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Co
   * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Role-Based Access Control troubleshooting](../active-directory/role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.
 
-<!--Update_Description: update meta properties, add the 3 built-in roles to control Site Recovery management operations (Site Recovery Contributor, Operator, Reader) -->
+<!--Update_Description: wording update -->

@@ -2,8 +2,8 @@
 title: Troubleshoot cloud service deployment problems | Azure
 description: There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them.
 services: cloud-services
-documentationCenter: ''
-authors: simonxjx
+documentationcenter: ''
+author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 07/26/2017
+origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ---
 
 # Troubleshoot cloud service deployment problems

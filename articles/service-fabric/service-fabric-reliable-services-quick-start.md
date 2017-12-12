@@ -1,10 +1,10 @@
 ---
-title: Create your first Service Fabric application in C# | Microsoft Docs
+title: Create your first Service Fabric application in C# | Azure
 description: Introduction to creating a Azure Service Fabric application with stateless and stateful services.
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
-ms.author: v-johch
+origin.date: 11/01/2017
+ms.date: 12/04/2017
+ms.author: v-yeche
 
 ---
 # Get started with Reliable Services
@@ -42,11 +43,11 @@ A stateless service is a type of service that is currently the norm in cloud app
 
 Launch Visual Studio 2015 or Visual Studio 2017 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
 
-![Use the New Project dialog box to create a new Service Fabric application](./media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 Then create a stateless service project named *HelloWorldStateless*:
 
-![In the second dialog box, create a stateless service project](./media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+![In the second dialog box, create a stateless service project](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
 Your solution now contains two projects:
 
@@ -124,11 +125,11 @@ To convert a counter value from stateless to highly available and persistent, ev
 
 In the same *HelloWorld* application, you can add a new service by right-clicking on the Services references in the application project and selecting **Add ->  New Service Fabric Service**.
 
-![Add a service to your Service Fabric application](./media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Add a service to your Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
 Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
-![Use the New Project dialog box to create a new Service Fabric stateful service](./media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Use the New Project dialog box to create a new Service Fabric stateful service](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 Your application should now have two services: the stateless service *HelloWorldStateless* and the stateful service *HelloWorldStateful*.
 
@@ -180,7 +181,7 @@ Reliable Collections can store any .NET type, including your custom types, with 
 
 * Service Fabric makes your state highly available by *replicating* state across nodes, and Reliable Collections store your data to local disk on each replica. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
 * Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
-  
+
    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because changes to local instances of objects will not be replicated automatically. You must re-insert the object back into the dictionary or use one of the *update* methods on the dictionary.
 
 The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
@@ -211,7 +212,7 @@ After the services start running, you can view the generated Event Tracing for W
 > 
 > 
 
-![View Diagnostic Events in Visual Studio](./media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![View Diagnostic Events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 ## Next steps
 [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
@@ -225,3 +226,5 @@ After the services start running, you can view the generated Event Tracing for W
 [Application upgrade](service-fabric-application-upgrade.md)
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+
+<!-- Update_Description: wording update -->

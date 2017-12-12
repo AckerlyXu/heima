@@ -2,15 +2,19 @@
 title: Web App with Express (Node.js) | Azure
 description: A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module.
 services: cloud-services
-documentationCenter: nodejs
-authors: rmcmurray
-manager: wpickett
+documentationcenter: nodejs
+author: craigshoemaker
+manager: routlaw
 editor: ''
 
+ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/22/2017
-ms.date: 03/03/2017
+origin.date: 08/17/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 

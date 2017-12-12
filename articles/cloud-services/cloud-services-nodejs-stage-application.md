@@ -2,15 +2,19 @@
 title: Stage a cloud service deployment (Node.js) | Azure
 description: Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap.
 services: cloud-services
-documentationCenter: nodejs
-authors: rmcmurray
-manager: wpickett
+documentationcenter: nodejs
+author: craigshoemaker
+manager: routlaw
 editor: ''
 
+ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
 ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/11/2016
-ms.date: 01/25/2017
+origin.date: 08/17/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 
@@ -27,6 +31,8 @@ environment by performing a Virtual IP (VIP) swap.
 
 > [!NOTE]
 > The steps in this article only apply to node applications hosted as an Azure Cloud Service.
+> 
+> 
 
 ## Step 1: Stage an Application
 
@@ -86,4 +92,4 @@ deployment by swapping VIPs with the deployment in staging.
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: ./cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

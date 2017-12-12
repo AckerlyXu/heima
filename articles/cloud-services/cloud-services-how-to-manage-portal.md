@@ -13,17 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/27/2016
-ms.date: 07/17/2017
+origin.date: 07/05/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
-
 # How to Manage Cloud Services
-
-> [!div class="op_single_selector"]
->- [Azure portal](./cloud-services-how-to-manage-portal.md)
->- [Azure classic portal](./cloud-services-how-to-manage.md)
-
 In the **Cloud Services (classic)** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 More information about how to scale your cloud service is available [here](./cloud-services-how-to-scale-portal.md).
@@ -31,8 +25,7 @@ More information about how to scale your cloud service is available [here](./clo
 ## How to: Update a cloud service role or deployment
 If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
 
-1. In the [Azure portal][], select the cloud service you want to update. This step opens the cloud service instance blade.
-
+1. In the [Azure portal][Azure portal], select the cloud service you want to update. This step opens the cloud service instance blade.
 2. In the blade, click the **Update** button.
 
     ![Update Button](./media/cloud-services-how-to-manage-portal/update-button.png)
