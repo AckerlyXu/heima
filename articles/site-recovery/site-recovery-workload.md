@@ -139,6 +139,7 @@ Azure Site Recovery provides disaster recovery by replicating the critical compo
 -	Ability to test the recovery plans in an isolated environment for DR drills.
 
 [Learn more](https://aka.ms/asr-iis) about protecting IIS web farm.
+<!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
 
 ## Protect Citrix XenApp and XenDesktop
 Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as follows:
