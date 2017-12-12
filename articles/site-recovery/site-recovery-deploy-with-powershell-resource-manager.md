@@ -179,8 +179,10 @@ Before you start, note that the storage account specified should be in the same 
     PS C:\> $DRjob | Select-Object -ExpandProperty State
     Succeeded
 
-        PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
-        Completed
+    PS C:\> $DRjob | Select-Object -ExpandProperty StateDescription
+    Completed
+    ```
+    
 4. Update recovery properties (such as the VM role size,), and the Azure network to which to attach the VM NIC after failover.
 
     ```
@@ -223,7 +225,8 @@ Before you start, note that the storage account specified should be in the same 
 
     $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
 
-        $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
+    $TFjob = Start-AzureRmSiteRecoveryTestFailoverJob -ProtectionEntity $protectionEntity -Direction PrimaryToRecovery -AzureVMNetworkId $nw.Id
+    ```
 2. Verify that the test VM is created in Azure. The test failover job is suspended after creating the test VM in Azure.
 3. To clean up and complete the test failover, run:
 

@@ -141,9 +141,14 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Server | The fully qualified domain name or IP address of the vCenter server/vSphere ESXi host whose VMs are to be profiled.|
 | -User | The user name to connect to the vCenter server/vSphere ESXi host. The user needs to have read-only access, at minimum.|
 | -VMListFile |	The file that contains the list of VMs to be profiled. The file path can be absolute or relative. The file should contain one VM name/IP address per line. Virtual machine name specified in the file should be the same as the VM name on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -NoOfMinutesToProfile |The number of minutes for which profiling is to be run. Minimum is 30 minutes.|
+| -NoOfHoursToProfile |The number of hours for which profiling is to be run.|
 | -NoOfDaysToProfile | The number of days for which profiling is to be run. We recommend that you run profiling for more than 15 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation. |
+| -Virtualization |Specify the virtualization type (VMware or Hyper-V).|
 | -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name is not given, the directory named 'ProfiledData' under the current path will be used as the default directory. |
 | -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you do not specify one now, you will be prompted for it when the command is executed.|
+| -Port |(Optional) Port number to connect to vCenter/ESXi host. Default port is 443.|
+| -Protocol | (Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
 | -StorageAccountName | (Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
 | -StorageAccountKey | (Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or primary access key for classic storage account). |
 | -Environment | (optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds. |
@@ -163,18 +168,23 @@ The profiling command generates several files in the profiling directory. Do not
 
 #### Example 1: Profile VMs for 30 days, and find the throughput from on-premises to Azure
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_ProfiledData" -Server vCenter1.contoso.com -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 #### Example 2: Profile VMs for 15 days
 
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_ProfiledData" -Server vCenter1.contoso.com -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  15  -User vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
 #### Example 3: Profile VMs for 1 hour for a quick test of the tool
 ```
-ASRDeploymentPlanner.exe -Operation StartProfiling -Directory "E:\vCenter1_ProfiledData" -Server vCenter1.contoso.com -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -NoOfDaysToProfile  0.04  -User vCenterUser1
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
+```
+
+#### Example 4: Profile VMs for 2 hours for a proof of concept
+```
+ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
 
 >[!NOTE]
@@ -194,10 +204,13 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -Operation | GenerateReport |
 | -Server |  The vCenter/vSphere server fully qualified domain name or IP address (use the same name or IP address that you used at the time of profiling) where the profiled VMs whose report is to be generated are located. Note that if you used a vCenter server at the time of profiling, you cannot use a vSphere server for report generation, and vice-versa.|
 | -VMListFile | The file that contains the list of profiled VMs that the report is to be generated for. The file path can be absolute or relative. The file should contain one VM name or IP address per line. The VM names that are specified in the file should be the same as the VM names on the vCenter server/vSphere ESXi host, and match what was used during profiling.|
+| -Virtualization |Specify the virtualization type (VMware or Hyper-V).|
 | -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, 'ProfiledData' directory will be used. |
 | -GoalToCompleteIR | (Optional) The number of hours in which the initial replication of the profiled VMs needs to be completed. The generated report provides the number of VMs for which initial replication can be completed in the specified time. The default is 72 hours. |
 | -User | (Optional) The user name to use to connect to the vCenter/vSphere server. The name is used to fetch the latest configuration information of the VMs, such as the number of disks, number of cores, and number of NICs, to use in the report. If the name isn't provided, the configuration information collected at the beginning of the profiling kickoff is used. |
 | -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If the password isn't specified as a parameter, you will be prompted for it later when the command is executed. |
+|-Port|(Optional) Port number to connect to vCenter/ESXi host. Default port is 443.|
+|-Protocol|(Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
 | -DesiredRPO | (Optional) The desired recovery point objective, in minutes. The default is 15 minutes.|
 | -Bandwidth | Bandwidth in Mbps. The parameter to use to calculate the RPO that can be achieved for the specified bandwidth. |
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
@@ -207,34 +220,34 @@ After profiling is complete, you can run the tool in report-generation mode. The
 
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "\\PS1-W2K12R2\vCenter1_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualiztion VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### Example 2: Generate a report when the profiled data is on a remote server
 You should have read/write access on the remote directory.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "\\PS1-W2K12R2\vCenter1_ProfiledData" -VMListFile "\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt"
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
 #### Example 3: Generate a report with a specific bandwidth and goal to complete IR within specified time
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt" -Bandwidth 100 -GoalToCompleteIR 24
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
 #### Example 4: Generate a report with a 5 percent growth factor instead of the default 30 percent
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt" -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### Example 5: Generate a report with a subset of profiled data
 For example, you have 30 days of profiled data and want to generate a report for only 20 days.
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt" -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
 #### Example 6: Generate a report for 5-minute RPO
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
 ## Percentile value used for the calculation
@@ -284,6 +297,7 @@ Open a command-line console, and go to the Site Recovery deployment planning too
 |Parameter name | Description |
 |-|-|
 | -Operation | GetThroughput |
+| -Virtualization |Specify the virtualization type (VMware or Hyper-V).|
 | -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a directory name is not specified, 'ProfiledData' directory is used. |
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. |
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or a primary access key for a classic storage account). |
