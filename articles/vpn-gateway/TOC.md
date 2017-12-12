@@ -43,7 +43,7 @@
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Configure Site-to-Site and ExpressRoute coexisting connections
-### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fvpn-gateway%2ftoc.json)
+### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md)
 ## Configure multiple Site-to-Site connections
 ### [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (classic)](vpn-gateway-multi-site.md)
@@ -80,13 +80,12 @@
 ### [Point-to-Site connection problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Site-to-Site connection cannot connect](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Application Gateway session affinity problems](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [Configure and validate VNet or VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Reference
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
-## [Azure PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
-## [REST](/rest/api/network/virtualnetworkgateways)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [Azure PowerShell (classic)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](/cli/network/vnet-gateway)
 

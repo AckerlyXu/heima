@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/21/2017
-ms.date: 11/07/2017
+origin.date: 11/03/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
 ---
 
