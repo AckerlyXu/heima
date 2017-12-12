@@ -7,52 +7,55 @@
 ## [URL routing](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
+## [SSL policy](application-gateway-ssl-policy-overview.md)
+## [Redirection](application-gateway-redirect-overview.md)
+## [Multi-tenant support](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 # Get started
 ## Create an Application Gateway
-### Public facing
-#### [Portal](application-gateway-create-gateway-portal.md)
-#### [PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
-#### [PowerShell (classic)](application-gateway-create-gateway.md)
-### Internal facing
-#### [PowerShell](application-gateway-ilb-arm.md)
-#### [PowerShell (classic)](application-gateway-ilb.md)
+### [Azure portal](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
+### [Azure CLI](application-gateway-create-gateway-cli.md)
 # How to
 ## Configure web application firewall
-### [Portal](application-gateway-web-application-firewall-portal.md)
-### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure portal](application-gateway-web-application-firewall-portal.md)
+### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## Customize web application firewall rules
-### [Portal](application-gateway-customize-waf-rules-portal.md)
-## Configure for SSL offload
-### [Portal](application-gateway-ssl-portal.md)
-### [PowerShell](application-gateway-ssl-arm.md)
-### [PowerShell (Classic)](application-gateway-ssl.md)
-### [Policy and end to end](application-gateway-end-to-end-ssl-powershell.md)
+### [Azure portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
+## Configure SSL
+### [Azure portal](application-gateway-ssl-portal.md)
+### [Azure PowerShell](application-gateway-ssl-arm.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
+### [SSL policy](application-gateway-configure-ssl-policy-powershell.md)
 ## Configure URL path based routing
-### [Portal](application-gateway-create-url-route-portal.md)
-### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure portal](application-gateway-create-url-route-portal.md)
+### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Configure multiple site hosting
-### [Portal](application-gateway-create-multisite-portal.md)
-### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+### [Azure portal](application-gateway-create-multisite-portal.md)
+### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## Configure redirection
+### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configure web apps as backend pool members
+### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configure health probes
-### [Portal](application-gateway-create-probe-portal.md)
-### [PowerShell](application-gateway-create-probe-ps.md)
-### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
-## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fapplication-gateway%2ftoc.json)
+### [Azure portal](application-gateway-create-probe-portal.md)
+### [Azure PowerShell](application-gateway-create-probe-ps.md)
+## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md)
 ## Troubleshoot
 ### [Troubleshoot errors in Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
+### [Application Gateway session affinity problems](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/application-gateway)
+## [Azure CLI](/cli/network/application-gateway)
 ## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
 # Related
 ## [ExpressRoute](/expressroute/)
 ## [Virtual network](/virtual-network/)
@@ -63,5 +66,7 @@
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Pricing](https://www.azure.cn/pricing/details/application-gateway/)
-## [Service updates](https://www.azure.cn/what-is-new/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+

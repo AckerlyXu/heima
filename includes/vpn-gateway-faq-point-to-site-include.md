@@ -1,3 +1,5 @@
+This FAQ applies to P2S connections using the classic deployment model.
+
 ### What client operating systems can I use with Point-to-Site?
 
 The following client operating systems are supported:
@@ -46,4 +48,4 @@ Yes, it is possible. But the virtual networks cannot have overlapping IP prefixe
 
 It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet.
 
-<!-- ms.date: 10/10/2017 -->
+<!-- ms.date: 12/12/2017 -->
