@@ -15,9 +15,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-origin.date: 08/15/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 11/06/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Index of Hadoop in HDInsight troubleshooting articles

@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
 
 ---
@@ -27,7 +27,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 >
 
 > [!IMPORTANT]
-> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on using Phoenix on Linux-based HDInsight, see [Use Apache Phoenix with Linux-based HBase clusters in HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md).
 >
 
 ## Use SQLLine
@@ -37,7 +37,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 Before you can use SQLLine, you must have the following:
 
 * **A HBase cluster in HDInsight**. For information on provision HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
-* **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Classic Management Portal][hdinsight-manage-portal].
+* **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Classic Portal][hdinsight-manage-portal].
 
 **To find out the host name**
 
@@ -267,7 +267,7 @@ In this article, you have learned how to use Apache Phoenix in HDInsight.  To le
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 * [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]:
   With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
-* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md): Learn how to configure HBase replication across two Azure datacenters.
+* [Configure HBase replication in HDInsight](hbase/apache-hbase-replication.md): Learn how to configure HBase replication across two Azure datacenters.
 
 [azure-portal]: https://manage.windowsazure.cn/
 [vnet-point-to-site-connectivity]: /vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal
@@ -275,8 +275,8 @@ In this article, you have learned how to use Apache Phoenix in HDInsight.  To le
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]:hbase/apache-hbase-provision-vnet.md
+[hdinsight-hbase-overview]:hbase/apache-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

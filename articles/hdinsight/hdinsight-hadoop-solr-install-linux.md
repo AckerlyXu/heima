@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 12/01/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Install and use Solr on HDInsight Hadoop clusters
@@ -37,7 +37,7 @@ Learn how to install Solr on Azure HDInsight by using Script Action. Solr is a p
 > [!WARNING]
 > Components provided with the HDInsight cluster are fully supported by Microsoft.
 >
-> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. Azure support may not be able to resolve problems with custom components. You may need to engage the open source communities for assistance. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components, such as Solr, receive commercially reasonable support to help you to further troubleshoot the issue. Azure support may not be able to resolve problems with custom components. You may need to engage the open source communities for assistance. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [Azure CSDN](http://azure.csdn.net). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
 
 ## What the script does
 
@@ -56,7 +56,7 @@ A sample script to install Solr on an HDInsight cluster is available at the foll
 
 To create a cluster that has Solr installed, use the steps in the [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md) document. During the creation process, use the following steps to install Solr:
 
-1. From the __Cluster summary__ blade, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
+1. From the __Cluster summary__ section, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
 
    * **NAME**: Enter a friendly name for the script action.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -65,7 +65,7 @@ To create a cluster that has Solr installed, use the steps in the [Create HDInsi
    * **ZOOKEEPER**: Check this option to install on the Zookeeper node
    * **PARAMETERS**: Leave this field blank
 
-2. At the bottom of the **Script actions** blade, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
+2. At the bottom of the **Script actions** section, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
 
 3. From the __Cluster summary__ page, select __Create__ to create the cluster.
 

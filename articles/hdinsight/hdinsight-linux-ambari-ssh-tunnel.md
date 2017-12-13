@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/21/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 11/10/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs
@@ -46,7 +46,7 @@ If you use Script Actions to customize your cluster, any services or utilities t
 
 ## Prerequisites
 
-* An SSH client. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* An SSH client. Most operating systems provide an SSH client through the `ssh` command. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * A web browser that can be configured to use a SOCKS5 proxy.
 
@@ -56,7 +56,7 @@ If you use Script Actions to customize your cluster, any services or utilities t
     > * Microsoft Edge
     > * Microsoft Internet Explorer
     >
-    > Google Chrome also relies on the Windows proxy settings. However, you can install extensions that support SOCKS5. We recommend FoxyProxy Standard.
+    > Google Chrome also relies on the Windows proxy settings. However, you can install extensions that support SOCKS5. We recommend [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
 ## <a name="usessh"></a>Create a tunnel using the SSH command
 
@@ -72,9 +72,9 @@ This command creates a connection that routes traffic to local port 9876 to the 
 * **C** - Compress all data, because web traffic is mostly text.
 * **2** - Force SSH to try protocol version 2 only.
 * **q** - Quiet mode.
-* **T** - Disable pseudo-tty allocation, since we are just forwarding a port.
-* **n** - Prevent reading of STDIN, since we are just forwarding a port.
-* **N** - Do not execute a remote command, since we are just forwarding a port.
+* **T** - Disable pseudo-tty allocation, since you are just forwarding a port.
+* **n** - Prevent reading of STDIN, since you are just forwarding a port.
+* **N** - Do not execute a remote command, since you are just forwarding a port.
 * **f** - Run in the background.
 
 Once the command finishes, traffic sent to port 9876 on the local computer is routed to the cluster head node.
