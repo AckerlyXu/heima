@@ -241,7 +241,8 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli]:../../storage/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../storage/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md
+<!--Not Available on #how-to-copy-blobs-from-one-storage-container-to-another -->
 [storage-premium-storage-preview-portal]:../../storage/storage-premium-storage.md
 [storage-redundancy]:../../storage/storage-redundancy.md
 [storage-scalability-targets]:../../storage/storage-scalability-targets.md

@@ -99,7 +99,7 @@ Now, run a failover:
 ## Next steps
 
 - [Learn more](site-recovery-failover.md) about different types of failovers, and how to run them.
-- If you're migrating machines rather than replicating and failing back, [read more](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
+- If you're migrating machines rather than replicating and failing back, [read more](site-recovery-migrate-to-azure.md).
 - [Read about failback](site-recovery-failback-azure-to-vmware.md), to fail back and replicate Azure VMs back to the primary on-premises site.
 
 <!--Update_Description: wording update-->
