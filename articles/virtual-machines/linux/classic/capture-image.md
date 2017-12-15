@@ -3,8 +3,8 @@ title: Capture an image of a Linux VM | Azure
 description: Learn how to capture an image of a Linux-based Azure virtual machine (VM) created with the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # How to capture a classic Linux virtual machine as an image
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 This article shows you how to capture a classic Azure virtual machine (VM) running Linux as an image to create other virtual machines. This image includes the OS disk and data disks attached to the VM. It doesn't include networking configuration, so you need to configure that when you create the other VM from the image.
 

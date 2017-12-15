@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -31,6 +31,7 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Resize a VM
 > * View and understand VM state
 
+<!-- Not Available on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure. 
 
 ## Create resource group
@@ -210,7 +211,7 @@ Run the following commands to return the public IP address of the virtual machin
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
-Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -284,10 +285,12 @@ The following table categorizes sizes into use cases.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | General purpose         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
 | Compute optimized      | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| Memory optimized       | GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| Storage optimized       | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| GPU           | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| High performance | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
+| Memory optimized       | DSv2, DS, Dv2, D   | High memory-to-CPU. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+<!-- Not Available on GS, G Series -->
+<!-- Not Available on | Storage optimized       | Ls   -->
+<!-- Not Available on | GPU           | NV, NC         -->
+<!-- Not Available on | High performance | H, A8-11    -->
+
 
 ### Find available VM sizes
 
@@ -404,4 +407,4 @@ Advance to the next tutorial to learn about VM disks.
 > [!div class="nextstepaction"]
 > [Create and Manage VM disks](./tutorial-manage-data-disk.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

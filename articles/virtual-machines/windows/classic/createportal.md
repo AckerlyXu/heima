@@ -3,8 +3,8 @@ title: Create a custom Windows virtual machine | Azure
 description: Learn how to create a custom Windows virtual machine from the Azure portal using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -14,14 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/30/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 11/03/17
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Create a custom virtual machine running Windows using the classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 
@@ -29,3 +30,4 @@ ms.author: v-dazen
 
 ## Next steps 
 You can also [create a custom virtual machine running Linux](../../linux/classic/createportal.md).
+<!-- Update_Description: update meta properties, add classic portal migration notice. -->

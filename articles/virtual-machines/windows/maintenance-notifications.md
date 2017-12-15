@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/26/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -192,4 +192,4 @@ You may want to start maintenance yourself in the following cases:
 
 Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
 
-<!--Update_Description: update meta properties, add FAQ and Classic Deployment content -->
+<!--Update_Description: update meta properties, wording update -->

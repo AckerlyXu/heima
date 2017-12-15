@@ -3,7 +3,7 @@ title: FAQ about Windows VMs in Azure | Azure
 description: Provides answers to some of the common questions about Windows virtual machines created with the Resource Manager model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-management
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 10/20/2017
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 
@@ -26,10 +26,11 @@ This article addresses some common questions about Windows virtual machines crea
 ## What can I run on an Azure VM?
 All subscribers can run server software on an Azure virtual machine. For information about the support policy for running Microsoft server software in Azure, see [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
 
+<!-- Not Available on MSDN Azure benefit subscribers and MSDN Dev -->
 ## How much storage can I use with a virtual machine?
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+Each data disk can be up to 4 TB (4,095 GB). The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure Managed Disks are the new and recommended disk storage offerings for use with Azure Virtual Machines for persistent storage of data. You can use multiple Managed Disks with each Virtual Machine. Managed Disks offer two types of durable storage options: Premium and Standard Managed Disks. For pricing information, see [Managed Disks Pricing](https://www.azure.cn/pricing/details/managed-disks/).
+Azure Managed Disks are the recommended disk storage offerings for use with Azure Virtual Machines for persistent storage of data. You can use multiple Managed Disks with each Virtual Machine. Managed Disks offer two types of durable storage options: Premium and Standard Managed Disks. For pricing information, see [Managed Disks Pricing](https://www.azure.cn/pricing/details/managed-disks/).
 
 Azure storage accounts can also provide storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/).
 
@@ -71,10 +72,10 @@ Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure us
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
+Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 

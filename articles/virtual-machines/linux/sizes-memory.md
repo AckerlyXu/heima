@@ -1,6 +1,6 @@
 ---
 title: Linux Azure VM sizes - Memory | Azure
-description: Lists the different memory optimized sizes available for Linux virtual machines in Azure.
+description: Lists the different memory optimized sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 08/30/2017
-ms.date: 10/16/2017
+origin.date: 11/08/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
 
-# Memory optimized Linux VM sizes
+# Memory optimized virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
 
@@ -36,4 +36,4 @@ ms.author: v-yeche
 ## Next steps
 Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
 
-<!--Update_Description: update meta properties-->
+<!-- Update_Description: update meta properties, update link -->

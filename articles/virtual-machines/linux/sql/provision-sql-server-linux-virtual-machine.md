@@ -5,8 +5,8 @@ services: virtual-machines-linux
 author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
-origin.date: 10/04/2017
-ms.date: 12/01/2017
+origin.date: 10/25/2017
+ms.date: 12/18/2017
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -168,7 +168,7 @@ This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If yo
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd -reload
+   sudo firewall-cmd --reload
    ```
 
 ## Next steps
@@ -179,4 +179,4 @@ If you configured the Azure VM for remote SQL Server connections, you should als
 
 For more general information about SQL Server on Linux, see the [Overview of SQL Server 2017 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). For more information about using SQL Server 2017 Linux virtual machines, see [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md).
 
-<!--Update_Description: new articles on provision SQL server linux VM-->
+<!--Update_Description: update meta properties, wording update -->

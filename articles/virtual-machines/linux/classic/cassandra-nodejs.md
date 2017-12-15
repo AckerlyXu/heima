@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -159,7 +159,7 @@ Enter the following information on the "Virtual machine configuration" screen #2
 <tr><td>AVAILABILITY SET </td><td>    None </td><td>    Leave it blank</td></tr>
 <tr><td>ENDPOINTS    </td><td>Use default </td><td>    Use the default SSH configuration </td></tr>
 </table>
-<!-- cloudapp.net  to chinacloudapp.cn -->
+<!-- cloudapp.net  to chinacloudapp.cn(Correct) -->
 
 Click right arrow, leave the defaults on the screen #3 and click the "check" button to complete the VM provisioning process. After a few minutes, the VM with the name "ubuntu-template" should be in a "running" status.
 
@@ -711,4 +711,4 @@ Azure is a flexible platform that allows the running of both Microsoft as well a
 * [http://www.datastax.com](http://www.datastax.com)
 * [http://www.nodejs.org](http://www.nodejs.org)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -37,7 +37,9 @@
     href: tutorial-monitoring.md
   - name: 11 - Team Services CI/CD
     href: tutorial-vsts-iis-cicd.md
-  - name: 12 - Secure web server with SSL
+  - name: 12 - Install a SQL\IIS\.NET stack
+    href: tutorial-iis-sql.md
+  - name: 13 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -53,10 +55,34 @@
     href: regions-and-availability.md
   - name: VM types and sizes
     href: sizes.md
+    items:
+    - name: General purpose
+      href: sizes-general.md  
+    - name: Compute optimized
+      href: sizes-compute.md    
+    - name: Memory optimized
+      href: sizes-memory.md    
+    - name: Storage optimized
+      href: sizes-storage.md    
+    - name: Azure compute units (ACU)
+      href: sizes-general.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
-  - name: Storage
+  - name: Disk storage
     href: about-disks-and-vhds.md
+    items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
+    - name: Premium storage
+      href: premium-storage.md
+    - name: Premium storage performance
+      href: premium-storage-performance.md
+    - name: Standard storage
+      href: standard-storage.md
+    - name: Scalability targets for disks
+      href: disk-scalability-targets.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Infrastructure automation
@@ -75,6 +101,8 @@
     items:
     - name: Use C#
       href: csharp.md
+    - name: Use specialized disk
+      href: create-vm-specialized.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
@@ -99,8 +127,19 @@
       href: policy.md
     - name: Create a Key Vault
       href: key-vault-setup.md
+  - name: Protect VMs
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+    items:
+      - name: Back up a single VM
+        items:
+        - name: Azure PowerShell
+          href: ../../backup/quick-backup-vm-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Back up multiple VMs
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
@@ -125,18 +164,18 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Enable nested virtualization
+      href: nested-virtualization.md
   - name: Use Images
     items:
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
       href: prepare-for-upload-vhd-image.md
-    - name: Use generalized image
-      href: create-vm-generalized-managed.md
-    - name: Use specialized disk
-      href: create-vm-specialized.md
     - name: Capture VM to image
       href: capture-image-resource.md
+    - name: Use generalized image
+      href: create-vm-generalized-managed.md
     - name: Build image with Packer
       href: build-image-with-packer.md
     - name: Download existing disk
@@ -170,8 +209,6 @@
         href: hpcpack-cluster-submit-jobs.md
   - name: Manage storage
     items:
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
     - name: Disks FAQs
       href: faq-for-disks.md
     - name: Add a disk
@@ -190,6 +227,8 @@
       href: incremental-snapshots.md
     - name: Convert disk between Standard and Premium
       href: convert-disk-storage.md
+    - name: Migrate to Premium storage with Azure Site Recovery
+      href: migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Use File storage
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
@@ -308,6 +347,8 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Use nested virtualization 
+      href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -334,5 +375,5 @@
     href: https://www.azure.cn/pricing/details/virtual-machines
   - name: FAQ
     href: faq.md
-### ms.date: 10/30/2017
+### ms.date: 12/15/2017
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -75,14 +75,15 @@ Now switch CLI to the `asm` mode.
 
     azure config mode asm
 
-## Step 3: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
+## Step 3: Make sure you have enough Azure Resource Manager Virtual Machine vCPUs in the Azure region of your current deployment or VNET
 For this step you'll need to switch to `arm` mode. Do this with the following command.
 
 ```
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current amount of cores you have in Azure Resource Manager. 
+You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager.  
+<!-- Not Available on azure-subscription-service-limits.md -->
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

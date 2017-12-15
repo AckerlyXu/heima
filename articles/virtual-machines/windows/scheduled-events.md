@@ -1,10 +1,10 @@
 ---
-title: Scheduled Events for Windows VMs in Azure | Microsoft Docs
+title: Scheduled Events for Windows VMs in Azure | Azure
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: ''
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Azure Metadata Service: Scheduled Events (Preview) for Windows VMs
@@ -40,7 +40,6 @@ There are cases where notifying an administrator about an upcoming event or logg
 Azure Metadata Service surfaces Scheduled Events in the following use cases:
 -	Platform initiated maintenance (for example, Host OS rollout)
 -	User-initiated calls (for example, user restarts or redeploys a VM)
-
 
 ## The basics  
 
@@ -134,7 +133,6 @@ curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [
 > [!NOTE] 
 > Acknowledging an event allows the event to proceed for all `Resources` in the event, not just the virtual machine that acknowledges the event. You may therefore choose to elect a leader to coordinate the acknowledgement, which may be as simple as the first machine in the `Resources` field.
 
-
 ## PowerShell sample 
 
 The following sample queries the metadata service for scheduled events and approves each outstanding event.
@@ -155,7 +153,7 @@ function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
-    
+
     # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
@@ -193,7 +191,6 @@ foreach($event in $scheduledEvents.Events)
     }
 }
 ``` 
-
 
 ## C\# sample 
 
@@ -298,7 +295,7 @@ public class Program
             {
 	            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
             };
-	    
+
             foreach (CloudControlEvent event in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(event.EventId));
@@ -365,7 +362,7 @@ def handle_scheduled_events(data):
 def main():
    data = get_scheduled_events()
    handle_scheduled_events(data)
-   
+
 if __name__ == '__main__':
   main()
   sys.exit(0)
@@ -375,4 +372,4 @@ if __name__ == '__main__':
 
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).
-
+<!-- Update_Description: update meta properties -->

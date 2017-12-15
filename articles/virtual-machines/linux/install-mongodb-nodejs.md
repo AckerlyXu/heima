@@ -3,8 +3,8 @@ title: Install MongoDB on a Linux VM using the Azure CLI 1.0 | Azure
 description: Learn how to install and configure MongoDB on a Linux virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # How to install and configure MongoDB on a Linux VM using the Azure CLI 1.0
@@ -112,15 +112,16 @@ You can create a basic MongoDB instance on a single CentOS VM using the followin
 
 The following example creates a resource group with the name `myResourceGroup` in the `chinaeast` region. Enter your own values as follows:
 
->[!NOTE]
+> [!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
 ```azurecli
 azure group create \
     --name myResourceGroup \
     --location chinaeast \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+    --template-file /path/to/azuredeploy.json
 ```
+<!-- Not Available on template to match Azure.cn -->
 
 > [!NOTE]
 > The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration takes a few minutes to complete. Check the status of the deployment with `azure group deployment show myResourceGroup`, entering the name of your resource group accordingly. Wait until the **ProvisioningState** shows *Succeeded* before trying to SSH to the VM.
@@ -160,7 +161,7 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 * [MongoDB Sharding Cluster on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
+> Deploying this complex MongoDB sharded cluster requires more than 20 vCPUs, which is typically the default vCPU count per region for a subscription. Open an Azure support request to increase your vCPU count.
 
 The following example creates a resource group with the name *myResourceGroup* in the *chinaeast* region. Enter your own values as follows:
 
@@ -171,8 +172,9 @@ The following example creates a resource group with the name *myResourceGroup* i
 azure group create \
     --name myResourceGroup \
     --location chinaeast \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+    --template-file /path/to/azuredeploy.json
 ```
+<!-- Not Available on template to match Azure.cn -->
 
 > [!NOTE]
 > The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. Check the status of the deployment with `azure group deployment show myResourceGroup`, adjusting the name of your resource group accordingly. Wait until the **ProvisioningState** shows *Succeeded* before connecting to the VMs.
@@ -183,3 +185,4 @@ In these examples, you connect to the MongoDB instance locally from the VM. If y
 For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md).
+<!-- Update_Description: update meta properties, update link -->

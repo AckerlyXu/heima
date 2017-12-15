@@ -3,7 +3,7 @@ title: Migrate to Resource Manager with PowerShell | Azure
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
@@ -80,7 +80,7 @@ Get the available subscriptions by using the following command:
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.
 
 ```powershell
-    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+    Select-AzureRmSubscription -SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -124,8 +124,8 @@ Set your Azure subscription for the current session. This example sets the defau
 
 <br>
 
-## Step 5: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
-You can use the following PowerShell command to check the current number of cores you have in Azure Resource Manager. 
+## Step 5: Make sure you have enough Azure Resource Manager Virtual Machine vCPUs in the Azure region of your current deployment or VNET
+You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager.
 
 This example checks the availability in the **China North** region. Replace the example region name with your own.
 
@@ -273,7 +273,6 @@ Before you migrate the storage account, please perform preceding prerequisite ch
 * **Migrate classic virtual machines whose disks are stored in the storage account**
 
     Preceding command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If preceding command returns disks then ensure that virtual machines to which these disks are attached are migrated before migrating the storage account.
-
     ```powershell
      $storageAccountName = 'yourStorageAccountName'
       Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
@@ -347,4 +346,4 @@ If the prepared configuration looks good, you can move forward and commit the re
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-
+<!-- Update_Description: update meta properties, update link -->
