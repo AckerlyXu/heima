@@ -64,7 +64,7 @@ The following table lists the major features of SQL Server and provides informat
 | [DML statements](https://docs.microsoft.com/sql/t-sql/queries/queries) | Yes |
 | [DML triggers](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Most - see individual statements | 
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Some - see individual DMVs |
-|[Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)|[Yes](sql-database-dynamic-data-masking-get-started.md)|
+|[Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Yes](sql-database-dynamic-data-masking-get-started.md)|
 | [Event notifications](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | No - see [Alerts](sql-database-insights-alerts-portal.md) |
 | [Expressions](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Yes |
 | [Extended events](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Some - see [Extended events in SQL Database](sql-database-xevent-db-diff-from-svr.md) |
@@ -102,7 +102,7 @@ The following table lists the major features of SQL Server and provides informat
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | See [Azure Analysis Services](https://www.azure.cn/home/features/analysis-services/) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | See [Azure Data Factory](https://www.azure.cn/home/features/data-factory/) |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) |
 | [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate.md) |
