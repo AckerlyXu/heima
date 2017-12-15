@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 07/28/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/19/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Availability and reliability of Hadoop clusters in HDInsight

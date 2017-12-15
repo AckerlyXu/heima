@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/11/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 11/02/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
@@ -299,9 +299,9 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 <!--Update_Description: wording update: change 'wasbs' into 'wasb', update storage link ref-->

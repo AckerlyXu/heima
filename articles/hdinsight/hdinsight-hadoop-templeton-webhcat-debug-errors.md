@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 12/01/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Understand and resolve errors received from WebHCat on HDInsight

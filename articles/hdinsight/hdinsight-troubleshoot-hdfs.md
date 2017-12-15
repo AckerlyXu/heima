@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 10/23/2017
+origin.date: 11/02/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 ---
 
@@ -23,7 +23,7 @@ ms.author: v-yiso
 
 Learn about the top issues and their resolutions when working with Hadoop Distributed File System (HDFS) payloads in Apache Ambari.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>How do I access the local HDFS from inside a cluster
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>How do I access the local HDFS from inside a cluster?
 
 ### Issue
 
@@ -41,7 +41,7 @@ drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
 drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
 ```
 
-2. From source code use the URI `hdfs://mycluster/` literally as in the following sample application:
+2. From source code, use the URI `hdfs://mycluster/` literally, as in the following sample application:
 
 ```csharp
 import java.io.IOException;
@@ -76,7 +76,7 @@ hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
 ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>How do I force-disable HDFS safe mode in a cluster?
 
 ### Issue
 
@@ -229,3 +229,5 @@ The filesystem under path '/' is HEALTHY
 ```apache
 hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
 ```
+### See Also
+[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)

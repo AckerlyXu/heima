@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/25/2017
-ms.date: 10/23/2017
+ms.date: 11/25/2017
 ms.author: v-yiso
 
 ---
@@ -250,19 +250,19 @@ foreach (var key in results.Configuration.Keys)
 ## Submit jobs
 **To submit MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in HDInsight](hdinsight-hadoop-run-samples-linux.md).
+See [Run Hadoop MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **To submit Hive jobs** 
 
-See [Run Hive queries using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+See [Run Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **To submit Pig jobs**
 
-See [Run Pig jobs using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md).
+See [Run Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
+See [Use Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **To submit Oozie jobs**
 
@@ -283,15 +283,15 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md

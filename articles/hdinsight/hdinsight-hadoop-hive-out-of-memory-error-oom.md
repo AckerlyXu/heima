@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/17/2017
-ms.date: 10/23/2017
+origin.date: 11/06/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 
 ---
