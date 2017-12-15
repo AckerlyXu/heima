@@ -425,7 +425,7 @@ HTTP/1.1 204 No Content
 
 ## <a id="encode"></a>Encode the source file into a set of adaptive bitrate MP4 files
 
-After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](https://docs.microsoft.com/rest/api/media/services/job), [Task](https://docs.microsoft.com/rest/api/media/services/task) descriptions).
+After ingesting Assets into Media Services, media can be encoded, transmuxed, watermarked, and so on, before it is delivered to clients. These activities are scheduled and run against multiple background role instances to ensure high performance and availability. These activities are called Jobs and each Job is composed of atomic Tasks that do the actual work on the Asset file (for more information, see [Job](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [Task](https://docs.microsoft.com/en-us/rest/api/media/operations/task) descriptions).
 
 As was mentioned earlier, when working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services can dynamically package a set of adaptive bitrate MP4 files into one of the following formats: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 

@@ -375,7 +375,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Get-AzureRmSqlSyncAgentLinkedDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Get all the information for the Sync Agent |
 | [New-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Add a new member to the Sync Group |
 | [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Refreshes the database schema information |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Get the database schema information |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) |  Get the database schema information |
 | [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Updates the Sync Group |
 | [Start-AzureRmSqlSyncGroupSync](https://docs.microsoft.com/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Triggers a Sync |
 | [Get-AzureRmSqlSyncGroupLog](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Checks the Sync Log |

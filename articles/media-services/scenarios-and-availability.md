@@ -30,7 +30,7 @@ This topic shows common scenarios for delivering your content [live](#live_scena
 
 To start using Azure Media Services, you should have the following:
 
-* An Azure account. If you don't have an account, you can create a 1rmb trial account in just a couple of minutes. For details, see [Azure 1rmb Trial](ttps://www.azure.cn/pricing/1rmb-trial-full/).
+* An Azure account. If you don't have an account, you can create a 1rmb trial account in just a couple of minutes. For details, see [Azure 1rmb Trial](https://www.azure.cn/pricing/1rmb-trial-full/).
 * An Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
 * The streaming endpoint from which you want to stream content has to be in the **Running** state.
 

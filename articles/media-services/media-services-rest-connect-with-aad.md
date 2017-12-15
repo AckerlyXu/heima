@@ -21,7 +21,7 @@ ms.author: v-haiqya
 
 The Azure Media Services team has released Azure Active Directory (Azure AD) authentication support for Azure Media Services access. It also announced plans to deprecate Azure Access Control service authentication for Media Services access. Because every Azure subscription, and every Media Services account, is attached to an Azure AD tenant, Azure AD authentication support brings many security benefits. For details about this change and migration (if you use the Media Services .NET SDK for your app), see the following blog posts and articles:
 
-- [Azure Media Services announces support for Azure AD and deprecation of Access Control authentication](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
+- [Azure Media Services announces support for Azure AD and deprecation of Access Control authentication](https://azure.microsoft.com/en-us/blog/azure-media-services-announces-support-for-aad-and-deprecation-of-acs-authentication/)
 - [Access Azure Media Services API by using Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md)
 - [Use Azure AD authentication to access Azure Media Services API by using Microsoft .NET](media-services-dotnet-get-started-with-aad.md)
 - [Getting started with Azure AD authentication by using the Azure portal](media-services-portal-get-started-with-aad.md)

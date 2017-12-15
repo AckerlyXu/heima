@@ -24,7 +24,7 @@ ms.author: v-johch
 
 In this tutorial, you configure an Azure SQL database and application for failover to a remote region, and then test your failover plan. 
 
-If you don't have an Azure subscription, create a [trial](https://www.azure.cn/1rmb-trial/) account before you begin.
+If you don't have an Azure subscription, create a [trial](https://www.azure.cn/pricing/1rmb-trial-full/) account before you begin.
 
 To complete this tutorial, make sure you have:
 
