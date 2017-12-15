@@ -14,7 +14,7 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2016
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
 ---
@@ -23,7 +23,11 @@ Azure is a growing collection of integrated public cloud services including anal
 
 If you are familiar with the various features of Amazon's AWS, you can examine the Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
-<!-- Not Available ## Regions-->
+## Regions
+Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area.  We have two regions generally available around the China. 
+
+* [Azure China Regions](https://www.azure.cn/support/service-dashboard/)
+
 ## Availability
 We announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for our standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
@@ -45,15 +49,17 @@ Azure virtual machines allow you to deploy a wide range of computing solutions i
 When you deploy a VM in Azure, you are going to select a VM size within one of our series of sizes that is suitable to your workload. The size also affects the processing power, memory, and storage capacity of the virtual machine. You are billed based on the amount of time the VM is running and consuming its allocated resources. A complete list of [sizes of Virtual Machines](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 Here are some basic guidelines for selecting a VM size from one of our series (A, D, and DS).
+<!--Not Available on G and GS Series -->
 * A-series VMs are our value priced entry-level VMs for light workloads and Dev/Test scenarios. They are widely available in all regions and can connect and use all standard resources available to virtual machines.
 <!--Not Available * A-series sizes (A8 - A11) -->
-* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk.
+* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-vCPU ratio, and a solid-state drive (SSD) for the temporary disk.
 * Dv2-series, is the latest version of our D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 <!--Not Available * G-series-->
 
 Note: DS-series VMs have access to Premium Storage - our SSD backed high-performance, low-latency storage for I/O intensive workloads. Premium Storage is available in certain regions. For details, see:
 <!-- Not Available on GS-series-->
-* [Premium Storage: High-performance storage for Azure virtual machine workloads](../../storage/common/storage-premium-storage.md)
+
+* [Premium Storage: High-performance storage for Azure virtual machine workloads](../windows/premium-storage.md)
 
 ## Automation
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated (Phoenix Servers).  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
@@ -68,8 +74,9 @@ Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most
 ## Quotas
 Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  
 
+<!-- Not Available * [Azure Subscription Service Limits](../../azure-subscription-service-limits.md) -->
 ## Partners
-Microsoft works closely with our partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on our partners check their marketplace pages below.
+Azure works closely with our partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on our partners check their marketplace pages below.
 
 * Linux on Azure - [Endorsed Distributions](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://portal.azure.cn/#create/SUSE.SUSELinuxEnterpriseServer12SP2)
@@ -123,4 +130,4 @@ You now have an overview of Linux on Azure.  The next step is to dive in and cre
 
 * [Explore our growing list of Sample Scripts for common tasks via AzureCLI](cli-samples.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

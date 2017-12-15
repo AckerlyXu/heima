@@ -3,7 +3,7 @@ title: Create a classic Azure VM running MySQL | Azure
 description: Create an Azure virtual machine running Windows Server 2012 R2 and the MySQL database using the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Install MySQL on a virtual machine created with the classic deployment model running Windows Server 2016
@@ -26,6 +26,7 @@ For instructions on installing MySQL on Linux, refer to: [How to install MySQL o
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Create a virtual machine running Windows Server 2016
 If you don't already have a VM running Windows Server 2016, you can use this [tutorial](./tutorial.md) to create the virtual machine.
@@ -119,3 +120,4 @@ To test your remote connection to the Azure VM running the MySQL Server service,
 
 ## Next steps
 To learn more about running MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/).
+<!-- Update_Description: add classic portal migration notice. -->

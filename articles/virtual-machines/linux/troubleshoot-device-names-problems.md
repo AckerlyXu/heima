@@ -13,8 +13,8 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-origin.date: 07/12/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -24,7 +24,6 @@ ms.author: v-yeche
 This article explains why device names change after you restart a Linux VM or reattach the data disks. The article also provides solutions for this problem.
 
 ## Symptoms
-
 You may experience the following problems when running Linux VMs in Azure:
 
 - The VM fails to boot after a restart.
@@ -152,4 +151,4 @@ For more information, see the following articles:
 - [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
 - [Linux: What UUIDs can do for you](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev: Introduction to device management in a modern Linux system](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
-<!--Update_Description: update meta properties， update link-->
+<!--Update_Description: update meta properties，-->

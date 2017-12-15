@@ -28,7 +28,7 @@ After reading this article, post any comments at the bottom, or on the [Azure Re
 
 To prepare for deployment:
 
-1. Make sure VMM servers comply with the [support requirements](site-recovery-support-matrix-to-sec-site.md#on-premises-servers), and [deployment prerequisites](vmm-to-vmm-walkthrough-prerequisites.md).
+1. Make sure VMM servers comply with the [support requirements](site-recovery-support-matrix-to-sec-site.md), and [deployment prerequisites](vmm-to-vmm-walkthrough-prerequisites.md).
 2. Make sure VMM servers are connected to the internet and have access to these URLs.
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
@@ -40,7 +40,7 @@ To prepare for deployment:
 
 ## Prepare Hyper-V hosts/clusters
 
-1. Make sure Hyper-V hosts/clusters comply with the [support requirements](site-recovery-support-matrix-to-sec-site.md#on-premises-servers), and [deployment prerequisites](vmm-to-vmm-walkthrough-prerequisites.md).
+1. Make sure Hyper-V hosts/clusters comply with the [support requirements](site-recovery-support-matrix-to-sec-site.md), and [deployment prerequisites](vmm-to-vmm-walkthrough-prerequisites.md).
 2. Verify the requirements for [Hyper-V VMs](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)
 3. Verify [network](site-recovery-support-matrix-to-sec-site.md#network-configuration) and [storage](site-recovery-support-matrix-to-sec-site.md#storage) requirements.
 4. Make sure Hyper-V hosts are connected to the internet and have access to these URLs.

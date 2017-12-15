@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-origin.date: 08/25/2017
-ms.date: 10/16/2017
+origin.date: 10/26/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
 # Options with HPC Pack to create and manage a cluster for Windows HPC workloads in Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-## HPC Pack cluster in Azure VMs
+This article focuses on options to create HPC Pack clusters to run Windows workloads. 
+<!-- Not Available on [Linux HPC workloads](../linux/hpcpack-cluster-options.md)-->
+
+## HPC Pack cluster in Azure VMs and VM scale sets
 ### Azure templates
 
 >[!NOTE]
@@ -31,6 +34,7 @@ ms.author: v-yeche
 * (Quickstart) [Create an HPC cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
 * (Quickstart) [Create an HPC cluster with custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
+<!-- Not Available on ### Azure VM images -->
 ### PowerShell deployment script for HPC Pack 2012 R2
 * [Create an HPC cluster with the HPC Pack IaaS deployment script](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

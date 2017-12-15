@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/29/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -72,7 +72,7 @@ $ResourceGroupName = "sqlvm1"
 ### Storage properties
 Use the following variables to define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../../../storage/common/storage-premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+Modify as desired and then execute the following cmdlet to initialize these variables. Note that in this example, we are using [Premium Storage](../premium-storage.md), which is recommended for production workloads. For details on this guidance and other recommendations, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 ```PowerShell
 $StorageName = $ResourceGroupName + "storage"
@@ -160,8 +160,6 @@ We will start by creating a subnet configuration for our virtual network. For ou
 
 > [!NOTE]
 > You can define additional properties of the virtual network subnet configuration using this cmdlet, but that is beyond the scope of this tutorial.
->
->
 
 Execute the following cmdlet to create your virtual subnet configuration.
 
@@ -183,8 +181,6 @@ Now that we have our virtual network defined, we need to configure an IP address
 
 > [!NOTE]
 > You can define additional properties of the public IP address using this cmdlet, but that is beyond the scope of this initial tutorial. You could also create a private address or an address with a static address, but that is also beyond the scope of this tutorial.
->
->
 
 Execute the following cmdlet to create your public IP address.
 
@@ -345,4 +341,4 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 ## Next steps
 After the virtual machine is created, you are ready to connect to the virtual machine using RDP and setup connectivity. For more information, see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update links -->

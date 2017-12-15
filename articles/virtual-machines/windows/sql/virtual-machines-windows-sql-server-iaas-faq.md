@@ -15,7 +15,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/04/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ---
@@ -54,9 +54,12 @@ This topic provides answers to some of the most common questions about running [
 
     Yes. But there are some considerations. As stated in the previous answer, features that rely on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) only operate on the default instance. If you uninstall the default instance, the extension continues to look for it and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
 
-        A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. 
+    A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. 
 
     If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) as well.
+
+   >[!NOTE]
+   >A SQL Server Azure virtual machine is billed as described in [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md). If you remove SQL Server, the usage charges continue. If you no longer need SQL Server, you can deploy a new virtual machine and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
 
 1. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
 

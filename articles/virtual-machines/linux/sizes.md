@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 09/07/2017
-ms.date: 10/16/2017
+origin.date: 11/08/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ---
 
@@ -27,7 +27,7 @@ This article describes the available sizes and options for the Azure virtual mac
 | [General purpose](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7,  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
 <!--Not Available B(Preview), Dsv3,Dv3-->
 | [Compute optimized](sizes-compute.md)        | Fs, F             | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, bath processes, and application servers.        |
-| [Memory optimized](sizes-memory.md)         | DSv2, DS, Dv2, D   | High memory-to-core ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [Memory optimized](sizes-memory.md)         | DSv2, DS, Dv2, D   | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 <!--Not Available Esv3, Ev3, M, GS, G -->
 <!--Not Available Ls-->
 <!--Not Available NV, NC-->
@@ -36,7 +36,7 @@ This article describes the available sizes and options for the Azure virtual mac
 <br>
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Linux). 
-<!--Not Available- For availability of VM sizes in Azure regions, see [Products available by region](https://www.azure.cn/support/service-dashboard/services/).-->
+- For availability of VM sizes in Azure regions, see [Products available by region](https://www.azure.cn/support/service-dashboard/).
 - Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
 
 ## Rest API
@@ -57,8 +57,8 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
-<!--Not Available- [Storage optimized](sizes-storage.md)-->
+<!--Not Available- [Storage optimized](sizes-storage.md) -->
 <!--Not Available- [GPU](sizes-gpu.md)-->
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update, update link-->
