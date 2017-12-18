@@ -21,7 +21,8 @@ ms.author: v-yeche
 
 This article provides links to all Azure Cosmos DB content specific to the DocumentDB API.
 
-These articles do not apply to the Graph API, Table API, or MongoDB API. 
+These articles do not apply to the Table API, or MongoDB API. 
+<!-- Not Available on Graph API -->
 
 ## Introduction and concepts
 
