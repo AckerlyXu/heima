@@ -45,8 +45,7 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 
 ### IP address version
 
-Public IP addresses are created with an IPv4 or IPv6 address. Public IPv6 addresses can only be assigned to Internet-facing load balancers.
-
+Public IP addresses are created with an IPv4 address.
 ### SKU
 
 Public IP addresses are created with one of the following SKUs:
