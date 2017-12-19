@@ -3,7 +3,7 @@ title: Use Azure Premium Storage with SQL Server | Azure
 description: This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: monicar
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Use Azure Premium Storage with SQL Server on Virtual Machines
@@ -46,7 +46,7 @@ There are several prerequisites for using Premium Storage.
 
 ### Machine size
 For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-
+<!-- Update_Description: update meta properties, update link -->
 ### Cloud services
 You can only use DS* VMs with Premium Storage when they are created in a new cloud service. If you are using SQL Server Always On in Azure, the Always On Listener will refer to the Azure Internal or External Load Balancer IP address that is associated with a cloud service. This article focuses on how to migrate while maintaining availability in this scenario.
 

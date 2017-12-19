@@ -3,7 +3,7 @@ title: Create a CI/CD pipeline in Azure with Team Services | Azure
 description: Learn how to create a Visual Studio Team Services pipeline for continuous integration and delivery that deploys a web app to IIS on a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -34,7 +34,7 @@ To automate the build, test, and deployment phases of application development, y
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 ## Create project in Team Services
-Visual Studio Team Services allows for easy collaboration and development without maintaining an on-premises code management solution. Team Services provides cloud code testing, build, and application insights. You can choose a version control repo and IDE that best fits your code development. For this tutorial, you can use a free account to create a basic ASP.NET web app and CI/CD pipeline. If you do not already have a Team Services account, [create one](http://go.microsoft.com/fwlink/?LinkId=307137).
+Visual Studio Team Services allows for easy collaboration and development without maintaining an on-premises code management solution. Team Services provides cloud code testing, build, and application insights. You can choose a version control repo and IDE that best fits your code development. For this tutorial, you can use a trial account to create a basic ASP.NET web app and CI/CD pipeline. If you do not already have a Team Services account, [create one](http://go.microsoft.com/fwlink/?LinkId=307137).
 
 To manage the code commit process, build definitions, and release definitions, create a project in Team Services as follows:
 
@@ -218,7 +218,8 @@ In this tutorial, you created an ASP.NET web application in Team Services and co
 > * Create a release definition to publish new web deploy packages to IIS
 > * Test the CI/CD pipeline
 
-Advance to the next tutorial to learn how to secure a web server with SSL certificates.
+Advance to the next tutorial to learn how to install a SQL&#92;IIS&#92;.NET stack on a pair of Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)
+<!-- Update_Description: update meta properties, update link -->

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 09/07/2017
-ms.date: 10/16/2017
+origin.date: 11/08/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ---
 
@@ -36,6 +36,7 @@ This article describes the available sizes and options for the Azure virtual mac
 <br> 
 
 - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows). 
+<!-- Not Available on [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md). -->
 - Storage costs are calculated separately based on used pages in the storage account. For details, [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/).
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
@@ -57,4 +58,4 @@ Learn more about the different VM sizes that are available:
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

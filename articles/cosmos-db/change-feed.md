@@ -40,9 +40,9 @@ Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos DB 
 
 You can read the change feed in three different ways, as discussed later in this article:
 
-1.	[Using Azure Functions](#azure-functions)
-2.	[Using the Azure Cosmos DB SDK](#rest-apis)
-3.	[Using the Azure Cosmos DB Change Feed Processor library](#change-feed-processor)
+<!-- Not Available on Azure Functions -->
+1.	[Using the Azure Cosmos DB SDK](#rest-apis)
+2.	[Using the Azure Cosmos DB Change Feed Processor library](#change-feed-processor)
 
 The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing as shown in the following image.
 
@@ -76,14 +76,9 @@ The following image shows how lambda pipelines that both ingest and query using 
 
 ![Azure Cosmos DB-based lambda pipeline for ingestion and query](./media/change-feed/lambda.png)
 
-Also, within your [serverless](http://azure.com/serverless) web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](#azure-functions). If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
+<!-- Not Available Serverless -->
 
-<a id="azure-functions"></a>
-## Using Azure Functions 
-
-If you're using Azure Functions, the simplest way to connect to an Azure Cosmos DB change feed is to add an Azure Cosmos DB trigger to your Azure Functions app. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to, and the function is triggered whenever a change to the collection is made. 
-
-Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
+<!-- Not Available ## Using Azure Functions -->
 
 <a id="rest-apis"></a>
 ## Using the SDK
@@ -274,7 +269,7 @@ That's it. After these few steps documents will start coming into the **Document
 
 ## Next steps
 
-For more information about using Azure Cosmos DB with Azure Functions see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).
+<!-- Not Available on [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md).-->
 
 For more information on using the Change Feed Processor library, use the following resources:
 

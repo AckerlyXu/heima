@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 09/18/2017
-ms.author: v-haiqya
+origin.date: 10/23/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Script action development with HDInsight
@@ -68,7 +68,7 @@ Different versions of HDInsight have different versions of Hadoop services and c
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
+Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
 
 Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
 
@@ -371,6 +371,6 @@ Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new fil
 ## <a name="seeAlso"></a>Next steps
 
 * Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
-* Use the [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight) to learn more about creating .NET applications that manage HDInsight
+* Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
 * Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
 <!--Update_Description: wording update-->

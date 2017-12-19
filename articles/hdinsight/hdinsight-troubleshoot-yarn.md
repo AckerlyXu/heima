@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/07/2017
-ms.date: 10/23/2017
+origin.date: 11/02/2017
+ms.date: 11/25/2017
 ms.author: v-yiso
 
 ---
@@ -24,7 +24,7 @@ ms.author: v-yiso
 
 Learn about the top issues and their resolutions when working with Apache Hadoop YARN payloads in Apache Ambari.
 
-## How do I create a new YARN queue on a cluster
+## How do I create a new YARN queue on a cluster?
 
 
 ### Resolution steps 
@@ -65,10 +65,10 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### Additional reading
 
-- [Yarn Capacity Scheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## How do I download YARN logs from a cluster
+## How do I download YARN logs from a cluster?
 
 
 ### Resolution steps 
@@ -141,6 +141,8 @@ These changes are visible immediately on the YARN Scheduler UI.
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
+### See Also
+[Troubleshoot by Using Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

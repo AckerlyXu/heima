@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 10/04/2017
+ms.date: 12/25/2017
+ms.author: v-yiso
 
 ---
 # Enable heap dumps for Hadoop services on Linux-based HDInsight

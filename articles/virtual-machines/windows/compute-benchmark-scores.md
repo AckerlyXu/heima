@@ -3,8 +3,8 @@ title: Compute benchmark scores for Windows VMs | Azure
 description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -15,12 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 05/11/2017
-ms.date: 05/31/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Compute benchmark scores for Windows VMs
 The following SPECInt benchmark scores show compute performance for Azure's high-performance VM lineup running Windows Server. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+<!-- Not Available A8-A11 ## A-series - compute-intensive -->
 
 ## Dv2-series
 | Size | vCPUs | NUMA nodes | CPU | Runs | Avg base rate | StdDev |
@@ -36,7 +37,8 @@ The following SPECInt benchmark scores show compute performance for Azure's high
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |15 |460.8 |6.5 |
 
 ## About SPECint
-Windows numbers were computed by running [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) on Windows Server. SPECint was run using the base rate option (SPECint_rate2006), with one copy per core. SPECint consists of 12 separate tests, each run three times, taking the median value from each test and weighting them to form a composite score. Those tests were then run across multiple VMs to provide the average scores shown.
+Windows numbers were computed by running [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) on Windows Server. SPECint was run using the base rate option (SPECint_rate2006), with one copy per vCPU. SPECint consists of 12 separate tests, each run three times, taking the median value from each test and weighting them to form a composite score. Those tests were then run across multiple VMs to provide the average scores shown.
 
 ## Next steps
 * For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: wording update -->

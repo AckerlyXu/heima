@@ -3,7 +3,7 @@ title: Example Azure Infrastructure Walkthrough | Azure
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -24,10 +24,10 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
+This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple online store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload
-Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
+Adventure Works Cycles wants to build an online store application in Azure that consists of:
 
 * Two IIS servers running the client front-end in a web tier
 * Two IIS servers processing data and orders in an application tier
@@ -39,7 +39,7 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 
 ![Diagram of different tiers for application infrastructure](./media/infrastructure-example/example-tiers.png)
 
-Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
+Incoming secure web traffic must be load-balanced among the web servers as customers browse the online store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
 The resulting design must incorporate:
 
@@ -110,8 +110,9 @@ This configuration incorporates:
 
 * A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
 * Azure Managed Disks with both Standard and Premium disks
-* Four availability sets, one for each tier of the on-line store
+* Four availability sets, one for each tier of the online store
 * The virtual machines for the four tiers
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
+<!-- Update_Description: wording update -->

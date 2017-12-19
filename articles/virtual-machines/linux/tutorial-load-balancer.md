@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/11/2017
-ms.date: 10/16/2017
+origin.date: 11/13/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -157,10 +157,12 @@ for i in `seq 1 3`; do
 done
 ```
 
+When all three virtual NICs are created, continue on to the next step
+
 ## Create virtual machines
 
 ### Create cloud-init config
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app.
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app in the next step. To see the load balancer in action, at the end of the tutorial you access this simple app in a web browser.
 
  Create a file named *cloud-init.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
@@ -247,7 +249,7 @@ az network public-ip show \
     --output tsv
 ```
 
-You can then enter the public IP address in to a web browser. Remember - it takes a few minutes the the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
+You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running Node.js app](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -270,6 +272,24 @@ az network nic ip-config address-pool remove \
 
 To see the load balancer distribute traffic across the remaining two VMs running your app you can force-refresh your web browser. You can now perform maintenance on the VM, such as installing OS updates or performing a VM reboot.
 
+To view a list of VMs with virtual NICs connected to the load balancer, use [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#show). Query and filter on the ID of the virtual NIC as follows:
+
+```azurecli
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+The output is similar to the following example, which shows that the virtual NIC for VM 2 is no longer part of the backend address pool:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### Add a VM to the load balancer
 After performing VM maintenance, or if you need to expand capacity, you can add a VM to the backend address pool with [az network nic ip-config address-pool add](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#add). The following example adds the virtual NIC for **myVM2** to *myLoadBalancer*:
 
@@ -281,6 +301,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+To verify that the virtual NIC is connected to the backend address pool, use [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#show) again from the preceding step.
 
 ## Next steps
 In this tutorial, you created a load balancer and attached VMs to it. You learned how to:

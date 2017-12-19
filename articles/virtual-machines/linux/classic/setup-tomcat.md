@@ -3,8 +3,8 @@ title: Set up Apache Tomcat on a Linux virtual machine | Azure
 description: Learn how to set up Apache Tomcat7 by using Azure Virtual Machines running Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: NingKuang
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Set up Tomcat7 on a Linux virtual machine with Azure
@@ -24,6 +24,7 @@ Apache Tomcat (or simply Tomcat, also formerly called Jakarta Tomcat) is an open
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers how to use the classic deployment model. We recommend that most new deployments use the Resource Manager model. To use a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [this article](https://github.com/Azure/azure-quickstart-templates/tree/master/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In this article, you will install Tomcat7 on a Linux image and deploy it in Azure.  
 
@@ -322,3 +323,5 @@ The following command only changes the permission of the folder directory. The f
 [16]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
+
+<!-- Update_Description: Add classic portal migration notice. -->

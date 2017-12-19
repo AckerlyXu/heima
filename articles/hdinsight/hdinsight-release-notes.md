@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/04/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 
 ---
 # Release notes for Hadoop components on Azure HDInsight
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
@@ -60,7 +60,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 * **New features in Hive**. See [Hortonworks documentation](https://hortonworks.com/apache/hive/#section_4).
 
-* **Hive CLI Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hdinsight-hadoop-use-hive-beeline.md).
+* **Hive CLI Deprecation**: Hive CLI is being deprecated and customers are encouraged to use Beeline instead. For more information, see [Apache documentation](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). For instructions on how to use Beeline with HDInsight, see [Use Beeline with HDInsight Hadoop clusters](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **New features in Apache Phoenix and HBase**.
 	* Storage quota support: Commonly used in multi-tenant environments, allowing limited storage space on a per table and per namespace level.

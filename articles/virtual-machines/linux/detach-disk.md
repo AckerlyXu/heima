@@ -3,7 +3,7 @@ title: Detach a data disk from a Linux VM - Azure| Azure
 description: Learn to detach a data disk from a virtual machine in Azure using CLI 2.0 or the Azure portal.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 03/21/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 11/17/2017
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # How to detach a data disk from a Linux virtual machine
@@ -24,7 +24,7 @@ ms.author: v-haiqya
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. 
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../../storage/common/storage-premium-storage.md#pricing-and-billing). 
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../windows/premium-storage.md#pricing-and-billing). 
 > 
 > 
 
@@ -35,29 +35,25 @@ If you want to use the existing data on the disk again, you can reattach it to t
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+	--vm-name myVm \
+	-n myDataDisk
 ```
 
 The disk remains in storage but is no longer attached to a virtual machine.
 
 ## Detach a data disk using the portal
-1. In the portal hub, select **Virtual Machines**.
+1. In the left menu, select **Virtual Machines**.
 2. Select the virtual machine that has the data disk you want to detach and click **Stop** to deallocate the VM.
-3. In the virtual machine blade, select **Disks**.
-4. At the top of the **Disks** blade, select **Edit**.
-5. In the **Disks** blade, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
-5. After the disk has been removed, click Save on the top of the blade.
-6. In the virtual machine blade, click **Overview** and then click the **Start** button at the top of the blade to restart the VM.
+3. In the virtual machine pane, select **Disks**.
+4. At the top of the **Disks** pane, select **Edit**.
+5. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
+5. After the disk has been removed, click Save on the top of the pane.
+6. In the virtual machine pane, click **Overview** and then click the **Start** button at the top of the pane to restart the VM.
 
 The disk remains in storage but is no longer attached to a virtual machine.
 
-
-
-
-
-
-
-
 ## Next steps
 If you want to reuse the data disk, you can just [attach it to another VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!--Update_Description: update storage link-->
+<!--Update_Description: wording update -->

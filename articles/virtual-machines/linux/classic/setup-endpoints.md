@@ -3,8 +3,8 @@ title: Set up endpoints on a classic Linux VM | Azure
 description: Learn to set up endpoints for a Linux VM in the Azure Classic Management Portal to allow communication with a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # How to set up endpoints on a Linux classic virtual machine in Azure
@@ -24,6 +24,7 @@ All Linux virtual machines that you create in Azure using the classic deployment
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In the **Resource Manager** deployment model, endpoints are configured using **Network Security Groups (NSGs)**. For more information, see [Opening ports and endpoints](../nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -34,3 +35,5 @@ When you create a Linux virtual machine in the Azure portal, an endpoint for Sec
 ## Next steps
 * You can also create a VM endpoint by using the [Azure Command-Line Interface](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest). Run the **azure vm endpoint create** command.
 * If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) to control traffic to the VM.
+
+<!-- Update_Description: Add classic portal migration notice. -->

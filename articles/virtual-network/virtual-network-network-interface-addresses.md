@@ -39,7 +39,8 @@ Complete the following tasks before completing any steps in any section of this 
 
 <a name="create-ip-config"></a>
 ## Add IP addresses
-You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addresses as necessary to a network interface, within limits. You cannot use the portal to add an IPv6 address to an existing network interface (though you can use the portal to add a private IPv6 address to a network interface when you create the network interface). You can use PowerShell or the CLI to add a private IPv6 address to one [secondary IP configuration](#secondary) (as long as there are no existing secondary IP configurations) for an existing network interface that is not attached to a virtual machine. You cannot use any tool to add a public IPv6 address to a network interface. See [IPv6](#ipv6) for details about using IPv6 addresses. 
+You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addresses as necessary to a network interface, within limits.
+<!-- Not Available on IPv6 address -->
 
 1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
@@ -112,19 +113,21 @@ You can remove [private](#private) and [public](#public) IP addresses from a net
 
 Each network interface is assigned one primary IP configuration. A primary IP configuration:
 
-- Has a [private](#private) [IPv4](#ipv4) address assigned to it. You cannot assign a private [IPv6](#ipv6) address to a primary IP configuration.
-- May also have a [public](#public) IPv4 address assigned to it. You cannot assign a public IPv6 address to a primary or secondary IP configuration.
+- Has a [private](#private) [IPv4](#ipv4) address assigned to it.
+<!-- Not Available on IPv6 -->
+- May also have a [public](#public) IPv4 address assigned to it. 
+<!-- Not Available on IPv6 -->
 
 ### Secondary
 
 In addition to a primary IP configuration, a network interface may have zero or more secondary IP configurations assigned to it. A secondary IP configuration:
 
-- Must have a private IPv4 or IPv6 address assigned to it. If the address is IPv6, the network interface can only have one secondary IP configuration. If the address is IPv4, the network interface may have multiple secondary IP configurations assigned to it. 
-- May also have a public IPv4 address assigned to it, if the private IP address is IPv4. If the private IP address is IPv6, you cannot assign a public IPv4 or IPv6 address to the IP configuration. Assigning multiple IP addresses to a network interface is helpful in scenarios such as:
+- Must have a private IPv4 address assigned to it. If the address is IPv4, the network interface may have multiple secondary IP configurations assigned to it. 
+- May also have a public IPv4 address assigned to it, if the private IP address is IPv4. Assigning multiple IP addresses to a network interface is helpful in scenarios such as:
     - Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
     - A virtual machine serving as a network virtual appliance, such as a firewall or load balancer.
     - The ability to add any of the private IPv4 addresses for any of the network interfaces to an Azure Load Balancer back-end pool. In the past, only the primary IPv4 address for the primary network interface could be added to a back-end pool. To learn more about how to load balance multiple IPv4 configurations, see the [Load balancing multiple IP configurations](../load-balancer/load-balancer-multiple-ip.md?toc=%2fvirtual-network%2ftoc.json) article. 
-    - The ability to load balance one IPv6 address assigned to a network interface.
+<!-- Not Available on IPv6 -->
 
 ## Address types
 
@@ -168,8 +171,10 @@ Public and private IP addresses are assigned using one of the following assignme
 
 Dynamic private IPv4 addresses are assigned by default. 
 
-- **Public only**: Azure assigns the adddress from a range unique to each Azure region. To learn which ranges are assigned to each region, see [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=42064). The address can change when a virtual machine is stopped (deallocated), then started again. You cannot assign a public IPv6 address to an IP configuration using either assignment method.
-- **Private only**: Azure reserves the first four addresses in each subnet address range, and doesn't assign the addresses. Azure assigns the next available address to a resource from the subnet address range. For example, if the subnet's address range is 10.0.0.0/16, and addresses 10.0.0.0.4-10.0.0.14 are already assigned (.0-.3 are reserved), Azure assigns 10.0.0.15 to the resource. Dynamic is the default allocation method. Once assigned, dynamic IP addresses are only released if a network interface is deleted, assigned to a different subnet within the same virtual network, or the allocation method is changed to static, and a different IP address is specified. By default, Azure assigns the previous dynamically-assigned address as the static address when you change the allocation method from dynamic to static. You can only assign a private IPv6 address using the dynamic assignment method.
+- **Public only**: Azure assigns the adddress from a range unique to each Azure region. To learn which ranges are assigned to each region, see [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=42064). The address can change when a virtual machine is stopped (deallocated), then started again. 
+<!-- Not Available on IPv6 -->
+- **Private only**: Azure reserves the first four addresses in each subnet address range, and doesn't assign the addresses. Azure assigns the next available address to a resource from the subnet address range. For example, if the subnet's address range is 10.0.0.0/16, and addresses 10.0.0.0.4-10.0.0.14 are already assigned (.0-.3 are reserved), Azure assigns 10.0.0.15 to the resource. Dynamic is the default allocation method. Once assigned, dynamic IP addresses are only released if a network interface is deleted, assigned to a different subnet within the same virtual network, or the allocation method is changed to static, and a different IP address is specified. By default, Azure assigns the previous dynamically-assigned address as the static address when you change the allocation method from dynamic to static.
+<!-- Not Available on IPv6 -->
 
 ### Static
 

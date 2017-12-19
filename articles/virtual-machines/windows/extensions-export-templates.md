@@ -3,8 +3,8 @@ title: Exporting Azure Resource Groups that contain VM extensions | Azure
 description: Export Resource Manager templates that include virtual machine extensions.
 services: virtual-machines-windows
 documentationcenter: ''
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 ---
 
 # Exporting Resource Groups that contain VM extensions
@@ -157,3 +157,4 @@ In the example of the `IaasDiagnostic` extension, the following parameters would
 ```
 
 At this point, the template can be deployed using any template deployment method.
+<!-- Update_Description: update meta properties, wording update -->

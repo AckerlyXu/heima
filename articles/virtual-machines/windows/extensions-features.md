@@ -3,7 +3,7 @@ title: Virtual machine extensions and features for Windows in Azure | Azure
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/06/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -31,11 +31,11 @@ This document provides an overview of virtual machine extensions, prerequisites 
 There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
 
 - Apply PowerShell Desired State configurations to a virtual machine by using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](extensions-dsc-overview.md).
+<!-- Not Available on  see [Connect Azure virtual machines to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).-->
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure virtual machine by using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](chef-automation.md).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](extensions-customscript.md).
-
 
 ## Prerequisites
 
@@ -280,3 +280,4 @@ An extension can also be removed using the Azure portal. To do so:
 | DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+<!-- Update_Description: update meta properties -->

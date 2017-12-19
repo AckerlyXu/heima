@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,8 @@ This article shows you how to attach both new and existing disks to a Linux virt
 Before you attach disks to your VM, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use both Premium and Standard disks with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+* To use Premium storage, you need a DS-series virtual machine. You can use both Premium and Standard disks with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+<!-- Not Available on DG-series in Azure China -->
 * Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see [About disks and VHDs for virtual machines](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Find the virtual machine
@@ -69,4 +70,4 @@ Before you attach disks to your VM, review these tips:
 
 ## Next steps
 You can also [attach a data disk](add-disk.md) using the Azure CLI.
-<!--Update_Description: update meta properties, remove the Use unmanaged disked content-->
+<!--Update_Description: update meta properties, wording update -->

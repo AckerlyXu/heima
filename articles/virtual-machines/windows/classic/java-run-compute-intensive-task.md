@@ -3,8 +3,8 @@ title: Compute-intensive Java application on a VM | Azure
 description: Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 services: virtual-machines-windows
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # How to run a compute-intensive task in Java on a virtual machine
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 With Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications. After reading this article, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 
@@ -532,3 +533,4 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
+<!-- Update_Description: add classic portal migration notice. -->

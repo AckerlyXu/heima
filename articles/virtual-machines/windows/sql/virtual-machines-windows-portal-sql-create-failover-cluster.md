@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 09/26/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -157,7 +157,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../../../storage/common/storage-premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../premium-storage.md).
 
    Both virtual machines need at least two data disks.
 
@@ -420,7 +420,7 @@ To create the load balancer:
 
 Set the cluster probe port parameter in PowerShell.
 
-To set the cluster probe port parameter, update variables in the following script from your environment.
+To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
 ```PowerShell
    $ClusterNetworkName = "<Cluster Network Name>" 
