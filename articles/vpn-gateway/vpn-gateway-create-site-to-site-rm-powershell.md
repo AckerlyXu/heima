@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/12/2017
-ms.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
 
 ---
@@ -43,7 +43,7 @@ Verify that you have met the following criteria before beginning your configurat
 - Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 - Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 - If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-- Install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specified may fail. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about downloading and installing PowerShell cmdlets.
+- Install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you will typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specified may fail. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) for more information about downloading and installing PowerShell cmdlets.
 
 ### <a name="example"></a>Example values
 
@@ -78,7 +78,14 @@ ConnectionName          = VNet1toSite2
 
 ## <a name="VNet"></a>2. Create a virtual network and a gateway subnet
 
-If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
+If you don't already have a virtual network, create one. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. 
+
+>[!NOTE]
+>In order for this VNet to connect to an on-premises location, you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. If a duplicate address range exists on both sides of the VPN connection, traffic does not route the way you may expect it to. Additionally, if you want to connect this VNet to another VNet, the address space cannot overlap with other VNet. Take care to plan your network configuration accordingly.
+>
+>
+
+### About the gateway subnet
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 

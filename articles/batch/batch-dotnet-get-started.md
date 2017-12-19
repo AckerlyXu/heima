@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 06/28/2017
-ms.date: 08/02/2017
+ms.date: 12/04/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -41,7 +41,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 - **Storage account**: See [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Batch currently supports *only* the **General purpose** storage account type, as described in step #5 [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+> Batch currently supports *only* the **general-purpose** storage account type, as described in step #5 [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -53,8 +53,8 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### Azure Batch Explorer (optional)
-The [Azure Batch Explorer][github_batchexplorer] is a free utility that is included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
+### BatchLabs (optional)
+[BatchLabs][github_batchlabs] is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. While not required to complete this tutorial, it can be useful while developing and debugging your Batch solutions.
 
 ## DotNetTutorial sample project overview
 The *DotNetTutorial* code sample is a Visual Studio solution that consists of two projects: **DotNetTutorial** and **TaskApplication**.
@@ -101,7 +101,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> As mentioned above, you must currently specify the credentials for a **General purpose** storage account in Azure Storage. Your Batch applications use blob storage within the **General purpose** storage account. Do not specify the credentials for a Storage account that was created by selecting the *Blob storage* account type.
+> As mentioned above, you must currently specify the credentials for a **general-purpose** storage account in Azure Storage. Your Batch applications use blob storage within the **general-purpose** storage account. Do not specify the credentials for a Storage account that was created by selecting the *Blob storage* account type.
 >
 >
 
@@ -322,7 +322,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
             targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
-            virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
+            virtualMachineSize: "small",                                                // single-vCPU, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
         // Create and assign the StartTask that will be executed when compute nodes join the pool.
@@ -360,7 +360,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-When you create a pool with [CreatePool][net_pool_create], you specify several parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). However, by specifying a [VirtualMachineConfiguration][net_virtualmachineconfiguration] instead, you can create pools of nodes created from Marketplace images, which includes both Windows and Linux images—see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
+When you create a pool with [CreatePool][net_pool_create], you specify several parameters such as the number of compute nodes, the [size of the nodes](../cloud-services/cloud-services-sizes-specs.md), and the nodes' operating system. In *DotNetTutorial*, we use [CloudServiceConfiguration][net_cloudserviceconfiguration] to specify Windows Server 2012 R2 from [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+You can also create pools of compute nodes that are Azure Virtual Machines (VMs) by specifying the [VirtualMachineConfiguration][net_virtualmachineconfiguration] for your pool. You can create a pool of VM compute nodes from either Windows or [Linux images](batch-linux-nodes.md). The source for your VM images can be either:
+
+- The [Azure Virtual Machines Marketplace][vm_marketplace], which provides both Windows and Linux images that are ready-to-use. 
+- A custom image that you prepare and provide. For more details about custom images, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > You are charged for compute resources in Batch. To minimize costs, you can lower `targetDedicatedComputeNodes` to 1 before you run the sample.
@@ -740,12 +745,13 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 - Review the [Overview of Azure Batch features](batch-api-basics.md) article, which we recommend if you're new to the service.
 - Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path].
 - Check out a different implementation of processing the "top N words" workload by using Batch in the [TopNWords][github_topnwords] sample.
+- Review the Batch .NET [release notes](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) for the latest changes in the library.
 
 [azure_batch]: /batch/
 [azure_free_account]: https://www.azure.cn/pricing/1rmb-trial/
 [azure_portal]: https://portal.azure.cn
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[github_batchlabs]: https://azure.github.io/BatchLabs/
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
@@ -787,6 +793,7 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Create containers in Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Upload task application and input (data) files to containers"

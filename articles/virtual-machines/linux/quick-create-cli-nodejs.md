@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article 
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -89,25 +89,25 @@ info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
 + Looking up the storage account cli16330708391032639673
-+ Looking up the NIC "examp-china-1633070839-nic"
-info:    An nic with given name "examp-china-1633070839-nic" not found, creating a new one
-+ Looking up the virtual network "examp-china-1633070839-vnet"
++ Looking up the NIC "examp-chinanorth-1633070839-nic"
+info:    An nic with given name "examp-chinanorth-1633070839-nic" not found, creating a new one
++ Looking up the virtual network "examp-chinanorth-1633070839-vnet"
 info:    Preparing to create new virtual network and subnet
-/ Creating a new virtual network "examp-china-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-china-1633070839-snet" [address prefix: "10.+.1.0/24"]
-+ Looking up the virtual network "examp-china-1633070839-vnet"
-+ Looking up the subnet "examp-china-1633070839-snet" under the virtual network "examp-china-1633070839-vnet"
+/ Creating a new virtual network "examp-chinanorth-1633070839-vnet" [address prefix: "10.0.0.0/16"] with subnet "examp-chinanorth-1633070839-snet" [address prefix: "10.+.1.0/24"]
++ Looking up the virtual network "examp-chinanorth-1633070839-vnet"
++ Looking up the subnet "examp-chinanorth-1633070839-snet" under the virtual network "examp-chinanorth-1633070839-vnet"
 info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "examp-china-1633070839-pip"
-info:    PublicIP with given name "examp-china-1633070839-pip" not found, creating a new one
-+ Creating public ip "examp-china-1633070839-pip"
-+ Looking up the public ip "examp-china-1633070839-pip"
-+ Creating NIC "examp-china-1633070839-nic"
-+ Looking up the NIC "examp-china-1633070839-nic"
++ Looking up the public ip "examp-chinanorth-1633070839-pip"
+info:    PublicIP with given name "examp-chinanorth-1633070839-pip" not found, creating a new one
++ Creating public ip "examp-chinanorth-1633070839-pip"
++ Looking up the public ip "examp-chinanorth-1633070839-pip"
++ Creating NIC "examp-chinanorth-1633070839-nic"
++ Looking up the NIC "examp-chinanorth-1633070839-nic"
 + Looking up the storage account clisto1710997031examplev
 + Creating VM "myVM"
 + Looking up the VM "myVM"
-+ Looking up the NIC "examp-china-1633070839-nic"
-+ Looking up the public ip "examp-china-1633070839-pip"
++ Looking up the NIC "examp-chinanorth-1633070839-nic"
++ Looking up the public ip "examp-chinanorth-1633070839-pip"
 data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
 data:    ProvisioningState               :Succeeded
 data:    Name                            :exampleVMName
@@ -144,10 +144,10 @@ data:        Network Interface #1:
 data:          Primary                   :true
 data:          MAC Address               :00-0D-3A-33-42-FB
 data:          Provisioning State        :Succeeded
-data:          Name                      :examp-china-1633070839-nic
+data:          Name                      :examp-chinanorth-1633070839-nic
 data:          Location                  :chinanorth
 data:            Public IP address       :138.91.247.29
-data:            FQDN                    :examp-china-1633070839-pip.chinanorth.chinacloudapp.cn
+data:            FQDN                    :examp-chinanorth-1633070839-pip.chinanorth.chinacloudapp.cn
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true
@@ -204,4 +204,4 @@ The `azure vm quick-create` command is the way to quickly deploy a VM so you can
 
 You can also [use the `docker-machine` Azure driver with various commands to quickly create a Linux VM as a docker host](docker-machine.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

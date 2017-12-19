@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/29/2017
-ms.date: 10/30/2017
+origin.date: 10/20/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -43,4 +43,4 @@ If you are trying to connect to a Windows VM from a Mac, you need to install an 
 ## Next steps
 If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). This article walks you through diagnosing and resolving common problems.
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

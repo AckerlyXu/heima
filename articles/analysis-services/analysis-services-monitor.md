@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/14/2017
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -89,4 +89,4 @@ Use this table to determine which metrics are best for your monitoring scenario.
 [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Metrics in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
 
-<!--Update_Description: new articles on analysis services monitor -->
+<!--Update_Description: update meta properties -->

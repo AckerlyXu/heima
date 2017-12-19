@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/26/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -141,4 +141,4 @@ When you create your VM from the existing virtual hard disk, boot diagnostics ma
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
-<!--Update_Description: update meta properties, wording update, update image-->
+<!--Update_Description: update meta properties -->

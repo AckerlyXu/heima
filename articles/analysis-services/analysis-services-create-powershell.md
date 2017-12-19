@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 08/01/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -32,7 +32,7 @@ This task requires Azure PowerShell module version 4.0 or later. To find the ver
 ## Prerequisites
 To complete this quickstart, you need:
 
-* **Azure subscription**: Visit [Azure Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
+* **Azure subscription**: Visit [Azure Trial](https://www.azure.cn/pricing/1rmb-trial-full) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Import AzureRm.AnalysisServices module
@@ -79,4 +79,4 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 [Deploy a model from SSDT](analysis-services-deploy.md)   
 [Create a model in Azure portal](analysis-services-create-model-portal.md)
 
-<!--Update_Description: new articles about creating analysis serices with PS -->
+<!--Update_Description: update meta properties, update link -->

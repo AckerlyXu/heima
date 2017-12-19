@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 
 ---
 # What are the Hadoop components and versions available with HDInsight?
 
-Learn about the Hadoop ecosystem components and versions in Azure HDInsight. Also, learn how to check Hadoop component versions in HDInsight. 
+Learn about the Apache Hadoop ecosystem components and versions in Azure HDInsight, as well as the Standard and Premium service levels. Also, learn how to check Hadoop component versions in HDInsight. 
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -97,7 +97,7 @@ The following table lists the versions of HDInsight that are currently available
 ## HDInsight Windows retirement
 Azure HDInsight version 3.3 was the last version of HDInsight on Windows. The retirement date for HDInsight on Windows is July 31, 2018. If you have any HDInsight clusters on Windows 3.3 or earlier, you must migrate to HDInsight on Linux (HDInsight version 3.5 or later) before July 31, 2018. Migrating to the Linux OS enables you to retain the ability to create or resize your HDInsight clusters. Support for HDInsight version 3.3 on Windows expired on June 27, 2016.
 
-Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Hive, Spark and HDInsight applications. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows. 
+Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Query, Spark, HDInsight applications. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows. 
 
 ## FAQs
 
@@ -134,7 +134,7 @@ No, the pricing is the same for HDInsight on either OS.
 * Ability to exercise active development by the open source community for Hadoop and other big data technologies
 
 ### Does HDInsight on Linux provide additional functionality beyond what is available in HDInsight on Windows?
-Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Hive, Spark, and HDInsight applications. 
+Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Query, Spark, HDInsight applications. 
 
 ## Service level agreement for HDInsight cluster versions
 The service level agreement (SLA) is defined in terms of a _support window_. The support window is the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a _support expiration date_ that has passed, the HDInsight cluster is outside the support window. For more information about supported versions, see the list of [supported HDInsight cluster versions](/hdinsight/hdinsight-migrate-from-windows-to-linux). The support expiration date for a specified HDInsight version X (after a newer X+1 version is available) is calculated as the later of:  

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/11/2016
-ms.date: 09/04/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -49,7 +49,7 @@ When a public IP address needs to be assigned to an Azure resource, it is *dynam
 > 
 
 ### DNS hostname resolution
-When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.chinacloudapp.cn to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.chinacloudapp.cn** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
+When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.cloudapp.chinacloudapi.cn to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.cloudapp.chinacloudapi.cn** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
 
 ### Cloud services
 A cloud service always has a public IP address referred to as a virtual IP address (VIP). You can create endpoints in a cloud service to associate different ports in the VIP to internal ports on VMs and role instances within the cloud service. 
@@ -139,9 +139,8 @@ The table below shows each resource type with the possible allocation methods (d
 
 | Resource | Dynamic | Static | Multiple IP addresses |
 | --- | --- | --- | --- |
-| VM (in a *standalone* cloud service) |Yes |Yes |Yes |
-| PaaS role instance (in a *standalone* cloud service) |Yes |No |Yes |
-| VM or PaaS role instance (in a VNet) |Yes |Yes |Yes |
+| VM (in a *standalone* cloud service or VNet) |Yes |Yes |Yes |
+| PaaS role instance (in a *standalone* cloud service or VNet) |Yes |No |No |
 | Internal load balancer front end |Yes |Yes |Yes |
 | Application gateway front end |Yes |Yes |Yes |
 
@@ -154,6 +153,8 @@ The table below shows the limits imposed on IP addressing in Azure per subscript
 | Reserved public IP addresses |20 |contact support |
 | Public VIP per deployment (cloud service) |5 |contact support |
 | Private VIP (ILB) per deployment (cloud service) |1 |1 |
+
+<!-- Not Available Make sure you read the full set of [limits for Networking](../azure-subscription-service-limits.md#networking-limits) in Azure. -->
 
 ## Pricing
 In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://www.azure.cn/pricing/details/reserved-ip-addresses/).

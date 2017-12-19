@@ -57,11 +57,6 @@ You can install Azure Batch SDK for Node.js using the npm install command.
 
 This command installs the latest version of azure-batch node SDK.
 
->[!Tip]
-> In an Azure Function app, you can go to "Kudu Console" in the Azure function's Settings tab to run the npm install commands. In this case to install Azure Batch SDK for Node.js.
->
->
-
 ### Step 2: Create an Azure Batch account
 
 You can create it from the [Azure portal](batch-account-create-portal.md) or from command line ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/overview)).

@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/17/2017
-ms.date: 03/24/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
 
 ---
@@ -137,6 +137,6 @@ Use the following steps to run a Hive query that will execute using Tez.
     ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## Next Steps
-Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hdinsight-use-hive.md).
+Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hadoop/hdinsight-use-hive.md).
 
 For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).

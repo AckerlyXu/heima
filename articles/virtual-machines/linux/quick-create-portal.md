@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/15/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with the Azure portal
 
-Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This Quickstart steps through creating a virtual machine and installing a webserver on the VM.
+Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
@@ -118,4 +118,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta propreties, wording update-->

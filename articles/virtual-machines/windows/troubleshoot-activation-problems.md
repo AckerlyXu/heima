@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 05/26/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ---
 # Troubleshoot Azure Windows virtual machine activation problems

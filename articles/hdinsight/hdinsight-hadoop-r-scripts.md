@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 12/25/2017
+ms.author: v-yiso
 ROBOTS: NOINDEX
 
 ---
@@ -107,6 +107,6 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 * [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md): Script Action sample about installing Solr.
 
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[hdinsight-provision]: ./hdinsight-provision-clusters.md
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
+[hdinsight-install-spark]:spark/apache-spark-jupyter-spark-sql.md

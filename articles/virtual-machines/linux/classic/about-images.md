@@ -3,8 +3,8 @@ title: About Linux VM images in Azure | Azure
 description: Learn about how Linux images are used with virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/21/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # About images for Linux virtual machines
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about images using the Resource Manager model, see [here](../cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
@@ -32,3 +33,6 @@ For examples of using the tools, see [Common Azure CLI commands on Linux and Mac
 
 ## Next steps
 You can also [upload your own image](create-upload-vhd.md).
+<!-- Update_Description: wording update -->
+<!--Not Available the parent file of includes file of virtual-machines-classic-portal.md-->
+<!--ms.date:11/27/2017-->

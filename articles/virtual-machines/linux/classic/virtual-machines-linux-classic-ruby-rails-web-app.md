@@ -3,7 +3,7 @@ title: Host a Ruby on Rails website on a Linux VM | Azure
 description: Set up and host a Ruby on Rails-based website on Azure using a Linux virtual machine.
 services: virtual-machines-linux
 documentationcenter: ruby
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Ruby on Rails Web application on an Azure VM
@@ -26,7 +26,7 @@ This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a differen
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
->
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
 ## Create an Azure VM
@@ -154,4 +154,4 @@ To use Azure services from your Ruby application, see:
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!--Update_Description: update storage links-->
+<!--Update_Description: update meta properties, add classic portal migration notice.-->

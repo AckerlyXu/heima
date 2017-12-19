@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/16/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -56,4 +56,4 @@ The latest compatibility level is 1400. This level coincides with SQL Server 201
   [Create a model in Azure portal](analysis-services-create-model-portal.md)   
   [Manage Analysis Services](analysis-services-manage.md)
   
-<!--Update_Description: new articles about analysis serices compat level -->
+<!--Update_Description: update meta properties -->

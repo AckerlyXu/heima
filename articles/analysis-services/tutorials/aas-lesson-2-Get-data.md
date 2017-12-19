@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/19/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
@@ -156,4 +156,4 @@ It's important to frequently save your model project.
 ## What's next?
 [Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

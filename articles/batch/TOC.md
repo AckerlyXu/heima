@@ -12,8 +12,13 @@
 ## Develop
 ### [Application packages](batch-application-packages.md)
 ### [Autoscale compute nodes](batch-automatic-scaling.md)
+### Azure AD authentication
+#### [Azure AD with Batch service](batch-aad-auth.md)
+#### [Azure AD with Batch Management](batch-aad-auth-management.md)
 ### [Concurrent node tasks](batch-parallel-node-tasks.md)
 ### [Count tasks by state](batch-get-task-counts.md)
+### [Create a pool with a custom image](batch-custom-images.md)
+### [Create a pool in a virtual network](batch-virtual-network.md)
 ### [Efficient list queries](batch-efficient-list-queries.md)
 ### [Job preparation and completion tasks](batch-job-prep-release.md)
 ### [Linux compute nodes](batch-linux-nodes.md)
@@ -40,7 +45,7 @@
 ## [Azure CLI](/cli/batch)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [Node.js](https://docs.microsoft.com/nodejs/api/overview/azure/batch)
 ## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
 ## [REST](https://docs.microsoft.com/rest/api/batchservice)
 ## [Batch diagnostic logs](batch-diagnostics.md)
@@ -68,5 +73,6 @@
 ## [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+
 
 

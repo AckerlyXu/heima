@@ -1,6 +1,6 @@
 ---
-title: Process Azure IoT Hub device-to-cloud messages using routes (.Net) | Azure
-description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
+title: Routing messages with Azure IoT Hub (.Net) | Microsoft Docs
+description: How to process Azure IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,11 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/25/2017
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
-
-# Process IoT Hub device-to-cloud messages using routes (.NET)
+# Routing messages with IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -41,7 +40,7 @@ To complete this tutorial, you need the following:
 * Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
 
-You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
+We also recommend reading about [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages
 
@@ -72,8 +71,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -91,15 +98,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
-
-   > [!NOTE]
-   > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
-   > 
-   > 
+This method randomly adds the property `"level": "critical"` and `"level": "storage"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end or one that needs to be permanently stored. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
 > [!NOTE]
-> For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
+> You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
+
+> [!NOTE]
+> We strongly recommend that you implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
 
 ## Route messages to a queue in your IoT hub
 
@@ -189,48 +194,19 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
-[10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
 [33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
-
-[Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-
-[HDInsight (Hadoop)]: /hdinsight/
-[Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-
-[IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
-
-
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [Azure Storage]: /storage/
 [Azure Service Bus]: /service-bus/
-
-[IoT Hub Developer Guide]: ./iot-hub-devguide.md
-[Get started with IoT Hub]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
-[Azure IoT Developer Center]: https://www.azure.cn/develop/iot
-[lnk-service-fabric]: /service-fabric/
-[lnk-stream-analytics]: /stream-analytics/
-[lnk-event-hubs]: /event-hubs/
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
-
-<!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/zh-cn/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
-[Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-[lnk-classic-portal]: https://manage.windowsazure.cn
-[lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
+[IoT Hub developer guide]: iot-hub-devguide.md
+[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
+[Azure IoT Developer Center]: https://docs.azure.cn/develop/iot
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: /iot-suite/
-
-<!--Update_Description: update wording-->

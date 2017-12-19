@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/11/2017
-ms.date: 10/23/2017
+origin.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -140,6 +140,9 @@ This proximity minimizes latency and avoids egress charges on the Azure VM.
 **A**: No. The Windows service must have a valid Windows account. By default, 
 the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
+**Q**: How do I takeover a gateway? <br/>
+**A**: In order to takeover a gateway (by running Setup/Change in Control Panel > Programs) you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
+
 <a name="high-availability"></a>
 ### High availability and disaster recovery
 
@@ -217,4 +220,4 @@ Telemetry can be used for monitoring and troubleshooting. By default
 * [Manage Analysis Services](analysis-services-manage.md)
 * [Get data from Azure Analysis Services](analysis-services-connect.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, add new question about how do I takeover a gateway. -->

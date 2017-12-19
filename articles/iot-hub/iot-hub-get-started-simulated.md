@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/02/2017
+origin.date: 09/04/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 12/18/2017
 ---
 # Azure IoT Hub get started with simulated devices tutorials
 
@@ -28,12 +28,12 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 | [Node.js][Sim_Nd]    |
 | [Python][Sim_Pyth]   |
 
-In addition, you can use an IoT Edge gateway to enable simulated devices to connect to your IoT hub.
+In addition, you can use an IoT Edge to deploy AI to devices:
 
-| Programming language | Platform           |
-|----------------------|------------------- |
-| C                    | [Linux][Sim_Lnx]   |
-| C                    | [Windows][Sim_Win] |
+| Platform           |
+|------------------- |
+| [Linux][Sim_Lnx]   |
+| [Windows][Sim_Win] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

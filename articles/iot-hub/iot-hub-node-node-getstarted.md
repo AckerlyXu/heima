@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/31/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
@@ -285,7 +285,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with Azure IoT Edge][lnk-iot-edge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

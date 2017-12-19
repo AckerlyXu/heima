@@ -3,8 +3,8 @@ title: Add burst nodes to an HPC Pack cluster | Azure
 description: Learn how to expand an HPC Pack cluster in Azure on-demand by adding worker role instances running in a cloud service
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management,hpc-pack
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 10/14/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
@@ -26,6 +26,7 @@ running in a cloud service) as compute resources to a
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Burst nodes][burst]
 
@@ -49,14 +50,13 @@ Pack](https://technet.microsoft.com/library/gg481749.aspx).
 * **Azure subscription** - To add Azure nodes, you can choose the same
   subscription used to deploy the head node VM, or a different
   subscription (or subscriptions).
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://www.azure.cn/support/support-ticket-form/?l=zh-cn) at no charge.
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Step 1: Create a cloud service and a storage account for the Azure nodes
-Use the Azure Classic Management Portal or equivalent tools to configure the following resources that are needed to deploy
-your Azure nodes:
+Use the Azure portal or equivalent tools to configure the following resources that are needed to deploy your Azure nodes:
 
-* A new Azure cloud service
-* A new Azure storage account
+* A new Azure cloud service (classic)
+* A new Azure storage account (classic)
 
 > [!NOTE]
 > Don't reuse an existing cloud service in your subscription. 
@@ -78,7 +78,11 @@ Certificate** that HPC Pack installs and configures automatically on the
 head node. This certificate is useful for testing purposes and
 proof-of-concept deployments. To use this certificate, upload the
 file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer from the head node VM to the
-subscription. To upload the certificate in the [Azure Classic Management Portal](https://manage.windowsazure.cn), click **Settings** > **Management Certificates**.
+subscription. To upload the certificate in the [Azure portal](https://portal.azure.cn):
+
+1. Click **Subscriptions** > *your_subscription_name*.
+
+2. Click **Management certificates** > **Upload**.
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
@@ -101,9 +105,12 @@ Deployments of Azure Nodes with Microsoft HPC
 Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## Next steps
+<!-- Not Available on H, A8-A11 [High performance compute VM sizes](../sizes-hpc.md) -->
 * If you want to
   automatically grow or shrink the Azure computing resources according to
   the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
+
+<!-- Update_Description: update meta properties, wording update -->

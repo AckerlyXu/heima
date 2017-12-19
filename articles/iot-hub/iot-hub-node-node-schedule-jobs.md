@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
@@ -44,7 +44,7 @@ At the end of this tutorial, you have two Node.js apps:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
-**scheduleJobService.js**, which calls a direct method in the simulated device app and update the device twin's desired properties using a job.
+**scheduleJobService.js**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -147,7 +147,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
-    var maxExecutionTimeInSeconds =  3600;
+    var maxExecutionTimeInSeconds =  300;
     var jobClient = JobClient.fromConnectionString(connectionString);
     ```
 6. Add the following function that is used to monitor the execution of the job:

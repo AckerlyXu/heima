@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 06/01/2017
-ms.date: 09/25/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 # Azure Analysis Services - Adventure Works tutorial
@@ -99,4 +99,4 @@ These lessons are not required to complete the tutorial, but can be helpful in b
 ## Next steps  
 To get started, see [Lesson 1: Create a New Tabular Model Project](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: update meta properties -->

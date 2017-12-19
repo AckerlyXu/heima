@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
+ms.date: 12/18/2017
 ---
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
@@ -29,7 +29,7 @@ To learn more about securing your IoT solution, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-architecture]: ./iot-hub-security-architecture.md
 [lnk-security-deployment]: ./iot-hub-security-deployment.md

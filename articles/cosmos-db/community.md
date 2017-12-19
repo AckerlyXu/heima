@@ -100,7 +100,7 @@ You can stay up-to-date with the latest Azure Cosmos DB news and features by fol
 | --- | --- | --- | --- |
 |[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| Santosh Hari |Davie, FL|March 11, 2017|
 |[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)|  Santosh Hari |Sanford, FL|April 8, 2017|
-|[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| Josh Lane |Atlanta, GA|April 22, 2017|
+<!-- Not Available on Serverless -->
 |[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)| Josh Lane |Olso, Norway|June 14, 2017|
 <!-- Not Available on Hashtag about https://twitter.com/ -->
 

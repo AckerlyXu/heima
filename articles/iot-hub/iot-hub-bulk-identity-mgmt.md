@@ -68,7 +68,7 @@ while(true)
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.md) blob container using a [Shared Access Signature](../storage/common/storage-security-guide.md#data-plane-security).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.yml) blob container using a [Shared Access Signature](../storage/common/storage-security-guide.md#data-plane-security).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
@@ -190,12 +190,10 @@ Take care using the **ImportDevicesAsync** method because in addition to provisi
 
 > [!WARNING]
 > An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
-> 
-> 
 
 The **ImportDevicesAsync** method takes two parameters:
 
-* A *string* that contains a URI of an [Azure Storage](/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](../storage/index.yml) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
    ```csharp
    SharedAccessBlobPermissions.Read
@@ -406,7 +404,7 @@ In this article, you learned how to perform bulk operations against the identity
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-metrics]: ./iot-hub-metrics.md
 [lnk-monitor]: ./iot-hub-operations-monitoring.md

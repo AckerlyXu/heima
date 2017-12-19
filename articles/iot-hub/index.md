@@ -2,7 +2,7 @@
 title: Azure IoT Hub Documentation - Tutorials, API Reference | Azure
 description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:
@@ -27,7 +27,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/iot-hub.svg" alt="" />
+                            <img src="media/index/iot-hub.svg" alt="Learn about Azure IoT Hub" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -46,7 +46,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="Get started with a simulated device" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -64,7 +64,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="Get started with a physical device" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -82,7 +82,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="Read the developer guide" />
                         </div>
                     </div>
                     <div class="cardText">

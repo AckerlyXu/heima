@@ -42,7 +42,7 @@ ms.author: v-yiso
 
 ## Example #1
 
-A device sends one 1KB device-to-cloud message per minute to IoT Hub, which is then read by Azure Stream Analytics. The solution back end invokes a method (with 512 bytes payload) on the device every ten minutes to trigger a specific action. The device responds to the method with a result of 200 bytes.
+A device sends one 1-KB device-to-cloud message per minute to IoT Hub, which is then read by Azure Stream Analytics. The solution back end invokes a method (with 512-byte payload) on the device every ten minutes to trigger a specific action. The device responds to the method with a result of 200 bytes.
 
 The device consumes 1 message * 60 minutes * 24 hours = 1440 messages per day for the device-to-cloud messages, and 2 request plus response * 6 times per hour * 24 hours = 288 messages for the methods, for a total of 1728 messages per day.
 

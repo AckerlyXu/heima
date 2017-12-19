@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -25,7 +25,7 @@ This article walks you through creating an Analysis Services server resource in 
 ## Before you begin
 To complete this quickstart, you need:
 
-* **Azure subscription**: Visit [Azure 1 RMB Trial](https://www.azure.cn/pricing/1rmb-trial-full/) to create an account.
+* **Azure subscription**: Visit [Azure Trial](https://www.azure.cn/pricing/1rmb-trial-full) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. Microsoft accounts are not supported. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 * **Resource group**: Use a resource group you already have or [create a new one](../azure-resource-manager/resource-group-overview.md).
 
@@ -57,4 +57,4 @@ Once you've created your server, you can [deploy a model](analysis-services-depl
 
 If a model you deploy to your server connects to on-premises data sources, you need to install an [On-premises data gateway](analysis-services-gateway.md) on a computer in your network.
 
-<!--Update_Description: wording update, update reference link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/13/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using the Azure PowerShell module to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart details using the Azure PowerShell module to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
 
 If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
@@ -166,4 +166,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: update cmdlet-->
+<!--Update_Description: update meta properties-->

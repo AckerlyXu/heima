@@ -35,6 +35,8 @@
     href: tutorial-backup-vms.md
   - name: 10 - Monitor and update VMs
     href: tutorial-monitoring.md
+    
+### Not Available href: tutorial-azure-security.md
   - name: 11 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
   - name: 12 - CI/CD with Team Services
@@ -61,12 +63,34 @@
     href: regions-and-availability.md
   - name: VM types and sizes
     href: sizes.md
+    items:
+    - name: General purpose
+      href: sizes-general.md  
+    - name: Compute optimized
+      href: sizes-compute.md    
+    - name: Memory optimized
+      href: sizes-memory.md    
+    - name: Azure compute units (ACU)
+      href: sizes-general.md        
   - name: Endorsed distros
     href: endorsed-distros.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
-  - name: Storage
-    href: azure-vm-storage-overview.md
+  - name: Disk storage
+    href: about-disks-and-vhds.md
+    items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
+    - name: Premium storage
+      href: premium-storage.md
+    - name: Premium storage performance
+      href: premium-storage-performance.md
+    - name: Standard storage
+      href: standard-storage.md
+    - name: Scalability targets for disks
+      href: disk-scalability-targets.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Infrastructure automation
@@ -107,8 +131,21 @@
         href: ssh-from-windows.md
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
+  - name: Protect VMs
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+    items:
+      - name: Back up a single VM
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Back up multiple VMs
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore a disk
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore individual files
+        href: ../../backup/tutorial-restore-files.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
@@ -194,7 +231,19 @@
   - name: Run applications
     items:
     - name: OpenShift
-      href: openshift-get-started.md
+      items:
+      - name: OpenShift overview
+        href: openshift-get-started.md
+      - name: OpenShift prerequisites
+        href: openshift-prerequisites.md
+      - name: OpenShift Origin
+        href: openshift-origin.md
+      - name: OpenShift Container Platform
+        href: openshift-container-platform.md
+      - name: OpenShift post-deployment tasks
+        href: openshift-post-deployment.md
+      - name: Troubleshooting deployments
+        href: openshift-troubleshooting.md
     - name: FreeBSD Packet Filter
       href: freebsd-pf-nat.md
     - name: Databases
@@ -350,7 +399,9 @@
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
   - name: Pricing
     href: https://www.azure.cn/pricing/details/virtual-machines
+  - name: Regional availability
+    href: https://www.azure.cn/support/service-dashboard/
   - name: FAQ
     href: faq.md
-### ms.date: 10/30/2017
+### ms.date: 12/15/2017
 

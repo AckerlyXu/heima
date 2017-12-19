@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 10/30/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -30,6 +30,7 @@ In this tutorial, you learn how to:
 > * Create an availability set
 > * Create a VM in an availability set
 > * Check available VM sizes
+<!-- Not Available on > * Check Azure Advisor-->
 
 This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -88,9 +89,36 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
     -Location ChinaEast `
-    -Name MYvNET `
+    -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
+
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
+
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -Location chinaeast `
+    -Name myNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAvailability `
+    -SecurityRules $nsgRuleRDP
+
+# Apply the network security group to a subnet
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name mySubnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 for ($i=1; $i -le 2; $i++)
 {
@@ -100,23 +128,6 @@ for ($i=1; $i -le 2; $i++)
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
-
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-        -Name myNetworkSecurityGroupRuleRDP$i `
-        -Protocol Tcp `
-        -Direction Inbound `
-        -Priority 1000 `
-        -SourceAddressPrefix * `
-        -SourcePortRange * `
-        -DestinationAddressPrefix * `
-        -DestinationPortRange 3389 `
-        -Access Allow
-
-   $nsg = New-AzureRmNetworkSecurityGroup `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location ChinaEast `
-        -Name myNetworkSecurityGroup$i `
-        -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
@@ -176,6 +187,7 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
+<!-- Not Available on ## Check Azure Advisor  -->
 ## Next steps
 
 In this tutorial, you learned how to:

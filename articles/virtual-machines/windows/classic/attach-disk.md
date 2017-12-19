@@ -3,7 +3,7 @@ title: Attach a disk to a classic Azure VM | Azure
 description: Attach a data disk to a Windows virtual machine created with the classic deployment model and initialize it.
 services: virtual-machines-windows, storage
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
@@ -15,15 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2017
-ms.date: 09/04/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal.
 
@@ -33,7 +29,8 @@ Before you attach a disk, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* To use Premium storage, you need a DS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../../storage/common/storage-premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+* To use Premium storage, you need a DS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Not Available on GS-series virtual machine -->
 
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
@@ -41,6 +38,7 @@ You can also [attach a data disk using Powershell](../../virtual-machines-window
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
@@ -56,7 +54,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 1. On the **Disks** blade, click **Attach new**.
 2. Review the default settings, update as necessary, and then click **OK**.
 
-   ![Review disk settings](./media/attach-disk/attach-new.png)
+    ![Review disk settings](./media/attach-disk/attach-new.png)
 
 3. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
 
@@ -82,10 +80,10 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 1. On the **Disks** blade, click **Attach existing**.
 2. Under **Attach existing disk**, click **Location**.
 
-   ![Attach existing disk](./media/attach-disk/attachexistingdisksettings.png)
+    ![Attach existing disk](./media/attach-disk/attachexistingdisksettings.png)
 3. Under **Storage accounts**, select the account and container that holds the .vhd file.
 
-   ![Find VHD location](./media/attach-disk/existdiskstorageaccountandcontainer.png)
+    ![Find VHD location](./media/attach-disk/existdiskstorageaccountandcontainer.png)
 
 4. Select the .vhd file.
 5. Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
@@ -102,7 +100,6 @@ fsutil behavior query DisableDeleteNotify
 ```
 
 If the command returns 0, TRIM is enabled correctly. If it returns 1, run the following command to enable TRIM:
-
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
@@ -112,4 +109,4 @@ If your application needs to use the D: drive to store data, you can [change the
 
 ## Additional resources
 [About disks and VHDs for virtual machines](../../virtual-machines-linux-about-disks-vhds.md)
-<!--Update_Description: update two links-->
+<!--Update_Description: update meta properties, wording update -->
