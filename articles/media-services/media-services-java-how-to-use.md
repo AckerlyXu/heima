@@ -101,7 +101,7 @@ The code also relies on a locally stored video file. You must edit the code to p
     public class Program
     {
         // Media Services account credentials configuration
-        private static String tenant = "tenant.onmschina.cn";
+        private static String tenant = "tenant.partner.onmschina.cn";
         private static String clientId = "<client id>";
         private static String clientKey = "<client key>";
         private static String restApiEndpoint = "https://account_name.restv2.region_name.media.chinacloudapi.cn/api/";
