@@ -3,8 +3,9 @@ title: Upload files into a Media Services account using REST  | Azure
 description: Learn how to get media content into Media Services by creating and uploading assets.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f
@@ -14,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/25/2017
+ms.author: v-nany
+
 ---
 
 # Upload files into a Media Services account using REST
@@ -33,7 +35,7 @@ In Media Services, you upload your digital files into an asset. The [Asset](http
 > 
 > * Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://zh.wikipedia.org/wiki/百分号编码#.E4.BF.9D.E7.95.99.E5.AD.97.E7.AC.A6.E7.9A.84.E7.99.BE.E5.88.86.E5.8F.B7.E7.BC.96.E7.A0.81): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 > * The length of the name should not be greater than 260 characters.
-> * There is a limit to the maximum file size supported for processing in Media Services. Please see [this](media-services-quotas-and-limitations.md) topic for details about the file size limitation.
+> * There is a limit to the maximum file size supported for processing in Media Services. See [this](media-services-quotas-and-limitations.md) article for details about the file size limitation.
 > 
 
 The basic workflow for uploading Assets is divided into the following sections:
@@ -61,16 +63,16 @@ An asset is a container for multiple types or sets of objects in Media Services,
 
 One of the properties that you can specify when creating an asset is **Options**. **Options** is an enumeration value that describes the encryption options that an Asset can be created with. A valid value is one of the values from the list below, not a combination of values. 
 
-* **None** = **0**: No encryption will be used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
+* **None** = **0**: No encryption is used. This is the default value. When using this option your content is not protected in transit or at rest in storage.
     If you plan to deliver an MP4 using progressive download, use this option. 
 * **StorageEncrypted** = **1**: Specify if you want for your files to be encrypted with AES-256 bit encryption for upload and storage.
   
-    If your asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
+    If your asset is storage encrypted, you must configure asset delivery policy. For more information, see [Configuring asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2**: Specify if you are uploading files protected with a common encryption method (such as PlayReady). 
-* **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. Note that the files must have been encoded and encrypted by Transform Manager.
+* **EnvelopeEncryptionProtected** = **4**: Specify if you are uploading HLS encrypted with AES files. The files must have been encoded and encrypted by Transform Manager.
 
 > [!NOTE]
-> If your asset will use encryption, you must create a **ContentKey** and link it to your asset as described in the following topic:[How to create a ContentKey](media-services-rest-create-contentkey.md). Note that after you upload the files into the asset, you need to update the encryption properties on the **AssetFile** entity with the values you got during the **Asset** encryption. Do it by using the **MERGE** HTTP request. 
+> If your asset uses encryption, you must create a **ContentKey** and link it to your asset as described in the following article: [How to create a ContentKey](media-services-rest-create-contentkey.md). After you upload the files into the asset, you need to update the encryption properties on the **AssetFile** entity with the values you got during the **Asset** encryption. Do it by using the **MERGE** HTTP request. 
 > 
 > 
 
@@ -86,7 +88,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"BigBuckBunny.mp4"}
@@ -127,9 +129,9 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 ### Create an AssetFile
 The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
-Note that the **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
+The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
-After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the topic). 
+After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (as shown later in the article). 
 
 **HTTP Request**
 
@@ -141,7 +143,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 164
 
@@ -193,9 +195,9 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 ### Creating the AccessPolicy with write permission.
 
 >[!NOTE]
->There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
-Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you will receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Before uploading any files into blob storage, set the access policy rights for writing to an asset. To do that, POST an HTTP request to the AccessPolicies entity set. Define a DurationInMinutes value upon creation or you receive a 500 Internal Server error message back in response. For more information on AccessPolicies, see [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 The following example shows how to create an AccessPolicy:
 
@@ -209,7 +211,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -245,7 +247,7 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 ```
 
 ### Get the Upload URL
-To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators use the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
+To receive the actual upload URL, create a SAS Locator. Locators define the start time and type of connection endpoint for clients that want to access Files in an Asset. You can create multiple Locator entities for a given AccessPolicy and Asset pair to handle different client requests and needs. Each of these Locators uses the StartTime value plus the DurationInMinutes value of the AccessPolicy to determine the length of time a URL can be used. For more information, see [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 A SAS URL has the following format:
 
@@ -271,7 +273,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 {  
    "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -321,7 +323,7 @@ Once you have the AccessPolicy and Locator set, the actual file is uploaded to a
 >[!NOTE]
 > You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 
-For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### Update the AssetFile 
 
@@ -335,7 +337,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {  
@@ -362,7 +364,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -384,7 +386,7 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -409,7 +411,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 36
@@ -429,7 +431,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 55
@@ -439,7 +441,7 @@ Expect: 100-continue
 ```
 
 ### Create the IngestManifestAssets
-IngestManifestAssets represent Assets within an IngestManifest that are used with bulk ingesting. The basically link the asset to the manifest. Azure Media Services watches internally for the file upload based on IngestManifestFiles collection associated to the IngestManifestAsset. Once these files are uploaded, the asset is completed. You can create a new IngestManifestAsset with a HTTP POST request. In the request body, include the IngestManifest Id and the Asset Id that the IngestManifestAsset should link together for bulk ingesting.
+IngestManifestAssets represent Assets within an IngestManifest that are used with bulk ingesting. The basically link the asset to the manifest. Azure Media Services watches internally for the file upload based on IngestManifestFiles collection associated to the IngestManifestAsset. Once these files are uploaded, the asset is completed. You can create a new IngestManifestAsset with an HTTP POST request. In the request body, include the IngestManifest Id and the Asset Id that the IngestManifestAsset should link together for bulk ingesting.
 
 **HTTP Response**
 
@@ -449,7 +451,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 152
@@ -458,7 +460,7 @@ Expect: 100-continue
 ```
 
 ### Create the IngestManifestFiles for each Asset
-An IngestManifestFile represents an actual video or audio blob object that will be uploaded as part of bulk ingesting for an asset. Encryption related properties are not required unless the asset is using an encryption option. The example used in this section demonstrates creating an IngestManifestFile that uses StorageEncryption for the Asset previously created.
+An IngestManifestFile represents an actual video or audio blob object that is uploaded as part of bulk ingesting for an asset. Encryption-related properties are not required unless the asset is using an encryption option. The example used in this section demonstrates creating an IngestManifestFile that uses StorageEncryption for the Asset previously created.
 
 **HTTP Response**
 
@@ -468,7 +470,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 367
@@ -478,19 +480,19 @@ Expect: 100-continue
 ```
 
 ### Upload the Files to Blob Storage
-You can use any high speed client application capable of uploading the asset files to the blob storage container Uri provided by the BlobStorageUriForUpload property of the IngestManifest. 
+You can use any high-speed client application capable of uploading the asset files to the blob storage container Uri provided by the BlobStorageUriForUpload property of the IngestManifest. One notable high-speed upload service is [Aspera On Demand for Azure Application](http://go.microsoft.com/fwlink/?LinkId=272001).
 
 ### Monitor Bulk Ingest Progress
-You can monitor the progress of bulk ingesting operations for an IngestManifest by polling the Statistics property of the IngestManifest. That property is a complex type, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). To poll the Statistics property, submit a HTTP GET request passing the IngestManifest Id.
+You can monitor the progress of bulk ingesting operations for an IngestManifest by polling the Statistics property of the IngestManifest. That property is a complex type, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). To poll the Statistics property, submit an HTTP GET request passing the IngestManifest Id.
 
 ## Create ContentKeys used for encryption
-If your asset will use encryption, you must create the ContentKey to be used for encryption before creating the asset files. For storage encryption, the following properties should be included in the request body.
+If your asset uses encryption, you must create the ContentKey to be used for encryption before creating the asset files. For storage encryption, the following properties should be included in the request body.
 
 | Request body property | Description |
 | --- | --- |
-| Id |The ContentKey Id which we generate ourselves using the following format, “nb:kid:UUID:<NEW GUID>”. |
+| Id |The ContentKey Id that we generate ourselves using the following format, “nb:kid:UUID:<NEW GUID>”. |
 | ContentKeyType |This is the content key type as an integer for this content key. We pass the value 1 for storage encryption. |
-| EncryptedContentKey |We create a new content key value which is a 256-bit (32 byte) value. The key is encrypted using the storage encryption X.509 certificate which we retrieve from Azure Media Services by executing a HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. |
+| EncryptedContentKey |We create a new content key value that is a 256-bit (32 bytes) value. The key is encrypted using the storage encryption X.509 certificate that we retrieve from Microsoft Azure Media Services by executing an HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. |
 | ProtectionKeyId |This is the protection key id for the storage encryption X.509 certificate that was used to encrypt our content key. |
 | ProtectionKeyType |This is the encryption type for the protection key that was used to encrypt the content key. This value is StorageEncryption(1) for our example. |
 | Checksum |The MD5 calculated checksum for the content key. It is computed by encrypting the content Id with the content key. The example code demonstrates how to calculate the checksum. |
@@ -503,7 +505,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 572
@@ -513,8 +515,7 @@ Expect: 100-continue
 ```
 
 ### Link the ContentKey to the Asset
-
-The ContentKey is associated to one or more assets by sending a HTTP POST request. The following request is an example to link the example ContentKey to the example asset by Id.
+The ContentKey is associated to one or more assets by sending an HTTP POST request. The following request is an example to link the example ContentKey to the example asset by Id.
 
 **HTTP Response**
 
@@ -524,7 +525,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 113
@@ -541,7 +542,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```

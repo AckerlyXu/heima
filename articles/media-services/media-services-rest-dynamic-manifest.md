@@ -3,7 +3,7 @@ title: Creating Filters with Azure Media Services REST API | Azure
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+
 ---
 # Creating Filters with Azure Media Services REST API
 > [!div class="op_single_selector"]
@@ -24,11 +25,11 @@ ms.author: v-haiqya
 > 
 > 
 
-Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server-side rules that allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
 For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
 
-This topic shows how to use REST APIs to create, update, and delete filters. 
+This article shows how to use REST APIs to create, update, and delete filters. 
 
 ## Types used to create filters
 The following types are used when creating filters:  
@@ -46,8 +47,6 @@ The following types are used when creating filters:
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-
-
 ## Create filters
 ### Create global Filters
 To create a global Filter, use the following HTTP requests:  
@@ -63,7 +62,7 @@ Content-Type: application/json
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 Host: wamsshaclus001rest-hs.chinacloudapp.cn 
 ```
@@ -120,7 +119,7 @@ Content-Type: application/json
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -178,7 +177,7 @@ MaxDataServiceVersion: 3.0
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17 
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -193,7 +192,7 @@ MaxDataServiceVersion: 3.0
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 Host: wamsshaclus001rest-hs.chinacloudapp.cn 
 ```
@@ -209,7 +208,7 @@ MaxDataServiceVersion: 3.0
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000
 ```
 
@@ -232,7 +231,7 @@ Content-Type: application/json
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 Host: wamsshaclus001rest-hs.chinacloudapp.cn 
 Content-Length: 384
@@ -278,7 +277,7 @@ Content-Type: application/json
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
 Host: wamsshaclus001rest-hs.chinacloudapp.cn 
 ```
@@ -322,7 +321,7 @@ MaxDataServiceVersion: 3.0
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn 
 ```
 
@@ -339,7 +338,7 @@ MaxDataServiceVersion: 3.0
 Accept: application/json 
 Accept-Charset: UTF-8 
 Authorization: Bearer <token value> 
-x-ms-version: 2.11 
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -375,4 +374,4 @@ http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb2
 
 ## See Also
 [Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-<!--Update_Description: add section "Connect to Media Services"-->
+<!--Update_Description: x-ms-version: 2.17-->
