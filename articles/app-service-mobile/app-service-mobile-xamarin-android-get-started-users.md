@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
+ms.date: 01/02/2018
 ---
 
 # Add authentication to your Xamarin.Android app
@@ -122,6 +122,8 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
     ```
     <string name="login_button_text">Sign in</string>
+    ```
+
 5. Open the AndroidManifest.xml file, add the following code inside `<application>` XML element:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
