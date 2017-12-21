@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/16/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -116,7 +116,7 @@ When programmatically logging in, you need the ID for your application and an au
 
     ![select application](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+1. Copy the **Application ID** and store it in your application code. Some [sample applications](#log-in-as-the-application) refer to this value as the client ID.
 
     ![client ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
@@ -198,4 +198,4 @@ Your application is now set up in Azure Active Directory. You have an ID and key
 * To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->
