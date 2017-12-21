@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 

@@ -1,21 +1,21 @@
 ---
 title: Elastic Query Tutorial with Azure SQL Data Warehouse | Azure
-description: 'Learn how to use Elastic Query with Azure SQL Data Warehouse '
+description: Learn how to use Elastic Query with Azure SQL Data Warehouse
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 11/03/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
@@ -116,7 +116,11 @@ In the next few steps we will create a table in our data warehouse instance with
    ,   [CustomerID] [int] NOT NULL 
    ) 
    WITH 
-   (DATA_SOURCE = EnterpriseDwSrc)
+   (
+         DATA_SOURCE = EnterpriseDwSrc
+   ,	SCHEMA_NAME = N'dbo'
+   ,	OBJECT_NAME = N'OrderInformation'
+   )
    ```
 
 5. Observe that you now have an external table definition in your **SQL database instance**.
@@ -145,4 +149,4 @@ Congratulations, you have set up the very basics of Elastic Query.
 
 <!--Other Web references-->
 
-<!-- Update_Description: new articles on elastic query with SQL database and SQL data warehouse -->
+<!-- Update_Description: update meta properties, wording update -->

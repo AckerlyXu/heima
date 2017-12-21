@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
@@ -127,6 +128,7 @@ Run this script to create the DimProduct and FactOnlineSales external tables. Al
 The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Each table is in a different folder.
 
 ```sql
+
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
     [ProductKey] [int] NOT NULL,
@@ -363,12 +365,14 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 [label]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/zh-cn/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/zh-cn/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/zh-cn/library/ms188388.aspx
+[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+
+<!--Update_Description: wording update -->

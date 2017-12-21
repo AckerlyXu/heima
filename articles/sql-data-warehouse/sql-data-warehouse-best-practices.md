@@ -109,9 +109,9 @@ See also [Monitor your workload using DMVs][Monitor your workload using DMVs], [
 ## Other resources
 Also see our [Troubleshooting][Troubleshooting] article for common issues and solutions.
 
-If you didn't find what you were looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure SQL Data Warehouse documents.  The [Azure SQL Data Warehouse MSDN Forum][Azure SQL Data Warehouse MSDN Forum] was create as a place for you to ask questions to other users and to the SQL Data Warehouse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].
-
-Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Warehouse Feedback] page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
+If you didn't find what you were looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure SQL Data Warehouse documents. 
+<!-- Not Available on [Azure SQL Data Warehouse MSDN Forum][Azure SQL Data Warehouse MSDN Forum], [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].-->
+<!-- Not Available on [Azure SQL Data Warehouse Feedback][Azure SQL Data Warehouse Feedback] -->
 
 <!--Image references-->
 
