@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 # Creating an internet load balancer using the Azure CLI
@@ -29,8 +29,6 @@ ms.author: v-yeche
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
 This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
 
@@ -56,14 +54,12 @@ For more information see [Azure Resource Manager support for Load Balancer](load
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
-    azure config mode arm
+        azure config mode arm
     ```
 
     Expected output:
 
-    ```
-    info:    New mode is arm
-    ```
+        info:    New mode is arm
 
 ## Create a virtual network and a public IP address for the front-end IP pool
 
@@ -82,7 +78,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
 2. Create a public IP address named *NRPPublicIP* to be used by a front-end IP pool with DNS name *loadbalancernrp.chinaeast.chinacloudapp.cn*. The command below uses the static allocation type and idle timeout of 4 minutes.
 
     ```azurecli
-    azure network public-ip create -g NRPRG -n NRPPublicIP -l chinaeast -d loadbalancernrp -a static -i 4
+        azure network public-ip create -g NRPRG -n NRPPublicIP -l chinaeast -d loadbalancernrp -a static -i 4
     ```
 
     > [!IMPORTANT]
@@ -103,13 +99,13 @@ This example demonstrates how to create the front-end IP pool that receives the 
 1. Create a front-end IP pool associating the public IP created in the previous step and the load balancer.
 
     ```azurecli
-    azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
+        azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
     ```
 
 2. Set up a back-end address pool used to receive incoming traffic from the front-end IP pool.
 
     ```azurecli
-    azure network lb address-pool create NRPRG NRPlb NRPbackendpool
+        azure network lb address-pool create NRPRG NRPlb NRPbackendpool
     ```
 
 ## Create LB rules, NAT rules, and probe
@@ -126,90 +122,88 @@ This example creates the following items.
 1. Create the NAT rules.
 
     ```azurecli
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
-    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
+        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh2 --protocol tcp --frontend-port 23 --backend-port 22
     ```
 
 2. Create a load balancer rule.
 
     ```azurecli
-    azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
+        azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name NRPfrontendpool --backend-address-pool-name NRPbackendpool
     ```
 
 3. Create a health probe.
 
     ```azurecli
-    azure network lb probe create --resource-group nrprg --lb-name nrplb --name healthprobe --protocol "http" --port 80 --path healthprobe.aspx --interval 15 --count 4
+        azure network lb probe create --resource-group nrprg --lb-name nrplb --name healthprobe --protocol "http" --port 80 --path healthprobe.aspx --interval 15 --count 4
     ```
 
 4. Check your settings.
 
     ```azurecli
-    azure network lb show nrprg nrplb
+        azure network lb show nrprg nrplb
     ```
 
     Expected output:
 
-    ```
-    info:    Executing command network lb show
-    + Looking up the load balancer "nrplb"
-    + Looking up the public ip "NRPPublicIP"
-    data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb
-    data:    Name                            : nrplb
-    data:    Type                            : Microsoft.Network/loadBalancers
-    data:    Location                        : chinaeast
-    data:    Provisioning State              : Succeeded
-    data:    Frontend IP configurations:
-    data:      Name                          : NRPfrontendpool
-    data:      Provisioning state            : Succeeded
-    data:      Public IP address id          : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/publicIPAddresses/NRPPublicIP
-    data:      Public IP allocation method   : Static
-    data:      Public IP address             : 40.114.13.145
-    data:
-    data:    Backend address pools:
-    data:      Name                          : NRPbackendpool
-    data:      Provisioning state            : Succeeded
-    data:
-    data:    Load balancing rules:
-    data:      Name                          : HTTP
-    data:      Provisioning state            : Succeeded
-    data:      Protocol                      : Tcp
-    data:      Frontend port                 : 80
-    data:      Backend port                  : 80
-    data:      Enable floating IP            : false
-    data:      Idle timeout in minutes       : 4
-    data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-    data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-    data:
-    data:    Inbound NAT rules:
-    data:      Name                          : ssh1
-    data:      Provisioning state            : Succeeded
-    data:      Protocol                      : Tcp
-    data:      Frontend port                 : 21
-    data:      Backend port                  : 22
-    data:      Enable floating IP            : false
-    data:      Idle timeout in minutes       : 4
-    data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-    data:
-    data:      Name                          : ssh2
-    data:      Provisioning state            : Succeeded
-    data:      Protocol                      : Tcp
-    data:      Frontend port                 : 23
-    data:      Backend port                  : 22
-    data:      Enable floating IP            : false
-    data:      Idle timeout in minutes       : 4
-    data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
-    data:
-    data:    Probes:
-    data:      Name                          : healthprobe
-    data:      Provisioning state            : Succeeded
-    data:      Protocol                      : Http
-    data:      Port                          : 80
-    data:      Interval in seconds           : 15
-    data:      Number of probes              : 4
-    data:
-    info:    network lb show command OK
-    ```
+        info:    Executing command network lb show
+        + Looking up the load balancer "nrplb"
+        + Looking up the public ip "NRPPublicIP"
+        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb
+        data:    Name                            : nrplb
+        data:    Type                            : Microsoft.Network/loadBalancers
+        data:    Location                        : chinaeast
+        data:    Provisioning State              : Succeeded
+        data:    Frontend IP configurations:
+        data:      Name                          : NRPfrontendpool
+        data:      Provisioning state            : Succeeded
+        data:      Public IP address id          : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/publicIPAddresses/NRPPublicIP
+        data:      Public IP allocation method   : Static
+        data:      Public IP address             : 40.114.13.145
+        data:
+        data:    Backend address pools:
+        data:      Name                          : NRPbackendpool
+        data:      Provisioning state            : Succeeded
+        data:
+        data:    Load balancing rules:
+        data:      Name                          : HTTP
+        data:      Provisioning state            : Succeeded
+        data:      Protocol                      : Tcp
+        data:      Frontend port                 : 80
+        data:      Backend port                  : 80
+        data:      Enable floating IP            : false
+        data:      Idle timeout in minutes       : 4
+        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
+        data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
+        data:
+        data:    Inbound NAT rules:
+        data:      Name                          : ssh1
+        data:      Provisioning state            : Succeeded
+        data:      Protocol                      : Tcp
+        data:      Frontend port                 : 21
+        data:      Backend port                  : 22
+        data:      Enable floating IP            : false
+        data:      Idle timeout in minutes       : 4
+        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
+        data:
+        data:      Name                          : ssh2
+        data:      Provisioning state            : Succeeded
+        data:      Protocol                      : Tcp
+        data:      Frontend port                 : 23
+        data:      Backend port                  : 22
+        data:      Enable floating IP            : false
+        data:      Idle timeout in minutes       : 4
+        data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
+        data:
+        data:    Probes:
+        data:      Name                          : healthprobe
+        data:      Provisioning state            : Succeeded
+        data:      Protocol                      : Http
+        data:      Port                          : 80
+        data:      Interval in seconds           : 15
+        data:      Number of probes              : 4
+        data:
+        info:    network lb show command OK
 
 ## Create NICs
 
@@ -223,31 +217,29 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 
     Expected output:
 
-    ```
-    info:    Executing command network nic create
-    + Looking up the network interface "lb-nic1-be"
-    + Looking up the subnet "nrpvnetsubnet"
-    + Creating network interface "lb-nic1-be"
-    + Looking up the network interface "lb-nic1-be"
-    data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-    data:    Name                            : lb-nic1-be
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinaeast
-    data:    Provisioning state              : Succeeded
-    data:    Enable IP forwarding            : false
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Private IP address            : 10.0.0.4
-    data:      Private IP Allocation Method  : Dynamic
-    data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-    data:      Load balancer backend address pools
-    data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-    data:      Load balancer inbound NAT rules:
-    data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-    data:
-    info:    network nic create command OK
-    ```
+        info:    Executing command network nic create
+        + Looking up the network interface "lb-nic1-be"
+        + Looking up the subnet "nrpvnetsubnet"
+        + Creating network interface "lb-nic1-be"
+        + Looking up the network interface "lb-nic1-be"
+        data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+        data:    Name                            : lb-nic1-be
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinaeast
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 10.0.0.4
+        data:      Private IP Allocation Method  : Dynamic
+        data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
+        data:      Load balancer backend address pools
+        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
+        data:      Load balancer inbound NAT rules:
+        data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
+        data:
+        info:    network nic create command OK
 
 2. Create a NIC named *lb-nic2-be*, and associate it with the *rdp2* NAT rule, and the *NRPbackendpool* back-end address pool.
 
@@ -266,24 +258,22 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 
     The output should be similar to the following:
 
-    ```
-    info:    Executing command vm create
-    + Looking up the VM "web1"
-    Enter username: azureuser
-    Enter password for azureuser: *********
-    Confirm password: *********
-    info:    Using the VM Size "Standard_A1"
-    info:    The [OS, Data] Disk or image configuration requires storage account
-    + Looking up the storage account web1nrp
-    + Looking up the availability set "nrp-avset"
-    info:    Found an Availability set "nrp-avset"
-    + Looking up the NIC "lb-nic1-be"
-    info:    Found an existing NIC "lb-nic1-be"
-    info:    Found an IP configuration with virtual network subnet id "/subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet" in the NIC "lb-nic1-be"
-    info:    This is a NIC without publicIP configured
-    + Creating VM "web1"
-    info:    vm create command OK
-    ```
+        info:    Executing command vm create
+        + Looking up the VM "web1"
+        Enter username: azureuser
+        Enter password for azureuser: *********
+        Confirm password: *********
+        info:    Using the VM Size "Standard_A1"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        + Looking up the storage account web1nrp
+        + Looking up the availability set "nrp-avset"
+        info:    Found an Availability set "nrp-avset"
+        + Looking up the NIC "lb-nic1-be"
+        info:    Found an existing NIC "lb-nic1-be"
+        info:    Found an IP configuration with virtual network subnet id "/subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet" in the NIC "lb-nic1-be"
+        info:    This is a NIC without publicIP configured
+        + Creating VM "web1"
+        info:    vm create command OK
 
     > [!NOTE]
     > The informational message **This is a NIC without publicIP configured** is expected since the NIC created for the load balancer connecting to Internet using the load balancer public IP address.
