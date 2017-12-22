@@ -1,10 +1,10 @@
 ---
-title: What to do in the event of an Azure service disruption that affects Azure Key Vault | Azure
+title: What to do in the event of an Azure service disruption that affects Azure Key Vault | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
 services: key-vault
 documentationcenter: ''
-author: adamglick
-manager: mbaldwin
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/07/2017
-ms.date: 02/27/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
+
 ---
 
 # Azure Key Vault availability and redundancy
@@ -45,3 +46,5 @@ There are a few caveats to be aware of:
   - Sign
   - Backup
 - After a failover is failed back, all request types (including read *and* write requests) are available.
+
+<!--Update_Description: update metedata properties -->
