@@ -15,18 +15,20 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 10/16/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time you can only manage the Azure Cosmos DB accountlayer via PowerShell; other resources such as databases and collections cannot be managed via PowerShell.
 
 | |  |
 |---|---|
 |**Create an Azure Cosmos DB account**||
-|[Create a DocumentDB API account](scripts/create-database-account-powershell.md)| Creates a single Azure Cosmos DB account to use with the DocumentDB API. |
+|[Create a SQL API account](scripts/create-database-account-powershell.md)| Creates a single Azure Cosmos DB account to use with the SQL API. |
 |**Scale Azure Cosmos DB**||
 |[Replicate Azure Cosmos DB account in multiple regions and configure failover priorities](scripts/scale-multiregion-powershell.md)|Globally replicates account data into multiple regions with a specified failover priority.|
 |**Secure Azure Cosmos DB**||
@@ -39,4 +41,4 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |||
 
 <!--Not Available for external TOC file ?toc=%2fpowershell%2fmodule%2ftoc.json -->
-<!--Update_Description: update meta properties-->
+<!--Update_Description: wording update -->

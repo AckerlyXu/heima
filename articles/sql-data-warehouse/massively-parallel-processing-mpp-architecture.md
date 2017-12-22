@@ -90,21 +90,21 @@ The following diagram shows a replicated table. For SQL Data Warehouse, the repl
 ## Next steps
 Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
 
-* [Customer success stories]
-* [Blogs]
+<!-- Not Available * [Customer success stories] -->
+<!-- Not Available * [Blogs]-->
 * [Feature requests]
-* [Videos]
-* [Customer Advisory Team blogs]
-* [Create support ticket]
-* [MSDN forum]
-* [Stack Overflow forum]
-* [Twitter]
+<!-- Not Available * [Videos]-->
+<!-- Not Available * [Customer Advisory Team blogs]-->
+<!-- Not Available * [Create support ticket]-->
+<!-- Not Available * [MSDN forum]-->
+<!-- Not Available * [Stack Overflow forum]-->
+<!-- Not Available * [Twitter] -->
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
@@ -116,14 +116,8 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Customer success stories]: https://www.azure.cn/case-studies/?service=sql-data-warehouse
-[Blogs]: https://azure.microsoft.com/blogtag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse
+[Feature requests]: https://support.windowsazure.cn/support/support-azure
+
 [SLA for SQL Data Warehouse]: https://www.azure.cn/support/sla/sql-data-warehouse/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://www.azure.cn/support/legal/sla/

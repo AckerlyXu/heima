@@ -14,19 +14,21 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-origin.date: 11/02/2017
-ms.date: 11/27/2017
+origin.date: 11/29/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
 # Azure CLI samples for Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI 2.0 Reference](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest).
 
 | |  |
 |---|---|
 |**Create Azure Cosmos DB account, database, and containers**||
-|[Create a DocumentDB API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB API account, database, and container for use with the DocumentDB API. |
+|[Create a SQL API account](scripts/create-database-account-collections-cli.md)| Creates a single Azure Cosmos DB API account, database, and container for use with the SQL API. |
 | [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale container throughput](scripts/scale-collection-throughput-cli.md) | Changes the provisioned througput on a container.|
@@ -42,5 +44,6 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |[Connect a web app to Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|Create and connect an Azure Cosmos DB database and an Azure web app.|
 |||
 
-<!-- Not Available ?toc=%2fcli%2fazure%2ftoc.json in docs.microsoft.com website(extenal site) -->
-<!--Update_Description: update meta properties, wording update -->
+<!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
+<!--ms.date:12/25/2017-->
+<!--Update_Description: update meta properties, wording update, update link -->

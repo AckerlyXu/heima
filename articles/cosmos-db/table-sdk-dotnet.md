@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 11/20/2017
-ms.date: 11/27/2017
+origin.date: 12/12/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -41,6 +41,7 @@ ms.author: v-yeche
 <!-- Not Avaialble ## Release and Retirement dates --》
 
 ## <a name="troubleshooting"></a> Troubleshooting
+## Troubleshooting
 
 If you get the error 
 
@@ -65,4 +66,4 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
 ## See also
 To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
-<!-- Update_Description: update meta properties, add Troubleshooting content -->
+<!-- Update_Description: update meta properties, wording update -->

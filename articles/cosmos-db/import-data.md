@@ -15,18 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Data migration tool
 
-This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources into Azure Cosmos DB collections and tables. You can import from JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB DocumentDB API collections, and you migrate that data to collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources into Azure Cosmos DB collections and tables. You can import from JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB SQL API collections, and you migrate that data to collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the SQL API.
 
 Which API are you going to use with Azure Cosmos DB? 
-* **[DocumentDB API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
+* **[SQL API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
 * **[Table API](table-introduction.md)** - You can use the Data Migration tool or AzCopy to import data. See [Import data for use with the Azure Cosmos DB Table API](table-import.md) for more information.
-* **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool does export data MongoDB databases to Azure Cosmos DB for use with the DocumentDB API. But if you want to continue to use MongoDB APIs, you'll want to use the Azure Cosmos DB MongoDB API, and should use mongoimport.exe or mongorestore.exe to import data. See [Azure Cosmos DB: How to migrate data for the MongoDB API?](mongodb-migrate.md), for more information.
+* **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool does not currently support Azure Cosmos DB MongoDB API either as a source or as a target. If you want to migrate the data in or out of MongoDB API collections in Azure Cosmos DB, refer to [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API. 
 <!--Not Available * **[Graph API](graph-introduction.md)** -->
 
 This tutorial covers the following tasks:
@@ -73,9 +75,9 @@ Once you've installed the tool, it's time to import your data. What kind of data
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Blob](#BlobImport)
-* [Azure Cosmos DB collections](#DocumentDBSource)
+* [Azure Cosmos DB collections](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB bulk import](#DocumentDBBulkImport)
+* [Azure Cosmos DB bulk import](#SQLBulkImport)
 * [Azure Cosmos DB sequential record import](#DocumentDSeqTarget)
 
 <a name="JSON"></a>
@@ -236,7 +238,7 @@ Here is a command-line sample for CSV import:
 ## Import from Azure Table storage
 The Azure Table storage source importer option allows you to import from an individual Azure Table storage table. Optionally, you can filter the table entities to be imported. 
 
-Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the DocumentDB API. However; Table API is only available as a target in the command-line utility, you cannot export to Table API by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md). 
+Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the SQL API. However; Table API is only available as a target in the command-line utility, you cannot export to Table API by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md). 
 
 ![Screenshot of Azure Table storage source options](./media/import-data/azuretablesource.png)
 
@@ -373,7 +375,7 @@ Here is a command-line sample to import from HBase:
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
 <a name="DocumentDBBulkTarget"></a>
-## Import to the DocumentDB API (Bulk Import)
+## Import to the SQL API (Bulk Import)
 The Azure Cosmos DB Bulk importer allows you to import from any of the available source options, using an Azure Cosmos DB stored procedure for efficiency. The tool supports import to one single-partitioned Azure Cosmos DB collection, as well as sharded import whereby data is partitioned across multiple single-partitioned Azure Cosmos DB collections. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md). The tool creates, executes, and then deletes the stored procedure from the target collection(s).  
 
 ![Screenshot of Azure Cosmos DB bulk options](./media/import-data/documentdbbulk.png)
@@ -442,7 +444,7 @@ The Azure Cosmos DB Bulk importer has the following additional advanced options:
 > 
 
 <a name="DocumentDBSeqTarget"></a>
-## Import to the DocumentDB API (Sequential Record Import)
+## Import to the SQL API (Sequential Record Import)
 The Azure Cosmos DB sequential record importer allows you to import from any of the available source options on a record by record basis. You might choose this option if you're importing to an existing collection that has reached its quota of stored procedures. The tool supports import to a single (both single-partition and multi-partition) Azure Cosmos DB collection, as well as sharded import whereby data is partitioned across multiple single-partition and/or multi-partition Azure Cosmos DB collections. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
 
 ![Screenshot of Azure Cosmos DB sequential record import options](./media/import-data/documentdbsequential.png)
@@ -507,7 +509,7 @@ The Azure Cosmos DB - Sequential record importer has the following additional ad
 
 <a name="IndexingPolicy"></a>
 ## Specify an indexing policy
-When you allow the migration tool to create Azure Cosmos DB DocumentDB API collections during import, you can specify the indexing policy of the collections. In the advanced options section of the Azure Cosmos DB Bulk import and Azure Cosmos DB Sequential record options, navigate to the Indexing Policy section.
+When you allow the migration tool to create Azure Cosmos DB SQL API collections during import, you can specify the indexing policy of the collections. In the advanced options section of the Azure Cosmos DB Bulk import and Azure Cosmos DB Sequential record options, navigate to the Indexing Policy section.
 
 ![Screenshot of Azure Cosmos DB Indexing Policy advanced options](./media/import-data/indexingpolicy1.png)
 
@@ -600,6 +602,6 @@ In this tutorial, you've done the following tasks:
 You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/tutorial-query-documentdb.md)
+>[How to query data?](../cosmos-db/tutorial-query-sql-api.md)
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, update link, wording update -->
