@@ -3,8 +3,9 @@ title: How to perform live streaming using Azure Media Services to create multi-
 description: This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
@@ -13,9 +14,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+
 
 ---
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
@@ -67,14 +69,14 @@ The following steps describe tasks involved in creating common live streaming ap
 15. Delete the Program (and optionally delete the asset).
 
 ## What you'll learn
-This topic shows you how to execute different operations on channels and programs using Media Services .NET SDK. Because many operations are long-running .NET APIs that manage long running operations are used.
+This article shows you how to execute different operations on channels and programs using Media Services .NET SDK. Because many operations are long-running .NET APIs that manage long running operations are used.
 
-The topic shows how to do the following:
+The article shows how to do the following:
 
 1. Create and start a channel. Long-running APIs are used.
 2. Get the channels ingest (input) endpoint. This endpoint should be provided to the encoder that can send a single bitrate live stream.
 3. Get the preview endpoint. This endpoint is used to preview your stream.
-4. Create an asset that will be used to store your content. The asset delivery policies should be configured as well, as shown in this example.
+4. Create an asset that is used to store your content. The asset delivery policies should be configured as well, as shown in this example.
 5. Create a program and specify to use the asset that was created earlier. Start the program. Long-running APIs are used.
 6. Create a locator for the asset, so the content gets published and can be streamed to your clients.
 7. Show and hide slates. Start and stop advertisements. Long-running APIs are used.
@@ -91,11 +93,11 @@ The following are required to complete the tutorial.
 
 ## Considerations
 * Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
-* There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+* There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 ## Download sample
 
-You can download the sample that is described in this topic from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+You can download the sample that is described in this article from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ## Set up for development with Media Services SDK for .NET
 
@@ -103,378 +105,391 @@ Set up your development environment and populate the app.config file with connec
 
 ## Code example
 
-	using System;
-	using System.Collections.Generic;
-	using System.Configuration;
-	using System.IO;
-	using System.Linq;
-	using System.Net;
-	using Microsoft.WindowsAzure.MediaServices.Client;
-	using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Net;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-	namespace EncodeLiveStreamWithAmsClear
-	{
-	    class Program
-	    {
-		private const string ChannelName = "channel001";
-		private const string AssetlName = "asset001";
-		private const string ProgramlName = "program001";
+namespace EncodeLiveStreamWithAmsClear
+{
+    class Program
+    {
+        private const string ChannelName = "channel001";
+        private const string AssetlName = "asset001";
+        private const string ProgramlName = "program001";
 
-		// Read values from the App.config file.
-		private static readonly string _AADTenantDomain =
-		ConfigurationManager.AppSettings["AADTenantDomain"];
-		private static readonly string _RESTAPIEndpoint =
-		ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
-		private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-		static void Main(string[] args)
-		{
-		    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
-		    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-		    IChannel channel = CreateAndStartChannel();
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-		    // The channel's input endpoint:
-		    string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
+            IChannel channel = CreateAndStartChannel();
 
-		    Console.WriteLine("Intest URL: {0}", ingestUrl);
+            // The channel's input endpoint:
+            string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
-		    // Use the previewEndpoint to preview and verify 
-		    // that the input from the encoder is actually reaching the Channel. 
-		    string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
+            Console.WriteLine("Intest URL: {0}", ingestUrl);
 
-		    Console.WriteLine("Preview URL: {0}", previewEndpoint);
 
-		    // When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. 
-		    // This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
-		    // The thumbnail is exposed via the same end-point as the Channel Preview URL.
-		    string thumbnailUri = new UriBuilder
-		    {
-			Scheme = Uri.UriSchemeHttps,
-			Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
-			Path = "thumbnails/input.jpg"
-		    }.Uri.ToString();
+            // Use the previewEndpoint to preview and verify 
+            // that the input from the encoder is actually reaching the Channel. 
+            string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
 
-		    Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
+            Console.WriteLine("Preview URL: {0}", previewEndpoint);
 
-		    // Once you previewed your stream and verified that it is flowing into your Channel, 
-		    // you can create an event by creating an Asset, Program, and Streaming Locator. 
-		    IAsset asset = CreateAndConfigureAsset();
+            // When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. 
+            // This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
+            // The thumbnail is exposed via the same end-point as the Channel Preview URL.
+            string thumbnailUri = new UriBuilder
+            {
+                Scheme = Uri.UriSchemeHttps,
+                Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
+                Path = "thumbnails/input.jpg"
+            }.Uri.ToString();
 
-		    IProgram program = CreateAndStartProgram(channel, asset);
+            Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
 
-		    ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
+            // Once you previewed your stream and verified that it is flowing into your Channel, 
+            // you can create an event by creating an Asset, Program, and Streaming Locator. 
+            IAsset asset = CreateAndConfigureAsset();
 
-		    // You can use slates and ads only if the channel type is Standard.  
-		    StartStopAdsSlates(channel);
+            IProgram program = CreateAndStartProgram(channel, asset);
 
-		    // Once you are done streaming, clean up your resources.
-		    Cleanup(channel);
-		}
+            ILocator locator = CreateLocatorForAsset(program.Asset, program.ArchiveWindowLength);
 
-		public static IChannel CreateAndStartChannel()
-		{
-		    var channelInput = CreateChannelInput();
-		    var channePreview = CreateChannelPreview();
-		    var channelEncoding = CreateChannelEncoding();
+            // You can use slates and ads only if the channel type is Standard.  
+            StartStopAdsSlates(channel);
 
-		    ChannelCreationOptions options = new ChannelCreationOptions
-		    {
-			EncodingType = ChannelEncodingType.Standard,
-			Name = ChannelName,
-			Input = channelInput,
-			Preview = channePreview,
-			Encoding = channelEncoding
-		    };
+            // Once you are done streaming, clean up your resources.
+            Cleanup(channel);
+        }
 
-		    Log("Creating channel");
-		    IOperation channelCreateOperation = _context.Channels.SendCreateOperation(options);
-		    string channelId = TrackOperation(channelCreateOperation, "Channel create");
+        public static IChannel CreateAndStartChannel()
+        {
+            var channelInput = CreateChannelInput();
+            var channePreview = CreateChannelPreview();
+            var channelEncoding = CreateChannelEncoding();
 
-		    IChannel channel = _context.Channels.Where(c => c.Id == channelId).FirstOrDefault();
+            ChannelCreationOptions options = new ChannelCreationOptions
+            {
+                EncodingType = ChannelEncodingType.Standard,
+                Name = ChannelName,
+                Input = channelInput,
+                Preview = channePreview,
+                Encoding = channelEncoding
+            };
 
-		    Log("Starting channel");
-		    var channelStartOperation = channel.SendStartOperation();
-		    TrackOperation(channelStartOperation, "Channel start");
+            Log("Creating channel");
+            IOperation channelCreateOperation = _context.Channels.SendCreateOperation(options);
+            string channelId = TrackOperation(channelCreateOperation, "Channel create");
 
-		    return channel;
-		}
+            IChannel channel = _context.Channels.Where(c => c.Id == channelId).FirstOrDefault();
 
-		/// <summary>
-		/// Create channel input, used in channel creation options. 
-		/// </summary>
-		/// <returns></returns>
-		private static ChannelInput CreateChannelInput()
-		{
-		    return new ChannelInput
-		    {
-			StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
-			AccessControl = new ChannelAccessControl
-			{
-			    IPAllowList = new List<IPRange>
-				{
-				    new IPRange
-				    {
-					Name = "TestChannelInput001",
-					Address = IPAddress.Parse("0.0.0.0"),
-					SubnetPrefixLength = 0
-				    }
-				}
-			}
-		    };
-		}
+            Log("Starting channel");
+            var channelStartOperation = channel.SendStartOperation();
+            TrackOperation(channelStartOperation, "Channel start");
 
-		/// <summary>
-		/// Create channel preview, used in channel creation options. 
-		/// </summary>
-		/// <returns></returns>
-		private static ChannelPreview CreateChannelPreview()
-		{
-		    return new ChannelPreview
-		    {
-			AccessControl = new ChannelAccessControl
-			{
-			    IPAllowList = new List<IPRange>
-				{
-				    new IPRange
-				    {
-					Name = "TestChannelPreview001",
-					Address = IPAddress.Parse("0.0.0.0"),
-					SubnetPrefixLength = 0
-				    }
-				}
-			}
-		    };
-		}
+            return channel;
+        }
 
-		/// <summary>
-		/// Create channel encoding, used in channel creation options. 
-		/// </summary>
-		/// <returns></returns>
-		private static ChannelEncoding CreateChannelEncoding()
-		{
-		    return new ChannelEncoding
-		    {
-			SystemPreset = "Default720p",
-			IgnoreCea708ClosedCaptions = false,
-			AdMarkerSource = AdMarkerSource.Api,
-			// You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-			AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
-		    };
-		}
+        /// <summary>
+        /// Create channel input, used in channel creation options. 
+        /// </summary>
+        /// <returns></returns>
+        private static ChannelInput CreateChannelInput()
+        {
+            return new ChannelInput
+            {
+                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
+                {
+                    new IPRange
+                    {
+                    Name = "TestChannelInput001",
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
+                    }
+                }
+                }
+            };
+        }
 
-		/// <summary>
-		/// Create an asset and configure asset delivery policies.
-		/// </summary>
-		/// <returns></returns>
-		public static IAsset CreateAndConfigureAsset()
-		{
-		    IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+        /// <summary>
+        /// Create channel preview, used in channel creation options. 
+        /// </summary>
+        /// <returns></returns>
+        private static ChannelPreview CreateChannelPreview()
+        {
+            return new ChannelPreview
+            {
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
+                {
+                    new IPRange
+                    {
+                    Name = "TestChannelPreview001",
+                    Address = IPAddress.Parse("0.0.0.0"),
+                    SubnetPrefixLength = 0
+                    }
+                }
+                }
+            };
+        }
 
-		    IAssetDeliveryPolicy policy =
-			_context.AssetDeliveryPolicies.Create("Clear Policy",
-			AssetDeliveryPolicyType.NoDynamicEncryption,
-			AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+        /// <summary>
+        /// Create channel encoding, used in channel creation options. 
+        /// </summary>
+        /// <returns></returns>
+        private static ChannelEncoding CreateChannelEncoding()
+        {
+            return new ChannelEncoding
+            {
+                SystemPreset = "Default720p",
+                IgnoreCea708ClosedCaptions = false,
+                AdMarkerSource = AdMarkerSource.Api,
+                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
+                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+            };
+        }
 
-		    asset.DeliveryPolicies.Add(policy);
+        /// <summary>
+        /// Create an asset and configure asset delivery policies.
+        /// </summary>
+        /// <returns></returns>
+        public static IAsset CreateAndConfigureAsset()
+        {
+            IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
 
-		    return asset;
-		}
+            IAssetDeliveryPolicy policy =
+            _context.AssetDeliveryPolicies.Create("Clear Policy",
+            AssetDeliveryPolicyType.NoDynamicEncryption,
+            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
 
-		/// <summary>
-		/// Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
-		/// however each Program must have a unique name within your Media Services account.
-		/// </summary>
-		/// <param name="channel"></param>
-		/// <param name="asset"></param>
-		/// <returns></returns>
-		public static IProgram CreateAndStartProgram(IChannel channel, IAsset asset)
-		{
-		    IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
-		    Log("Program created", program.Id);
+            asset.DeliveryPolicies.Add(policy);
 
-		    Log("Starting program");
-		    var programStartOperation = program.SendStartOperation();
-		    TrackOperation(programStartOperation, "Program start");
+            return asset;
+        }
 
-		    return program;
-		}
+        /// <summary>
+        /// Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
+        /// however each Program must have a unique name within your Media Services account.
+        /// </summary>
+        /// <param name="channel"></param>
+        /// <param name="asset"></param>
+        /// <returns></returns>
+        public static IProgram CreateAndStartProgram(IChannel channel, IAsset asset)
+        {
+            IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+            Log("Program created", program.Id);
 
-		/// <summary>
-		/// Create locators in order to be able to publish and stream the video.
-		/// </summary>
-		/// <param name="asset"></param>
-		/// <param name="ArchiveWindowLength"></param>
-		/// <returns></returns>
-		public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
-		{
-		    // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
-		    var locator = _context.Locators.CreateLocator
-			(
-			    LocatorType.OnDemandOrigin,
-			    asset,
-			    _context.AccessPolicies.Create
-				(
-				    "Live Stream Policy",
-				    ArchiveWindowLength,
-				    AccessPermissions.Read
-				)
-			);
+            Log("Starting program");
+            var programStartOperation = program.SendStartOperation();
+            TrackOperation(programStartOperation, "Program start");
 
-		    return locator;
-		}
+            return program;
+        }
 
-		/// <summary>
-		/// Perform operations on slates.
-		/// </summary>
-		/// <param name="channel"></param>
-		public static void StartStopAdsSlates(IChannel channel)
-		{
-		    int cueId = new Random().Next(int.MaxValue);
-		    var path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\SlateJPG\\DefaultAzurePortalSlate.jpg"));
+        /// <summary>
+        /// Create locators in order to be able to publish and stream the video.
+        /// </summary>
+        /// <param name="asset"></param>
+        /// <param name="ArchiveWindowLength"></param>
+        /// <returns></returns>
+        public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
+        {
+            // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+            var locator = _context.Locators.CreateLocator
+            (
+                LocatorType.OnDemandOrigin,
+                asset,
+                _context.AccessPolicies.Create
+                (
+                    "Live Stream Policy",
+                    ArchiveWindowLength,
+                    AccessPermissions.Read
+                )
+            );
 
-		    Log("Creating asset");
-		    var slateAsset = _context.Assets.Create("Slate test asset " + DateTime.Now.ToString("yyyy-MM-dd HH-mm"), AssetCreationOptions.None);
-		    Log("Slate asset created", slateAsset.Id);
+            return locator;
+        }
 
-		    Log("Uploading file");
-		    var assetFile = slateAsset.AssetFiles.Create("DefaultAzurePortalSlate.jpg");
-		    assetFile.Upload(path);
-		    assetFile.IsPrimary = true;
-		    assetFile.Update();
+        /// <summary>
+        /// Perform operations on slates.
+        /// </summary>
+        /// <param name="channel"></param>
+        public static void StartStopAdsSlates(IChannel channel)
+        {
+            int cueId = new Random().Next(int.MaxValue);
+            var path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\..\\SlateJPG\\DefaultAzurePortalSlate.jpg"));
 
-		    Log("Showing slate");
-		    var showSlateOpeartion = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
-		    TrackOperation(showSlateOpeartion, "Show slate");
+            Log("Creating asset");
+            var slateAsset = _context.Assets.Create("Slate test asset " + DateTime.Now.ToString("yyyy-MM-dd HH-mm"), AssetCreationOptions.None);
+            Log("Slate asset created", slateAsset.Id);
 
-		    Log("Hiding slate");
-		    var hideSlateOperation = channel.SendHideSlateOperation();
-		    TrackOperation(hideSlateOperation, "Hide slate");
+            Log("Uploading file");
+            var assetFile = slateAsset.AssetFiles.Create("DefaultAzurePortalSlate.jpg");
+            assetFile.Upload(path);
+            assetFile.IsPrimary = true;
+            assetFile.Update();
 
-		    Log("Starting ad");
-		    var startAdOperation = channel.SendStartAdvertisementOperation(TimeSpan.FromMinutes(1), cueId, false);
-		    TrackOperation(startAdOperation, "Start ad");
+            Log("Showing slate");
+            var showSlateOpeartion = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
+            TrackOperation(showSlateOpeartion, "Show slate");
 
-		    Log("Ending ad");
-		    var endAdOperation = channel.SendEndAdvertisementOperation(cueId);
-		    TrackOperation(endAdOperation, "End ad");
+            Log("Hiding slate");
+            var hideSlateOperation = channel.SendHideSlateOperation();
+            TrackOperation(hideSlateOperation, "Hide slate");
 
-		    Log("Deleting slate asset");
-		    slateAsset.Delete();
-		}
+            Log("Starting ad");
+            var startAdOperation = channel.SendStartAdvertisementOperation(TimeSpan.FromMinutes(1), cueId, false);
+            TrackOperation(startAdOperation, "Start ad");
 
-		/// <summary>
-		/// Clean up resources associated with the channel.
-		/// </summary>
-		/// <param name="channel"></param>
-		public static void Cleanup(IChannel channel)
-		{
-		    IAsset asset;
-		    if (channel != null)
-		    {
-			foreach (var program in channel.Programs)
-			{
-			    asset = _context.Assets.Where(se => se.Id == program.AssetId)
-						    .FirstOrDefault();
+            Log("Ending ad");
+            var endAdOperation = channel.SendEndAdvertisementOperation(cueId);
+            TrackOperation(endAdOperation, "End ad");
 
-			    Log("Stopping program");
-			    var programStopOperation = program.SendStopOperation();
-			    TrackOperation(programStopOperation, "Program stop");
+            Log("Deleting slate asset");
+            slateAsset.Delete();
+        }
 
-			    program.Delete();
+        /// <summary>
+        /// Clean up resources associated with the channel.
+        /// </summary>
+        /// <param name="channel"></param>
+        public static void Cleanup(IChannel channel)
+        {
+            IAsset asset;
+            if (channel != null)
+            {
+                foreach (var program in channel.Programs)
+                {
+                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                .FirstOrDefault();
 
-			    if (asset != null)
-			    {
-				Log("Deleting locators");
-				foreach (var l in asset.Locators)
-				    l.Delete();
+                    Log("Stopping program");
+                    var programStopOperation = program.SendStopOperation();
+                    TrackOperation(programStopOperation, "Program stop");
 
-				Log("Deleting asset");
-				asset.Delete();
-			    }
-			}
+                    program.Delete();
 
-			Log("Stopping channel");
-			var channelStopOperation = channel.SendStopOperation();
-			TrackOperation(channelStopOperation, "Channel stop");
+                    if (asset != null)
+                    {
+                        Log("Deleting locators");
+                        foreach (var l in asset.Locators)
+                            l.Delete();
 
-			Log("Deleting channel");
-			var channelDeleteOperation = channel.SendDeleteOperation();
-			TrackOperation(channelDeleteOperation, "Channel delete");
-		    }
-		}
+                        Log("Deleting asset");
+                        asset.Delete();
+                    }
+                }
 
-		/// <summary>
-		/// Track long running operations.
-		/// </summary>
-		/// <param name="operation"></param>
-		/// <param name="description"></param>
-		/// <returns></returns>
-		public static string TrackOperation(IOperation operation, string description)
-		{
-		    string entityId = null;
-		    bool isCompleted = false;
+                Log("Stopping channel");
+                var channelStopOperation = channel.SendStopOperation();
+                TrackOperation(channelStopOperation, "Channel stop");
 
-		    Log("starting to track ", null, operation.Id);
-		    while (isCompleted == false)
-		    {
-			operation = _context.Operations.GetOperation(operation.Id);
-			isCompleted = IsCompleted(operation, out entityId);
-			System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
-		    }
-		    // If we got here, the operation succeeded.
-		    Log(description + " in completed", operation.TargetEntityId, operation.Id);
+                Log("Deleting channel");
+                var channelDeleteOperation = channel.SendDeleteOperation();
+                TrackOperation(channelDeleteOperation, "Channel delete");
+            }
+        }
 
-		    return entityId;
-		}
+        /// <summary>
+        /// Track long running operations.
+        /// </summary>
+        /// <param name="operation"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
+        public static string TrackOperation(IOperation operation, string description)
+        {
+            string entityId = null;
+            bool isCompleted = false;
 
-		/// <summary> 
-		/// Checks if the operation has been completed. 
-		/// If the operation succeeded, the created entity Id is returned in the out parameter.
-		/// </summary> 
-		/// <param name="operationId">The operation Id.</param> 
-		/// <param name="channel">
-		/// If the operation succeeded, 
-		/// the entity Id associated with the sucessful operation is returned in the out parameter.</param>
-		/// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
-		private static bool IsCompleted(IOperation operation, out string entityId)
-		{
-		    bool completed = false;
+            Log("starting to track ", null, operation.Id);
+            while (isCompleted == false)
+            {
+                operation = _context.Operations.GetOperation(operation.Id);
+                isCompleted = IsCompleted(operation, out entityId);
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+            }
+            // If we got here, the operation succeeded.
+            Log(description + " in completed", operation.TargetEntityId, operation.Id);
 
-		    entityId = null;
+            return entityId;
+        }
 
-		    switch (operation.State)
-		    {
-			case OperationState.Failed:
-			    // Handle the failure. 
-			    // For example, throw an exception. 
-			    // Use the following information in the exception: operationId, operation.ErrorMessage.
-			    Log("operation failed", operation.TargetEntityId, operation.Id);
-			    break;
-			case OperationState.Succeeded:
-			    completed = true;
-			    entityId = operation.TargetEntityId;
-			    break;
-			case OperationState.InProgress:
-			    completed = false;
-			    Log("operation in progress", operation.TargetEntityId, operation.Id);
-			    break;
-		    }
-		    return completed;
-		}
+        /// <summary> 
+        /// Checks if the operation has been completed. 
+        /// If the operation succeeded, the created entity Id is returned in the out parameter.
+        /// </summary> 
+        /// <param name="operationId">The operation Id.</param> 
+        /// <param name="channel">
+        /// If the operation succeeded, 
+        /// the entity Id associated with the sucessful operation is returned in the out parameter.</param>
+        /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
+        private static bool IsCompleted(IOperation operation, out string entityId)
+        {
+            bool completed = false;
 
-		private static void Log(string action, string entityId = null, string operationId = null)
-		{
-		    Console.WriteLine(
-			"{0,-21}{1,-51}{2,-51}{3,-51}",
-			DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"),
-			action,
-			entityId ?? string.Empty,
-			operationId ?? string.Empty);
-		}
-	    }
-	}
-<!--Update_Description: update code to use AAD token instead of ACS-->
+            entityId = null;
+
+            switch (operation.State)
+            {
+                case OperationState.Failed:
+                    // Handle the failure. 
+                    // For example, throw an exception. 
+                    // Use the following information in the exception: operationId, operation.ErrorMessage.
+                    Log("operation failed", operation.TargetEntityId, operation.Id);
+                    break;
+                case OperationState.Succeeded:
+                    completed = true;
+                    entityId = operation.TargetEntityId;
+                    break;
+                case OperationState.InProgress:
+                    completed = false;
+                    Log("operation in progress", operation.TargetEntityId, operation.Id);
+                    break;
+            }
+            return completed;
+        }
+
+        private static void Log(string action, string entityId = null, string operationId = null)
+        {
+            Console.WriteLine(
+            "{0,-21}{1,-51}{2,-51}{3,-51}",
+            DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"),
+            action,
+            entityId ?? string.Empty,
+            operationId ?? string.Empty);
+        }
+    }
+}
+```
+
+
+

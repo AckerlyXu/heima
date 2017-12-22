@@ -3,8 +3,9 @@ title: Configuring asset delivery policies using Media Services REST API | Azure
 description: This topic shows how to configure different asset delivery policies using Media Services REST API.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -13,9 +14,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/07/2017
+ms.date: 12/11/2017
+ms.author: v-nany
+
 
 ---
 # Configuring asset delivery policies
@@ -86,9 +88,9 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {
     "Name":"Clear Policy",
@@ -142,9 +144,9 @@ Accept: application/json
 Accept-Charset: UTF-8
 Content-Type: application/json
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-3344-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 ```
@@ -176,9 +178,9 @@ MaxDataServiceVersion: 3.0;NetFx
 Accept: application/json
 Accept-Charset: UTF-8
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423452029&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=IEXV06e3drSIN5naFRBdhJZCbfEqQbFZsGSIGmawhEo%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 21
 
 {"keyDeliveryType":2}
@@ -223,9 +225,9 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]"}
 ```
@@ -280,7 +282,7 @@ User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
 x-ms-version: 2.11
 x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
 ```
