@@ -3,8 +3,9 @@ title: Get started with delivering content on demand using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,9 +13,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 07/31/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/10/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+
 
 ---
 
@@ -84,31 +86,39 @@ To start the streaming endpoint, do the following:
 
 When using Media Services with .NET, you must use the **CloudMediaContext** class for most Media Services programming tasks: connecting to Media Services account; creating, updating, accessing, and deleting the following objects: assets, asset files, jobs, access policies, locators, etc.
 
-Overwrite the default Program class with the following code. The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information, see [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
+Overwrite the default Program class with the following code: The code demonstrates how to read the connection values from the App.config file and how to create the **CloudMediaContext** object in order to connect to Media Services. For more information, see [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
 
 Make sure to update the file name and path to where you have your media file.
 
 The **Main** function calls methods that will be defined further in this section.
 
 > [!NOTE]
-> You will be getting compilation errors until you add definitions for all the functions.
+> You will be getting compilation errors until you add definitions for all the functions that are defined later in this article.
 
 	class Program
 	{
 	    // Read values from the App.config file.
-	    private static readonly string _AADTenantDomain =
-	    ConfigurationManager.AppSettings["AADTenantDomain"];
-	    private static readonly string _RESTAPIEndpoint =
-	    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
 	    private static CloudMediaContext _context = null;
 
 	    static void Main(string[] args)
 	    {
-		try
-		{
-		    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
-		    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+            	try
+        	{
+            	     AzureAdTokenCredentials tokenCredentials = 
+                		new AzureAdTokenCredentials(_AADTenantDomain,
+                    		new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    		AzureEnvironments.AzureCloudEnvironment);
+
+                     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
 		    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
@@ -143,7 +153,7 @@ In Media Services, you upload (or ingest) your digital files into an asset. The 
 
 The **UploadFile** method defined below calls **CreateFromFile** (defined in .NET SDK Extensions). **CreateFromFile** creates a new asset into which the specified source file is uploaded.
 
-The **CreateFromFile** method takes **AssetCreationOptions** which lets you specify one of the following asset creation options:
+The **CreateFromFile** method takes **AssetCreationOptions, which lets you specify one of the following asset creation options:
 
 * **None** - No encryption is used. This is the default value. Note that when using this option, your content is not protected in transit or at rest in storage.
   If you plan to deliver an MP4 using progressive download, use this option.
@@ -226,31 +236,31 @@ To stream or download an asset, you first need to "publish" it by creating a loc
 
 ### Some details about URL formats
 
-After you create the locators, you can build the URLs that would be used to stream or download your files. The sample in this tutorial will output URLs that you can paste in appropriate browsers. This section just gives short examples of what different formats look like.
+After you create the locators, you can build the URLs that would be used to stream or download your files. The sample in this tutorial outputs URLs that you can paste in appropriate browsers. This section just gives short examples of what different formats look like.
 
 #### A streaming URL for MPEG DASH has the following format:
 
-```
+
  {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest**(format=mpd-time-csf)**
-```
+
 
 #### A streaming URL for HLS has the following format:
 
-```
+
  {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest**(format=m3u8-aapl)**
-```
+ 
 
 #### A streaming URL for Smooth Streaming has the following format:
 
-```
+
 {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
-```
+
 
 #### A SAS URL used to download files has the following format:
 
-```
+
 {blob container name}/{asset name}/{file name}/{SAS signature}
-```
+
 
 Media Services .NET SDK extensions provide convenient helper methods that return formatted URLs for the published asset.
 
@@ -330,25 +340,25 @@ Adaptive streaming URLs:
 
 Smooth Streaming
 
-```
+
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
-```
+
 
 HLS
 
-```
+
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
-```
+
 
 MPEG DASH
 
-```
+
 http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
-```
+
 
 Progressive download URLs (audio and video).
 
-```
+
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
@@ -364,7 +374,7 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-```
+
 
 To stream your video, paste your URL in the URL textbox in the [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
@@ -374,7 +384,7 @@ For more information, see the following topics:
 
 - [Playing your content with existing players](media-services-playback-content-with-existing-players.md)
 - [Develop video player applications](media-services-develop-video-players.md)
-- [Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+- [Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## Download sample
 The following code sample contains the code that you created in this tutorial: [sample](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).

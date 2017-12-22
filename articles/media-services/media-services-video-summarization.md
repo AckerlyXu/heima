@@ -3,8 +3,9 @@ title: Use Azure Media Video Thumbnails to Create a Video Summarization | Azure
 description: Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
@@ -13,9 +14,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/09/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+
 ---
 # Use Azure Media Video Thumbnails to Create a Video Summarization
 ## Overview
@@ -23,7 +25,7 @@ The **Azure Media Video Thumbnails** media processor (MP) enables you to create 
 
 The **Azure Media Video Thumbnail** MP is currently in Preview.
 
-This topic gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET.
+This article gives details about  **Azure Media Video Thumbnail** and shows how to use it with Media Services SDK for .NET.
 
 ## Limitations
 
@@ -78,19 +80,16 @@ The following JSON sets available parameters.
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset. 
-
-    ```
-    {				
-        "version": "1.0",
-        "options": {
-            "outputAudio": "true",
-            "maxMotionThumbnailDurationInSecs": "30",
-            "fadeInFadeOut": "false"
+2. Creates a job with a video thumbnail task based on a configuration file that contains the following json preset: 
+   
+        {                
+            "version": "1.0",
+            "options": {
+                "outputAudio": "true",
+                "maxMotionThumbnailDurationInSecs": "30",
+                "fadeInFadeOut": "false"
+            }
         }
-    }
-    ```
-
 3. Downloads the output files. 
 
 #### Create and configure a Visual Studio project
@@ -113,16 +112,24 @@ Set up your development environment and populate the app.config file with connec
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

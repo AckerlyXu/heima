@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 origin.date: 03/01/2017
-ms.date: 09/18/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
@@ -266,4 +266,4 @@ See the [PolyBase guide][PolyBase guide] for further information you should know
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
-<!--Update_Description: wording update, wording update-->
+<!--Update_Description: wording update -->
