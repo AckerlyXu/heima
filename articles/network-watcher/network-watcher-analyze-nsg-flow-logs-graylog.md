@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
@@ -256,4 +256,4 @@ you have Graylog set up and connected to Azure, feel free to continue to explore
 Learn how to visualize your network security group flow logs with Power BI by visiting [Visualize network security group flows logs with Power
 BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

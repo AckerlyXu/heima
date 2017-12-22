@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
@@ -31,11 +31,11 @@ Network Watcher packet capture allows you to create capture sessions to track tr
 
 This article uses our next generation CLI for the resource management deployment model, Azure CLI 2.0, which is available for Windows, Mac and Linux.
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2).
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest).
 
 This article takes you through the different management tasks that are currently available for packet capture.
 
-- [**Start a packet capture**](?view=azure-cli-latest#start-a-packet-capture)
+- [**Start a packet capture**](#start-a-packet-capture)
 - [**Stop a packet capture**](#stop-a-packet-capture)
 - [**Delete a packet capture**](#delete-a-packet-capture)
 - [**Download a packet capture**](#download-a-packet-capture)
@@ -279,4 +279,4 @@ Find if certain traffic is allowed in or out of your VM by visiting [Check IP fl
 
 <!-- Image references -->
 
-<!--Update_Description: new articles on network watcher packet capture manage CLI -->
+<!--Update_Description: update meta properties -->

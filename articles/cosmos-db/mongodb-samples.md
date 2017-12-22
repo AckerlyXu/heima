@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 09/18/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
 # Build an Azure Cosmos DB: API for MongoDB app using Node.js
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-get-started.md)
-> * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [Java](sql-api-java-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
-> * [Node.js](documentdb-nodejs-get-started.md)
-> * [C++](documentdb-cpp-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [C++](sql-api-cpp-get-started.md)
 >  
 >
 
@@ -131,4 +131,4 @@ To use this example, you must:
 ## Next steps
 * Learn how to [use MongoChef](mongodb-mongochef.md) with your Azure Cosmos DB: API for MongoDB account.
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update link -->

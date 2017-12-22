@@ -14,14 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
 # Get started creating an Internet facing load balancer (classic) in PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Classic Management Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
@@ -72,4 +71,4 @@ You can also [get started creating an internal load balancer](load-balancer-get-
 
 If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It helps to learn about idle connection behavior when you are using Azure Load Balancer.
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: wording update -->

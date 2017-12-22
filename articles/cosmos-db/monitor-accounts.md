@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -61,7 +61,7 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
      ![Screen shot of the Add an alert rule page](./media/monitor-accounts/madocdb12.png)
 
 ## Monitor Azure Cosmos DB programmatically
-The account level metrics available in the portal, such as account storage usage and total requests, are not available via the DocumentDB APIs. However, you can retrieve usage data at the collection level by using the DocumentDB APIs. To retrieve collection level data, do the following:
+The account level metrics available in the portal, such as account storage usage and total requests, are not available via the SQL APIs. However, you can retrieve usage data at the collection level by using the SQL APIs. To retrieve collection level data, do the following:
 
 * To use the REST API, [perform a GET on the collection](https://msdn.microsoft.com/library/mt489073.aspx). The quota and usage information for the collection is returned in the x-ms-resource-quota and x-ms-resource-usage headers in the response.
 * To use the .NET SDK, use the [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) method, which returns a [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) that contains a number of usage properties such as **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**, and more.
@@ -79,4 +79,4 @@ For more information, see [Retrieving Resource Metrics via the Azure Monitor RES
 ## Next steps
 To learn more about Azure Cosmos DB capacity planning, see the [Azure Cosmos DB capacity planner calculator](https://www.documentdb.com/capacityplanner).
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: wording update -->

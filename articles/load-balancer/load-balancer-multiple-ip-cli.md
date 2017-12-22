@@ -17,7 +17,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 # Load balancing on multiple IP configurations
@@ -38,7 +38,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 To achieve the scenario outlined in this article complete the following steps:
 
 1. [Install and Configure the Azure CLI](../cli-install-nodejs.md) by following the steps in the linked article and log into your Azure account.
-2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) called *contosofabrikam* as described above.
+2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) called *contosofabrikam* as follows:
 <!-- Not Available create-resource-group --> 
 
     ```azurecli
@@ -106,7 +106,7 @@ To achieve the scenario outlined in this article complete the following steps:
     azure storage account create --location chinaeast --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Create the network interfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) for VM1 and add a second IP configuration, *VM1-ipconfig2*, and [create the VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-the-linux-vms) as follows:
+11. [Create the network interfaces](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json) for VM1 and add a second IP configuration, *VM1-ipconfig2*, and [create the VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json#create-a-vm) as follows:
 <!-- Not Available create-a-virtual-nic -->
 
     ```azurecli
@@ -134,4 +134,4 @@ To achieve the scenario outlined in this article complete the following steps:
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update link, wording update -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -91,5 +91,4 @@ Learn to audit your NSG settings by visiting [Auditing Network Security Groups (
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png
 
-
-<!--Update_Description: new articles on network watcher check ip flow verify CLI -->
+<!--Update_Description: update meta properties -->

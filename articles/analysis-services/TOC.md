@@ -21,6 +21,7 @@
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
 <!--Not Available ## [Configure scale-out](analysis-services-scale-out.md)-->
+## [Configure a server name alias](analysis-services-server-alias.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)
 ## [Connect with Power BI](analysis-services-connect-pbi.md)
 ## [Create an .odc file](analysis-services-odc.md)
@@ -61,4 +62,4 @@
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 <!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->
-<!--ms.date: 12/11/2017 -->
+<!--ms.date: 12/25/2017 -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/31/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -228,6 +228,7 @@ Access to resources can be either internal (within the corporation's network) or
 
 ### Automation
 Managing resources individually is both time-consuming and potentially error prone for certain operations. Azure provides various automation capabilities including Azure Automation, Logic Apps. [Azure Automation](../automation/automation-intro.md) enables administrators to create and define runbooks to handle common tasks in managing resources. You create runbooks by using either a PowerShell code editor or a graphical editor. You can produce complex multi-stage workflows. Azure Automation is often used to handle common tasks such as shutting down unused resources, or creating resources in response to a specific trigger without needing human intervention.
+<!-- Not Available on Azure Function -->
 
 > [!TIP]
 > For automation:
@@ -238,20 +239,9 @@ Managing resources individually is both time-consuming and potentially error pro
 > 
 > 
 
-## Azure Security Center
-Perhaps one of the biggest blockers to cloud adoption has been the concerns over security. IT risk managers and security departments need to ensure that resources in Azure are secure. 
-
-<!-- Not Available on ../security-center/*.* -->
-The Azure Security Center provides a central view of the security status of resources in the subscriptions, and provides recommendations that help prevent compromised resources. It can enable more granular policies (for example, applying policies to specific resource groups that allow the enterprise to tailor their posture to the risk they are addressing). Finally, Azure Security Center is an open platform that enables Microsoft partners and independent software vendors to create software that plugs into Azure Security Center to enhance its capabilities. 
-
-> [!TIP]
-> Azure Security Center is enabled by default in each subscription. However, you must enable data collection from virtual machines to allow Azure Security Center to install its agent and begin gathering data.
-> 
-> ![data collection](./media/resource-manager-subscription-governance/data-collection.png)
-> 
-> 
+<!-- Not Available on ## Azure Security Center-->
 
 ## Next steps
 * Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, remove the unsuitable Secury Center content.-->
