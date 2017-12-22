@@ -11,7 +11,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 11/30/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
 
 ---
@@ -41,7 +41,7 @@ The web application that will be accessing the Key Vault is the one that is regi
 
 This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Add Nuget Packages
+## <a id="packages"></a>Add NuGet Packages
 
 There are two packages that your web application needs to have installed.
 
@@ -141,11 +141,11 @@ Another way to authenticate an Azure AD application is by using a Client ID and 
 For our purposes, we will make a test certificate. Here are a couple of commands that you can use in a Developer Command Prompt to create a certificate. Change directory to where you want the cert files created.  Also, for the beginning and ending date of the certificate, use the current date plus 1 year.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below.
+Make note of the end date and the password for the .pfx (in this example: 07/31/2017 and test123). You will need them below.
 
 For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 
 ---
@@ -42,7 +42,7 @@ The installation wizard provides a configuration that is supposed to work for th
 > [!WARNING]
 > The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint is no longer matching. You might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
 
-### Disable an unwanted Sync Rule
+### Disable an unwanted Sync Rule <a name="disable-an-unwanted-sync-rule"></a>
 Do not delete an out-of-box sync rule. It is recreated during next upgrade.
 
 In some cases, the installation wizard has produced a configuration that is not working for your topology. For example, if you have an account-resource forest topology but you have extended the schema in the account forest with the Exchange schema, then rules for Exchange are created for the account forest and the resource forest. In this case, you need to disable the Sync Rule for Exchange.
@@ -51,7 +51,7 @@ In some cases, the installation wizard has produced a configuration that is not 
 
 In the picture above, the installation wizard has found an old Exchange 2003 schema in the account forest. This schema extension was added before the resource forest was introduced in Fabrikam's environment. To ensure no attributes from the old Exchange implementation are synchronized, the sync rule should be disabled as shown.
 
-### Change an out-of-box rule
+### Change an out-of-box rule <a name="change-an-out-of-box-rule"></a>
 The only time you should change an out-of-box rule is when you need to change the join rule. If you need to change an attribute flow, then you should create a sync rule with higher precedence than the out-of-box rules. The only rule you practically need to clone is the rule **In from AD - User Join**. You can override all other rules with a higher precedence rule.
 
 If you need to make changes to an out-of-box rule, then you should make a copy of the out-of-box rule and disable the original rule. Then make the changes to the cloned rule. The Sync Rule Editor is helping you with those steps. When you open an out-of-box rule, you are presented with this dialog box:  
@@ -68,4 +68,4 @@ On this cloned rule, make any necessary changes to scope, join, and transformati
 - [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: links update -->

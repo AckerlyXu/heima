@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 08/23/2017
+ms.date: 12/19/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 ---
@@ -247,7 +247,7 @@ Click on the newly created load balancer entry in the Load balancers panel to br
 
 1. Click on the public IP address. This will open the panel for the public IP and its settings
 2. Click on Configuration
-3. Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.westus.cloudapp.azure.com. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.westus.cloudapp.azure.com).
+3. Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.chinanorth.chinacloudapp.cn. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.chinanorth.chinacloudapp.cn).
 
 ![Configure internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
 
@@ -320,7 +320,7 @@ You can use an existing virtual network or create a new VNET while deploying thi
 
 | Parameter | Description |
 |:--- |:--- |
-| Location |The region to deploy the resources into, e.g. China East. |
+| Location |The region to deploy the resources into, e.g. China North. |
 | StorageAccountType |The type of the Storage Account created |
 | VirtualNetworkUsage |Indicates if a new virtual network will be created or use an existing one |
 | VirtualNetworkName |The name of the Virtual Network to Create, mandatory on both existing or new virtual network usage |
@@ -347,12 +347,12 @@ You can use an existing virtual network or create a new VNET while deploying thi
 | AdminPassword |The password for the local Administrator account of the virtual machines |
 
 ## Additional resources
-- [Availability Sets](https://aka.ms/Azure/Availability) 
-- [Azure Load Balancer](https://aka.ms/Azure/ILB)
-- [Internal Load Balancer](https://aka.ms/Azure/ILB/Internal)
-- [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
-- [Storage Accounts](https://aka.ms/Azure/Storage)
-- [Azure Virtual Networks](https://aka.ms/Azure/VNet)
+- [Availability Sets](/virtual-machines/windows/manage-availability) 
+- [Azure Load Balancer](/load-balancer/load-balancer-overview)
+- [Internal Load Balancer](/load-balancer/load-balancer-get-started-ilb-arm-ps)
+- [Internet Facing Load Balancer](/load-balancer/load-balancer-get-started-internet-arm-ps)
+- [Storage Accounts](/storage/common/storage-introduction)
+- [Azure Virtual Networks](/virtual-network/virtual-networks-overview)
 - [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
 
 ## Next steps

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 
 ---
@@ -135,7 +135,7 @@ The connector tries to detect the options present on the server. If the options 
 ### Delta import
 Delta import is only available when a support directory has been detected. The following methods are currently used:
 
-- LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+- LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html](http://www.openldap.org/doc/admin24/overlays.html)
 - LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - TimeStamp. For Novell/NetIQ eDirectory, the Connector uses last date/time to get created and updated objects. Novell/NetIQ eDirectory does not provide an equivalent means to retrieve deleted objects. This option can also be used if no other delta import method is active on the LDAP server. This option is not able to import deleted objects.
 - USNChanged. See: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
@@ -238,6 +238,7 @@ This page does always have a preconfigured value and cannot be changed. If the s
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
 
+
 The following is a list of LDAP servers and the anchor being used:
 
 | Directory | Anchor attribute |
@@ -267,4 +268,4 @@ For directories with a delta change log that is based on date/time, it is highly
 ## Troubleshooting
 - For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: link update -->

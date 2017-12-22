@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 ---
 
@@ -52,7 +52,7 @@ The filtering configuration is retained when you install or upgrade to a newer v
 
 If you have more than one forest, then you must apply the filtering configurations that are described in this topic to every forest (assuming that you want the same configuration for all of them).
 
-### Disable the scheduled task
+### Disable the scheduled task <a name="disable-scheduled-task"></a>
 To disable the built-in scheduler that triggers a synchronization cycle every 30 minutes, follow these steps:
 
 1. Go to a PowerShell prompt.
@@ -93,7 +93,7 @@ Domain-based filtering configuration consists of these steps:
 2. For each added and removed domain, adjust the [run profiles](#update-run-profiles).
 3. [Apply and verify changes](#apply-and-verify-changes).
 
-### Select the domains to be synchronized
+### Select the domains to be synchronized <a name="select-domains-to-be-synchronized"></a>
 To set the domain filter, do the following steps:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
@@ -108,7 +108,7 @@ To set the domain filter, do the following steps:
 6. When you're done, close the **Properties** dialog by clicking **OK**. If you removed domains from the forest, a message pop-up says that a domain was removed and that configuration will be cleaned up.
 7. Continue to adjust the [run profiles](#update-run-profiles).
 
-### Update the run profiles
+### Update the run profiles <a name="update-run-profiles"></a>
 If you've updated your domain filter, you also need to update the run profiles.
 
 1. In the **Connectors** list, make sure that the Connector that you changed in the previous step is selected. In **Actions**, select **Configure Run Profiles**.  
@@ -250,14 +250,14 @@ In this example, you change the filtering so that only users that have both thei
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the **Start** menu.
 3. Under **Rules Type**, click **Outbound**.
-4. Find the rule named **Out to AAD - User Join**, and click **Edit**.
+4. Depending on the version of Connect you use, either find the rule named **Out to AAD - User Join** or **Out to AAD - User Join SOAInAD**, and click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change **Precedence** to an unused value, such as 50.
 7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **@contoso.com**.
 8. Click **Save**.
 9. To complete the configuration, you need to run a **Full sync**. Continue reading the section [Apply and verify changes](#apply-and-verify-changes).
 
-## Apply and verify changes
+## Apply and verify changes <a name="apply-and-verify-changes"></a>
 After you've made your configuration changes, you must apply them to the objects that are already present in the system. It might also be that the objects that aren't currently in the sync engine should be processed (and the sync engine needs to read the source system again to verify its content).
 
 If you changed the configuration by using **domain** or **organizational-unit** filtering, then you need to do a **Full import**, followed by **Delta synchronization**.
@@ -293,6 +293,15 @@ Now it's time to enable the scheduler again.
 
 ## Group-based filtering <a name="group-based-filtering"></a>
 You can configure group-based filtering the first time that you install Azure AD Connect by using [custom installation](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). It's intended for a pilot deployment where you want only a small set of objects to be synchronized. When you disable group-based filtering, it can't be enabled again. It's *not supported* to use group-based filtering in a custom configuration. It's only supported to configure this feature by using the installation wizard. When you've completed your pilot, then use one of the other filtering options in this topic. When using OU-based filtering in conjunction with group-based filtering, the OU(s) where the group and its members are located must be included.
+
+When synchronizing multiple AD forests, you can configure group-based filtering by specifying a different group for each AD connector. If you wish to synchronize a user in one AD forest and the same user has one or more corresponding objects in other AD forests, you must ensure that the user object and all its corresponding objects are within group-based filtering scope. For examples:
+
+- You have a user in one forest that has a corresponding FSP (Foreign Security Principal) object in another forest. Both objects must be within group-based filtering scope. Otherwise, the user will not be synchronized to Azure AD.
+
+- You have a user in one forest that has a corresponding resource account (e.g., linked mailbox) in another forest. Further, you have configured Azure AD Connect to link the user with the resource account. Both objects must be within group-based filtering scope. Otherwise, the user will not be synchronized to Azure AD.
+
+- You have a user in one forest that has a corresponding mail contact in another forest. Further, you have configured Azure AD Connect to link the user with the mail contact. Both objects must be within group-based filtering scope. Otherwise, the user will not be synchronized to Azure AD.
+
 
 ## Next steps
 - Learn more about [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
