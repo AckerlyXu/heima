@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 
 ---
@@ -51,4 +51,3 @@ Continue your [Custom installation of Azure AD Connect](active-directory-aadconn
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!-- Update_Description: update meta properties -->

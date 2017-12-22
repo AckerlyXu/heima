@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 
 ---
@@ -101,7 +101,7 @@ Here is a user with two phone numbers and a group with some members.
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
 ![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
-## Appendix A
+## Appendix A <a name="appendix-a"></a>
 **SQL script to create the sample database**
 
 ```SQL
@@ -200,4 +200,4 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: link update -->
