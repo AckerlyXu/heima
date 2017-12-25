@@ -3,8 +3,8 @@ title: 'Azure Notification Hubs: Frequently Asked Questions (FAQs) | Microsoft D
 description: FAQs on designing/implementing solutions on Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
+author: alexchen2016
+manager: digimobile
 keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
 editor: ''
 
@@ -15,11 +15,10 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/19/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
-ms.date: 05/22/2017
 
 ---
-
 # Push notifications with Azure Notification Hubs: Frequently asked questions
 ## General
 ### What is the resource structure of Notification Hubs?
@@ -41,10 +40,10 @@ Standard tier features:
 - **Scheduled push**: You can schedule notifications to be sent out anytime.
 
 ### What is the Notification Hubs SLA?
-For Basic and Standard Notification Hubs tiers, properly configured applications can send push notifications or perform registration management operations at least 99.9 percent of the time. 
+For Basic and Standard Notification Hubs tiers, properly configured applications can send push notifications or perform registration management operations at least 99.9 percent of the time. To learn more about the SLA, go to the [Notification Hubs SLA](https://www.azure.cn/support/sla/notification-hubs/) page.
 
 > [!NOTE]
-> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs batches the sends to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
+> Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
 
 ### Which customers are using Notification Hubs?
 Many customers use Notification Hubs. Some notable ones are listed here:
@@ -57,7 +56,7 @@ Many customers use Notification Hubs. Some notable ones are listed here:
 - Bing Apps: Tens of millions of devices send 3 million notifications per day.
 
 ### How do I upgrade or downgrade my hub or namespace to a different tier?
-Go to the [Azure Classic Management Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
+Go to the **[Azure portal]** > **Notification Hubs Namespaces** or **Notification Hubs**. Select the resource you want to update, and go to **Pricing Tier**. Note the following requirements:
 
 - The updated pricing tier applies to *all* hubs in the namespace you're working with.
 - If your device count exceeds the limit of the tier you're downgrading to, you need to delete devices before you downgrade.
@@ -71,12 +70,12 @@ Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification
 Push notifications are supported for [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), Android, [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)), and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, go to the [Notification Hubs Getting Started tutorials] page.
 
 ### Do you support text message, email, or web notifications?
-Notification Hubs is primarily designed to send notifications to mobile apps. It does not provide email or text message capabilities. However, third-party platforms that provide these capabilities can be integrated with Notification Hubs to send native push notifications by using [Mobile Apps].
+Notification Hubs is primarily designed to send notifications to mobile apps. It does not provide email or text message capabilities. However, third-party platforms that provide these capabilities can be integrated with Notification Hubs to send native push notifications by using Mobile Apps.
 
 Notification Hubs also does not provide an in-browser push notification delivery service out of the box. Customers can implement this feature using SignalR on top of the supported server-side platforms. 
 
 ### How are Mobile Apps and Azure Notification Hubs related and when do I use them?
-If you have an existing mobile app back end and you want to add only the capability to send push notifications, you can use Azure Notification Hubs. If you want to set up your mobile app back end from scratch, consider using the Mobile Apps feature of Azure App Service. A mobile app automatically provisions a notification hub so that you can easily send push notifications from the mobile app back end. Pricing for Mobile Apps includes the base charges for a notification hub. You pay only when you exceed the included pushes. For more details on costs, go to the App Service Pricing page.
+If you have an existing mobile app back end and you want to add only the capability to send push notifications, you can use Azure Notification Hubs. If you want to set up your mobile app back end from scratch, consider using the Mobile Apps feature of Azure App Service. A mobile app automatically provisions a notification hub so that you can easily send push notifications from the mobile app back end. Pricing for Mobile Apps includes the base charges for a notification hub. You pay only when you exceed the included pushes. For more details on costs, go to the [App Service Pricing] page.
 
 ### How many devices can I support if I send push notifications via Notification Hubs?
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
@@ -121,7 +120,7 @@ Because of the nature of push notifications (they are delivered by an external, 
 > 
 
 #### PNS credentials
-When a mobile app is registered with a platform's developer portal (for example, Apple or Google), an app identifier and security tokens are sent. The app back end provides these tokens to the platform's PNS so that push notifications can be sent to devices. Security tokens can be in the form of certificates (for example, Apple iOS or Windows Phone) or security keys (for example, Google Android or Windows). They must be configured in notification hubs. Configuration is typically done at the notification-hub level, but it can also be done at the namespace level in a multitenant scenario.
+When a mobile app is registered with a platform's developer portal, an app identifier and security tokens are sent. The app back end provides these tokens to the platform's PNS so that push notifications can be sent to devices. Security tokens can be in the form of certificates (for example, Apple iOS or Windows Phone) or security keys. They must be configured in notification hubs. Configuration is typically done at the notification-hub level, but it can also be done at the namespace level in a multitenant scenario.
 
 #### Namespaces
 Namespaces can be used for deployment grouping. They can also be used to represent all notification hubs for all tenants of the same app in a multitenant scenario.
@@ -178,23 +177,23 @@ If you don’t have a back end, when the app starts on target devices, they perf
 There will be a time period when devices with unopened apps won't receive notifications.
 
 ### Is there audit log capability?
-All Notification Hubs management operations go to operation logs, which are exposed in the [Azure Classic Management Portal].
+All Notification Hubs management operations go to operation logs, which are exposed in the [Azure portal].
 
 ## Monitoring and troubleshooting
 ### What troubleshooting capabilities are available?
 Azure Notification Hubs provides several features for troubleshooting, particularly for the most common scenario of dropped notifications. For details, see the [Notification Hubs troubleshooting] white paper.
 
 ### What telemetry features are available?
-Azure Notification Hubs enables viewing telemetry data in the [Azure Classic Management Portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
+Azure Notification Hubs enables viewing telemetry data in the [Azure portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
 
 > [!NOTE]
-> Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or GCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
+> Successful notifications mean simply that push notifications have been delivered to the external PNS. It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
 > 
 > 
 
 We also provide the capability to export the telemetry data programmatically (in the Standard tier). For details, see the [Notification Hubs Metrics sample].
 
-[Azure Classic Management Portal]: https://manage.windowsazure.cn
+[Azure portal]: https://portal.azure.cn
 [Notification Hubs Pricing]: https://www.azure.cn/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://www.azure.cn/support/legal/sla/
 [Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -217,3 +216,4 @@ We also provide the capability to export the telemetry data programmatically (in
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://www.azure.cn/pricing/details/app-service/
 
+<!--Update_Description: wording update -->

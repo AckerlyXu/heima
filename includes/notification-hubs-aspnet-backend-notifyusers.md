@@ -42,7 +42,7 @@ Create the new ASP.NET WebAPI back end by doing the following:
     
   You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
    
- ![The Configure Azure Web App window][B5]
+  ![The Configure Azure Web App window][B5]
 
 ## Authenticate clients to the WebAPI back end
 In this section, you create a new message-handler class named **AuthenticationTestHandler** for the new back end. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so that it can process all requests that come into the back end. 
@@ -68,9 +68,9 @@ In this section, you create a new message-handler class named **AuthenticationTe
    - The request uses *basic* authentication. 
    - The user name string and the password string are the same string.
      
-    Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is only a very simple example for this tutorial.
+  Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is only a very simple example for this tutorial.
      
-    If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+  If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
      
        public class AuthenticationTestHandler : DelegatingHandler
        {
@@ -119,10 +119,10 @@ In this section, you create a new message-handler class named **AuthenticationTe
            }
        }
      
-    > [!NOTE]
-    > Security note: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.                
-    > 
-    > 
+> [!NOTE]
+> Security note: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.                
+> 
+> 
 
 5. To register the message handler, add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class:
    
@@ -149,7 +149,7 @@ In this section, you add a new controller to the WebAPI back end to handle reque
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure Classic Management Portal](http://manage.windowsazure.cn)):
+6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure portal](http://portal.azure.cn)):
    
         public class Notifications
         {
@@ -383,3 +383,4 @@ The URL uses the web app name that you specified earlier, with the format http:/
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
+<!-- ms.date: 12/25/2017 -->
