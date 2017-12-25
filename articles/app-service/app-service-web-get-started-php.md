@@ -13,25 +13,24 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 10/26/2017
-ms.date: 12/04/2017
+origin.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
 # Create a PHP web app in Azure
 
-[Azure Web Apps](./app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
+[Azure Web Apps](./app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the sample PHP code to the web app.
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
 ## Prerequisites
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install PHP](https://php.net)
+* <a href="https://php.net" target="_blank">Install PHP</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -107,7 +106,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
    cc39b1e..25f1805  master -> master
 ```
 
-## Browse to the app locally
+## Browse to the app
 
 Browse to the deployed application using your web browser.
 
@@ -136,7 +135,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
@@ -150,7 +149,7 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
-![App Service blade in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app. 
 

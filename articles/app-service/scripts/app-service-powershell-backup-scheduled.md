@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 10/30/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ---
 
 # Create a scheduled backup for a web app
 
-This sample script creates a web app in App Service with its related resources, and then creates a one-time backup for it. 
+This sample script creates a web app in App Service with its related resources, and then creates a scheduled backup for it. 
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](https://docs.microsoft.com/en-us/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure. 
 
@@ -88,7 +88,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzureRmStorageAccount](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/new-azurermstorageaccount) | Creates a Storage account. |
 | [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) | Creates an Azure storage container. |
-| [New-AzureStorageContainerSASToken](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzureStorageContainerSASToken](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Generates an SAS token for an Azure storage container. |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/new-azurermappserviceplan) | Creates an App Service plan. |
 | [New-AzureRmWebApp](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/new-azurermwebapp) | Creates a web app. |
 | [Edit-AzureRmWebAppBackupConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.websites/edit-azurermwebappbackupconfiguration) | Edits the backup configuration for web app. |
