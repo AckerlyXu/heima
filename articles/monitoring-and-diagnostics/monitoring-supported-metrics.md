@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 9/25/2017
-ms.date: 12/11/2017
+ms.date: 01/08/2018
 ms.author: v-yiso
 
 ---
@@ -457,7 +457,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |jobs.completed|Completed jobs|Count|Total|The count of all completed jobs.|No Dimensions|
 |jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
-|dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today|No Dimensions|
+|dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
 
 ## Microsoft.Devices/provisioningServices
 
@@ -467,7 +467,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DeviceAssignments|Devices assigned|Count|Total|Number of devices assigned to an IoT hub|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Attestation attempts|Count|Total|Number of device attestations attempted|ProvisioningServiceName, Status, Protocol|
 
-## Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |TotalRequests|Total Requests|Count|Count|Number of requests made|DatabaseAccount, CollectionName, DatabaseName, Region, StatusCode|

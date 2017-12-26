@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/01/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
+ms.date: 01/08/2018
 ---
 
 # ExpressRoute FAQ
@@ -142,7 +142,7 @@ For more information, see [Sharing an ExpressRoute circuit across multiple subsc
 
 ### I have multiple Azure subscriptions associated to different Azure Active Directory tenants or Enterprise Agreement enrollments. Can I connect virtual networks that are in separate tenants and enrollments to a single ExpressRoute circuit not in the same tenant or enrollment?
 
-Yes. ExpressRoute authorizations can span subscription, tenant, and enrollment boundaries with no additional confgiruation required. 
+Yes. ExpressRoute authorizations can span subscription, tenant, and enrollment boundaries with no additional configuration required. 
 
 For more information, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
 
@@ -162,7 +162,7 @@ Yes. If you have not advertised default routes (0.0.0.0/0) or Internet route pre
 
 Yes. You can advertise default routes (0.0.0.0/0) to block all Internet connectivity to virtual machines deployed within a virtual network and route all traffic out through the ExpressRoute circuit.
 
-If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet.
+If you advertise default routes, we force traffic to services offered over public peering (such as Azure storage and SQL DB) back to your premises. You will have to configure your routers to return traffic to Azure through the public peering path or over the Internet. If you've enabled a service endpoint (preview) for the service, the traffic to the service is not forced to your premises. The traffic remains within the Azure backbone network. To learn more about service endpoints, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### Can virtual networks linked to the same ExpressRoute circuit talk to each other?
 Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other.

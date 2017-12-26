@@ -7,8 +7,8 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA

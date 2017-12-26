@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 01/08/2018
 ---
 
 # Scale instance count manually or automatically
@@ -25,11 +25,6 @@ In the [Azure Portal](https://portal.azure.cn/), you can manually set the instan
 Before scaling based on instance count, you should consider that scaling is affected by **Pricing tier** in addition to instance count. Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is *Scale up* or *Scale down*). This article specifically covers *Scale in* and *out*.
 
 You can scale in the portal, and you can also use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931953.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) to adjust scale manually or automatically.
-
-> [!NOTE]
-> This article describes how to create an autoscale setting in the portal at [http://portal.azure.cn](http://portal.azure.cn). Autoscale settings created in this portal cannot be edited it the classic portal ([http://manage.windowsazure.cn](http://manage.windowsazure.cn)).
-> 
-> 
 
 ## Scaling manually
 1. In the [Azure Portal](https://portal.azure.cn/), click **Browse**, then navigate to the resource you want to scale, such as an **App Service plan**.

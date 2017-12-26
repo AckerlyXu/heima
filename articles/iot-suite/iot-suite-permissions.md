@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/10/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
+ms.date: 01/08/2018
 ---
 
 # Permissions on the azureiotsuite.cn site
@@ -67,7 +67,7 @@ Find out more about the Azure admin roles in the article [How to add or change A
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I complete this task?
 
-See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
+See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### I want to change a Service Administrator or Co-Administrator when logged in with an organisational account
 
@@ -79,7 +79,7 @@ Look at the following diagram for guidance:
 ![][img-flowchart]
 
 > [!NOTE]
-> If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order. First,add the user as a global administrator and then add user as a co-administrator on the Azure subscription. If issues persist, contact [Help & Support][lnk-help-support].
+> If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and reassign necessary permissions in this order. First, add the user as a global administrator and then add user as a co-administrator on the Azure subscription. If issues persist, contact [Help & Support][lnk-help-support].
 ### Why am I seeing this error when I have an Azure subscription? "An Azure subscription is required to create pre-configured solutions. You can create a free trial account in just a couple of minutes."
 
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the preceding diagram and validate the mapping of your subscription and this AAD tenant.
