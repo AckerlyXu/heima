@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -371,7 +371,6 @@ In this case, start with the list of attributes in this topic and identify those
 This group is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for a workload not listed in another section or for a non-Microsoft app. It is explicitly used for the following:
 
 - Yammer (only User is consumed)
-- [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
 
 This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
 
@@ -442,26 +441,6 @@ These attributes are synchronized from on-premises Active Directory to Azure AD 
 | proxyAddresses | X |  |
 | targetAddress | X |  |
 
-## Device writeback
-Device objects are created in Active Directory. These objects can be devices joined to Azure AD or domain-joined Windows 10 computers.
-
-| Attribute Name | Device | Comment |
-| --- |:---:| --- |
-| altSecurityIdentities |X | |
-| displayName |X | |
-| dn |X | |
-| msDS-CloudAnchor |X | |
-| msDS-DeviceID |X | |
-| msDS-DeviceObjectVersion |X | |
-| msDS-DeviceOSType |X | |
-| msDS-DeviceOSVersion |X | |
-| msDS-DevicePhysicalIDs |X | |
-| msDS-KeyCredentialLink |X |Only with Windows Server 2016 AD schema |
-| msDS-IsCompliant |X | |
-| msDS-IsEnabled |X | |
-| msDS-IsManaged |X | |
-| msDS-RegisteredOwner |X | |
-
 ## Notes
 - When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Azure AD attribute userPrincipalName.
 - In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
@@ -471,4 +450,3 @@ Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-wha
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!--Update_Description: wording update -->

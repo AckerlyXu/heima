@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/08/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -64,7 +64,7 @@ For information on how you can get your third-party identity provider listed her
 > [!IMPORTANT]
 > Since these are third-party products, Microsoft does not provide support for the deployment, configuration, troubleshooting, best practices, etc. issues and questions regarding these identity providers. For support and questions regarding these identity providers, contact the supported third-parties directly.
 > 
-> These third-party identity providers were tested for interoperability with Microsoft cloud services using WS-Federation and WS-Trust protocols only. Testing did not include using the SAML protocol.
+> These third-party identity providers were tested for interoperability with Azure cloud services using WS-Federation and WS-Trust protocols only. Testing did not include using the SAML protocol.
 > 
 
 
