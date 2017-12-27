@@ -28,9 +28,8 @@ This scenario should not be confused with the ability to [host the reverse DNS l
 
 Before reading this article, you should be familiar with this [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
 
-Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).
-* In the Resource Manager deployment model, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
-* In the Classic deployment model, compute resources are exposed using Cloud Services. Reverse DNS lookups are configured using the 'ReverseDnsFqdn' property of the Cloud Service.
+In Azure DNS, compute resources (such as virtual machines, virtual machine scale sets, or Service Fabric clusters) are exposed via a PublicIpAddress resource. Reverse DNS lookups are configured using the 'ReverseFqdn' property of the PublicIpAddress.
+
 
 Reverse DNS is not currently supported for the Azure App Service.
 

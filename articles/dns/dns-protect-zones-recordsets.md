@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/16/2016
-ms.date: 12/18/2017
+origin.date: 10/20/2016
+ms.date: 01/01/2018
 ms.author: v-nany
 
 ---

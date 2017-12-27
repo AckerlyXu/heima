@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2017
-ms.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-nany
 
 ---
@@ -23,18 +23,10 @@ ms.author: v-nany
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 This guide shows how to manage your DNS zones by using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also manage your DNS zones using [Azure PowerShell](dns-operations-dnszones.md) or the Azure portal.
-
-## CLI versions to complete the task
-
-You can complete the task using one of the following CLI versions:
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) - our next generation CLI for the resource management deployment model.
 
 ## Introduction
 
@@ -48,7 +40,7 @@ Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can create a [1rmb account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
 
-* Install the latest version of the Azure CLI 2.0, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+* Install the latest version of the Azure CLI 2.0, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### Sign in to your Azure account
 
