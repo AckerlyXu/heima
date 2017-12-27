@@ -81,8 +81,11 @@ You can use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md
 <!-- Not Available [virtual machines](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines) -->
 ![Azure portal view of collected metric information](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-To customize the charts, follow the instructions in [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). You also can create alerts based on these metrics, as described in [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/insights-alerts-portal.md). You can send alerts to a notification service by using web hooks, as described in [Configure a web hook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor supports only one subscription. 
+To customize the charts, follow the instructions in [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Azure Monitor supports only one subscription. 
 <!-- Not Avaialble [Log Analytics](/log-analytics/) -->
+<!-- Remove on (../monitoring-and-diagnostics/insights-alerts-portal.md). -->
+<!-- Remove on (../monitoring-and-diagnostics/insights-webhooks-alerts.md) -->
+
 ## Next steps
 
 ### Watchdogs
