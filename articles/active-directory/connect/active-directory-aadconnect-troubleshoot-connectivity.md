@@ -36,7 +36,7 @@ First we need to make sure [**machine.config**](active-directory-aadconnect-prer
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Of these URLs, the following table is the absolute bare minimum to be able to connect to Azure AD at all. This list does not include any optional features, such as password writeback, or Azure AD Connect Health. It is documented here to help in troubleshooting for the initial configuration.
+Of these URLs, the following table is the absolute bare minimum to be able to connect to Azure AD at all. This list does not include any optional features. It is documented here to help in troubleshooting for the initial configuration.
 
 | URL | Port | Description |
 | --- | --- | --- |

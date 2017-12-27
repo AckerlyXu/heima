@@ -88,15 +88,4 @@ In addition, Azure AD Connect needs to be able to make direct IP connections to 
 
 In addition, Azure AD Connect needs to be able to make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=42064). Again, this is only required for the SSO registration process.
 
-## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
-
-### Table 7a - Ports and Protocols for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-This table describes the following outbound ports and protocols that are required for communication between the Azure AD Connect Health agents and Azure AD.  
-
-| Protocol | Ports | Description |
-| --- | --- | --- |
-| HTTPS |443(TCP/UDP) |Outbound |
-| Azure Service Bus |5671 (TCP/UDP) |Outbound |
-
 <!--Update_Description: wording update -->
