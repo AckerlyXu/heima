@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -74,7 +74,7 @@ On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure 
 >
 
 ```
-Connect-MsolService
+Connect-MsolService -AzureEnvironment AzureChinaCloud
 ```
 
 Check the certificates configured in AD FS and Azure AD trust properties for the specified domain.

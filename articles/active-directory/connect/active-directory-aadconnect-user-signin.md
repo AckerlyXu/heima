@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/19/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -24,6 +24,10 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 If you’re already familiar with the Azure AD identity model and want to learn more about a specific method, see the appropriate link:
 
 - [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> It is important to remember that by configuring federation for Azure AD, you establish trust between your Azure AD tenant and your federated domains. With this trust federated domain users will have access to Azure AD cloud resources within the tenant.  
+>
 
 ## Choosing the user sign-in method for your organization
 For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option. Some organizations, however, have a particular reason that they aren't able to use this option. They can choose either a federated sign-in option, such as AD FS, or pass-through authentication. You can use the following table to help you make the right choice.
@@ -81,7 +85,7 @@ The UPN of the user has the format username@domain. For example, for an Active D
 ### User principal name in Azure AD
 The Azure AD Connect wizard uses the userPrincipalName attribute or lets you specify the attribute (in a custom installation) to be used from on-premises as the user principal name in Azure AD. This is the value that is used for signing in to Azure AD. If the value of the userPrincipalName attribute doesn't correspond to a verified domain in Azure AD, then Azure AD replaces it with a default .partner.onmschina.cn value.
 
-Every directory in Azure Active Directory comes with a built-in domain name, with the format contoso.partner.onmschina.cn, that lets you get started using Azure or other Microsoft services. You can improve and simplify the sign-in experience by using custom domains. For information on custom domain names in Azure AD and how to verify a domain, see [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory).
+Every directory in Azure Active Directory comes with a built-in domain name, with the format contoso.partner.onmschina.cn, that lets you get started using Azure or other Microsoft services. You can improve and simplify the sign-in experience by using custom domains. For information on custom domain names in Azure AD and how to verify a domain, see [Add your custom domain name to Azure Active Directory](../add-custom-domain.md#add-the-custom-domain-name-to-your-directory).
 
 ## Azure AD sign-in configuration
 ### Azure AD sign-in configuration with Azure AD Connect
@@ -93,8 +97,8 @@ The Azure AD sign-in page lists the UPN suffixes that are defined for on-premise
 | State | Description | Action needed |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect found a matching verified domain in Azure AD. All users for this domain can sign in by using their on-premises credentials. |No action is needed. |
-| Not verified |Azure AD Connect found a matching custom domain in Azure AD, but it isn't verified. The UPN suffix of the users of this domain will be changed to the default .partner.onmschina.cn suffix after synchronization if the domain isn't verified. | [Verify the custom domain in Azure AD.](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| Not added |Azure AD Connect didn't find a custom domain that corresponded to the UPN suffix. The UPN suffix of the users of this domain will be changed to the default .partner.onmschina.cn suffix if the domain isn't added and verified in Azure. | [Add and verify a custom domain that corresponds to the UPN suffix.](../active-directory-add-domain.md) |
+| Not verified |Azure AD Connect found a matching custom domain in Azure AD, but it isn't verified. The UPN suffix of the users of this domain will be changed to the default .partner.onmschina.cn suffix after synchronization if the domain isn't verified. | [Verify the custom domain in Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
+| Not added |Azure AD Connect didn't find a custom domain that corresponded to the UPN suffix. The UPN suffix of the users of this domain will be changed to the default .partner.onmschina.cn suffix if the domain isn't added and verified in Azure. | [Add and verify a custom domain that corresponds to the UPN suffix.](../add-custom-domain.md) |
 
 The Azure AD sign-in page lists the UPN suffixes that are defined for on-premises Active Directory and the corresponding custom domain in Azure AD with the current verification status. In a custom installation, you can now select the attribute for the user principal name on the **Azure AD sign-in** page.
 
