@@ -1,6 +1,6 @@
 ---
 title: Upload an Azure Management API Certificate | Microsoft Docs
-description: Learn how to upload athe Management API certificate for the Azure Classic Management Portal.
+description: Learn how to upload the Management API certificate for the Azure portal.
 services: cloud-services
 documentationcenter: .net
 author: alexchen2016
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/01/2017
-ms.date: 08/29/2017
+ms.date: 12/28/2017
 ms.author: v-junlch
 
 ---
@@ -29,6 +29,8 @@ Management certificates allow you to authenticate with the classic deployment mo
 If you'd like more information about Azure certificates (including creating a self-signed certificate), see [Certificates overview for Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 You can also use [Azure Active Directory](/active-directory/) to authenticate client-code for automation purposes.
+
+**Note:** You must be a Co-administrator on the subscription to perform any operations under Management Certificates. [Learn More](https://go.microsoft.com/fwlink/?linkid=849300) on how to Add or Remove Co-Admins from new Azure Portal 
 
 ## Upload a management certificate
 Once you have a management certificate created, (.cer file with only the public key) you can upload it into the portal. When the certificate is available in the portal, anyone with a matching certificate (private key) can connect through the Management API and access the resources for the associated subscription.
@@ -53,3 +55,4 @@ Once you have a management certificate created, (.cer file with only the public 
 ## Next steps
 Now that you have a management certificate associated with a subscription, you can (after you have installed the matching certificate locally) programmatically connect to the [classic deployment model REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx) and automate the various Azure resources that are also associated with that subscription.
 
+<!--Update_Description: wording update -->
