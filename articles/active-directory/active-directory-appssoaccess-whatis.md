@@ -32,19 +32,19 @@ Azure AD enables easy integration to many of today’s popular SaaS applications
 
 The architecture of the integration consists of the following four main building blocks:
 
-- Single sign-on enables users to access their SaaS applications based on their organizational account in Azure AD. Single sign-on is what enables users to authenticate to an application using their single organizational account.
-- User provisioning enables user provisioning and de-provisioning into target SaaS based on changes made in Windows Server Active Directory and/or Azure AD. A provisioned account is what enables a user to be authorized to use an application, after they have authenticated through single sign-on.
-- Centralized application access management in the Azure Management Portal enables single point of SaaS application access and management, with the ability to delegate application access decision making and approvals to anyone in the organization
-- Unified reporting and monitoring of user activity in Azure AD
+* Single sign-on enables users to access their SaaS applications based on their organizational account in Azure AD. Single sign-on is what enables users to authenticate to an application using their single organizational account.
+* User provisioning enables user provisioning and de-provisioning into target SaaS based on changes made in Windows Server Active Directory and/or Azure AD. A provisioned account is what enables a user to be authorized to use an application, after they have authenticated through single sign-on.
+* Centralized application access management in the Azure Management Portal enables single point of SaaS application access and management, with the ability to delegate application access decision making and approvals to anyone in the organization
+* Unified reporting and monitoring of user activity in Azure AD
 
 ## How does single sign-on with Azure Active Directory work?
 When a user “signs in” to an application, they go through an authentication process where they are required to prove that they are who they say they are. Without single sign-on, this is typically done by entering a password that is stored at the application, and the user is required to know this password.
 
 Azure AD supports three different ways to sign in to applications:
 
-- **Federated Single Sign-On** enables applications to redirect to Azure AD for user authentication instead of prompting for its own password. This is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.
-- **Password-based Single Sign-On** enables secure application password storage and replay using a web browser extension or mobile app. This leverages the existing sign-in process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.
-- **Existing Single Sign-On** enables Azure AD to leverage any existing single sign-on that has been set up for the application, but enables these applications to be linked to the Office 365 or Azure AD access panel portals, and also enables additional reporting in Azure AD when the applications are launched there.
+* **Federated Single Sign-On** enables applications to redirect to Azure AD for user authentication instead of prompting for its own password. This is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.
+* **Password-based Single Sign-On** enables secure application password storage and replay using a web browser extension or mobile app. This leverages the existing sign-in process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.
+* **Existing Single Sign-On** enables Azure AD to leverage any existing single sign-on that has been set up for the application, but enables these applications to be linked to the Office 365 or Azure AD access panel portals, and also enables additional reporting in Azure AD when the applications are launched there.
 
 Once a user have authenticated with an application, they also need to have an account record provisioned at the application that tells the application where there permissions and level of access are inside the application. The provisioning of this account record can either occur automatically, or it can occur manually by an administrator before the user is provided single sign-on access.
 
@@ -62,20 +62,18 @@ Configuring password-based single sign-on enables the users in your organization
 
 Azure AD can support password-based single sign on for any cloud-based app that has an HTML-based sign-in page. By using a custom browser plugin, AAD automates the user’s sign in process via securely retrieving application credentials such as the username and the password from the directory, and enters these credentials into the application’s sign in page on behalf of the user. There are two use cases:
 
-1. **Administrator manages credentials** - Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application. In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link. This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords. The credentials are obfuscated from the end user during the automated sign in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user. Administrator-provided credentials are very useful when providing account access that is shared among many users, such as social media or document sharing applications.
-2. **User manages credentials** - Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
+1. **Administrator manages credentials** – Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application. In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link. This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords. The credentials are obfuscated from the end user during the automated sign in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user. Administrator-provided credentials are very useful when providing account access that is shared among many users, such as social media or document sharing applications.
+2. **User manages credentials** – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
 
 In both cases, credentials are stored in an encrypted state in the directory, and are only passed over HTTPS during the automated sign-in process. Using password-based single sign on, Azure AD offers a convenient identity access management solution for apps that are not capable of supporting federation protocols.
 
 Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
 
 For password-based SSO, the end user’s browsers can be:
-
-- Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later.
-- Chrome -- on Windows 7 or later, and on MacOS X or later
-- Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
-
-**Note:** The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.
+* Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+* Edge on Windows 10 Anniversary Edition or later 
+* Chrome -- on Windows 7 or later, and on MacOS X or later
+* Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
 ### Existing Single Sign-On
 When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”. This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.
@@ -98,22 +96,22 @@ The [Azure Active Directory Application Gallery](https://azure.microsoft.com/mar
 
 Here are some tips for finding apps by what capabilities they support:
 
-- Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/).
-- A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/).
+* A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Once you’ve found your application, you can get started by follow the step-by-step instructions presented in the app gallery and in the Azure management portal to enable single sign-on.
 
 ### Application not in the gallery?
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-- **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. 
-- **Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
+* **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. 
+* **Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
   
-  - [Authentication Scenarios for Azure AD](./develop/active-directory-authentication-scenarios.md)
-  - [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
-  - [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
-  - [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
-- **Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+  * [Authentication Scenarios for Azure AD](./developactive-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
+* **Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ### Using the Azure management portal
 You can use the Active Directory extension in the Azure Management Portal to configure the application single sign-on. As a first step, you need to select a directory from the Active Directory section in the portal:
@@ -122,15 +120,15 @@ You can use the Active Directory extension in the Azure Management Portal to con
 
 To manage your third-party SaaS applications, you can switch into the Applications tab of the selected directory. This view enables administrators to:
 
-- Add new applications from the Azure AD gallery, as well as apps you are developing
-- Delete integrated applications
-- Manage the applications they have already integrated
+* Add new applications from the Azure AD gallery, as well as apps you are developing
+* Delete integrated applications
+* Manage the applications they have already integrated
 
 Typical administrative tasks for a third-party SaaS application are:
 
-- Enabling single sign-on with Azure AD, using password SSO or, if available for the target SaaS, federated SSO
-- Optionally, enabling user provisioning for user provisioning and de-provisioning (identity lifecycle management)
-- For applications where user provisioning is enabled, selecting which users have access to that application
+* Enabling single sign-on with Azure AD, using password SSO or, if available for the target SaaS, federated SSO
+* Optionally, enabling user provisioning for user provisioning and de-provisioning (identity lifecycle management)
+* For applications where user provisioning is enabled, selecting which users have access to that application
 
 For gallery apps that support federated single sign-on, configuration typically requires you to provide additional configuration settings such as certificates and metadata to create a federated trust between the third-party app and Azure AD. The configuration wizard walks you through the details and provides you with easy access to the SaaS application specific data and instructions.
 
@@ -139,10 +137,10 @@ For gallery apps that support automatic user provisioning, this requires you to 
 ## Deploying Azure AD integrated applications to users
 Azure AD provides several customizable ways to deploy applications to end-users in your organization:
 
-- Azure AD access panel
-- Office 365 application launcher
-- Direct sign-on to federated apps
-- Deep links to federated, password-based, or existing apps
+
+* Office 365 application launcher
+* Direct sign-on to federated apps
+* Deep links to federated, password-based, or existing apps
 
 Which method(s) you choose to deploy in your organization is your discretion.
 

@@ -12,7 +12,7 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 10/13/2017
+origin.date: 12/04/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ---

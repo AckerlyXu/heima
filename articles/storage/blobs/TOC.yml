@@ -18,6 +18,16 @@
     href: storage-quickstart-blobs-cli.md
   - name: Work with blobs - .NET 
     href: storage-quickstart-blobs-dotnet.md
+  - name: Work with blobs - Java
+    href: storage-quickstart-blobs-java.md
+  - name: Work with blobs - Python 
+    href: storage-quickstart-blobs-python.md
+  - name: Work with blobs - Ruby 
+    href: storage-quickstart-blobs-ruby.md
+  - name: Work with blobs - Node.js
+    href: storage-quickstart-blobs-nodejs.md
+  - name: Work with blobs - Storage Explorer
+    href: storage-quickstart-blobs-storage-explorer.md
 - name: Tutorials
   items:
   - name: Upload and process an image
@@ -32,6 +42,10 @@
         href: storage-simulate-failure-ragrs-account-app.md
 - name: Samples
   items:
+  - name: .NET
+    href: ../common/storage-samples-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
+  - name: Java
+    href: ../common/storage-samples-java.md?toc=%2fstorage%2fblobs%2ftoc.json
   - name: Azure PowerShell
     href: storage-samples-blobs-powershell.md 
   - name: Azure CLI 
@@ -122,16 +136,16 @@
       href: storage-how-to-use-blobs-powershell.md 
     - name: Azure CLI 2.0
       href: storage-how-to-use-blobs-cli.md      
-    - name: GitHub Code Samples
-      items:
-      - name: .NET
-        href: ../common/storage-samples-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
-      - name: Java
-        href: ../common/storage-samples-java.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: REST
+      href: ../common/storage-rest-api-auth.md?toc=%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
-    - name: PowerShell
+    - name: PowerShell for Azure Blobs
+      href: storage-how-to-use-blobs-powershell.md 
+    - name: PowerShell for Azure Storage
       href: ../common/storage-powershell-guide-full.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: PowerShell for China cloud
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Azure CLI 2.0
       href: ../common/storage-azure-cli.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: Azure CLI 1.0
@@ -245,6 +259,8 @@
         href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fstorage%2fblobs%2ftoc.json
       - name: Diagnostics and error recovery for Import/Export jobs
         href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fstorage%2fblobs%2ftoc.json
+    - name: Storage migration FAQ
+      href: ../common/storage-migration-faq.md
 - name: Reference
   items:
   - name: PowerShell

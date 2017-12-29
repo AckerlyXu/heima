@@ -247,7 +247,7 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 * webmaster 
 
 ## Next steps
-You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
+You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+* [Integrating your on-premises identities with Azure Active Directory](./connect/active-directory-aadconnect.md)
