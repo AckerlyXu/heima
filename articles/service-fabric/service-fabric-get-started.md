@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/25/2017
-ms.date: 12/04/2017
+origin.date: 11/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,8 @@ ms.author: v-yeche
 > 
 > 
 
- To build and run [Azure Service Fabric applications][1] on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+ To build and run Azure Service Fabric applications on your Windows development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
+<!-- Not Available on [Azure Service Fabric applications][1] -->
 
 ## Prerequisites
 ### Supported operating system versions
@@ -45,7 +46,7 @@ The following operating system versions are supported for development:
 
 ## Install the SDK and tools
 ### To use Visual Studio 2017
-Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
+Service Fabric Tools are part of the Azure Development workload in Visual Studio 2017. Enable this workload as part of your Visual Studio installation.
 In addition, you need to install the Azure Service Fabric SDK, using Web Platform Installer.
 
 * [Install the Azure Service Fabric SDK][core-sdk]
@@ -60,9 +61,9 @@ If you only need the SDK, you can install this package:
 * [Install the Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK 2.8.219
-* Service Fabric runtime 6.0.219
-* Service Fabric Tools for Visual Studio 2015 1.8.50927.3
+* Service Fabric SDK 2.8.232
+* Service Fabric runtime 6.0.232
+* Service Fabric Tools for Visual Studio 2015 1.8.51024.1
 * Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
 * Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
@@ -80,13 +81,14 @@ Now that you've finished setting up your development environment, start building
 
 * [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Learn how to deploy and manage applications on your local cluster](service-fabric-get-started-with-a-local-cluster.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 <!-- Not Avaialble * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)-->
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
-[1]: https://www.azure.cn/home/features/service-fabric "Service Fabric campaign page"
+<!-- Not Available on [1]: https://www.azure.cn/home/features/service-fabric "Service Fabric campaign page" -->
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI link"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"

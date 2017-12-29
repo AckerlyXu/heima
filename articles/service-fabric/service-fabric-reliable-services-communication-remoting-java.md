@@ -13,8 +13,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 06/30/2017
-ms.date: 08/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
+
 ---
 # Service remoting with Reliable Services
 > [!div class="op_single_selector"]
@@ -104,4 +105,4 @@ User can configure these values by passing OperationRetrySettings object to Serv
 ## Next steps
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!--Update_Description: update meta properties， add new feature of Service Proxy  and ServiceProxyFactory Lifetime and error handing.-->
+<!--Update_Description: update meta properties -->

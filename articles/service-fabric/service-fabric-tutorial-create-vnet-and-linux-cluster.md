@@ -14,8 +14,9 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/26/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 
@@ -34,12 +35,13 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure cluster on Azure
-> * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
+> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial)
 - Install the [Service Fabric CLI](service-fabric-cli.md)
 - Install the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)
 
