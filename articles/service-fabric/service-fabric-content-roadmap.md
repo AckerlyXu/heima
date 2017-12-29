@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/30/2017
-ms.date: 12/04/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -101,7 +101,7 @@ A [guest executable](service-fabric-deploy-existing-app.md) is an existing, arbi
 ## Application lifecycle
 As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrade, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle. 
 
-The entire app lifecycle can be managed using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/ServiceFabric/), [C# APIs](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](https://docs.azure.cn/java/api/system.fabric._application_management_client), and [REST APIs](https://docs.microsoft.com/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
+The entire app lifecycle can be managed using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/ServiceFabric/), [CLI commands](service-fabric-sfctl.md), [C# APIs](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](https://docs.azure.cn/java/api/system.fabric._application_management_client), and [REST APIs](https://docs.microsoft.com/rest/api/servicefabric/). You can also set up continuous integration/continuous deployment pipelines using tools such as [Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) or [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
@@ -160,8 +160,7 @@ The cluster security scenarios are:
 For more information, read [Secure a cluster](service-fabric-cluster-security.md).
 
 ### Scaling
-If you add new nodes to the cluster, Service Fabric rebalances the partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node. You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md). Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
-<!-- Not Available [programmatically](service-fabric-cluster-programmatic-scaling.md) -->
+If you add new nodes to the cluster, Service Fabric rebalances the partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node. You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md) or [programmatically](service-fabric-cluster-programmatic-scaling.md). Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### Cluster upgrades
 Periodically, new versions of the Service Fabric runtime are released. Perform runtime, or fabric, upgrades on your cluster so that you are always running a [supported version](service-fabric-support.md). In addition to fabric upgrades, you can also update cluster configuration such as certificates or application ports.
@@ -185,13 +184,32 @@ Out of the box, Service Fabric components report health on all entities in the c
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.
-* Health queries (through [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/), the [C# FabricClient APIs](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](https://docs.azure.cn/java/api/system.fabric._health_client), or [REST APIs](https://docs.microsoft.com/rest/api/servicefabric)).
-* General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST).
+* Health queries (through [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), the [C# FabricClient APIs](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient) and [Java FabricClient APIs](https://docs.azure.cn/java/api/system.fabric._health_client), or [REST APIs](https://docs.microsoft.com/rest/api/servicefabric)).
+* General queries that return a list of entities that have health as one of the properties (through PowerShell, CLI, the APIs, or REST).
 
 The following Microsoft Virtual Academy video describes the Service Fabric health model and how it's used:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## Monitoring and diagnostics
+[Monitoring and diagnostics](service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.
+
+The main goals of monitoring and diagnostics are to:
+
+- Detect and diagnose hardware and infrastructure issues
+- Detect software and app issues, reduce service downtime
+- Understand resource consumption and help drive operations decisions
+- Optimize application, service, and infrastructure performance
+- Generate business insights and identify areas of improvement
+
+The overall workflow of monitoring and diagnostics consists of three steps:
+
+1. Event generation: this includes events (logs, traces, custom events) at the infrastructure (cluster), platform, and application / service level
+2. Event aggregation: generated events need to be collected and aggregated before they can be displayed
+3. Analysis: events need to be visualized and accessible in some format, to allow for analysis and display as needed
+
+Multiple products are available that cover these three areas, and you are free to choose different technologies for each. For more information, read [Monitoring and diagnostics for Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## Next steps
 * Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
@@ -207,4 +225,4 @@ The following Microsoft Virtual Academy video describes the Service Fabric healt
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
 
-<!--Update_Description: update reference link, wording update, update link -->
+<!--Update_Description: update reference link, wording update, add content of Monitoring and diagnostics -->

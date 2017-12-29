@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -119,7 +119,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Finally, describe the endpoints that are required for the service in the [service manifest](service-fabric-application-model.md) under the section on endpoints.
+Finally, describe the endpoints that are required for the service in the [service manifest](service-fabric-application-and-service-manifests.md) under the section on endpoints.
 
 ```xml
 <Resources>
@@ -427,4 +427,4 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [WCF communication by using Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update link -->

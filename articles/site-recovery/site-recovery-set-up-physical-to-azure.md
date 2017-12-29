@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/29/2017
-ms.date: 09/11/2017
+origin.date: 11/23/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -78,4 +78,5 @@ The following table lists the minimum hardware, software, and network requiremen
 
 Next step involves [setting up your target environment](./site-recovery-prepare-target-physical-to-azure.md) in Azure.
 
-<!--Update_Description: new articles on setup physical to azure in site recovery -->
+<!--Not Available the parent file of includes file of site-recovery-configuration-and-scaleout-process-server-requirements.md-->
+<!--ms.date:01/01/2018-->

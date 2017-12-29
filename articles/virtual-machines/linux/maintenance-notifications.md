@@ -41,6 +41,33 @@ You can use the Azure CLI, PowerShell, REST API, and the Azure portal to query f
  > [!NOTE]
  > If you try to start maintenance and fail, Azure marks your VM as **skipped** and it is not reboot during the scheduled maintenance window. Instead, you are contacted in a later time with a new schedule. 
 
+## Should you start maintenance using during the self-service window?  
+
+The following guidelines should help you to decide whether you should use this capability and start maintenance at your own time.
+
+> [!NOTE] 
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role), Service Fabric, and Virtual Machine Scale Sets.
+
+
+Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
+	- Let Azure trigger the maintenance, but be aware that the order of update domains being impacted does not necessarily happen sequentially and that there is a 30-minute pause between update domains.
+	- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating addition instances during the maintenance period. 
+
+**Don't** use self-service maintenance in the following scenarios: 
+	- If you shut down your VMs frequently, either manually, using DevTest labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+	- On short-lived VMs which you know will be deleted before the end of the maintenance wave. 
+	- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
+	- For cases where you resize your VM often, as it could revert the maintenance status. 
+	- If you have adopted scheduled events which enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown
+
+**Use** self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
+
+It is best to use self-service maintenance in the following cases:
+	- You need to communicate an exact maintenance window to your management or end-customer. 
+	- You need to complete the maintenance by a given date. 
+	- You need to control the sequence of maintenance, e.g., multi-tier application to guarantee safe recovery.
+	- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
+
 ## Find VMs scheduled for maintenance using CLI
 
 Planned maintenance information can be seen using [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_get_instance_view).

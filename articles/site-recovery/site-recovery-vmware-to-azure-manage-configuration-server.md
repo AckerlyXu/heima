@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-origin.date: 10/06/2017
-ms.date: 11/20/2017
+origin.date: 11/23/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 

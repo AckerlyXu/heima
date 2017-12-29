@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/29/2017
-ms.date: 10/02/2017
+origin.date: 11/23/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -98,4 +98,4 @@ Select **+vCenter** to start connecting a VMware vCenter server or a VMware vSph
 ## Next steps
 [Set up your target environment](./site-recovery-prepare-target-vmware-to-azure.md) in Azure.
 
-<!--Update_Description: update meta properties， update link -->
+<!--Update_Description: update meta properties -->

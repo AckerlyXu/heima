@@ -14,9 +14,9 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/24/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
-
+ms.custom: mvc
 ---
 
 # Scale a Service Fabric cluster
@@ -30,13 +30,20 @@ In this tutorial, you learn how to:
 > * Add cluster nodes (scale out)
 > * Remove cluster nodes (scale in)
 
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
+> * Scale a cluster in or out
+> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 ## Prerequisites
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli).
+- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial)
+- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 - Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
 - If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
-- If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md?view=azure-cli-latest). 
+- If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
 
 ## Sign in to Azure
 Sign in to your Azure account select your subscription before you execute Azure commands.
@@ -246,10 +253,10 @@ In this tutorial, you learned how to:
 > * Add cluster nodes (scale out)
 > * Remove cluster nodes (scale in)
 
-Next, advance to the following tutorial to learn how to deploy an application and use API management.
+Next, advance to the following tutorial to learn how to upgrade the runtime of a cluster.
 > [!div class="nextstepaction"]
-> [Deploy API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 
-<!-- Update_Description: new articles on tutorial about scale service fabric cluster -->
+<!-- Update_Description: update meta properties, wording update, update link -->

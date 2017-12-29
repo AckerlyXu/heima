@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/14/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -39,7 +39,7 @@ In this tutorial series you learn how to:
 
 ## Prerequisites
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)
+- If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial)
 - [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 
@@ -240,4 +240,4 @@ Now that you have completed setting up monitoring and diagnostics for your ASP.N
 - [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 - To learn more about Application Insights, see [Application Insights Documentation](/application-insights/)
 
-<!--Update_Description: new articles on service fabric monitor aspnet -->
+<!--Update_Description: wording update -->

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/28/2017
-ms.date: 11/20/2017
+origin.date: 12/12/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -96,4 +96,4 @@ This error can be thrown by the service for multiple reasons. Choose the corresp
 ## Next steps
 - [Enable replication for VMware virtual machines](vmware-walkthrough-enable-replication.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -10,8 +10,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -21,7 +21,7 @@ The [Azure Site Recovery](site-recovery-overview.md) service contributes to your
 
 This quickstart describes how to replicate an Azure VM to a different Azure region.
 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 ## Log in to Azure
 

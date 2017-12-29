@@ -3,8 +3,8 @@ title: Azure Site Recovery troubleshooting for Azure-to-Azure replication issues
 description: Troubleshooting errors and issues when replicating Azure virtual machines for disaster recovery
 services: site-recovery
 documentationcenter: ''
-author: sujayt
-manager: rochakm
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/10/2017
-ms.date: 07/10/2017
+origin.date: 11/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -118,15 +118,14 @@ If the problem persists, contact support.
 
 ## Unable to see the Azure VM for selection in "enable replication"
 
-This issue could be due to stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
-<!-- Not Available site-recovery-azure-to-azure.md -->
+You might not see your Azure VM for selection in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines). This issue could be due to stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the resource group containing the Site Recovery vault without explicitly disabling replication on the VM.
 
 ### Fix the problem
 
-You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM.
-<!-- Not Available site-recovery-azure-to-azure.md -->
+You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should see the VM in [Enable replication: Step 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) after removing the stale configuration.
 
 ## Next steps
+<!-- Update_Description: update meta properties, wording update -->

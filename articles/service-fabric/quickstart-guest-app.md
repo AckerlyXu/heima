@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/13/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -41,7 +41,7 @@ In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 Name the application **MyGuestApp** and press **OK**.
 
 >[!IMPORTANT]
->Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**. Optionally, you can follow [these instructions](https://stackoverflow.com/a/41687101/1664231) to enable long file paths in Windows 10.
+>Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**. Optionally, you can follow **[these instructions](https://stackoverflow.com/a/41687101/1664231)** to enable long file paths in Windows 10.
 
 ![New project dialog in Visual Studio][new-project]
 
@@ -123,7 +123,7 @@ After your service has been published, test it in a web browser.
 
 First, open the Azure portal and find your Service Fabric service.
 
-Check the overview blade of the service address. Use the domain name from the _Client connection endpoint_ property. For example, `http://mysvcfab1.chinanorth2.chinacloudapp.cn`.
+Check the overview blade of the service address. Use the domain name from the _Client connection endpoint_ property. For example, `http://mysvcfab1.chinanorth.cloudapp.chinacloudapi.cn`.
 
 ![Service fabric overview blade on the Azure portal][overview]
 
@@ -146,5 +146,5 @@ Read more about [guest executables](service-fabric-deploy-existing-app.md).
 [custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.png
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
-[create-account]: https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F
-<!--Update_Description: update meta properties, wording update-->
+[create-account]: https://www.azure.cn/pricing/1rmb-trial
+<!--Update_Description: update meta properties, update link -->

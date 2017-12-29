@@ -3,8 +3,8 @@ title: Change FabricTransport settings in Azure microservices | Azure
 description: Learn about configuring Azure Service Fabric actor communication settings.
 services: Service-Fabric
 documentationcenter: .net
-author: suchiagicha
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
@@ -14,32 +14,31 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 
-ms.date: 04/20/2017
-ms.author: v-johch
+origin.date: 04/20/2017
+ms.date: 01/01/2018
+ms.author: v-yeche
 
 ---
 # Configure FabricTransport settings for Reliable Actors
 
 Here are the settings that you can configure:
-- C#:
-[FabricTransportRemotingSettings](
-https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+- C#: [FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 You can modify the default configuration of FabricTransport in following ways.
 
 ## Assembly attribute
 
-The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) attribute needs to be applied on the actor client and actor service assemblies.
+The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) attribute needs to be applied on the actor client and actor service assemblies.
 
 The following example shows how to change the default value of FabricTransport OperationTimeout settings:
 
   ```csharp
-     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
   ```
 
-    Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds
+   Second example changes default Values of FabricTransport MaxMessageSize and OperationTimeoutInSeconds.
 
    ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -48,7 +47,7 @@ The following example shows how to change the default value of FabricTransport O
 
 ## Config package
 
-You can use a [config package](service-fabric-application-model.md) to modify the default configuration.
+You can use a [config package](service-fabric-application-and-service-manifests.md) to modify the default configuration.
 
 ### Configure FabricTransport settings for the actor service
 
@@ -152,3 +151,4 @@ If the client is not running as part of a service, you can create a "&lt;Client 
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
 	</Section>
 	 ```
+<!-- Update_Description: update meta properties, wording update -->

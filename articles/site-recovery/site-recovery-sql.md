@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 08/28/2017
+origin.date: 12/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -47,6 +47,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
+**Azure**|NA| Yes
 
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:
@@ -112,7 +113,7 @@ Here's what you need to do:
 
 SQL Always On doesn't natively support test failover. Therefore, we recommend the following:
 
-1. Set up [Azure Backup](../backup/backup-azure-vms.md) on the virtual machine that hosts the availability group replica in Azure.
+1. Set up [Azure Backup](../backup/backup-azure-arm-vms.md) on the virtual machine that hosts the availability group replica in Azure.
 
 1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
 
@@ -151,6 +152,7 @@ If the SQL Server is using availability groups for high availability (or an FCI)
 5. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
 6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
 7. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
+
 For applications that use distributed transactions, we recommend you deploy Site Recovery with [VMware/physical server site-to-site replication](site-recovery-vmware-to-vmware.md).
 
 ### Recovery plan considerations

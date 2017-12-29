@@ -3,8 +3,8 @@ title: Help secure communication for services in Azure Service Fabric | Azure
 description: Overview of how to help secure communication for reliable services that are running in an Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: suchiagicha
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: vturecek
 
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/20/2017
-ms.author: v-johch
+origin.date: 04/20/2017
+ms.date: 01/01/2018
+ms.author: v-yeche
 
 ---
 # Help secure communication for services in Azure Service Fabric
@@ -89,8 +90,7 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
             return x509Credentials;
         }
         ```
-
-    2. Provide them by using a [config package](./service-fabric-application-model.md):
+    2. Provide them by using a [config package](service-fabric-application-and-service-manifests.md):
 
         Add a `TransportSettings` section in the settings.xml file.
 
@@ -193,10 +193,12 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
     In that case, the earlier code is even further simplified:  
 
     ```csharp
+
     IHelloWorldStateful client = ServiceProxy.Create<IHelloWorldStateful>(
                  new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
     string message = await client.GetHelloWorld();
+
     ```
 
 ## Help secure a service when you're using a WCF-based communication stack
@@ -307,3 +309,4 @@ We are using an existing [example](service-fabric-reliable-services-communicatio
 
 ## Next steps
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+<!-- Update_Description: update meta properties, wording update -->
