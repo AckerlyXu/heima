@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 11/16/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 # Quickstart: Build a Table API app with Python and Azure Cosmos DB
@@ -121,4 +122,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 > [!div class="nextstepaction"]
 > [Import table data to the Table API](table-import.md)
 
-<!-- Update_Description: new articles on cassandra creating table with python -->
+<!-- Update_Description: update meta properties -->

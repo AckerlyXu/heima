@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/07/2017
-ms.date: 12/11/2017
+origin.date: 12/08/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -35,12 +35,13 @@ Azure Analysis Services is compatible with many great features already in SQL Se
 Tabular models offer rapid development and are highly customizable. For developers, tabular models include the Tabular Object Model (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) namespace.
 
 ## Better with Azure
-Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Azure Active Directory](../active-directory/active-directory-whatis.md) provides secure, role-based access to your critical data. Integrate with Azure Data Factory pipelines by including an activity that loads data into the model. [Azure Automation](../automation/automation-intro.md) can be used for lightweight orchestration of models using custom code.
+Azure Analysis Services integrates with many Azure services enabling you to build sophisticated analytics solutions. Integration with [Azure Active Directory](../active-directory/active-directory-whatis.md) provides secure, role-based access to your critical data. [Azure Automation](../automation/automation-intro.md) can be used for lightweight orchestration of models using custom code.
 <!-- Not Available [Azure Data Factory](../data-factory/data-factory-introduction.md) -->
 <!-- Not Available [Azure Functions](../azure-functions/functions-overview.md) -->
 
 ## Get up and running quickly
 In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And, with Azure Resource Manager [templates](../azure-resource-manager/resource-manager-create-first-template.md) and PowerShell, you can provision servers using a declarative template. With a single template, you can deploy multiple services along with other Azure components such as storage accounts. 
+<!-- Not Available on Azure Function -->
 
 Once you have a server created, you can create a tabular model right in Azure portal. With the new (preview) [Web designer feature](analysis-services-create-model-portal.md), you can connect to an Azure SQL Database, Azure SQL Data Warehouse data source, or import a Power BI Desktop .pbix file. Relationships between tables are created automatically, and you can create measures or edit the model.bim file in json format right from your browser.
 
@@ -111,26 +112,21 @@ To learn more about Azure Security, see the [Microsoft Trust Center](https://www
 ## Supports the latest client tools
 ![Data visualizations](./media/analysis-services-overview/aas-overview-clients.png)
 
-Modern data exploration and visualization tools like Power BI, Excel, and  third-party tools provide users with highly interactive and visually rich insights into your model data.
+Modern data exploration and visualization tools like Power BI, Excel, SQL Server 2017 Reporting Services, and third-party tools are all supported, providing users with highly interactive and visually rich insights into your model data. 
 
 Clients use MSOLAP, AMO, or ADOMD [client libraries](analysis-services-data-providers.md) to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop and Excel install all three client libraries. But keep in mind, depending on the version or frequency of updates, client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications typically require manually installing the libraries as part of a package.
 
 ## Get help
 
 #### Documentation
-Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage your server services here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+Azure Analysis Services is simple to set up and to manage. You can find all the info you need to create and manage your server services here. When creating a data model to deploy to your server, it's much the same as it is for creating a data model you deploy to an on-premises server. There's an extensive library of conceptual, procedural, tutorials, and reference articles at [SQL Server Analysis Services help](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 <!-- Not Available ### Videos -->
 #### Blogs
-Things are changing rapidly. You can always get the latest information on the [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/) and [Azure blog](https://azure.microsoft.com/blog).
+Things are changing rapidly. You can always get the latest information on the [Analysis Services team blog](https://www.azure.cn/blog/tags/Azure%20分析服务).
 
-#### Community
-Analysis Services has a vibrant community of users. Join the conversation on [Azure Analysis Services forum](https://aka.ms/azureanalysisservicesforum).
-
-## Feedback
-Have suggestions or feature requests? Be sure to leave your comments on [Azure Analysis Services Feedback](https://aka.ms/azureanalysisservicesfeedback).
-
-Have suggestions about the documentation? You can add comments using Livefyre at the bottom of each article.
+<!-- Not Available #### Community -->
+<!-- Not Available ## Feedback -->
 
 ## Next steps
 Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure. When your server is ready, step through the [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md) to learn how to create a fully functional tabular model and deploy it to your server.

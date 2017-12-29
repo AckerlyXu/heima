@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -70,7 +70,7 @@ If you would like to conserve index space, you can adjust the [indexing policy](
 
 ## Debugging why queries are running slow
 
-In the DocumentDB API SDKs, Azure Cosmos DB provides query execution statistics. 
+In the SQL API SDKs, Azure Cosmos DB provides query execution statistics. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -98,5 +98,5 @@ Now that you've learned how to monitor and debug issues using the metrics provid
 * [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
 * [Performance tips for Azure Cosmos DB](performance-tips.md)
 
-<!--Update_Description: new articles on use metrics -->
+<!--Update_Description: wording update -->
 

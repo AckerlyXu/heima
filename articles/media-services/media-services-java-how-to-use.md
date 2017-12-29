@@ -125,7 +125,7 @@ The code also relies on a locally stored video file. You must edit the code to p
                 AzureAdTokenCredentials credentials = new AzureAdTokenCredentials(
                         tenant,
                         new AzureAdClientSymmetricKey(clientId, clientKey),
-                        AzureEnvironments.AZURE_CLOUD_ENVIRONMENT);
+                        AzureEnvironments.AzureChinaCloudEnvironment);
 
                 AzureAdTokenProvider provider = new AzureAdTokenProvider(credentials, executorService);
 

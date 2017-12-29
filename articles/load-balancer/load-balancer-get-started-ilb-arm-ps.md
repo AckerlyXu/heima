@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
@@ -29,9 +29,6 @@ ms.author: v-yeche
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure offers two deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and [classic](load-balancer-get-started-ilb-classic-ps.md). This article describes how to create a load balancer by using the Resource Manager deployment model. Azure recommends that Azure Resource Manager be used for most new deployments.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -332,4 +329,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 * [Configure load balancer distribution mode](load-balancer-distribution-mode.md)
 * [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, add content of Create the configuration rules, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -225,4 +225,4 @@ For a scheduled refresh, do the following.
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * To learn more about Cosmos DB, see the [Azure Cosmos DB documentation landing page](/documentdb/).
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: wording update, update link-->

@@ -37,9 +37,8 @@ You can configure an alert to do the following when it triggers:
 
 You can configure and get information about alert rules using
 
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+
+
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
@@ -118,7 +117,7 @@ Once you have created an alert, you can select it and:
 
 ## Next steps
 * [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+
 * Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 
 <!--Update_Description: wording update-->

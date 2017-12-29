@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/17/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -44,7 +44,7 @@ The following snippet shows how to initialize a multi-region application. Here, 
 * Configured with `China North` as the first preferred region for low latency reads
 * Configured with `China North` as the second preferred region (for high availability during regional failures)
 
-In the DocumentDB API, this configuration looks like the following snippet:
+In the SQL API, this configuration looks like the following snippet:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -139,7 +139,7 @@ In this article, we reviewed how manual and automatic failovers work in Cosmos D
 ## <a id="NextSteps"></a>Next Steps
 * Learn about how Cosmos DB supports [global distribution](distribute-data-globally.md)
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
-* Develop with multiple regions using Azure Cosmos DB's [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)
-* Learn how to build [Multi-region writer architectures](multi-region-writers.md) with Azure DocumentDB
+* Develop with multiple regions using Azure Cosmos DB's [SQL API](tutorial-global-distribution-sql-api.md)
+* Learn how to build [Multi-region writer architectures](multi-region-writers.md) with Azure Cosmos DB
 
-<!--Update_Description: add cmdlet about process conflicts, wording update-->
+<!--Update_Description: update link, wording update-->

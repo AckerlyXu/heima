@@ -14,15 +14,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 11/27/2017
+origin.date: 12/08/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
 # Introduction to Azure Cosmos DB: API for MongoDB
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value and columnar data models. 
-
+<!--Not Available on Graph -->
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This functionality means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and [comprehensive industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db), while continuing to use familiar skills and tools for MongoDB.
@@ -41,7 +41,7 @@ Azure Cosmos DB databases can be used as the data store for apps written for [Mo
 
 **Automatic indexing**: By default, Azure Cosmos DB automatically indexes all the properties within documents in your MongoDB database and does not expect or require any schema or creation of secondary indices. In addition, the unique index capability enables a uniqueness constraint on any document fields that are already auto-indexed in Azure Cosmos DB.
 
-**Enterprise grade** - Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade compliance certifications and security features.
+**Enterprise grade**: Azure Cosmos DB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. Azure Cosmos DB has enterprise grade compliance certifications and security features.
 <!--Not Available on (https://www.microsoft.com/trustcenter) for China--> 
 <!-- Not Available [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player] -->
 

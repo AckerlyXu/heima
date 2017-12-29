@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/20/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -70,6 +70,10 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 ## Create a database account
 
 Let's start by creating an Azure Cosmos DB account in the Azure portal.  
+
+> [!IMPORTANT]  
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs. 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -294,7 +298,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. The additional functionality will be provided in the Table API in a future service update. See [Azure Cosmos DB query](documentdb-sql-query.md) for an overview of these capabilities. 
+Azure Cosmos DB supports the same query functionality as Azure Table storage for the Table API. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. The additional functionality will be provided in the Table API in a future service update. See [Azure Cosmos DB query](sql-api-sql-query.md) for an overview of these capabilities. 
 
 ## Replace an entity
 To update an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number. 
@@ -346,4 +350,4 @@ You can now proceed to the next tutorial and learn more about querying table dat
 > [!div class="nextstepaction"]
 > [Query with the Table API](tutorial-query-table.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->
