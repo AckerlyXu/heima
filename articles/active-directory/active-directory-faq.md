@@ -1,10 +1,11 @@
 ---
-title: Azure Active Directory FAQ | Microsoft Docs
+title: Azure Active Directory FAQ | Azure
 description: Azure Active Directory FAQ answers questions about how to access Azure and Azure Active Directory, password management, and application access.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
@@ -13,9 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/08/2017
-ms.date: 11/22/2017
-ms.author: v-junlch
+origin.date: 12/14/2017
+ms.date: 1/1/2018
+ms.author: v-nany
+
 
 ---
 # Azure Active Directory FAQ
@@ -25,13 +27,14 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure Classic Management Portal?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure portal?**
 
-**A:** To access the Azure Classic Management Portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) or a paid subscription.
+**A:** To access the Azure  Portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) or a paid subscription.
 
 For more information, see:
 
-- [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+
 
 - - -
 **Q: What’s the relationship between Azure AD, Office 365, and Azure?**
@@ -42,10 +45,7 @@ All users who are set up to use web services are defined as user accounts in one
 
 Azure AD paid services like Enterprise Mobility + Security complement other web services like Office 365 and Azure with comprehensive enterprise-scale management and security solutions.
 - - -
-**Q:  Why can I sign in to the Azure portal but not the Azure Classic Management Portal?**
 
-**A:**  The Azure portal does not require a valid subscription, and the Classic Management Portal does require a valid subscription.  If you do not have a subscription, you can't sign in to the Classic Management Portal.
-- - -
 **Q:  What are the differences between Subscription Administrator and Directory Administrator?**
 
 **A:** By default, you are assigned the Subscription Administrator role when you sign up for Azure. A subscription admin can use either a Microsoft account or a work or school account from the directory that the Azure subscription is associated with.  This role is authorized to manage services in the Azure portal.
@@ -53,7 +53,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure Classic Management Portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Office 365 and Azure, with comprehensive enterprise-scale management and security solutions.
 
@@ -116,16 +116,18 @@ For Office 365 users, your admin can reset the password by using the steps outli
 
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
-- [Reset accounts in the Classic Management Portal](active-directory-create-users-reset-password.md)
-- [Using PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
+- [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -
 ## Security
-**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**</br>
+**Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**
+
 We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
-**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**</br>
+**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**
+
 This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
 
 ## Application access
@@ -145,10 +147,10 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 **A:** Azure AD provides several ways for users to view and access their applications, such as:
 
-- The Azure AD access panel
-- The Office 365 application launcher
-- Direct sign-in to federated apps
-- Deep links to federated, password-based, or existing apps
+* The Azure AD access panel
+* The Office 365 application launcher
+* Direct sign-in to federated apps
+* Deep links to federated, password-based, or existing apps
 
 For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
 
@@ -159,13 +161,13 @@ For more information, see [Deploying Azure AD integrated applications to users](
 
 For more information, see:
 
-- [Authentication Scenarios for Azure AD](./develop/active-directory-authentication-scenarios.md)
-- [Active Directory authentication protocols](./develop/active-directory-developers-guide.md)
-- [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Authentication Scenarios for Azure AD](./develop/active-directory-authentication-scenarios.md)
+* [Active Directory authentication protocols](./develop/active-directory-developers-guide.md)
+* [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 
-**Q: What is Automated User Provisioning for SaaS Apps?**
+**Q: What is automated user provisioning for SaaS apps?**
 
 **A:** Use Azure AD to automate the creation, maintenance, and removal of user identities in many popular cloud SaaS apps.
 

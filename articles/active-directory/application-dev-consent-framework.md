@@ -25,6 +25,7 @@ This article is to help you learn more about how the Azure AD consent framework 
 ## Recommended documents
 
 - Get a general understanding of [how consent allows a resource owner to govern an application's access to resources](/active-directory/develop/active-directory-dev-glossary#consent).
+- Get a step-by-step overview of [how the Azure AD consent framework implements consent](/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
 - For more depth, learn [how a multi-tenant application can use the consent framework](/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
 

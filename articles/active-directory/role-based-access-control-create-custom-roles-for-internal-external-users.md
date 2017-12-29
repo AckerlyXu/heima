@@ -1,10 +1,11 @@
 ---
-title: Create custom Role-Based Access Control roles and assign to internal and external users in Azure | Microsoft Docs
+title: Create custom role-based access control roles and assign to internal and external users in Azure | Azure
 description: Assign custom RBAC roles created using PowerShell and CLI for internal and external users
 services: active-directory
 documentationcenter: ''
-author: andreicradu
-manager: catadinu
+author: yunan2016
+manager: digimobile
+
 editor: 'kgremban'
 
 ms.assetid:
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/10/2017
-ms.author: v-junlch
-ms.date: 06/12/2017
+origin.date: 12/06/2017
+ms.date: 1/1/2018
+ms.author: v-nany
 
 ---
-## Intro on role-based access control
+# Intro on role-based access control
 
 Role-based access control is an Azure portal only feature allowing the owners of a subscription to assign granular roles to other users who can manage specific resource scopes in their environment.
 
@@ -27,26 +28,26 @@ RBAC allows better security management for large organizations and for SMBs work
 ## Prerequisites
 Using RBAC in the Azure environment requires:
 
-- Having a standalone Azure subscription assigned to the user as owner (subscription role)
-- Have the Owner role of the Azure subscription
-- Have access to the [Azure portal](https://portal.azure.cn)
-- Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](../azure-resource-manager/resource-manager-supported-services.md).
+* Having a standalone Azure subscription assigned to the user as owner (subscription role)
+* Have the Owner role of the Azure subscription
+* Have access to the [Azure portal](https://portal.azure.cn)
+* Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't quality for using RBAC.
+> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the Office 365 Admin center don't qualify for using RBAC.
 
 ## How can RBAC be used
 RBAC can be applied at three different scopes in Azure. From the highest scope to the lowest one, they are as follows:
 
-- Subscription (highest)
-- Resource group
-- Resource scope (the lowest access level offering targeted permissions to an individual Azure resource scope)
+* Subscription (highest)
+* Resource group
+* Resource scope (the lowest access level offering targeted permissions to an individual Azure resource scope)
 
 ## Assign RBAC roles at the subscription scope
 There are two common examples when RBAC is used (but not limited to):
 
-- Having external users from the organizations (not part of the admin user's Azure Active Directory tenant) invited to manage certain resources or the whole subscription
-- Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups which need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
+* Having external users from the organizations (not part of the admin user's Azure Active Directory tenant) invited to manage certain resources or the whole subscription
+* Working with users inside the organization (they are part of the user's Azure Active Directory tenant) but part of different teams or groups which need granular access either to the whole subscription or to certain resource groups or resource scopes in the environment
 
 ## Grant access at a subscription level for a user outside of Azure Active Directory
 RBAC roles can be granted only by **Owners** of the subscription therefore the admin user must be logged with a username which has this role pre-assigned or has created the Azure subscription.
@@ -101,7 +102,7 @@ Being external to the organization, the new user does not have any existing attr
 
 ![email invitation message for RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed both in the Azure portal and in the Classic Management Portal.
+The external user shows in the Azure Active Directory tenant from now on as external user and this can be viewed in the Azure portal.
 
 
 
@@ -139,10 +140,10 @@ From all the built-in RBAC roles, **Owner** and **Contributor** offer full manag
 
 Assigning the built-in RBAC role of **Virtual Machine Contributor** at a subscription level, means that the user assigned the role:
 
-- Can view all virtual machines regardless their deployment date and the resource groups they are part of
-- Has full management access to the virtual machines in the subscription
-- Can't view any other resource types in the subscription
-- Can't operate any changes from a billing perspective
+* Can view all virtual machines regardless their deployment date and the resource groups they are part of
+* Has full management access to the virtual machines in the subscription
+* Can't view any other resource types in the subscription
+* Can't operate any changes from a billing perspective
 
 > [!NOTE]
 > RBAC being an Azure portal only feature, it doesn't grant access to the Classic Management Portal.
@@ -155,13 +156,11 @@ For a different scenario in this test, the external user "alflanigan@gmail.com" 
 
 ![virtual machine contributor built-in role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal, regardless some can still be deployed in the Classic Management Portal as well (for example: virtual machines).
+The normal behavior for this external user with this built-in role is to see and manage only virtual machines and their adjacent Resource Manager only resources necessary while deploying. By design, these limited roles offer access only to their correspondent resources created in the Azure portal.
 
 
 
-
-
-![virtual machine contributor role overview in azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![virtual machine contributor role overview in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## Grant access at a subscription level for a user in the same directory
 The process flow is identical to adding an external user, both from the admin perspective granting the RBAC role as well as the user being granted access to the role. The difference here is that the invited user will not receive any email invitations as all the resource scopes within the subscription will be available in the dashboard after signing in.
@@ -263,9 +262,9 @@ This new custom role has been assigned to an user from the same directory.
 ![screenshot of permissions for custom imported RBAC role](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
 The example has been further detailed to emphasize the limits of this custom RBAC role as follows:
-- Can create new support requests
-- Can't create new resource scopes (for example: virtual machine)
-- Can't create new resource groups
+* Can create new support requests
+* Can't create new resource scopes (for example: virtual machine)
+* Can't create new resource groups
 
 
 
@@ -326,7 +325,7 @@ The new role is now available in the Azure portal and the assignation process is
 
 ![Azure portal screenshot of custom RBAC role created using CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-As of the latest Build 2017, the Azure Cloud Shell is generally available. Azure Cloud Shell is a complement to IDE and the Azure Portal. With this service, you get a browser-based shell that is authenticated and hosted within Azure and you can use it instead of CLI installed on your machine.
+As of the latest Build 2017, the Azure Cloud Shell is generally available. Azure Cloud Shell is a complement to IDE and the Azure portal. With this service, you get a browser-based shell that is authenticated and hosted within Azure and you can use it instead of CLI installed on your machine.
 
 
 

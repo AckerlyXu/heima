@@ -14,7 +14,7 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2017
-ms.date: 06/21/2017
+ms.date: 01/01/2018
 ms.author: v-junlch
 
 ---
@@ -40,15 +40,15 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{api-version}* with 2015-07-01.
 3. Replace *{filter}* with the condition that you wish to apply to filter the role assignment list:
 
-   - List role assignments for only the specified scope, not including the role assignments at subscopes: `atScope()`    
-   - List role assignments for a specific user, group, or application: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
-   - List role assignments for a specific user, including ones inherited from groups | `assignedTo('{objectId of user}')`
+   * List role assignments for only the specified scope, not including the role assignments at subscopes: `atScope()`    
+   * List role assignments for a specific user, group, or application: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
+   * List role assignments for a specific user, including ones inherited from groups | `assignedTo('{objectId of user}')`
 
 ### Response
 Status code: 200
@@ -90,9 +90,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-assignment-id}* with the GUID identifier of the role assignment.
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -131,9 +131,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope at which you wish to create the role assignments. When you create a role assignment at a parent scope, all child scopes inherit the same role assignment. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-assignment-id}* with a new GUID, which becomes the GUID identifier of the new role assignment.
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -189,9 +189,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope at which you wish to create the role assignments. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-assignment-id}* with the role assignment id GUID.
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -230,14 +230,14 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the roles. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{api-version}* with 2015-07-01.
 3. Replace *{filter}* with the condition that you wish to apply to filter the list of roles:
 
-   - List roles available for assignment at the specified scope and any of its child scopes: `atScopeAndBelow()`
-   - Search for a role using exact display name: `roleName%20eq%20'{role-display-name}'`. Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+   * List roles available for assignment at the specified scope and any of its child scopes: `atScopeAndBelow()`
+   * Search for a role using exact display name: `roleName%20eq%20'{role-display-name}'`. Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ### Response
 Status code: 200
@@ -313,9 +313,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope for which you wish to list the role assignments. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-definition-id}* with the GUID identifier of the role definition.
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -393,9 +393,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the first *AssignableScope* of the custom role. The following examples show how to specify the scope for different levels.
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-definition-id}* with a new GUID, which becomes the GUID identifier of the new custom role.
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -496,9 +496,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the first *AssignableScope* of the custom role. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-definition-id}* with the GUID identifier of the custom role.
 3. Replace *{api-version}* with 2015-07-01.
 
@@ -599,9 +599,9 @@ Within the URI, make the following substitutions to customize your request:
 
 1. Replace *{scope}* with the scope at which you wish to delete the role definition. The following examples show how to specify the scope for different levels:
 
-   - Subscription: /subscriptions/{subscription-id}  
-   - Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
-   - Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
+   * Subscription: /subscriptions/{subscription-id}  
+   * Resource Group: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Resource: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Replace *{role-definition-id}* with the GUID role definition id of the custom role.
 3. Replace *{api-version}* with 2015-07-01.
 
