@@ -7,8 +7,8 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -37,13 +37,13 @@ To follow this tutorial, you need a deployed instance of the remote monitoring s
 
 If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
 
-## Provision a simulated device
+## Add a simulated device
 
-Navigate to the **Devices** page in the solution and then choose **Provision**. In the **Provision** panel, choose **Simulated**:
+Navigate to the **Devices** page in the solution and then choose **New device**. In the **New device** panel, choose **Simulated**:
 
 ![Provision a simulated device](./media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Leave the number of devices to provision set to **1**. Choose **Engine** as the **Device model**, and then choose **Apply** to create the simulated device:
+Leave the number of devices to provision set to **1**. Choose **Faulty Engine** as the **Device model**, and then choose **Apply** to create the simulated device:
 
 ![Provision a simulated engine device](./media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -65,7 +65,7 @@ To view detailed diagnostics, scroll down to view **Diagnostics**.
 
 ## Act on a device
 
-To act on a device, select it in the list of devices and then choose **Schedule**. The **Engine** device model specifies four methods a device must support:
+To act on one or more devices, select them in the list of devices and then choose **Schedule**. The **Engine** device model specifies four methods a device must support:
 
 ![Engine methods](./media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -73,7 +73,7 @@ Choose **Restart**, set the job name to **RestartEngine**, and then choose **App
 
 ![Schedule the restart method](./media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-To track the status of the job on the **Maintenance** page, choose **System Status**:
+To track the status of the job on the **Maintenance** page, choose **Jobs**:
 
 ![Monitor the schedules job](./media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -93,7 +93,7 @@ To make a change, add a name for the job, update the property values, and choose
 
 ![Update a device property value](./media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-To track the status of the job on the **Maintenance** page, choose **System Status**.
+To track the status of the job on the **Maintenance** page, choose **Jobs**.
 
 ## Next steps
 

@@ -7,8 +7,8 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 12/12/2017
+ms.date: 01/08/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -37,7 +37,7 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## View the rules in your solution
 
-The **Rules & Actions** page in the solution displays a list of all the current rules:
+The **Rules and Actions** page in the solution displays a list of all the current rules:
 
 ![Rules and Actions page](./media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -64,16 +64,16 @@ Use the following values to create the rule:
 | Setting          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Name             | Chiller warning                       |
-| Source           | **Chiller** device group              |
-| Trigger field    | Pressure                              |
+| Source           | **Chillers** device group             |
+| Trigger field    | pressure                              |
 | Trigger operator | Greater than                          |
 | Trigger value    | 150                                   |
 | Severity level   | Warning                               |
-| Alarm event text | Chiller pressure has exceeded 150 PSI |
+| Description      | Chiller pressure has exceeded 150 PSI |
 
 To save the new rule, choose **Apply**.
 
-You can view when the rule is triggered on the **Rules & Actions** page or on the **Dashboard** page.
+You can view when the rule is triggered on the **Rules and Actions** page or on the **Dashboard** page.
 
 ## Edit an existing rule
 

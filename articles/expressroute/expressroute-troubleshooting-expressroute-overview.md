@@ -16,7 +16,7 @@ ms.workload: infrastructure-services
 
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
+ms.date: 01/08/2018
 
 ---
 
@@ -205,7 +205,7 @@ To get the Azure private peering configuration details, use the following comman
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 A sample response, for a successfully configured private peering, is:
