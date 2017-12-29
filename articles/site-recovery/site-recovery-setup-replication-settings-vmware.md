@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 06/05/2017
-ms.date: 08/28/2017
+origin.date: 11/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -83,3 +83,4 @@ ms.author: v-yeche
 
     > [!NOTE]
     > You cannot delete a replication policy if it has at least one configuration server associated to it. Make sure there are no replicated items using the policy and delete all the associated configuration servers before you delete the policy.
+<!-- Update_Description: update meta properties -->

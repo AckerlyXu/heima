@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/11/2017
-ms.date: 08/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -67,6 +67,7 @@ For the purpose of creating this article VMware virtual machines with IIS Server
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | No | Yes
+**Azure**|NA|Yes
 
 ## Replicate virtual machines
 
@@ -159,4 +160,4 @@ Follow [this guidance](site-recovery-failover.md) when you are doing a failover.
 ## Next steps
 You can learn more about [replicate other applications](site-recovery-workload.md) using Site Recovery.
 
-<!--Update_Description: new articles on site recovery iis-->
+<!--Update_Description: update meta properties, wording update -->

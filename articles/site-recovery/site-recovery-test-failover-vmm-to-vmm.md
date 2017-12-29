@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -24,6 +24,7 @@ This article provides information and instructions for doing a test failover or 
 
 You run a test failover to validate your replication strategy or perform a DR drill without any data loss or downtime. A test failover doesn't have any impact on the ongoing replication or on your production environment. You can run it on either a virtual machine or a [recovery plan](site-recovery-create-recovery-plans.md). When you're triggering a test failover, you need to specify the network that the test virtual machines will connect to. You can track the progress of the test failover on the **Jobs** page.  
 
+<!-- Not Available on [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr) -->
 ## <a name="preparing-infrastructure-for-test-failover" ></a>Prepare the infrastructure for test failover
 If you want to run a test failover by using an existing network, prepare Active Directory, DHCP, and DNS in that network.
 
@@ -60,17 +61,15 @@ Prepare a DNS server for the test failover as follows:
 * **DHCP**: If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server. If you're using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server. Therefore, the IP address of DNS should be updated in the test failover network. In this case, the virtual machines register themselves to the relevant DNS server.
 * **Static address**: If virtual machines use a static IP address, the IP address of the test DNS server should be updated in test failover network. You might need to update DNS with the IP address of the test virtual machines. You can use the following sample script for this purpose:
 
-    ```
-    Param(
-    [string]$Zone,
-    [string]$name,
-    [string]$IP
-    )
-    $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-    $newrecord = $record.clone()
-    $newrecord.RecordData[0].IPv4Address  =  $IP
-    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-    ```
+        Param(
+        [string]$Zone,
+        [string]$name,
+        [string]$IP
+        )
+        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+        $newrecord = $record.clone()
+        $newrecord.RecordData[0].IPv4Address  =  $IP
+        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively, you can run the failover for a single virtual machine on the **Virtual Machines** tab.
@@ -99,11 +98,12 @@ When you run a test failover, you're asked to select network settings for test r
 >
 
 ## Test failover to a production network on a recovery site
-We recommend that when you're doing a test failover, you choose a network that is different from your production recovery site network that you provided in network mapping. But if you really want to validate end to end network connectivity in a failed over virtual machine, note the following points:
+We recommend that when you're doing a test failover, you choose a network that is different from your production recovery site network that you provided in [network mapping](/site-recovery/site-recovery-network-mapping). But if you really want to validate end-to-end network connectivity in a failed-over virtual machine, note the following points:
 
 * Make sure that the primary virtual machine is shut down when you're doing the test failover. If you don't, two virtual machines with the same identity will be running in the same network at the same time. That situation can lead to undesired consequences.
 * Any changes that you make to the test failover virtual machines are lost when you clean up the test failover virtual machines. These changes are not replicated back to the primary virtual machine.
 * This way of doing testing leads to downtime for your production application. Ask users of the application not to use the application when the DR drill is in progress.  
 
-## Next Steps
+## Next steps
 After you have successfully run a test failover, you can try a [failover](site-recovery-failover.md).
+<!-- Update_Description: update meta properties, wording update -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/19/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -119,9 +119,11 @@ You need an LRS or GRS storage account. We recommend GRS so that data is resilie
 
 ### Can I extend replication from existing recovery site to another tertiary site?
 Extended or chained replication isn't supported.
+<!-- Not Available on [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication) -->
 
 ### Can I do an offline replication the first time I replicate to Azure?
 This isn't supported.
+<!-- Not Available on [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from) -->
 
 ### Can I exclude specific disks from replication?
 This is supported when you're [replicating VMware VMs and Hyper-V VMs](site-recovery-exclude-disk.md) to Azure, using the Azure portal.
