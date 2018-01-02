@@ -13,9 +13,9 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/11/2017
+origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ---
 # Connect IoT DevKit AZ3166 to Azure IoT Hub in the cloud
 

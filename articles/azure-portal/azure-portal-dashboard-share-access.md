@@ -8,14 +8,14 @@ manager: timlt
 editor: tysonn
 
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 08/01/2016
 ms.author: tomfitz
-ms.date: 10/16/2017
+ms.date: 01/15/2018
 ---
 # Share Azure dashboards by using Role-Based Access Control
 After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using Azure [Role-Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
@@ -72,4 +72,5 @@ Your dashboard is now published. If the permissions inherited from the subscript
 
 ## Next steps
 * For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
+* To learn about managing resources, see [Manage Azure resources through portal](../azure-resource-manager/resource-group-portal.md).
 

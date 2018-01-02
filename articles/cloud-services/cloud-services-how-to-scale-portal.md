@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal
@@ -37,6 +37,7 @@ You should consider the following information before you configure scaling for y
 - You can also scale other resources associated with your subscription.
 
 - To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://www.azure.cn/support/legal/sla/).
+- Auto Scale only happens when all the roles are in **Ready** state.  
 
 
 ## Where scale is located

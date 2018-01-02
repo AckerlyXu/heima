@@ -2,17 +2,19 @@
 title: 'Tutorial:  DevOps with the Azure Portal | Azure'
 description: Learn the various DevOps workflows in the Azure Portal.
 services: azure-portal
-documentationCenter: ''
-authors: mlearned
+documentationcenter: ''
+author: mlearned
 manager: douge
 editor: mlearned
 
-ms.service: multiple
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
+ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 06/05/2016
+ms.topic: tutorial
+origin.date: 06/05/2016
+ms.date: 01/15/2018
 ms.author: v-yiso
 ---
 
@@ -325,8 +327,7 @@ This tutorial demonstrated some of the power with the Azure platform by quickly 
 ## Next steps 
 
 * Azure Resource Manager is important for enabling DevOps on the Azure platform.  To learn more visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
-
-* To learn more about Azure App Service deployment visit [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md)
+* To learn more about Azure App Service deployment visit [Deploy your app to Azure App Service](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

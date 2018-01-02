@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ---
 
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
@@ -135,17 +135,17 @@ Once your cloud service project is deployed on Azure, connect your role instance
 ```powershell
 # Initialize domain variables
 
-```
+
 $domain = '<your-domain-name>'
 $dmuser = '$domain\<your-username>'
 $dmpswd = '<your-domain-password>'
 $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
 $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
-```
+
 
 # Add AD Domain Extension to the cloud service roles
 
-```
+
 Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 

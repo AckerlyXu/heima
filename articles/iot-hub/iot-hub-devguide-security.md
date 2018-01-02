@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/19/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ---
 
 # Control access to IoT Hub
@@ -230,6 +230,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 > Since the time validity of the token is validated on IoT Hub machines, the drift on the clock of the machine that generates the token must be minimal.
 > 
 > 
+
 ### Use SAS tokens in a device app
 
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy).
@@ -337,6 +338,7 @@ As an example, a service generating using the pre-created shared access policy c
     var policyKey = '...';
 
     var token = generateSasToken(endpoint, policyKey, policyName, 60);
+```
 
 The result, which would grant access to read all device identities, would be:
 
