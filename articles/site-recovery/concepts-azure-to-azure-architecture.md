@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -80,4 +80,4 @@ Review the support matrix
 Follow the tutorial to enable Azure VM replication to a secondary region.
 Run a failover and failback.
 
-<!-- Update_Description: new articles on site recovery concepts azure to azure architecture -->
+<!-- Update_Description: update meta properties -->

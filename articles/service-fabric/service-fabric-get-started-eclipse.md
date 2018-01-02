@@ -14,13 +14,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/21/2016
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
 
 # Service Fabric plug-in for Eclipse Java application development
-Eclipse is one of the most widely used integrated development environments (IDEs) for Java developers. In this article, we describe how to set up your Eclipse development environment to work with Azure Service Fabric. Learn how to install the Service Fabric plug-in, create a Service Fabric application, and deploy your Service Fabric application to a local or remote Service Fabric cluster in Eclipse Neon.
+Eclipse is one of the most widely used integrated development environments (IDEs) for Java developers. In this article, we describe how to set up your Eclipse development environment to work with Azure Service Fabric. Learn how to install the Service Fabric plug-in, create a Service Fabric application, and deploy your Service Fabric application to a local or remote Service Fabric cluster in Eclipse Neon. 
+
+> [!NOTE]
+> The Eclipse plugin is currently not supported on Windows. 
 
 ## Install or update the Service Fabric plug-in in Eclipse Neon
 You can install a Service Fabric plug-in in Eclipse. The plug-in can help simplify the process of building and deploying Java services.
@@ -172,4 +175,4 @@ We have recently moved Service Fabric Java libraries from Service Fabric Java SD
 <!-- Links -->
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, add Notes for Mac users-->
+<!--Update_Description: update meta properties, wording update -->

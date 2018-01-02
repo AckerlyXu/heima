@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/21/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -38,8 +38,7 @@ This is a step-by-step guide that walks you through the steps of setting up a se
 
 A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
 
-The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure Portal](#create-cluster-portal).
-<!-- Need Validation [Creating secure clusters on Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster) -->
+The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. For more information and helper scripts for creating secure Linux clusters, please see [Creating secure clusters](service-fabric-cluster-creation-via-arm.md). The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure portal](#create-cluster-portal).
 
 ## Configure Key Vault 
 ### Log in to Azure
@@ -111,7 +110,15 @@ Create a Key Vault in the new resource group. The Key Vault **must be enabled fo
     Tags                             :
 ```
 
-If you have an existing Key Vault, you can enable it for deployment using Azure CLI:
+If you have an existing Key Vault, you can enable it for deployment using one of the following ways:
+
+##### Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### Azure CLI:
 
 ```cli
 > azure login -e AzureChinaCloud
@@ -319,4 +326,4 @@ At this point, you have a secure cluster using certificates for management authe
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 
-<!--Update_Description: update meta properties, update reference link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,15 +13,15 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 06/23/2017
-ms.date: 08/28/2017
+origin.date: 11/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
 # Add Azure Automation runbooks to recovery plans
 In this article, we describe how Azure Site Recovery integrates with Azure Automation to help you extend your recovery plans. Recovery plans can orchestrate recovery of VMs that are protected with Site Recovery. Recovery plans work both for replication to a secondary cloud, and for replication to Azure. Recovery plans also help make the recovery **consistently accurate**, **repeatable**, and **automated**. If you fail over your VMs to Azure, integration with Azure Automation extends your recovery plans. You can use it to execute runbooks, which offer powerful automation tasks.
 
-If you are new to Azure Automation, you can [sign up](https://www.azure.cn/home/features/automation/) and [download sample scripts](https://www.azure.cn/documentation/scripts/). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](https://azure.microsoft.com/blog/?p=166264), see [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/).
+If you are new to Azure Automation, you can [sign up](https://www.azure.cn/home/features/automation/) and [download sample scripts](../automation/automation-runbook-gallery.md). For more information, and to learn how to orchestrate recovery to Azure by using [recovery plans](https://azure.microsoft.com/blog/?p=166264), see [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/).
 
 In this article, we describe how you can integrate Azure Automation runbooks into your recovery plans. We use examples to automate basic tasks that previously required manual intervention. We also describe how to convert a multi-step recovery to a single-click recovery action.
 
@@ -116,10 +116,10 @@ $vmMap = $RecoveryPlanContext.VmMap
  foreach($VMID in $VMinfo)
  {
      $VM = $vmMap.$VMID                
-         if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
+     if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
          #this check is to ensure that we skip when some data is not available else it will fail
-     Write-output "Resource group name ", $VM.ResourceGroupName
-     Write-output "Rolename " = $VM.RoleName
+         Write-output "Resource group name ", $VM.ResourceGroupName
+         Write-output "Rolename " = $VM.RoleName
      }
  }
 
@@ -194,7 +194,7 @@ In the following example, we use a new technique and create a [complex variable]
 1. In PowerShell, sign in to your Azure subscription:
 
     ```
-    login-azurermaccount -EnvironmentName AzureChinaCloud
+    Login-AzureRMAccount -EnvironmentName AzureChinaCloud
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```
@@ -246,10 +246,11 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 
 For another example, see the following video. It demonstrates how to recover a two-tier WordPress application to Azure:
 
+<!-- Not Available on Channel9 VIDEO -->
 
 ## Additional resources
 <!-- Not Available automation-sec-configure-azure-runas-account.md -->
-[Azure Automation Overview](https://docs.azure.cn/zh-cn/automation/ "Azure Automation Overview")
+* [Azure Automation overview](https://docs.azure.cn/zh-cn/automation/ "Azure Automation overview")
 * [Azure Automation sample scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation sample scripts")
 
 <!--Update_Description: update meta properties, wording update-->

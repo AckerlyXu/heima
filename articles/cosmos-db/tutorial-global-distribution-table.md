@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 # How to setup Azure Cosmos DB global distribution using the Table API

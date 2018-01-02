@@ -1,6 +1,6 @@
 # Overview
 ## [What is Key Vault?](key-vault-whatis.md)
-## [Service overview](https://azure.microsoft.com/services/key-vault/)
+## [Service overview](/key-vault/)
 
 # Get started
 ## [Get started with Key Vault](key-vault-get-started.md)
@@ -27,6 +27,7 @@
 ### [Create and manage using Azure CLI](key-vault-manage-with-cli2.md)
 ### [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md)
 ### [How to use Key Vault soft-delete Azure PowerShell](key-vault-soft-delete-powershell.md)
+### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 
 ## Automate

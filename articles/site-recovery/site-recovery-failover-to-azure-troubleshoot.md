@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/24/2017
-ms.date: 10/02/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -45,4 +45,4 @@ Site Recovery was not able to create a failed over Classic virtual machine in Az
 
 If you need more help, then post your query on [Site Recovery forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr) or leave a comment at the end of this document. We have an active community that should be able to assist you.
 
-<!--Update_Description: new articles on how to troubleshoot the site recovery failover to azure -->
+<!--Update_Description: update meta properties -->

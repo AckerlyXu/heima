@@ -14,14 +14,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 09/18/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # Create a secure Service Fabric Linux cluster in Azure
 
-This command creates a self-signed certificate, adds it to a key vault and downloads the certificate locally.  The new certificate is used to secure the cluster when it deploys.  You can also use an existing certificate instead of creating a new one.  Either way, the certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.chinacloudapp.cn` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+This command creates a self-signed certificate, adds it to a key vault and downloads the certificate locally.  The new certificate is used to secure the cluster when it deploys.  You can also use an existing certificate instead of creating a new one.  Either way, the certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.chinacloudapi.cn` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 If needed, install the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 
@@ -73,4 +73,4 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 
 Additional Service Fabric CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).
-<!--Update_Description: new articles on create cluster with CLI -->
+<!--Update_Description: update meta properties, update wording -->

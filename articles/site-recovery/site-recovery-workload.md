@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 12/15/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ Organizations need a business continuity and disaster recovery (BCDR) strategy t
 
 Site Recovery is an Azure service that contributes to your BCDR strategy. Using Site Recovery, you can deploy application-aware replication to the cloud, or to a secondary site. Whether your apps are Windows or Linux-based, running on physical servers, VMware or Hyper-V, you can use Site Recovery to orchestrate replication, perform disaster recovery testing, and run failovers and failback.
 
-Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP and Red Hat. You can customize replication solutions on an app-by-app basis.
+Site Recovery integrates with Microsoft applications, including SharePoint, Exchange, Dynamics, SQL Server, and Active Directory. Microsoft also works closely with leading vendors including Oracle, SAP, and Red Hat. You can customize replication solutions on an app-by-app basis.
 
 ## Why use Site Recovery for application replication?
 
@@ -43,23 +43,22 @@ Site Recovery contributes to application-level protection and recovery as follow
 * A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
 
 ## Workload summary
-Site Recovery can replicate any app running on a supported machine. In addition we've partnered with product teams to carry out additional app-specific testing.
+Site Recovery can replicate any app running on a supported machine. In addition, we've partnered with product teams to carry out additional app-specific testing.
 
-| **Workload** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |Y |Y |Y |Y |
-| Web apps (IIS, SQL) |Y |Y |Y |Y |
-| System Center Operations Manager |Y |Y |Y |Y |
-| Sharepoint |Y |Y |Y |Y |
-| SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
-| Exchange (non-DAG) |Y |Y |Y |Y |
-| Remote Desktop/VDI |Y |Y |Y |N/A |
-| Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
-| Dynamics AX |Y |Y |Y |Y |
-| Dynamics CRM |Y |Coming soon |Y |Coming soon |
-| Oracle |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |
-| Windows File Server |Y |Y |Y |Y |
-| Citrix XenApp and XenDesktop |N/A |Y |N/A |Y |
+| **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |Y |Y |Y |Y |Y|
+| Web apps (IIS, SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| Sharepoint |Y |Y |Y |Y |Y|
+| SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
+| Exchange (non-DAG) |Y |Y |Y |Y |Y|
+| Remote Desktop/VDI |Y |Y |Y |Y |Y|
+| Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
+| Dynamics AX |Y |Y |Y |Y |Y|
+| Oracle |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
+| Windows File Server |Y |Y |Y |Y |Y|
+| Citrix XenApp and XenDesktop |Y|N/A |Y |N/A |Y |
 
 ## Replicate Active Directory and DNS
 An Active Directory and DNS infrastructure are essential to most enterprise apps. During disaster recovery, you'll need to protect and recover these infrastructure components, before recovering your workloads and apps.
@@ -96,24 +95,29 @@ Azure Site Recovery helps protect your Dynamics AX ERP solution, by:
 * Simplifying migration of Dynamics AX deployments to the cloud (Azure).
 * Simplifying Dynamics AX application development and testing by creating a production-like copy on-demand, for testing and debugging.
 
+[Learn more](site-recovery-dynamicsax.md) about protecting Dynamic AX.
+
 ## Protect RDS
 Remote Desktop Services (RDS) enables virtual desktop infrastructure (VDI), session-based desktops, and applications, allowing users to work anywhere. With Azure Site Recovery you can:
 
 * Replicate managed or unmanaged pooled virtual desktops to a secondary site, and remote applications and sessions to a secondary site or Azure.
+
 * Here's what you can replicate:
 
-| **RDS** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** | **Replicate physical servers to a secondary site** | **Replicate physical servers to Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Pooled Virtual Desktop (unmanaged)** |Yes |No |Yes |No |Yes |No |
-| **Pooled Virtual Desktop (managed and without UPD)** |Yes |No |Yes |No |Yes |No |
-| **Remote applications and Desktop sessions (without UPD)** |Yes |Yes |Yes |Yes |Yes |Yes |
+| **RDS** |**Replicate Azure VMs to Azure** | **Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** | **Replicate physical servers to a secondary site** | **Replicate physical servers to Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Pooled Virtual Desktop (unmanaged)** |No|Yes |No |Yes |No |Yes |No |
+| **Pooled Virtual Desktop (managed and without UPD)** |No|Yes |No |Yes |No |Yes |No |
+| **Remote applications and Desktop sessions (without UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
+
+[Set up disaster recovery for RDS using Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Learn more](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) about protecting RDS.
 
 ## Protect Exchange
 Site Recovery helps protect Exchange, as follows:
 
-* For small Exchange deployments, such as a single or standalone servers, Site Recovery can replicate and fail over to Azure or to a secondary site.
+* For small Exchange deployments, such as a single or standalone server, Site Recovery can replicate and fail over to Azure or to a secondary site.
 * For larger deployments, Site Recovery integrates with Exchange DAGS.
 * Exchange DAGs are the recommended solution for Exchange disaster recovery in an enterprise.  Site Recovery recovery plans can include DAGs, to orchestrate DAG failover across sites.
 
@@ -127,10 +131,12 @@ Use Site Recovery to protect your SAP deployment, as follows:
 * Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
 * Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
 
+[Learn more](site-recovery-sap.md) about protecting SAP.
+
 ## Protect IIS
 Use Site Recovery to protect your IIS deployment, as follows:
 
-Azure Site Recovery provides disaster recovery by replicating the critical components in your environment to a cold remote site or a public cloud like Azure. Since the virtual machine with the web server and the database are being replicated to the recovery site, there is no requirement to backup configuration files or certificates separately. The application mappings and bindings dependent on environment variables that are changed post failover can be updated through scripts integrated into the disaster recovery plans. Virtual Machines are brought up on the recovery site only in the event of a failover. Not only this, Azure Site Recovery also helps you orchestrate the end to end failover by providing you the following capabilities:
+Azure Site Recovery provides disaster recovery by replicating the critical components in your environment to a cold remote site or a public cloud like Azure. Since the virtual machines with the web server and the database are being replicated to the recovery site, there is no requirement to backup configuration files or certificates separately. The application mappings and bindings dependent on environment variables that are changed post failover can be updated through scripts integrated into the disaster recovery plans. Virtual machines are brought up on the recovery site only in the event of a failover. Not only this, Azure Site Recovery also helps you orchestrate the end to end failover by providing you the following capabilities:
 
 -	Sequencing the shutdown and startup of virtual machines in the various tiers.
 -	Adding scripts to allow update of application dependencies and bindings on the virtual machines after they have been started up. The scripts can also be used to update the DNS server to point to the recovery site.

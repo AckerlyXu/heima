@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
 # Azure AD Connect sync: Operational tasks and consideration
 The objective of this topic is to describe operational tasks for Azure AD Connect sync.
 
-## Staging mode
+## Staging mode <a name="staging-mode"></a>
 Staging mode can be used for several scenarios, including:
 
 - High availability.
@@ -31,6 +31,11 @@ Staging mode can be used for several scenarios, including:
 With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment.
 
 During installation, you can select the server to be in **staging mode**. This action makes the server active for import and synchronization, but it does not run any exports. A server in staging mode is not running password sync or password writeback, even if you selected these features during installation. When you disable staging mode, the server starts exporting, enables password sync, and enables password writeback.
+
+> [!NOTE]
+> Suppose you have an Azure AD Connect with Password Hash Synchronization feature enabled. When you enable staging mode, the server stops synchronizing password changes from on-premises AD. When you disable staging mode, the server resumes synchronizing password changes from where it last left off. If the server is left in staging mode for an extended period of time, it can take a while for the server to synchronize all password changes that had occurred during the time period.
+>
+>
 
 You can still force an export by using the synchronization service manager.
 
@@ -47,7 +52,7 @@ To apply this method, follow these steps:
 4. [Verify](#verify)
 5. [Switch active server](#switch-active-server)
 
-#### Prepare
+#### Prepare <a name="prepare"></a>
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This mode allows you to run the sync engine manually.
    ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Sign off/sign in and from the start menu select **Synchronization Service**.
@@ -55,7 +60,7 @@ To apply this method, follow these steps:
 #### Configuration <a name="configuration"></a>
 If you have made custom changes to the primary server and want to compare the configuration with the staging server, then use [Azure AD Connect configuration documenter](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-#### Import and Synchronize
+#### Import and Synchronize <a name="import-and-synchronize"></a>
 1. Select **Connectors**, and select the first Connector with the type **Active Directory Domain Services**. Click **Run**, select **Full import**, and **OK**. Do these steps for all Connectors of this type.
 2. Select the Connector with type **Azure Active Directory (Microsoft)**. Click **Run**, select **Full import**, and **OK**.
 3. Make sure the tab Connectors is still selected. For each Connector with type **Active Directory Domain Services**, click **Run**, select **Delta Synchronization**, and **OK**.
@@ -111,11 +116,12 @@ The sync engine server does not store any state about the objects so the databas
 ### Have a spare standby server - staging mode
 If you have a more complex environment, then having one or more standby servers is recommended. During installation, you can enable a server to be in **staging mode**.
 
+For more information, see [staging mode](#staging-mode).
 
 ### Use virtual machines
 A common and supported method is to run the sync engine in a virtual machine. In case the host has an issue, the image with the sync engine server can be migrated to another server.
 
-### SQL High Availability
+### SQL High Availability <a name="sql-high-availability"></a>
 If you are not using the SQL Server Express that comes with Azure AD Connect, then high availability for SQL Server should also be considered. The high availability solutions supported include SQL clustering and AOA (Always On Availability Groups). Unsupported solutions include mirroring.
 
 Support for SQL AOA was added to Azure AD Connect in version 1.1.524.0. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.

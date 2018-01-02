@@ -13,13 +13,13 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: 
 ---
 
-# Add an application certificate to a Service Fabric cluster
+# List applications running in a Service Fabric cluster
 
 This sample script connects to a Service Fabric cluster and lists all of the provisioned applications.
 
@@ -32,7 +32,7 @@ This sample script connects to a Service Fabric cluster and lists all of the pro
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Retrieve all applications from the cluster
 sfctl application list
@@ -43,4 +43,4 @@ sfctl application list
 For more information, see the [Service Fabric CLI documentation](../service-fabric-cli.md).
 
 Additional Service Fabric CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).
-<!--Update_Description: new articles on list application with sfctl-->
+<!--Update_Description: update meta properties, wording update -->

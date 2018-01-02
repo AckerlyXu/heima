@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/15/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -41,19 +41,19 @@ In this tutorial series, you learn how to:
 ## Prerequisites
 
 - Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment. 
-- This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli). 
+- This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 - Additionally, it requires that you have an Azure subscription available. For more information on a trial version, go [here](https://www.azure.cn/pricing/1rmb-trial/).
 
-?view=azure-cli-latest## Get application code
+## Get application code
 
 The sample application used in this tutorial is a voting app. The application consists of a front-end web component and a back-end Redis instance. The components are packaged into container images. 
 
 Use git to download a copy of the application to your development environment.
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/
+cd service-fabric-containers/Linux/container-tutorial/
 ```
 
 The 'container-tutorial' directory contains a folder named 'azure-vote'. This 'azure-vote' folder contains the front-end source code and a Dockerfile to build the front-end. The 'container-tutorial' directory also contains the 'redis' directory which has the Dockerfile to build the redis image. These directories contain the necessary assets for this tutorial set. 
@@ -91,7 +91,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## Deploy Azure Container Registry
 
-First run the [az login](https://docs.azure.cn/zh-cn/cli/login) command to log in to your Azure account. 
+First run the [az login](https://docs.azure.cn/zh-cn/cli/login?view=azure-cli-latest) command to log in to your Azure account. 
 
 Next, use the [az account](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#set) command to choose your subscription to create the Azure Container registry. 
 
@@ -233,4 +233,4 @@ Advance to the next tutorial to learn about packaging containers into a Service 
 > [!div class="nextstepaction"]
 > [Package and deploy containers as a Service Fabric application](service-fabric-tutorial-package-containers.md)
 
-<!--Update_Description: new articles on service fabric container images-->
+<!--Update_Description: update link, wording update -->

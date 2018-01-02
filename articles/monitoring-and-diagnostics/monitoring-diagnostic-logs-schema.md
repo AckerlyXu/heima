@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/10/2017
-ms.date: 12/11/2017
+origin.date: 12/04/2017
+ms.date: 01/08/2017
 ms.author: v-yiso
 
 ---
@@ -46,6 +46,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
 |---|---|---|
+|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|

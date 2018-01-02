@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 08/22/2017
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -32,7 +32,7 @@ If needed, install the [Service Fabric CLI](../service-fabric-cli.md).
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.chinacloudapp.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Upload the application files to the image store
 # (note the last folder name, Debug in this example)
@@ -67,4 +67,4 @@ For more information, see the [Service Fabric CLI documentation](../service-fabr
 
 Additional Service Fabric CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).
 
-<!--Update_Description: update meta properties, wroding update, update link -->
+<!--Update_Description: update meta properties, update link -->

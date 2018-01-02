@@ -14,8 +14,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-origin.date: 01/26/2017
-ms.date: 11/20/2017
+origin.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -195,7 +195,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.chinacloudapi.cn/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.chinacloudapi.cn/'
     );
     ```
 
@@ -400,7 +400,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
@@ -627,7 +627,7 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > used in the WHERE clause and columns found in GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+4. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -244,4 +244,4 @@ Now that you have set up monitoring for your containerized application, try the 
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics.
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

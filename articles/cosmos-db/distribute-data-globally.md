@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
 # How to distribute data globally with Azure Cosmos DB
 Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey global distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
+[Azure Cosmos DB](../cosmos-db/introduction.md) is 21Vianet's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey global distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
 <!-- Not Available on Graph -->
 
 **A single Azure Cosmos DB collection partitioned and distributed across multiple Azure regions**
@@ -87,7 +87,7 @@ Currently the automatic and manual failover capabilities are exposed at the gran
 ### <a id="MultiHomingAPIs"></a>Multi-homing APIs in Azure Cosmos DB
 Azure Cosmos DB allows you to interact with the database using either logical (region agnostic) or physical (region-specific) endpoints. Using logical endpoints ensures that the application can transparently be multi-homed in case of failover. The latter, physical endpoints, provide fine-grained control to the application to redirect reads and writes to specific regions.
 
-You can find information on how to configure read preferences for the [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in their respective linked articles.
+You can find information on how to configure read preferences for the [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md), and [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) in their respective linked articles.
 <!-- Not Available [Graph API](../cosmos-db/tutorial-global-distribution-graph.md)-->
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
@@ -219,7 +219,7 @@ Azure Cosmos DB transparently exposes the throughput, latency, consistency and a
 ![Azure Cosmos DB customer-visible SLA metrics](./media/distribute-data-globally/customer-slas.png)
 
 ## <a id="Next Steps"></a>Next steps
-* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](tutorial-global-distribution-documentdb.md).
+* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](tutorial-global-distribution-sql-api.md).
 * To learn about how to implement multi-master architectures with Azure Cosmos DB, see [Multi-master database architectures with Azure Cosmos DB](multi-region-writers.md).
 * To learn more about how automatic and manual failovers work in Azure Cosmos DB, see [Regional Failovers in Azure Cosmos DB](regional-failover.md).
 
@@ -234,4 +234,4 @@ Azure Cosmos DB transparently exposes the throughput, latency, consistency and a
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
 9. [Azure Cosmos DB SLA](https://www.azure.cn/support/sla/cosmos-db/)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

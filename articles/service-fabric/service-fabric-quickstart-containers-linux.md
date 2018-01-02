@@ -10,12 +10,13 @@ editor: ''
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/05/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 
@@ -148,4 +149,4 @@ In this quickstart, you learned how to:
 [containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
 [containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

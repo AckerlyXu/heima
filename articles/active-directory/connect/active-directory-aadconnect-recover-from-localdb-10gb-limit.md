@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 
 ---
@@ -35,7 +35,7 @@ This section provides the steps to reclaim DB space required for Azure AD Connec
 3. [Delete run history data](#delete-run-history-data)
 4. [Shorten retention period for run history data](#shorten-retention-period-for-run-history-data)
 
-### Determine the Synchronization Service status
+### Determine the Synchronization Service status <a name="determine-the-synchronization-service-status"</a>
 First, determine whether the Synchronization Service is still running or not:
 
 1. Log in to your Azure AD Connect server as administrator.
@@ -50,7 +50,7 @@ history data](#delete-run-history-data) step.
 
 5. If it is not running, try to start the service. If the service starts successfully, skip [Shrink the database](#shrink-the-database) step and go to [Delete run history data](#delete-run-history-data) step. Otherwise, continue with [Shrink the database](#shrink-the-database) step.
 
-### Shrink the database
+### Shrink the database <a name="shrink-the-database"></a>
 Use the Shrink operation to free up enough DB space to start the Synchronization Service. It frees up DB space by removing whitespaces in the database. This step is best-effort as it is not guaranteed that you can always recover space. To learn more about Shrink operation, read this article [Shrink a database](https://msdn.microsoft.com/library/ms189035.aspx).
 
 > [!IMPORTANT]
@@ -62,11 +62,11 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 - The Sync Service account that is used as the operating context of Azure AD Connect Synchronization Service.
 - The local group ADSyncAdmins that was created during installation.
 
-1. Back up the database by copying **ADSync.mdf** and **ADSync_log.ldf** files located under `%ProgramFiles%\program files\Azure AD Sync\Data` to a safe location.
+1. Back up the database by copying **ADSync.mdf** and **ADSync_log.ldf** files located under `%ProgramFiles%\Azure AD Sync\Data` to a safe location.
 
 2. Start a new PowerShell session.
 
-3. Navigate to folder `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Navigate to folder `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
 
@@ -74,7 +74,7 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 
 6. If the operation is successful, try to start the Synchronization Service again. If you can start the Synchronization Service, go to [Delete run history data](#delete-run-history-data) step. If not, contact Support.
 
-### Delete run history data
+### Delete run history data <a name="delete-run-history-data"></a>
 By default, Azure AD Connect retains up to seven days’ worth of run history data. In this step, we delete the run history data to reclaim DB space so that Azure AD Connect Synchronization Service can start syncing again.
 
 1.	Start **Synchronization Service Manager** by going to START → Synchronization Service.
@@ -85,7 +85,7 @@ By default, Azure AD Connect retains up to seven days’ worth of run history da
 
 4.	You can either choose **Clear all runs** or **Clear runs before… <date>** option. It is recommended that you start by clearing run history data that are older than two days. If you continue to run into DB size issue, then choose the **Clear all runs** option.
 
-### Shorten retention period for run history data
+### Shorten retention period for run history data <a name="shorten-retention-period-for-run-history-data"></a>
 This step is to reduce the likelihood of running into the 10-GB limit issue after multiple sync cycles.
 
 1. Open a new PowerShell session.
@@ -96,10 +96,10 @@ This step is to reduce the likelihood of running into the 10-GB limit issue afte
 
 ## Long-term solution - Migrate to full SQL
 In general, the issue is indicative that 10-GB database size is no longer sufficient for Azure AD Connect to synchronize your on-premises Active Directory to Azure AD. It is recommended that you switch to using the full version of SQL server. You cannot directly replace the LocalDB of an existing Azure AD Connect deployment with the database of the full version of SQL. Instead, you must deploy a new Azure AD Connect server with the full version of SQL. It is recommended that you do a swing migration where the new Azure AD Connect server (with SQL DB) is deployed as a staging server, next to the existing Azure AD Connect server (with LocalDB). 
-- For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-- For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
+- For instruction on how to configure remote SQL with Azure AD Connect, refer to article [Custom installation of Azure AD Connect](/active-directory/connect/active-directory-aadconnect-get-started-custom).
+- For instructions on swing migration for Azure AD Connect upgrade, refer to article [Azure AD Connect: Upgrade from a previous version to the latest](/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!--Update_Description: update metadata properties -->
+<!--Update_Description: wording update -->

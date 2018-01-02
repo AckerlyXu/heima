@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/23/2017
-ms.date: 10/30/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 
 ---
@@ -50,8 +50,8 @@ There are some things that VNet Integration does not support including:
 ### Getting started
 Here are some things to keep in mind before connecting your web app to a virtual network:
 
-* VNET Integration only works with apps in a **Standard** or **Premium** pricing plan.  If you enable the feature and then scale your App Service Plan to an unsupported pricing plan your apps will lose their connections to the VNETs they are using.  
-* If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app.  You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing.
+* VNET Integration only works with apps in a **Standard** or **Premium** pricing plan.  If you enable the feature and then scale your App Service Plan to an unsupported pricing plan your apps lose their connections to the VNETs they are using.  
+* If your target virtual network already exists, it must have point-to-site VPN enabled with a Dynamic routing gateway before it can be connected to an app. If your gateway is configured with Static routing, you cannot enable point-to-site Virtual Private Network (VPN).
 * The VNET must be in the same subscription as your App Service Plan(ASP).  
 * The apps that integrate with a VNet use the DNS that is specified for that VNet.
 * By default your integrating apps only route traffic into your VNet based on the routes that are defined in your VNet. 
@@ -65,7 +65,7 @@ You have the option to connect your app to a new or existing virtual network. If
 > 
 > 
 
-To enable VNET Integration open your app Settings and then select Networking.  The UI that opens up offers only one networking choice in Azure China.
+To enable VNET Integration open your app Settings and then select Networking.  
 
 If your app is not in the correct pricing plan, the UI enables you to scale your plan to a higher pricing plan of your choice.
 
@@ -131,8 +131,8 @@ Under the covers this feature builds on top of Point-to-Site VPN technology to c
 
 If you haven't configured a DNS server with your virtual network, your app will need to use IP addresses to reach resource in the VNet. While using IP addresses, remember that the major benefit of this feature is that it enables you to use the private addresses within your private network. If you set your app up to use public IP addresses for one of your VMs, then you aren't using the VNet Integration feature and are communicating over the internet.
 
-## Managing the VNET Integrations
-The ability to connect and disconnect to a VNET is at an app level.  Operations that can affect the VNET Integration across multiple apps are at an ASP level.  From the UI that is shown at the app level you can get  details on your VNET.  Most of the same information is also shown at the ASP level.  
+## Managing the VNet Integrations
+The ability to connect and disconnect to a VNet is at an app level. Operations that can affect the VNet Integration across multiple apps are at an ASP level. From the UI that is shown at the app level, you can get details on your VNet. Most of the same information is also shown at the ASP level. 
 
 ![][5]
 
@@ -177,7 +177,7 @@ If those certificates or network information is changed, then you need to click 
 One of the benefits of the VNet Integration feature is that if your VNet is connected to your on-premises network with a Site to Site VPN then your apps can have access to your on-premises resources from your app. For this to work though you may need to update your on-premises VPN gateway with the routes for your Point to Site IP range. When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN. If you add the Point to Site VPN after you create your Site to Site VPN, then you need to update the routes manually. Details on how to do that vary per gateway and are not described here. 
 
 > [!NOTE]
-> The VNET Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in [coexistence mode][VPNERCoex] it will not work.
+> The VNET Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in [coexistence mode][VPNERCoex] the vNet Integration does not work.
 > 
 > 
 
@@ -256,6 +256,9 @@ Now if your VNET hosted VM can reach your on-premises system but your app can't 
 * your on-premises firewalls are blocking traffic from your Point to Site IP range
 * you have a User Defined Route(UDR) in your VNET that prevents your Point to Site based traffic from reaching your on-premises network
 
+## PowerShell automation
+
+You can integrate App Service with an Azure Virtual Network using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
 [2]: ./media/web-sites-integrate-with-vnet/vnetint-existingvnet.png
@@ -267,13 +270,12 @@ Now if your VNET hosted VM can reach your on-premises system but your app can't 
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
 
 <!--Links-->
-[VNETOverview]: https://www.azure.cn/documentation/articles/virtual-networks-overview/ 
+[VNETOverview]: ../virtual-network/virtual-networks-overview.md
 [AzurePortal]: http://portal.azure.cn/
 [ASPricing]: https://www.azure.cn/pricing/details/app-service/
 [VNETPricing]: https://www.azure.cn/pricing/details/vpn-gateway/
 [DataPricing]: https://www.azure.cn/pricing/details/data-transfer/
 [V2VNETP2S]: https://www.azure.cn/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
-[IntPowershell]: https://www.azure.cn/documentation/articles/app-service-vnet-integration-powershell/
 [V2VNETPortal]: /vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
 [VPNERCoex]: /expressroute/expressroute-howto-coexist-resource-manager
 

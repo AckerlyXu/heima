@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: yossib
+ms.reviewer: richagi
 
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/25/2017
-ms.date: 09/25/2017
+ms.date: 12/22/2017
 ms.author: v-junlch
 ---
 # How to get Azure Multi-Factor Authentication
@@ -35,6 +35,7 @@ The following table describes the differences between three versions of multi-fa
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |This version works exclusively with Office 365 applications and is managed from the Office 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
 | Multi-Factor Authentication for Azure Administrators | Global administrators of Azure tenants can enable two-step verification for their global admin accounts at no additional cost.|
+| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options for a range of cloud applications.|
 
 ## Feature comparison of versions
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
@@ -49,18 +50,10 @@ The following table provides a list of the features that are available in the va
 | Mobile app as a second factor |● |● |● |
 | Phone call as a second factor |● |● |● |
 | SMS as a second factor |● |● |● |
-| App passwords for clients that don't support MFA |● |● |● |
 | Admin control over verification methods |● |● |● |
 | PIN mode | | |● |
-| Fraud alert | | |● |
-| MFA Reports | | |● |
-| One-Time Bypass | | |● |
 | Custom greetings for phone calls | | |● |
 | Custom caller ID for phone calls | | |● |
-| Trusted IPs | | |● |
-| Remember MFA for trusted devices |● |● |● |
-| MFA SDK | | |● (Requires Multi-Factor Auth provider and full Azure subscription) |
-| MFA for on-premises applications | | |● |
 
 ## Next steps
 

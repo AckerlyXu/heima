@@ -13,9 +13,9 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 07/07/2017
+origin.date: 12/15/2017
 ms.author: v-yiso
-ms.date: 08/21/2017
+ms.date: 01/08/2018
 ---
 # Get started with Relay Hybrid Connections
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -73,4 +73,4 @@ Congratulations, you have created an end-to-end Hybrid Connections application.
 * [Create a namespace](./relay-create-namespace-portal.md)
 * [Get started with Node](./relay-hybrid-connections-node-get-started.md)
 
-<!--Update_Description:update meta properties and wording-->
+<!--Update_Description:update meta properties only-->
