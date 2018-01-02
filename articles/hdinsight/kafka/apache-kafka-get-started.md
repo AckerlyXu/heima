@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/07/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 ---
 # Start with Apache Kafka on HDInsight
@@ -31,7 +31,7 @@ Learn how to create and use an [Apache Kafka](https://kafka.apache.org) cluster 
 
 Use the following steps to create a Kafka on HDInsight cluster:
 
-1. From the [Azure portal](https://portal.azure.cn), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+1. From the [Azure portal](https://portal.azure.cn), select **+ NEW**, **Data + Analytics**, and then select **HDInsight**.
 
     ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -165,7 +165,7 @@ The output of this command lists Kafka topics, which contains the **test** topic
 
 ## Produce and consume records
 
-Kafka stores *records* in topics. Records are produced by *producers*, and consumed by *consumers*. Producers retrieve records from Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker.
+Kafka stores *records* in topics. Records are produced by *producers*, and consumed by *consumers*. Producers produce records to Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker.
 
 Use the following steps to store records into the test topic you created earlier, and then read them using a consumer:
 
