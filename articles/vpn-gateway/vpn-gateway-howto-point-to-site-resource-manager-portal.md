@@ -15,13 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/07/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
 # Configure a Point-to-Site connection to a VNet using native Azure certificate authentication: Azure portal
 
-This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using PowerShell. This configuration uses certificates for authentication. In this configuration, the Azure VPN gateway performs validation of the certificate, rather than a RADIUS server. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to create a VNet with a Point-to-Site connection in the Resource Manager deployment model using Azure portal. This configuration uses certificates for authentication. In this configuration, the Azure VPN gateway performs validation of the certificate, rather than a RADIUS server. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -235,4 +235,4 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 ## Next steps
 Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update metedata properties -->
