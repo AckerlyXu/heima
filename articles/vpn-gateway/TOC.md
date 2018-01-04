@@ -1,6 +1,7 @@
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
+## [Subscription and service limits](../azure-subscription-service-limits.md)
 
 # Get Started
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
@@ -74,6 +75,7 @@
 ## Configure 3rd party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)

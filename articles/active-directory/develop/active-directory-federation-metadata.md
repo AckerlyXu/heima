@@ -1,10 +1,10 @@
 ---
-title: Azure AD Federation Metadata | Azure
+title: Azure AD Federation Metadata | Microsoft Docs
 description: This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
-manager: mbaldwin
+author: dstrockis
+manager: mtillman
 editor: ''
 
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
@@ -14,60 +14,55 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/07/2017
-ms.date: 02/07/2017
+ms.date: 01/03/2018
 ms.author: v-junlch
+ms.custom: aaddev
+
 ---
-
 # Federation metadata
-
-Azure Active Directory (Azure AD) publishes a federation metadata document for services that configured to accept the security tokens that Azure AD issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+Azure Active Directory (Azure AD) publishes a federation metadata document for services that is configured to accept the security tokens that Azure AD issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
 ## Tenant-specific and Tenant-independent metadata endpoints
-
 Azure AD publishes tenant-specific and tenant-independent endpoints.
 
 Tenant-specific endpoints are designed for a particular tenant. The tenant-specific federation metadata includes information about the tenant, including tenant-specific issuer and endpoint information. Applications that restrict access to a single tenant use tenant-specific endpoints.
 
-Tenant-independent endpoints provide information that is common to all Azure AD tenants. This information applies to tenants hosted at *login.microsoftonline.com* and is shared across tenants. Tenant-independent endpoints are recommended for multi-tenant applications, since they are not associated with any particular tenant.
+Tenant-independent endpoints provide information that is common to all Azure AD tenants. This information applies to tenants hosted at *login.partner.microsoftonline.cn* and is shared across tenants. Tenant-independent endpoints are recommended for multi-tenant applications, since they are not associated with any particular tenant.
 
 ## Federation metadata endpoints
-
-Azure AD publishes federation metadata at `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
+Azure AD publishes federation metadata at `https://login.partner.microsoftonline.cn/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
 For **tenant-specific endpoints**, the `TenantDomainName` can be one of the following types:
 
 - A registered domain name of an Azure AD tenant, such as: `contoso.partner.onmschina.cn`.
 - The immutable tenant ID of the domain, such as `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-For **tenant-independent endpoints**, the `TenantDomainName` is `common`. This document lists only the Federation Metadata elements that are common to all Azure AD tenants that are hosted at login.microsoftonline.com.
+For **tenant-independent endpoints**, the `TenantDomainName` is `common`. This document lists only the Federation Metadata elements that are common to all Azure AD tenants that are hosted at login.partner.microsoftonline.cn.
 
-For example, a tenant-specific endpoint might be `https:// login.microsoftonline.com/contoso.partner.onmschina.cn/FederationMetadata/2007-06/FederationMetadata.xml`. The tenant-independent endpoint is [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). You can view the federation metadata document by typing this URL in a browser.
+For example, a tenant-specific endpoint might be `https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/FederationMetadata/2007-06/FederationMetadata.xml`. The tenant-independent endpoint is [https://login.partner.microsoftonline.cn/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.partner.microsoftonline.cn/common/FederationMetadata/2007-06/FederationMetadata.xml). You can view the federation metadata document by typing this URL in a browser.
 
 ## Contents of federation Metadata
-
 The following section provides information needed by services that consume the tokens issued by Azure AD.
 
 ### Entity ID
-
 The `EntityDescriptor` element contains an `EntityID` attribute. The value of the `EntityID` attribute represents the issuer, that is, the security token service (STS) that issued the token. It is important to validate the issuer when you receive a token.
 
 The following metadata shows a sample tenant-specific `EntityDescriptor` element with an `EntityID` element.
 
 ```
-<EntityDescriptor 
-xmlns="urn:oasis:names:tc:SAML:2.0:metadata" 
-ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b" 
+<EntityDescriptor
+xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.chinacloudapi.cn/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-
 You can replace the tenant ID in the tenant-independent endpoint with your tenant ID to create a tenant-specific `EntityID` value. The resulting value will be the same as the token issuer. The strategy allows a multi-tenant application to validate the issuer for a given tenant.
 
 The following metadata shows a sample tenant-independent `EntityID` element. Please note, that the `{tenant}` is a literal, not a placeholder.
 
 ```
-<EntityDescriptor 
-xmlns="urn:oasis:names:tc:SAML:2.0:metadata" 
-ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd" 
+<EntityDescriptor
+xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd"
 entityID="https://sts.chinacloudapi.cn/{tenant}/">
 ```
 
@@ -88,7 +83,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </X509Data>
 </KeyInfo>
 </KeyDescriptor>
-```
+  ```
 
 The `KeyDescriptor` element appears in two places in the federation metadata document; in the WS-Federation-specific section and the SAML-specific section. The certificates published in both sections will be the same.
 
@@ -107,11 +102,9 @@ The following metadata shows a sample `IDPSSODescriptor` element.
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
-
 There are no differences in the format of tenant-specific and tenant-independent certificates.
 
 ### WS-Federation endpoint URL
-
 The federation metadata includes the URL that is Azure AD uses for single sign-in and single sign-out in WS-Federation protocol. This endpoint appears in the `PassiveRequestorEndpoint` element.
 
 The following metadata shows a sample `PassiveRequestorEndpoint` element for a tenant-specific endpoint.
@@ -120,26 +113,24 @@ The following metadata shows a sample `PassiveRequestorEndpoint` element for a t
 <fed:PassiveRequestorEndpoint>
 <EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
 <Address>
-    https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
+https://login.partner.microsoftonline.cn/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </Address>
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-
 For the tenant-independent endpoint, the WS-Federation URL appears in the WS-Federation endpoint, as shown in the following sample.
 
 ```
 <fed:PassiveRequestorEndpoint>
 <EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
 <Address>
-https://login.microsoftonline.com/common/wsfed
+https://login.partner.microsoftonline.cn/common/wsfed
 </Address>
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
 
 ### SAML protocol endpoint URL
-
 The federation metadata includes the URL that Azure AD uses for single sign-in and single sign-out in SAML 2.0 protocol. These endpoints appear in the `IDPSSODescriptor` element.
 
 The sign-in and sign-out URLs appear in the `SingleSignOnService` and `SingleLogoutService` elements.
@@ -148,10 +139,10 @@ The following metadata shows a sample `PassiveResistorEndpoint` for a tenant-spe
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
- …
-<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/contoso.partner.onmschina.cn/saml2" />
-<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/contoso.partner.onmschina.cn/saml2" />
-</IDPSSODescriptor>
+…
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn/saml2" />
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.partner.microsoftonline.cn/contoso.partner.onmschina.cn /saml2" />
+  </IDPSSODescriptor>
 ```
 
 Similarly the endpoints for the common SAML 2.0 protocol endpoints are published in the tenant-independent federation metadata, as shown in the following sample.
@@ -159,7 +150,8 @@ Similarly the endpoints for the common SAML 2.0 protocol endpoints are published
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 …
-    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.partner.microsoftonline.cn/common/saml2" />
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.partner.microsoftonline.cn/common/saml2" />
   </IDPSSODescriptor>
 ```
+<!--Update_Description: wording update -->

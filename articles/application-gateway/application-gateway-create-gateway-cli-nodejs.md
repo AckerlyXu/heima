@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 09/13/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -35,7 +35,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 
 ## Prerequisite: Install the Azure CLI
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../xplat-cli-install.md) and you need to [log on to Azure](../xplat-cli-connect.md). 
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../xplat-cli-install.md) and you need to [log on to Azure](/cli/authenticate-azure-cli). 
 
 > [!NOTE]
 > If you don't have an Azure account, you need one. Go sign up for a [trial here](../active-directory/sign-up-organization.md).
@@ -68,6 +68,8 @@ azure login -e AzureChinaCloud
 
 Once you type the preceding example, a code is provided. Navigate to https://aka.ms/deviceloginchina in a browser to continue the login process.
 
+![cmd showing device login][1]
+
 In the browser, enter the code you received. You are redirected to a sign-in page.
 
 ![browser to enter code][2]
@@ -89,7 +91,7 @@ Before creating the application gateway, a resource group is created to contain 
 ```azurecli
 azure group create \
 --name ContosoRG \
---location chinaeast
+--location chinanorth
 ```
 
 ## Create a virtual network
@@ -101,7 +103,7 @@ azure network vnet create \
 --name ContosoVNET \
 --address-prefixes 10.0.0.0/16 \
 --resource-group ContosoRG \
---location chinaeast
+--location chinanorth
 ```
 
 ## Create a subnet
@@ -124,7 +126,7 @@ The IP addresses used for the backend are the IP addresses for your backend serv
 ```azurecli
 azure network application-gateway create \
 --name AdatumAppGateway \
---location chinaeast \
+--location chinanorth \
 --resource-group ContosoRG \
 --vnet-name ContosoVNET \
 --subnet-name subnet01 \

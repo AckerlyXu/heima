@@ -1,10 +1,10 @@
 ---
-title: Upgrade an Azure virtual machine scale set| Azure
+title: Upgrade an Azure virtual machine scale set| Microsoft Docs
 description: Upgrade an Azure virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gbowerman
-manager: timlt
+author: alexchen2016
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 12/29/2017
+ms.author: v-junlch
 
 ---
 # Upgrade a virtual machine scale set
@@ -24,12 +24,12 @@ This article describes how you can roll out an OS update to an Azure virtual mac
 
 To avoid ambiguity, let's distinguish four types of OS update you might want to perform:
 
-* Changing the version or SKU of a platform image. For example, changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest SKU to 16.04.0-LTS/latest. This scenario is covered in this article.
-* Changing the URI that points to a new version of a custom image you built (**properties** > **virtualMachineProfile** > **storageProfile** > **osDisk** > **image** > **uri**). This scenario is covered in this article.
-* Changing the image reference of a scale set that was created using Azure Managed Disks.
-* Patching the OS from within a virtual machine (examples of this include installing a security patch and running Windows Update). This scenario is supported but not covered in this article.
+- Changing the version or SKU of a platform image. For example, changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest SKU to 16.04.0-LTS/latest. This scenario is covered in this article.
+- Changing the URI that points to a new version of a custom image you built (**properties** > **virtualMachineProfile** > **storageProfile** > **osDisk** > **image** > **uri**). This scenario is covered in this article.
+- Changing the image reference of a scale set that was created using Azure Managed Disks.
+- Patching the OS from within a virtual machine (examples of this include installing a security patch and running Windows Update). This scenario is supported but not covered in this article.
 
-Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://www.azure.cn/home/features/service-fabric/) cluster are not covered here.
+Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](/service-fabric/) cluster are not covered here. See [Patch Windows OS in your Service Fabric cluster](/service-fabric/service-fabric-patch-orchestration-application) for more information about patching Service Fabric.
 
 The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 
@@ -96,3 +96,6 @@ The following screenshot shows a model of a scale set for Ubuntu 14.04-2LTS vers
 After you click **Upgrade** and then **Get Details**, virtual machines in UD 0 start to update.
 
 ![Vmsseditor showing update in progress](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
+
+
+<!--Update_Description: link update -->

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/03/2017
-ms.date: 11/07/2017
+origin.date: 12/04/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -86,9 +86,6 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Unlike S2S connections, P2S connections do not require an on-premises public-facing IP address or a VPN device. P2S connections can be used with S2S connections through the same VPN gateway, as long as all the configuration requirements for both connections are compatible. For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
 
->[!NOTE]
->P2S RADIUS authentication and IKEv2 are both currently in Preview.
->
 
 ![Azure VPN Gateway Point-to-Site connection example](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
@@ -122,7 +119,7 @@ You may be able to use VNet peering to create your connection, as long as your v
 
 ## <a name="ExpressRoute"></a>ExpressRoute (private connection)
 
-Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+Azure ExpressRoute lets you extend your on-premises networks into the Azure cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Azure cloud services, such as Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
 
 ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
 
@@ -154,6 +151,7 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 
 - Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](vpn-gateway-plan-design.md).
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+- View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).
+- Learn about some of the other key [networking capabilities](../virtual-network/virtual-networks-overview.md) of Azure.
 
 <!--Update_Description: wording update-->

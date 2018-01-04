@@ -1,10 +1,10 @@
 ---
-title: Azure AD .NET web API Getting Started | Azure
+title: Azure AD .NET web API Getting Started | Microsoft Docs
 description: How to build a .NET MVC web API that integrates with Azure AD for authentication and authorization.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/13/2017
+ms.date: 01/02/2018
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Help protect a web API by using bearer tokens from Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -35,20 +36,26 @@ To build the To Do List API, you first need to:
 2. Set up the app to use the OWIN authentication pipeline.
 3. Configure a client application to call the web API.
 
-To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You also need an Azure AD tenant in which to register your application. If you don't have one already, [learn how to get one](./active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You also need an Azure AD tenant in which to register your application. If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
 ## Step 1: Register an application with Azure AD
 To help secure your application, you first need to create an application in your tenant and provide Azure AD with a few key pieces of information.
 
-- Sign into the [Azure Management Portal](https://manage.windowsazure.cn)
-- In the left hand nav, click on **Active Directory**
-- Select a tenant in which to register the application.
-- Click the **Applications** tab, and click **Add** in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **Name** of the application will describe your application to end-users.  Enter "To Do List Service".
-    - The **Redirect Uri** is a scheme and string combination that Azure AD would use to return any tokens your app requested. Enter `https://localhost:44321/` for this value.
-- Once you’ve completed registration, navigate to **Configure** tab and locate the **App ID URI** field.  Enter a tenant-specific identifier for this value, e.g. `https://contoso.partner.onmschina.cn/TodoListService`
-- Save the configuration.  Leave the portal open - you'll also need to register your client application shortly.
+1. Sign in to the [Azure portal](https://portal.azure.cn).
+
+2. On the top bar, click your account. In the **Directory** list, choose the Azure AD tenant where you want to register your application.
+
+3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+
+4. Click **App registrations**, and then select **New application registration**.
+
+5. Create a new **Web Application and/or Web API**.
+    - **Name** describes your application to users. Enter **To Do List Service**.
+    - **Sign-on URL** is the URL where user can sign in and use you app. Enter `https://localhost:44321/` for this value.
+
+6. From the **Settings** -> **Properties** page for your application, update the App ID URI. Enter a tenant-specific identifier. For example, enter `https://contoso.partner.onmschina.cn/TodoListService`.
+
+7. Save the configuration. Leave the portal open, because you'll also need to register your client application shortly.
 
 ## Step 2: Set up the app to use the OWIN authentication pipeline
 To validate incoming requests and tokens, you need to set up your application to communicate with Azure AD.
@@ -116,24 +123,27 @@ To validate incoming requests and tokens, you need to set up your application to
     ```
 
 7. Open the `web.config` file in the root of the TodoListService project, and enter your configuration values in the `<appSettings>` section.
-  - `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.partner.onmschina.cn.
-  - `ida:Audience` is the App ID URI of the application that you entered in the Azure portal.
+    - `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.partner.onmschina.cn.
+    - `ida:Audience` is the App ID URI of the application that you entered in the Azure portal.
 
 ## Step 3: Configure a client application and run the service
 Before you can see the To Do List Service in action, you need to configure the To Do List client so it can get tokens from Azure AD and make calls to the service.
 
-- Navigate back to the [Azure Management Portal](https://manage.windowsazure.cn)
-- Create a new application in your Azure AD tenant, and select **Native Client Application** in the resulting prompt.
-    - The **Name** of the application will describe your application to end-users
+1. Go back to the [Azure portal](https://portal.azure.cn).
+
+2. Create a new **Native** application in your Azure AD tenant.
+    - **Name** describes your application to users.
     - Enter `http://TodoListClient/` for the **Redirect Uri** value.
-- Once you’ve completed registration, AAD will assign your app a unique **Client Id**. You’ll need this value in the next steps, so copy it from the Configure tab.
-- Also in **Configure** tab, locate the "Permissions to Other Applications" section. Click "Add Application." Select "All Apps" in the "Show" dropdown, and click the upper check mark. Locate & click on your To Do List Service, and click the bottom check mark to add the application. Select "Access To Do List Service" from the "Delegated Permissions" dropdown, and save the configuration.
 
-- In Visual Studio, open `App.config` in the TodoListClient project and enter your configuration values in the `<appSettings>` section.
+3. After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next steps, so copy it from the application page.
 
-  - The `ida:Tenant` is the name of your Azure AD tenant, e.g. "contoso.partner.onmschina.cn".
-  - Your `ida:ClientId` app ID you copied from the Azure Portal.
-  - Your `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure Portal.
+4. From the **Settings** page, select **Required Permissions**, and then select **Add**. Locate and select the To Do List Service, add the **Access TodoListService** permission under **Delegated Permissions**, and then click **Done**.
+
+5. In Visual Studio, open `App.config` in the TodoListClient project, and then enter your configuration values in the `<appSettings>` section.
+
+    - `ida:Tenant` is the name of your Azure AD tenant--for example, contoso.partner.onmschina.cn.
+    - `ida:ClientId` is the app ID that you copied from the Azure portal.
+    - `todo:TodoListResourceId` is the App ID URI of the To Do List Service application that you entered in the Azure portal.
 
 ## Next steps
 Finally, clean, build, and run each project. If you haven’t already, now is the time to create a new user in your tenant with a *.partner.onmschina.cn domain. Sign in to the To Do List client with that user, and add some tasks to the user's to-do list.
@@ -141,3 +151,5 @@ Finally, clean, build, and run each project. If you haven’t already, now is th
 For reference, the completed sample (without your configuration values) is available in [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). You can now move on to more identity scenarios.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+
+<!--Update_Description: wording update -->

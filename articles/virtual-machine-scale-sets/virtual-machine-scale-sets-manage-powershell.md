@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Virtual Machine Scale Sets with Azure PowerShell | Microsoft Docs
 description: Common Azure PowerShell cmdlets to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 12/06/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -58,7 +58,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
 If takes a few minutes to update the capacity of your scale set. If you decrease the capacity of a scale set, the VMs with the highest instance IDs are removed first.
@@ -109,3 +109,4 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ## Next steps
 Other common tasks for scale sets include how to [deploy an application](virtual-machine-scale-sets-deploy-app.md), and [upgrade VM instances](virtual-machine-scale-sets-upgrade-scale-set.md). You can also use Azure PowerShell to [configure auto-scale rules](virtual-machine-scale-sets-autoscale-overview.md).
 
+<!--Update_Description: code update -->
