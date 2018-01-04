@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/17/2017
-ms.date: 09/20/2017
+ms.date: 01/01/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
 
 ## Create a report with Azure PowerShell
-To create an access change history report in PowerShell, use the `Get-AzureRMAuthorizationChangeLog` command.
+To create an access change history report in PowerShell, use the [Get-AzureRMAuthorizationChangeLog](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) command.
 
 When you call this command, you can specify which property of the assignments you want listed, including the following:
 

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/30/2017
-ms.date: 11/13/2017
+origin.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -104,4 +104,4 @@ To learn more about Service Fabric:
 * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md)
 * [Application scenarios](service-fabric-application-scenarios.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

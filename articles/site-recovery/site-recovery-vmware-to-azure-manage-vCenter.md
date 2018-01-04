@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-origin.date: 06/29/2017
-ms.date: 08/28/2017
+origin.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -25,7 +25,7 @@ This article discusses the various Site Recovery operations that can be performe
 
 **Support VMware vCenter and VMware vSphere ESX Host** | **Details** |
 |--- | --- |
-|**On-premises VMware servers** | One or more VMware vSphere servers, running 6.0, 5.5, 5.1 with latest updates. Servers should be located in the same network as the configuration server (or separate process server).<br/><br/> We recommend a vCenter server to manage hosts, running 6.0 or 5.5 with the latest updates. Only features that are available in 5.5 are supported when you deploy version 6.0.|
+|**On-premises VMware servers** | One or more VMware vSphere servers, running 6.5,6.0, 5.5 with latest updates. Servers should be located in the same network as the configuration server (or separate process server).<br/><br/> We recommend a vCenter server to manage hosts, running 6.5,6.0 or 5.5 with the latest updates. Only features that are available in 5.5 are supported when you deploy version 6.0.|
 
 ## Prepare an account for automatic discovery
 Site Recovery needs access to VMware for the process server to automatically discover virtual machines, and for failover and failback of virtual machines.
@@ -44,11 +44,11 @@ Site Recovery needs access to VMware for the process server to automatically dis
 1. Login into the Configuration server and launch the cspsconfigtool.exe using the shortcut placed on the Desktop.
 2. Click **Add Account** on the **Manage Account** tab.
 
-  ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
+    ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
 3. Provide the account details and click OK to add the account. The account should have the privileges listed in the [Prepare an account for automatic discovery](#prepare-an-account-for-automatic-discovery) section.
 
-  >[!NOTE]
-  It takes about 15 minutes for the account information to be synced up with the Site Recovery service.
+    > [!NOTE]
+    > It takes about 15 minutes for the account information to be synced up with the Site Recovery service.
 
 ## Associate a VMware vCenter/ VMware vSphere ESX host (Add vCenter)
 * On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
@@ -61,21 +61,23 @@ Site Recovery needs access to VMware for the process server to automatically dis
 1. Login into the Configuration server and launch the cspsconfigtool.exe
 2. Click **Add Account** on the **Manage Account** tab.
 
-  ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
+    ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
 3. Provide the new account details and click OK to add the account. The account should have the privileges listed in the [Prepare an account for automatic discovery](#prepare-an-account-for-automatic-discovery) section.
 4. On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
 5. In the Configuration server's details page click the **Refresh Server** button.
 6. Once the refresh server job completes, select the vCenter Server to open the vCenter Summary page.
 7. Select the newly added account in the **vCenter server/vSphere host account** field and click the **Save** button.
 
-  ![modify-account](./media/site-recovery-vmware-to-azure-manage-vcenter/modify-vcente-creds.png)
+    ![modify-account](./media/site-recovery-vmware-to-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## Delete a vCenter in Azure Site Recovery
 1. On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
 2. In the Configuration server's details page select the vCenter Server to open the vCenter Summary page.
 3. Click on the **Delete** button to delete the vCenter
 
-  ![delete-account](./media/site-recovery-vmware-to-azure-manage-vcenter/delete-vcenter.png)
+    ![delete-account](./media/site-recovery-vmware-to-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
-If you need to modify the vCenters IP Address/FQDN, Port details then you need to delete the vCenter Server and add it back again.
+> If you need to modify the vCenters IP Address/FQDN, Port details then you need to delete the vCenter Server and add it back again.
+
+<!-- Update_Description: update meta properties, wording update  -->

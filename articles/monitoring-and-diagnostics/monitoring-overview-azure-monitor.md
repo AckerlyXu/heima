@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 01/08/2018
 ---
 
 # Overview of Azure Monitor
@@ -30,7 +30,7 @@ Microsoft ships additional products and services that provide additional monitor
 
 Azure Monitor has a landing page that helps users: 
 - Understand the monitoring capabilities offered by Azure.
-- Discover, configure, and on-board Azure¡¯s platform and premium monitoring capabilities.
+- Discover, configure, and on-board Azure's platform and premium monitoring capabilities.
 
 While the Azure Monitor service is released, the landing overview page is in preview. 
 
@@ -80,7 +80,7 @@ You can search the Activity Log (previously called Operational or Audit Logs) fo
 
 
 ### Resource - Metrics and Diagnostics Logs
-Collectable metrics and diagnostics logs vary based on the resource type. For example, Web Apps provides statistics on the Disk IO and Percent CPU. Those metrics don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput.
+Collectable metrics and diagnostics logs vary based on the resource type. For example, Web Apps provides statistics on the Disk IO and Percent CPU. Those metrics don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput. A list of collectable metrics for each resource is available at [supported metrics](monitoring-supported-metrics.md). 
 
 ### Host and Guest VM metrics
 There is not necessarily a 1:1 mapping between your resource and a particular Host or Guest VM so metrics are not available.
@@ -105,7 +105,7 @@ Some monitoring data is already stored and available in Azure Monitor for a set 
 - Activity log entries are stored for 90 days. 
 - Diagnostics logs are not stored at all. 
 
-If you want to store data longer than the time periods listed above, you can use an Azure storage. Monitoring data is kept in your storage acccount based on a retention policy you set. You do have to pay for the space the data takes up in Azure storage. 
+If you want to store data longer than the time periods listed above, you can use an Azure storage. Monitoring data is kept in your storage account based on a retention policy you set. You do have to pay for the space the data takes up in Azure storage. 
 
 A few ways to use this data:
 

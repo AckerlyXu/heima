@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Active Directory architecture | Microsoft Docs
+title: Understand Azure Active Directory architecture | Azure
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/08/2017
-ms.date: 11/22/2017
-ms.author: v-junlch
+ms.date: 12/25/2017
+ms.author: v-nany
 
 ---
 # Understand Azure Active Directory architecture
-Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](/active-directory/active-directory-whatis)
+Azure Active Directory (Azure AD) enables you to securely manage access to Azure services and resources for your users. Included with Azure AD is a full suite of identity management capabilities. For information about Azure AD features, see [What is Azure Active Directory?](active-directory-whatis.md)
 
-With Azure AD, you can create and manage users, and enable permissions to allow and deny access to enterprise resources. For information about identity management, see [The fundamentals of Azure identity management](/active-directory/fundamentals-identity).
+With Azure AD, you can create and manage users and groups, and enable permissions to allow and deny access to enterprise resources. 
 
 ## Azure AD architecture
 Azure AD's geographically distributed architecture combines extensive monitoring, automated rerouting, failover, and recovery capabilities enable us to deliver enterprise-level availability and performance to our customers.
@@ -81,8 +81,8 @@ Azure AD’s replicas are stored in datacenters located throughout the world. Fo
 
 Azure AD operates across data centers with the following characteristics:
 
- - Authentication, Graph and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will failover automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy data centers.
- - For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple data centers. In case of a failure of an entire data center, traffic will be automatically routed to a different datacenter.
+ * Authentication, Graph and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will failover automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy data centers.
+ * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple data centers. In case of a failure of an entire data center, traffic will be automatically routed to a different datacenter.
  *	For *writes*, the directory will failover primary (master) replica across data centers via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two data centers.
 
 **Data consistency**

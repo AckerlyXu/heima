@@ -13,8 +13,8 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: 
 ---
@@ -32,7 +32,7 @@ This sample script uploads a new version of an existing application, and then up
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
 
 # Upload the latest bits of an application
 sfctl application upload --path ~/app_package_dir_2
@@ -49,4 +49,4 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 For more information, see the [Service Fabric CLI documentation](../service-fabric-cli.md).
 
 Additional Service Fabric CLI samples for Azure Service Fabric can be found in the [Service Fabric CLI samples](../samples-cli.md).
-<!--Update_Description: new articles on upgrade application with sfctl-->
+<!--Update_Description: update meta properties, wording update -->

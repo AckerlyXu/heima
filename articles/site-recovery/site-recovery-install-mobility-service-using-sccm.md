@@ -13,11 +13,10 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 07/31/2017
+origin.date: 11/29/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
-
 # Automate Mobility Service installation by using software deployment tools
 
 >[!IMPORTANT]
@@ -394,7 +393,7 @@ cd /tmp
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
-| **Parameter Name** | **Value** |
+| **Parameter name** | **Value** |
 |--|--|
 | Name | Install Azure Mobility Service (Linux) |
 | Command line | ./install_linux.sh |
@@ -425,6 +424,7 @@ cd /tmp
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
     ![Screenshot of Deploy Software wizard](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
 
@@ -464,4 +464,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ## Next steps
 You are now ready to [enable protection](/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) for your virtual machines.
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

@@ -10,12 +10,13 @@ editor: 'vturecek'
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 12/04/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 
@@ -34,7 +35,7 @@ Using this quickstart you learn how to:
 > * Deploy the container application to Azure
 
 ## Prerequisites
-* An Azure subscription (you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)).
+* An Azure subscription (you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial)).
 * A development computer running:
   * Visual Studio 2015 or Visual Studio 2017.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
@@ -191,7 +192,7 @@ In this quickstart, you learned how to:
 > * Deploy the container application to Azure
 
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-<!-- Not Available * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.-->
+* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 

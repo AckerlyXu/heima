@@ -3,7 +3,7 @@ title: Designing Highly Available Applications using Azure Read-Access Geo-Redun
 description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages. 
 services: storage
 documentationcenter: .net
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 09/06/2017
-ms.date: 10/30/2017
+origin.date: 12/11/2017
+ms.date: 01/01/2018
 ms.author: v-johch
 ---
 # Designing Highly Available Applications using RA-GRS
@@ -23,7 +23,7 @@ A common feature of cloud-based infrastructures like Azure Storage is that they 
 
 Azure Storage offers four choices for redundancy for data in your storage account:
 
-– LRS (Locally Refdundant Storage)
+– LRS (Locally Redundant Storage)
 - ZRS (Zone Redundant Storage) 
 - GRS (Geo-Redundant Storage)
 - RA-GRS (Read Access Geo-Redundant Storage). 

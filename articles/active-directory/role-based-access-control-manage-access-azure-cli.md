@@ -1,10 +1,11 @@
 ---
-title: Manage Role-Based Access Control (RBAC) with Azure CLI | Microsoft Docs
+title: Manage Role-Based Access Control (RBAC) with Azure CLI | Azure
 description: Learn how to manage Role-Based Access Control (RBAC) with the Azure command-line interface by listing roles and role actions and by assigning roles to the subscription and application scopes.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
+author: yunan2016
 manager: digimobile
+
 
 ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
@@ -13,8 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 08/22/2017
-ms.author: v-junlch
+ms.date: 1/1/2018
+ms.author: v-nany
+
 ms.reviewer: rqureshi
 ---
 # Manage Role-Based Access Control with the Azure command-line interface
@@ -23,20 +25,19 @@ ms.reviewer: rqureshi
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
+
 You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Manager API to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 Before you can use the Azure command-line interface (CLI) to manage RBAC, you must have the following prerequisites:
 
-- Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
-- Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../azure-resource-manager/xplat-cli-azure-resource-manager.md) for more details.
+* Azure CLI version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
+* Azure Resource Manager in Azure CLI. Go to [Using the Azure CLI with the Resource Manager](../xplat-cli-azure-resource-manager.md) for more details.
 
 ## List roles
 ### List all available roles
 To list all available roles, use:
 
-```
-    azure role list
-```
+        azure role list
 
 The following example shows the list of *all available roles*.
 
@@ -49,9 +50,7 @@ azure role list --json | jq '.[] | {"roleName":.properties.roleName, "descriptio
 ### List actions of a role
 To list the actions of a role, use:
 
-```
-azure role show "<role name>"
-```
+    azure role show "<role name>"
 
 The following example shows the actions of the *Contributor* and *Virtual Machine Contributor* roles.
 
@@ -67,9 +66,7 @@ azure role show "virtual machine contributor" --json | jq '.[] | .properties.per
 ### List role assignments effective on a resource group
 To list the role assignments that exist in a resource group, use:
 
-```
-azure role assignment list --resource-group <resource group name>
-```
+    azure role assignment list --resource-group <resource group name>
 
 The following example shows the role assignments in the *pharma-sales-projecforcast* group.
 
@@ -82,15 +79,11 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 ### List role assignments for a user
 To list the role assignments for a specific user and the assignments that are assigned to a user's groups, use:
 
-```
-azure role assignment list --signInName <user email>
-```
+    azure role assignment list --signInName <user email>
 
 You can also see role assignments that are inherited from groups by modifying the command:
 
-```
-azure role assignment list --expandPrincipalGroups --signInName <user email>
-```
+    azure role assignment list --expandPrincipalGroups --signInName <user email>
 
 The following example shows the role assignments that are granted to the *sameert@aaddemo.com* user. This includes roles that are assigned directly to the user and roles that are inherited from groups.
 
@@ -105,16 +98,12 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ## Grant access
 To grant access after you have identified the role that you want to assign, use:
 
-```
-azure role assignment create
-```
+    azure role assignment create
 
 ### Assign a role to group at the subscription scope
 To assign a role to a group at the subscription scope, use:
 
-```
-azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
-```
+    azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 The following example assigns the *Reader* role to *Christine Koch's Team* at the *subscription* scope.
 
@@ -123,9 +112,7 @@ The following example assigns the *Reader* role to *Christine Koch's Team* at th
 ### Assign a role to an application at the subscription scope
 To assign a role to an application at the subscription scope, use:
 
-```
-azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
-```
+    azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
 The following example grants the *Contributor* role to an *Azure AD* application on the selected subscription.
 
@@ -145,9 +132,7 @@ The following example grants the *Virtual Machine Contributor* role to *samert@a
 ### Assign a role to a group at the resource scope
 To assign a role to a group at the resource scope, use:
 
-```
-azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
-```
+    azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
 The following example grants the *Virtual Machine Contributor* role to an *Azure AD* group on a *subnet*.
 
@@ -156,9 +141,7 @@ The following example grants the *Virtual Machine Contributor* role to an *Azure
 ## Remove access
 To remove a role assignment, use:
 
-```
-azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
-```
+    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
 The following example removes the *Virtual Machine Contributor* role assignment from the *sammert@aaddemo.com* user on the *Pharma-Sales-ProjectForcast* resource group.
 The example then removes the role assignment from a group on the subscription.
@@ -168,9 +151,7 @@ The example then removes the role assignment from a group on the subscription.
 ## Create a custom role
 To create a custom role, use:
 
-```
-azure role create --inputfile <file path>
-```
+    azure role create --inputfile <file path>
 
 The following example creates a custom role called *Virtual Machine Operator*. This custom role grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and grants access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
@@ -179,11 +160,9 @@ The following example creates a custom role called *Virtual Machine Operator*. T
 ![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## Modify a custom role
-To modify a custom role, first use the `azure role show` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
+To modify a custom role, first use the `azure role list` command to retrieve role definition. Second, make the desired changes to the role definition file. Finally, use `azure role set` to save the modified role definition.
 
-```
-azure role set --inputfile <file path>
-```
+    azure role set --inputfile <file path>
 
 The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to the **Actions**, and an Azure subscription to the **AssignableScopes** of the Virtual Machine Operator custom role.
 
@@ -192,7 +171,7 @@ The following example adds the *Microsoft.Insights/diagnosticSettings/* operatio
 ![RBAC Azure command line - azure role set - screenshot](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## Delete a custom role
-To delete a custom role, first use the `azure role show` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
+To delete a custom role, first use the `azure role list` command to determine the **ID** of the role. Then, use the `azure role delete` command to delete the role by specifying the **ID**.
 
 The following example removes the *Virtual Machine Operator* custom role.
 

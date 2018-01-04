@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 12/18/2017
+ms.date: 01/01/2018
 ms.author: v-nany
 
 ---
@@ -25,7 +25,6 @@ ms.author: v-nany
 > [!div class="op_single_selector"]
 > * [Azure portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
 This article walks you through the steps to create your first DNS zone and record using the cross-platform Azure CLI 2.0, which is available for Windows, Mac and Linux. You can also perform these steps using the Azure portal or Azure PowerShell.

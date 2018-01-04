@@ -7,7 +7,7 @@ keywords:
 author: jeffgilb
 manager: femila
 
-origin.date: 05/01/2017
+origin.date: 07/05/2017
 
 ms.topic: article
 ms.prod:
@@ -25,7 +25,7 @@ Microsoft has been securing cloud-based identities for over a decade and now, wi
 
 Azure AD Premium is a cloud-based identity and access management solution with advanced protection capabilities that enables one secure identity for all apps, identity protection (enhanced by the [Microsoft intelligence security graph](https://www.microsoft.com/en-us/security/intelligence)), and Privileged Identity Management. Not just another monitoring or reporting tool, Azure AD Premium can protect your user’s identities in real time and enable you to create risk-based, adaptive access policies to protect your organization’s data.
 
-Microsoft provides not only identity that takes you everywhere, but also a set of tools to automate, help secure, and manage IT within your organization. Even after the advent of cloud computing, there is still demand to manage and control IT tasks like helpdesk calls to reset user passwords, user group management, and application requests. Complicating things further, employees are now bringing their personal devices to work and using readily available SaaS applications. This makes maintaining control over their applications across corporate datacenters and public cloud platforms a significant challenge.
+Microsoft not only provides an identity that takes you everywhere, but also a set of tools to automate, help secure, and manage IT within your organization. Even after the advent of cloud computing, there is still demand to manage and control IT tasks like helpdesk calls to reset user passwords, user group management, and application requests. Complicating things further, employees are now bringing their personal devices to work and using readily available SaaS applications. This makes maintaining control over their applications across corporate datacenters and public cloud platforms a significant challenge.
 
 > [!Note]
 > The capabilities described in this article require an Azure Active Directory P1 or P2 subscription either purchased separately or as part of an [Enterprise Mobility + Security E3 or E5](https://docs.microsoft.com/enterprise-mobility-security/solutions/learn-about-ems) subscription.

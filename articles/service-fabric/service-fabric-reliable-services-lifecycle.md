@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -133,4 +133,4 @@ Handling the exceptions that come from use of the `ReliableCollections` in conju
 - [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
 - [Replicas and instances](service-fabric-concepts-replica-lifecycle.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

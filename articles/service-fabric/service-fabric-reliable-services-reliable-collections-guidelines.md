@@ -3,9 +3,9 @@ title: Guidelines & Recommendations for Reliable Collections in  Azure Service F
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
-editor: masnider,rajak
+author: rockboyfor
+manager: digimobile
+editor: masnider,rajak,zhol
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
@@ -13,8 +13,9 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/03/2017
-ms.author: v-johch
+origin.date: 12/10/2017
+ms.date: 01/01/2018
+ms.author: v-yeche
 
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
@@ -27,9 +28,10 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
 * Do not use a transaction after it has been committed, aborted, or disposed.
 * Do not use an enumeration outside of the transaction scope it was created in.
-* Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
+* Do not create a transaction within another transaction's `using` statement because it can cause deadlocks.
 * Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on `IComparable<TKey>` for merging checkpoints and rows.
 * Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
+* Consider keeping number of Reliable Collections per partition to be less than 1000. Prefer Reliable Collections with more items over more Reliable Collections with fewer items.
 * Consider keeping your items (for example, TKey + TValue for Reliable Dictionary) below 80 KBytes: smaller the better. This reduces the amount of Large Object Heap usage as well as disk and network IO requirements. Often, it reduces replicating duplicate data when only one small part of the value is being updated. Common way to achieve this in Reliable Dictionary, is to break your rows in to multiple rows.
 * Consider using backup and restore functionality to have disaster recovery.
 * Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
@@ -57,3 +59,4 @@ Here are some things to keep in mind:
 * Others
   * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Update_Description: wording update -->

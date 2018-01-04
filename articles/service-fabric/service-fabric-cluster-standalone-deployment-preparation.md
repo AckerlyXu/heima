@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/12/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -171,4 +171,4 @@ Currently this configuration testing module does not validate the security confi
 ## Next steps
 * [Create a standalone cluster running on Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

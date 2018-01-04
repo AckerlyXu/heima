@@ -157,7 +157,7 @@ A: Not at this time; the keys are fully managed by Microsoft.
 
 **Q: Is SSE enabled by default when I create a new storage account?**
 
-A: SSE is not enabled by default; you can use the Azure portal to enable it. You can also programmatically enable this feature using the Storage Resource Provider REST API.
+A: The Azure Storage team is in the process of enabling encryption by default by using Azure Managed Keys for all data that is written to Azure Storage (Blob, File, Table and Queue storage), and for all storage accounts (Azure Resource Manager and Classic storage accounts), both new and existing.
 
 **Q: How is this different from Azure Disk Encryption?**
 
@@ -169,7 +169,7 @@ A: This will work seamlessly. Your data will be encrypted by both methods.
 
 **Q: My storage account is set up to be replicated geo-redundantly. If I enable SSE, will my redundant copy also be encrypted?**
 
-A: Yes, all copies of the storage account are encrypted, and all redundancy options - Locally Redundant Storage (LRS), Zone-Redundant Storage (ZRS), Geo-Redundant Storage (GRS), and Read Access Geo-Redundant Storage (RA-GRS) - are supported.
+A: Yes, all copies of the storage account are encrypted, and all redundancy options – Locally Redundant Storage (LRS), Zone-Redundant Storage (ZRS), Geo-Redundant Storage (GRS), and Read Access Geo-Redundant Storage (RA-GRS) – are supported.
 
 **Q: I can't enable encryption on my storage account.**
 

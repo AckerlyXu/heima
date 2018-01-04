@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -68,7 +68,7 @@ This procedure describes how to run a failover for a [recovery plan](site-recove
 
 <a name="failover-and-failback"></a> 
 ## Planned failover
-Virtual machines/physical servers protected using Site Recovery also support **Planned failover**. Planned failover is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut down, the data yet to be synchronized is synchronized and then a failover is triggered.
+Virtual machines/physical servers protected using Site Recovery also support **Planned failover**. Planned failover is a zero data loss failover option. When a planned failover is triggered, first the source virtual machines are shut down, the latest data is synchronized and then a failover is triggered.
 
 > [!NOTE]
 > When you failover Hyper-v virtual machines from one on-premises site to another on-premises site, to come back to the primary on-premises site you have to first **reverse replicate** the virtual machine back to primary site and then trigger a failover. If the primary virtual machine is not available, then before starting to **reverse replicate** you have to restore the virtual machine from a backup.   
