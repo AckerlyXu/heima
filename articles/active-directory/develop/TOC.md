@@ -72,31 +72,6 @@
 ## [Application objects](active-directory-application-objects.md)
 ### [Apps and Azure AD](active-directory-how-applications-are-added.md)
 ## [Application manifest](active-directory-application-manifest.md)
-# v2.0 endpoint
-## [Overview](active-directory-appmodel-v2-overview.md)
-### [Types of apps](active-directory-v2-flows.md)
-### [Limitations](active-directory-v2-limitations.md)
-### [v1-v2 comparison](active-directory-v2-compare.md)
-## Get Started
-### Mobile & Desktop apps
-#### [iOS](guidedsetups/active-directory-ios.md)
-#### [Android](guidedsetups/active-directory-android.md)
-#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
-### Web apps
-#### [NodeJS Web App](active-directory-v2-devquickstarts-node-web.md)
-## Guides
-### [Register an app](active-directory-v2-app-registration.md)
-## Reference
-### [Authentication libraries](active-directory-v2-libraries.md)
-### [v2.0 authentication protocols](active-directory-v2-protocols.md)
-#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [OAuth 2.0 authorization code grant](active-directory-v2-protocols-oauth-code.md)
-#### [OAuth 2.0 implicit grant](active-directory-v2-protocols-implicit.md)
-#### [Oauth 2.0 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Oauth 2.0 on-behalf-of flow](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Token reference](active-directory-v2-tokens.md)
-#### [Certificate credentials](active-directory-certificate-credentials.md)
-### [Scopes](active-directory-v2-scopes.md)
 # Resources
 ## [Getting help](active-directory-develop-help-support.md)
 ## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
