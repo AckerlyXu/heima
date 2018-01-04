@@ -68,11 +68,11 @@ The Smooth Streaming Client Final Product is offered under a royalty model as un
 * No royalty for first 10,000 device implementations each year 
 
 ## Licensing Procedure and SSPK access
-Please email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) for all licensing queries.
+
 
 The [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) is accessible to registered Interim licensees.
 
-Interim and Final SSPK licensees can submit technical questions to [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
+
 
 ## Microsoft Smooth Streaming Client Interim Product Agreement Licensees
 * Adroit Business Solutions, Inc
