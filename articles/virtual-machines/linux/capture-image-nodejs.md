@@ -3,8 +3,8 @@ title: Capture an Azure Linux VM to use as a template | Azure
 description: Learn how to capture and generalize an image of a Linux-based Azure virtual machine (VM) created with the Azure Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 09/04/2017
-ms.author: iainfou
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Capture a Linux virtual machine running on Azure
@@ -59,7 +59,7 @@ First, run the **waagent** command with the **deprovision** parameter on the Lin
 ## Step 2: Capture the VM
 Use the Azure CLI to generalize and capture the VM. In the following examples, replace example parameter names with your own values. Example parameter names include **myResourceGroup**, **myVnet**, and **myVM**.
 
-1. From your local computer, open the Azure CLI and [login to your Azure subscription](../../xplat-cli-connect.md). 
+1. From your local computer, open the Azure CLI and [login to your Azure subscription](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest). 
 2. Make sure you are in Resource Manager mode.
 
     ```azurecli
@@ -203,4 +203,4 @@ For additional command options, run `azure help vm create`.
 
 ## Next steps
 To manage your VMs with the CLI, see the tasks in [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](create-ssh-secured-vm-from-template.md).
-<!--Update_Description: update link for cli template-->
+<!--Update_Description: update link -->

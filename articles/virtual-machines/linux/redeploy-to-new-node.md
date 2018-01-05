@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/23/2017
-ms.date: 10/30/2017
+origin.date: 12/14/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -31,7 +31,7 @@ You can redeploy a VM using one of the following options. You only need to choos
 - [Azure portal](#using-azure-portal)
 
 ## Use the Azure CLI 2.0
-Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to your Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -42,7 +42,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## Use the Azure CLI 1.0
-Install the [latest Azure CLI 1.0](../../cli-install-nodejs.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
+Install the [latest Azure CLI 1.0](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
@@ -55,4 +55,4 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 ## Next steps
 If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or [detailed SSH troubleshooting steps](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: update meta propreties, wording update -->

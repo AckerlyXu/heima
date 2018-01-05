@@ -3,8 +3,8 @@ title: Create FQDN for a Linux VM in the Azure portal | Azure
 description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a Resource Manager based virtual machine in the Azure portal.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 12/13/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -29,11 +29,14 @@ This article assumes that you have already created a VM. If needed, you can [cre
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-You can now connect remotely to the VM using this DNS name such as with `ssh azureuser@mydns.chinanorth.chinacloudapp.cn`.
+You can now connect remotely to the VM using this DNS name such as with `ssh azureuser@mydns.chinanorth.cloudapp.chinacloudapi.cn`.
+<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
 
 ## Next steps
 Now that your VM has a public IP and DNS name, you can deploy common application frameworks or services such as nginx, MongoDB, Docker, etc.
 
 You can also read more about [using Resource Manager](../../azure-resource-manager/resource-group-overview.md) for tips on building your Azure deployments.
 
-<!--Update_Description: wording update-->
+<!--Not Available the parent file of includes file of virtual-machines-common-portal-create-fqdn.md-->
+<!--ms.date:01/08/2018-->
+<!--Update_Description: update meta properties -->

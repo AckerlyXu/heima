@@ -3,8 +3,8 @@ title: Install MongoDB on a Linux VM with the Azure CLI | Azure
 description: Learn how to install and configure MongoDB on a Linux virtual machine iusing the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
@@ -13,9 +13,9 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 06/23/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 12/15/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # How to install and configure MongoDB on a Linux VM
@@ -56,18 +56,18 @@ ssh azureuser@<publicIpAddress>
 To add the installation sources for MongoDB, create a **yum** repository file as follows:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Open the MongoDB repo file for editing. Add the following lines:
+Open the MongoDB repo file for editing, such as with `vi` or `nano`. Add the following lines:
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 Install MongoDB using **yum** as follows:
@@ -123,33 +123,25 @@ To create this environment, you need the latest [Azure CLI 2.0](https://docs.azu
 az group create --name myResourceGroup --location chinaeast
 ```
 
-Next, deploy the MongoDB template with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create). Define your own resource names and sizes where needed such as for *newStorageAccountName*, *virtualNetworkName*, and *vmSize*:
+Next, deploy the MongoDB template with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create). When prompted, enter your own unique values for *newStorageAccountName*, *dnsNameForPublicIP*, and admin username and password:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 SSH to your VM using your own username and public DNS address:
 
 ```bash
-ssh azureuser@mypublicdns.chinaeast.chinacloudapp.cn
+ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
 ```
+<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
 
 Verify the MongoDB installation by connecting using the local `mongo` client as follows:
 
@@ -191,7 +183,7 @@ az group deployment create --resource-group myResourceGroup \
     "mongoAdminUsername": {"value": "mongoadmin"},
     "mongoAdminPassword": {"value": "P@ssw0rd!"},
     "dnsNamePrefix": {"value": "mypublicdns"},
-    "environment": {"value": "AzureCloud"},
+    "environment": {"value": "AzureChinaCloud"},
     "numDataDisks": {"value": "4"},
     "sizeOfDataDiskInGB": {"value": 20},
     "centOsVersion": {"value": "7.0"},

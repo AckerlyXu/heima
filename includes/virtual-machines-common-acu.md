@@ -7,20 +7,20 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 <br>
 
-| SKU Family | ACU \ vCPU |
-| --- | --- |
-| [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
-| [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
-| [A5-A7](../articles/virtual-machines/windows/sizes-general.md) |100 |
-| [A1_v2-A8_v2](../articles/virtual-machines/windows/sizes-general.md) |100 |
-| [A2m_v2-A8m_v2](../articles/virtual-machines/windows/sizes-general.md) |100 |
+| SKU Family | ACU \ vCPU | vCPU:Core |
+| --- | --- |---|
+| [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
+| [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
+| [A5-A7](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
+| [A1_v2-A8_v2](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
+| [A2m_v2-A8m_v2](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
 <!-- Not Available  [A8-A11]  -->
-| [D1-D14](../articles/virtual-machines/windows/sizes-general.md) |160 |
-| [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* |
-| [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 |
-| [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* |
-| [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
-| [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
+| [D1-D14](../articles/virtual-machines/windows/sizes-general.md) |160 | 1:1 |
+| [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* | 1:1 |
+| [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 | 1:1 |
+| [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* | 1:1 |
+| [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
+| [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* | 1:1 |
 <!-- Not Available  [G1-G5]  -->
 <!-- Not Available  [GS1-GS5]  -->
 <!-- Not Available  [H] -->
@@ -31,5 +31,5 @@ ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and 
 
 **Hyper-threaded.
 
-<!-- ms.date: 12/11/2017 -->
-<!--Update_Description: wording update-->
+<!-- ms.date: 01/08/2018 -->
+<!--Update_Description: add the ratio of vCPU with Core -->

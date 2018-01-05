@@ -3,8 +3,8 @@ title: Use PowerShell to Create a VM With a Native Mode Report Server | Azure
 description: 'This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. '
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
-manager: erikre
+author: rockboyfor
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 01/15/2018
+ms.author: v-yeche
 
 ---
 # Use PowerShell to Create an Azure VM With a Native Mode Report Server
@@ -33,7 +33,7 @@ This topic describes and walks you through the deployment and configuration of a
 ## Prerequisites and Assumptions
 * **Azure Subscription**: Verify the number of cores available in your Azure Subscription. If you create the recommended VM size of **A3**, you need **4** available cores. If you use a VM size of **A2**, you need **2** available cores.
 
-  * To verify the core limit of your subscription, in the Azure Classic Management Portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
+  * To verify the core limit of your subscription, in the Azure portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
   * To increase the core quota, contact [Azure Support](https://www.azure.cn/support/contact/). For VM size information, see [Virtual Machine Sizes for Azure](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell Scripting**: The topic assumes that you have a basic working knowledge of Windows PowerShell. For more information about using Windows PowerShell, see the following:
 
@@ -41,7 +41,7 @@ This topic describes and walks you through the deployment and configuration of a
   * [Getting Started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## Step 1: Provision an Azure Virtual Machine
-1. Browse to the Azure Classic Management Portal.
+1. Browse to the Azure portal.
 2. Click **Virtual Machines** in the left pane.
 
     ![microsoft azure virtual machines](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -115,7 +115,7 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
 
 1. To trust the root CA of the certificate on the Local VM, add the certificate to the **Trusted Root Certification Authorities**. The following is a summary of the steps required. For detailed steps on how to trust the CA, see [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
 
-   1. From the Azure Classic Management Portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
+   1. From the Azure portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
        ![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
@@ -151,7 +151,7 @@ For more detailed steps, see the section [Connect to the Virtual Machine and Sta
 ### Use script to configure the report server and HTTP
 To use the Windows PowerShell script to configure the report server, complete the following steps. The configuration includes HTTP, not HTTPS:
 
-1. From the Azure Classic Management Portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
+1. From the Azure portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
     ![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
@@ -285,7 +285,7 @@ To use the Windows PowerShell script to configure the report server, complete th
 ### Use script to configure the report server and HTTPS
 To use Windows PowerShell to configure the report server, complete the following steps. The configuration includes HTTPS, not HTTP.
 
-1. From the Azure Classic Management Portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
+1. From the Azure portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
     ![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
@@ -480,7 +480,7 @@ To use Windows PowerShell to configure the report server, complete the following
 9. The script is currently configured for  Reporting Services. If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to "v11", on the Get-WmiObject statement.
 10. Run the script.
 
-**Validation**: To verify that the basic report server functionality is working, see the [Verify the configuration](#verify-the-configuration) section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
+**Validation**: To verify that the basic report server functionality is working, see the [Verify the configuration](#verify-the-connection) section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
 
     netsh http show sslcert
 
@@ -493,10 +493,10 @@ The result will include the following:
 ### Use Configuration Manager to Configure the Report Server
 If you do not want to run the PowerShell script to configure the report server, follow the steps in this section to use the Reporting Services native mode configuration manager to configure the report server.
 
-1. From the Azure Classic Management Portal, select the VM and click connect. Use the user name and password you configured when you created the VM.
+1. From the Azure portal, select the VM and click connect. Use the user name and password you configured when you created the VM.
 
     ![connect to azure virtual machine](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Run Windows update and install updates to the VM. If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure Classic Management Portal.
+2. Run Windows update and install updates to the VM. If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure portal.
 3. From the Start menu on the VM, type **Reporting Services** and open **Reporting Services Configuration Manager**.
 4. Leave the default values for **Server Name** and **Report Server Instance**. Click **Connect**.
 5. In the left pane, click **Web Service URL**.
@@ -583,6 +583,7 @@ The following table summarizes some of the options available to publish existing
 
   * [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
+  * [SQL Server Data Tools and SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
 * **SQL Server Data Tools: Remote**:  On your local computer, create a Reporting Services project in SQL Server Data Tools that contains Reporting Services reports. Configure the project to connect to the web service URL.
 
     ![ssdt project properties for SSRS project](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
@@ -590,7 +591,7 @@ The following table summarizes some of the options available to publish existing
 
 ## Minimize cost if you are not using the VM
 > [!NOTE]
-> To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure Classic Management Portal. If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM. To reduce charges, you need to shut down the VM in the Azure Classic Management Portal. If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at [Virtual Machines Pricing Details](https://www.azure.cn/pricing/details/virtual-machines/).
+> To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure portal. If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM. To reduce charges, you need to shut down the VM in the Azure portal. If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at [Virtual Machines Pricing Details](https://www.azure.cn/pricing/details/virtual-machines/).
 
 ## More Information
 ### Resources
@@ -604,3 +605,4 @@ The following table summarizes some of the options available to publish existing
 
 ### Links to other resources for SQL Server in Azure VMs
 [SQL Server on Azure Virtual Machines Overview](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+<!-- Update_Description: update meta properties, wording update -->

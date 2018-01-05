@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ---
 
 # Deploy OpenShift Origin in Azure
@@ -133,3 +133,4 @@ az group delete --name myResourceGroup
 - [Post-deployment tasks](./openshift-post-deployment.md)
 - [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
 - [Getting started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+<!--Update_Description: wording meta properties -->

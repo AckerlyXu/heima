@@ -3,8 +3,8 @@ title: Azure CLI commands in Resource Manager mode | Azure
 description: Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 04/18/2017
-ms.date: 04/17/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Azure CLI commands in Resource Manager mode
@@ -28,7 +28,7 @@ This article provides syntax and options for Azure command-line interface (CLI) 
 > Find out more about the [old and new Azure CLIs](https://docs.azure.cn/zh-cn/cli/old-and-new-clis?view=azure-cli-latest).
 >
 
-To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
+To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
@@ -303,7 +303,7 @@ Parameter options:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## azure insights: Commands related to monitoring Insights (events, alert rules, metrics)
+## azure insights: Commands related to monitoring Insights (events, alert rules, autoscale settings, metrics)
 **Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider**
 
     insights logs list [options]
@@ -1260,7 +1260,7 @@ Creates a public ip resource. You will create the public ip resource and associa
     data:    Allocation method:    Dynamic
     data:    Idle timeout:         4
     data:    Domain name label:    azureclitest
-    data:    FQDN:                 azureclitest.chinaeast.chinacloudapp.cn
+    data:    FQDN:                 azureclitest.chinaeast.cloudapp.chinacloudapi.cn
     info:    network public-ip create command OK
 
 Parameter options:
@@ -1272,7 +1272,7 @@ Parameter options:
     -n, --name <name>                            the name of the public ip
     -l, --location <location>                    the location
     -d, --domain-name-label <domain-name-label>  the domain name label.
-    This set DNS to <domain-name-label>.<location>.chinacloudapp.cn
+    This set DNS to <domain-name-label>.<location>.cloudapp.chinacloudapi.cn
     -a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
     -i, --idletimeout <idletimeout>              the idle timeout in minutes
     -f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
@@ -1300,7 +1300,7 @@ Updates the properties of an existing public ip resource. In the following examp
     data:    Idle timeout:         4
     data:    IP Address:           (static IP address)
     data:    Domain name label:    azureclitest
-    data:    FQDN:                 azureclitest.chinaeast.chinacloudapp.cn
+    data:    FQDN:                 azureclitest.chinaeast.cloudapp.chinacloudapi.cn
     info:    network public-ip set command OK
 
 Parameter options:
@@ -1311,7 +1311,7 @@ Parameter options:
     -g, --resource-group <resource-group>        the name of the resource group
     -n, --name <name>                            the name of the public ip
     -d, --domain-name-label [domain-name-label]  the domain name label.
-    This set DNS to <domain-name-label>.<location>.chinacloudapp.cn
+    This set DNS to <domain-name-label>.<location>.cloudapp.chinacloudapi.cn
     -a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
     -i, --idletimeout <idletimeout>              the idle timeout in minutes
     -f, --reverse-fqdn [reverse-fqdn]            the reverse fqdn
@@ -1333,10 +1333,10 @@ Lists all public IP resources within a resource group.
     + Getting the public ip addresses
     data:    Name             Location  Allocation  IP Address    Idle timeout  DNS Name
     data:    ---------------  --------  ----------  ------------  ------------  -------------------------------------------
-    data:    mypubip5         chinanorth    Dynamic                   4             "domain name".chinanorth.chinacloudapp.cn
-    data:    myPublicIP       chinaeast    Dynamic                   4             "domain name".chinaeast.chinacloudapp.cn
-    data:    mytestpublicip   chinaeast    Dynamic                   4             "domain name".chinaeast.chinacloudapp.cn
-    data:    mytestpublicip1  chinaeast   Static (Static IP address) 4             azureclitest.chinaeast.chinacloudapp.cn
+    data:    mypubip5         chinanorth    Dynamic                   4             "domain name".chinanorth.cloudapp.chinacloudapi.cn
+    data:    myPublicIP       chinaeast    Dynamic                   4             "domain name".chinaeast.cloudapp.chinacloudapi.cn
+    data:    mytestpublicip   chinaeast    Dynamic                   4             "domain name".chinaeast.cloudapp.chinacloudapi.cn
+    data:    mytestpublicip1  chinaeast   Static (Static IP address) 4             azureclitest.chinaeast.cloudapp.chinacloudapi.cn
 
 Parameter options:
 
@@ -1364,7 +1364,7 @@ Displays public ip properties for a public ip resource within a resource group.
     data:    Idle timeout:         4
     data:    IP Address:           (static IP address)
     data:    Domain name label:    azureclitest
-    data:    FQDN:                 azureclitest.chinaeast.chinacloudapp.cn
+    data:    FQDN:                 azureclitest.chinaeast.cloudapp.chinacloudapi.cn
     info:    network public-ip show command OK
 
 Parameter options:
@@ -1775,3 +1775,4 @@ Parameter options:
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
+<!-- Update_Description: update meta properties, wording update, update link  -->

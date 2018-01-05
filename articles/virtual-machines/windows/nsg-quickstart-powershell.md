@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 08/21/2017
-ms.date: 12/18/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -30,7 +30,7 @@ Log in to your Azure account:
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
+In the following examples, replace parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
 
 Create a rule with [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). The following example creates a rule named *myNetworkSecurityGroupRule* to allow *tcp* traffic on port *80*:
 
@@ -96,4 +96,4 @@ In this example, you created a simple rule to allow HTTP traffic. You can find i
 * [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
 * [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

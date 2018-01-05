@@ -126,4 +126,4 @@ In the classic deployment model, some VM size names are slightly different in CL
 <!-- Correct, No need to update-->
 
 <!--Update_Description: wording update-->
-<!--ms.date: 12/11/2017-->
+<!--ms.date: 01/08/2018-->

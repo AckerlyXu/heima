@@ -13,17 +13,20 @@ All subscribers can run server software on an Azure virtual machine. You can run
 
 • For Linux VMs -- [Linux on Azure-Endorsed Distributions](/virtual-machines/linux/endorsed-distros)
 
+For Windows client images, certain versions of Windows 7 and Windows 8.1 are available to MSDN Azure benefit subscribers and MSDN Dev subscribers, for development and test tasks.
+<!-- Not Available on Mooncake [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog//2014/05/29/windows-client-images-on-azure/)-->
+
 ## Why are affinity groups being deprecated?
 Affinity groups are a legacy concept for a geographical grouping of a customer's cloud service deployments and storage accounts within Azure. They were originally provided to improve VM-to-VM network performance in the early Azure network designs. They also supported the initial release of virtual networks (VNets), which were limited to a small set of hardware in a region.
 
 The current Azure network within a region is designed so that affinity groups are no longer required. Virtual networks are also at a regional scope, so an affinity group is no longer required when you use a virtual network. Due to these improvements, we no longer recommend that customers use affinity groups because they can be limiting in some scenarios. Using affinity groups will unnecessarily associate your VMs to specific hardware that limits the choice of VM sizes that are available to you. It might also lead to capacity-related errors when you attempt to add new VMs if the specific hardware associated with the affinity group is near capacity.
 
-Affinity group features are already deprecated in the Azure Resource Manager deployment model and in the Azure portal. For the Azure Classic Management Portal, we're deprecating support for creating affinity groups and creating storage resources that are pinned to an affinity group. You don't need to modify existing cloud services that are using an affinity group. However, you should not use affinity groups for new cloud services unless an Azure support professional recommends them.
+Affinity group features are already deprecated in the Azure Resource Manager deployment model and in the Azure portal. For the classic Azure portal, we're deprecating support for creating affinity groups and creating storage resources that are pinned to an affinity group. You don't need to modify existing cloud services that are using an affinity group. However, you should not use affinity groups for new cloud services unless an Azure support professional recommends them.
 
 ## How much storage can I use with a virtual machine?
 Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/).
+An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/).
 
 ## Which virtual hard disk types can I use?
 Azure only supports fixed, VHD-format virtual hard disks. If you have a VHDX that you want to use in Azure, you need to first convert it by using Hyper-V Manager or the [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet. After you do that, use [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet (in Service Management mode) to upload the VHD to a storage account in Azure so you can use it with virtual machines.
@@ -53,7 +56,7 @@ If you're having problems with Remote Desktop or SSH, install and use the [VMAcc
 
 For Windows VMs, additional options include:
 
-* In the Azure Classic Management Portal, find the VM, then click **Reset Remote Access** from the Command bar.
+* In the Azure portal, find the VM, then click **Reset Remote Access** from the Command bar.
 * Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 * Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -80,17 +83,18 @@ If you've forgotten the user name or password and you've installed the VM Agent,
 
 Additional details:
 
-* For the Linux images, if you use the Azure Classic Management Portal, 'azureuser' is given as a default user name, but you can change this by using 'From Gallery' instead of 'Quick Create' as the way to create the virtual machine. Using 'From Gallery' also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has 'sudo' access to run privileged commands. The 'root' account is disabled.
+* For the Linux images, if you use the Azure portal, 'azureuser' is given as a default user name, but you can change this by using 'From Gallery' instead of 'Quick Create' as the way to create the virtual machine. Using 'From Gallery' also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has 'sudo' access to run privileged commands. The 'root' account is disabled.
 * For Windows images, you'll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
 
 ## Can Azure run anti-virus on my virtual machines?
-Azure offers several options for anti-virus solutions, but it's up to you to manage it. For example, you might need a separate subscription for antimalware software, and you'll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. For details, see:
+Azure offers several options for anti-virus solutions, but it's up to you to manage it. For example, you might need a separate subscription for antimalware software, and you'll need to decide when to run scans and install updates. You can add anti-virus support with a VM extension for Microsoft Antimalware, or TrendMicro Deep Security Agent when you create a Windows virtual machine, or at a later point. The TrendMicro extensions let you use a free limited-time trial subscription or an existing enterprise subscription. Microsoft Antimalware is free of charge. For details, see:
 
+<!-- Not Available on Symantec -->
 * [How to install and configure Trend Micro Deep Security as a Service on an Azure VM](/virtual-machines/windows/classic/install-trend)
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## What are my options for backup and recovery?
-Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what's currently available, search the Azure Marketplace.
+Azure Backup is available as a preview in certain regions. For details, see [Back up Azure virtual machines](../articles/backup/backup-azure-arm-vms.md). Other solutions are available from certified partners. To find out what's currently available, search the Azure Marketplace.
 
 An additional option is to use the snapshot capabilities of blob storage. To do this, you'll need to shut down the VM before any operation that relies on a blob snapshot. This saves pending data writes and puts the file system in a consistent state.
 
@@ -99,7 +103,7 @@ Azure charges an hourly price based on the VM's size and operating system. For p
 
 You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
 
-* Shut down or delete the VM from the Azure Classic Management Portal.
+* Shut down or delete the VM from the Azure portal.
 * Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
 * Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
 
@@ -112,7 +116,7 @@ Unplanned maintenance events can occur when Azure detects a serious hardware pro
 
 For any standalone VM (meaning the VM isn't part of an availability set), Azure notifies the subscription's Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
 
-You also can use the Azure Classic Management Portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+You also can use the Azure portal or Azure PowerShell to view the reboot logs when the reboot occurred due to planned maintenance. For details, see [Viewing VM Reboot Logs](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 To provide redundancy, put two or more similarly configured VMs in the same availability set. This helps ensure at least one VM is available during planned or unplanned maintenance. Azure guarantees certain levels of VM availability for this configuration. For details, see [Manage the availability of virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -122,3 +126,4 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 [Create and Manage Linux VMs with the Azure CLI](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Create and Manage Windows VMs with Azure PowerShell ](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!-- Update_Description: wording update -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/23/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ---
 
@@ -23,6 +23,7 @@ ms.author: v-yeche
 
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
 
+<!--Not Available on Cloud Shell -->
 
 ## Install Terraform
 
@@ -37,7 +38,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## Set up Terraform access to Azure
 
-Configure [an Azure AD service principal](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli) to enable Terraform to provision resources into Azure. The service principal grants your Terraform scripts using credentials to provision resources in your Azure subscription.
+Configure [an Azure AD service principal](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) to enable Terraform to provision resources into Azure. The service principal grants your Terraform scripts using credentials to provision resources in your Azure subscription.
 
 There are several ways to create an Azure AD application and an Azure AD service principal. The easiest and fastest way today is to use Azure CLI 2.0, which [you can download and install on Windows, Linux, or a Mac](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).
 

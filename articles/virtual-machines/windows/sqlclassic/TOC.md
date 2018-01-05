@@ -1,6 +1,6 @@
 # Overview
 ## [Windows SQL Server VMs](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/windows/)
+## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/)
 ## [FAQ](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Get Started
@@ -12,7 +12,7 @@
 # How to
 ## Configure High Availability
 ### [High availability options](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Configure Always On availability group in the Classic Management Portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Configure Always On availability group in the portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Configure Always On availability group with PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Configure an internal listener for an availability group](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configure an external listener for an availability group](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -47,4 +47,4 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server Tools](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-<!--ms.date: 10/30/2017-->
+<!--ms.date: 01/08/2018-->

@@ -3,8 +3,8 @@ title: Manage HPC Pack cluster compute nodes | Azure
 description: Learn about PowerShell script tools to add, remove, start, and stop HPC Pack 2012 R2 cluster compute nodes in Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management,hpc-pack
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
@@ -61,7 +61,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### Parameters
 * **ServiceName**: Name of the cloud service that new compute node VMs are added to.
-* **ImageName**: Azure VM image name, which can be obtained through the Azure Classic Management Portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
+* **ImageName**: Azure VM image name, which can be obtained through the Azure portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
 
   1. A Windows operating system must be installed.
   2. HPC Pack must be installed in the compute node role.
@@ -154,3 +154,4 @@ Stop-HPCIaaSNode.ps1 -Name HPCNodeCN-* -Force
 ## Next steps
 * To automatically grow or shrink the cluster nodes according to
   the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload](hpcpack-cluster-node-autogrowshrink.md).
+<!-- Update_Description: update meta properties, wording update -->

@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -32,7 +32,7 @@ This script exports a managed snapshot to a storage account in different region.
 
 ```azurecli
 #Provide the subscription Id where snapshot is created
-subscriptionId=<your_subscription_id>
+subscriptionId=dd80b94e-0463-4a65-8d04-c94f403879dc
 
 #Provide the name of your resource group where snapshot is created
 resourceGroupName=myResourceGroupName
@@ -41,7 +41,7 @@ resourceGroupName=myResourceGroupName
 snapshotName=mySnapshotName
 
 #Provide Shared Access Signature (SAS) expiry duration in seconds e.g. 3600.
-#Know more about SAS here: https://docs.azure.cn/storage/common/storage-dotnet-shared-access-signature-part-1
+#Know more about SAS here: https://docs.azure.cn/storage/storage-dotnet-shared-access-signature-part-1
 sasExpiryDuration=3600
 
 #Provide storage account name where you want to copy the snapshot. 

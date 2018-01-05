@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/19/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -169,7 +169,7 @@ To create the release definition in Team Services:
 7. Commit your change.
 8. After a few minutes, you will see a new release created on the **Releases** page of Team Services or Team Foundation Server. Open the release to see the deployment taking place. Congratulations!
 
-## Next Steps
+## Next steps
 
 In this tutorial, you automated the deployment of an app to Azure by using Jenkins for build and Team Services for release. You learned how to:
 
