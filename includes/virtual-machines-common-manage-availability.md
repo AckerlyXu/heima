@@ -70,6 +70,7 @@ If the load balancer is not configured to balance traffic across multiple virtua
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
+<!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->
 
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 12/11/2017-->
+<!--ms.date: 01/08/2018-->

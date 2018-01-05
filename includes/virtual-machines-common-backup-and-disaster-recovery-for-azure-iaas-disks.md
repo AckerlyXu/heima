@@ -123,7 +123,7 @@ To restore, you can view the available backups through Azure Backup and then ini
 
 ### Steps to enable a backup
 
-Use the following steps to enable backups of your VMs by using the [Azure portal](https://portal.azure.cn/). There is some variation depending on your exact scenario. Refer to the [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) documentation for full details. Azure Backup also [supports VMs with managed disks](https://azure.microsoft.com/blogazure-managed-disk-backup/).
+Use the following steps to enable backups of your VMs by using the [Azure portal](https://portal.azure.cn/). There is some variation depending on your exact scenario. Refer to the [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) documentation for full details. Azure Backup also [supports VMs with managed disks](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
 
 1.	Create a recovery services vault for a VM:
 
@@ -187,7 +187,7 @@ Another option to create consistent backups is to shut down the VM and take blob
 
 2. Create a snapshot of each virtual hard drive blob, which only takes a few seconds.
 
-    To create a snapshot, you can use [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), the [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](https://docs.azure.cn/zh-cn/cli/), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx?view=azure-cli-latest).
+    To create a snapshot, you can use [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), the [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
 3. Start the VM, which ends the downtime. Typically, the entire process finishes within a few minutes.
 
@@ -250,3 +250,5 @@ For more information, see [What to do if an Azure Storage outage occurs](../arti
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

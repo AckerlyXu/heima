@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 09/08/2017
-ms.date: 10/16/2017
+origin.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ---
 
@@ -26,12 +26,13 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Use cloud-init to create an app to scale
 > * Create a virtual machine scale set
 > * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. These are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
@@ -44,7 +45,8 @@ Scale sets support up to 1,000 VMs when you use an Azure platform image. For wor
 For production use, you may wish to [Create a custom VM image](tutorial-custom-images.md) that includes your application installed and configured. For this tutorial, lets customize the VMs on first boot to quickly see a scale set in action.
 
 In a previous tutorial, you learned [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app. 
-Create a file named *cloud-init.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+
+In your current shell, create a file named *cloud-init.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -177,17 +179,86 @@ az vmss show \
     --output table
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#scale). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#scale). The following example sets the number of VMs in your scale set to *3*:
 
 ```azurecli 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
-    --new-capacity 5
+    --new-capacity 3
 ```
 
-<!-- Not Available ### Configure autoscale rules-->
-Autoscale rules let you define how to scale up or down the number of VMs in your scale set in response to demand such as network traffic or CPU usage. Currently, these rules cannot be set in Azure CLI 2.0. Use the [Azure portal](https://portal.azure.cn) to configure autoscale.
+### Configure autoscale rules
+Rather than manually scaling the number of instances in your scale set, you can define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5-minute period. If the average CPU load then drops below 30% over a 5-minute period, the instances are scaled in by one instance. Your subscription ID is used to build the resource URIs for the various scale set components. To create these rules with [az monitor autoscale-settings create](https://docs.azure.cn/zh-cn/cli/monitor/autoscale-settings?view=azure-cli-latest#create), copy and paste the following autoscale command profile:
+
+```azurecli 
+sub=$(az account show --query id -o tsv)
+
+az monitor autoscale-settings create \
+    --resource-group myResourceGroupScaleSet \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "China East",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Auto created scale condition",
+          "capacity": {
+            "minimum": "2",
+            "maximum": "10",
+            "default": "2"
+          },
+          "rules": [
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "chinaeast",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 70
+              },
+              "scaleAction": {
+                "direction": "Increase",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            },
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "chinaeast",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 30
+              },
+              "scaleAction": {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            }
+          ]
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+    }'
+```
+
+To reuse the autoscale profile, you can create a JSON (JavaScript Object Notation) file and pass that to the `az monitor autoscale-settings create` command with the `--parameters @autoscale.json` parameter. For more design information on the use of autoscale, see [autoscale best practices](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling).
 
 ### Get connection info
 To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
@@ -246,6 +317,7 @@ In this tutorial, you created a virtual machine scale set. You learned how to:
 > * Use cloud-init to create an app to scale
 > * Create a virtual machine scale set
 > * Increase or decrease the number of instances in a scale set
+> * Create autoscale rules
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 

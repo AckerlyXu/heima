@@ -3,7 +3,7 @@ title: Use Remote Desktop to a Linux VM in Azure | Azure
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 06/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/15/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
@@ -34,10 +34,10 @@ Most Linux VMs in Azure do not have a desktop environment installed by default. 
 
 The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
 
-First, SSH to your VM. The following example connects to the VM named *myvm.chinanorth.chinacloudapp.cn* with the username of *azureuser*:
+First, SSH to your VM. The following example connects to the VM named *myvm.chinanorth.cloudapp.chinacloudapi.cn* with the username of *azureuser*:
 
 ```bash
-ssh azureuser@myvm.chinanorth.chinacloudapp.cn
+ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](ssh-from-windows.md).
@@ -81,16 +81,10 @@ sudo passwd azureuser
 ## Create a Network Security Group rule for Remote Desktop traffic
 To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../../virtual-network/virtual-networks-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-The following examples create a network security group rule with [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) named *myNetworkSecurityGroupRule* to *allow* traffic on *tcp* port *3389*.
+The following example creates a network security group rule with [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) on port *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 ## Connect your Linux VM with a Remote Desktop client
@@ -103,7 +97,7 @@ After authenticating, the xfce desktop environment will load and look similar to
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
 ## Troubleshoot
-If you cannot connect to your Linux VM using a Remote Desktop client, use `netstat` on your Linux VM to verify that your VM is listening for RDP connections  as follows:
+If you cannot connect to your Linux VM using a Remote Desktop client, use `netstat` on your Linux VM to verify that your VM is listening for RDP connections as follows:
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -116,13 +110,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-If the xrdp service is not listening, on an Ubuntu VM restart the service as follows:
+If the *xrdp-sesman* service is not listening, on an Ubuntu VM restart the service as follows:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Review logs in */var/log*Thug  on your Ubuntu VM for indications as to why the service may not be responding. You can also monitor the syslog during a remote desktop connection attempt to view any errors:
+Review logs in */var/log* on your Ubuntu VM for indications as to why the service may not be responding. You can also monitor the syslog during a remote desktop connection attempt to view any errors:
 
 ```bash
 tail -f /var/log/syslog
@@ -137,3 +131,4 @@ For more information about creating and using SSH keys with Linux VMs, see [Crea
 
 For information on using SSH from Windows, see [How to use SSH keys with Windows](ssh-from-windows.md).
 
+<!-- Update_Description: update meta properties, wording update -->

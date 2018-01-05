@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 12/18/2017
+origin.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ---
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks
 
-If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../windows/managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
+If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use [Azure Managed Disks](../linux/managed-disks-overview.md). This process converts both the OS disk and any attached data disks.
 
 This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
@@ -98,4 +98,6 @@ All VMs in the availability set must be deallocated before you convert the avail
 ## Next steps
 For more information about storage options, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).
 
-<!--Update_Description: update reference -->
+<!--Not Available the parent file of includes file of virtual-machines-common-convert-disks-considerations.md-->
+<!--ms.date:01/08/2018-->
+<!--Update_Description: update meta properties, update link -->

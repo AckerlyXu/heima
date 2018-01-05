@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/11/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---

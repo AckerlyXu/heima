@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -57,7 +57,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    > [!NOTE]
    > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure portal](http://portal.azure.cn).
 
-5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../../../xplat-cli-connect.md).
+5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest).
 
    > [!NOTE]
    > In the Azure portal, log in to the portal.
@@ -112,4 +112,4 @@ Alternatively, use the [Azure portal](http://portal.azure.cn) to create a custom
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
 [How to Create a Linux Virtual Machine]:create-custom.md
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

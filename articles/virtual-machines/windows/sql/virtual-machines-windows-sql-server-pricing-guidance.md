@@ -15,9 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 10/17/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
-
 ---
 # Pricing guidance for SQL Server Azure VMs
 
@@ -54,7 +53,7 @@ You have one way to pay for SQL Server licensing for these editions: *pay per us
 
 ### Pay per usage
 
-**Paying the SQL Server license per usage** means that the per-minute cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the [Azure VM pricing page](https://www.azure.cn/pricing/details/virtual-machines/sql-server-standard). The cost is the same for all versions of SQL Server (2012 SP3 to 2017). As with SQL Server licensing in general, the per-minute licensing cost depends on the number of VM cores.
+**Paying the SQL Server license per usage** means that the per-minute cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the [Azure VM pricing page](https://www.azure.cn/pricing/details/virtual-machines/). The cost is the same for all versions of SQL Server (2012 SP3 to 2017). As with SQL Server licensing in general, the per-minute licensing cost depends on the number of VM cores.
 
 Paying the SQL Server licensing per usage is recommended for:
 
@@ -94,9 +93,9 @@ There are new machine sizes that work well with certain types of SQL Server work
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51,200 IOPS or 768 MB/s | 75% lower | 57% lower |
 
 > [!IMPORTANT]
-> This is a point-in-time example. For the most recent specifications, refer to the machine sizes articles and the Azure pricing page for [Windows](https://www.azure.cn/pricing/details/virtual-machines/windows/) and [Linux](https://www.azure.cn/pricing/details/virtual-machines/linux/).
+> This is a point-in-time example. For the most recent specifications, refer to the machine sizes articles and the Azure pricing page for [Windows](https://www.azure.cn/pricing/details/virtual-machines/) and [Linux](https://www.azure.cn/pricing/details/virtual-machines/).
 
-In the previous example, you can see that the specifications for **Standard_DS14v2** and **Standard_DS14-4v2** are identical except for vCPUs. The suffix **-4v2** at the end of the **Standard_DS14-4v2** machine size indicates the number of active vCPUs. Because SQL Server licensing costs are tied to the number of cores, this significantly reduces the cost of the VM in scenarios where the extra vCPUs are not needed. This is one example, and there are many machine sizes with constrained vCPUs that are identified with this suffix pattern. For more information, see the blog post [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blogannouncing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+In the previous example, you can see that the specifications for **Standard_DS14v2** and **Standard_DS14-4v2** are identical except for vCPUs. The suffix **-4v2** at the end of the **Standard_DS14-4v2** machine size indicates the number of active vCPUs. Because SQL Server licensing costs are tied to the number of cores, this significantly reduces the cost of the VM in scenarios where the extra vCPUs are not needed. This is one example, and there are many machine sizes with constrained vCPUs that are identified with this suffix pattern. For more information, see the blog post [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 ### Shut down your VM when possible
 

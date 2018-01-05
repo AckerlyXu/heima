@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/18/2017
-ms.date: 10/30/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ---
 
@@ -40,21 +40,23 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 Create a service principal with [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) and output the credentials that Packer needs:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
 An example of the output from the preceding commands is as follows:
 
 ```azurecli
-"f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
-"0e760437-bf34-4aad-9f8d-870be799c55d",
-"72f988bf-86f1-41af-91ab-2d7cd011db47"
+{
+    "client_id": "f5b6a5cf-fbdf-4a9f-b3b8-3c2cd00225a4",
+    "client_secret": "0e760437-bf34-4aad-9f8d-870be799c55d",
+    "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 You use the output from these two commands in the next step.
@@ -72,7 +74,6 @@ Create a file named *ubuntu.json* and paste the following content. Enter your ow
 | *subscription_id*                   | Output from `az account show` command |
 | *managed_image_resource_group_name* | Name of resource group you created in the first step |
 | *managed_image_name*                | Name for the managed disk image that is created |
-
 
 ```json
 {
@@ -122,7 +123,6 @@ This template builds an Ubuntu 16.04 LTS image, installs NGINX, then deprovision
 > If you expand on this template to provision user credentials, adjust the provisioner command that deprovisions the Azure agent to read `-deprovision` rather than `deprovision+user`.
 > The `+user` flag removes all user accounts from the source VM.
 
-
 ## Build Packer image
 If you don't already have Packer installed on your local machine, [follow the Packer installation instructions](https://www.packer.io/docs/install/index.html).
 
@@ -140,23 +140,23 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
 ==> azure-arm:  -> Location          : 'China East'
 ==> azure-arm:  -> Tags              :
 ==> azure-arm:  ->> dept : Engineering
 ==> azure-arm:  ->> task : Image deployment
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
-==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
+==> azure-arm:  -> DeploymentName    : 'pkrdpswtxmqm7ly'
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
-==> azure-arm:  -> DeploymentName    : ‘pkrdpswtxmqm7ly’
-==> azure-arm: Getting the VM’s IP address ...
-==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-swtxmqm7ly’
-==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
-==> azure-arm:  -> NicName             : ‘packerNic’
-==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
-==> azure-arm:  -> IP Address          : ‘40.76.218.147’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
+==> azure-arm:  -> DeploymentName    : 'pkrdpswtxmqm7ly'
+==> azure-arm: Getting the VM's IP address ...
+==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-swtxmqm7ly'
+==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
+==> azure-arm:  -> NicName             : 'packerNic'
+==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
+==> azure-arm:  -> IP Address          : '40.76.218.147'
 ==> azure-arm: Waiting for SSH to become available...
 ==> azure-arm: Connected to SSH!
 ==> azure-arm: Provisioning with shell script: /var/folders/h1/ymh5bdx15wgdn5hvgj1wc0zh0000gn/T/packer-shell868574263
@@ -165,25 +165,25 @@ azure-arm output will be in this color.
     azure-arm: WARNING! root password will be disabled. You will not be able to login as root.
     azure-arm: WARNING! /etc/resolvconf/resolv.conf.d/tail and /etc/resolvconf/resolv.conf.d/original will be deleted.
     azure-arm: WARNING! packer account and entire home directory will be deleted.
-==> azure-arm: Querying the machine’s properties ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
-==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
-==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-swtxmqm7ly/providers/Microsoft.Compute/disks/osdisk’
+==> azure-arm: Querying the machine's properties ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
+==> azure-arm:  -> ComputeName       : 'pkrvmswtxmqm7ly'
+==> azure-arm:  -> Managed OS Disk   : '/subscriptions/guid/resourceGroups/packer-Resource-Group-swtxmqm7ly/providers/Microsoft.Compute/disks/osdisk'
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
-==> azure-arm:  -> ComputeName       : ‘pkrvmswtxmqm7ly’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
+==> azure-arm:  -> ComputeName       : 'pkrvmswtxmqm7ly'
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
-==> azure-arm:  -> Compute Name              : ‘pkrvmswtxmqm7ly’
-==> azure-arm:  -> Compute Location          : ‘China East’
-==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
-==> azure-arm:  -> Image Name                : ‘myPackerImage’
-==> azure-arm:  -> Image Location            : ‘chinaeast’
+==> azure-arm:  -> Compute ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
+==> azure-arm:  -> Compute Name              : 'pkrvmswtxmqm7ly'
+==> azure-arm:  -> Compute Location          : 'China East'
+==> azure-arm:  -> Image ResourceGroupName   : 'myResourceGroup'
+==> azure-arm:  -> Image Name                : 'myPackerImage'
+==> azure-arm:  -> Image Location            : 'chinaeast'
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-swtxmqm7ly’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-swtxmqm7ly'
 ==> azure-arm: Deleting the temporary OS disk ...
 ==> azure-arm:  -> OS Disk : skipping, managed disk was used...
-Build ‘azure-arm’ finished.
+Build 'azure-arm' finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
@@ -193,6 +193,7 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: chinaeast
 ```
 
+It takes a few minutes for Packer to build the VM, run the provisioners, and clean up the deployment.
 
 ## Create VM from Azure Image
 You can now create a VM from your Image with [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
@@ -222,9 +223,8 @@ Now you can open a web browser and enter `http://publicIpAddress` in the address
 
 ![NGINX default site](./media/build-image-with-packer/nginx.png) 
 
-
 ## Next steps
 In this example, you used Packer to create a VM image with NGINX already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Ansible, Chef, or Puppet.
 
 For additional example Packer templates for other Linux distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
-<!--Update_Description: update scripts for managed disks-->
+<!--Update_Description: wording update -->

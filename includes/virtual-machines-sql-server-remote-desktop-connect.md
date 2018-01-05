@@ -15,3 +15,5 @@
    ![Remote desktop authentication](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
 1. Click **OK** to connect.
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

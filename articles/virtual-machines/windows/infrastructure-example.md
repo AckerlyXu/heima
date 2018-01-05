@@ -14,16 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 12/18/2017
+origin.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
 # Example Azure infrastructure walkthrough for Windows VMs
-
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
-
 This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple online store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload
@@ -115,4 +112,4 @@ This configuration incorporates:
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
 * A single resource group
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->

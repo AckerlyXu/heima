@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang:
 ms.topic: article
-origin.date: 08/11/2017
-ms.date: 10/16/2017
+origin.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -30,7 +30,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Increase or decrease the number of instances in a scale set
 > * Create autoscale rules
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 5.1.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
 ## Scale Set overview
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. These are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
@@ -58,7 +58,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
@@ -210,7 +210,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). The following example sets the number of VMs in your scale set to *3*:
 
 ```powershell
 # Get current scale set
@@ -219,7 +219,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
+$scaleset.sku.capacity = 3
 Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     -Name myScaleSet `
     -VirtualMachineScaleSet $scaleset
@@ -228,7 +228,7 @@ Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
 If takes a few minutes to update the specified number of instances in your scale set.
 
 ### Configure autoscale rules
-Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance:
+Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5-minute period. If the average CPU load then drops below 30% over a 5-minute period, the instances are scaled in by one instance:
 
 ```powershell
 # Define your scale set information
@@ -237,7 +237,7 @@ $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "China North"
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -250,7 +250,7 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
 $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -MetricName "Percentage CPU" `
   -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
@@ -295,4 +295,4 @@ Advance to the next tutorial to learn more about load balancing concepts for vir
 > [!div class="nextstepaction"]
 > [Load balance virtual machines](tutorial-load-balancer.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

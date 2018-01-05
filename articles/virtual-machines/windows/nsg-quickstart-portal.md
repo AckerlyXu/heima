@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 08/21/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -36,7 +36,12 @@ Select your new Network Security Group. Select 'Inbound security rules', then se
 
 ![Add an inbound rule](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Choose a common **Service** from the drop-down menu, such as *HTTP*. You can also select *Custom* to provide a specific port to use. If desired, change the priority or name. The priority affects the order in which rules are applied - the lower the numerical value, the earlier the rule is applied. You can also select **Advanced** at the top of this screen to enter a specific source IP block or port range, for example. When you are ready, select **OK** to create the rule:
+To create a rule that allows traffic:
+
+- Select the **Basic** button. By default, the **Advanced** window provides some additional configuration options, such as to define a specific source IP block or port range.
+- Choose a common **Service** from the drop-down menu, such as *HTTP*. You can also select *Custom* to provide a specific port to use. 
+- If desired, change the priority or name. The priority affects the order in which rules are applied - the lower the numerical value, the earlier the rule is applied.
+- When you are ready, select **OK** to create the rule:
 
 ![Create an inbound rule](./media/nsg-quickstart-portal/create-inbound-rule.png)
 
@@ -61,4 +66,4 @@ In this example, you created a simple rule to allow HTTP traffic. You can find i
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
 * [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, add content on creating rule which allow traffic -->

@@ -1,6 +1,6 @@
 ---
 title: Set up endpoints on a classic Linux VM | Azure
-description: Learn to set up endpoints for a Linux VM in the Azure Classic Management Portal to allow communication with a Linux virtual machine in Azure
+description: Learn to set up endpoints for a Linux VM in the Azure portal to allow communication with a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -36,4 +36,4 @@ When you create a Linux virtual machine in the Azure portal, an endpoint for Sec
 * You can also create a VM endpoint by using the [Azure Command-Line Interface](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest). Run the **azure vm endpoint create** command.
 * If you created a virtual machine in the Resource Manager deployment model, you can use the Azure CLI in Resource Manager mode to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) to control traffic to the VM.
 
-<!-- Update_Description: Add classic portal migration notice. -->
+<!-- Update_Description: update meta properties  -->

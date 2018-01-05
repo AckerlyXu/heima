@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Encrypt a Windows VM | Azure
 description: Azure PowerShell Script Sample - Encrypt a Windows VM 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 06/02/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+origin.date: 12/12/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 ---
 
 # Encrypt a Windows virtual machine with Azure PowerShell
@@ -67,62 +67,21 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
     -PermissionsToKeys "all" `
     -PermissionsToSecrets "all"
 
-# Define virtual networking for a new virtual machine
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix "192.168.1.0/24"
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myVnet `
-    -AddressPrefix "192.168.0.0/16" `
-    -Subnet $subnetConfig
-
-# Create a public IP address for the virtual machine
-$pip = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod "Static" `
-    -IdleTimeoutInMinutes "4" `
-    -Name "mypublicdns$(Get-Random)"
-
-# Create a Network Security Group and RDP rule
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleRDP" `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority "1000" `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange "3389" `
-    -Access "Allow"
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -Name "myNetworkSecurityGroup" `
-    -SecurityRules $nsgRuleRDP
-
-# Create a virtual network interface card
-$nic = New-AzureRmNetworkInterface `
-    -Name "myNic" `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $pip.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Prompt for admin credentials to add to new virtual machine
-$cred = Get-Credential
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a virtual machine
-$vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_D1" | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName "myVM" -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName "MicrosoftWindowsServer" `
-        -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest" | `
-    Add-AzureRmVMNetworkInterface -Id $nic.Id
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+New-AzureRmVM `
+  -ResourceGroupName $resourceGroup `
+  -Name $vmName `
+  -Location $location `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 3389
 
 # Define required information for our Key Vault and keys
 $keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
@@ -164,15 +123,7 @@ This script uses the following commands to create the deployment. Each item in t
 | [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) | Creates an encryption key in Key Vault. |
 | [New-AzureRmADServicePrincipal](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Creates an Azure Active Directory service principal to securely authenticate and control access to encryption keys. |
 | [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | Sets permissions on the Key Vault to grant the service principal access to encryption keys. |
-| [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Creates a subnet configuration. This configuration is used with the virtual network creation process. |
-| [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Creates a virtual network. |
-| [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) | Creates a public IP address. |
-| [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) | Creates a network security group rule configuration. This configuration is used to create an NSG rule when the NSG is created. |
-| [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) | Creates a network security group. |
-| [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) | Gets subnet information. This information is used when creating a network interface. |
-| [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) | Creates a network interface. |
-| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
-| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) | Create a virtual machine. |
+| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also opens port 80 and sets the administrative credentials. |
 | [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault) | Gets required information on the Key Vault |
 | [Set-AzureRmVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) | Enables encryption on a VM using the service principal credentials and encryption key. |
 | [Get-AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) | Shows the status of the VM encryption process. |
@@ -183,3 +134,4 @@ This script uses the following commands to create the deployment. Each item in t
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: update meta properties, update cmdlet content -->

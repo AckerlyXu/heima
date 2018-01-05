@@ -3,8 +3,8 @@ title: Configure Always On availability group in Azure Virtual Machines (classic
 description: Create an Always On availability group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/17/2017
-ms.date: 05/22/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Configure Always On availability group in Azure Virtual Machines (classic)
@@ -60,7 +60,7 @@ This tutorial assumes the following:
 > 
 
 ## Create the virtual network and domain controller server
-You begin with a new Azure trial account. After you set up your account, you should be on the home screen of the Azure Classic Management Portal.
+You begin with a new Azure trial account. After you set up your account, you should be on the home screen of the Azure portal.
 
 1. Click the **New** button at the left corner of the bottom of the page, as shown in the following screenshot.
 
@@ -87,7 +87,7 @@ You begin with a new Azure trial account. After you set up your account, you sho
    | Virtual machine configuration |**CLOUD SERVICE** = Create a new cloud service<br/>**CLOUD SERVICE DNS NAME** = A unique cloud service name<br/>**DNS NAME** = A unique name (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = (None) |
    | Virtual machine options |Use defaults |
 
-After you configure the new virtual machine, wait for the virtual machine to be provsioned. This process takes some time to finish. If you click the **Virtual Machine** tab in the Azure Classic Management Portal, you can see ContosoDC cycling states from **Starting (Provisioning)** to **Stopped**, **Starting**, **Running (Provisioning)**, and finally **Running**.
+After you configure the new virtual machine, wait for the virtual machine to be provsioned. This process takes some time to finish. If you click the **Virtual Machine** tab in the Azure portal, you can see ContosoDC cycling states from **Starting (Provisioning)** to **Stopped**, **Starting**, **Running (Provisioning)**, and finally **Running**.
 
 The DC server is now successfully provisioned. Next, you will configure the Active Directory domain on this DC server.
 
@@ -412,3 +412,4 @@ You are now ready to configure an availability group. Below is an outline of wha
 You have now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](../classic/ps-sql-int-listener.md).
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+<!-- Update_Description: update meta properties, wording update -->

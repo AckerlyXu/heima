@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 origin.date: 10/02/2017
-ms.date: 12/01/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ---
 # Overview of SQL Server on Azure Virtual Machines (Linux)
@@ -33,6 +33,7 @@ There are many reasons that you might choose to host your data in Azure. If you 
 
 SQL Server running on Azure VMs is one option for storing your relational data in Azure. You also have the option of using Azure SQL Database service. For more information about choosing between SQL Server on Virtual Machines versus Azure SQL Database, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
+<a id="create"></a>
 ## Create a new SQL VM
 
 Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision a Linux SQL Server VM in Azure](provision-sql-server-linux-virtual-machine.md).
@@ -40,7 +41,7 @@ Find step-by-step guidance for creating a new SQL VM in the tutorial, [Provision
 The following table provides a matrix of the latest SQL Server images in the virtual machine gallery. Click on any link to begin creating a new SQL VM with your specified version, edition, and operating system.
 
 > [!TIP]
-> To understand the VM and SQL pricing for these images, see [the pricing page for Linux SQL Server VMs](https://www.azure.cn/pricing/details/virtual-machines/linux/).
+> To understand the VM and SQL pricing for these images, see [the pricing page for Linux SQL Server VMs](https://www.azure.cn/pricing/details/virtual-machines/).
 
 | Version | Operating System | Edition |
 | --- | --- | --- |
@@ -65,4 +66,4 @@ When you configure SQL Server on Linux, you install the database engine package 
 
 To learn more about how to configure and use SQL Server on Linux, see [Overview of SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview).
 
-<!--Update_Description: new articles on SQL server linux VM overview-->
+<!--Update_Description: update meta properties, wording update -->
