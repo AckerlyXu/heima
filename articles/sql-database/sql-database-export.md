@@ -41,7 +41,7 @@ When you need to export a database for archiving or for moving to another platfo
 
 To export a database using the [Azure portal](https://portal.azure.cn), open the page for your database and click **Export** on the toolbar. Specify the BACPAC filename, provide the Azure storage account and container for the export, and provide the credentials to connect to the source database.  
 
-   ![Database export](./media/sql-database-export/database-export.png)
+![Database export](./media/sql-database-export/database-export.png)
 
 To monitor the progress of the export operation, open the page for the logical server containing the database being exported. Scroll down to **Operations** and then click **Import/Export** history.
 

@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/08/2017
-ms.date: 12/11/2017
+origin.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: v-nany
 ---
 # Automatic tuning in Azure SQL Database
@@ -45,7 +45,7 @@ Automatic tuning mechanisms are mature and have been perfected on hundreds of th
 
 ![How does automatic tuning work](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database Automatic tuning is sharing its core logic with the SQL Server automatic tuning engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database Automatic tuning is sharing its core logic with the SQL Server automatic tuning engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## Use Automatic tuning
 
@@ -70,12 +70,11 @@ Automatic tuning options available in Azure SQL Database are:
 
 Azure SQL Database identifies **CREATE INDEX**, **DROP INDEX**, and **FORCE LAST GOOD PLAN** recommendations that can optimize your database and shows them in Azure portal. Find more information about identification of indexes that should be changed at [Find index recommendations in Azure portal](sql-database-advisor-portal.md). You can either manually apply recommendations using the portal or you can let Azure SQL Database to automatically apply recommendations, monitor workload after the change, and verify that the recommendation improved the performance of your workload.
 
-Automatic tuning options can be independently turned on or off per database, or they can be configured on logical server and applied on every database that inherits settings from the server. Configuring [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) options on the server and inheriting settings on the databases in the server is recommended method for configuring automatic tuning because it simplifies management of automatic tuning options on a large number of databases.
-
+Automatic tuning options can be independently turned on or off per database, or they can be configured on logical server and applied on every database that inherits settings from the server. Configuring Automatic tuning options on the server and inheriting settings on the databases in the server is recommended method for configuring automatic tuning because it simplifies management of automatic tuning options on a large number of databases.
 
 ## Next steps
 
 - To enable automatic tuning in Azure SQL Database to manage your workload, see [Enable automatic tuning](sql-database-automatic-tuning-enable.md).
 - To manually review and apply Automatic tuning recommendations, see [Find and apply performance recommendations](sql-database-advisor-portal.md).
 - To learn more about built-in intelligence used in Automatic tuning, see [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- To learn more about how Automatic tuning works in Azure SQL Database and SQL server 2017, see [SQL Server automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+- To learn more about how Automatic tuning works in Azure SQL Database and SQL server 2017, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

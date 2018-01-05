@@ -3,7 +3,7 @@ title: Azure SQL Database Azure Case Study - Daxko/CSI | Azure
 description: Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance
 services: sql-database
 documentationcenter: ''
-author: Hayley244
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -13,10 +13,11 @@ ms.custom: reference
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: "Inactive"
 origin.date: 01/10/2017
-ms.date: 07/03/2017
-ms.author: v-johch
+ms.date: 01/08/2018
+ms.author: v-nany
+
 
 ---
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance
@@ -90,5 +91,5 @@ Azure SQL Database isn't just a boon to SpectrumNG customers, who enjoy the fast
 * To learn more about migrating a SQL Server database, see see [Migrate a SQL Server database to Azure](sql-database-cloud-migrate.md).
 * To learn more about active geo-replication, see [active geo-replication](sql-database-geo-replication-overview.md).
 * To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).    
-* To learn more about Azure Service Bus,see [Azure Service Bus](https://www.azure.cn/home/features/service-bus/).
+* To learn more about Azure Service Bus,see [Azure Service Bus](https://www.azure.cn/home/features/messaging/).
 * To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale.md).

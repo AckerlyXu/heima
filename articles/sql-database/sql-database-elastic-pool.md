@@ -23,6 +23,9 @@ ms.tgt_pltfrm: NA
 
 SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources ([elastic Database Transaction Units](sql-database-what-is-a-dtu.md) (eDTUs)) at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. 
 
+> [!NOTE]
+> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview. GA of elastic pools in this region will occur as soon as possible.
+>
 
 ## What are SQL elastic pools? 
 
@@ -131,7 +134,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 - **Active geo-replication**: For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
 
-## Manage elastic pools and databases using the Azure portal
+## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Manage elastic pools and databases using the Azure portal
 
 ### Creating a new SQL Database elastic pool using the Azure portal
 
