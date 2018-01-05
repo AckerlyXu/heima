@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/20/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 
 ---
 # Connectivity and networking issues for Azure Cloud Services: Frequently asked questions (FAQs)
@@ -46,8 +46,8 @@ You can also create a startup task to selectively block some specific IP address
 
 ## When I try to RDP to my cloud service instance, I get the message, "The user account has expired."
 You may get the error message "This user account has expired" when you bypass the expiration date that is configured in your RDP settings. You can change the expiration date from the portal by following these steps:
-1. Log in to the Azure Management Console (https://manage.windowsazure.cn), navigate to your cloud service, and select the **Configure** tab.
-2. Select **Remote**.
+1. Log in to the [Azure portal](https://portal.azure.cn), navigate to your cloud service, and select the **Remote Desktop** tab.
+2. Select the **Production** or **Staging** deployment slot.
 3. Change the "Expires On" date, and then save the configuration.
 
 You now should be able to RDP to your machine.

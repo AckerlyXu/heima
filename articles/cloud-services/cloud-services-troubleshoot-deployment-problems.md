@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ---
 
 # Troubleshoot cloud service deployment problems
@@ -26,7 +26,6 @@ When you deploy a cloud service application package to Azure, you can obtain inf
 You can find the **Properties** pane as follows:
 
 * In the Azure portal, click the deployment of your cloud service, click **All settings**, and then click **Properties**.
-* In the Azure classic portal, click the deployment of your cloud service, click **DASHBOARD**, located at the lower-right corner of the page (under **quick glance**). Be aware that there's no "Properties" label on this pane.
 
 > [!NOTE]
 > You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
