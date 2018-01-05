@@ -47,7 +47,7 @@ First, create a file to upload to a blob.
 If you're using the Azure cloud shell, use the following in order to create a file:
 `vi helloworld` when the file opens, press **insert**, type "Hello world" and then press **Esc** and enter `:x` and press **Enter**.
 
-In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob#upload) command.
+In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) command.
 
 ```azurecli-interactive
 az storage blob upload \

@@ -32,7 +32,7 @@ The Azure SQL Database service is only available through TCP port 1433. To acces
 
 As part of the connection process, connections from Azure virtual machines are redirected to a different IP address and port, unique for each worker role. The port number is in the range from 11000 to 11999. For more information about TCP ports, see [Ports beyond 1433 for ADO.NET 4.5 and SQL Database2](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## Authentication
+## <a name="authentication"></a>Authentication
 
 SQL Database supports two types of authentication:
 

@@ -3,7 +3,7 @@ title: Azure SQL Database single database | Microsoft Docs
 description: Manage the service tier, performance level, and amount of storagea for a single Azure SQL database.
 services: sql-database
 documentationcenter: na
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -13,10 +13,11 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-origin.date: 10/11/2017
-ms.date: 11/06/2017
-ms.author: v-johch
+ms.workload: "On Demand"
+origin.date: 12/14/2017
+ms.date: 01/08/2018
+ms.author: v-nany
+
 
 ---
 # Manage resources for a single database in Azure SQL Database
@@ -33,9 +34,6 @@ To set or change the service tier, performance level, or storage amount for a ne
 
 ![Configure service tier and performance level](./media/sql-database-single-database-resources/change-service-tier.png)
 
-> [!IMPORTANT]
-> Review [Current limitations of P11 and P15 databases with 4-TB maximum size](sql-database-resource-limits.md) when selecting a P11 or P15 service tier.
->
 
 ## Manage single database resources using PowerShell
 
@@ -46,6 +44,8 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)|Creates a database |
 |[Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
 |[Set-​Azure​Rm​Sql​Database](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool. For example, use the **MaxSizeBytes** property to set the maximum size for a database.|
+|[Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Gets the status of database operations. |
+|[Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Cancels the asynchronous update operation on the database.|
 
 
 > [!TIP]
@@ -62,7 +62,8 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
 |[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
 |[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
-
+|[az sql db op list](/cli/sql/db/op?#az_sql_db_op_list)|Gets a list of operations performed on the database.|
+|[az sql db op cancel](/cli/sql/db/op#az_sql_db_op_cancel)|Cancels the asynchronous operation on the database.|
 
 > [!TIP]
 > For an Azure CLI example script that scales a single Azure SQL database to a different performance level after querying the size information of the database, see [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -70,7 +71,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 
 ## Manage single database resources using Transact-SQL
 
-To set or change Azure SQL databases service tiers, performance levels, and storage amount with Transact-SQL, use these T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. 
+To set or change Azure SQL databases service tiers, performance levels, and storage amount with Transact-SQL, use these T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. 
 
 | Command | Description |
 | --- | --- |
@@ -99,7 +100,8 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](https://docs.microsoft.com/api/sql/databases/update)|Updates an existing database.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Updates an existing database.|
+|[Operations - List](https://docs.microsoft.com/rest/api/sql/Operations/List)|Lists all of the available SQL Rest API operations.|
 
 
 

@@ -38,7 +38,6 @@ For iOS, see [Enabling Cross App SSO in iOS](/active-directory/develop/active-di
 
 [Enabling Cross App SSO in iOS](/active-directory/develop/active-directory-sso-ios)<br>
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](develop/active-directory-v2-scopes.md)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 

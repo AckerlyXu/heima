@@ -52,7 +52,7 @@ Login-AzureRmAccount
 
 ## List the storage accounts in the subscription
 
-Run the [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermstorageaccount) cmdlet to retrieve the list of storage accounts in the current subscription. 
+Run the [Get-AzureRMStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccount?view=azurermps-5.1.1) cmdlet to retrieve the list of storage accounts in the current subscription. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -105,7 +105,7 @@ $ctx = $storageAccount.Context
 
 The script uses the following PowerShell cmdlets: 
 
-*   [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmLocation) -- retrieves a list of the valid locations. The example uses `chinanorth` for location.
+*   [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation?view=azurermps-5.1.1) -- retrieves a list of the valid locations. The example uses `chinanorth` for location.
 
 *   [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/New-AzureRmResourceGroup) -- creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
 

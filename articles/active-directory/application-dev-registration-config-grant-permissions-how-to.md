@@ -42,6 +42,4 @@ Alternatively, you can construct a request to *login.microsoftonline.com* with y
 
 [Consent and Integrating Apps to AzureAD](./develop/active-directory-integrating-applications.md)
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](./develop/active-directory-v2-scopes.md)<br>
-
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
