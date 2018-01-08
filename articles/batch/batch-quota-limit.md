@@ -3,8 +3,8 @@ title: Service quotas and limits for Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: v-dotren
+manager: timlt
 editor: ''
 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -13,8 +13,8 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/28/2017
-ms.date: 11/02/2017
+origin.date: 11/29/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -39,7 +39,7 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 ### Quotas in user subscription mode
 
-If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied.
+If you used an earlier version of the Batch API to create a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, which is no longer recommended, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quota does not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 ## Other limits
 | **Resource** | **Maximum Limit** |
@@ -49,10 +49,11 @@ If you used an earlier version of the Batch API to create a Batch account with p
 | Application packages per application |40 |
 | Application package size (each) |Approx. 195GB<sup>1</sup> |
 | Maximum start task size | 32768 characters<sup>2</sup> |
+| Maximum task lifetime | 7 days<sup>3</sup> |
 
 <sup>1</sup> Azure Storage limit for maximum block blob size<br />
-<sup>2</sup> Includes resource files and environment variables
-
+<sup>2</sup> Includes resource files and environment variables<br />
+<sup>3</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
 
 
 ## View Batch quotas
@@ -97,6 +98,7 @@ Once you've submitted your support request, Azure support will contact you. Note
 ## Related topics
 - [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 - [Azure Batch feature overview](batch-api-basics.md)
+- [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.cn
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
