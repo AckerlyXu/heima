@@ -3,19 +3,19 @@ title: Azure Backup PowerShell Samples | Microsoft Docs
 description: Azure Backup PowerShell Samples
 services: backup
 documentationcenter:
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor:
 tags:
 
 ms.assetid:
 ms.service: backup
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 09/07/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: mvc
 ---
@@ -30,3 +30,4 @@ The following table links to PowerShell script samples that use Azure Backup to 
 | | |
 
 
+<!-- Update_Description: update metedata properties -->

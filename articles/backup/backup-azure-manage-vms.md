@@ -3,8 +3,8 @@ title: Manage Resource Manager-deployed virtual machine backups | Microsoft Docs
 description: Learn how to manage and monitor Resource Manager-deployed virtual machine backups
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: shreeshd
 editor: ''
 
 ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
@@ -14,16 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2016
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 
 ---
 # Manage Azure virtual machine backups
-> [!div class="op_single_selector"]
-> * [Manage Azure VM backups](backup-azure-manage-vms.md)
-> * [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
->
->
 
 This article provides guidance on managing VM backups, and explains the backup alerts information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
@@ -224,6 +219,6 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Next steps
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
+For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-arm-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
 
 <!--Update_Description: wording update -->

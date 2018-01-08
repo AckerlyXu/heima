@@ -3,8 +3,8 @@ title: Recover files from Azure to a Windows Server | Microsoft Docs
 description: This tutorial details recovering items from Azure to a Windows Server.
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: saurabhsensharma
+manager: shivamg
 editor: ''
 keywords: windows server back up;restore files windows server; back up and disaster recovery
 
@@ -13,11 +13,11 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 09/20/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.custom:
+ms.custom: mvc
 
 ---
 # Recover files from Azure to a Windows Server
@@ -80,3 +80,4 @@ This completes the tutorials on backing up and restoring Windows Server data to 
 > [!div class="nextstepaction"]
 > [Back up encrypted VM](./scripts/backup-powershell-sample-backup-encrypted-vm.md)
 
+<!-- Update_Description: update metedata properties -->

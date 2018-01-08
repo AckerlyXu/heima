@@ -3,8 +3,8 @@ title: Use Azure Backup agent to back up files and folders | Microsoft Docs
 description: Use the Azure Backup agent to back up Windows files and folders to Azure. Create a Recovery Services vault, install the Backup agent, define the backup policy, and run the initial backup on the files and folders.
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 keywords: backup vault; back up a Windows server; backup windows;
 
@@ -15,17 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
-> [!div class="op_single_selector"]
-> * [Azure portal](backup-configure-vault.md)
-> * [Classic Management Portal](backup-configure-vault-classic.md)
->
->
-
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
@@ -182,9 +176,9 @@ The agent is now installed and your machine is registered to the vault. You're r
 If your machine/proxy has limited internet access, ensure that firewall settings on the machine/proxy are configured to allow the following URLs: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
-    3. *.WindowsAzure.com
-    4. *.microsoftonline.com
-    5. *.windows.ne
+    3. *.WindowsAzure.cn
+    4. *.microsoftonline.cn
+    5. *.chinacloudapi.cn
 
 
 ## Create the backup policy

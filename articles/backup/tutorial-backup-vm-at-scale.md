@@ -3,12 +3,13 @@ title: Back up Azure virtual machines at scale | Microsoft Docs
 description: Simultaneously back up multiple virtual machines to Azure
 services: backup 
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
-author: alexchen2016
+author: markgalioto
 ms.author: v-junlch
 origin.date: 09/16/2017
-ms.date: 10/31/2017
-ms.topic: article
+ms.date: 01/08/2018
+ms.topic: tutorial
 ms.service: backup
+ms.custom: mvc
 
 ---
 
@@ -184,3 +185,4 @@ Continue to the next tutorial to restore an Azure virtual machine from disk.
 > [!div class="nextstepaction"]
 > [Restore VMs using CLI](./tutorial-restore-disk.md)
 
+<!-- Update_Description: update metedata properties -->

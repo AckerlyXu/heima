@@ -3,25 +3,25 @@ title: Azure Quick Start - Back up a VM with PowerShell | Microsoft Docs
 description: Learn how to back up your virtual machines with Azure PowerShell
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
 ms.service: virtual-machines-windows, azure-backup
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/18/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure with PowerShell
-The Azure PowerShell module is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure PowerShell module. 
+The Azure PowerShell module is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure PowerShell module. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md) or [Azure portal](quick-backup-vm-portal.md).
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 
@@ -139,3 +139,4 @@ In this quick start, you created a Recovery Services vault, enabled protection o
 > [!div class="nextstepaction"]
 > [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
 
+<!-- Update_Description: wording update -->

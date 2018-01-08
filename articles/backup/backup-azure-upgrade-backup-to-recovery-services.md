@@ -3,8 +3,8 @@ title: Upgrade a Backup vault to a Recovery Services vault (Preview) | Microsoft
 description: Instructions and support information to upgrade your Azure Backup vault to a Recovery Services vault.
 services: backup
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 
 ms.assetid: 228fef19-2f6b-4067-acc3-fb6e501afb88
 ms.service: backup
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 11/09/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 
 ---
@@ -32,7 +32,7 @@ When upgrading a Backup vault to a Recovery Services vault, there is no impact t
 ## Changes to your automation and tool after upgrading
 
 While preparing your infrastructure for the vault upgrade, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
-Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 
 ## Before you upgrade
@@ -70,7 +70,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 The following code snippet is an example of what your PowerShell command should look like:
 
 ```
-RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "China East" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
+RecoveryServicesVaultUpgrade.ps1 -SubscriptionID 53a3c692-5283-4f0a-baf6-49412f5ebefe -VaultName "TestVault" -Location "China North" -ResourceType BackupVault -TargetResourceGroupName "ContosoRG"
 ```
 
 You can also run the script without any parameters and you are asked to provide inputs for all required parameters.
