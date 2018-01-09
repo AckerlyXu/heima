@@ -2,9 +2,9 @@
 title: Continuous delivery for cloud services with TFS in Azure | Azure
 description: Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts.
 services: cloud-services
-documentationCenter: ''
-authors: TomArcher
-manager: douge
+documentationcenter: ''
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 09/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 ---
 
@@ -274,6 +274,9 @@ Template workflow activities in Visual Studio TFS Team Build.
     deployments by default if they are detected. This is necessary to
     enable continuous delivery from automation where no user prompting
     is possible.
+    >
+    >
+    
 
     **Example scenario 1:** continuous deployment to the staging
     environment of a service:
@@ -599,7 +602,7 @@ piped into the standard build output.
 
 ### PublishCloudService.ps1 script template
 
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -811,7 +814,7 @@ To enable remote debugging when using continuous delivery, see [Enable remote de
   [Scale out your build system]: https://msdn.microsoft.com/zh-cn/library/dd793166.aspx
   [Deploy and configure a build server]: https://msdn.microsoft.com/zh-cn/library/ms181712.aspx
   [Azure PowerShell cmdlets]:../powershell-install-configure.md
-  [the .publishsettings file]: https://manage.windowsazure.cn/download/publishprofile.aspx?wa=wsignin1.0
+
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

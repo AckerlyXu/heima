@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/04/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -80,7 +80,7 @@ Once the application starts, Visual Studio automatically brings up the **Diagnos
 
 The stateful service template we used simply shows a counter value incrementing in the `RunAsync` method of **MyStatefulService.cs**.
 
-Expand one of the events to see more details, including the node where the code is running. In this case, it is \_Node\_2, though it may differ on your machine.
+Expand one of the events to see more details, including the node where the code is running. In this case, it is \_Node\_0, though it may differ on your machine.
 
 ![Diagnostic events viewer detail][6]
 
@@ -142,4 +142,4 @@ Read more about [reliable services](service-fabric-reliable-services-introductio
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

@@ -13,13 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/29/2017
-ms.date: 08/21/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
+
 ---
-
 # Notes on Service Fabric Reliable Actors type serialization
-
 The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's state manager must be [data contract serializable](https://msdn.microsoft.com/library/ms731923.aspx). This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md). (Actor event interface methods always return void.)
 
 ## Custom data types
@@ -149,4 +148,4 @@ public class VoicemailBox implements Serializable
 * [Actor polymorphism and object-oriented design patterns](service-fabric-reliable-actors-polymorphism.md)
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 
-<!--Update_Description: update meta properties, add implementation of Java lanuage-->
+<!--Update_Description: update meta properties -->

@@ -14,7 +14,7 @@ ms.workload: na
 origin.date: 08/25/2017
 ms.author: v-yiso
 ms.custom: na
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ---
 # Connect your simulated device to your IoT hub using Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -189,6 +189,7 @@ This section lists the steps to create a Python console app, that simulates a de
         # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
+        client.set_option("product_info", "HappyPath_Simulated-Python")
         return client
     ```
 7. Add the following function to format and send a message from your simulated device to your IoT hub.
@@ -286,7 +287,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Connecting your device][lnk-connect-device]
 * [Getting started with device management][lnk-device-management]
-* [Getting started with Azure IoT Edge][lnk-iot-edge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iot-edge]
 
 To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

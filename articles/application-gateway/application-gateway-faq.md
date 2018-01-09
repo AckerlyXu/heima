@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 09/13/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -45,7 +45,7 @@ Backend pools can be composed of NICs, virtual machine scale sets, public IPs, i
 
 **Q. What regions is the service available in?**
 
-Application Gateway is available in all regions of public Azure.
+Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/).
 
 **Q. Is this a dedicated deployment for my subscription or is it shared across customers?**
 
@@ -106,6 +106,10 @@ Network Security Groups are supported on the Application Gateway subnet with the
 - Outbound internet connectivity can not be blocked.
 
 - Traffic from the AzureLoadBalancer tag must be allowed.
+
+**Q. What are the limits on Application Gateway? Can I increase these limits?**
+
+Visit [Application Gateway Limits](../azure-subscription-service-limits.md#application-gateway-limits) to view the limits.
 
 **Q. Can I use Application Gateway for both external and internal traffic simultaneously?**
 
@@ -185,6 +189,8 @@ Self signed certs, CA certs, and wild-card certs are supported. EV certs are not
 
 The following are the current cipher suites supported by application gateway. Visit: [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md) to learn how to customize SSL options.
 
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
@@ -281,7 +287,7 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 - Prevention against bots, crawlers, and scanners
 
-- Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+ - Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 **Q. Does WAF also support DDoS prevention?**
 

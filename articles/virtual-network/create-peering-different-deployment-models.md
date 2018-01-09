@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -31,18 +31,15 @@ The steps to create a virtual network peering are different, depending on whethe
 |[Both Resource Manager](create-peering-different-subscriptions.md) |Different|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
-A virtual network peering can only be created between two virtual networks that exist in the same Azure region.
+A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
 
-  > [!WARNING]
-  > Creating a virtual network peering between virtual networks in different regions is currently in preview. You can register your subscription for the preview below. Virtual network peerings created in this scenario may not have the same level of availability and reliability as creating a virtual network peering in scenarios in general availability release. Virtual network peerings created in this scenario are not supported, may have constrained capabilities, and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://www.azure.cn/what-is-new/) page.
-
-A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model.If you need to connect virtual networks that were both created through the classic deployment model, or that exist in different Azure regions, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
+This tutorial peers virtual networks in the same region. The ability to connect virtual networks in different regions with an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) is generally available, and does not require registration.
+<!-- Not Available on (Different Region is invalid) [Register for global virtual network peering](#register) -->
 
 You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
-<!-- Not Available ## <a name="register"></a>Register for the Global VNet Peering preview-->
-
-## <a name="cli"></a>Create peering - Portal
+<a name="cli"></a>
+## Create peering - Azure portal
 
 1. Log in to the [Azure portal](https://portal.azure.cn). The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
 2. Click **+ New**, click **Networking**, then click **Virtual network**.
@@ -92,10 +89,11 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
 
-5. Create a resource group and a virtual network (Resource Manager). You can use either the CLI 1.0 or 2.0 ([install](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)). In this tutorial, the CLI 2.0 is used to create the virtual network (Resource Manager), since 2.0 must be used to create the peering. Execute the following bash CLI script from your local machine with the CLI 2.0.4 or later installed. For options on running bash CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json). 
+5. Create a resource group and a virtual network (Resource Manager). You can use either the CLI 1.0 or 2.0 ([install](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)). In this tutorial, the CLI 2.0 is used to create the virtual network (Resource Manager), since 2.0 must be used to create the peering. Execute the following bash CLI script from your local machine with the CLI 2.0.4 or later installed. For options on running bash CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest).
+<!-- Not Available on Cloud Shell -->
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-    <!-- Not Available on Azure Cloud Shell in Azure.cn-->
+
 
     ```azurecli
     #!/bin/bash
@@ -272,6 +270,10 @@ When you've finished this tutorial, you might want to delete the resources you c
     > [!WARNING]
     > Importing a changed network configuration file can cause changes to existing virtual networks (classic) in your subscription. Ensure you only remove the previous virtual network and that you don't change or remove any other existing virtual networks from your subscription. 
 
+<!-- Not Available ## <a name="register"></a>Register for the global virtual network peering preview -->
+<!-- Currently is valid in  (US West Central, Canada Central, and US West 2)-->
+<!-- Can not Register the feature of AllowGlobalVnetPeering in Powershell -->
+<!-- Can not Register the feature of AllowGlobalVnetPeering in CLI -->
 ## Next steps
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.

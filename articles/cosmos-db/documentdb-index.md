@@ -21,7 +21,8 @@ ms.author: v-yeche
 
 This article provides links to all Azure Cosmos DB content specific to the DocumentDB API.
 
-These articles do not apply to the Graph API, Table API, or MongoDB API. 
+These articles do not apply to the Table API, or MongoDB API. 
+<!-- Not Available on Graph API -->
 
 ## Introduction and concepts
 
@@ -71,11 +72,7 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 - [Query](tutorial-query-documentdb.md)
 - [Distribute data globally](tutorial-global-distribution-documentdb.md)
 
-### Work with Azure Functions
-
-- [Create an Azure Cosmos DB trigger](../azure-functions/functions-create-cosmos-db-triggered-function.md)
-- [Use Azure Cosmos DB in input and output bindings](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-
+<!-- Not Available ### Work with Azure Functions -->
 ## Developers guide
 
 - [SQL queries](documentdb-sql-query.md)
@@ -103,7 +100,7 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 - [REST](https://docs.microsoft.com/rest/api/documentdb/)
 - [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 - [SQL query reference](documentdb-sql-query-reference.md)
-- [Azure Functions reference](../azure-functions/functions-bindings-documentdb.md)
+<!-- Not Available on - [Azure Functions reference](../azure-functions/functions-bindings-documentdb.md) -->
 
 ## Samples
 

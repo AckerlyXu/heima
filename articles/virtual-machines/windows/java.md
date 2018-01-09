@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -470,4 +470,4 @@ It should take about five minutes for this console application to run completely
 ## Next steps
 * Learn more about using the [Azure libraries for Java](https://docs.azure.cn/java/java-sdk-azure-overview).
 
-<!--Update_Description: new articles on creating and managing VM in Azure using java-->
+<!--Update_Description: update meta properties -->

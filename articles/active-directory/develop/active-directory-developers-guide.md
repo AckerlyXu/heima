@@ -57,10 +57,6 @@ These articles provide detailed information on APIs, protocol messages, and term
 | [More reference material...](active-directory-developers-guide-index.md#reference)|     |
 
 
-> [!NOTE]
-> If you need to sign-in Microsoft personal accounts, you may want to consider using the [Azure AD v2.0 endpoint](active-directory-appmodel-v2-overview.md).  The Azure AD v2.0 endpoint is the unification of Microsoft personal accounts & Microsoft work accounts (from Azure AD) into a single authentication system.
-
-
 [!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
 
 <!--Update_Description: wording update -->

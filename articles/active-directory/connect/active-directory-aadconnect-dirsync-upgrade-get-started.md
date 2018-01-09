@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 ---
 
@@ -138,7 +138,7 @@ If you have less than 50,000 objects but still want to do a parallel deployment,
 
 Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to [install Azure AD Connect on a separate server](#installation-of-azure-ad-connect-on-separate-server).
 
-### Install Azure AD Connect on separate server <a name="installation-of-azure-ad-connect-on-separate-server"></a>
+### Install Azure AD Connect on separate server
 When you install Azure AD Connect on a new server, the assumption is that you want to perform a clean install of Azure AD Connect. Since you want to use the DirSync configuration, there are some extra steps to take:
 
 1. Run the Azure AD Connect installer (MSI).
@@ -209,10 +209,10 @@ Azure AD Connect is now your active server and you must not switch back to using
 ## Next steps
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
-Learn more about these new features, which were enabled with the installation: [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md), [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md).
+Learn more about these new features, which were enabled with the installation: [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) and [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md).
 
 Learn more about these common topics: [scheduler and how to trigger sync](active-directory-aadconnectsync-feature-scheduler.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

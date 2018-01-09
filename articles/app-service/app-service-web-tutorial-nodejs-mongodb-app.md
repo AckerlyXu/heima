@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
@@ -40,6 +40,7 @@ To complete this tutorial:
 
 1. [Install Git](https://git-scm.com/)
 1. [Install Node.js and NPM](https://nodejs.org/)
+1. [Install Bower](https://bower.io/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install Gulp.js](http://gulpjs.com/) (required by [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
@@ -231,7 +232,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Navigate to http://localhost:8443 in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
+Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
 
 In the terminal, stop Node.js by typing `Ctrl+C`. 
 
@@ -255,7 +256,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure web app, you use app settings to define your MongoDB connection string.
 
-To set app settings, use the [az webapp config appsettings update](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings?view=azure-cli-latest). 
+To set app settings, use the [az webapp config appsettings set](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure web app. Replace the *\<app_name>*, *\<cosmosdb_name>*, and *\<primary_master_key>* placeholders.
 

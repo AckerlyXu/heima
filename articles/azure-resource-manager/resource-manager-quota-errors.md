@@ -12,8 +12,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -43,6 +43,7 @@ please delete some resources of this type before creating a new one.
 ## Cause
 
 Quotas are applied per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
+For complete quota information, see .
 
 ## Solution
 
@@ -90,12 +91,30 @@ Virtual Machines                             0 10000 Count
 
 ### Solution 3
 
-If you need to increase a quota limit, go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
+To request a quota increase, go to the portal and file a support issue. In the support issue, request an increase in your quota for the region into which you want to deploy.
 
 > [!NOTE]
 > Remember that for resource groups, the quota is for each individual region, not for the entire subscription. If you need to deploy 30 cores in China North, you have to ask for 30 Resource Manager cores in China North. If you need to deploy 30 cores in any of the regions to which you have access, you should ask for 30 Resource Manager cores in all regions.
 >
 >
 
+1. Select **Subscriptions**.
 
-<!--Update_Description: new articles on resource manager quota errors-->
+   ![Subscriptions](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Select the subscription that needs an increased quota.
+
+   ![Select subscription](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Select **Usage + quotas**
+
+   ![Select usage and quotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. In the upper right corner, select **Request increase**.
+
+   ![Request increase](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Fill in the forms for the type of quota you need to increase.
+<!-- Not Available on  ![Fill in form](./media/resource-manager-quota-errors/forms.png) -->
+
+<!-- Update_Description: update meta properties, wording update -->

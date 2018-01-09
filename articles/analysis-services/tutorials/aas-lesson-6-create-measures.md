@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 09/20/2017
-ms.date: 10/23/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 # Lesson 6: Create measures
@@ -127,4 +127,4 @@ Measures created for the FactInternetSales table can be used to analyze critical
 ## What's next?
 [Lesson 7: Create Key Performance Indicators](../tutorials/aas-lesson-7-create-key-performance-indicators.md).
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

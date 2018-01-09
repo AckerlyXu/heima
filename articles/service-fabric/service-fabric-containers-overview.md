@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -50,7 +50,7 @@ For a tutorial, see [Deploy a Docker container to Service Fabric](service-fabric
 ### Windows Server containers
 Windows Server 2016 provides two different types of containers that differ in the level of provided isolation. Windows Server containers and Docker containers are similar because both have namespace and file system isolation but share the kernel with the host they are running on. On Linux, this isolation has traditionally been provided by `cgroups` and `namespaces`, and Windows Server containers behave similarly.
 
-Windows containers with Hyper-V support provide more isolation and security because each container does not share the operating system kernel with other containers or with the host. With this higher level of security isolation, Hyper-V enabled containers are targeted at hostile, multitenant scenarios.
+Windows containers with Hyper- support provide more isolation and security because each container does not share the operating system kernel with other containers or with the host. With this higher level of security isolation, Hyper-V enabled containers are targeted at hostile, multitenant scenarios.
 For a tutorial, see [Deploy a Windows container to Service Fabric](service-fabric-get-started-containers.md).
 
 The following figure shows the different types of virtualization and isolation levels available in the operating system.
@@ -59,7 +59,7 @@ The following figure shows the different types of virtualization and isolation l
 ## Scenarios for using containers
 Here are typical examples where a container is a good choice:
 
-* **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET Core. These ASP.NET MVC apps depend on Internet Information Services (IIS). You can package these applications into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) for information about Windows containers.
+* **IIS lift and shift**: If you have existing [ASP.NET MVC](https://www.asp.net/mvc) apps that you want to continue to use, put them in a container instead of migrating them to ASP.NET Core. These ASP.NET MVC apps depend on Internet Information Services (IIS). You can package these applications into container images from the precreated IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) for information about Windows containers.
 * **Mix containers and Service Fabric microservices**: Use an existing container image for part of your application. For example, you might use the [NGINX container](https://hub.docker.com/_/nginx/) for the web front end of your application and stateful services for the more intensive back-end computation.
 * **Reduce impact of "noisy neighbors" services**: You can use the resource governance ability of containers to restrict the resources that a service uses on a host. If services might consume many resources and affect the performance of others (such as a long-running, query-like operation), consider putting these services into containers that have resource governance.
 
@@ -68,7 +68,7 @@ Service Fabric supports the deployment of Docker containers on Linux and Windows
 
 In the Service Fabric [application model](service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. Service Fabric can run any containers, and the scenario is similar to the [guest executable scenario](service-fabric-deploy-existing-app.md), where you package an existing application inside a container. This scenario is the common use-case for containers, and examples include running an application written using any language or frameworks, but not using the built-in Service Fabric programming models.
 
-In addition, you can run Service Fabric services inside containers as well. Support for running Service Fabric services inside containers is currently limited, and will be improved in upcoming releases.
+In addition, you can run [Service Fabric services inside containers](service-fabric-services-inside-containers.md) as well. Support for running Service Fabric services inside containers is currently limited, and will be improved in upcoming releases.
 
 Service Fabric has several container capabilities that help you build applications that are composed of microservices that are containerized. Service Fabric offers the following capabilities for containerized services:
 
@@ -88,7 +88,7 @@ In this article, you learned about containers, that Service Fabric is a containe
 
 [Create your first Service Fabric container application on Linux](service-fabric-get-started-containers-linux.md)
 
-[Learn more about Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/)
+[Learn more about Windows Containers](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 

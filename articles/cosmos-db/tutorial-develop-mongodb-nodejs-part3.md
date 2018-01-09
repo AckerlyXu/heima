@@ -12,10 +12,11 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 3: Build the UI with Angular
@@ -105,8 +106,8 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     ```html
     <div>
       <ul class="heroes">
-        <li *ngFor="let hero of heroes" (https://docs.microsoft.com/click)="onSelect(hero)" [class.selected]="hero === selectedHero">
-          <button class="delete-button" (https://docs.microsoft.com/click)="deleteHero(hero)">Delete</button>
+        <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+          <button class="delete-button" (click)="deleteHero(hero)">Delete</button>
           <div class="hero-element">
             <div class="badge">{{hero.id}}</div>
             <div class="name">{{hero.name}}</div>
@@ -115,7 +116,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
         </li>
       </ul>
       <div class="editarea">
-        <button (https://docs.microsoft.com/click)="enableAddMode()">Add New Hero</button>
+        <button (click)="enableAddMode()">Add New Hero</button>
         <div *ngIf="selectedHero">
           <div class="editfields">
             <div>
@@ -132,8 +133,8 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
               <input [(ngModel)]="selectedHero.saying" placeholder="saying" />
             </div>
           </div>
-          <button (https://docs.microsoft.com/click)="cancel()">Cancel</button>
-          <button (https://docs.microsoft.com/click)="save()">Save</button>
+          <button (click)="cancel()">Cancel</button>
+          <button (click)="save()">Save</button>
         </div>
       </div>
     </div>
@@ -555,3 +556,4 @@ You can proceed to the next part of the tutorial to create an Azure Cosmos DB ac
 
 > [!div class="nextstepaction"]
 > [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md)
+<!-- Update_Description: update meta properties, wording update -->

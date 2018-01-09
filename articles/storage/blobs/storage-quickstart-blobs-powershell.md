@@ -31,7 +31,7 @@ This quick start requires the Azure PowerShell module version 3.6 or later. Run 
 
 ## Create a container
 
-Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
+Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
 
 Set the container name, then create the container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), setting the permissions to 'blob' to allow public access of the files. The container name in this example is *quickstartblobs*.
 
@@ -46,7 +46,7 @@ Blob storage supports block blobs, append blobs, and page blobs. VHD files used 
 
 To upload a file to a block blob, get a container reference, then get a reference to the block blob in that container. Once you have the blob reference, you can upload data to it by using [Set-AzureStorageBlobContent](https://docs.microsoft.com/powershell/module/azure.storage/set-azurestorageblobcontent). This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
-The following examples upload Image001.jpg and Image002.png from the D:\\_TestImages folder on the local disk to the container you just created.
+The following examples upload Image001.jpg and Image002.png from the D:\\_TestImages folder on the local disk to the container you created.
 
 ```powershell
 # upload a file

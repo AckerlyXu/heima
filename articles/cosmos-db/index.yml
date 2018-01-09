@@ -12,11 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 11/15/2017
-  ms.date: 11/27/2017
+  origin.date: 12/05/2017
+  ms.date: 12/25/2017
   ms.author: v-yeche
 abstract:
   description: Azure Cosmos DB is a globally distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, and wide-column by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefitting from comprehensive SLAs. 
+### Not Available on Graph
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -34,18 +35,18 @@ sections:
       - image:
           src: media/index/logo_python.svg
     rows:
-      - title: DocumentDB API
+      - title: SQL API
         values:
-        - href: /cosmos-db/create-documentdb-java
-        - href: /cosmos-db/create-documentdb-dotnet
-        - href: /cosmos-db/create-documentdb-nodejs
-        - href: /cosmos-db/create-documentdb-python
+        - href: /cosmos-db/create-sql-api-java
+        - href: /cosmos-db/create-sql-api-dotnet
+        - href: /cosmos-db/create-sql-api-nodejs
+        - href: /cosmos-db/create-sql-api-python
       - title: MongoDB API
         values:
           - href: /cosmos-db/create-mongodb-java
           - href: /cosmos-db/create-mongodb-dotnet
           - href: /cosmos-db/create-mongodb-nodejs
-          - href: 
+          - href: /cosmos-db/create-mongodb-flask
       - title: Table API
         values:
           - href: /cosmos-db/create-table-java
@@ -67,10 +68,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-documentdb-dotnet">DocumentDB</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a>| <a href="/cosmos-db/tutorial-develop-cassandra-java">Cassandra</a>
-    - html: Import data into Cosmos DB&#58; <a href="/cosmos-db/import-data">DocumentDB</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">Table</a> | <a href="/cosmos-db/cassandra-import-data">Cassandra</a>
-    - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a>
-    - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
+    - html: Develop an app with Cosmos DB&#58; <a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">Table</a> |  |
+    - html: Import data into Cosmos DB&#58; <a href="/cosmos-db/import-data">SQL</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">Table</a> |
+    - html: Query data with Cosmos DB&#58; <a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">Table</a>
+    - html: Global database replication with Cosmos DB&#58; <a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">Table</a>
     - html: <a href="local-emulator">Develop your application locally using the emulator</a>
     - html: <a href="/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
 - title: Samples
@@ -82,4 +83,4 @@ sections:
     - html: <a href="/cosmos-db/cli-samples">Azure CLI</a>
     - html: <a href="/cosmos-db/powershell-samples">Azure PowerShell</a>
 ### Not Available - title: Reference
-### ms.date: 11/27/2017
+### ms.date: 12/25/2017

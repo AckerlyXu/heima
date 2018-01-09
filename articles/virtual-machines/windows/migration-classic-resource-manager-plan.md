@@ -3,8 +3,8 @@ title: Planning for migration of IaaS resources from classic to Azure Resource M
 description: Planning for migration of IaaS resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 
@@ -201,7 +201,7 @@ Be purposeful on what services you now want to enable in Azure Resource Manager.
 - [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activity Control](../../azure-resource-manager/resource-group-audit.md)
-- [Resource Policies](../../azure-resource-manager/resource-manager-policy.md)
+<!--Not Available on - [Azure Policies](../../azure-policy/azure-policy-introduction.md)-->
 
 ### Pitfalls to avoid
 

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/30/2017
-ms.date: 11/07/2017
+origin.date: 10/19/2017
+ms.date: 12/11/2017
 ms.author: v-junlch
 
 ---
@@ -166,9 +166,13 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 ## <a name="P2S"></a>Point-to-Site - native Azure certificate authentication
 
+This section applies to the Resource Manager deployment model.
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
+
+This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

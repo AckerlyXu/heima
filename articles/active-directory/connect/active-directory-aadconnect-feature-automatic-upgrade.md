@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 10/19/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -39,9 +39,6 @@ The current state of automatic upgrade can be viewed with the PowerShell cmdlet 
 | Disabled |Automatic upgrade is disabled. |
 
 You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.
-
-Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructure. For automatic upgrade to work, make sure you have opened the URLs in your proxy server for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
-
 
 If the **Synchronization Service Manager** UI is running on the server, then the upgrade is suspended until the UI is closed.
 
@@ -99,4 +96,4 @@ Here is a list of the most common messages you find. It does not list all, but t
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: wording update -->

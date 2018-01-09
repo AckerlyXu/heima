@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/04/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 
 ---
@@ -112,7 +112,7 @@ The following table provides guidance on migrating server-side components that a
 | --- | --- |
 | **PowerShell** (server-side scripts, including Script Actions used during cluster creation) |Rewrite as Bash scripts. For Script Actions, see [Customize Linux-based HDInsight with Script Actions](hdinsight-hadoop-customize-cluster-linux.md) and [Script action development for Linux-based HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **Azure CLI** (server-side scripts) |While the Azure CLI is available on Linux, it does not come pre-installed on the HDInsight cluster head nodes. For more information on installing the Azure CLI, see [Get started with Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest). |
-| **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](http://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
+| **.NET components** |.NET is supported on Linux-based HDInsight through [Mono](https://mono-project.com). For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 components or other Windows-only technology** |Guidance depends on the component or technology. You may be able to find a version that is compatible with Linux. If not, you must find an alternate solution or rewrite this component. |
 
 > [!IMPORTANT]
@@ -188,8 +188,8 @@ Pig and MapReduce workloads are similar on Linux-based clusters. However, Linux-
 Linux-based HDInsight does not provide remote desktop functionality. Instead, you can use SSH to remotely connect to the cluster head nodes. For more information, see the following documents:
 
 * [Use Hive with SSH](hdinsight-hadoop-use-hive-ssh.md)
-* [Use Pig with SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Use MapReduce with SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Use Pig with SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Use MapReduce with SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### Hive
 
@@ -200,11 +200,11 @@ The following chart provides guidance on migrating your Hive workloads.
 
 | On Windows-based, I use... | On Linux-based... |
 | --- | --- |
-| **Hive Editor** |[Hive View in Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive Editor** |[Hive View in Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` to enable Tez |Tez is the default execution engine for Linux-based clusters, so the set statement is no longer needed. |
 | C# user-defined functions | For information on validating C# components with Linux-based HDInsight, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD files or scripts on the server invoked as part of a Hive job |use Bash scripts |
-| `hive` command from remote desktop |Use [Beeline](hdinsight-hadoop-use-hive-beeline.md) or [Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` command from remote desktop |Use [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) or [Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### Pig
 
@@ -233,7 +233,7 @@ If you have a workflow that uses a C# application, validate these applications i
 
 | On Windows-based, I use... | On Linux-based... |
 | --- | --- |
-| Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
+| Storm Dashboard |The Storm Dashboard is not available. See [Deploy and Manage Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) for ways to submit topologies |
 | Storm UI |The Storm UI is available at https://CLUSTERNAME.azurehdinsight.cn/stormui |
 | Visual Studio to create, deploy, and manage C# or hybrid topologies |Visual Studio can be used to create, deploy, and manage C# (SCP.NET) or hybrid topologies on Linux-based Storm on HDInsight. It can only be used with clusters created after 10/28/2016. |
 

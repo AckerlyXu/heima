@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/12/2017
-ms.date: 10/02/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -51,6 +51,7 @@ For a cluster with multiple node types, you need to choose one of them to be pri
 
 * The **minimum size of VMs** for the primary node type is determined by the **durability tier** you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
 * The **minimum number of VMs** for the primary node type is determined by the **reliability tier** you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take. 
+
 * The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
 
 ![Screen shot of a cluster that has two Node Types ][SystemServices]
@@ -90,6 +91,11 @@ You get to choose durability level for each of your node-types.You can choose on
 
 Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
 
+### Changing durability levels
+- Node types with durability levels of Silver or Gold cannot be downgraded to Bronze.
+- Upgrading from Bronze to Silver or Gold can take a few hours.
+- When changing durability level, be sure to update it in both the Service Fabric extension configuration in your VMSS resource, and in the node type definition in your Service Fabric cluster resource. These values must match.
+
 ### Operational Recommendations for the node type that you have set to silver or gold durability level.
 
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.
@@ -98,7 +104,7 @@ Use Silver or Gold durability for all node types that host stateful services you
     - **For the primary nodetype:** Our recommendation is that you do not change VM SKU of the primary node type. Changing of the primary node type SKU is not supported. If the reason for the new SKU is capacity, we recommend adding more instances. If that not possible, create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state, they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore. If you decide to go the unsupported route and want to change the VM SKU, then make modifications to the Virtual Machine Scale Set Model definition to reflect the new SKU. If your cluster has only one nodetype, then make sure that all your stateful applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion and that your service replica rebuild duration is less than five minutes (for Silver durability level). 
 
 > [!WARNING]
-> Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommened. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause dataloss for stateful services or cause other unforseen operational issues, even for stateless workloads. 
+> Changing the VM SKU Size for VM Scale Sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
 > 
 
 3. Maintain a minimum count of five nodes for any Virtual Machine Scale Set that has durability level of Gold or Silver enabled
@@ -205,4 +211,4 @@ Once you finish your capacity planning and set up a cluster, read the following:
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!--Update_Description: update meta properties, wording update, update reference link-->
+<!--Update_Description: wording update -->

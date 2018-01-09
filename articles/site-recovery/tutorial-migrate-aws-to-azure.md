@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/22/2017
-ms.date: 11/20/2017
+origin.date: 11/01/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
+ms.custom: MVC
 
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 
-This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machines (VMs), to Azure VMs using Site Recovery. When migrating EC2 instances to Azure, the VMsare treated as if they are physical, on-premises computers. In this tutorial, you learn how to:
+This tutorial teaches you how to migrate Amazon Web Services (AWS) virtual machines (VMs), to Azure VMs using Site Recovery. When migrating EC2 instances to Azure, the VMs are treated as if they are physical, on-premises computers. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare Azure resources
@@ -268,4 +269,4 @@ In this topic, you've learned how to migrate AWS EC2 instances to Azure VMs. To 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](../virtual-machines/windows/tutorial-manage-vm.md)
 
-<!-- Update_Description: new articles on site recovery tutorial migrate aws to azure-->
+<!-- Update_Description: update meta properties -->

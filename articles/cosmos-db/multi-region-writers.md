@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -166,8 +166,8 @@ To guarantee local reads and writes, we must partition data not just on partitio
 
 | Account Name | Write Region | Read Region |
 | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.cn` | `China North` |`China North` |
-| `contentpubdatabase-europe.documents.azure.cn` | `China North` |`China North` |
+| `contentpubdatabase-chinanorth.documents.azure.cn` | `China North` |`China East` |
+| `contentpubdatabase-chinaeast.documents.azure.cn` | `China East` |`China North` |
 
 The following diagram shows how reads and writes are performed in a typical application with this setup:
 
@@ -177,29 +177,28 @@ Here is a code snippet showing how to initialize the clients in a DAL running in
 
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
     writeClientPolicy.PreferredLocations.Add(LocationNames.ChinaNorth);
-    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+    writeClientPolicy.PreferredLocations.Add(LocationNames.ChinaEast);
 
     DocumentClient writeClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-usa.documents.azure.cn"), 
+        new Uri("https://contentpubdatabase-chinanorth.documents.azure.cn"), 
         writeRegionAuthKey,
         writeClientPolicy);
 
     ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+    readClientPolicy.PreferredLocations.Add(LocationNames.ChinaEast);
     readClientPolicy.PreferredLocations.Add(LocationNames.ChinaNorth);
 
     DocumentClient readClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-europe.documents.azure.cn"),
+        new Uri("https://contentpubdatabase-chinaeast.documents.azure.cn"),
         readRegionAuthKey,
         readClientPolicy);
 
 With the preceding setup, the data access layer can forward all writes to the local account based on where it is deployed. Reads are performed by reading from both accounts to get the global view of data. This approach can be extended to as many regions as required. For example, here's a setup with three geographic regions:
 
-| Account Name | Write Region | Read Region 1 | Read Region 2 |
-| --- | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.cn` | `China North` |`China North` |`China North` |
-| `contentpubdatabase-europe.documents.azure.cn` | `China North` |`China North` |`China North` |
-| `contentpubdatabase-asia.documents.azure.cn` | `China North` |`China North` |`China North` |
+| Account Name | Write Region | Read Region 1 |
+| --- | --- | --- |
+| `contentpubdatabase-chinanorth.documents.azure.cn` | `China North` |`China East` |
+| `contentpubdatabase-chinaeast.documents.azure.cn` | `China East` |`China North` |
 
 ## <a id="DataAccessImplementation"></a>Data access layer implementation
 Now let's look at the implementation of the data access layer (DAL) for an application with two writable regions. The DAL must implement the following steps:
@@ -316,6 +315,7 @@ In this article, we described how you can use globally distributed multi-region 
 * Learn about how Azure Cosmos DB supports [global distribution](distribute-data-globally.md)
 * Learn about [automatic and manual failovers in Azure Cosmos DB](regional-failover.md)
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
-* Develop with multiple regions using the [Azure Cosmos DB - DocumentDB API](tutorial-global-distribution-documentdb.md)
+* Develop with multiple regions using the [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
 * Develop with multiple regions using the [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
 * Develop with multiple regions using the [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md)
+<!-- Update_Description: update meta properties, wording update, update link -->

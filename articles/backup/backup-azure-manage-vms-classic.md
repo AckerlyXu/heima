@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/02/2017
-ms.date: 09/04/2017
+origin.date: 11/09/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -34,7 +34,7 @@ This article provides information about common management and monitoring tasks f
 > [!IMPORTANT]
 >Starting March 2017, you can no longer use the Classic Management Portal to create Backup vaults.
 >
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After October 15, 2017, you can’t use PowerShell to create Backup vaults. **By November 1, 2017**:
+> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After November 30, 2017, you will not be able to use PowerShell to create Backup vaults. **By November 30, 2017**:
 >- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
 >- You won't be able to access your backup data in the Classic Management Portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 
@@ -241,7 +241,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "China East" -
 Event-based alerts are subjected to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
-2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md).
+2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. You will receive alerts from "alerts-noreply@mail.windowsazure.cn". Currently you can't modify the email sender.
 
 ## Next steps

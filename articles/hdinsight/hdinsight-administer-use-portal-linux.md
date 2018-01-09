@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/08/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 
 ---
@@ -36,7 +36,7 @@ To follow the steps in this article, you will need an **Azure subscription**. Se
    * Click **New** from the left menu to create a new cluster:
 
        ![new HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
-   * Click **HDInsight Clusters** from the left menu to list the existing clusters
+   * Click **HDInsight Clusters** from the left menu to list the existing clusters:
 
        ![Azure portal HDInsight cluster button](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
@@ -115,7 +115,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Date created**: The date the cluster was deployed.
    * **Operating system**: Either **Windows** or **Linux**.
    * **Type**: Hadoop, HBase, Storm, Spark.
-   * **Version**. See [HDInsight versions](hdinsight-component-versioning.md)
+   * **Version**. See [HDInsight versions](hdinsight-component-versioning.md).
    * **Subscription**: Subscription name.
    * **Default data source**: The default cluster file system.
    * **Worker nodes size**: The selected VM size of the worker nodes.
@@ -161,7 +161,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
     >balancer
     ```
 
-    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -206,7 +206,7 @@ There are many ways you can program the process:
 
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
 * Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
-* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Use HDInsight .NET SDK. See [Submit Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
@@ -336,7 +336,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 
 ## Connect to a cluster
 
-* [Use Hive with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Use Hive with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## Next steps
@@ -348,10 +348,10 @@ In this article, you have learned some basic administrative functions. To learn 
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Read more about using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Details on using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Use Hive in HDInsight](hdinsight-use-hive.md)
-* [Use Pig in HDInsight](hdinsight-use-pig.md)
-* [Use Sqoop in HDInsight](hdinsight-use-sqoop.md)
-* [Get Started with Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Use Hive in HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig in HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Sqoop in HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Get Started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.cn

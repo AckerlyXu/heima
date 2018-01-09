@@ -1,5 +1,5 @@
 ---
-title: Run the Hyper-V capacity planner tool for Site Recovery | Azure
+title: Hyper-V capacity planner tool for Azure Site Recovery | Azure
 description: This article describes how to run the Hyper-V capacity planner tool for Azure Site Recovery
 services: site-recovery
 documentationcenter: na
@@ -13,13 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 06/05/2017
-ms.date: 07/10/2017
+origin.date: 11/28/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
 
-# Run the Hyper-V capacity planner tool for Site Recovery
+New enhanced version of [Azure Site Recovery deployment planner for Hyper-V to Azure](site-recovery-hyper-v-deployment-planner.md) is now available and replacing old tool. Use the new tool for your deployment planning. 
+The tool provides following guideline: 
+* VM eligibility assessment, based on number of disks, disk size, IOPS, churn, and few VM characteristics.
+* Network bandwidth need versus RPO assessment.
+* Azure infrastructure requirements.
+* On-premises infrastructure requirements.
+* Initial replication batching guidance.
+* Estimated total DR cost to Azure.
+
+# Hyper-V capacity planner tool for Site Recovery
 
 As part of your Azure Site Recovery deployment, you need to figure out your replication and bandwidth requirements. The Hyper-V capacity planner tool for Site Recovery helps you to do this, for Hyper-V virtual machine replication.
 
@@ -45,9 +54,7 @@ Before you run the tool, you need to prepare the primary site. If you're replica
    * Windows Server 2012 R2 clusters
 2. Enable remote access to WMI on all the Hyper-V hosts and clusters. Run this command on each server/cluster, to make sure firewall rules and user permissions are set:
 
-    ```
-    netsh firewall set service RemoteAdmin enable
-    ```
+        netsh firewall set service RemoteAdmin enable
 3. Enable performance monitoring on servers and clusters, as follows:
 
    * Open the Windows Firewall with the **Advanced Security** snapin, and then enable the following inbound rules: **COM+ Network Access (DCOM-IN)** and all rules in the **Remote Event Log Management group**.
@@ -134,3 +141,5 @@ After you've finished capacity planning you can start deploying Site Recovery:
 * [Replicate Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
 * [Replicate Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicate Hyper-V VMs between VMM sites](site-recovery-vmm-to-vmm.md)
+
+<!-- Update_Description: update meta properties, wording update -->

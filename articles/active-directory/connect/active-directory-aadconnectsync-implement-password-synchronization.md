@@ -25,7 +25,7 @@ This article provides information that you need to synchronize your user passwor
 The probability that you're blocked from getting your work done due to a forgotten password is related to the number of different passwords you need to remember. The more passwords you need to remember, the higher the probability to forget one. Questions and calls about password resets and other password-related issues demand the most helpdesk resources.
 
 Password synchronization is a feature used to synchronize user passwords from an on-premises Active Directory instance to a cloud-based Azure AD instance.
-Use this feature to sign in to Azure AD services like Office 365, Microsoft Intune, CRM Online, and Azure Active Directory Domain Services (Azure AD DS). You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
+Use this feature to sign in to Azure AD services like Office 365, Microsoft Intune, CRM Online. You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
 
 ![What is Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-synchronization/arch1.png)
 
@@ -43,11 +43,6 @@ Password synchronization is an extension to the directory synchronization featur
 - Enable password synchronization.
 
 For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-
-> [!NOTE]
-> For more details about Azure Active Directory Domain Services configured for FIPS and password synchronization, see "Password synchronization and FIPS" later in this article.
->
->
 
 ## How password synchronization works
 The Active Directory domain service stores passwords in the form of a hash value representation of the actual user password. A hash value is a result of a one-way mathematical function (the *hashing algorithm*). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.

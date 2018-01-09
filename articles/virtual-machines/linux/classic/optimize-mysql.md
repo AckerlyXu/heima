@@ -3,8 +3,8 @@ title: Optimize MySQL performance on Linux | Azure
 description: Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: NingKuang
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Optimize MySQL Performance on Azure Linux VMs
@@ -24,6 +24,7 @@ There are many factors that affect MySQL performance on Azure, both in virtual h
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](../optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## Utilize RAID on an Azure virtual machine
 Storage is the key factor that affects database performance in cloud environments. Compared to a single disk, RAID can provide faster access via concurrency. For more information, see [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
@@ -336,3 +337,5 @@ For more detailed [optimization configuration parameters](http://dev.mysql.com/d
 [12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+
+<!-- Update_Description: add classic portal migrate notice -->

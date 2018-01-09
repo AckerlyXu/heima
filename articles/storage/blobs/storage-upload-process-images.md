@@ -63,7 +63,7 @@ az storage account create --name <blob_storage_account> \
  
 ## Create blob storage containers
  
-The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. In a later part of the series, an Azure function app uploads resized image thumbnails to the _thumbs_ container. 
+The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. 
 
 Get the storage account key by using the [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) command. You then use this key to create two containers using the [az storage container create](https://docs.azure.cn/cli/storage/container#create) command.  
  

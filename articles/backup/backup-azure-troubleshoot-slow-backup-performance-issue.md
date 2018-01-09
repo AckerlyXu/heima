@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 06/13/2017
-ms.date: 10/31/2017
+origin.date: 11/03/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 
 ---
@@ -87,3 +87,4 @@ The following indicators can help you understand the bottleneck and accordingly 
 - **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 - **UI is not showing progress for the data transfer**. Open the logs located at C:\Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://www.azure.cn/support/support-ticket-form/?l=zh-cn).
 
+<!--Update_Description: update meta properties --> 

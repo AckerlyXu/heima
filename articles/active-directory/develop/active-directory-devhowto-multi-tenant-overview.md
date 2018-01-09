@@ -127,7 +127,7 @@ If an application requires admin consent, and an admin signs in but the `prompt=
 A tenant administrator can disable the ability for regular users to consent to applications.  If this capability is disabled, admin consent is always required for the application to be set up in the tenant.  If you want to test your application with regular user consent disabled, you can find the configuration switch in the Azure AD tenant configuration section of the [Azure classical portal][AZURE-classical-portal].
 
 > [!NOTE]
-> Some applications want an experience where regular users are able to consent initially, and later the application can involve the administrator and request permissions that require admin consent.  There is no way to do this with a single application registration in Azure AD today.  The upcoming Azure AD Resource Manager deployment model endpoint allows applications to request permissions at runtime, instead of at registration time, which enables this scenario.  For more information, see the [Azure AD App Model Resource Manager deployment model Developer Guide][AAD-V2-Dev-Guide].
+> Some applications want an experience where regular users are able to consent initially, and later the application can involve the administrator and request permissions that require admin consent.  There is no way to do this with a single application registration in Azure AD today.  The upcoming Azure AD Resource Manager deployment model endpoint allows applications to request permissions at runtime, instead of at registration time, which enables this scenario.
 > 
 > 
 
@@ -223,7 +223,6 @@ Use the following comments section to provide feedback and help us refine and sh
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AAD-V2-Dev-Guide]: ./active-directory-appmodel-v2-overview.md
 [AZURE-classical-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32

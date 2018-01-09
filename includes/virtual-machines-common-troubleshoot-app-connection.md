@@ -113,7 +113,11 @@ If you can access the application, ensure that your Internet edge device is allo
 * The outbound application request traffic from your client computer to the Azure virtual machine.
 * The inbound application response traffic from the Azure virtual machine.
 
+<!-- Not Available on [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview) -->
 ## Additional resources
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
+
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

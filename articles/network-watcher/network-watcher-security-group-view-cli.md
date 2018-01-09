@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
@@ -162,4 +162,4 @@ Visit [Auditing Network Security Groups (NSG) with Network Watcher](network-watc
 
 Learn more about the security rules that are applied to your network resources by visiting [Security group view overview](network-watcher-security-group-view-overview.md)
 
-<!--Update_Description: new articles on network watcher security group view CLI -->
+<!--Update_Description: update meta properties -->

@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2016
 ms.author: v-yiso
-ms.date: ''
+ms.date: 12/11/2017
 ---
 # Create metric alerts in Azure Monitor for Azure services - PowerShell
 > [!div class="op_single_selector"]
->- [Portal](./insights-alerts-portal.md)
->- [PowerShell](./insights-alerts-powershell.md)
->- [CLI](./insights-alerts-command-line-interface.md) 
+> * [Portal](insights-alerts-portal.md)
+> * [PowerShell](insights-alerts-powershell.md)
+> * [CLI](insights-alerts-command-line-interface.md)
+>
+>
 
 ## Overview
 This article shows you how to set up Azure metric alerts using PowerShell.  
@@ -93,7 +95,7 @@ For additional information, you can always type ```get-help``` and then the Powe
     Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
     ```
-    A full list of available options for Get-AzureRmMetricDefinition is available by running Get-MetricDefinitions.
+     A full list of available options for Get-AzureRmMetricDefinition is available by running `Get-Help Get-AzureRmMetricDefinition -Detailed`.
 
 5. The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
@@ -133,5 +135,5 @@ For additional information, you can always type ```get-help``` and then the Powe
 * Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
 * Learn more about [configuring alerts on Activity log events](./monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
-
+* Get an [overview of collecting diagnostic logs](monitoring-overview-of-diagnostic-logs.md) to collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

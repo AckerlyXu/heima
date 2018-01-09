@@ -3,8 +3,8 @@ title: Capture an image of a Linux VM | Azure
 description: Learn how to capture an image of a Linux-based Azure virtual machine (VM) created with the classic deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # How to capture a classic Linux virtual machine as an image
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 This article shows you how to capture a classic Azure virtual machine (VM) running Linux as an image to create other virtual machines. This image includes the OS disk and data disks attached to the VM. It doesn't include networking configuration, so you need to configure that when you create the other VM from the image.
 
@@ -56,7 +57,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    > [!NOTE]
    > The remaining steps assume you have already [installed the Azure CLI](../../../cli-install-nodejs.md) on your client computer. All the following steps can also be done in the [Azure portal](http://portal.azure.cn).
 
-5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../../../xplat-cli-connect.md).
+5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest).
 
    > [!NOTE]
    > In the Azure portal, log in to the portal.
@@ -111,4 +112,4 @@ Alternatively, use the [Azure portal](http://portal.azure.cn) to create a custom
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
 [How to Create a Linux Virtual Machine]:create-custom.md
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

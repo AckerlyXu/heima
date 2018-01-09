@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 12/20/2017
 ms.author: v-junlch
 
 ---
@@ -286,7 +286,7 @@ The password script is not expected to return any results to the Windows PowerSh
 For a complete overview of the available sample connectors, see [Windows PowerShell Connector Sample Connector Collection][samp].
 
 ## Other notes
-### Additional Configuration for Impersonation
+### Additional Configuration for Impersonation <a name="additional-configuration-for-impersonation"></a>
 Grant the user that is impersonated the following permissions on the Synchronization Service server:
 
 Read access to the following registry keys:

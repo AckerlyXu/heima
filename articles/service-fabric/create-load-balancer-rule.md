@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/22/2017
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 
@@ -104,3 +104,4 @@ Regarding the `New-AzureRmLoadBalancerRuleConfig` command, the `-FrontendPort` r
 ## Next steps
 
 Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).
+<!-- Update_Description: update meta properties, wording update -->

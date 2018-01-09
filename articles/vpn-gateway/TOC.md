@@ -1,6 +1,7 @@
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
+## [Subscription and service limits](../azure-subscription-service-limits.md)
 
 # Get Started
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
@@ -43,7 +44,7 @@
 ### [Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Configure Site-to-Site and ExpressRoute coexisting connections
-### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fvpn-gateway%2ftoc.json)
+### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md)
 ## Configure multiple Site-to-Site connections
 ### [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (classic)](vpn-gateway-multi-site.md)
@@ -74,19 +75,19 @@
 ## Configure 3rd party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)
 ## Troubleshoot
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
 ### [Point-to-Site connection problem](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Site-to-Site connection cannot connect](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Application Gateway session affinity problems](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [Configure and validate VNet or VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Reference
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
-## [Azure PowerShell (classic)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
-## [REST](/rest/api/network/virtualnetworkgateways)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [Azure PowerShell (classic)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](/cli/network/vnet-gateway)
 

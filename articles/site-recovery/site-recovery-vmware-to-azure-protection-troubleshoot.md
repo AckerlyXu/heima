@@ -7,14 +7,14 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 05/26/2017
-ms.date: 09/11/2017
+origin.date: 11/21/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,7 @@ You may receive a specific error message when protecting your VMware virtual mac
 
 ## Initial replication is stuck at 0%
 Most of the initial replication failures that we encounter at support are due to connectivity issues between source server-to-process server or process server-to-Azure.
-For most cases, you can self troubleshoot these issues by following the steps listed below.
+For most cases, you can troubleshoot these issues by following the steps listed below.
 
 ###Check the following on SOURCE MACHINE
 * From Source Server machine command line, use Telnet to ping the Process Server with https port (default 9443) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
@@ -38,13 +38,13 @@ If unable to connect, allow inbound port 9443 on the Process Server and check if
 
 ###Check the following on PROCESS SERVER
 
-* **Check if process server is actively pushing data to Azure** 
+* **Check if process server is actively pushing data to Azure**
 
-From Process Server machine, open the Task Manager (press Ctrl-Shift-Esc ). Go to the Performance tab and click 'Open Resource Monitor' link. From Resource Manager, go to Network tab. Check if cbengine.exe in 'Processes with Network Activity' is actively sending large volume (in Mbs) of data.
+From Process Server machine, open the Task Manager (press Ctrl-Shift-Esc). Go to the Performance tab and click 'Open Resource Monitor' link. From Resource Manager, go to Network tab. Check if cbengine.exe in 'Processes with Network Activity' is actively sending large volume (in Mbs) of data.
 
 ![Enable replication](./media/site-recovery-protection-common-errors/cbengine.png)
 
-If not follow the steps listed below:
+If not, follow the steps listed below:
 
 * **Check if Process server is able to connect Azure Blob**: Select and check cbengine.exe to view the 'TCP Connections' to see if there is connectivity from Process server to Azure Storage blob URL.
 
@@ -57,12 +57,12 @@ If not then go to Control Panel > Services, check if the following services are 
      * Azure Recovery Services Agent
      * Azure Site Recovery Service
      * tmansvc
-     * 
-(Re)Start any service which is not running and check if the problem still exists.
+
+(Re)Start any service, which is not running and check if the problem still exists.
 
 * **Check if Process server is able to connect to Azure Public IP address using port 443**
 
-Open the latest CBEngineCurr.errlog from `%programfiles%\Azure Recovery Services Agent\Temp` and search for :443  and connection attempt failed.
+Open the latest CBEngineCurr.errlog from `%programfiles%\Azure Recovery Services Agent\Temp` and search for: 443 and connection attempt failed.
 
 ![Enable replication](./media/site-recovery-protection-common-errors/logdetails1.png)
 
@@ -71,9 +71,9 @@ If there are issues, then from Process Server command line, use telnet to ping y
       telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
 If you are unable to connect, then check if the access issue is due to firewall or Proxy as described in next step.
 
-* **Check if IP address-based firewall on Process server are not blocking access**: If you are using an IP address-based firewall rules on the server, then download the complete list of Azure Datacenter IP Ranges from [here](https://www.microsoft.com/download/details.aspx?id=42064) and add them to your firewall configuration to ensure they allow communication to Azure (and the HTTPS (443) port).  Allow IP address ranges for the Azure region of your subscription, and for China North (used for Access Control and Identity Management).
+* **Check if IP address-based firewall on Process server is not blocking access**: If you are using an IP address-based firewall rules on the server, then download the complete list of Azure Datacenter IP Ranges from [here](https://www.microsoft.com/download/details.aspx?id=42064) and add them to your firewall configuration to ensure they allow communication to Azure (and the HTTPS (443) port).  Allow IP address ranges for the Azure region of your subscription, and for China North (used for Access Control and Identity Management).
 
-* **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL based firewall rules on the server, ensure the following URLs are added to firewall configuration. 
+* **Check if URL-based firewall on Process server is not blocking access**:  If you are using a URL-based firewall rules on the server, ensure the following URLs are added to firewall configuration.
 
   `*.accesscontrol.chinacloudapi.cn:` Used for access control and identity management
 
@@ -93,7 +93,7 @@ URLs for **Azure Government Cloud**:
 
 `* .ugi.hypervrecoverymanager.windowsazure.us`
 
-`* .ugi.backup.windowsazure.us` 
+`* .ugi.backup.windowsazure.us`
 
 * **Check if Proxy Settings on Process server are not blocking access**.  If you are using a Proxy Server, ensure the proxy server name is resolving by the DNS server.
 To check what you have provided at the time of Configuration Server setup. Go to registry key
@@ -101,7 +101,7 @@ To check what you have provided at the time of Configuration Server setup. Go to
 	`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
 Now ensure that the same settings are being used by Azure Site Recovery agent to send data.
-Search Azure  Backup 
+Search Azure  Backup
 
 ![Enable replication](./media/site-recovery-protection-common-errors/mab.png)
 
@@ -112,6 +112,5 @@ Open it and click on Action > Change Properties. Under Proxy Configuration tab, 
 * **Check if Throttle bandwidth is not constrained on Process server**:  Increase the bandwidth  and check if the problem still exists.
 
 ##Next steps
-If you need more help, then post your query to [ASR forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr). We have an active community and one of our engineers will be able to assist you.
-
-<!--Update_Description: new articles vmware to azure protection troublshoot in site recovery -->
+<!-- Not Available on  [ASR forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr). -->
+<!--Update_Description: update meta properties, wording update -->

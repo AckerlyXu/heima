@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/03/2017
-ms.date: 10/19/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -76,7 +76,7 @@ Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD 
 | Proxy trust credentials |Federation service trust credentials (the credentials the proxy uses to enroll for a trust certificate from the FS |Domain account that is a local administrator of the AD FS server |Initial enrollment of FS-WAP trust certificate. |
 | AD FS Service Account page, "Use a domain user account option" |AD user account credentials |Domain user |The AD user account whose credentials are provided is used as the logon account of the AD FS service. |
 
-### Create the AD DS account
+### Create the AD DS account <a name="create-the-ad-ds-account"></a>
 The account you specify on the **Connect your directories** page must be present in Active Directory prior to installation.  It must also have the required permissions granted. The installation wizard does not verify the permissions and any issues are only found during synchronization.
 
 Which permissions you require depends on the optional features you enable. If you have multiple domains, the permissions must be granted for all domains in the forest. If you do not enable any of these features, the default **Domain User** permissions are sufficient.
@@ -102,14 +102,14 @@ When you upgrade from one version of Azure AD Connect to a new release, you need
 | User running the installation wizard |If you use a full SQL server: DBO (or similar) of the sync engine database |Make database level changes, such as updating tables with new columns. |
 
 ## More about the created accounts
-### Active Directory account
+### Active Directory account <a name="active-directory-account"></a>
 If you use express settings, then an account is created in Active Directory that is used for synchronization. The created account is located in the forest root domain in the Users container and has its name prefixed with **MSOL_**. The account is created with a long complex password that does not expire. If you have a password policy in your domain, make sure long and complex passwords would be allowed for this account.
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 If you use custom settings, then you are responsible for creating the account before you start the installation.
 
-### Azure AD Connect sync service account <a name="azure-ad-connect-sync-service-accounts"></a><a name="azure-ad-connect-sync-service-account"></a>
+### Azure AD Connect sync service account <a name="azure-ad-connect-sync-service-account"></a>
 The sync service can run under different accounts. It can run under a **Virtual Service Account** (VSA), a **Group Managed Service Account** (gMSA/sMSA), or a regular user account. The supported options were changed with the 2017 April release of Connect when you do a fresh installation. If you upgrade from an earlier release of Azure AD Connect, these additional options are not available.
 
 | Type of account | Installation option | Description |
@@ -176,7 +176,7 @@ If you use a full SQL Server, then the service account is the DBO of the created
 
 The account is also granted permissions to files, registry keys, and other objects related to the Sync Engine.
 
-### Azure AD service account
+### Azure AD service account <a name="azure-ad-service-account"></a>
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
 
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
@@ -192,4 +192,4 @@ To remove unused Azure AD service accounts, run the following Azure AD PowerShel
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

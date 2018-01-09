@@ -4,7 +4,7 @@ description: Performance scale out capabilities in Azure SQL Data Warehouse. Sca
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: johnmac
+manager: digimobile
 editor: ''
 
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-origin.date: 03/22/2017
-ms.date: 05/08/2017
+origin.date: 03/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
@@ -32,7 +32,7 @@ ms.author: v-yeche
 
 The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, compute can be scaled to meet performance demands independent of the amount of data. A natural consequence of this architecture is that [billing][billed] for compute and storage is separate. 
 
-This overview describes how scale out works with SQL Data Warehouse and how to utilize the pause, resume, and scale capabilities of SQL Data Warehouse. Consult the [data warehouse units (DWUs)][data warehouse units (DWUs)] page to learn how DWUs and performance are related. 
+This overview describes how scale out works with SQL Data Warehouse and how to utilize the pause, resume, and scale capabilities of SQL Data Warehouse. 
 
 ## How compute management operations work in SQL Data Warehouse
 The architecture for SQL Data Warehouse consists of a control node, compute nodes, and the storage layer spread across 60 distributions. 
@@ -79,12 +79,13 @@ Checking the database state through various endpoints will allow you to correctl
 | REST API     | Yes          | Yes   | Yes                  |
 | T-SQL        | **No**       | Yes   | Yes                  |
 
-## <a name="scale-compute-bk"></a><a name="scale-compute"></a>Scale compute
+<a name="scale-compute-bk"></a>
+## <a name="scale-compute"></a>Scale compute
 
 Performance in SQL Data Warehouse is measured in [data warehouse units (DWUs)][data warehouse units (DWUs)] which is an abstracted measure of compute resources such as CPU, memory, and I/O bandwidth. A user who wishes to scale their system's performance can do so through various means, such as through the portal, T-SQL, and REST APIs. 
 
 ### How do I scale compute?
-Compute power is managed for you SQL Data Warehouse by changing the DWU setting. Performance increases [linearly][linearly] as you add more DWU for certain operations.  We offer DWU offerings that ensure that your performance will change noticeably when you scale your system up or down. 
+Compute power is managed for you SQL Data Warehouse by changing the DWU setting. Performance increases linearly as you add more DWU for certain operations.  We offer DWU offerings that ensure that your performance will change noticeably when you scale your system up or down. 
 
 To adjust DWUs, you can use any of these individual methods.
 
@@ -124,7 +125,8 @@ Recommendations for when to scale DWUs:
 1. Before you perform a heavy data loading or transformation operation, scale up DWUs so that your data is available more quickly.
 2. During peak business hours, scale to accommodate larger numbers of concurrent queries. 
 
-## <a name="pause-compute-bk"></a> Pause compute
+<a name="pause-compute-bk"></a>
+##  Pause compute
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
 To pause a database, use any of these individual methods.
@@ -133,7 +135,8 @@ To pause a database, use any of these individual methods.
 * [Pause compute with PowerShell][Pause compute with PowerShell]
 * [Pause compute with REST APIs][Pause compute with REST APIs]
 
-## <a name="resume-compute-bk"></a> Resume compute
+<a name="resume-compute-bk"></a>
+##  Resume compute
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
 To resume a database, use any of these individual methods.
@@ -142,7 +145,8 @@ To resume a database, use any of these individual methods.
 * [Resume compute with PowerShell][Resume compute with PowerShell]
 * [Resume compute with REST APIs][Resume compute with REST APIs]
 
-## <a name="check-compute-bk"></a> Check database state 
+<a name="check-compute-bk"></a>
+##  Check database state 
 To resume a database, use any of these individual methods.
 
 - [Check database state with T-SQL][Check database state with T-SQL]
@@ -153,7 +157,8 @@ To resume a database, use any of these individual methods.
 
 Scaling the database requires the permissions described in [ALTER DATABASE][ALTER DATABASE].  Pause and Resume require the [SQL DB Contributor][SQL DB Contributor] permission, specifically Microsoft.Sql/servers/databases/action.
 
-## <a name="next-steps-bk"></a> Next steps
+<a name="next-steps-bk"></a>
+##  Next steps
 Refer to the following articles to help you understand some additional key performance concepts:
 
 * [Workload and concurrency management][Workload and concurrency management]
@@ -167,9 +172,7 @@ Refer to the following articles to help you understand some additional key perfo
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
 [billed]: https://www.azure.cn/pricing/details/sql-data-warehouse/
-[linearly]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
@@ -205,3 +208,5 @@ Refer to the following articles to help you understand some additional key perfo
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.cn/
+
+<!--Update_Description: update link, wording update-->

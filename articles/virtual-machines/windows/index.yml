@@ -13,14 +13,14 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 10/30/2017
-  ms.author: v-dazen
+  ms.date: 12/18/2017
+  ms.author: v-yeche
 abstract:
   description: Azure Windows Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows Server. Learn how to create, configure, manage, and scale Windows VMs with our quickstarts, tutorials, and samples.
 ### Not Available aside
 sections:
 - title: 5-Minute Quickstarts
-  items:
+  items: 
   - type: paragraph
     text: 'Learn how to deploy an IIS web-server within a Virtual Machine running Windows Server 2016:'
   - type: list
@@ -66,6 +66,7 @@ sections:
     - html: <a href="/virtual-machines/windows/tutorial-monitoring">Monitor VMs</a>
     - html: <a href="/virtual-machines/windows/tutorial-azure-security">Manage security on VMs</a>
     - html: <a href="/virtual-machines/windows/tutorial-vsts-iis-cicd">Create a continuous integration pipeline with Visual Studio</a>
+    - html: <a href="/virtual-machines/windows/tutorial-iis-sql">Install a SQL\IIS\.NET stack</a>
     - html: <a href="/virtual-machines/windows/tutorial-secure-web-server">Secure a web server with SSL</a>
 ### Not Available - title: Free Pluralsight Video Training
 - title: Samples

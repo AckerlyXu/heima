@@ -9,8 +9,9 @@ editor: mimig1
 ms.service: cosmos-db
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 10/23/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
+ms.custom: mvc
 ---
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
@@ -244,4 +245,4 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account and 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

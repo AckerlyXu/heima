@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 10/23/2017
+origin.date: 10/24/2017
+ms.date: 12/25/2017
 ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -29,7 +29,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 ## Prerequisites
 
-* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
+* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).
 
@@ -52,7 +52,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 ## Upload the data
 
-1. Use the following command to upload the zip file to the HDInsight cluster head node:
+1. Use the following command to upload the .zip file to the HDInsight cluster head node:
 
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
@@ -163,9 +163,6 @@ Use the following steps to import data from the .csv file into a Hive table name
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
-
-   > [!NOTE]
-   > In this example, `localhost` is used because you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
 
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
@@ -305,15 +302,15 @@ To learn more ways to work with data in HDInsight, see the following articles:
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 

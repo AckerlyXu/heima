@@ -1,10 +1,10 @@
 ---
-title: Azure AD Windows Phone Getting Started | Azure
+title: Azure AD Windows Phone Getting Started | Microsoft Docs
 description: How to build a Windows Phone application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
-manager: mbaldwin
+author: jmprieur
+manager: mtillman
 editor: ''
 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
@@ -14,25 +14,29 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/07/2017
-ms.date: 02/07/2017
+ms.date: 01/02/2018
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Integrate Azure AD with a Windows Phone App
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
+> [!NOTE]
+> Windows Phone 8.1 and prior version projects are not supported in Visual Studio 2017.  For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
 If you're developing a Windows Phone 8.1 app, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 > [!NOTE]
-> This code sample uses ADAL v2.0.  For the latest technology, you may want to instead try our [Windows Universal Tutorial using ADAL v3.0](./active-directory-devquickstarts-windowsstore.md).  If you are indeed building an app for Windows Phone 8.1, this is the right place.  ADAL v2.0 is still fully supported, and is the recommended way of developing apps agianst Windows Phone 8.1 using Azure AD.
+> This code sample uses ADAL v2.0.  For the latest technology, you may want to instead try our [Windows Universal Tutorial using ADAL v3.0](active-directory-devquickstarts-windowsstore.md).  If you are indeed building an app for Windows Phone 8.1, this is the right place.  ADAL v2.0 is still fully supported, and is the recommended way of developing apps agianst Windows Phone 8.1 using Azure AD.
 > 
 > 
 
 For .NET native clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build a "Directory Searcher" Windows Phone 8.1 app that:
 
-- Gets access tokens for calling the Azure AD Graph API using the [OAuth 2.0 authentication protocol](./active-directory-protocols-oauth-code.md).
+- Gets access tokens for calling the Azure AD Graph API using the [OAuth 2.0 authentication protocol](/active-directory/develop/active-directory-protocols-oauth-code).
 - Searches a directory for users with a given UPN.
 - Signs users out.
 
@@ -42,20 +46,20 @@ To build the complete working application, you’ll need to:
 2. Install & Configure ADAL.
 3. Use ADAL to get tokens from Azure AD.
 
-To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip).  Each is a Visual Studio 2013 solution.  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](./active-directory-howto-tenant.md).
+To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip).  Each is a Visual Studio 2013 solution.  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 ## 1. Register the Directory Searcher Application
 To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
-- Sign into the [Azure Management Portal](https://manage.windowsazure.cn)
-- In the left hand nav, click on **Active Directory**
-- Select a tenant in which to register the application.
-- Click the **Applications** tab, and click **Add** in the bottom drawer.
-- Follow the prompts and create a new **Native Client Application**.
+1. Sign in to the [Azure portal](https://portal.azure.cn).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **New application registration**.
+5. Create a new **Native** Application.
     - The **Name** of the application will describe your application to end-users
-    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a placeholder value for now, e.g. `http://DirectorySearcher`.  We'll replace this value later.
-- Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the **Configure** tab.
-- Also in **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access Your Organization's Directory** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a placeholder value for now, e.g. `http://DirectorySearcher`.  We'll replace this value later.
+6. Once you’ve completed registration, AAD will assign your app a unique Application ID.  You’ll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** page, choose **Required Permissions** and choose **Add**. Select the **Microsoft Graph** as the API and add the **Read Directory Data** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
 ## 2. Install & Configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
@@ -81,7 +85,7 @@ Now that you have an application in Azure AD, you can install ADAL and write you
     ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
     ```
 
-- Back on the **Configure** tab of your application in the Azure Management Portal, replace the value of the **RedirectUri** with this value.  
+- Back on the **Settings** tab of the app in the Azure portal, add a **RedirectUri** with the preceding value.  
 
 ## 3. Use ADAL to Get Tokens from AAD
 The basic principle behind ADAL is that whenever your app needs an access token, it simply calls `authContext.AcquireToken(…)`, and ADAL does the rest.  
@@ -178,6 +182,9 @@ ADAL makes it easy to incorporate all of these common identity features into you
 
 For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip).  You can now move on to additional identity scenarios.  You may want to try:
 
-[Secure a .NET Web API with Azure AD >>](./active-directory-devquickstarts-webapi-dotnet.md)
+[Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+
+
+<!--Update_Description: wording update -->

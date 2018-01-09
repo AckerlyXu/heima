@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 06/28/2017
-ms.date: 10/02/2017
+ms.date: 01/08/2018
 ms.author: v-johch
 
 ---
@@ -49,7 +49,7 @@ To complete this tutorial, make sure you have the following:
 
 Log in to the [Azure portal](https://portal.azure.cn/).
 
-## Create a server-level firewall rule in the Azure portal
+##  <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Create a server-level firewall rule in the Azure portal
 
 SQL databases are protected by a firewall in Azure. By default, all connections to the server and the databases inside the server are rejected except for connections from other Azure services. For more information, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
 
@@ -147,6 +147,7 @@ Follow these steps to create a user using SQL Authentication:
 
 It is best practice to create these non-administrator accounts at the database level to connect to your database unless you need to execute administrator tasks like creating new users. Please review the [Azure Active Directory tutorial](./sql-database-aad-authentication-configure.md) on how to authenticate using Azure Active Directory.
 
+
 ## Protect your data with encryption
 
 Azure SQL Database transparent data encryption (TDE) automatically encrypts your data at rest, without requiring any changes to the application accessing the encrypted database. For newly created databases, TDE is on by default. To enable TDE for your database or to verify that TDE is on, follow these steps:
@@ -161,11 +162,11 @@ Azure SQL Database transparent data encryption (TDE) automatically encrypts your
 
 The encryption process starts in the background. You can monitor the progress by connecting to SQL Database using [SQL Server Management Studio](./sql-database-connect-query-ssms.md) by querying the encryption_state column of the `sys.dm_database_encryption_keys` view.
 
-## Enable SQL Database auditing, if necessary
+## <a name="enable-sql-database-auditing-if-necessary"></a>Enable SQL Database auditing, if necessary
 
 Azure SQL Database Auditing tracks database events and writes them to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations. Follow these steps to create a default auditing policy for your SQL database:
 
-1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
+1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 
 2. In the Settings blade, select **Auditing & Threat Detection**. Notice that sever-level auditing is diabled and that there is a **View server settings** link that allows you to view or modify the server auditing settings from this context.
 
@@ -187,7 +188,7 @@ Azure SQL Database Auditing tracks database events and writes them to an audit l
 > If you want to customize the audited events, you can do this via PowerShell or REST API - see [SQL database auditing](sql-database-auditing.md) for more details.
 >
 
-## Enable SQL Database threat detection
+## <a name="enable-sql-database-threat-detection"></a>Enable SQL Database threat detection
 
 Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users can explore the suspicious events using SQL Database Auditing to determine if they result from an attempt to access, breach or exploit data in the database. Threat Detection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 For example, Threat Detection detects certain anomalous database activities indicating potential SQL injection attempts. SQL injection is one of the common Web application security issues on the Internet, used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, for breaching or modifying data in the database.
@@ -234,11 +235,12 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 11. The results appear in the **SQL Audit Logs** sheet which enables you to run deeper analysis of the anomalous activities that were detected, and mitigate the impact of the security event in your application.
 
+
 ## Next steps
 In this tutorial, you learned to improve the protection of your database against malicious users or unauthorized access with just a few simple steps.  You learned how to: 
 
 > [!div class="checklist"]
-> * Set up firewall rules for your sever and or database
+> * Set up firewall rules for your server and or database
 > * Connect to your database using a secure connection string
 > * Manage user access
 > * Protect your data with encryption

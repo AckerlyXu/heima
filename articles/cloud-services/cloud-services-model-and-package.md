@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 09/11/2017
+ms.date: 12/11/2017
 ---
 
 # What is the Cloud Service model and how do I package it?
@@ -281,8 +281,8 @@ I am using Visual Studio and I want to...
 * [Deploy a Cloud Service project][vs_deploy]
 * [Setup remote desktop for a cloud service instance][vs_remote]
 
-[deploy]:./cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]:./cloud-services-role-enable-remote-desktop.md
+[deploy]: cloud-services-how-to-create-deploy-portal.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md

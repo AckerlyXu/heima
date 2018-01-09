@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
 
@@ -58,24 +58,6 @@ You can use your own cluster instead of the Party Cluster, if you want.  The ASP
 > [!NOTE]
 > Party clusters are not secured, so your applications and any data you put in them may be visible to others. Don't deploy anything you don't want others to see. Be sure to read over our Terms of Use for all the details.
 
-## Configure the listening port
-When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
-
-![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ## Deploy the app to the Azure
 Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
 
@@ -87,7 +69,7 @@ Now that the application is ready, you can deploy it to the Party Cluster direct
 
     Once the publish has finished, you should be able to send a request to the application via a browser.
 
-3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.chinanorth.chinacloudapp.cn).
+3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.chinanorth.cloudapp.chinacloudapi.cn).
 
     You should now see the same result as you saw when running the application locally.
 
@@ -98,7 +80,7 @@ Service Fabric Explorer is a graphical user interface to explore and manage appl
 
 To remove the application from the Party Cluster:
 
-1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, http://win1kw5649s.chinanorth.chinacloudapp.cn:19080/Explorer/index.html.
+1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, http://win1kw5649s.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer/index.html.
 
 2. In Service Fabric Explorer, navigate to the **fabric://Voting** node in the treeview on the left-hand side.
 

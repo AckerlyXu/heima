@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 08/31/2017
-ms.date: 11/20/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -41,7 +41,7 @@ This article summarizes supported configurations and components for Azure Site R
 **Resource move type** | **Supported / Not supported** | **Remarks**  
 --- | --- | ---
 **Move vault across resource groups** | Not supported |You cannot move the Recovery services vault across resource groups.
-**Move Compute, Storage and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network) after enabling replication, you need to disable replication and enable replication for the virtual machine again.
+**Move Compute, Storage, and Network across resource groups** | Not supported |If you move a virtual machine (or its associated components such as storage and network) after enabling replication, you need to disable replication and enable replication for the virtual machine again.
 
 ## Support for deployment models
 
@@ -63,7 +63,7 @@ The below support is applicable for any workload running on the mentioned OS.
 
 #### Windows
 
-- Windows Server 2016 (Server Core and Server with Desktop Experience)*
+- Windows Server 2016 (Server Core, Server with Desktop Experience)*
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 with at least SP1
@@ -84,11 +84,11 @@ The below support is applicable for any workload running on the mentioned OS.
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you'll need to disable replication and protect the machine again post the upgrade.)
+(Upgrade of replicating machines from SLES 11 SP3 to SLES 11 SP4 is not supported. If a replicated machine has been upgraded from SLES 11SP3 to SLES 11 SP4, you need to disable replication and protect the machine again post the upgrade.)
 
 >[!NOTE]
 >
-> Ubuntu servers using password based authentication and login, and using the cloud-init package to configure cloud virtual machines, may have password based login disabled upon failover (depending on the cloudinit configuration.) Password based login can be re-enabled on the virtual machine by resetting the password from the settings menu (under the SUPPORT + TROUBLESHOOTING section) of the failed over virtual machine on the Azure portal.
+> Ubuntu servers using password-based authentication and login, and using the cloud-init package to configure cloud virtual machines, may have password-based login disabled upon failover (depending on the cloudinit configuration.) Password-based login can be re-enabled on the virtual machine by resetting the password from the settings menu (under the SUPPORT + TROUBLESHOOTING section) of the failed over virtual machine on the Azure portal.
 
 ### Supported Ubuntu kernel versions for Azure virtual machines
 
@@ -103,8 +103,8 @@ The below support is applicable for any workload running on the mentioned OS.
 ## Supported file systems and guest storage configurations on Azure virtual machines running Linux OS
 
 * File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS
-* Volume manager : LVM2
-* Multipath software : Device Mapper
+* Volume manager: LVM2
+* Multipath software: Device Mapper
 
 ## Region support
 
@@ -131,8 +131,8 @@ VMs migrated using Site Recovery | Supported | If it is a VMware/Physical machin
 
 **Configuration** | **Supported/Not supported** | **Remarks**
 --- | --- | ---
-Maximum OS disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Maximum data disk size | 1023 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximum OS disk size | 2048 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Maximum data disk size | 4095 GB | Refer to [Disks used by VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Number of data disks | Upto 64 as supported by a specific Azure VM size | Refer to [Azure virtual machine sizes](../virtual-machines/windows/sizes.md)
 Temporary disk | Always excluded from replication | Temporary disk is excluded from replication always. You should not put any persistent data on temporary disk as per Azure guidance. Refer to [Temporary disk on Azure VMs](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) for more details.
 Data change rate on the disk | Maximum of 6 MBps per disk | If the average data change rate on the disk is beyond 6 MBps continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 6 MBps for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
@@ -150,9 +150,11 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
+Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks)  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported. 
+General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
 
 >[!IMPORTANT]
-> Ensure that you follow the [storage guidance](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required storage accounts based on the source configuration. If you customize and select your own settings, ensure you follow the (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) as your source VMs.
+> Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
 
 ## Support for Network configuration
 **Configuration** | **Supported/Not supported** | **Remarks**
@@ -178,4 +180,4 @@ VNET to VNET connection	| Supported | Refer to [networking guidance document.](s
 - Learn more about [networking guidance for replicating Azure VMs](site-recovery-azure-to-azure-networking-guidance.md)
 - Start protecting your workloads by [replicating Azure VMs](site-recovery-azure-to-azure.md)
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

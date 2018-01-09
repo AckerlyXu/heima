@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
-ms.date: 10/31/2017
+ms.date: 11/27/2017
 ms.author: v-junlch
 ms.custom:
 
@@ -42,13 +42,13 @@ Before you can back up Windows Server, you must create a place for the backups, 
 
 1. On the left-hand menu, select **More services** and in the services list,type **Recovery Services**. Click **Recovery Services vaults**.
 
-   ![open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+    ![open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.	On the **Recovery Services vaults** menu, click **Add**.
+2. On the **Recovery Services vaults** menu, click **Add**.
 
     ![provide information for vault](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.	In the **Recovery Services vault** menu,
+3. In the **Recovery Services vault** menu,
 
     - Type *myRecoveryServicesVault* in **Name**.
     - The current subscription ID appears in **Subscription**.
@@ -106,13 +106,13 @@ The Azure Recovery Services (MARS) agent creates an association between Windows 
 
 You have established the schedule when backup jobs run. However, you have not backed up the server. It is a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
 
-1.	In the Azure Recovery Services agent console, click **Back Up Now**.
+1. In the Azure Recovery Services agent console, click **Back Up Now**.
 
-    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2.	On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then click **Back Up**.
-3.	Click **Close** to close the wizard. If you close the wizard before the back up process finishes, the wizard continues to run in the background.
-4.	After the initial backup is completed, **Job completed** status appears in **Jobs** pane of the MARS agent console.
+2. On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then click **Back Up**.
+3. Click **Close** to close the wizard. If you close the wizard before the back up process finishes, the wizard continues to run in the background.
+4. After the initial backup is completed, **Job completed** status appears in **Jobs** pane of the MARS agent console.
 
 
 ## Next steps
@@ -132,3 +132,4 @@ Continue to the next tutorial to recover files from Azure to Windows Server
 > [Restore files from Azure to Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 
 
+<!--Update_Description: wording update -->

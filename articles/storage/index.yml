@@ -20,18 +20,41 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Create a unique namespace to store and access your Azure Storage data objects.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Azure Powershell
-      href: /storage/common/storage-quickstart-create-storage-account-powershell
-    - image: 
-        src: /virtual-machines/linux/media/index/cli.svg 
-      text: Azure CLI
-      href: /storage/common/storage-quickstart-create-storage-account-cli
+    text: Learn to work with Azure Storage by exploring these quickstarts.
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_powershell.svg
+          text: Powershell
+      - image:
+          src: media/index/cli.svg
+          text: Azure CLI
+      - image:
+          src: media/index/logo_net.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+    rows:
+      - title: Create storage account
+        values:
+        - href: /storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - href: /storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - href: 
+        - href: 
+        - href: 
+        - href: 
+      - title: Blob quickstarts
+        values:
+        - href: /storage/blobs/storage-quickstart-blobs-powershell
+        - href: /storage/blobs/storage-quickstart-blobs-cli
+        - href: /storage/blobs/storage-quickstart-blobs-dotnet
+        - href: /storage/blobs/storage-quickstart-blobs-java
+        - href: /storage/blobs/storage-quickstart-blobs-python
+        - href: /storage/blobs/storage-quickstart-blobs-nodejs
 - title: Step-by-step Tutorials
   items:
   - type: paragraph

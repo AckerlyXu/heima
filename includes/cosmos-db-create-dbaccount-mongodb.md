@@ -5,9 +5,11 @@
 
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
-    With Azure Cosmos DB, you can choose one of three programming models: MongoDB, SQL (DocumentDB), and Table (key-value). 
+    With Azure Cosmos DB, you can choose one of three programming models: MongoDB, SQL, and Table (key-value). 
+<!-- Not Available on Gremlin (graph database) and Cassandra -->
 
     In this quick start we'll be programming against the MongoDB API so you'll choose **MongoDB** as you fill out the form. But if you have document data from a catalog app, or key/value (table) data, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
+<!-- Not Available on Graph data for a social media app-->
 
     Fill out the **New account** blade using the information in the table as a guide.
 
@@ -16,7 +18,7 @@
     Setting|Suggested value|Description
     ---|---|---
     ID|*Unique value*|A unique name you choose to identify the Azure Cosmos DB account. *documents.azure.cn* is appended to the ID you provide to create your URI, so use a unique but identifiable ID. The ID may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
-    API|MongoDB|The API determines the type of account to create. Azure Cosmos DB provides four APIs to suits the needs of your application: SQL (document database), MongoDB (document database), Azure Table, and Cassandra, each which currently require a separate account. <br><br>Select **MongoDB** because in this quickstart you are creating a document database that is queryable using MongoDB.<br><br>[Learn more about the MongoDB API](../articles/cosmos-db/mongodb-introduction.md)|
+    API|MongoDB|The API determines the type of account to create. Azure Cosmos DB provides three APIs to suits the needs of your application: SQL (document database), MongoDB (document database), and Azure Table, each which currently require a separate account. <br><br>Select **MongoDB** because in this quickstart you are creating a document database that is queryable using MongoDB.<br><br>[Learn more about the MongoDB API](../articles/cosmos-db/mongodb-introduction.md)|
     Subscription|*Your subscription*|The Azure subscription that you want to use for the Azure Cosmos DB account. 
     Resource Group|*The same value as ID*|The new resource group name for your account. For simplicity, you can use the same name as your ID. 
     Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location closest to your users to give them the fastest access to the data.
@@ -29,5 +31,5 @@
 6.  When the deployment is complete, open the new account from the All Resources tile. 
 
     ![Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
-<!--Update_Description: wording update, update link-->
-<!--ms.date: 11/27/2017-->
+<!--Update_Description: wording update -->
+<!--ms.date: 12/25/2017-->

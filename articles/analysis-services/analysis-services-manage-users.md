@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 10/09/2017
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -81,4 +81,4 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 [Manage server administrators](analysis-services-server-admins.md)  
 [Role-Based Access Control](../active-directory/role-based-access-control-what-is.md)
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update meta properties  -->

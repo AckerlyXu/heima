@@ -3,8 +3,8 @@ title: Create a VM in the Azure portal | Azure
 description: Create a Windows virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Create a virtual machine running Windows in the Azure portal
@@ -30,8 +30,9 @@ ms.author: v-dazen
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager deployment model](../../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) using the **Azure portal**.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-This tutorial shows you how to create an Azure virtual machine (VM) running Windows in the Azure portal. We'll use a Windows Server image as an example, but that's just one of the many images Azure offers.
+This tutorial shows you how to create an Azure virtual machine (VM) running Windows in the Azure portal. We'll use a Windows Server image as an example, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, Windows desktop images may be available to MSDN subscribers.
 
 This section shows you how to use the **Dashboard** in the Azure portal to select and then create the virtual machine.
 
@@ -46,3 +47,4 @@ You can also create VMs using [your own images](createupload-vhd.md). To learn a
 * Learn how to [create a VM using the Resource Manager deployment model](../../virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) in the Azure portal.
 * Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](connect-logon.md).
 * Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk to a Windows virtual machine created with the classic deployment model](attach-disk.md).
+<!-- Update_Description: update meta properties -->

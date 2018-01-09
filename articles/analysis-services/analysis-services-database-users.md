@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 08/28/2017
+origin.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -148,4 +148,4 @@ Row filters apply to the specified rows and related rows. When a table has multi
   [Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)  
   [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
-<!--Update_Description: update reference -->
+<!--Update_Description: update meta properties -->

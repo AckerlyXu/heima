@@ -3,7 +3,7 @@ title: Troubleshoot errors when you delete Azure storage accounts, containers, o
 description: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs
 services: storage
 documentationcenter: ''
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: na
 tags: storage
@@ -14,9 +14,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 06/13/2017
-ms.date: 10/30/2017
-ms.author: v-johch
+origin.date: 11/03/2017
+ms.date: 12/04/2017
+ms.author: v-nany
 
 ---
 # Troubleshoot storage delete errors in Resource Manager deployment
@@ -104,4 +104,4 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 ## Next steps
 Retry deletion of storage object that had previously failed.
 
-<!--Update_Description: whole content update-->
+<!--Update_metadata-->

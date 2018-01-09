@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
 # Identity synchronization and duplicate attribute resiliency
 Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
-These two attributes are generally required to be unique across all **User** or **Contact** objects in a given Azure Active Directory tenant.
+These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory tenant.
 
 > [!NOTE]
 > Only Users can have UPNs.
@@ -70,7 +70,7 @@ For the PowerShell cmdlets in this topic, the following is true:
 - The **-ErrorCategory PropertyConflict** must always be included. There are currently no other types of
   **ErrorCategory**, but this may be extended in the future.
 
-First, get started by running **Connect-MsolService** and entering credentials for a tenant administrator.
+First, get started by running **Connect-MsolService -AzureEnvironment AzureChinaCloud** and entering credentials for a tenant administrator.
 
 Then, use the following cmdlets and operators to view errors in different ways:
 
@@ -173,4 +173,4 @@ It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/
 - [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
 
-<!-- Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

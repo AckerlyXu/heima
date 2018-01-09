@@ -3,8 +3,8 @@ title: Clusterize MySQL with load-balanced sets | Azure
 description: Set up a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: bureado
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management 
 
@@ -15,21 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2015
-ms.date: 02/20/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Use load-balanced sets to clusterize MySQL on Linux
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) is available if you need to deploy a MySQL cluster.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
+This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Azure, exploring MySQL Server high availability as a primer.
+<!-- Not Available on  A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL). -->
 
 We will outline a shared-nothing, two-node, single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
 
 There's no need for a VIP solution like LVS, because you'll use load-balanced sets in Azure to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Azure when you first create the cloud service.
 
 There are other possible architectures for MySQL, including NBD Cluster, Percona, Galera, and several middleware solutions, including at least one available as a VM on VM Depot. As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Azure.
+<!-- Not Available on [VM Depot](http://vmdepot.msopentech.com) -->
 
 These clustering architectures can be extended to other products like PostgreSQL and OpenLDAP in a similar fashion. For example, this load-balancing procedure with shared nothing was successfully tested with multi-master OpenLDAP, and you can watch it on our Channel 9 blog.
 
@@ -49,7 +52,7 @@ You need the following resources and abilities:
   * Corosync and Pacemaker
 
 ### Affinity group
-Create an affinity group for the solution by signing in to the Azure Classic Management Portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
+Create an affinity group for the solution by signing in to the Azure portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 A new network is created, and a subnet is created inside the network. This example uses a 10.10.10.0/24 network with only one /24 subnet inside.
@@ -58,6 +61,7 @@ A new network is created, and a subnet is created inside the network. This examp
 The first Ubuntu 13.10 VM is created by using an Endorsed Ubuntu Gallery image and is called `hadb01`. A new cloud service is created in the process, called hadb. This name illustrates the shared, load-balanced nature that the service will have when more resources are added. The creation of `hadb01` is uneventful and completed by using the portal. An endpoint for SSH is automatically created, and the new network is selected. Now you can create an availability set for the VMs.
 
 After the first VM is created (technically, when the cloud service is created), create the second VM, `hadb02`. For the second VM, use Ubuntu 13.10 VM from the Gallery by using the portal, but use an existing cloud service, `hadb.chinacloudapp.cn`, instead of creating a new one. The network and availability set should be automatically selected. An SSH endpoint will be created, too.
+<!-- cloudapp.net to chinacloudapp.cn is correct -->
 
 After both VMs have been created, take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure).
 
@@ -336,3 +340,5 @@ The following limitations apply:
 * The load balancer needs at least five seconds to respond, so applications should be cluster-aware and be more tolerant of timeout. Other architectures, like in-app queues and query middlewares, can also help.
 * MySQL tuning is necessary to ensure that writing is done at a manageable pace and caches are flushed to disk as frequently as possible to minimize memory loss.
 * Write performance is dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.
+
+<!-- Update_Description: wording update, update link -->

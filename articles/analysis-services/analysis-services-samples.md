@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 10/10/2017
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -43,4 +43,4 @@ If you have an Analysis Services server in Azure portal, you can quickly and eas
 [Adventure Works tutorial](/tutorials/aas-adventure-works-tutorial.md)   
 [Azure On-premises Data Gateway](analysis-services-gateway.md)
 
-<!--Update_Description: new articles on analysis services samples -->
+<!--Update_Description: update meta properties -->

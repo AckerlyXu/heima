@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 08/22/2017
-ms.date: 11/13/2017
+origin.date: 12/06/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -36,4 +36,4 @@ The following table includes links to [Service Fabric CLI](service-fabric-cli.md
 | [Remove an application](./scripts/cli-remove-application.md)| Remove an application from a cluster.|
 | [Upgrade an application](./scripts/sfctl-upgrade-application.md)| Upgrade an already deployed application.|
 
-<!--Update_Description: update reference link, add service-fabric-sfctl.md-->
+<!--Update_Description: update meta properties -->

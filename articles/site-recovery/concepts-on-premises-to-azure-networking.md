@@ -1,6 +1,6 @@
 ---
-title: Networking for VM connectivity after failover to Azure with Azure Site Recovery | Azure
-description: Networking guidance for connecting to Azure VMs after failover from on-premises with Azure Site Recovery
+title: Set up IP addressing to connect after failover to Azure with Azure Site Recovery | Azure
+description: Describes how to set up IP addressing to connect to Azure VMs after failover from on-premises with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rockboyfor
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/12/2017
-ms.date: 11/20/2017
+origin.date: 11/14/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
-# Networking for VM connectivity after failover
+# Set up IP addressing to connect after failover to Azure
 
 This article explains the networking requirements for connecting to Azure VMs, after using the [Azure Site Recovery](site-recovery-overview.md) service for replication and failover to Azure.
 
@@ -82,4 +82,4 @@ This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastru
 ## Next steps
 [Run a failover](site-recovery-failover.md)
 
-<!-- Update_Description: new articles on site recovery concepts on premises to azure networking -->
+<!-- Update_Description: update meta properties, wording update -->

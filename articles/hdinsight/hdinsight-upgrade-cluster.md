@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/04/2017
-ms.date: 05/08/2017
-ms.author: v-dazen
+ms.date: 12/28/2017
+ms.author: v-yiso
 
 ---
 # Upgrade HDInsight cluster to a newer version

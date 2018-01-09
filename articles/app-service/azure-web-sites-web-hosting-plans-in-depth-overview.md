@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 12/04/2017
+ms.date: 01/02/2018
 ms.author: v-yiso
 
 ---
@@ -98,4 +98,4 @@ This way you can allocate a new set of resources for your app and gain greater c
 ## Manage an App Service plan
 
 > [!div class="nextstepaction"]
-> [Scale up an app in Azure](app-service-plan-manage.md)
+> [Manage an App Service plan](app-service-plan-manage.md)

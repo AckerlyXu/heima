@@ -1,3 +1,5 @@
+
+
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
@@ -12,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/03/2017
-ms.date: 11/22/2017
+origin.date: 12/14/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -25,12 +27,80 @@ This article is designed to help you keep track of the versions that have been r
 This is a list of related topics:
 
 
+
 Topic |  Details
 --------- | --------- |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.654.0
+Status: December 12th, 2017
+
+>[!NOTE]
+>This is a security related hotfix for Azure AD Connect
+
+### Azure AD Connect
+An improvement has been added to Azure AD Connect version 1.1.654.0 (and after) to ensure that the recommended permission changes described under section [Lock down access to the AD DS account](#lock) are automatically applied when Azure AD Connect creates the AD DS account. 
+
+- When setting up Azure AD Connect, the installing administrator can either provide an existing AD DS account, or let Azure AD Connect automatically create the account. The permission changes are automatically applied to the AD DS account that is created by Azure AD Connect during setup. They are not applied to existing AD DS account provided by the installing administrator.
+- For customers who have upgraded from an older version of Azure AD Connect to 1.1.654.0 (or after), the permission changes will not be retroactively applied to existing AD DS accounts created prior to the upgrade. They will only be applied to new AD DS accounts created after the upgrade. This occurs when you are adding new AD forests to be synchronized to Azure AD.
+
+>[!NOTE]
+>This release only removes the vulnerability for new installations of Azure AD Connect where the service account is created by the installation process. For existing installations, or in cases where you provide the account yourself, you sould ensure that this vulnerability does not exist.
+
+#### <a name="lock"></a> Lock down access to the AD DS account
+Lock down access to the AD DS account by implementing the following permission changes in the on-premises AD:  
+
+*	Disable inheritance on the specified object
+*	Remove all ACEs on the specific object, except ACEs specific to SELF. We want to keep the default permissions intact when it comes to SELF.
+*	Assign these specific permissions:
+
+Type     | Name                          | Access               | Applies To
+---------|-------------------------------|----------------------|--------------|
+Allow    | SYSTEM                        | Full Control         | This object  |
+Allow    | Enterprise Admins             | Full Control         | This object  |
+Allow    | Domain Admins                 | Full Control         | This object  |
+Allow    | Administrators                | Full Control         | This object  |
+Allow    | Enterprise Domain Controllers | List Contents        | This object  |
+Allow    | Enterprise Domain Controllers | Read All Properties  | This object  |
+Allow    | Enterprise Domain Controllers | Read Permissions     | This object  |
+Allow    | Authenticated Users           | List Contents        | This object  |
+Allow    | Authenticated Users           | Read All Properties  | This object  |
+Allow    | Authenticated Users           | Read Permissions     | This object  |
+
+To tighten the settings for the AD DS account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). The PowerShell script will assign the permissions mentioned above to the AD DS account.
+
+#### PowerShell script to tighten a pre-existing service account
+
+To use the PowerShell script, to apply these settings, to a pre-existing AD DS account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
+
+##### Usage:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = The Active Directory account whose permissions need to be tightened.
+
+**$Credential** = Administrator credential that has the necessary privileges to restrict the permissions on $ObjectDN account. This is typically the Enterprise or Domain administrator. Use the fully qualified domain name of the administrator account to avoid account lookup failures. Example: contoso.com\admin.
+
+>[!NOTE] 
+>$credential.UserName should be in FQDN\username format. Example: contoso.com\admin 
+
+##### Example:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### Was this vulnerability used to gain unauthorized access?
+
+To see if this vulnerability was used to compromise your Azure AD Connect configuration you should verify the last password reset date of the service account.  If the timestamp in unexpected, further investigation, via the event log, for that password reset event, should be undertaken.
+
+For more information, see [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## 1.1.649.0
 Status: October 27 2017
@@ -150,9 +220,6 @@ Status: September 05 2017
 - When setting up a new ADFS farm using AAD Connect, the page asking for ADFS credentials was moved so that it now occurs before the user is asked to provide ADFS and WAP servers.  This allows AAD Connect to check that the account specified has the correct permissions.
 - During AAD Connect upgrade, we will no longer fail an upgrade if the ADFS AAD Trust fails to update.  If that happens, the user will be shown an appropriate warning message and should proceed to reset the trust via the AAD Connect additional task.
 
-### Seamless Single Sign-On
-#### Fixed issues
-- Fixed an issue that caused Azure AD Connect wizard to return an error if you try to enable Seamless Single Sign-On. The error message is *“Configuration of Azure AD Connect Authentication Agent failed.”
 
 ## 1.1.561.0
 Status: July 23 2017
@@ -658,7 +725,6 @@ Released: February 2016
 
 **Features promoted from preview to GA:**
 
-- Device writeback 
 - [Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **New preview features:**
@@ -693,7 +759,6 @@ Released: November 2015
 
 **New preview features:**
 
-- Azure AD Connect Health for sync.
 - Support for [Azure AD Domain Services](../active-directory-passwords-update-your-own-password.md) password synchronization.
 
 **New supported scenario:**
@@ -757,7 +822,6 @@ Changed name from Azure AD Sync to Azure AD Connect.
 
 - [User writeback](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback)
-- Device writeback
 - [Directory extensions](active-directory-aadconnect-feature-preview.md)
 
 ## 1.0.494.0501

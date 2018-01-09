@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
@@ -78,4 +78,4 @@ Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visuali
 
 Learn how to [Visualize your NSG flow logs with open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
-<!--Update_Description: new articles on network watcher nsg flow logging CLI -->
+<!--Update_Description: update meta properties -->

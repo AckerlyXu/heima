@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
@@ -45,7 +45,7 @@ To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md

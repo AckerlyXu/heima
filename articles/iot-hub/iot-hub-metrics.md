@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
-ms.date: 10/16/2017
+ms.date: 12/18/2017
 ms.author: v-yiso
 ---
 
@@ -97,7 +97,7 @@ Now that you’ve seen an overview of IoT Hub metrics, follow this link to learn
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: ./media/iot-hub-metrics/enable-metrics-1.png

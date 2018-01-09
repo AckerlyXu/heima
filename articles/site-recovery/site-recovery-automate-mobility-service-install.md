@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2017
-ms.date: 08/28/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -187,7 +187,6 @@ configuration ASRMobilityService {
     }
 }
 ```
-
 The configuration will do the following:
 
 * The variables will tell the configuration where to get the binaries for the Mobility service and the Azure VM agent, where to get the passphrase, and where to store the output.
@@ -269,7 +268,6 @@ Run the following cmdlet to verify that there's no pending reboot on the server:
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
-
 If this shows empty, you are OK to proceed. If not, you should address this by rebooting the server during a maintenance window.
 
 To apply the configuration on the server, start the PowerShell Integrated Scripting Environment (ISE) and run the following script. This is essentially a DSC local configuration that will instruct the Local Configuration Manager engine to register with the Automation DSC service and retrieve the specific configuration (ASRMobilityService.localhost).
@@ -347,7 +345,8 @@ That's it. You have now successfully deployed and registered the Mobility servic
 
 After the management server detects the successful deployment, you can configure protection and enable replication on the machine by using Site Recovery.
 
-##<a name="Use DSC in disconnected environments"></a> Use DSC in disconnected environments
+<a name="Use DSC in disconnected environments"></a>
+## Use DSC in disconnected environments
 If your machines aren't connected to the Internet, you can still rely on DSC to deploy and configure the Mobility service on the workloads that you want to protect.
 
 You can instantiate your own DSC pull server in your environment to essentially provide the same capabilities that you get from Automation DSC. That is, the clients will pull the configuration (after it's registered) to the DSC endpoint. However, another option is to manually push the DSC configuration to your machines, either locally or remotely.
@@ -510,4 +509,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ## Next steps
 After you deploy the Mobility service agents, you can [enable replication](site-recovery-vmware-to-azure.md) for the virtual machines.
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

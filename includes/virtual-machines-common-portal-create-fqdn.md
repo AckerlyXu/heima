@@ -9,3 +9,5 @@
 3. To return to the VM overview blade, close the *Public IP address* blade. Verify that the *DNS name* is now shown.
 
    ![Confirm your new DNS label is set](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

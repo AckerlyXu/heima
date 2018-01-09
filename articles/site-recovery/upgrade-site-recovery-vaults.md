@@ -154,8 +154,7 @@ Alternatively, you can run the following script. Enter the values for the requir
 
 ### Replicate by using Azure Site Recovery in the Recovery Services vault
 
-* You can now protect your Azure VMs from one region to another. 
-<!--Not Available  To know more, refer to the documentation [here](site-recovery-azure-to-azure.md).-->
+* You can now protect your Azure VMs from one region to another. For more information, see [Replicate Azure VMs between regions with Azure Site Recovery](site-recovery-azure-to-azure.md).
 
 * For more information about replicating VMware VMs to Azure, see [Replicate VMware VMs to Azure with Site Recovery](vmware-walkthrough-overview.md).
 
@@ -183,4 +182,4 @@ In the Site Recovery vault, each protection group is configured with copy freque
 
 For more information about replication policy, see [Manage replication policy for VMware to Azure](site-recovery-setup-replication-settings-vmware.md).
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

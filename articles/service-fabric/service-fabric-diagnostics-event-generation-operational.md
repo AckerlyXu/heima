@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/19/2017
-ms.date: 09/11/2017
+origin.date: 11/02/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 
 ---
@@ -59,4 +59,4 @@ Here is a comprehensive list of logs provided by Service Fabric in the operation
 * Modifying your [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) configuration to collect more logs
 * [Setting up Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to see your Operational channel logs
 
-<!--Update_Description: new articles of diagnostice event generation in service fabric -->
+<!--Update_Description: update meta properties -->

@@ -3,19 +3,18 @@ title: Managing Media Services Assets across Multiple Storage Accounts | Microso
 description: This articles give you guidance on how to manage media services assets across multiple storage accounts.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
 editor: ''
 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/10/2017
+ms.date: 12/25/2017
+ms.author: v-nany
 
 ---
 # Managing Media Services Assets across Multiple Storage Accounts
@@ -24,7 +23,7 @@ Starting with Microsoft Azure Media Services 2.2, you can attach multiple storag
 * Load balancing your assets across multiple storage accounts.
 * Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
 
-This topic demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/powershell/module/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
+This article demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
 
 ## Considerations
 When attaching multiple storage accounts to your Media Services account, the following considerations apply:
@@ -90,15 +89,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureChinaCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

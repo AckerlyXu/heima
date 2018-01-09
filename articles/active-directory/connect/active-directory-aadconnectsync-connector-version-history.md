@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/06/2017
-ms.date: 11/22/2017
+ms.date: 12/25/2017
 ms.author: v-junlch
 
 ---
@@ -42,7 +42,7 @@ Related links:
 
 - Lotus Notes:
   - Filtering custom certifiers option
-  - Import of the class ImportOperations was fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+  - Import of the class ImportOperations fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
 - Generic LDAP:
   - OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
 - Generic SQL:
@@ -259,4 +259,3 @@ Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-wha
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
-<!--Update_Description: wording update -->

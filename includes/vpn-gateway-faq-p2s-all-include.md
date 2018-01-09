@@ -8,6 +8,7 @@ The following client operating systems are supported:
 - Windows 8.1 (32-bit and 64-bit)
 - Windows Server 2012 (64-bit only)
 - Windows Server 2012 R2 (64-bit only)
+- Windows Server 2016 (64-bit only)
 - Windows 10
 - OSX version 10.11 for Mac (El Capitan)
 - macOS version 10.12 for Mac (Sierra)
@@ -62,4 +63,4 @@ Azure supports only Windows and Mac for P2S VPN.
 
 Yes, you can enable these new features on already deployed gateways, both through Powershell and the Azure portal.
 
-<!-- ms.date: 11/07/2017 -->
+<!-- ms.date: 12/12/2017 -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 09/22/2017
-ms.date: 11/13/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -27,8 +27,7 @@ Manage the replicas that belong to service partitions.
 | --- | --- |
 |    deployed  | Gets the details of replica deployed on a Service Fabric node.|
 |    deployed-list| Gets the list of replicas deployed on a Service Fabric node.|
-|    health    | Gets the health of a Service Fabric stateful service replica or stateless service
-                   instance.|
+|    health    | Gets the health of a Service Fabric stateful service replica or stateless service instance.|
 |    info      | Gets the information about a replica of a Service Fabric partition.|
 |    list      | Gets the information about replicas of a Service Fabric service partition.|
 |    remove    | Removes a service replica running on a node.|
@@ -198,4 +197,4 @@ Restarts a service replica of a persisted service running on a node. Warning - T
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/service-fabric/scripts/sfctl-upgrade-application).
 
-<!--Update_Description: new articles on service fabric sfctl replica-->
+<!--Update_Description: wording update -->

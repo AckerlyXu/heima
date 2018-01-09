@@ -39,7 +39,7 @@ The following table provides a quick overview of the differences between LRS, ZR
 |:--- |:--- |:--- |:--- |:--- |
 | Data is replicated across multiple datacenters. |No |Yes |Yes |Yes |
 | Data can be read from a secondary location as well as the primary location. |No |No |No |Yes |
-| Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
+| Designed to provide ___ durability of objects over a given year. |at least 99.999999999% (11 9's)|at least 99.9999999999% (12 9's)|at least 99.99999999999999% (16 9's)|at least 99.99999999999999% (16 9's)|
 
 See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for pricing information for the different redundancy options.
 
@@ -91,7 +91,7 @@ Please note that ZRS accounts cannot be converted LRS or GRS. Similarly, an exis
 <a id="changecost"></a>
 #### 3. Will there be any additional cost if I change the replication type of my storage account?
 
-   Yes. If you change from LRS to GRS (or RA-GRS) for your storage account, it would incur an additional charge for egress involved in copying existing data from primary location to the secondary location. Once the initial data is copied there is no further additional egress charge for geo replicating the data from the primary to secondary location. The details for bandwidth charges can be found on the [Azure Storage Pricing page](https://www.azure.cn/pricing/details/storage/blobs/). 
+   Yes. If you change from LRS to GRS (or RA-GRS) for your storage account, it would incur an additional charge for egress involved in copying existing data from primary location to the secondary location. Once the initial data is copied there is no further additional egress charge for geo replicating the data from the primary to secondary location. The details for bandwidth charges can be found on the [Azure Storage Pricing page](https://www.azure.cn/pricing/details/storage). 
 If you change from GRS to LRS, there is no additional cost, but your data will be deleted from the secondary location.
 
 <a id="ragrsbenefits"></a>

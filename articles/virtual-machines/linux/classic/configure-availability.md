@@ -3,8 +3,8 @@ title: Availability sets for classic Linux VMs | Azure
 description: Configure an availability set for a new or existing Linux virtual machine in the classic deployment model using the Azure portal and Azure PowerShell.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2016
-ms.date: 09/04/2016
-ms.author: cynthn
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # How to configure an availability set for Linux virtual machines in the classic deployment model
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [configure availability sets](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) in Resource Manager deployments.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
-<!--Update_Description: remove next steps-->
+<!--Update_Description: wording update -->

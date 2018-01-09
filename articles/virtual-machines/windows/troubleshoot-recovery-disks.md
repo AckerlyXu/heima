@@ -4,8 +4,8 @@ title: Use a Windows troubleshooting VM with Azure PowerShell | Azure
 description: Learn how to troubleshoot Windows VM issues in Azure by connecting the OS disk to a recovery VM using Azure PowerShell
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 
 ms.service: virtual-machines-windows
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/26/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 11/03/2017
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 
@@ -196,3 +196,4 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: update meta properties -->

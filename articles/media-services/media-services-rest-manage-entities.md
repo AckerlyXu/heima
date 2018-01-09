@@ -1,8 +1,9 @@
 ---
 title: Managing Media Services entities with REST  | Azure
 description: Learn how to manage Media Services entities with REST API.
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 12/25/2017
+ms.author: v-nany
+
 ---
 
 # Managing Media Services entities with REST 
@@ -53,7 +55,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 74
@@ -73,7 +75,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -86,7 +88,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336907474&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=OpuY0CeTylqFFcFaP4pKUVGesT4PGx4CP55zDf2zXnc%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -95,7 +97,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336907474&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=OpuY0CeTylqFFcFaP4pKUVGesT4PGx4CP55zDf2zXnc%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -108,7 +110,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -121,7 +123,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -142,7 +144,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
@@ -158,7 +160,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337083279&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=DMLQXWah4jO0icpfwyws5k%2b1aCDfz9KDGIGao20xk6g%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 21
@@ -178,9 +180,9 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 Content-Length: 0
 ```
-<!--Update_Description: add "Connect to Media Services" section-->
+<!--Update_Description: update x-ms-version-->

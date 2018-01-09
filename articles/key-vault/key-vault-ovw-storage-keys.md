@@ -8,8 +8,8 @@ ms.service: key-vault
 author: alexchen2016
 ms.author: v-junlch
 manager: digimobile
-origin.date: 09/14/2017
-ms.date: 09/25/2017
+origin.date: 10/12/2017
+ms.date: 11/30/2017
 ---
 # Azure Key Vault Storage Account Keys
 
@@ -21,7 +21,7 @@ For more general information on Azure Storage Accounts, see [About Azure storage
 
 ## Supporting interfaces
 
-The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](/key-vault/).
+You'll find a complete listing and links to our programming and scripting interfaces in the [Key Vault Developer's Guide](key-vault-developers-guide.md#coding-with-key-vault).
 
 
 ## What Key Vault manages
@@ -95,15 +95,11 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### Setup for role-based access control (RBAC) permissions
 
-Key Vault needs permissions to *list* and *regenerate* keys for a storage account. Set up these permissions using the following steps:
+The Azure Key Vault application identity needs permissions to *list* and *regenerate* keys for a storage account. Set up these permissions using the following steps:
 
-- Get ObjectId of Key Vault: 
+- Get ObjectId of Azure Key Vault Identity: 
 
     `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     or
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Assign Storage Key Operator role to Azure Key Vault Identity: 
 
@@ -127,17 +123,22 @@ The following statements are givens for this working example.
 ### Get a service principal
 
 ```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-The output of the preceding command will include your  ServicePrincipal, which we'll call *yourServicePrincipalId*. 
+The output of the preceding command will include your  ServicePrincipal, which we'll call *yourKeyVaultServicePrincipalId*. 
 
 ### Set permissions
 
-Make sure you have your storage permissions set to *all*.
+Make sure you have your storage permissions set to *all*. You can get youruserPrincipalId and set permissions on the vault using the following commands.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
+```
+Now search for your name and get the related ObjectId, which you will use in setting permissions on the vault.
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### Allow access
@@ -145,7 +146,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrin
 You need to give the Key Vault service access to the storage accounts, before you can create a managed storage account and SAS definitions.
 
 ```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
 ```
 
 ### Create storage account

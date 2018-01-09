@@ -1,0 +1,142 @@
+---
+title: Integrate Azure DNS with your Azure resources | Azure
+description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
+services: dns
+documentationcenter: na
+author: yunan2016
+manager: digimobile
+
+ms.service: dns
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+origin.date: 07/31/2017
+ms.date: 12/18/2017
+ms.author: v-nany
+
+---
+
+# Use Azure DNS to provide custom domain settings for an Azure service
+
+Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
+
+## Prerequisites
+
+In order to use Azure DNS for your custom domain, you must first delegate your domain to Azure DNS. Visit [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you are able to configure the DNS records needed.
+
+You can configure a vanity or custom domain for [Azure IoT](#azure-iot), [Public IP addresses](#public-ip-address), [App Service (Web Apps)](#app-service-web-apps), and [Blob storage](#blob-storage).
+
+
+## Azure IoT
+
+Azure IoT does not have any customizations that are needed on the service itself. To use a custom domain with an IoT Hub only a CNAME record pointed to the resources is needed.
+
+Navigate to **Internet of Things** > **IoT Hub** and select your IoT hub. On the **Overview** blade, note the FQDN of the IoT hub.
+
+![IoT hub blade](./media/dns-custom-domain/iot.png)
+
+Next, navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
+
+
+|Property  |Value  |Description  |
+|---------|---------|---------|
+|Name     | myiothub        | This value along with the domain name label is the FQDN for the IoT hub.        |
+|Type     | CNAME        | Use a CNAME record is using an alias.
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Hours        | Hours are used as the time measurement         |
+|Alias     | adatumIOT.azure-devices.cn        | The DNS name you are creating the alias for, in this example it is the adatumIOT.azure-devices.cn host name provided by the IoT hub.
+
+Once the record is created, test name resolution with the CNAME record using `nslookup`
+
+## Public IP address
+
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, a CNAME record used.
+
+Navigate to **Networking** > **Public IP address**, select the Public IP resource and click **Configuration**. Notate the IP address shown.
+
+![public ip blade](./media/dns-custom-domain/publicip.png)
+
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
+
+
+|Property  |Value  |Description  |
+|---------|---------|---------|
+|Name     | mywebserver        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Type     | A        | Use an A record as the resource is an IP address.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Hours        | Hours are used as the time measurement         |
+|IP Address     | <your ip address>       | The public IP address.|
+
+![create an A record](./media/dns-custom-domain/arecord.png)
+
+Once the A record is created, run `nslookup` to validate the record resolves.
+
+![public ip dns lookup](./media/dns-custom-domain/publicipnslookup.png)
+
+## App Service (Web Apps)
+
+The following steps take you through configuring a custom domain for an app service web app.
+
+Navigate to **Web & Mobile** > **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
+
+Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
+
+![custom domains blade](./media/dns-custom-domain/url.png)
+
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
+
+
+|Property  |Value  |Description  |
+|---------|---------|---------|
+|Name     | mywebserver        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Type     | CNAME        | Use a CNAME record is using an alias. If the resource used an IP address, an A record would be used.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Hours        | Hours are used as the time measurement         |
+|Alias     | webserver.chinacloudsites.cn        | The DNS name you are creating the alias for, in this example it is the webserver.chinacloudsites.cn DNS name provided by default to the web app.        |
+
+
+![create a CNAME record](./media/dns-custom-domain/createcnamerecord.png)
+
+Navigate back to the app service that is configured for the custom domain name. Click **Custom domains**, then click **Hostnames**. To add the CNAME record you created, click **+ Add hostname**.
+
+![figure 1](./media/dns-custom-domain/figure1.png)
+
+Once the process is complete, run **nslookup** to validate name resolution is working.
+
+![figure 1](./media/dns-custom-domain/finalnslookup.png)
+
+To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+
+## Blob storage
+
+The following steps take you through configuring a CNAME record for a blob storage account using the asverify method. This method ensures there is no downtime.
+
+Navigate to **Storage** > **Storage Accounts**, select your storage account, and click **Custom domain**. Notate the FQDN under step 2, this value is used to create the first CNAME record
+
+![blob storage custom domain](./media/dns-custom-domain/blobcustomdomain.png)
+
+Navigate to your DNS Zone and click **+ Record set**. Fill out the following information on the **Add record set** blade and click **OK** to create it.
+
+
+|Property  |Value  |Description  |
+|---------|---------|---------|
+|Name     | asverify.mystorageaccount        | This value along with the domain name label is the FQDN for the custom domain name.        |
+|Type     | CNAME        | Use a CNAME record is using an alias.        |
+|TTL     | 1        | 1 is used for 1 hour        |
+|TTL unit     | Hours        | Hours are used as the time measurement         |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.chinacloudapi.cn        | The DNS name you are creating the alias for, in this example it is the asverify.adatumfunctiona9ed.blob.core.chinacloudapi.cn DNS name provided by default to the storage account.        |
+
+Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
+
+![blob storage custom domain](./media/dns-custom-domain/indirectvalidate.png)
+
+Validate DNS resolution by running `nslookup`
+
+To learn more about mapping a custom domain to a blob storage endpoint visit [Configure a custom domain name for your Blob storage endpoint](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+
+
+
+## Next steps
+
+Learn how to [configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).

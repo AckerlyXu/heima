@@ -3,8 +3,9 @@ title: How to Create a Media Processor | Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -13,9 +14,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+
 
 ---
 # How to get a Media Processor instance
@@ -26,7 +28,7 @@ ms.author: v-haiqya
 > 
 
 ## Overview
-In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
+Media Processors are a component that handles a specific video or audio processing task, such as encoding, format conversion, encrypting, or decrypting media content. All tasks submitted to Media Services require a media processor to encode, encrypt, or convert the video or audio content. 
 
 ## Azure media processors 
 
@@ -57,7 +59,7 @@ Accept: application/json
 Accept-Charset: UTF-8
 User-Agent: Microsoft ADO.NET Data Services
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ```
 
@@ -83,4 +85,4 @@ Response:
 
 ## Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset](media-services-rest-get-started.md) topic which will show you how to use the Media Encoder Standard to encode an asset.
-<!--Update_Description: add section "Azure media processors" and "Connect to Media Services"-->
+<!--Update_Description: modify x-ms-version-->

@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 09/25/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 # How to setup Azure Cosmos DB global distribution using the MongoDB API
@@ -97,7 +98,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the DocumentDB APIs
+> * Configure global distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

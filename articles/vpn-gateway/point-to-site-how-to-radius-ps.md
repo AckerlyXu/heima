@@ -14,18 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/13/2017
-ms.date: 11/07/2017
+origin.date: 12/04/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
-# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell (Preview)
+# Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell
 
 This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the Resource Manager deployment model.
-
->[!NOTE]
->P2S RADIUS authentication is currently in Preview.
->
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
@@ -67,9 +63,9 @@ Apart from Active Directory, a RADIUS server can also integrate with other exter
 
 ## <a name="before"></a>Before beginning
 
-- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://www.azure.cn/pricing/member-offers/msdn-benefits-details) or sign up for a [Trial](https://www.azure.cn/pricing/1rmb-trial).
+- Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [Trial](https://www.azure.cn/pricing/1rmb-trial).
 
-- Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+- Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 ### Log in
 
@@ -172,31 +168,32 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     ```
 3. Add the VPN client address pool and the RADIUS server information.
 
-  For SSTP configurations:
+    For SSTP configurations:
 
-    ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "SSTP" '
-    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
-    ```
+      ```powershell
+      $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+      Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+      -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
+      -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+      ```
 
-  For IKEv2 configurations:
+    For IKEv2 configurations:
 
-    ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "IKEv2" '
-    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
-    ```
+      ```powershell
+      $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+      Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+      -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "IKEv2" `
+      -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+      ```
 
-  For SSTP + IKEv2
+    For SSTP + IKEv2
 
-    ```powershell
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols @{ "SSTP", "IkeV2" } '
-    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
-    ```
+      ```powershell
+      $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+      Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+      -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
+      -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+      ```
 
 ## 5. <a name="vpnclient"></a>Download the VPN client configuration package and set up the VPN client
 
@@ -249,5 +246,6 @@ This FAQ applies to P2S using RADIUS authentication
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/#pivot=services&panel=Compute). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md).
 
+<!--Update_Description: code update-->

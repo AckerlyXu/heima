@@ -8,7 +8,7 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 11/13/2017
+ms.date: 12/04/2017
 ms.author: v-yeche
 ---
 # Manage an Azure Service Fabric application by using Azure Service Fabric CLI
@@ -136,7 +136,7 @@ After you delete the application, you can unprovision the application type if yo
 the application type, use the following command:
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 The type name and type version must match the name and version in the previously provisioned application manifest.

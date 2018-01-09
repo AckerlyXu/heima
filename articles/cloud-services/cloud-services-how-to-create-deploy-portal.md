@@ -2,11 +2,12 @@
 title: How to create and deploy a cloud service | Azure
 description: Learn how to create and deploy a cloud service using the Azure portal.
 services: cloud-services
-documentationCenter: ''
-authors: Thraka
+documentationcenter: ''
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 07/17/2017
+ms.date: 12/11/2017
 ---
 
 # How to create and deploy a cloud service
-
-> [!div class="op_single_selector"]
->- [Azure portal](./cloud-services-how-to-create-deploy-portal.md)
->- [Azure classic portal](./cloud-services-how-to-create-deploy.md)
-
 The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
 This article explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using Custom Create.
 
 > [!NOTE]
 > If you plan to publish your cloud service from Visual Studio Team Services (VSTS), use Quick Create, and then set up VSTS publishing from the Azure Quickstart or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][TFSTutorialForCloudService], or see help for the **Quick Start** page.
+>
+>
 
 ## Concepts
 Three components are required to deploy an application as a cloud service in Azure:

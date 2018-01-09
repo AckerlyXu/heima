@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -32,7 +32,8 @@ This article walks you through the steps for creating a Service Fabric standalon
 
 ## Get support for the Service Fabric for Windows Server package
 * Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric?).
-* Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0).
+* Open a ticket for [Professional Support for Service Fabric](https://www.azure.cn/support/support-ticket-form).
+<!-- Not Available on Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0).-->
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/premier).
 * For more details, please see [Azure Service Fabric support options](/service-fabric/service-fabric-support).
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).

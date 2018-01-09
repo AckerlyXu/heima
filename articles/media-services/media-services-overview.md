@@ -3,7 +3,7 @@ title: Azure Media Services overview | Azure
 description: This topic gives an overview of Azure Media Services
 services: media-services
 documentationcenter: ''
-author: Hayley244
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 07/04/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+origin.date: 10/24/2017
+ms.date: 12/11/2017
+ms.author: v-nany
 
 ---
 # Azure Media Services overview
@@ -51,11 +51,17 @@ To build Media Services solutions, you can use:
   * [Azure portal](https://portal.azure.cn/)
   * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
-## Concepts and overview
+> [!NOTE]
+> To get the latest version of Java SDK and get started developing with Java, see [Get started with the Java client SDK for Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> To download the latest PHP SDK for Media Services, look for version 0.5.7 of the Microsoft/WindowAzure package in the [Packagist repository](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+
+## Code samples
+
+Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media Services code samples](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+
+## Concepts
 
 For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
-
-For a how-to series that introduces you to all the main components of Azure Media Services, see [Azure Media Services Step-by-Step tutorials](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). This series has a great overview of concepts and it uses the AMSE tool to demonstrate AMS tasks. AMSE tool is a Windows tool. This tool supports most of the tasks you can achieve programmatically with [AMS SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), or  [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
 ## Supported scenarios and availability of Media Services across data centers
 
@@ -71,7 +77,7 @@ For detailed information, see [AMS scenarios and availability of features and se
 
 For more information, see [Azure SLA](https://www.azure.cn/support/legal/sla/).
 
-For information about availability in datacenters, see the [Avaiability](scenarios-and-availability.md#availability) section.
+For information about availability in datacenters, see the [Availability](scenarios-and-availability.md#availability) section.
 
 ## Support
 [Azure Support](https://www.azure.cn/support/contact/) provides support options for Azure, including Media Services.

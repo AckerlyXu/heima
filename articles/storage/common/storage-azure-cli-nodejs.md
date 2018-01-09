@@ -39,7 +39,7 @@ This guide assumes that you understand the basic concepts of Azure Storage. The 
 ## Get started with Azure Storage and the Azure CLI in 5 minutes
 This guide uses Ubuntu for examples, but other OS platforms should perform similarly.
 
-**New to Azure:** Get an Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/), [Purchase Options](https://www.azure.cn/pricing/purchase-options/).
+**New to Azure:** Get an Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/) .
 
 See [Assigning administrator roles in Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) for more information about Azure subscriptions.
 
@@ -48,7 +48,7 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 1. Download and install the Azure CLI following the instructions outlined in [Install the Azure CLI](../../cli-install-nodejs.md).
 2. Once the Azure CLI has been installed, you will be able to use the azure command from your command-line interface (Bash, Terminal, Command prompt) to access the Azure CLI commands. Type the _azure_ command and you should see the following output.
 
-    ![Azure Command Output](../media/storage-azure-cli/azure_command.png)   
+    ![Azure Command Output](./media/storage-azure-cli/azure_command.png)   
 3. In the command-line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax.
 4. Now, we'll give you a simple script that shows basic Azure CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
@@ -94,7 +94,7 @@ After the script runs, you should have a local destination folder that includes 
 
 ## Manage storage accounts with the Azure CLI
 ### Connect to your Azure subscription
-While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [Connect to an Azure subscription from the Azure CLI](../../xplat-cli-connect.md).
+While most of the storage commands will work without an Azure subscription, we recommend you to connect to your subscription from the Azure CLI. To configure the Azure CLI to work with your subscription, follow the steps in [Connect to an Azure subscription from the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 ### Create a new storage account
 To use Azure storage, you will need a storage account. You can create a new Azure storage account after you have configured your computer to connect to your subscription.

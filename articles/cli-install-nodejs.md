@@ -1,10 +1,10 @@
----
-title: Install the Azure CLI 1.0 | Azure
+﻿---
+title: Install the Azure CLI 1.0 | Microsoft Docs
 description: Install the Azure CLI 1.0 for Mac, Linux, and Windows to start using Azure services
 editor: ''
-manager: timlt
+manager: digimobile
 documentationcenter: ''
-author: squillace
+author: alexchen2016
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
 
@@ -15,18 +15,19 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2017
-ms.date: 04/17/2017
+ms.date: 12/28/2017
 ms.author: v-junlch
----
 
+---
 # Install the Azure CLI 1.0
 > [!div class="op_single_selector"]
->- [PowerShell](./powershell-install-configure.md)
->- [Azure CLI 1.0](./cli-install-nodejs.md)
->- [Azure CLI 2.0](/cli/install-azure-cli/)
+> * [PowerShell](/powershell-install-configure)
+> * [Azure CLI 1.0](cli-install-nodejs.md)
+> * [Azure CLI 2.0](/cli/install-azure-cli)
 
 > [!IMPORTANT]
-> This topic describes how to install the Azure CLI 1.0, which is built on nodeJs and supports all classic deployment API calls as well as a large number of Resource Manager deployment activities. You should use the [Azure CLI 2.0](/cli/overview) for new or forward-looking CLI deployments and management.
+> This topic describes how to install the Azure CLI 1.0. This CLI is deprecated and should only be used for support with the Azure Service Management (ASM) model with "classic" resources.
+> For Azure Resource Manager (ARM) deployments, use [Azure CLI 2.0](/cli/overview).
 
 Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of open-source shell-based commands for creating and managing resources in Azure. You have several options to install these cross-platform tools on your computer:
 
@@ -36,7 +37,7 @@ Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of
 
 For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Once the Azure CLI 1.0 is installed, [connect it with your Azure subscription](./xplat-cli-connect.md) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
+Once the Azure CLI 1.0 is installed, [connect it with your Azure subscription](/cli/authenticate-azure-cli) and run the **azure** commands from your command-line interface (Bash, Terminal, Command prompt, and so on) to work with your Azure resources.
 
 ## Option 1: Install an npm package
 To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
@@ -96,7 +97,7 @@ To see the version of the Azure CLI 1.0 you installed, type the following:
 azure --version
 ```
 
-Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](./xplat-cli-connect.md).
+Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](/cli/authenticate-azure-cli).
 
 > [!NOTE]
 > When you first use Azure CLI, you see a message asking if you want to allow Microsoft to collect usage information. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
@@ -124,13 +125,17 @@ azure --completion >> ~/azure.completion.sh
 echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
+
 ## Next steps
-- [Connect from the CLI to your Azure subscription](./xplat-cli-connect.md) to create and manage Azure resources.
+- [Connect from the CLI to your Azure subscription](/cli/authenticate-azure-cli) to create and manage Azure resources.
 - To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
-- If you have questions about using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurescripting).
+- If you have questions about using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
+
 
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]:/cli/get-started-with-azure-cli
-[cliarm]:./virtual-machines/azure-cli-arm-commands.md
+[cliasm]: /cli/get-started-with-az-cli2
+[cliarm]: ./virtual-machines/azure-cli-arm-commands.md
+
+<!--Update_Description: link update -->

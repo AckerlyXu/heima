@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 
 ---
@@ -31,16 +31,13 @@ The steps to create a virtual network peering are different, depending on whethe
 |[One Resource Manager, one classic](create-peering-different-deployment-models.md) |Same|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
-A virtual network peering can only be created between two virtual networks that exist in the same Azure region.
+A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
 
-  > [!WARNING]
-  > Creating a virtual network peering between virtual networks in different regions is currently in preview. You can register your subscription for the preview below. Virtual network peerings created in this scenario may not have the same level of availability and reliability as creating a virtual network peering in scenarios in general availability release. Virtual network peerings created in this scenario are not supported, may have constrained capabilities, and may not be available in all Azure regions. For the most up-to-date notifications on availability and status of this feature, check the [Azure Virtual Network updates](https://www.azure.cn/what-is-new/) page.
-
-A virtual network peering cannot be created between two virtual networks deployed through the classic deployment model.If you need to connect virtual networks that were both created through the classic deployment model, or that exist in different Azure regions, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) to connect the virtual networks. 
+This tutorial peers virtual networks in the same region. The ability to connect virtual networks in different regions with an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json) is generally available, and does not require registration.
+<!-- Not Avaialble on Creating Peer Virtual Network in different regions -->
 
 You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), Azure [PowerShell](#powershell), or an [Azure Resource Manager template](#template) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
-<!-- Not Avaialble ## <a name="register"></a>Register for the Global VNet Peering preview-->
 ## <a name="portal"></a>Create peering - Azure portal
 
 1. Log in to the [Azure portal](https://portal.azure.cn). The account you log in with must have the necessary permissions to create a virtual network peering. See the [Permissions](#permissions) section of this article for details.
@@ -73,7 +70,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
      - **Allow virtual network access:** Ensure that **Enabled** is selected.
     No other settings are used in this tutorial. To learn about all peering settings, read [Manage virtual network peerings](virtual-network-manage-peering.md#create-a-peering).
 10. After clicking **OK** in the previous step, the **Add peering** blade closes and you see the **myVnet1 - Peerings** blade again. After a few seconds, the peering you created appears in the blade. **Initiated** is listed in the **PEERING STATUS** column for the **myVnet1ToMyVnet2** peering you created. You've peered Vnet1 to Vnet2, but now you must peer myVnet2 to myVnet1. The peering must be created in both directions to enable resources in the virtual networks to communicate with each other.
-11. Complete steps 5-10 again for myVnet2.  Name the peering *myVnet2ToMyVnet1*.
+11. Complete steps 5-10 again for myVnet2. Name the peering *myVnet2ToMyVnet1*.
 12. A few seconds after clicking **OK** to create the peering for MyVnet2, the **myVnet2ToMyVnet1** peering you just created is listed with **Connected** in the **PEERING STATUS** column.
 13. Complete steps 5-7 again for MyVnet1. The **PEERING STATUS** for the **myVnet1ToVNet2** peering is now also **Connected**. The peering is successfully established after you see **Connected** in the **PEERING STATUS** column for both virtual networks in the peering.
 14. **Optional**: Though creating virtual machines is not covered in this tutorial, you can create a virtual machine in each virtual network and connect from one virtual machine to the other, to validate connectivity.
@@ -272,6 +269,8 @@ Enter the following command:
 Remove-AzureRmResourceGroup -Name myResourceGroup -force
 ```
 
+<!-- Not Avaialble ## <a name="register"></a>Register for the global virtual network peering preview-->
+<!-- Not Avaialable on -FeatureName AllowGlobalVnetPeering -->
 ## Next steps
 
 - Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.

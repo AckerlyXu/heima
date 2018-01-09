@@ -46,7 +46,8 @@ When you add additional virtual machine instances to the group, they are automat
 When you access an Azure Cosmos DB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the Azure Cosmos DB database account. 
 
 ## Connections from Azure PaaS service 
-In Azure, PaaS services like Azure Stream analytics, Azure Functions are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these kind of services whose IP address is not readily available, the  IP address of 0.0.0.0 must be added to the allowed list of IP addresses associated with your Azure Cosmos DB database account by [configuring the IP access control policy](#configure-ip-policy).  This ensures that Azure PaaS services can access a Azure Cosmos DB account, which has this rule. 
+In Azure, PaaS services like Azure Stream analytics is used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these kind of services whose IP address is not readily available, the  IP address of 0.0.0.0 must be added to the allowed list of IP addresses associated with your Azure Cosmos DB database account by [configuring the IP access control policy](#configure-ip-policy).  This ensures that Azure PaaS services can access a Azure Cosmos DB account, which has this rule. 
+<!-- Not Available on Azure Functions -->
 
 <a name="configure-ip-policy"></a>
 ##  Configuring the IP access control policy

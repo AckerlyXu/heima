@@ -3,8 +3,9 @@ title: Use Azure AD authentication to access Azure Media Services API with REST 
 description: Learn how to access Azure Media Services API with Azure Active Directory authentication by using REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: erikre
+author: yunan2016
+manager: digimobile
+
 editor: ''
 
 ms.service: media-services
@@ -12,29 +13,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 08/07/2017
-ms.author: v-haiqya
+origin.date: 11/02/2017
+ms.date: 12/25/2017
+ms.author: v-nany
+
 
 ---
 # Use Azure AD authentication to access the Azure Media Services API with REST
 
 The Azure Media Services team has released Azure Active Directory (Azure AD) authentication support for Azure Media Services access. It also announced plans to deprecate Azure Access Control service authentication for Media Services access. Because every Azure subscription, and every Media Services account, is attached to an Azure AD tenant, Azure AD authentication support brings many security benefits. For details about this change and migration (if you use the Media Services .NET SDK for your app), see the following blog posts and articles:
 
-- [Azure Media Services announces support for Azure AD and deprecation of Access Control authentication](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
 - [Access Azure Media Services API by using Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md)
 - [Use Azure AD authentication to access Azure Media Services API by using Microsoft .NET](media-services-dotnet-get-started-with-aad.md)
 - [Getting started with Azure AD authentication by using the Azure portal](media-services-portal-get-started-with-aad.md)
 
 Some customers need to develop their Media Services solutions under the following constraints:
 
-* They use a programming language that is not Microsoft .NET or C#, or the runtime environment is not Windows.
-* Azure AD libraries such as Active Directory Authentication Libraries are not available for the programming language or can't be used for their runtime environment.
+*	They use a programming language that is not Microsoft .NET or C#, or the runtime environment is not Windows.
+*	Azure AD libraries such as Active Directory Authentication Libraries are not available for the programming language or can't be used for their runtime environment.
 
 Some customers have developed applications by using REST API for both Access Control authentication and Azure Media Services access. For these customers, you need a way to use only the REST API for Azure AD authentication and subsequent Azure Media Services access. You need to not rely on any of the Azure AD libraries or on the Media Services .NET SDK. In this article, we describe a solution and provide sample code for this scenario. Because the code is all REST API calls, with no dependency on any Azure AD or Azure Media Services library, the code can easily be translated to any other programming language.
 
 > [!IMPORTANT]
 > Currently, Media Services supports the Azure Access Control services authentication model. However, Access Control authentication will be deprecated June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
+
 
 ## Design
 
@@ -89,15 +91,8 @@ Here are the mappings between the attributes in the JWT and the four application
 
 ## Steps for setup
 
-To register and set up an Azure AD application for Azure AD authentication, and to obtain an access token for calling the Azure Media Services REST API endpoint, complete the following steps:
+To register and set up an Azure Active Directory (AAD) application and to obtain keys for calling the Azure Media Services REST API endpoint, refer to the article [Get started with Azure AD authentication by using the Azure portal](media-services-portal-get-started-with-aad.md)
 
-1.	In the [Azure Classic Management Portal](http://manage.windowsazure.cn/), register an Azure AD application (for example, wzmediaservice) to the Azure AD tenant (for example, microsoft.partner.onmschina.cn). It doesn't matter whether you registered as web app or native app. Also, you can choose any sign-on URL and reply URL (for example, http://wzmediaservice.com for both).
-2. In the [Azure Classic Management Portal](http://manage.windowsazure.cn/), go to the **Configure** tab of your application. Note the **client ID**. Then, under **Keys**, generate a **client key** (client secret). 
-
-    > [!NOTE] 
-    > Take note of the client secret. It won't be shown again.
-
-3.	In the [Azure portal](http://portal.azure.cn), go to the Media Services account. Select the **Access Control** (IAM) pane. Add a new member that has either the Owner or the Contributor role. For the principal, search for the application name you registered in step 1 (in this example, wzmediaservice).
 
 ## Info to collect
 
@@ -130,16 +125,17 @@ The sample project has three features:
 *	Azure Media Services access by using only the REST API.
 *	Azure Storage access by using only the REST API (as used to create a Media Services account, by using REST API).
 
+
 ## Where is the refresh token?
 
 Some readers might ask: Where is the refresh token? Why not use a refresh token here?
 
-The purpose of a refresh token is not to refresh an access token. Instead, it is designed to bypass end-user authentication or user intervention and still get a valid access token when an earlier token expires. A better name for a refresh token might be something like "bypass user re-sign-in token."
+The purpose of a refresh token is not to refresh an access token. It is designed to bypass end-user authentication and still get a valid access token when an earlier token expires. A better name for a refresh token might be something like "bypass user re-sign-in token."
 
-If you use the OAuth 2.0 authorization grant flow (username and password, acting on behalf of a user), a refresh token helps you get a renewed access token without requesting user intervention. However, for the OAuth 2.0 client credentials grant flow that we describe in this article, the client acts on its own behalf. You don't need user intervention at all, and the authorization server doesn't need to (and won't) give you a refresh token. If you debug the **GetUrlEncodedJWT** method, you notice that the response from the token endpoint has an access token, but no refresh token.
+If you use the OAuth 2.0 authorization grant flow (username and password, acting on behalf of a user), a refresh token helps you get a renewed access token without requesting user intervention. However, for the OAuth 2.0 client credentials grant flow that is described in this article, the client acts on its own behalf. You don't need user intervention at all, and the authorization server doesn't need to give you a refresh token. If you debug the **GetUrlEncodedJWT** method, you notice that the response from the token endpoint has an access token, but no refresh token.
 
 ## Next steps
 
 Get started with [uploading files to your account](media-services-dotnet-upload-files.md).
 
-<!--Update_Description:new file-->
+<!--Update_Description:wording content-->

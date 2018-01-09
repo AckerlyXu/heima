@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 09/13/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -26,14 +26,11 @@ ms.author: v-junlch
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
-Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
+Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md).
 
-To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
+This article walks you through downloading and modifying an existing [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
 
-This article walks you through downloading and modifying an existing Azure Resource Manager template from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
-
-If you are simply deploying the Azure Resource Manager template directly from GitHub without any changes, skip to deploy a template from GitHub.
+If you are simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
 ## Scenario
 
@@ -77,9 +74,6 @@ You can download the existing Azure Resource Manager template to create a virtua
    - **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
    - **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
-   > [!NOTE]
-   > For more information on templates visit: [Resource Manager templates reference](https://github.com/Azure/azure-quickstart-templates/)
-
 1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
 1. Save the file to a local folder on your computer.
@@ -87,7 +81,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -157,7 +151,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     ```
 
 1. Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
-
+    
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -165,11 +159,9 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the following steps:
 
-1. If you have never used Azure CLI, see [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and configure the Azure CLI](/cli/install-azure-cli) and follow the instructions up to the point where you select your Azure account and subscription.
 
 1. If necessary, run the `az group create` command to create a resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
@@ -191,17 +183,17 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 
 Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure portal.
 
-1. Go to [Create an application gateway with web application firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf/).
+1. Go to [Create an application gateway with web application firewall](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
 
 1. Click **Deploy to Azure**.
 
-    [![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-application-gateway-public-ip%2Fazuredeploy.json)
-
+    ![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    
 1. Fill out the parameters for the deployment template on the portal and click **OK**.
 
     ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-
-1. Click **Legal terms**, and then click **Purchase**.
+    
+1. Select **I agree to the terms and conditions stated above** and click **Purchase**.
 
 1. On the Custom deployment blade, click **Create**.
 
@@ -234,6 +226,7 @@ Remove-AzureRmResourceGroup -Name appgatewayRG
 
 ```azurecli
 az group delete --name appgatewayRG
+
 ```
 
 ## Next steps

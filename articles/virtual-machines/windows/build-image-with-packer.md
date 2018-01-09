@@ -3,7 +3,7 @@ title: How to create Windows Azure VM Images with Packer | Azure
 description: Learn how to use Packer to create images of Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 01/08/2018
+ms.author: v-yeche
 ---
 
 # How to use Packer to create Windows virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
-
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
@@ -39,7 +38,8 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 Create a service principal with [New-AzureRmADServicePrincipal](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadserviceprincipal) and assign permissions for the service principal to create and manage resources with [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment):
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer IKF" -Password "P@ssw0rd!"
+$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer" `
+    -Password (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force)
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
@@ -113,6 +113,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
   }]
 }
 ```
+<!-- "cloud_environment_name": "AzureChinaCloud" -->
 
 This template builds a Windows Server 2016 VM, installs IIS, then generalizes the VM with Sysprep.
 
@@ -133,34 +134,34 @@ azure-arm output will be in this color.
 ==> azure-arm: Running builder ...
     azure-arm: Creating Azure Resource Manager (ARM) client ...
 ==> azure-arm: Creating resource group ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
 ==> azure-arm:  -> Location          : 'China East'
 ==> azure-arm:  -> Tags              :
 ==> azure-arm:  ->> task : Image deployment
 ==> azure-arm:  ->> dept : Engineering
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> DeploymentName    : 'pkrdppq0mthtbtt'
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
-==> azure-arm: Getting the certificate’s URL ...
-==> azure-arm:  -> Key Vault Name        : ‘pkrkvpq0mthtbtt’
-==> azure-arm:  -> Key Vault Secret Name : ‘packerKeyVaultSecret’
-==> azure-arm:  -> Certificate URL       : ‘https://pkrkvpq0mthtbtt.vault.azure.cn/secrets/packerKeyVaultSecret/8c7bd823e4fa44e1abb747636128adbb'
-==> azure-arm: Setting the certificate’s URL ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> DeploymentName    : 'pkrdppq0mthtbtt'
+==> azure-arm: Getting the certificate's URL ...
+==> azure-arm:  -> Key Vault Name        : 'pkrkvpq0mthtbtt'
+==> azure-arm:  -> Key Vault Secret Name : 'packerKeyVaultSecret'
+==> azure-arm:  -> Certificate URL       : 'https://pkrkvpq0mthtbtt.vault.azure.cn/secrets/packerKeyVaultSecret/8c7bd823e4fa44e1abb747636128adbb'
+==> azure-arm: Setting the certificate's URL ...
 ==> azure-arm: Validating deployment template ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> DeploymentName    : 'pkrdppq0mthtbtt'
 ==> azure-arm: Deploying deployment template ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> DeploymentName    : ‘pkrdppq0mthtbtt’
-==> azure-arm: Getting the VM’s IP address ...
-==> azure-arm:  -> ResourceGroupName   : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> PublicIPAddressName : ‘packerPublicIP’
-==> azure-arm:  -> NicName             : ‘packerNic’
-==> azure-arm:  -> Network Connection  : ‘PublicEndpoint’
-==> azure-arm:  -> IP Address          : ‘40.76.55.35’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> DeploymentName    : 'pkrdppq0mthtbtt'
+==> azure-arm: Getting the VM's IP address ...
+==> azure-arm:  -> ResourceGroupName   : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> PublicIPAddressName : 'packerPublicIP'
+==> azure-arm:  -> NicName             : 'packerNic'
+==> azure-arm:  -> Network Connection  : 'PublicEndpoint'
+==> azure-arm:  -> IP Address          : '40.76.55.35'
 ==> azure-arm: Waiting for WinRM to become available...
 ==> azure-arm: Connected to WinRM!
 ==> azure-arm: Provisioning with Powershell...
@@ -170,26 +171,26 @@ azure-arm output will be in this color.
     azure-arm: Success Restart Needed Exit Code      Feature Result
     azure-arm: ------- -------------- ---------      --------------
     azure-arm: True    No             Success        {Common HTTP Features, Default Document, D...
-    azure-arm: <Objs Version=“1.1.0.1” xmlns=“http://schemas.microsoft.com/powershell/2004/04"><Obj S=“progress” RefId=“0"><TN RefId=“0”><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N=“SourceId”>1</I64><PR N=“Record”><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>
-==> azure-arm: Querying the machine’s properties ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> ComputeName       : ‘pkrvmpq0mthtbtt’
-==> azure-arm:  -> Managed OS Disk   : ‘/subscriptions/guid/resourceGroups/packer-Resource-Group-pq0mthtbtt/providers/Microsoft.Compute/disks/osdisk’
+    azure-arm: <Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</I64><PR N="Record"><AV>Preparing modules for first use.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>
+==> azure-arm: Querying the machine's properties ...
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> ComputeName       : 'pkrvmpq0mthtbtt'
+==> azure-arm:  -> Managed OS Disk   : '/subscriptions/guid/resourceGroups/packer-Resource-Group-pq0mthtbtt/providers/Microsoft.Compute/disks/osdisk'
 ==> azure-arm: Powering off machine ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> ComputeName       : ‘pkrvmpq0mthtbtt’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> ComputeName       : 'pkrvmpq0mthtbtt'
 ==> azure-arm: Capturing image ...
-==> azure-arm:  -> Compute ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
-==> azure-arm:  -> Compute Name              : ‘pkrvmpq0mthtbtt’
-==> azure-arm:  -> Compute Location          : ‘China East’
-==> azure-arm:  -> Image ResourceGroupName   : ‘myResourceGroup’
-==> azure-arm:  -> Image Name                : ‘myPackerImage’
-==> azure-arm:  -> Image Location            : ‘chinaeast’
+==> azure-arm:  -> Compute ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
+==> azure-arm:  -> Compute Name              : 'pkrvmpq0mthtbtt'
+==> azure-arm:  -> Compute Location          : 'China East'
+==> azure-arm:  -> Image ResourceGroupName   : 'myResourceGroup'
+==> azure-arm:  -> Image Name                : 'myPackerImage'
+==> azure-arm:  -> Image Location            : 'chinaeast'
 ==> azure-arm: Deleting resource group ...
-==> azure-arm:  -> ResourceGroupName : ‘packer-Resource-Group-pq0mthtbtt’
+==> azure-arm:  -> ResourceGroupName : 'packer-Resource-Group-pq0mthtbtt'
 ==> azure-arm: Deleting the temporary OS disk ...
 ==> azure-arm:  -> OS Disk : skipping, managed disk was used...
-Build ‘azure-arm’ finished.
+Build 'azure-arm' finished.
 
 ==> Builds finished. The artifacts of successful builds are:
 --> azure-arm: Azure.ResourceManagement.VMImage:
@@ -201,15 +202,14 @@ ManagedImageLocation: chinaeast
 
 It takes a few minutes for Packer to build the VM, run the provisioners, and clean up the deployment.
 
-
 ## Create VM from Azure Image
-Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+You can now create a VM from your Image with [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm). First, set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
 
 ```powershell
 $cred = Get-Credential
 ```
 
-You can now create a VM from your Image with [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm). The following example creates a VM named *myVM* from *myImage*.
+The following example creates a VM named *myVM* from *myPackerImage*.
 
 ```powershell
 # Create a subnet configuration
@@ -273,7 +273,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-It takes a few minutes to create the VM.
+It takes a few minutes to create the VM from your Packer image.
 
 ## Test VM and IIS
 Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
@@ -292,4 +292,4 @@ You can then enter the public IP address in to a web browser.
 In this example, you used Packer to create a VM image with IIS already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Team Services, Ansible, Chef, or Puppet.
 
 For additional example Packer templates for other Windows distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
-<!--Update_Description: update managed disk scripts-->
+<!--Update_Description: update meta properties, wording update -->

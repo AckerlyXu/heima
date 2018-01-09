@@ -13,8 +13,8 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 07/15/2017
-ms.date: 10/30/2017
+origin.date: 11/03/2017
+ms.date: 12/18/2017
 ms.author: v-yeche
 
 ---
@@ -37,4 +37,4 @@ All other series could not be in the same availability set because they require 
 
 <!--Not Available on A8/A9 -->
 
-<!--Update_Description: remove A8/A9 due to unsuitable to azure.cn-->
+<!--Update_Description: update meta properties -->

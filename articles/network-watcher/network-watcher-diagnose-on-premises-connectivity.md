@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
 ---
 
@@ -112,4 +112,4 @@ Learn to check VPN Gateway connectivity with PowerShell and Azure Automation by 
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
 
-<!--Update_Description: new articles on network watcher diagnose on premises connectivity -->
+<!--Update_Description: update meta properties -->

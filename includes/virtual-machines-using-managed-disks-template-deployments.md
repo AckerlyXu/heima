@@ -217,3 +217,5 @@ To find full information on the REST API specifications, please review the [crea
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](https://docs.microsoft.com/templates/microsoft.compute/disks) document.
  
+<!--Update_Description: wording update-->
+<!--ms.date: 01/08/2018-->

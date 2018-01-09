@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/14/2017
-ms.date: 10/12/2017
+origin.date: 12/12/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 ms.custom: na
 
@@ -24,6 +24,68 @@ ms.custom: na
 # Azure virtual machine scale sets FAQs
 
 Get answers to frequently asked questions about virtual machine scale sets in Azure.
+
+## Autoscale
+
+### What are best practices for Azure Autoscale?
+
+For best practices for Autoscale, see [Best practices for autoscaling virtual machines](/monitoring-and-diagnostics/insights-autoscale-best-practices).
+
+### Where do I find metric names for autoscaling that uses host-based metrics?
+
+For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](/monitoring-and-diagnostics/monitoring-supported-metrics/).
+
+### Are there any examples of autoscaling based on an Azure Service Bus topic and queue length?
+
+Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](/monitoring-and-diagnostics/insights-autoscale-common-metrics/).
+
+For a Service Bus queue, use the following JSON:
+
+```json
+"metricName": "MessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
+```
+
+For a storage queue, use the following JSON:
+
+```json
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
+
+Replace example values with your resource Uniform Resource Identifiers (URIs).
+
+
+### Should I autoscale by using host-based metrics or a diagnostics extension?
+
+You can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.
+
+For a list of supported metrics, see [Azure Monitor autoscaling common metrics](/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
+
+For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
+
+The sample uses the host-level CPU metric and a message count metric.
+
+
+
+### How do I set alert rules on a virtual machine scale set?
+
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quick start samples](/monitoring-and-diagnostics/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quick start samples](/monitoring-and-diagnostics/insights-cli-samples/#work-with-alerts).
+
+The TargetResourceId of the virtual machine scale set looks like this: 
+
+/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+
+You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](/monitoring-and-diagnostics/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](/monitoring-and-diagnostics/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](/monitoring-and-diagnostics/insights-autoscale-common-metrics/) article.
+
+### How do I set up autoscale on a virtual machine scale set by using PowerShell?
+
+To set up autoscale on a virtual machine scale set by using PowerShell, see the blog post [How to add autoscale to an Azure virtual machine scale set](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
+
+
+
 
 ## Certificates
 
@@ -302,7 +364,13 @@ To learn about extension sequencing in virtual machine scale sets, see [Extensio
  
 ### How do I reset the password for VMs in my virtual machine scale set?
 
-To reset the password for VMs in your virtual machine scale set, use VM access extensions. 
+There are two main ways to change the password for VMs in scale sets.
+
+1. Change the VMSS model directly. Available with Compute API 2017-12-01 and later.
+
+Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs will have the new credentials. Existing VMs will only have the new credentials if they are reimaged. 
+
+2. Reset the password using the VM access extensions.
 
 Use the following PowerShell example:
 
@@ -389,12 +457,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: "Missing mandatory parameters for valid Shared Access Signature". Link+SAS works fine from my local browser.
 
-To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](/virtual-machines/virtual-machines-windows-extensions-customscript/).
-
-
-
-
-
+To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](/virtual-machines/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
 ## Networking
@@ -457,6 +520,28 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 
 To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [ARM: Get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
+### Can I use scale sets with Accelerated Networking?
+
+Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. E.g.
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+        "name": "niconfig1",
+        "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+                ]
+            }
+            }
+        ]
+        }
+    }
+    ]
+}
+```
+
 ### How can I configure the DNS servers used by a scale set?
 
 To create a VM scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
@@ -495,6 +580,50 @@ Another reason you might create a virtual machine scale set with fewer than two 
 
 To change the number of VMs in a virtual machine scale set, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
+### How do I define custom alerts for when certain thresholds are reached?
+
+You have some flexibility in how you handle alerts for specified thresholds. For example, you can define customized webhooks. The following webhook example is from a Resource Manager template:
+
+```json
+{
+    "type": "Microsoft.Insights/autoscaleSettings",
+    "apiVersion": "[variables('insightsApi')]",
+    "name": "autoscale",
+    "location": "[parameters('resourceLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
+    ],
+    "properties": {
+        "name": "autoscale",
+        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+        "enabled": true,
+        "notifications": [
+            {
+                "operation": "Scale",
+                "email": {
+                    "sendToSubscriptionAdministrator": true,
+                    "sendToSubscriptionCoAdministrators": true,
+                    "customEmails": [
+                        "youremail@address.com"
+                    ]
+                },
+                "webhooks": [
+                    {
+                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "properties": {
+                            "key1": "custommetric",
+                            "key2": "scalevmss"
+                        }
+                    }
+                ]
+            }
+        ],
+```
+
+In this example, an alert goes to Pagerduty.com when a threshold is reached.
+
+
+
 ## Patching and operations
 
 ### How do I create a scale set in an existing resource group?
@@ -515,7 +644,15 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### Is it possible to integrate scale sets with Azure OMS (Operations Management Suite)?
 
+Yes, you can by installing the OMS extension on the scale set VMs. Here is an Azure CLI example:
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+You can find the required workspaceId and workspaceKey in the OMS portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
+
+Note: if your scale set _upgradePolicy_ is set to Manual, you will need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
 
 ## Troubleshooting
 
@@ -566,7 +703,7 @@ The main difference between deleting a VM in a virtual machine scale set and dea
 
 - You want to stop paying compute costs, but you want to keep the disk state of the VMs.
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.
-  - Related to this scenario, you might have created your own scale engine and want a faster end-to-end scale.
+  - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
 
 <!--Update_Description: wording update-->

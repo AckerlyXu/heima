@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/07/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 # Migrate from Amazon Web Services (AWS) and other platforms to Managed Disks in Azure
 
-You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need of to managing storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
+You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
 
 You can upload either generalized and specialized VHDs. 
 - **Generalized VHD** - has had all of your personal account information removed using Sysprep. 
@@ -45,9 +45,9 @@ You can upload either generalized and specialized VHDs.
 Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set are sufficiently isolated from each other to avoid a single point of failure. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures. 
 Based on your needs, you can choose from two types of storage options: 
 
-- [Premium Managed Disks](../../storage/common/storage-premium-storage.md) are Solid State Drive (SSD) based storage media, which delivers high performance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.  
+- [Premium Managed Disks](premium-storage.md) are Solid State Drive (SSD) based storage media, which delivers high performance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.  
 
-- [Standard Managed Disks](../../storage/common/storage-standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.  
+- [Standard Managed Disks](standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.  
 
 ## Plan for the migration to Managed Disks
 
@@ -97,4 +97,4 @@ Review the [pricing for Managed Disks](https://www.azure.cn/pricing/details/mana
 ## Next Steps
 
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update -->

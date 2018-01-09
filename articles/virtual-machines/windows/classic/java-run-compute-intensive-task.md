@@ -3,8 +3,8 @@ title: Compute-intensive Java application on a VM | Azure
 description: Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 services: virtual-machines-windows
 documentationcenter: java
-author: rmcmurray
-manager: erikre
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # How to run a compute-intensive task in Java on a virtual machine
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 With Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications. After reading this article, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 
@@ -48,7 +49,7 @@ The following is an example of the Java application monitoring the compute-inten
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
-1. Log in to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
+1. Log in to the [Azure portal](https://portal.azure.cn).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
    Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
@@ -61,7 +62,7 @@ The following is an example of the Java application monitoring the compute-inten
    5. Click **Next**.
 6. In the next **Virtual machine configuration** dialog box:
    1. For **Cloud service**, use the default **Create a new cloud service**.
-   2. The value for **Cloud service DNS name** must be unique across chinacloudapp.cn. If needed, modify this value so that Azure indicates it is unique.
+   2. The value for **Cloud service DNS name** must be unique across cloudapp.chinacloudapi.cn. If needed, modify this value so that Azure indicates it is unique.
    3. Specify a region, affinity group, or virtual network. For purposes of this tutorial, specify a region such as **China North**.
    4. For **Storage Account**, select **Use an automatically generated storage account**.
    5. For **Availability Set**, select **(None)**.
@@ -71,7 +72,7 @@ The following is an example of the Java application monitoring the compute-inten
    2. Click **Complete**.
 
 ## To remotely log in to your virtual machine
-1. Log on to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
+1. Log on to the [Azure portal](https://portal.azure.cn).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
@@ -86,9 +87,9 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1. Log on to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
-2. In the lower-left navigation pane of the Azure Classic Management Portal, click **Service Bus, Access Control & Caching**.
-3. In the upper-left pane of the Azure Classic Management Portal, click the **Service
+1. Log on to the [Azure portal](https://portal.azure.cn).
+2. In the lower-left navigation pane of the Azure portal, click **Service Bus, Access Control & Caching**.
+3. In the upper-left pane of the Azure portal, click the **Service
    Bus** node, and then click the **New** button.  
    ![Service Bus Node screenshot][svc_bus_node]
 4. In the **Create a new Service Namespace** dialog box, enter a
@@ -98,7 +99,7 @@ To create a service namespace:
 5. After making sure the namespace name is available, choose the
    country or region in which your namespace should be hosted, and then click the **Create Namespace** button.  
 
-   The namespace you created will then appear in the Azure Classic Management Portal
+   The namespace you created will then appear in the Azure portal
    and takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
 
 ## Obtain the Default Management Credentials for the namespace
@@ -532,3 +533,4 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 [properties_pane]:media/java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]:media/java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../../../java-add-certificate-ca-store.md
+<!-- Update_Description: update link -->

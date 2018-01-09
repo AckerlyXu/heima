@@ -3,8 +3,8 @@ title: Azure Virtual Machine Agent Overview | Azure
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 05/31/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Azure Virtual Machine Agent overview
@@ -80,3 +80,4 @@ When logged in to a Windows Azure VM, task manager can be used to examine runnin
 ## Upgrade the VM Agent
 
 The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they receive the latest VM agent. Custom VM images should be manually updated to include the new VM agent.
+<!-- Update_Description: update meta properties -->

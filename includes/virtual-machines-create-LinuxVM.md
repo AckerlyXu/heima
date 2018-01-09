@@ -1,4 +1,4 @@
-1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure CLI 1.0](../articles/xplat-cli-connect.md).
+1. Sign in to your Azure subscription using the steps listed in [Connect to Azure from the Azure CLI 1.0](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest).
 
 2. Make sure you are in the Classic deployment mode as follows:
 
@@ -51,4 +51,7 @@
     ```
 
 ## Next steps
-For details on all these Azure CLI 1.0 virtual machine commands, read the [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+For details on all these Azure CLI 1.0 virtual machine commands, read the [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest).
+
+<!--Update_Description: wording update, update link -->
+<!--ms.date: 01/08/2018-->

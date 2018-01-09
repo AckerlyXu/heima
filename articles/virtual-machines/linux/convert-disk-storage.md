@@ -1,10 +1,10 @@
 ---
-title: Convert Azure managed disks storage from standard to premium, and vice versa | Microsoft Docs
+title: Convert Azure managed disks storage from standard to premium, and vice versa | Azure
 description: How to convert Azure managed disks storage from standard to premium, and vice versa, by using Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
-manager: kavithag
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
+ms.date: 12/18/2017
+ms.author: v-yeche
 ---
 
 # Convert Azure managed disks storage from standard to premium, and vice versa
 
-Managed disks offers two storage options: [Premium](../../storage/storage-premium-storage.md) (SSD-based) and [Standard](../../storage/storage-standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
+Managed disks offers two storage options: [Premium](../windows/premium-storage.md) (SSD-based) and [Standard](../windows/standard-storage.md) (HDD-based). It allows you to easily switch between the two options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the two options.
 
 This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
@@ -29,7 +29,6 @@ This article shows you how to convert managed disks from standard to premium, an
 
 * The conversion requires a restart of the VM, so schedule the migration of your disks storage during a pre-existing maintenance window. 
 * If you are using unmanaged disks, first [convert to managed disks](convert-unmanaged-to-managed-disks.md) to use this article to switch between the two storage options. 
-
 
 ## Convert all the managed disks of a VM from standard to premium, and vice versa
 
@@ -107,3 +106,4 @@ az vm start --ids $vmId
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
 
+<!-- Update_Description: update meta properties, update link -->

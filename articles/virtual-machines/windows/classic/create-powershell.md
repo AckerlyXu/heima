@@ -3,8 +3,8 @@ title: Create a Windows VM with PowerShell | Azure
 description: Create Windows virtual machines using Azure PowerShell and the classic deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 12/18/2017
+ms.author: v-yeche
 
 ---
 # Create a Windows virtual machine with PowerShell and the classic deployment model
@@ -30,6 +30,7 @@ ms.author: v-dazen
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](../../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
@@ -89,6 +90,7 @@ Option 1: Specify a virtual machine name and a size.
     $vmname="<machine name>"
     $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+<!--Not Available on A8 - A11 -->
 
 Option 2: Specify a name, size, and availability set name.
 
@@ -96,15 +98,18 @@ Option 2: Specify a name, size, and availability set name.
     $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7>"
     $availset="<set name>"
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
+<!--Not Available on A8 - A11 -->
 
 For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](/cloud-services/cloud-services-sizes-specs).
 
+<!-- Not Available on Hybrid Use Benefit -->
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 
     $cred=Get-Credential -Message "Type the name and password of the local administrator account."
     $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
 Choose a strong password.
+<!-- Not Available on (https://www.microsoft.com/security/pc-security/password-checker.aspx) -->
 
 Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the name and password of a domain account.
 
@@ -251,3 +256,4 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 ## Next steps
 If you need an OS disk that is larger than 127 GB, you can [expand the OS drive](../../virtual-machines-windows-expand-os-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+<!-- Update_Description: update meta properties, wording update -->

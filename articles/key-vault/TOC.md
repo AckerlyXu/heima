@@ -1,6 +1,6 @@
 # Overview
 ## [What is Key Vault?](key-vault-whatis.md)
-## [Service overview](https://azure.microsoft.com/services/key-vault/)
+## [Service overview](/key-vault/)
 
 # Get started
 ## [Get started with Key Vault](key-vault-get-started.md)
@@ -9,27 +9,39 @@
 
 # How to
 ## Develop
-### [Developer quick start video](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
 ### [Key Vault developer's guide](key-vault-developers-guide.md)
 ### [Service limits](key-vault-service-limits.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Save Web App secrets](vs-secure-secret-appsettings.md)
+
+### Overviews
+#### [Security worlds](key-vault-ovw-security-worlds.md)
+#### [Soft-delete](key-vault-ovw-soft-delete.md)
+#### [Storage account keys](key-vault-ovw-storage-keys.md)
+#### [Throttling](key-vault-ovw-throttling.md)
 
 ## Manage
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
-### [Change tenant ID](key-vault-subscription-move-fix.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
+### [Change tenant ID](key-vault-subscription-move-fix.md)
+### [Create and manage using Azure CLI](key-vault-manage-with-cli2.md)
+### [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md)
+### [How to use Key Vault soft-delete Azure PowerShell](key-vault-soft-delete-powershell.md)
+### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 
 ## Automate
-### [Azure Automation](automation-manage-key-vault.md)
-### [Create and Manage using CLI](key-vault-manage-with-cli.md)
+### [Azure automation](automation-manage-key-vault.md)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure 2.0 CLI (Preview)](/cli/keyvault)
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
+## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
+## [Azure CLI](/cli/keyvault)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Vault contents management](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](https://docs.microsoft.com/rest/api/keyvault)
 
 # Related
@@ -39,8 +51,11 @@
 ## [Multi-Factor Authentication](/multi-factor-authentication/)
 
 # Resources
-## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [Pricing](https://www.azure.cn/pricing/details/key-vault/)
+## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Blog](http://blogs.technet.com/b/kv/)
+## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [Pricing](https://www.azure.cn/pricing/details/key-vault/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+
+<!--Update_Description: wording update -->

@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+origin.date: 09/23/2016
+ms.date: 12/11/2017
 ms.author: v-yiso
 
 ---
@@ -29,7 +30,7 @@ This article shows you how to set up Azure metric alerts using the Azure portal.
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
 * **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
-* **Activity log events** - An alert can trigger on *every* event, or, only when a certain events occurs. To learn more about activity log alerts [click here](./monitoring-activity-log-alerts.md)
+* **Activity log events** - An alert can trigger on *every* event, or, only when certain events occurs. Learn more about [activity log alerts](monitoring-activity-log-alerts.md).
 
 You can configure a metric alert to do the following when it triggers:
 
@@ -81,10 +82,9 @@ Once you have created an alert, you can select it and:
 - **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert. 
 
 ## Next steps
-
-* [Get an overview of Azure monitoring](./monitoring-overview.md) including the types of information you can collect and monitor.
+* [Get an overview of Azure monitoring](monitoring-overview.md) including the types of information you can collect and monitor.
 * Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
 * Learn more about [configuring alerts on Activity log events](./monitoring-activity-log-alerts.md).
 * Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
-
+* Get an [overview of diagnostic logs](monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
 * Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

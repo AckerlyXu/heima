@@ -4,7 +4,7 @@ description: Use the activity logs to review user actions and errors. Shows Azur
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: timlt
+manager: digimobile
 editor: tysonn
 
 ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
-ms.date: 03/03/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
----
 
+---
 # View activity logs to audit actions on resources
 Through activity logs, you can determine:
 
@@ -36,10 +36,10 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![select activity logs](./media/resource-group-audit/select-monitor.png)
 
-    Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filtered by the selected resource.
+    Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log**. Notice that the activity log is automatically filtered by the selected resource.
 
     ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
-2. In the **Activity Log** blade, you see a summary of recent operations.
+2. In the **Activity Log**, you see a summary of recent operations.
 
     ![show actions](./media/resource-group-audit/audit-summary.png)
 3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month. Select **Apply** to view the results of your query.
@@ -120,17 +120,13 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
 5. You can focus on one error by looking at the status message for that entry.
 
-    ```
-    ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
-    ```
+        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
 
     Which returns:
 
-    ```
-    code           message                                                                        
-    ----           -------                                                                        
-    DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. 
-    ```
+        code           message                                                                        
+        ----           -------                                                                        
+        DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. 
 
 ## Azure CLI
 * To retrieve log entries, you run the **azure group log show** command.
@@ -140,10 +136,13 @@ You can retrieve information from the activity logs through the portal, PowerShe
     ```
 
 ## REST API
-The REST operations for working with the activity log are part of the [Insights REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931943.aspx). To retrieve activity log events, see [List the management events in a subscription](https://msdn.microsoft.com/zh-cn/library/azure/dn931934.aspx).
+The REST operations for working with the activity log are part of the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). To retrieve activity log events, see [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Next steps
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * To learn about setting security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
-* To learn about the commands for viewing deployment operations, see [View deployment operations](./resource-manager-deployment-operations.md).
-* To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](./resource-group-lock-resources.md).
+* To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
+* To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+* To see the list of operations available for each Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../active-directory/role-based-access-control-resource-provider-operations.md)
+<!--Not Available the parent file of includes file of resource-manager-audit-limitations.md-->
+<!--ms.date:12/25/2017-->

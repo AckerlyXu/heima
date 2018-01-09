@@ -10,8 +10,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/18/2017
-ms.date: 11/20/2017
+origin.date: 12/08/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -156,6 +156,9 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 Site Recovery creates default settings and replication policy for the target region. You can change the settings based on
 your requirements.
 
+1. Click **Settings** to view the target settings.
+2. To override the default target settings, click **Customize**. 
+
 ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 - **Target location**: The target region used for disaster recovery. We recommend that the target
@@ -176,7 +179,7 @@ your requirements.
   target region to mirror the source VM storage account.
 
 - **Target availability sets**: By default, Site Recovery creates a new availability set in the
-  target region with the "asr" suffix.
+  target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
 
 - **Replication policy name**: Policy name.
 
@@ -203,4 +206,4 @@ In this tutorial you configured disaster recovery for an Azure VM. Next step is 
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)
 
-<!-- Update_Description: new articles on site recovery azure to azure tutorial enable replication -->
+<!-- Update_Description: update meta properties -->

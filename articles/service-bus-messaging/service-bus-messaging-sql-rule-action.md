@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/28/2017
-ms.date: 08/21/2017
+origin.date: 11/07/2017
+ms.date: 12/11/2017
 ms.author: v-yiso
 ---
 
@@ -22,7 +22,7 @@ ms.author: v-yiso
 
 A *SqlRuleAction* is an instance of the [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
 
-This topic lists details about the SQL rule action grammar.  
+This article lists details about the SQL rule action grammar.  
 
 ```  
 <statements> ::=

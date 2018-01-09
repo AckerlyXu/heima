@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/18/2017
-ms.date: 11/06/2017
+ms.date: 12/11/2017
 ms.author: v-yeche
 ---
 
@@ -142,6 +142,10 @@ Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 e
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
 
+### How do I move my Traffic Manager profile's Azure endpoints to a different resource group?
+
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile. 
+
 ##  Traffic Manager endpoint monitoring
 
 ### Is Traffic Manager resilient to Azure region failures?
@@ -201,6 +205,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 
 Traffic Manager uses host headers in HTTP and HTTPS health checks. The host header used by Traffic Manager is the name of the endpoint target configured in the profile. The value used in the host header cannot be specified separately from the target property.
 
+<!-- Not Available ### What are the IP addresses from which the health checks originate? on 17th Mar 2017-->
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
 The number of Traffic Manager health checks reaching your endpoint depends on the following:
@@ -256,4 +261,4 @@ The following table describes the behavior of Traffic Manager health checks for 
 - Learn more about Traffic Manager [endpoint monitoring and automatic failover](../traffic-manager/traffic-manager-monitoring.md).
 - Learn more about Traffic Manager [traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, add one question on how to move Traffic Manager profile's Azure endpoints to a different resource group-->

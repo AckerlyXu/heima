@@ -11,12 +11,13 @@ tags: ''
 ms.assetid: 
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 11/27/2017
+ms.date: 12/25/2017
 ms.author: v-yeche
+ms.custom: mvc
 
 ---
 
@@ -309,6 +310,6 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-documentdb.md)
+> [Distribute your data globally](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

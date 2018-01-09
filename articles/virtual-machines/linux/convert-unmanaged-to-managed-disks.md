@@ -3,7 +3,7 @@ title: Convert a Linux virtual machine in Azure from unmanaged disks to managed 
 description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI 2.0 in the Resource Manager deployment model
 services: virtual-machines-linux
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,18 +14,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 06/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/15/2017
+ms.date: 01/08/2018
+ms.author: v-yeche
 ---
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks
 
-If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../windows/managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
+If you have existing Linux virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use [Azure Managed Disks](../linux/managed-disks-overview.md). This process converts both the OS disk and any attached data disks.
 
 This article shows you how to convert VMs by using the Azure CLI. If you need to install or upgrade it, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Before you begin
+* Review [the FAQ about migration to Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
@@ -97,4 +98,6 @@ All VMs in the availability set must be deallocated before you convert the avail
 ## Next steps
 For more information about storage options, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).
 
-<!--Update_Description: remove Section "Managed disks and Azure Storage Service Encryption";update managed disk links from storage links to VM links-->
+<!--Not Available the parent file of includes file of virtual-machines-common-convert-disks-considerations.md-->
+<!--ms.date:01/08/2018-->
+<!--Update_Description: update meta properties, update link -->

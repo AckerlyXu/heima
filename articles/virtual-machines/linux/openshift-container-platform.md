@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ---
 
 # Deploy OpenShift Container Platform in Azure
@@ -47,7 +47,7 @@ The following example creates a parameters file named azuredeploy.parameters.jso
 
 ```json
 {
-	"$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"masterVmSize": {
@@ -186,3 +186,4 @@ az group delete --name myResourceGroup
 - [Post-deployment tasks](./openshift-post-deployment.md)
 - [Troubleshoot OpenShift deployment in Azure](./openshift-troubleshooting.md)
 - [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+<!--Update_Description: wording update, -->

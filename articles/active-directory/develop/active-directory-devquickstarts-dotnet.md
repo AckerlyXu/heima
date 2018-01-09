@@ -1,10 +1,10 @@
 ---
-title: Azure AD .NET getting started | Azure
+title: Azure AD .NET getting started | Microsoft Docs
 description: How to build a .NET Windows Desktop application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
+author: jmprieur
+manager: mtillman
 editor: ''
 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/13/2017
+ms.date: 01/02/2018
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Integrate Azure AD into a Windows Desktop WPF App
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
@@ -27,7 +28,7 @@ If you're developing a desktop application, Azure AD makes it simple and straigh
 
 For .NET native clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL's sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List application that:
 
-- Gets access tokens for calling the Azure AD Graph API using the [OAuth 2.0 authentication protocol](./active-directory-protocols-oauth-code.md).
+- Gets access tokens for calling the Azure AD Graph API using the [OAuth 2.0 authentication protocol](/active-directory/develop/active-directory-protocols-oauth-code).
 - Searches a directory for users with a given alias.
 - Signs users out.
 
@@ -37,20 +38,20 @@ To build the complete working application, you'll need to:
 2. Install & Configure ADAL.
 3. Use ADAL to get tokens from Azure AD.
 
-To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](./active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 ## 1. Register the DirectorySearcher Application
 To enable your app to get tokens, you'll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
-- Sign into the Azure Management Portal
-- In the left hand nav, click on **Active Directory**
-- Select a tenant in which to register the application.
-- Click the **Applications** tab, and click **Add** in the bottom drawer.
-- Follow the prompts and create a new **Native Client Application**.
-    - The **Name** of the application will describe your application to end-users
-    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a value specific to your application, e.g. `http://DirectorySearcher`.
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the **Configure** tab.
-- Also in **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access Your Organization's Directory** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+1. Sign in to the [Azure portal](https://portal.azure.cn).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **New application registration**.
+5. Create a new **Native** application.
+    - The **Name** of the application will describe your application to end-users.
+    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a value specific to your application, e.g. `http://DirectorySearcher`.
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application page.
+7. From the **Settings** page, choose **Required Permissions** and choose **Add**. Select the **Microsoft Graph** as the API and add the **Read Directory Data** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
 ## 2. Install & Configure ADAL
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
@@ -162,6 +163,8 @@ ADAL makes it easy to incorporate all of these common identity features into you
 
 For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  You can now move on to additional scenarios.  You may want to try:
 
-[Secure a .NET Web API with Azure AD >>](./active-directory-devquickstarts-webapi-dotnet.md)
+[Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+
+

@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/12/2017
-ms.date: 11/13/2017
+origin.date: 11/22/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 
 ---
@@ -69,15 +69,15 @@ Refer to the following documents on details on how to keep your cluster running 
 
 Here are the list of the Service Fabric versions that are supported and their support end dates.
 
-| **Service Fabric runtime cluster** | **Compatible SDK / NuGet Package Versions** | **End of Support Date** |
-| --- | --- | --- |
-| All cluster versions prior to 5.3.121 |Less than or equal to version  2.3 |January 20, 2017 |
-| 5.3.* |Less than or equal to version  2.3 |February 24, 2017 |
-| 5.4.* |Less than or equal to version  2.4 |May 10,2017       |
-| 5.5.* |Less than or equal to version  2.5 |August 10,2017    |
-| 5.6.* |Less than or equal to version  2.6 |October 13,2017   |
-| 5.7.* |Less than or equal to version  2.7 |December 15,2017  |
-| 6.0.* |Less than or equal to version  2.8 |Current version and so no end date
+| **Service Fabric runtime in the cluster** | **Can upgrade directly from cluster version** |**Compatible SDK / NuGet Package Versions** | **End of Support Date** |
+| --- | --- |--- | --- |
+| All cluster versions prior to 5.3.121 | 5.1.158* |Less than or equal to version  2.3 |January 20, 2017 |
+| 5.3.* | 5.1.158.* |Less than or equal to version  2.3 |February 24, 2017 |
+| 5.4.* | 5.1.158.* |Less than or equal to version  2.4 |May 10,2017       |
+| 5.5.* | 5.4.164.* |Less than or equal to version  2.5 |August 10,2017    |
+| 5.6.* | 5.4.164.* |Less than or equal to version  2.6 |October 13,2017   |
+| 5.7.* | 5.4.164.* |Less than or equal to version  2.7 |December 15,2017  |
+| 6.0.* | 5.6.205.* |Less than or equal to version  2.8 |Current version and so no end date |
 
 <a name="previewversion"></a>
 ## Service Fabric Preview Versions - unsupported for production use.

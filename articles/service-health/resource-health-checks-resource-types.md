@@ -15,11 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 10/09/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
+ms.date: 12/11/2017
 ---
 
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
+
+## Microsoft.ApiManagement/service
+|Executed Checks|
+|---|
+|<ul><li>Is the Api Management service up and running?</li></ul>|
 
 ## Microsoft.CacheRedis/Redis
 |Executed Checks|

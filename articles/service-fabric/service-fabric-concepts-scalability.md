@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 10/02/2017
+ms.date: 01/01/2018
 ms.author: v-yeche
 ---
 # Scaling in Service Fabric
@@ -147,4 +147,4 @@ For more information on Service Fabric concepts, see the following articles:
 * [Availability of Service Fabric services](service-fabric-availability-services.md)
 * [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
-<!--Update_Description: update meta properties, wording update.-->
+<!--Update_Description: update meta properties-->

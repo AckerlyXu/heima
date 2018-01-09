@@ -53,7 +53,7 @@ To locate the credentials your device must use to connect to the preconfigured s
 
 1. Locate the resource group that contains the Azure services your remote monitoring solution uses. The resource group has the same name as the remote monitoring solution you provisioned.
 
-1. Navigate to the IoT hub in this resource group. Then choose **Device explorer**:
+1. Navigate to the IoT hub in this resource group. Then choose **IoT Devices**:
 
     ![Device explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
 
@@ -68,13 +68,3 @@ The client application implements the built-in **Chiller** device model. A preco
 * The properties the device reports to the solution. For example, a **Chiller** device reports information about its firmware and location.
 * The types of telemetry the device sends to the solution. For example, a **Chiller** device sends temperature, humidity, and pressure values.
 * The methods you can schedule from the solution to run on the device. For example, a **Chiller** device must implement **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease**, and **IncreasePressuree** methods.
-
-[img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
-[1]: ./media/iot-suite-selector-connecting/suite0.png
-[2]: ./media/iot-suite-selector-connecting/suite1.png
-[3]: ./media/iot-suite-selector-connecting/suite2.png
-[4]: ./media/iot-suite-selector-connecting/suite3.png
-
-[lnk-what-are-preconfig-solutions]:../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
-[lnk-remote-monitoring]:../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-1rmb-trial]: https://www.azure.cn/pricing/1rmb-trial/

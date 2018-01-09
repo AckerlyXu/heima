@@ -3,8 +3,9 @@ title: How to encode an Azure asset by using Media Encoder Standard | Microsoft 
 description: Learn how to use Media Encoder Standard to encode media content on Azure Media Services. Code samples use REST API.
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: yunan2016
 manager: digimobile
+
 editor: ''
 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
@@ -13,9 +14,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+origin.date: 12/07/2017
+ms.date: 12/25/2017
+ms.author: v-nany
 ---
 # How to encode an asset by using Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -26,7 +27,7 @@ ms.author: v-haiqya
 >
 
 ## Overview
-To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
+To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too large to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
 Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
@@ -49,16 +50,13 @@ Before you start referencing media processors, verify that you have the correct 
 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-
 ## Create a job with a single encoding task
 > [!NOTE]
 > When you're working with the Media Services REST API, the following considerations apply:
 >
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API development](media-services-rest-how-to-use.md).
 >
-> For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
->
-> When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object), you must set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+> When using JSON and specifying to use the **__metadata** keyword in the request (for example, to reference a linked object), you must set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 
@@ -72,7 +70,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
@@ -97,20 +95,20 @@ The following example shows how to set the assetName attribute:
 ```
 
 ## Considerations
-* TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task topic contains the XML Schema Definition for the XML.
+* TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task article contains the XML Schema Definition for the XML.
 * In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
 * Tasks must not form a cycle.
 * The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an asset. The actual assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the job entity definition.
-* Because Media Services is built on OData v3, the individual assets in the InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata : uri" name-value pair.
+* Because Media Services is built on OData v3, the individual assets in the InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata: uri" name-value pair.
 * InputMediaAssets maps to one or more assets that you created in Media Services. OutputMediaAssets are created by the system. They don't reference an existing asset.
 * OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample," then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob," then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
 
 ## Create a job with chained tasks
 In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
 
->[!NOTE]
+> [!NOTE]
 > There is currently a limit of 30 tasks per job. If you need to chain more than 30 tasks, create more than one job to contain the tasks.
 
 ```
@@ -119,7 +117,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -164,7 +162,7 @@ Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d3
 Accept: multipart/mixed
 Accept-Charset: UTF-8
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -183,7 +181,7 @@ DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 Accept-Charset: UTF-8
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
 {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -200,7 +198,7 @@ DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
 Accept-Charset: UTF-8
 Authorization: Bearer <token>
-x-ms-version: 2.11
+x-ms-version: 2.17
 x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
 {  
@@ -225,7 +223,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -253,7 +251,7 @@ Content-Type: application/json;odata=verbose
 Accept: application/json;odata=verbose
 DataServiceVersion: 3.0
 MaxDataServiceVersion: 3.0
-x-ms-version: 2.11
+x-ms-version: 2.17
 Authorization: Bearer <token value>
 Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
@@ -268,10 +266,19 @@ HTTP/1.1 201 Created
 . . . 
 ```
 
+## Advanced Encoding Features to explore
+* [How to generate thumbnails](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Generating thumbnails during encoding](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Crop videos during encoding](media-services-crop-video.md)
+* [Customizing encoding presets](media-services-custom-mes-presets-with-dotnet.md)
+* [Overlay or watermark a video with an image](media-services-advanced-encoding-with-mes.md#overlay)
+
+
+
 ## Next steps
 Now that you know how to create a job to encode an asset, see [How to check job progress with Media Services](media-services-rest-check-job-progress.md).
 
 ## See also
 [Get Media Processors](media-services-rest-get-media-processor.md)
 
-<!--Update_Description: add section "Considerations" and "Connect to Media Services"-->
+<!--Update_Description: add section "Advanced Encoding Features to explore" and modify "x-ms-version"-->
