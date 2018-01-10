@@ -2,9 +2,9 @@
 title: Secure a database in SQL Data Warehouse | Azure
 description: Tips for securing a database in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationCenter: NA
+documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
 origin.date: 10/31/2016
-ms.date: 12/19/2016
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
-
 # Secure a database in SQL Data Warehouse
-
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)
 > * [Authentication](sql-data-warehouse-authentication.md)
@@ -78,7 +77,7 @@ There are ways to further limit what a user can do with Azure SQL Database:
 * [Database roles][Database roles] other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
 * [Stored procedures][Stored procedures] can be used to limit the actions that can be taken on the database.
 
-Managing databases and logical servers from the Azure Classic Management Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][Role-based access control in Azure Portal].
+Managing databases and logical servers from the Azure portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][Role-based access control in Azure Portal].
 
 ## Encryption
 Azure SQL Data Warehouse Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of your data at rest.  When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used by SQL Data Warehouse is AES-256. For a general description of TDE, see [Transparent Data Encryption][Transparent Data Encryption].
@@ -108,4 +107,5 @@ For details and examples on connecting to your SQL Data Warehouse with different
 [Azure portal]: https://portal.azure.cn/
 
 <!--Other Web references-->
-[Role-based access control in Azure Portal]: /azure/role-based-access-control-configure
+[Role-based access control in Azure Portal]: /active-directory/role-based-access-control-configure
+<!-- Update_Description: update meta properties, wording update -->

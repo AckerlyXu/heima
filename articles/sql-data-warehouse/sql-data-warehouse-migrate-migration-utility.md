@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
-
 # Data Warehouse Migration Utility (Preview)
-
 > [!div class="op_single_selector"]
 > * [Download Migration Utility][Download Migration Utility]
 > 
@@ -65,4 +64,5 @@ Now that you've migrated some data, check out how to [develop][develop].
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.chinacloudapi.cn/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://www.microsoft.com/download/details.aspx?id=49100
+<!-- Update_Description: update meta properties, wording update -->

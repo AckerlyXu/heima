@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 11/10/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -23,6 +23,7 @@ SQL Data Warehouse offers two performance tiers that are optimized for analytica
 
 ## What is a performance tier?
 A performance tier is an option that determines the configuration of your data warehouse. This option is one of the first choices you make when creating a data warehouse.  
+<!-- Not Available on > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player] -->
 
 - The **Optimized for Elasticity performance tier** separates the compute and storage layers in the architecture. This option excels on workloads that can take full advantage of the separation between compute and storage by scaling frequently to support short periods of peak activity. This compute tier has the lowest entry price point and scales to support the majority of customer workloads.
 
@@ -190,4 +191,4 @@ When one of these thresholds is met, new queries are queued and executed on a fi
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
 * [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](analyze-your-workload.md)
-<!-- Update_Description: new articles on performance tiers -->
+<!-- Update_Description: update meta properties, wording update -->

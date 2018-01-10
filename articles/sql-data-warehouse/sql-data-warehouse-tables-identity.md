@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-origin.date: 06/13/2017
-ms.date: 07/24/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -287,4 +287,4 @@ AND     tb.name = 'T1'
 
 <!--Other Web references-->
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->
