@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 06/22/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -234,7 +234,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.cn
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
@@ -242,4 +241,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: new articles on stream analytics paralleliztion-->
+<!--Update_Description: wording update, update link -->

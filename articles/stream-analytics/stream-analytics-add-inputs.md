@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -37,7 +37,7 @@ To add an input to your Stream Analytics job:
 
 1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
 
-    ![Azure Classic Management Portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
 
     In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
 
@@ -72,7 +72,7 @@ To add an input to your Stream Analytics job:
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
