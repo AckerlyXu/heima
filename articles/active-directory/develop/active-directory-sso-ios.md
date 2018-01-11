@@ -3,8 +3,8 @@ title: How to enable cross-app SSO on iOS using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: brandwe
+manager: mtillman
 editor: ''
 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 06/26/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -276,10 +276,10 @@ Your redirect URI must be in the proper form of:
 
 ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
+This Redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.cn/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate based authentication
-To support cert based authentication a second "msauth"  needs to be registered in your application and the [Azure Classic Management Portal](https://manage.windowsazure.cn/) to handle certificate authentication if you wish to add that support in your application.
+To support cert based authentication a second "msauth"  needs to be registered in your application and the [Azure portal](https://portal.azure.cn/) to handle certificate authentication if you wish to add that support in your application.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
@@ -298,3 +298,4 @@ ADAL uses -canOpenURL: to check if the broker is installed on the device. In iOS
 Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
 
 
+<!-- Update_Description: wording update -->

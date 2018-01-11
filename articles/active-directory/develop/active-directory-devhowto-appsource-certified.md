@@ -3,8 +3,8 @@ title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
 description: Details on how to get your application AppSource certified for Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: andretms
+manager: mtillman
 editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/03/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -47,21 +47,6 @@ Single-tenant applications can enable the *Contact Me* experience, but if you wa
 
 ## AppSource trial experiences
 
-### Customer-led trial experience 
-The *customer-led trial* is the experience that AppSource recommends as it offers a single-click access to your application. Below an illustration of how this experience looks like:<br/><br/>
-
-<table >
-<tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects ‘Free trial’ option</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource redirects user to a URL in your web site</li><li>Your web site starts the <i>single-sign-on</i> process automatically (on page load)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provides credentials to sign in</li></ul></td>
-</tr>
-<tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>User gives consent for your application</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the trial</li></ul></td>
-    <td></td>
-</tr>
-</table>
 
 ### Contact Me (Partner-led trial experience)
 The *partner trial experience* can be used when a manual or a long-term operation needs to happen to provision the user/ company: for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after user selects the *'Request Trial'* button and fills out a form, AppSource sends you the user's contact information. Upon receiving this information, you then provision the environment and send the instructions to the user on how to access the trial experience:<br/><br/>
