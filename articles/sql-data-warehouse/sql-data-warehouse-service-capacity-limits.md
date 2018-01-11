@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-origin.date: 11/10/2017
-ms.date: 12/11/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
-
 # SQL Data Warehouse capacity limits
 The following tables contain the maximum values allowed for various components of Azure SQL Data Warehouse.
 
@@ -105,4 +104,4 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties  -->

@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 11/28/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
 
 # Available Event Hubs APIs
+
+This article describes the set of available API clients you can use for managing Event Hubs resources.
 
 ## Runtime APIs
 
@@ -34,7 +37,7 @@ See [additional information](#additional-information) for more details on the cu
 | Node | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
 | C | N/A | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
-### <a id="additional-information"></a> Additional information
+### <a name="additional-information"></a> Additional information
 
 #### .NET
 The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).

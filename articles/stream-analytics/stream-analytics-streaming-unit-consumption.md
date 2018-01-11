@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 04/20/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -54,7 +54,6 @@ For more information about choosing the right number of SUs, see this page: [Sca
 
 > [!Note]
 > Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and on the query defined for the job. You can select up to your quota in SUs for a job. By default, each Azure subscription has a quota of up to 200 SUs for all the analytics jobs in a specific region. To increase SUs for your subscriptions beyond this quota, contact [Azure Support](http://support.microsoft.com). Valid values for SUs per job are 1, 3, 6, and up in increments of 6.
-> Note that using 1 SU is not recommended for production jobs. We usually advice to only use 1-SU-jobs for prototyping and testing jobs.
 
 ## Factors increasing SU% utilization 
 ### Stateful query logic 
@@ -112,7 +111,9 @@ Reference data in ASA are loaded into memory for fast lookup. With the current i
 
 #### Use of UDF functions
 When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime into memory. This will affect the SU%.
-<!--Not Available ## Get help-->
+
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/).
 
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)

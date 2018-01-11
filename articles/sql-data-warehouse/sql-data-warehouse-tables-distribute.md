@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
-
 # Distributing tables in SQL Data Warehouse
-
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Data Types][Data Types]
@@ -302,6 +301,7 @@ For an overview of best practices, see [SQL Data Warehouse Best Practices][SQL D
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
-[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/zh-cn/library/mt204028.aspx
+[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
+<!-- Update_Description: update meta properties -->

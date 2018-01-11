@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: queries
-origin.date: 01/30/2017
-ms.date: 07/17/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
 # Create Table As Select (CTAS) in SQL Data Warehouse
 Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. This document provides both examples and best practices for `CTAS`.
@@ -274,6 +275,7 @@ WHERE NOT EXISTS
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
 RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+
 ```
 
 ## CTAS recommendation: Explicitly state data type and nullability of output
@@ -444,6 +446,7 @@ For more development tips, see [development overview][development overview].
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
+<!-- Update_Description: update meta properties -->
