@@ -1,10 +1,10 @@
 ---
-title: Azure AD Java command line getting started | Azure
+title: Azure AD Java command line getting started | Microsoft Docs
 description: How to build a Java command line app that signs users in to access an API.
 services: active-directory
 documentationcenter: java
-author: alexchen2016
-manager: mbaldwin
+author: navyasric
+manager: mtillman
 editor: ''
 
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/13/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
+ms.custom: aaddev
+
 ---
-
 # Using Java Command Line App To Access An API with Azure AD
-
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure AD makes it simple and straightforward to outsource your web app's identity management, providing single sign-in and sign-out with only a few lines of code.  In Java web apps, you can accomplish this using Microsoft's implementation of the community-driven ADAL4J.
 
   Here we'll use ADAL4J to:
+
 - Sign the user into the app using Azure AD as the identity provider.
 - Display some information about the user.
 - Sign the user out of the app.
@@ -36,22 +37,22 @@ In order to do this, you'll need to:
 3. Use the ADAL4J library to issue sign-in and sign-out requests to Azure AD.
 4. Print out data about the user.
 
-To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](./active-directory-howto-tenant.md).
+To get started, [download the app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) or [download the completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  You'll also need an Azure AD tenant in which to register your application.  If you don't have one already, [learn how to get one](active-directory-howto-tenant.md).
 
 ## 1.  Register an Application with Azure AD
 To enable your app to authenticate users, you'll first need to register a new application in your tenant.
 
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+1. Sign in to the [Azure portal](https://portal.azure.cn).
+2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **New application registration**.
+5. Create a new **Web Application and/or WebAPI**.
+  - The **name** of the application will describe your application to end-users
+  - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
+6. Once you've completed registration, AAD will assign your app a unique Application ID.  You'll need this value in the next sections, so copy it from the application tab.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`.
 
-Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
+Once in the portal for your app create a **Key** from the **Settings** page for your application and copy it down.  You will need it shortly.
 
 ## 2. Set up your app to use ADAL4J library and prerequisites using Maven
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
@@ -193,7 +194,7 @@ As indicated above, we will be using the Graph API to get data about the logged 
 
         public class PublicClient {
 
-            private final static String AUTHORITY = "https://login.microsoftonline.com/common/";
+            private final static String AUTHORITY = "https://login.partner.microsoftonline.cn/common/";
             private final static String CLIENT_ID = "2a4da06c-ff07-410d-af8a-542a512f5092";
 
             public static void main(String args[]) throws Exception {
@@ -257,6 +258,7 @@ Congratulations! You now have a working Java application that has the ability to
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), or you can clone it from GitHub:
 
-```
-git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git
-```
+```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
+
+
+<!-- Update_Description: wording update -->

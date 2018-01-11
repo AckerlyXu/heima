@@ -3,8 +3,8 @@ title: Support and help options for Azure Identity developers | Microsoft Docs
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Azure identities (Azure Active Directory and MSA)
 services: active-directory
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: andretms
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/27/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev 
 
@@ -50,8 +50,7 @@ Where *{Your Search Terms}* is your search keywords.
 |Tool  |Description  |
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| Paste an ID or Access tokens to decode the claims names and values |
-|[Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and remediations |
-|[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API|
+|[Microsoft Graph Explorer](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)| Tool that lets you make requests and see responses against the Microsoft Graph API|
 
 <br/>
 
@@ -67,7 +66,7 @@ If you cannot find an answer to your problem via search, submit a new question t
 |ADAL library |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
 |MSAL library     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
 |OWIN middleware  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
+|[Microsoft Graph API](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
 |Any other area related to authentication or authorization topics |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]

@@ -3,8 +3,8 @@ title: Install application packages on compute nodes - Azure Batch | Microsoft D
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: tamram
+manager: timlt
 editor: ''
 
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 07/20/2017
-ms.date: 12/04/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -350,7 +350,7 @@ With application packages, you can help your customers select the applications f
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
-[api_rest]: https://docs.microsoft.com/en-us/rest/api/batchservice/
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://www.azure.cn/pricing/details/storage/
@@ -379,4 +379,4 @@ With application packages, you can help your customers select the applications f
 [11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

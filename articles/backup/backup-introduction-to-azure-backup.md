@@ -3,8 +3,8 @@ title: What is Azure Backup? | Microsoft Docs
 description: Use Azure Backup to back up and restore data and workloads from Windows Servers, Windows workstations, System Center DPM servers, and Azure virtual machines.
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor:
 keywords: backup and restore; recovery services; backup solutions
 
@@ -13,15 +13,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 09/29/2017
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # Overview of the features in Azure Backup
-Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Recovery Services vault in Azure. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
+Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Azure cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. Azure Backup offers multiple components that you download and deploy on the appropriate computer, server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (no matter whether you're protecting data on-premises or in the cloud) can be used to back up data to a Recovery Services vault in Azure. See the [Azure Backup components table](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (later in this article) for information about which component to use to protect specific data, applications, or workloads.
 
 ## Why use Azure Backup?
 Traditional backup solutions have evolved to treat the cloud as an endpoint, or static storage destination, similar to disks or tape. While this approach is simple, it is limited and doesn't take full advantage of an underlying cloud platform, which translates to an expensive, inefficient solution. Other solutions are expensive because you end up paying for the wrong type of storage, or storage that you don't need. Other solutions are often inefficient because they don't offer you the type or amount of storage you need, or administrative tasks require too much time. In contrast, Azure Backup delivers these key benefits:
@@ -49,7 +49,7 @@ If you aren't sure which Azure Backup component works for your needs, see the fo
 
 | Component | Benefits | Limits | What is protected? | Where are backups stored? |
 | --- | --- | --- | --- | --- |
-| Azure Backup (MARS) agent |<li>Back up files and folders on physical or virtual Windows OS (VMs can be on-premises or in Azure)<li>No separate backup server required. |<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux. |<li>Files, <li>Folders |Recovery Services vault |
+| Azure Backup (MARS) agent |<li>Back up files and folders on physical or virtual Windows OS (VMs can be on-premises or in Azure)<li>No separate backup server required. |<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux. |<li>Files, <li>Folders, <li>System State |Recovery Services vault |
 | System Center DPM |<li>Application-aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Recovery Services vault<li>Linux support on Hyper-V and VMware VMs <li>Back up and restore VMware VMs using DPM 2012 R2 |Cannot back up Oracle workload.|<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Recovery Services vault,<li> Locally attached disk,<li>  Tape (on-premises only) |
 | Azure Backup Server |<li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Recovery Services vault<li>Linux support on Hyper-V and VMware VMs<li>Back up and restore VMware VMs <li>Does not require a System Center license |<li>Cannot back up Oracle workload.<li>Always requires live Azure subscription<li>No support for tape backup |<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Recovery Services vault,<li> Locally attached disk |
 | Azure IaaS VM Backup |<li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric-level backup with no backup infrastructure needed |<li>Back up VMs once-a-day <li>Restore VMs only at disk level<li>Cannot back up on-premises |<li>VMs, <li>All disks (using PowerShell) |<p>Recovery Services vault</p> |
@@ -86,7 +86,7 @@ The following table shows the Azure Backup components that have support for Linu
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
 | System Center DPM |<li> File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br> </br>  *File-consistent backup not available for Azure VM* <br/> |
 | Azure Backup Server |<li>File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br></br> *File-consistent backup not available for Azure VM*  |
-| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/windows/premium-storage.md).
@@ -250,7 +250,7 @@ For details about protecting other workloads, try one of these articles:
 
 - [Back up your Windows Server](backup-configure-vault.md)
 - [Back up application workloads](backup-azure-microsoft-azure-backup.md)
-- [Backup Azure IaaS VMs](backup-azure-vms-prepare.md)
+- [Backup Azure IaaS VMs](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

@@ -3,8 +3,8 @@ title: How applications are added to Azure Active Directory.
 description: This article describes how applications are added to an instance of Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: shoatman
+manager: mtillman
 editor: ''
 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/09/2016
-ms.date: 11/23/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -88,13 +88,12 @@ Applications that you add yourself include:
 ## How are apps added to my Azure AD instance?
 There are many ways an app can be added to Azure AD:
 
-- Add an app from the [Azure Active Directory App Gallery](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 - Sign up/into a 3rd Party App integrated with Azure Active Directory (For example: [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
   - During sign up/in users are asked to give permission to the app to access their profile and other permissions.  The first person to give consent causes a service principal representing the app to be added to the directory.
 - Sign up/into Microsoft online services like [Office 365](http://products.office.com/)
   - When you subscribe to Office 365 or begin a trial one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.
   - Some Office 365 services like SharePoint create service principals on an on-going basis to allow secure communication between components including workflows.
-- Add an app you're developing in the Azure Management Portal see: https://msdn.microsoft.com/library/azure/dn132599.aspx
+- Add an app you're developing in the Azure Portal.
 - Add an app you're developing using Visual Studio see:
   - [ASP.Net Authentication Methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
   - [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
@@ -121,10 +120,7 @@ This might initially sound concerning, but keep the following in mind:
 
 **Note:** *Microsoft itself has been operating using the default configuration for many months now.*
 
-With all of that said it is possible to prevent users in your directory from adding applications and from exercising discretion over what information they share with applications by modifying Directory configuration in the Azure Management portal.  The following configuration can be accessed within the Azure Management portal on your Directory's "Configure" tab.
-
-![A screenshot of the UI for configuring integrated app settings][app_settings]
-
+With all of that said it is possible to prevent users in your directory from adding applications and from exercising discretion over what information they share with applications by modifying Directory configuration in the Azure portal.
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 Learn more about how to add applications to Azure AD and how to configure services for apps.
@@ -140,7 +136,7 @@ Learn more about how to add applications to Azure AD and how to configure servic
 - [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 
 <!--Image references-->
-[apps_service_principals_directory]: ./media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-[app_settings]: ./media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
+[apps_service_principals_directory]:./media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
+[app_settings]:./media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

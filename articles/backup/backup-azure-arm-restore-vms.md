@@ -3,8 +3,8 @@ title: 'Azure Backup: Restore virtual machines by using the Azure portal | Micro
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 keywords: restore backup; how to restore; recovery point;
 
@@ -15,23 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/04/2017
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 
 ---
 # Use the Azure portal to restore virtual machines
-> [!div class="op_single_selector"]
-> * [Restore VMs in the Classic Management Portal](backup-azure-restore-vms.md)
-> * [Restore VMs in the Azure portal](backup-azure-arm-restore-vms.md)
->
->
-
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they're stored in Recovery Services vaults. If it's necessary to repair or rebuild a virtual machine (VM), you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can:
 
 - Create a new VM, which is a point-in-time representation of your backed-up VM.
 - Restore disks, and use the template that comes with the process to customize the restored VM, or do an individual file recovery. 
 
-This article explains how to restore a VM to a new VM or restore all backed-up disks. 
+This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, see [Recover files from an Azure VM backup](backup-azure-restore-files-from-vm.md).
 
 ![Three ways to restore from VM backup](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
@@ -108,7 +102,7 @@ After you select the restore point, choose a VM restore configuration. To config
 
    - **Restore disks**
 
-The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-a vm-with-special-network-configurations). If your Windows VM uses [HUB licensing](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. 
+The portal provides a **Quick Create** option for a restored VM. To customize the VM configuration or the names of the resources created as part of creating a new VM choice, use PowerShell or the portal to restore backed-up disks. Use PowerShell commands to attach them to your choice of VM configuration. Or you can use the template that comes with restored disks to customize the restored VM. For information on how to restore a VM that has multiple NICs or is under a load balancer, see [Restore a VM with special network configurations](#restore-a vm-with-special-network-configurations). If your Windows VM uses HUB licensing, restore disks and use PowerShell/Template as specified in this article to create the VM. Make sure that you specify the **License Type** as "Windows_Server" while you create the VM to avail HUB benefits on the restored VM. 
  
 ## Create a new VM from a restore point
 1. If you're not already there, [select a restore point](#restore-a vm-with-special-network-configurations) before you begin to create a new VM from a restore point. After you select a restore point, on the **Restore configuration** blade, enter or select values for each of the following fields:
@@ -237,6 +231,16 @@ It's possible to back up and restore VMs with the following special network conf
 > When you create the special network configuration for VMs, you must use PowerShell to create VMs from the restored disks.
 >
 >
+
+To fully re-create the VMs after restoring to disk, follow these steps:
+
+1. Restore the disks from a Recovery Services vault by using [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP by using the PowerShell cmdlets. Use it to create the VM with the configuration you want:
+
+   a. Create a VM with [multiple NICs](/virtual-network/virtual-networks-multiple-nics/).
+
+   b. Create a VM with [multiple reserved IPs](/virtual-network/virtual-networks-reserved-public-ip/).
 
 ## Next steps
 Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.

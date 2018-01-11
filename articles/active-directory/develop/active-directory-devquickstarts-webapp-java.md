@@ -1,10 +1,10 @@
 ---
-title: Azure AD Java web app Getting Started | Azure
+title: Azure AD Java web app Getting Started | Microsoft Docs
 description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
-author: alexchen2016
-manager: mbaldwin
+author: navyasric
+manager: mtillman
 editor: ''
 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 02/01/2017
-ms.date: 03/13/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
----
+ms.custom: aaddev
 
+---
 # Java web app sign-in and sign-out with Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -32,24 +33,24 @@ This article shows how to use the ADAL4J to:
 ## Before you get started
 
 - Download the [app skeleton](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip), or download the [completed sample](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
-- You also need an Azure AD tenant in which to register the app. If you don't already have an Azure AD tenant, [learn how to get one](./active-directory-howto-tenant.md).
+- You also need an Azure AD tenant in which to register the app. If you don't already have an Azure AD tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 When you are ready, follow the procedures in the next nine sections.
 
 ## Step 1: Register the new app with Azure AD
 To set up the app to authenticate users, first register it in your tenant by doing the following:
 
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:8080/adal4jsample/`.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `http://localhost:8080/adal4jsample/`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+1. Sign in to the [Azure portal](https://portal.azure.cn).
+2. On the top bar, click your account name. Under the **Directory** list, select the Active Directory tenant where you want to register the app.
+3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
+4. Click **App registrations**, and then select **New application registration**.
+5. Create a **Web Application and/or WebAPI**.
+  - **Name** describes the app to users.
+  - **Sign-On URL** is the base URL of the app. The skeleton's default URL is http://localhost:8080/adal4jsample/.
+6. After you've completed the registration, Azure AD assigns the app a unique application ID. Copy the value from the app page to use in the next sections.
+7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for the app. The naming convention is `https://<tenant-domain>/<app-name>` (for example, `http://localhost:8080/adal4jsample/`).
 
-Once in the portal for your app create an **Key** for your application and copy it down.  You will need it shortly.
+When you are in the portal for the app, create and copy a key for the app on the **Settings** page. You'll need the key shortly.
 
 ## Step 2: Set up the app to use the ADAL4J and prerequisites by using Maven
 In this step, you configure the ADAL4J to use the OpenID Connect authentication protocol. You use the ADAL4J to issue sign-in and sign-out requests, manage user sessions, get user information, and so forth.
@@ -171,21 +172,21 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
 1. Open the web.xml file located under \webapp\WEB-INF\, and enter the app configuration values in the XML. The XML file should contain the following code:
 
     ```xml
+
     <?xml version="1.0"?>
     <web-app id="WebApp_ID" version="2.4"
         xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.chinacloudapi.cn/</param-value>
+            <param-value>https://login.partner.microsoftonline.cn/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>
             <param-value>YOUR_TENANT_NAME</param-value>
         </context-param>
-
         <filter>
             <filter-name>BasicFilter</filter-name>
             <filter-class>com.microsoft.aad.adal4jsample.BasicFilter</filter-class>
@@ -202,49 +203,44 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
             <filter-name>BasicFilter</filter-name>
             <url-pattern>/secure/*</url-pattern>
         </filter-mapping>
-
         <servlet>
             <servlet-name>mvc-dispatcher</servlet-name>
             <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
             <load-on-startup>1</load-on-startup>
         </servlet>
-
         <servlet-mapping>
             <servlet-name>mvc-dispatcher</servlet-name>
             <url-pattern>/</url-pattern>
         </servlet-mapping>
-
         <context-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
         </context-param>
-
         <listener>
             <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
         </listener>
     </web-app>
     ```
 
-    -    YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
-    -    YOUR_CLIENT_SECRET is the **Key**  you created in the portal.
-    -    YOUR_TENANT_NAME is the **tenant name** of your app, e.g. contoso.partner.onmschina.cn
+    - YOUR_CLIENT_ID is the **Application Id** assigned to your app in the registration portal.
+    - YOUR_CLIENT_SECRET is the **Application Secret** that you created in the portal.
+    - YOUR_TENANT_NAME is the **tenant name** of your app (for example, contoso.partner.onmschina.cn).
 
- As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, you use /secure as a place for the protected content and to force authentication to Azure AD.
+    As you can see in the XML file, you are writing a JavaServer Pages (JSP) or Java Servlet web app called mvc-dispatcher that uses BasicFilter whenever you visit the /secure URL. In the same code, you use /secure as a place for the protected content and to force authentication to Azure AD.
 
 2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following code:
 
     ```xml
+
     <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:context="http://www.springframework.org/schema/context"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="
             http://www.springframework.org/schema/beans     
             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-            http://www.springframework.org/schema/context 
+            http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
         <context:component-scan base-package="com.microsoft.aad.adal4jsample" />
-
         <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
             <property name="prefix">
@@ -254,7 +250,6 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
                 <value>.jsp</value>
             </property>
         </bean>
-
     </beans>
     ```
 
@@ -280,11 +275,12 @@ To create the JSP files, do the following:
     </html>
     ```
 
- This code simply redirects to a secure page that is protected by the filter.
+    This code simply redirects to a secure page that is protected by the filter.
 
 2. In the same directory, create an error.jsp file to catch any errors that might happen:
 
     ```jsp
+
     <html>
     <body>
         <h2>ERROR PAGE!</h2>
@@ -297,34 +293,31 @@ To create the JSP files, do the following:
     </body>
     </html>
     ```
-
 3. To make that secure webpage, create a folder under \webapp called \secure so that the directory is now \webapp\secure.
 4. In the \webapp\secure directory, create an aad.jsp file, and then paste the following code:
 
     ```jsp
+
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>AAD Secure Page</title>
-    </head>
-    <body>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>AAD Secure Page</title>
+        </head>
+        <body>
 
         <h1>Directory - Users List</h1>
         <p>${users}</p>
-
         <ul>
-            <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get
-                    new Access Token via Client Credentials</a></li>
+            <li><a href="<%=request.getContextPath()%>/secure/aad?cc=1">Get new Access Token via Client Credentials</a></li>
         </ul>
         <ul>
-            <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get
-                    new Access Token via Refresh Token</a></li>
+            <li><a href="<%=request.getContextPath()%>/secure/aad?refresh=1">Get new Access Token via Refresh Token</a></li>
         </ul>
         <ul>
             <li><a href="<%=request.getContextPath()%>/index.jsp">Go Home</a></li>
         </ul>
-    </body>
+        </body>
     </html>
     ```
 
@@ -352,6 +345,7 @@ To write some Java files for this work:
 2. Inside this folder, create a file called JSONHelper.java, which you'll use to help parse the JSON data from your tokens. To create the file, paste the following code:
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     import java.lang.reflect.Field;
@@ -383,12 +377,12 @@ To write some Java files for this work:
         }
 
         /**
-         * This method parses an JSON Array out of a collection of JSON Objects
+         * This method parses a JSON array out of a collection of JSON objects
          * within a string.
-         * 
+         *
          * @param jSonData
-         *            The JSON String that holds the collection.
-         * @return An JSON Array that would contains all the collection object.
+         *            The JSON string that holds the collection
+         * @return A JSON array that contains all the collection objects
          * @throws Exception
          */
         public static JSONArray fetchDirectoryObjectJSONArray(JSONObject jsonObject) throws Exception {
@@ -398,11 +392,11 @@ To write some Java files for this work:
         }
 
         /**
-         * This method parses an JSON Object out of a collection of JSON Objects
-         * within a string
-         * 
+         * This method parses a JSON object out of a collection of JSON objects
+         * within a string.
+         *
          * @param jsonObject
-         * @return An JSON Object that would contains the DirectoryObject.
+         * @return A JSON object that contains the DirectoryObject
          * @throws Exception
          */
         public static JSONObject fetchDirectoryObjectJSONObject(JSONObject jsonObject) throws Exception {
@@ -412,11 +406,11 @@ To write some Java files for this work:
         }
 
         /**
-         * This method parses the skip token from a json formatted string.
-         * 
+         * This method parses the skip token from a JSON-formatted string.
+         *
          * @param jsonData
-         *            The JSON Formatted String.
-         * @return The skipToken.
+         *            The JSON-formatted string
+         * @return The skipToken
          * @throws Exception
          */
         public static String fetchNextSkiptoken(JSONObject jsonObject) throws Exception {
@@ -455,12 +449,12 @@ To write some Java files for this work:
         }
 
         /**
-         * This method would create a string consisting of a JSON document with all
+         * This method creates a string consisting of a JSON document with all
          * the necessary elements set from the HttpServletRequest request.
-         * 
+         *
          * @param request
          *            The HttpServletRequest
-         * @return the string containing the JSON document.
+         * @return The string containing the JSON document
          * @throws Exception
          *             If there is any error processing the request.
          */
@@ -490,7 +484,6 @@ To write some Java files for this work:
                                 obj.put("passwordProfile", new JSONObject("{\"password\": \"" + param + "\"}"));
                             } else {
                                 obj.put(fieldName, param);
-
                             }
                         }
                     }
@@ -501,15 +494,15 @@ To write some Java files for this work:
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-            }
+            }            
             return obj.toString();
         }
 
         /**
-         * 
+         *
          * @param key
          * @param value
-         * @return string format of this JSON obje
+         * @return string format of this JSON object
          * @throws Exception
          */
         public static String createJSONString(String key, String value) throws Exception {
@@ -527,13 +520,13 @@ To write some Java files for this work:
         /**
          * This is a generic method that copies the simple attribute values from an
          * argument jsonObject to an argument generic object.
-         * 
+         *
          * @param jsonObject
          *            The jsonObject from where the attributes are to be copied.
          * @param destObject
-         *            The object where the attributes should be copied into.
+         *            The object where the attributes should be copied to.
          * @throws Exception
-         *             Throws a Exception when the operation are unsuccessful.
+         *             Throws an Exception when the operation is unsuccessful.
          */
         public static <T> void convertJSONObjectToDirectoryObject(JSONObject jsonObject, T destObject) throws Exception {
 
@@ -568,11 +561,13 @@ To write some Java files for this work:
         }
 
     }
+
     ```
 
 3. Create a file called HttpClientHelper.java, which you will use to help parse the HTTP data from your Azure AD endpoint. To create the file, paste the following code:
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     import java.io.BufferedReader;
@@ -722,6 +717,7 @@ To write some Java files for this work:
         }
 
     }
+
     ```
 
 ## Step 6: Create the Java Graph API Model files (for BasicFilter MVC)
@@ -783,6 +779,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
 2. Create a file called User.java, which you use to store basic data about any user from the directory. These are basic getter and setter methods for directory data, so you can paste the following code:
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     import java.security.acl.Group;
@@ -793,14 +790,14 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     import org.json.JSONObject;
 
     /**
-     *  The User Class holds together all the members of a WAAD User entity and all the access methods and set methods
-     *  @author Azure Active Directory Contributor
-     */
+    *  The **User** class holds together all the members of a WAAD User entity and all the access methods and set methods.
+    *  @author Azure Active Directory Contributor
+    */
     @XmlRootElement
     public class User extends DirectoryObject{
 
         // The following are the individual private members of a User object that holds
-        // a particular simple attribute of an User object.
+        // a particular simple attribute of a User object.
         protected String objectId;
         protected String objectType;
         protected String accountEnabled;
@@ -830,22 +827,22 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         protected boolean isDeleted;  // this will move to dto
 
         /**
-         * below 4 properties are for future use
+         * These four properties are for future use.
          */
-        // managerDisplayname of this user
+        // managerDisplayname of this user.
         protected String managerDisplayname;
 
-        // The directReports holds a list of directReports
+        // The directReports holds a list of directReports.
         private ArrayList<User> directReports;
 
-        // The groups holds a list of group entity this user belongs to. 
+        // The groups holds a list of group entities this user belongs to.
         private ArrayList<Group> groups;
 
-        // The roles holds a list of role entity this user belongs to. 
+        // The roles holds a list of role entities this user belongs to.
         private ArrayList<Group> roles;
 
         /**
-         * The constructor for the User class. Initializes the dynamic lists and managerDisplayname variables.
+         * The constructor for the **User** class. Initializes the dynamic lists and managerDisplayname variables.
          */
         public User(){
             directReports = null;
@@ -1113,7 +1110,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @param givenName The givenName to set to this User.
+         * @param givenName The givenName to set to this User object.
          */
         public void setGivenName(String givenName) {
             this.givenName = givenName;
@@ -1155,7 +1152,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @param dirSyncEnabled The dirSyncEnabled to set to this User.
+         * @param dirSyncEnabled The dirSyncEnabled to set to this User object.
          */
         public void setDirSyncEnabled(String dirSyncEnabled) {
             this.dirSyncEnabled = dirSyncEnabled;
@@ -1169,7 +1166,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @param department The department to set to this User.
+         * @param department The department to set to this User object.
          */
         public void setDepartment(String department) {
             this.department = department;
@@ -1183,7 +1180,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @param lastDirSyncTime The lastDirSyncTime to set to this User.
+         * @param lastDirSyncTime The lastDirSyncTime to set to this User object.
          */
         public void setLastDirSyncTime(String lastDirSyncTime) {
             this.lastDirSyncTime = lastDirSyncTime;
@@ -1254,8 +1251,8 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     }
 
     /**
-     * The Class DirectReports Holds the essential data for a single DirectReport entry. Namely,
-     * it holds the displayName and the objectId of the direct entry. Furthermore, it provides the
+     * The DirectReports class holds the essential data for a single DirectReport entry. That is,
+     * it holds the displayName and the objectId of the direct entry. It also provides the
      * access methods to set or get the displayName and the ObjectId of this entry.
      */
     //class DirectReport extends User{
@@ -1274,7 +1271,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     //	}
     //
     //	/**
-    //	 * @return The diaplayName of this direct report entry.
+    //	 * @return The displayName of this direct report entry.
     //	 */
     //	public String getDisplayName() {
     //		return displayName;
@@ -1296,11 +1293,11 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
 
 1. Create a file called AuthHelper.java, which will give you methods to use to determine the state of the signed-in user. The methods include:
 
- - **isAuthenticated()**: Returns whether the user is signed in.
- - **containsAuthenticationData()**: Returns whether the token has data.
- - **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user.
+    - **isAuthenticated()**: Returns whether the user is signed in.
+    - **containsAuthenticationData()**: Returns whether the token has data.
+    - **isAuthenticationSuccessful()**: Returns whether the authentication was successful for the user.
 
- To create the AuthHelper.java file, paste the following code:
+    To create the AuthHelper.java file, paste the following code:
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1440,12 +1437,14 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
         }
 
     }
+
     ```
 
 ## Step 8: Create the BasicFilter file (for BasicFilter MVC)
 You can now create the BasicFilter.java file, which handles the requests from the JSP View files. To create the file, paste the following code:
 
 ```Java
+
 package com.microsoft.aad.adal4jsample;
 
 import java.io.IOException;
@@ -1682,6 +1681,7 @@ public class BasicFilter implements Filter {
     }
 
 }
+
 ```
 
 This servlet exposes all the methods that the ADAL4J will expect from the app to run. The methods include:
@@ -1706,6 +1706,7 @@ You should now have a adal4jsample.war file in your /targets directory. You can 
 > [!NOTE]
 > You can easily deploy a .war file with the latest Tomcat servers. Go to http://localhost:8080/manager/, and follow the instructions for uploading the adal4jsample.war file. It will autodeploy for you with the correct endpoint.
 
+
 ## Next steps
 You now have a working Java app that can authenticate users, securely call web APIs using OAuth 2.0, and get basic information about the users. If you haven't already populated your tenant with users, now is a good time to do so.
 
@@ -1714,4 +1715,6 @@ For additional reference, you can get the completed sample (without your configu
 - Download it as a [.zip file](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
 - Clone the file from GitHub by entering the following command:
 
-    git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git
+ ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
+
+<!-- Update_Description: wording update -->

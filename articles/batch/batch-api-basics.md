@@ -3,8 +3,8 @@ title: Overview of Azure Batch for developers | Microsoft Docs
 description: Learn the features of the Batch service and its APIs from a development standpoint.
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: v-dotren
+manager: timlt
 editor: ''
 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 11/16/2017
-ms.date: 12/04/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -54,10 +54,8 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
 - [Compute node](#compute-node)
 - [Pool](#pool)
 - [Job](#job)
-
   - [Job schedules](#scheduled-jobs)
 - [Task](#task)
-
   - [Start task](#start-task)
   - [Job manager task](#job-manager-task)
   - [Job preparation and release tasks](#job-preparation-and-release-tasks)
@@ -149,8 +147,6 @@ For detailed requirements and steps, see [Use a custom image to create a pool of
 #### Container support in Virtual Machine pools
 
 When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
-
-For more information, see [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md).
 
 ## Compute node type and target number of nodes
 
@@ -262,6 +258,9 @@ When you create a task, you can specify:
 - **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](#application-packages) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
 - A **container image** reference in Docker Hub or a private registry and additional settings to create a Docker container in which the task runs on the node. You only specify this information if the pool is set up with a container configuration.
 
+> [!NOTE]
+> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
+
 In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 - [Start task](#start-task)
@@ -271,9 +270,9 @@ In addition to tasks you define to perform computation on a node, the following 
 - [Task dependencies](#task-dependencies)
 
 ### Start task
-By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions like installing the applications that your tasks run or starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
+By associating a **start task** with a pool, you can prepare the operating environment of its nodes. For example, you can perform actions such as installing the applications that your tasks run, or starting background processes. The start task runs every time a node starts, for as long as it remains in the pool--including when the node is first added to the pool and when it is restarted or reimaged.
 
-A primary benefit of the start task is that it can contain all of the information that is necessary to configure a compute node and install the applications that are required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count. The start task provides the Batch service the information that is needed to configure the new nodes and get them ready for accepting tasks.
+A primary benefit of the start task is that it can contain all the information necessary to configure a compute node and install the applications required for task execution. Therefore, increasing the number of nodes in a pool is as simple as specifying the new target node count. The start task provides the Batch service the information needed to configure the new nodes and get them ready for accepting tasks.
 
 As with any Azure Batch task, you can specify a list of **resource files** in [Azure Storage][azure_storage], in addition to a **command line** to be executed. The Batch service first copies the resource files to the node from Azure Storage, and then runs the command line. For a pool start task, the file list typically contains the task application and its dependencies.
 

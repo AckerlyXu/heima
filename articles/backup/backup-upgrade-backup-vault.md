@@ -3,8 +3,8 @@ title: 'Upgrade Backup vault to Recovery Services vault of Azure Backup | Micros
 description: Upgrade Backup vault to Recovery Services vault to get new features like backup of Resource manager VMs, enhanced security, VMware VM backup and System State backup for Windows Servers
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: vijayts
 editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/10/2017
-ms.date: 10/31/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 
 ---
@@ -68,7 +68,7 @@ When the enhanced security is turned on, data is retained up to 14 days after th
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **What does this upgrade mean for my existing tooling?**</br>
-You must update your existing automation or tooling to the Resource Manager deployment model to ensure that it continues to work after the upgrade. Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+You must update your existing automation or tooling to the Resource Manager deployment model to ensure that it continues to work after the upgrade. Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 **Can I roll back after upgrade?**</br>
 No. Rollback is not supported after the resources have been successfully upgraded.
@@ -103,3 +103,4 @@ Use the following articles for:</br>
 [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
 [Back up a Windows Server](backup-configure-vault.md)
 
+<!-- Update_Description: wording update -->

@@ -3,8 +3,8 @@ title: Troubleshoot backup errors with Azure virtual machine | Microsoft Docs
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: trinadhk
+manager: shreeshd
 editor: ''
 
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 
 ---
 # Troubleshoot Azure virtual machine backup
-> [!div class="op_single_selector"]
-> * [Recovery services vault](backup-azure-vms-troubleshoot.md)
-> * [Backup vault](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
 ## Backup
@@ -55,7 +49,7 @@ Currently Azure Backup doesn’t support disk sizes [greater than 1023GB](/backu
 | Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Command execution failed. - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry |An existing backup on the VM is running, and a new job cannot be started while the existing job is running. |
 | Copying VHDs from the backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens if there is a transient error on storage side or if backup service is not getting sufficient IOPS from storage account hosting the VM in order to transfer data within timeout period to vault. Make sure that you followed [Best practices](backup-azure-vms-introduction.md#best-practices) while setting up backup. Try moving VM to a different storage account which is not loaded and retry backup.|
-| Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support |You can get this error for 2 reasons: <ol><li> There is a transient issue in accessing the VM storage. Please check [Azure Status](https://azure.microsoft.com/en-us/status/) to see if there is any on-going issue related to compute, storage, or networking in the region. Then retry the backup job once the issue is resolved. <li>The original VM has been deleted and therefore, the recovery point cannot be taken. To keep the backup data for a deleted VM, but remove the backup errors: Unprotect the VM and choose the option to keep the data. This action stops the scheduled backup job and the recurring error messages. |
+| Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support |You can get this error for 2 reasons: <ol><li> There is a transient issue in accessing the VM storage. Please check Azure Status to see if there is any on-going issue related to compute, storage, or networking in the region. Then retry the backup job once the issue is resolved. <li>The original VM has been deleted and therefore, the recovery point cannot be taken. To keep the backup data for a deleted VM, but remove the backup errors: Unprotect the VM and choose the option to keep the data. This action stops the scheduled backup job and the recurring error messages. |
 | Failed to install the Azure Recovery Services extension on the selected item - The VM agent is a prerequisite for the Azure Recovery Services Extension. Install the Azure VM agent and restart the registration operation |<ol> <li>Check if the VM agent has been installed correctly. <li>Ensure the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about installing the VM agent, and how to validate the VM agent installation. |
 | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator |This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
 | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from the Control Panel. |Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
@@ -135,7 +129,7 @@ How to check for the VM Agent version on Windows VMs:
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage, or delays in a snapshot task execution can cause the backup job to fail. The following can cause snapshot task failure.
 
 1. Network access to Storage is blocked using NSG<br>
-    Learn more on how to [enable network access](backup-azure-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
+    Learn more on how to [enable network access](backup-azure-arm-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
 2. VMs with Sql Server backup configured can cause snapshot task delay <br>
    By default VM backup issues VSS Full backup on Windows VMs. On VMs that are running Sql Servers and if Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
 
@@ -165,7 +159,7 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    - Unblock the IPs using the New-NetRoute cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    - Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
-   - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-vms-prepare.md#network-connectivity).
+   - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-arm-vms-prepare.md#network-connectivity).
    - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 > [!NOTE]
@@ -174,4 +168,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 >
 >
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -3,8 +3,8 @@ title: Azure Active Directory Developer Glossary | Microsoft Docs
 description: A list of terms for commonly used Azure Active Directory developer concepts and features.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: bryanla
+manager: mtillman
 editor: ''
 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/16/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -36,10 +36,10 @@ See [Azure AD Token Reference][AAD-Tokens-Claims] for more details.
 The unique identifier Azure AD issues to an application registration that identifies a specific application and the associated configurations.  This application id ([client id](https://tools.ietf.org/html/rfc6749#page-15)) is used when performing authentication requests and is provided to the authentication libraries in development time. The application id (client id) is not a secret. 
 
 ## application manifest
-A feature provided by the [Azure Classic Management Portal][AZURE-classic-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+A feature provided by the [Azure portal][AZURE-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
 ## application object
-When you register/update an application in the [Azure Classic Management Portal][AZURE-classic-portal], the portal creates/updates both an application object and a corresponding [service principal object](#service-principal-object) for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where it has access), providing a template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
+When you register/update an application in the [Azure portal][AZURE-portal], the portal creates/updates both an application object and a corresponding [service principal object](#service-principal-object) for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where it has access), providing a template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
 
 See [Application and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
@@ -111,7 +111,7 @@ A [client application](#client-application) gains access to a [resource server](
 
 They also surface during the [consent](#consent) process, giving the administrator or resource owner the opportunity to grant/deny the client access to resources in their tenant.
 
-Permission requests are configured on the "Applications" / "Configure" tab in the [Azure Classic Management Portal][AZURE-classic-portal], under "Permissions to other applications", by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Admin role). Because a [public client](#client-application) can't maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][AAD-Graph-App-Entity].
+Permission requests are configured on the "Applications" / "Settings" tab in the [Azure portal][AZURE-portal], under "Required Permissions", by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Admin role). Because a [public client](#client-application) can't securely maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][AAD-Graph-App-Entity].
 
 ## resource owner
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end user. For example, when a [client application](#client-application) wants to access a user's mailbox through the [Microsoft Graph API][Microsoft-Graph], it requires permission from the resource owner of the mailbox.
@@ -126,14 +126,14 @@ Just like a client application, resource application's identity configuration is
 ## roles
 Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. There are two types: a "user" role implements role-based access control for users/groups that require access to the resource, while an "application" role implements the same for [client applications](#client-application) that require access.
 
-Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure Classic Management Portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][AAD-Graph-Sp-Entity]. The Azure Classic Management Portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
+Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][AAD-Graph-Sp-Entity]. The Azure portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
 
 For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For a step-by-step implementation example, see [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog].
 
 ## scopes
 Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope-based][OAuth2-Access-Token-Scopes] access control, for a [client application](#client-application) that has been given delegated access to the resource by its owner.
 
-Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure Classic Management Portal][AZURE-classic-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity]. The Azure Classic Management Portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
+Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity]. The Azure portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
 
 A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For scopes exposed by Office 365 services, see [Office 365 API permissions reference][O365-Perm-Ref].
 
@@ -141,7 +141,7 @@ A best practice naming convention, is to use a "resource.operation.constraint" f
 A signed document containing claims, such as an OAuth2 token or SAML 2.0 assertion. For an OAuth2 [authorization grant](#authorization-grant), an [access token](#access-token) (OAuth2) and an [ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) are types of security tokens, both of which are implemented as a [JSON Web Token (JWT)][JWT].
 
 ## service principal object
-When you register/update an application in the [Azure Classic Management Portal][AZURE-classic-portal], the portal creates/updates both an [application object](#application-object) and a corresponding service principal object for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where the associated application has been granted access), and is the template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
+When you register/update an application in the [Azure portal][AZURE-portal], the portal creates/updates both an [application object](#application-object) and a corresponding service principal object for that tenant. The application object *defines* the application's identity configuration globally (across all tenants where the associated application has been granted access), and is the template from which its corresponding service principal object(s) are *derived* for use locally at run-time (in a specific tenant).
 
 See [Application and Service Principal Objects][AAD-App-SP-Objects] for more information.
 
@@ -160,7 +160,7 @@ An instance of an Azure AD directory is referred to as an Azure AD tenant. It pr
 - authentication of user accounts and registered applications
 - REST endpoints required to support various protocols including OAuth2 and SAML, including the [authorization endpoint](#authorization-endpoint), [token endpoint](#token-endpoint) and the "common" endpoint used by [multi-tenant applications](#multi-tenant-application).
 
-A tenant is also associated with an Azure AD or Office 365 subscription during provisioning of the subscription, providing Identity & Access Management features for the subscription. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant.
+Azure AD tenants are created/associated with Azure and Office 365 subscriptions during sign-up, providing Identity & Access Management features for the subscription. Azure subscription administrators can also create additional Azure AD tenants via the Azure portal. See [How to get an Azure Active Directory tenant][AAD-How-To-Tenant] for details on the various ways you can get access to a tenant. See [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] for details on the relationship between subscriptions and an Azure AD tenant.
 
 ## token endpoint
 One of the endpoints implemented by the [authorization server](#authorization-server) to support OAuth2 [authorization grants](#authorization-grant). Depending on the grant, it can be used to acquire an [access token](#access-token) (and related "refresh" token) to a [client](#client-application), or [ID token](#ID-token) when used with the [OpenID Connect][OpenIDConnect] protocol.
@@ -196,8 +196,8 @@ Please use the following comments section to provide feedback and help us refine
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
-[AAD-Tokens-Claims]:./active-directory-token-and-claims.md
-[AZURE-classic-portal]: https://manage.windowsazure.cn
+[AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
+[AZURE-portal]: https://portal.azure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
