@@ -1,7 +1,7 @@
 ---
-title: Cluster setup for Hadoop, Spark, or HBase - Azure HDInsight | Azure
-description: Set up Hadoop, Spark, HBase, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
-keywords: hadoop cluster setup, spark cluster setup, what is cluster in hadoop
+title: Cluster setup for Hadoop, Spark, Kafka, HBase - Azure HDInsight | Microsoft Docs
+description: Set up Hadoop, Kafka, Spark, HBase, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
+keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 12/25/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -39,7 +39,7 @@ The following table shows the different methods you can use to set up an HDInsig
 | Clusters created with | Web browser | Command line | REST API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
 | [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure CLI (ver 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -47,6 +47,7 @@ The following table shows the different methods you can use to set up an HDInsig
 
 ## Quick create: Basic cluster setup
 This article walks you through setup in the [Azure portal](https://portal.azure.cn), where you can create an HDInsight cluster using *Quick create* or *Custom*. 
+![hdinsight create options custom quick create](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
 
 Follow instructions on the screen to do a basic cluster setup. Details are provided below for:
 
@@ -75,41 +76,22 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | --- | --- |
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch query and analysis of stored data |
 | [HBase](hbase/apache-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
-| [Storm](storm/apache-storm-overview.md) |Real-time event processing |
-| [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
-| [Kafka (Preview)](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
-| [R Server](r-server/r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching for interactive and faster Hive queries |
+| [Kafka](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
+| [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
+| [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 
-### Number of nodes for each cluster type
-Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
-
-| Type | Nodes | Diagram |
-| --- | --- | --- |
-| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
-
-For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "What are the Hadoop components and versions in HDInsight?"
 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Cluster tier: HDInsight service tiers
-
-Azure HDInsight provides the big data cloud offerings in two service tiers: Standard and Premium.  But only Standard tier is supported for now in China. 
-
-The following screenshot shows the Azure portal information for choosing cluster types.
-
-![HDInsight premium configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## Cluster login and SSH user name
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
 * HTTP user: The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
 * SSH user (Linux clusters): Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enteprise security package.
 
 ## <a name="location"></a>Location (regions) for clusters and storage
 
@@ -150,6 +132,17 @@ To increase performance when using Oozie, use a custom metastore. A metastore ca
 ## Configure cluster size
 
 You are billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
+### Number of nodes for each cluster type
+Each cluster type has its own number of nodes, terminology for nodes, and default VM size. In the following table, the number of nodes for each node type is in parentheses.
+
+| Type | Nodes | Diagram |
+| --- | --- | --- |
+| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
+| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+
+For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "What are the Hadoop components and versions in HDInsight?"
 
 The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes. 
 
@@ -163,6 +156,10 @@ Different cluster types have different node types, numbers of nodes, and node si
     * Four *supervisor nodes* 
 
 If you are just trying out HDInsight, we recommend you use one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
+
+> [!NOTE]
+> The cluster size limit varies among Azure subscriptions. You can contact [Azure Support](https://www.azure.cn/support/contact/) to increase the limit.
+>
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. In the portal, you can also see the cost associated with the different node sizes. 
 

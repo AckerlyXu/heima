@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/04/2017
-ms.date: 12/25/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -94,13 +94,6 @@ Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
 
 ## 11/09/2016 - Release of Spark 2.0 on HDInsight
 * Spark 2.0 clusters on HDInsight 3.5 now support Livy and Jupyter services.
-
-## 10/26/2016 - Release of R Server on HDInsight
-* The URI for edge node access has changed to **clustername**-ed-ssh.azurehdinsight.net
-* R Server on HDInsight cluster provisioning has been streamlined.
-* R Server on HDInsight is now available as regular HDInsight "R Server" cluster type and no longer installed as a separate HDInsight application. The edge node and R Server binaries are now provisioned as part of the R Server cluster deployment. This improves speed and reliability of provisioning. Pricing model for R Server is updated accordingly.
-* R Server cluster type price is now based on Standard tier price plus R Server surcharge price. Premium tier is reserved for Premium features available across different cluster types and isn't used for R Server cluster type. This change doesn't affect effective pricing of R Server; it changes only how the charges are presented in the bill. All existing R Server clusters continue to work and Resource Manager templates continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new Resource Manager template.**
-
 
 
 

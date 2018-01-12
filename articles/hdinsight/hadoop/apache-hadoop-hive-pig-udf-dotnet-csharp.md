@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/04/2017
-ms.date: 12/18/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -218,9 +218,9 @@ For more information on the version of the .NET framework and Mono included with
 
 1. Use one of the following methods to connect to your HDInsight cluster:
 
-    * If you are using a __Linux-based__ HDInsight cluster, use SSH. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.cn`. For more information, see [Use SSH withHDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * If you are using a __Linux-based__ HDInsight cluster, use SSH. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.cn`. For more information, see [Use SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * If you are using a __Windows-based__ HDInsight cluster, [Connect to the cluster using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+    * If you are using a __Windows-based__ HDInsight cluster, [Connect to the cluster using Remote Desktop](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 
 2. Use one the following command to start the Pig command line:
 
@@ -258,7 +258,7 @@ For more information on the version of the .NET framework and Mono included with
 
 ## Next steps
 
-In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](hdinsight-python.md).
+In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](python-udf-hdinsight.md).
 
 For other ways to use Pig and Hive, and to learn about using MapReduce, see the following documents:
 

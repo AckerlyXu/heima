@@ -17,7 +17,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -155,9 +155,11 @@ There are two ways to create and run Hive queries:
    > Only the metadata of the cluster that is selected in HDInsight Toolbar is suggested.
    > 
    > 
+   
 4. (Optional) Click **Validate Script** to check the script syntax errors.
    
     ![Data Lake Tools: Data Lake Tools for Visual Studio local validation](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png "Validate script")
+    
 5. Click **Submit** or **Submit (Advanced)**. With the advanced submit option, you configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
    
     ![HDInsight Hadoop hive query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
@@ -165,6 +167,7 @@ There are two ways to create and run Hive queries:
     After you submit the job, you see a **Hive Job Summary** window.
    
     ![Summary of an HDInsight Hadoop Hive query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.run.hive.job.summary.png "Hive job summary")
+    
 6. Use the **Refresh** button to update the status until the job status changes to **Completed**.
 7. Click the links at the bottom to see: **Job Query**, **Job Output**, **Job log**, or **Yarn log**.
 
@@ -174,6 +177,7 @@ There are two ways to create and run Hive queries:
 2. Select **HDInsight** from the left pane, select **Hive Application** in the middle pane, enter the properties, and then click **OK**.
    
     ![Data Lake Tools: HDInsight Visual Studio Tools new hive project](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Create Hive applications from Visual Studio")
+    
 3. From **Solution Explorer**, double-click **Script.hql** to open it.
 4. To validate the Hive script, you can click the **Validate Script** button, or right-click the script in the Hive editor, and then click **Validate Script** from the context menu.
 
@@ -261,5 +265,4 @@ In this article, you learned how to connect to HDInsight clusters from Visual St
 * [Use Hadoop Hive in HDInsight](hdinsight-use-hive.md)
 * [Get started using Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Hadoop jobs in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analyze Twitter data with Hadoop in HDInsight](../hdinsight-analyze-twitter-data.md)
 

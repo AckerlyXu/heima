@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/03/2017
-ms.date: 12/18/2017
+origin.date: 12/04/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -93,7 +93,7 @@ Learn how to use the WebHCat REST API to run MapReduce jobs on a Hadoop on HDIns
 
 4. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
-You can list and download these files by using the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+You can list and download these files by using the [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI 2.0 with Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
 
 ## <a id="nextsteps"></a>Next steps
 

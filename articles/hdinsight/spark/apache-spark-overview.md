@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/07/2017
-ms.date: 12/25/2017
+origin.date: 12/13/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -25,7 +25,8 @@ ms.author: v-yiso
 
 This article provides you with an introduction to Spark on HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark cluster on HDInsight is compatible with Azure Storage (WASB) so your existing data stored in Azure can easily be processed via a Spark cluster.
 
-When you create a Spark cluster on HDInsight, you create Azure compute resources with Spark installed and configured. It only takes about ten minutes to create a Spark cluster in HDInsight. The data to be processed is stored in Azure Storage. See [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+When you create a Spark cluster on HDInsight, you create Azure compute resources with Spark installed and configured. It only takes about 10 minutes to create a Spark cluster in HDInsight. The data to be processed is stored in Azure Storage. See [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ![Spark: a unified framework](./media/apache-spark-overview/hdinsight-spark-overview.png)
 
