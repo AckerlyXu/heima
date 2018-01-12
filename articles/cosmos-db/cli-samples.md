@@ -43,6 +43,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |**Connect Azure Cosmos DB to resources**||
 |[Connect a web app to Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|Create and connect an Azure Cosmos DB database and an Azure web app.|
 |||
+<!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
 
 <!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
 <!--ms.date:12/25/2017-->
