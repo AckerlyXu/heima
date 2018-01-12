@@ -3,8 +3,8 @@ title: Troubleshoot Network Security Groups - PowerShell | Azure
 description: Learn how to troubleshoot Network Security Groups in the Azure Resource Manager deployment model using Azure PowerShell.
 services: virtual-network
 documentationcenter: na
-author: AnithaAdusumilli
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
+ms.date: 01/15/2018
+ms.author: v-yeche
 
 ---
 # Troubleshoot Network Security Groups using Azure PowerShell
@@ -42,7 +42,7 @@ While this example uses TCP port 3389, the following steps can be used to determ
 ## Detailed Troubleshooting Steps
 Complete the following steps to troubleshoot NSGs for a VM:
 
-1. Start an Azure PowerShell session and login to Azure. If you're not familiar with using Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article.
+1. Start an Azure PowerShell session and login to Azure. If you're not familiar with using Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) article. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions).
 2. Enter the following command to return all NSG rules applied to a NIC named *VM1-NIC1* in the resource group *RG1*:
 
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -195,3 +195,4 @@ Consider the following points when troubleshooting connectivity problems:
 * If you have peered VNets, by default, the VIRTUAL_NETWORK tag will automatically expand to include prefixes for peered VNets. You can view these prefixes in the **ExpandedAddressPrefix** list, to troubleshoot any issues related to VNet peering connectivity. 
 * Effective security rules are only shown if there is an NSG associated with the VM's NIC and or subnet. 
 * If there are no NSGs associated with the NIC or subnet and you have a public IP address assigned to your VM, all ports will be open for inbound and outbound access. If the VM has a public IP address, applying NSGs to the NIC or subnet is strongly recommended.
+<!-- Update_Description: update meta properties, wording update, update link -->

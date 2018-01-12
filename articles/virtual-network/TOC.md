@@ -5,6 +5,7 @@
 ## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
 ## [Virtual network for Azure services](virtual-network-for-azure-services.md)
 ## [Security](security-overview.md)
+## [Container networking](container-networking.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 <!-- Not Available ## [DDoS Protection](ddos-protection-overview.md) -->
@@ -32,6 +33,7 @@
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Template](virtual-networks-create-nsg-arm-template.md)
+<!-- Not Available #### [Application security groups](create-network-security-group-preview.md)-->
 #### Classic
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
@@ -188,4 +190,4 @@
 ## [Network resource provider](resource-groups-networking.md)
 
 <!--Update_Description: update meta properties, update link-->
-<!--ms.date: 12/11/2017-->
+<!--ms.date: 01/15/2018-->

@@ -3,8 +3,8 @@ title: Troubleshoot Network Security Groups - Portal | Azure
 description: Learn how to troubleshoot Network Security Groups in the Azure Resource Manager deployment model using the Azure Portal.
 services: virtual-network
 documentationcenter: na
-author: AnithaAdusumilli
-manager: narayan
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 11/14/2016
-ms.author: v-dazen
+ms.date: 01/15/2018
+ms.author: v-yeche
 
 ---
 # Troubleshoot Network Security Groups using the Azure Portal
@@ -44,7 +44,7 @@ Complete the following steps to troubleshoot NSGs for a VM:
 
 You can view full list of the effective security rules on a NIC, from the VM itself. You can also add, modify, and delete both NIC and subnet NSG rules from the effective rules blade, if you have permissions to perform these operations.
 
-1. Login to the Azure portal at https://portal.azure.cn.
+1. Login to the Azure portal at https://portal.azure.cn with an Azure account. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions).
 2. Click **More services**, then click **Virtual machines** in the list that appears.
 3. Select a VM to troubleshoot from the list that appears and a VM blade with options appears.
 4. Click **Diagnose & solve problems** and then select a common problem. For this example, **I can't connect to my Windows VM** is selected. 
@@ -148,3 +148,4 @@ Consider the following points when troubleshooting connectivity problems:
 * If you have peered VNets, by default, the VIRTUAL_NETWORK tag will automatically expand to include prefixes for peered VNets. You can view these prefixes in the **ExpandedAddressPrefix** list, to troubleshoot any issues related to VNet peering connectivity. 
 * Effective security rules are only shown if there is an NSG associated with the VM's NIC and or subnet. 
 * If there are no NSGs associated with the NIC or subnet and you have a public IP address assigned to your VM, all ports will be open for inbound and outbound access. If the VM has a public IP address, applying NSGs to the NIC or subnet is strongly recommended.
+<!-- Update_Description: update meta properties, wording update, update link  -->
