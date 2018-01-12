@@ -3,8 +3,8 @@ title: Troubleshooting common Azure Automation issues | Azure
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
 documentationcenter: ''
-author: mgoedtel
-manager: stevenka
+author: yunan2016
+manager: digimobile
 editor: tysonn
 tags: top-support-issue
 keywords: automation error, troubleshooting, issue
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/26/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
+origin.date: 09/22/2017
+ms.date: 01/15/2018
+ms.author: v-nany
+
 
 ---
 # Troubleshooting common issues in Azure Automation 
@@ -34,15 +35,15 @@ This error occurs if the credential asset name is not valid or if the username a
 **Troubleshooting tips:**
 In order to determine what's wrong, take the following steps:  
 
-1. Make sure that you don't have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
+1. Make sure that you don’t have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
 2. Check that you can use the username and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. You can do this by running the following cmdlets in the PowerShell ISE:  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
-        Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
+        Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
-3. If your authentication fails locally, this means that you haven't set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
+        Login-AzureRmAccount –Credential $Cred
+3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
 ### Scenario: Unable to find the Azure subscription
 **Error:**
@@ -57,12 +58,12 @@ In order to determine if you have properly authenticated to Azure and have acces
 1. Make sure that you run the **Add-AzureAccount -Environment AzureChinaCloud** before running the **Select-AzureSubscription** cmdlet.  
 2. If you still see this error message, modify your code by adding the **Get-AzureSubscription** cmdlet following the **Add-AzureAccount -Environment AzureChinaCloud** cmdlet and then execute the code.  Now verify if the output of Get-AzureSubscription contains your subscription details.  
 
-   * If you don't see any subscription details in the output, this means that the subscription isn't initialized yet.  
+   * If you don't see any subscription details in the output, this means that the subscription isn’t initialized yet.  
    * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
 ### Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 **Error:**
-You receive the error "Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required" when authenticating to Azure with your Azure username and password.
+You receive the error “Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required” when authenticating to Azure with your Azure username and password.
 
 **Reason for the error:**
 If you have multi-factor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure.  Instead, you need to use a certificate or a service principal to authenticate to Azure.
@@ -73,21 +74,22 @@ To use a certificate with the Azure Service Management cmdlets, refer to [creati
 ## Common errors when working with runbooks
 ### Scenario: The runbook job start was attempted three times, but it failed to start each time
 **Error:**
-Your runbook fails with the error ""The job was tried three times but it failed."
+Your runbook fails with the error "“The job was tried three times but it failed."
 
 **Reason for the error:**
 This error can be caused by the following reasons:  
 
 1. Memory Limit.  We have limits on how much memory allocated to a Sandbox Automation service limits so a job may fail it if is using more than 400 MB of memory. 
 
-2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a "Command not found" or "Cannot bind parameter" message. 
+2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a “Command not found” or "Cannot bind parameter" message. 
 
 **Troubleshooting tips:**
 Any of the following solutions will fix the problem:  
 
 * Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
 
-* You need to update your Azure modules.  
+* You need to update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).  
+
 
 ### Scenario: Runbook fails because of deserialized object
 **Error:**
@@ -101,21 +103,22 @@ Any of the following three solutions will fix this problem:
 
 1. If you are piping complex objects from one cmdlet to another, wrap these cmdlets in an InlineScript.  
 2. Pass the name or value that you need from the complex object instead of passing the entire object.  
+3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.  
 
 ### Scenario: Runbook job failed because the allocated quota exceeded
 **Error:**
 Your runbook job fails with the error "The quota for the monthly total job run time has been reached for this subscription".
 
 **Reason for the error:**
-This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks such as testing a job, starting a job from the portal, and scheduling a job to execute by using either the Azure Classic Management Portal or in your datacenter. To learn more about pricing for Automation see [Automation pricing](https://www.azure.cn/pricing/details/automation/).
+This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks such as testing a job, starting a job from the portal, executing a job by using webhooks and scheduling a job to execute by using either the Azure portal or in your datacenter. To learn more about pricing for Automation see [Automation pricing](https://www.azure.cn/pricing/details/automation/).
 
 **Troubleshooting tips:**
 If you want to use more than 500 minutes of processing per month you will need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier by taking the following steps:  
 
 1. Sign in to your Azure subscription  
 2. Select the Automation account you wish to upgrade  
-3. Click on **Scale**  
-4. For **Automation plan** under **General**, select **Basic**   
+3. Click on **Settings** > **Pricing**.
+4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
 ### Scenario: Cmdlet not recognized when executing a runbook
 **Error:**
@@ -134,10 +137,10 @@ Any of the following solutions will fix the problem:
 
 ### Scenario: A long running runbook consistently fails with the exception: "The job cannot continue running because it was repeatedly evicted from the same checkpoint".
 **Reason for the error:**
-This is by design behavior due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than 3 hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
+This behavior is by design due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than three hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
 
 **Troubleshooting tips:**
-The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more, refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## Common errors when importing modules
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
@@ -150,10 +153,10 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The structure does not match the structure that Automation needs it to be in.  
 * The module is dependent on another module that has not been deployed to your Automation account.  
 * The module is missing its dependencies in the folder.  
-* The **New-AzureAutomationModule** cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.  
+* The **New-AzureRmAutomationModule** cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.  
 
 **Troubleshooting tips:**  
-Any of the following solutions will fix the problem:  
+Any of the following solutions fix the problem:  
 
 * Make sure that the module follows the following format:  
   ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
