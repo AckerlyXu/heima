@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 09/04/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -111,7 +111,7 @@ Ubuntu - Install Git:
 Make and Install on both:
 
 ``` bash
- git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
  make && make install
 ```
@@ -154,7 +154,7 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 Receiver <Linux>:
 
-``` bash 
+``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
@@ -166,6 +166,6 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
+* Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

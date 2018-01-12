@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -49,7 +49,8 @@ The following limitations exist when using this capability:
 * **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 * **VM creation:** A NIC with accelerated networking enabled can only be attached to a VM when the VM is created. The NIC cannot be attached to an existing VM.
 * **Regions:** Windows VMs with accelerated networking are offered in most Azure regions. Linux VMs with accelerated networking are offered in multiple regions. The regions this capability is available in is expanding. Please see the Azure Virtual Networking Updates blog below for the latest information.   
-* **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, RHEL 7.3 and CentOS 7.3 (Published by "Rogue Wave Software").
+* **Supported operating systems:** Windows: Microsoft Windows Server 2012 R2 Datacenter and Windows Server 2016. Linux: Ubuntu Server 16.04 LTS with kernel 4.4.0-77 or higher, SLES 12 SP2, and CentOS 7.3 (Published by "Rogue Wave Software").
+<!-- Not Available on RHEL 7.3 -->
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
 * **Deployment through Azure Resource Manager (ARM) only:** Accelerated Networking is not available for deployment through ASM/RDFE.
 
@@ -69,7 +70,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
     |---|---|
     |Name|MyVm|
     |Resource group|Leave **Create new** selected and enter *MyResourceGroup*|
-    |Location|China North 2|
+    |Location|China North|
 
     If you're new to Azure, learn more about [Resource groups](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group), [subscriptions](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription), and [locations](https://www.azure.cn/regions) (which are also referred to as regions).
 5. In the **Choose a size** blade that appears, enter *8* in the **Minimum cores** box, then click **View all**.
@@ -81,7 +82,7 @@ You can use the Azure portal or Azure [PowerShell](#windows-powershell) to creat
 ### <a name="windows-powershell"></a>PowerShell
 1. Install the latest version of the Azure PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) module. If you're new to Azure PowerShell, read the [Azure PowerShell overview](https://docs.microsoft.com/powershell/azure/get-started-azureps?toc=%2fvirtual-network%2ftoc.json) article.
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
-3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
+3. In your PowerShell window, enter the `login-azurermaccount -EnvironmentName AzureChinaCloud` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 4. In your browser, copy the following script:
     ```powershell
     $RgName="MyResourceGroup"
@@ -165,7 +166,8 @@ Once you create the VM in Azure, you must install the accelerated networking dri
 9. Accelerated Networking is now enabled for your VM.
 
 ## Create a Linux VM
-You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS VMs there is a different workflow.  Please see the instructions below.
+You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create an Ubuntu or SLES VM. For RHEL and CentOS instructions, see [CentOS](#rhel-and-centos).
+<!-- Not Available on RHET -->
 
 ### <a name="linux-portal"></a>Portal
 1. Register for the accelerated networking for Linux preview by completing steps 1-5 of the [Create a Linux VM - PowerShell](#linux-powershell) section of this article.  You cannot register for the preview in the portal.
@@ -184,7 +186,6 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 2. Start a PowerShell session by clicking the Windows Start button, typing **powershell**, then clicking **PowerShell** from the search results.
 3. In your PowerShell window, enter the `login-azurermaccount` command to sign in with your Azure [account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't already have an account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full).
 4. Register for the accelerated networking for Azure preview by completing the following steps:
-    - Send an email to [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your Azure subscription ID and intended use. Please wait for an email confirmation from Microsoft about your subscription being enabled.
     - Enter the following command to confirm you are registered for the preview:
 
         ```powershell
@@ -206,7 +207,7 @@ You can use the Azure portal or Azure [PowerShell](#linux-powershell) to create 
 
     ```powershell
     $RgName="MyResourceGroup"
-    $Location="chinanorth2"
+    $Location="chinanorth"
 
     # Create a resource group
     New-AzureRmResourceGroup `
@@ -310,18 +311,20 @@ At this point, the instructions vary based on the distribution you are using.
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. After running the script, the VM will restart after a 60 second pause.
+3. After running the script, the VM will restart after a 60-second pause.
 4. Once the VM is restarted, reconnect to it by completing steps 5-7 again.
 5. Run the `ifconfig` command and confirm that bond0 has come up and the interface is showing as UP. 
 
  >[!NOTE]
       >Applications using accelerated networking must communicate over the *bond0* interface, not *eth0*.  The interface name may change before accelerated networking reaches general availability.
 
-#### RHEL/CentOS
+<a name="rhel-and-centos"></a>
+#### CentOS
 
-Creating a Red Hat Enterprise Linux or CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
+Creating a CentOS 7.3 VM requires some extra steps to load the latest drivers needed for SR-IOV and the Virtual Function (VF) driver for the network card. The first phase of the instructions prepares an image that can be used to make one or more virtual machines that have the drivers pre-loaded.
+<!-- Not Available on Red Hat Enterprise Linux -->
 
-##### Phase one: prepare a Red Hat Enterprise Linux or CentOS 7.3 base image. 
+##### Phase one: CentOS 7.3 base image. 
 
 1.	Provision a non-SRIOV CentOS 7.3 VM on Azure
 
