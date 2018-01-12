@@ -35,16 +35,9 @@ Additional prompts can be expected in various scenarios:
 
 * The user who originally consented to the application was an administrator, but they did not consent on-behalf of the entire organization.
 
-* The application is using [incremental and dynamic consent](./develop/active-directory-v2-compare.md#incremental-and-dynamic-consent) to request additional permissions after consent was initially granted. This is often used when optional features of an application additional require permissions beyond those required for baseline functionality.
 
 * Consent was revoked after being granted initially.
 
 * The developer has configured the application to require a consent prompt every time it is used (note: this is not best practice).
-
-## Next steps
-
--   [Apps, permissions, and consent in Azure Active Directory (v1.0 endpoint)](active-directory-apps-permissions-consent.md)
-
--   [Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](./develop/active-directory-v2-scopes.md)
 
 

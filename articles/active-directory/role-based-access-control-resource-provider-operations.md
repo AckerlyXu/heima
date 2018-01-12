@@ -333,11 +333,11 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/checknameavailability/action|Checks if a name is available for use with a new Redis Cache|
 |/register/action|Registers the 'Microsoft.Cache' resource provider with a subscription|
 |/unregister/action|Unregisters the 'Microsoft.Cache' resource provider with a subscription|
-|/redis/write|Modify the Redis Cache's settings and configuration in the management portal|
-|/redis/read|View the Redis Cache's settings and configuration in the management portal|
+|/redis/write|Modify the Redis Cache's settings and configuration in the portal|
+|/redis/read|View the Redis Cache's settings and configuration in the  portal|
 |/redis/delete|Delete the entire Redis Cache|
-|/redis/listKeys/action|View the value of Redis Cache access keys in the management portal|
-|/redis/regenerateKey/action|Change the value of Redis Cache access keys in the management portal|
+|/redis/listKeys/action|View the value of Redis Cache access keys in the  portal|
+|/redis/regenerateKey/action|Change the value of Redis Cache access keys in the  portal|
 |/redis/import/action|Import data of a specified format from multiple blobs into Redis|
 |/redis/export/action|Export Redis data to prefixed storage blobs in specified format|
 |/redis/forceReboot/action|Force reboot a cache instance, potentially with data loss.|
@@ -925,7 +925,7 @@ This provider is not a full ARM provider and does not provide any ARM operations
 |/lcsprojects/write|Create and update Microsoft Dynamics Lifecycle Services projects that belong to the user. Only the name and description properties can be updated. The subscription and location associated with the project cannot be updated after creation|
 |/lcsprojects/delete|Delete Microsoft Dynamics Lifecycle Services projects that belong to the user|
 |/lcsprojects/clouddeployments/read|Display Microsoft Dynamics AX 2012 R3 Evaluation deployments in a Microsoft Dynamics Lifecycle Services project that belong to a user|
-|/lcsprojects/clouddeployments/write|Create Microsoft Dynamics AX 2012 R3 Evaluation deployment in a Microsoft Dynamics Lifecycle Services project that belong to a user. Deployments can be managed from Azure management portal|
+|/lcsprojects/clouddeployments/write|Create Microsoft Dynamics AX 2012 R3 Evaluation deployment in a Microsoft Dynamics Lifecycle Services project that belong to a user. Deployments can be managed from Azure  portal|
 |/lcsprojects/connectors/read|Read connectors that belong to a Microsoft Dynamics Lifecycle Services project|
 |/lcsprojects/connectors/write|Create and update connectors that belong to a Microsoft Dynamics Lifecycle Services project|
 
