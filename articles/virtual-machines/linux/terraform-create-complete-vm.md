@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ---
 
@@ -27,7 +27,7 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
 
-The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). If you create environment variables for the values, you don't include this section.
+The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). 
 
 ```tf
 provider "azurerm" {
@@ -345,9 +345,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "China East"
-    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
     account_tier = "Standard"           # account_tier = "Standard" is Correct
-
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
 
     tags {
         environment = "Terraform Demo"

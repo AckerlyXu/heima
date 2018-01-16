@@ -26,11 +26,6 @@ The Azure Active Directory Authentication Library (ADAL) enables application dev
  - Support for asynchronous method calls
  - And more
 
-> [!NOTE]
-> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](/active-directory/develop/active-directory-v2-libraries). 
-> 
-> 
-
 ### Client Libraries
 
 | Platform | Library | Download | Source Code | Sample | Reference
@@ -54,17 +49,6 @@ The Azure Active Directory Authentication Library (ADAL) enables application dev
 | .NET |OWIN for WS-Federation |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[CodePlex](http://katanaproject.codeplex.com) |[MVC Web App](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
 | .NET |Identity Protocol Extensions for .NET 4.5 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |JWT Handler for .NET 4.5 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-
-### v2.0 Client Libraries (MSAL)
-
-The [Azure AD v2.0 endpoint](/active-directory/develop/active-directory-v2-compare) combines Azure AD and Microsoft Accounts behind a single endpoint. To access this endpoint, developers can use the [production-supported preview MSAL libraries](/active-directory/develop/active-directory-v2-libraries) instead of ADAL.
-
-| Platform | Library | Download | Source Code | Sample | Reference
-| --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS and Android |MSAL for .NET (preview) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | Desktop app |[Reference](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
-| JavaScript |MSAL for JavaScript (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | Single Page App | [Reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
-| iOS |MSAL for iOS (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | iOS app | [Reference](https://azuread.github.io/docs/objc/) |
-| Android |MSAL for Android (preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | Android app | [Reference](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 
 ## Scenarios
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-origin.date: 03/30/2017
-ms.date: 07/17/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
-
 # Install Visual Studio and SSDT for SQL Data Warehouse
 To develop applications for SQL Data Warehouse, we recommend using the most recent version of Visual Studio with the most recent version of SQL Server Data Tools (SSDT).  Visual Studio 2013 Update 5 with SSDT is also supported for backward compatibility.  
 
@@ -29,6 +28,7 @@ Using Visual Studio with SSDT will allow you to use the SQL Server Object Explor
 > SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version.
 > 
 > 
+<!-- Not Available on UserVioce -->
 
 ## Step 1: Install Visual Studio
 Follow these links to download and install Visual Studio. If you already have Visual Studio 2013 or later installed, you can skip to Step 2, install SSDT.
@@ -56,5 +56,6 @@ Now that you have the latest version of SSDT, you are ready to [connect][connect
 
 <!--Other-->
 [Download Visual Studio]: https://www.visualstudio.com/downloads/
-[Installing Visual Studio]: https://msdn.microsoft.com/zh-cn/library/e2h7fzkw.aspx
-[SSDT Download]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
+[Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
+[SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+<!-- Update_Description: update meta properties -->

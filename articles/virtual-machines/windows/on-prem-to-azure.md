@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/07/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 # Migrate from Amazon Web Services (AWS) and other platforms to Managed Disks in Azure
 
-You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need of to managing storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
+You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create VMs that take advantage of Managed Disks. Azure Managed Disks removes the need to manage storage accounts for Azure IaaS VMs. You have to only specify the type (Premium or Standard) and size of disk you need, and Azure creates and manages the disk for you. 
 
 You can upload either generalized and specialized VHDs. 
 - **Generalized VHD** - has had all of your personal account information removed using Sysprep. 
@@ -97,4 +97,4 @@ Review the [pricing for Managed Disks](https://www.azure.cn/pricing/details/mana
 ## Next Steps
 
 - Before uploading any VHD to Azure, you should follow [Prepare a Windows VHD or VHDX to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

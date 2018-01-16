@@ -3,8 +3,8 @@ title: Create network security groups - Azure Resource Manager Template| Azure
 description: Learn how to create and deploy network security groups using an Azure Resource Manager template.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
+ms.date: 01/15/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -38,7 +38,7 @@ You can view and download the [sample template](https://raw.githubusercontent.co
 The following section shows the definition of the front-end NSG, based on the scenario.
 
 ```json
-"apiVersion": "2015-06-15",
+"apiVersion": "2017-03-01",
 "type": "Microsoft.Network/networkSecurityGroups",
 "name": "[parameters('frontEndNSGName')]",
 "location": "[resourceGroup().location]",
@@ -94,6 +94,11 @@ To associate the NSG to the front-end subnet, you have to change the subnet defi
 ```
 
 Notice the same being done for the back-end NSG and the back-end subnet in the template.
+
+## Deploy the ARM template by using click to deploy
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), click the following **Deploy to Azure** button, replace the default parameter values if necessary, and follow the instructions in the portal.
+
+<a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftelmosampaio%2Fazure-templates%2Fmaster%2F201-IaaS-WebFrontEnd-SQLBackEnd-NSG%2Fazuredeploy.json" target="_blank"><img src="./media/virtual-networks-create-nsg-arm-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ## Deploy the ARM template by using PowerShell
 To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
@@ -184,3 +189,4 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
    * **-l (or --location)**. Azure region where the resource group will be created.
    * **-f (or --template-file)**. Path to your ARM template file.
    * **-e (or --parameters-file)**. Path to your ARM parameters file.
+<!-- Update_Description: update meta properties, wording update, update link -->

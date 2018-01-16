@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/06/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -316,7 +316,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/).
 
 ## Next steps
 You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
@@ -335,7 +335,7 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 
 <!--Link references-->
 [azure.blob.storage]: /storage/
-[azure.blob.storage.use]: /storage-dotnet-how-to-use-blobs/
+[azure.blob.storage.use]: /storage/storage-dotnet-how-to-use-blobs/
 
 [azure.event.hubs]: https://www.azure.cn/home/features/event-hubs/
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx

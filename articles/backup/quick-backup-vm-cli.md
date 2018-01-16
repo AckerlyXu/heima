@@ -3,29 +3,29 @@ title: Azure Quick Start - Back up a VM with Azure CLI | Microsoft Docs
 description: Learn how to back up your virtual machines with the Azure CLI
 services: backup, virtual-machines-linux
 documentationcenter: virtual-machines
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor:
 tags: azure-resource-manager, virtual-machine-backup
 
 ms.assetid: 
 ms.service: backup, virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
 origin.date: 10/02/2017
-ms.date: 11/02/2017
+ms.date: 01/08/2018
 ms.author: v-junlch
 ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure with the CLI
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md).
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
 This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure CLI](../virtual-machines/linux/quick-create-cli.md).
 
-To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run ༖༗. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/install-azure-cli). 
+To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/install-azure-cli). 
 
 
 ## Create a recovery services vault
@@ -126,3 +126,4 @@ In this quick start, you created a Recovery Services vault, enabled protection o
 > [!div class="nextstepaction"]
 > [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
 
+<!-- Update_Description: wording update -->

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Virtual Machine Scale Sets with the Azure CLI 2.0 | Microsoft Docs
 description: Common Azure CLI 2.0 commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2017
-ms.date: 12/06/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -34,7 +34,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## View VMs in a scale set
-To view a list of VM instance in a scale set, use [az vmss list-instances](/cli/vmss#list-instances). The following example list all VM instances in the scale set named *myScaleSet* and in the *myResourceGroup* resource group. Provide your own values for these names:
+To view a list of VM instance in a scale set, use [az vmss list-instances](/cli/vmss#list-instances). The following example list all VM instances in the scale set named *myScaleSet* in the *myResourceGroup* resource group. Provide your own values for these names:
 
 ```azurecli
 az vmss list-instances \
@@ -137,3 +137,4 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ## Next steps
 Other common tasks for scale sets include how to [deploy an application](virtual-machine-scale-sets-deploy-app.md), and [upgrade VM instances](virtual-machine-scale-sets-upgrade-scale-set.md). You can also use Azure CLI to [configure auto-scale rules](virtual-machine-scale-sets-autoscale-overview.md).
 
+<!--Update_Description: wording update -->

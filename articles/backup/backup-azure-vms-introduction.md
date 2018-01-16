@@ -3,8 +3,8 @@ title: Planning your VM backup infrastructure in Azure | Microsoft Docs
 description: Important considerations when planning to back up virtual machines in Azure
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 keywords: backup vms, backup virtual machines
 
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 
 ---
 # Plan your VM backup infrastructure in Azure
-This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), planning is the next step before you begin [to back up VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](../virtual-machines/index.md).
+This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning, and scheduling. If you've [prepared your environment](backup-azure-arm-vms-prepare.md), planning is the next step before you begin [to back up VMs](backup-azure-arm-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](../virtual-machines/index.md).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshot_ extension in Windows, and the _VMSnapshotLinux_ extension in Linux. The extension is installed during the first VM backup. To install the extension, the VM must be running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
@@ -66,7 +66,7 @@ This table explains the types of consistency and the conditions that they occur 
 | Crash consistency |No |This situation is equivalent to a virtual machine experiencing a "crash" (through either a soft or hard reset). Crash consistency typically happens when the Azure virtual machine is shut down at the time of backup. A crash-consistent recovery point provides no guarantees around the consistency of the data on the storage medium--either from the perspective of the operating system or the application. Only the data that already exists on the disk at the time of backup is captured and backed up. <br/> <br/> While there are no guarantees, usually, the operating system boots, followed by disk-checking procedure, like chkdsk, to fix any corruption errors. Any in-memory data or writes that have not been transferred to the disk are lost. The application typically follows with its own verification mechanism in case data rollback needs to be done. <br><br>As an example, if the transaction log has entries that are not present in the database, then the database software does a rollback until the data is consistent. When data is spread across multiple virtual disks (like spanned volumes), a crash-consistent recovery point provides no guarantees for the correctness of the data. |
 
 ## Performance and resource utilization
-Like backup software that is deployed on-premises, you should plan for capacity and resource utilization needs when backing up VMs in Azure. 
+Like backup software that is deployed on-premises, you should plan for capacity and resource utilization needs when backing up VMs in Azure. The [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) define how to structure VM deployments to get maximum performance with minimum impact to running workloads.
 
 Pay attention to the following Azure Storage limits when planning backup performance:
 
@@ -96,13 +96,13 @@ For each disk being backed up, Azure Backup reads the blocks on the disk and sto
 ## Total VM backup time
 While most of the backup time is spent reading and copying data, other operations contribute to the total time needed to back up a VM:
 
-- Time needed to [install or update the backup extension](backup-azure-vms.md).
+- Time needed to [install or update the backup extension](backup-azure-arm-vms.md).
 - Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 - Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to eight hours due to the number of backups being processed. However, the total VM backup time is less than 24 hours for daily backup policies.
 - Data transfer time, time needed for backup service to compute the incremental changes from previous backup and transfer those changes to vault storage.
 
 ### Why am I observing longer(>12 hours) backup time?
-Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications. The recommended application write block from Azure, for applications running inside the VM, is a minimum of 8 KB. If your application uses a block of less than 8 KB, backup performance is effected. For help with tuning your application to improve backup performance, see [Tuning applications for optimal performance with Azure storage](../virtual-machines/windows/premium-storage-performance.md). Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.
+Backup consists of two phases: taking snapshots and transferring the snapshots to the vault. The Backup service optimizes for storage. When transferring the snapshot data to a vault, the service only transfers incremental changes from the previous snapshot.  To determine the incremental changes, the service computes the checksum of the blocks. If a block is changed, the block is identified as a block to be sent to the vault. Then the service drills further into each of the identified blocks, looking for opportunities to minimize the data to transfer. After evaluating all changed blocks, the service coalesces the changes and sends them to the vault. In some legacy applications, small, fragmented writes are not optimal for storage. If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications. The recommended application write block from Azure, for applications running inside the VM, is a minimum of 8 KB. If your application uses a block of less than 8 KB, backup performance is effected. Though the article on backup performance uses Premium storage examples, the guidance is applicable for Standard storage disks.
 
 ## Total restore time
 A restore operation consists of two main sub tasks: Copying data back from the vault to the chosen customer storage account, and creating the virtual machine. Copying data back from the vault depends on where the backups are stored internally in Azure, and where the customer storage account is stored. Time taken to copy data depends upon:
@@ -147,9 +147,8 @@ Billing for a specified virtual machine stops only if the protection is stopped 
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-- [Back up virtual machines](backup-azure-vms.md)
+- [Back up virtual machines](backup-azure-arm-vms.md)
 - [Manage virtual machine backup](backup-azure-manage-vms.md)
-- [Restore virtual machines](backup-azure-restore-vms.md)
+- [Restore virtual machines](backup-azure-arm-restore-vms.md)
 - [Troubleshoot VM backup issues](backup-azure-vms-troubleshoot.md)
 
-<!--Update_Description: wording update -->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2016
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -349,7 +349,7 @@ Generally speaking, the SCP plugins may run in two modes here:
         }
 
 ## Topology Specification Language
-SCP Topology Specification is a domain specific language for describing and configuring SCP topologies. It is based on Storm's Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
+SCP Topology Specification is a domain-specific language for describing and configuring SCP topologies. It is based on Storm's Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
 
 Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command.
 
@@ -375,7 +375,7 @@ SCP.NET has the following keywords defined:
 | **:config** |Define configure parameter or update the existing ones |
 | **:schema** |Define the Schema of Stream. |
 
-And frequently-used parameters:
+And frequently used parameters:
 
 | **Parameter** | **Description** |
 | --- | --- |

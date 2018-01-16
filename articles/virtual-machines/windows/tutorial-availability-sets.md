@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
 
 # How to use availability sets
 
-In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a sub-set of your VMs are impacted and that your overall solution remains available and operational. 
+In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a sub-set of your VMs are impacted and that your overall solution remains available and operational. 
 
 In this tutorial, you learn how to:
 
@@ -50,13 +50,13 @@ You can create an availability set using [New-AzureRmAvailabilitySet](https://do
 
 Create a resource group.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location ChinaEast
 ```
 
 Create a managed availability set using [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset) with the **-sku aligned** parameter.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmAvailabilitySet `
    -Location ChinaEast `
    -Name myAvailabilitySet `
@@ -76,7 +76,7 @@ When you create a VM configuration using [New-AzureRMVMConfig](https://docs.micr
 
 Create two VMs with [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) in the availability set.
 
-```powershell
+```azurepowershell-interactive
 $availabilitySet = Get-AzureRmAvailabilitySet `
     -ResourceGroupName myResourceGroupAvailability `
     -Name myAvailabilitySet
@@ -181,7 +181,7 @@ If you look at the availability set in the portal by going to Resource Groups > 
 
 You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [Get-AzureRMVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize) to list all the available sizes on the hardware cluster for the availability set.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVMSize `
    -AvailabilitySetName myAvailabilitySet `
    -ResourceGroupName myResourceGroupAvailability  

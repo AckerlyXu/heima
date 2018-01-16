@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/09/2017
-ms.date: 10/30/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -103,7 +103,7 @@ For more information, see [Azure PowerShell Versioning](https://docs.microsoft.c
     ```	
 ## Create an image from a managed disk using PowerShell
 
-If you only want to create an image of the OS disk, you can also crate an image by specifying the managed disk ID as the OS disk.
+If you only want to create an image of the OS disk, you can also create an image by specifying the managed disk ID as the OS disk.
 
 1. Create some variables. 
 
@@ -205,4 +205,4 @@ Create a managed image from a generalized OS VHD in a storage account. You need 
 
 ## Next steps
 - Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!--Update_Description: wording update, add new section of  "Create image from a VHD in a storage account"-->
+<!--Update_Description: wording update -->

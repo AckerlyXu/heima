@@ -3,8 +3,8 @@ title: How to enable cross-app SSO on Android using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: danieldobalian
+manager: mtillman
 editor: ''
 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 06/26/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -76,7 +76,7 @@ Here is a representation of how the Microsoft Identity SDKs work with the shared
 
 #### Broker assisted logins
 Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that apply the Microsoft Identity platform. This means that your applications rely on the broker to sign users in. On iOS and Android these brokers are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Microsoft Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
-The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familiar with this pattern if you have the Facebook application installed and use Facebook Connect from another application. The Microsoft Identity platform uses the same pattern.
+The experience varies by platform and can sometimes be disruptive to users if not managed correctly. 
 
 For iOS this leads to a "transition" animation where your application is sent to the background while the Microsoft Authenticator applications comes to the foreground for the user to select which account they would like to sign in with.  
 
@@ -226,7 +226,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
+This Redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.cn/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
 
 #### Step 3: Set up the correct permissions in your application
 Our broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. This is discussed in detail in the [Google documentation for Account Manager here](http://developer.android.com/reference/android/accounts/AccountManager.html)
@@ -243,3 +243,4 @@ MANAGE_ACCOUNTS
 Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
 
 
+<!-- Update_Description: wording update -->

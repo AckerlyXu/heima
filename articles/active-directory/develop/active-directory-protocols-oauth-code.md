@@ -3,8 +3,8 @@ title: Understand the OAuth 2.0 authorization code flow in Azure AD  | Microsoft
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: dstrockis
+manager: mtillman
 editor: ''
 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 10/19/2017
+ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -24,8 +24,7 @@ Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize acce
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1). It is used to perform authentication and authorization in most application types, including web apps and natively installed apps.
 
-<!-- [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]-->
-<!-- Not suitable for Portal-->
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## OAuth 2.0 authorization flow
 At a high level, the entire authorization flow for an application looks a bit like this:
@@ -33,7 +32,7 @@ At a high level, the entire authorization flow for an application looks a bit li
 ![OAuth Auth Code Flow](./media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Request an authorization code
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 endpoints from your application's page in Azure Classic Management Portal, in the **View Endpoints** button in the bottom drawer.
+The authorization code flow begins with the client directing the user to the `/authorize` endpoint. In this request, the client indicates the permissions it needs to acquire from the user. You can get the OAuth 2.0 endpoints from your application's page in Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -198,7 +197,7 @@ The JWT token in the value of the `id_token` parameter can be decoded into the f
 }.
 ```
 
-For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, read [Supported Token and Claim Types](./active-directory-token-and-claims.md)
+For more information about JSON web tokens, see the [JWT IETF draft specification](http://go.microsoft.com/fwlink/?LinkId=392344). For more information about the token types and claims, read [Supported Token and Claim Types](active-directory-token-and-claims.md)
 
 The `id_token` parameter includes the following claim types:
 
@@ -378,4 +377,3 @@ A sample error response could look like this:
 
 For a description of the error codes and the recommended client action, see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
 
-<!--Update_Description: wording update-->

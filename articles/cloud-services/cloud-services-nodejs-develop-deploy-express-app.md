@@ -1,6 +1,6 @@
 ---
-title: Web App with Express (Node.js) | Azure
-description: A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module.
+title: Build and deploy a Node.js Express app to Azure Cloud Services
+description: Build and deploy a Express.js application in Node.js to Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 ---
 
-# Build a Node.js web application using Express on an Azure Cloud Service
+# Build and deploy a Node.js web application using Express on an Azure Cloud Services
 
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
-you will create a new application using the [Express][Express] module, which provides an MVC framework for creating Node.js web applications.
+you will create a new application using the [Express](https://github.com/expressjs/express) module, which provides an MVC framework for creating Node.js web applications.
 
 A screenshot of the completed application is below:
 
@@ -48,6 +48,8 @@ Perform the following steps to create a new cloud service project named 'express
 
     > [!NOTE]
     > By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
+    > 
+    > 
 
 ##Install Express
 

@@ -3,8 +3,8 @@ title: Branding Guidelines for Applications | Microsoft Docs
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: skwan
+manager: mtillman
 editor: ''
 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 06/26/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -47,9 +47,9 @@ Your app may present separate paths for sign-up and sign-in and the following se
 **If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
 
 ## Visual guidance for app acquisition
-Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data that is hosted by Microsoft. 
+Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data that is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md) article.
 
-After admins consent to your app, they can choose to add it to their users’ Office 365 app launcher experience (accessible from the waffle and from [https://portal.office.com/myapps](https://portal.office.com/myapps)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like this:
+After admins consent to your app, they can choose to add it to their users’ Office 365 app launcher experience (accessible from the waffle and from [https://portal.partner.microsoftonline.cn/myapps](https://portal.partner.microsoftonline.cn/myapps)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like this:
 
 ![Application Types and scenarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
@@ -88,3 +88,4 @@ You can also use a dark color scheme for the buttons.
 **DO** provide a way for users to sign out and switch to another user account. Support for multiple signed-in users is coming soon.
 
 
+<!-- Update_Description: wording update -->

@@ -3,8 +3,8 @@ title: Deploy and manage backups for Resource Manager-deployed VMs using PowerSh
 description: Use PowerShell to deploy and manage backups in Azure for Resource Manager-deployed VMs
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 
 ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
@@ -13,18 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/17/2017
-ms.date: 11/27/2017
+origin.date: 11/28/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
 # Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Classic](backup-azure-vms-classic-automation.md)
->
->
 
 This article shows you how to use Azure PowerShell cmdlets to back up and recover an Azure virtual machine (VM) from a Recovery Services vault. A Recovery Services vault is an Azure Resource Manager resource and is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to protect Azure Service Manager-deployed VMs, and Azure Resource Manager-deployed VMs.
 
@@ -566,7 +561,7 @@ OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
-Run the script on the machine where you want to recover the files. You need to enter the password shown above to execute the script. After the disks are attached, use the Windows file explorer to browse through the new volumes and files. 
+Run the script on the machine where you want to recover the files. You need to enter the password shown above to execute the script. After the disks are attached, use the Windows file explorer to browse through the new volumes and files. For more information refer to the [file recovery documentation](backup-azure-restore-files-from-vm.md)
 
 ### Unmount the disks
 After the required files are copied, unmount the disks by using the **[Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** cmdlet. This is highly recommended as it makes sure that access is removed to the files of the recovery point

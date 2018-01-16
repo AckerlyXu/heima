@@ -16,10 +16,6 @@
 ### [Create PHP web and worker roles](../cloud-services-php-create-web-role.md)
 ### [Build and deploy a Node.js application](cloud-services-nodejs-develop-deploy-app.md)
 ### [Build a Node.js web application using Express](cloud-services-nodejs-develop-deploy-express-app.md)
-### Storage and Visual Studio
-#### [Blob storage and connected services](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Queue storage and connected services](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Table storage and connected services](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### Configure packages for continuous build and deploy
 #### [TFS and Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configure traffic rules for a role](cloud-services-enable-communication-role-instances.md)
@@ -39,7 +35,6 @@
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Create an empty cloud service container in PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Configure a custom domain name](cloud-services-custom-domain-name-portal.md)
-### [Stage a cloud service deployment (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 
 ## Manage service
@@ -104,3 +99,4 @@
 # Resources
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)

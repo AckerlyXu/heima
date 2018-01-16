@@ -2,8 +2,8 @@
 title: Azure Active Directory Application and Service Principal Objects 
 description: A discussion of the relationship between application and service principal objects in Azure Active Directory
 documentationcenter: dev-center-name
-author: alexchen2016
-manager: digimobile
+author: bryanla
+manager: mtillman
 services: active-directory
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/19/2017
-ms.date: 11/23/2017
+ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
@@ -26,7 +26,7 @@ Sometimes the meaning of the term "application" can be misunderstood when used i
 An application that has been integrated with Azure AD has implications that go beyond the software aspect. "Application" is frequently used as a conceptual term, referring to not only the application software, but also its Azure AD registration and role in authentication/authorization "conversations" at runtime. By definition, an application can function in a [client](active-directory-dev-glossary.md#client-application) role (consuming a resource), a [resource server](active-directory-dev-glossary.md#resource-server) role (exposing APIs to clients), or even both. The conversation protocol is defined by an [OAuth 2.0 Authorization Grant flow](active-directory-dev-glossary.md#authorization-grant), allowing the client/resource to access/protect a resource's data respectively. Now let's go a level deeper, and see how the Azure AD application model represents an application at design-time and run-time. 
 
 ## Application registration
-When you register an application in the [Azure Classic Management Portal][AZURE-Classic-Portal], two objects are created in your Azure AD tenant: an application object, and a service principal object.
+When you register an Azure AD application in the [Azure portal][AZURE-Portal], two objects are created in your Azure AD tenant: an application object, and a service principal object.
 
 #### Application object
 An Azure AD application is defined by its one and only application object, which resides in the Azure AD tenant where the application was registered, known as the application's "home" tenant. The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object's properties. 
@@ -64,17 +64,17 @@ In Step 2, when Contoso and Fabrikam administrators complete consent, a service 
 In Step 3, the consumer tenants of the HR application (Contoso and Fabrikam) each have their own service principal object. Each represents their use of an instance of the application at runtime, governed by the permissions consented by the respective administrator.
 
 ## Next steps
-An application's application object can be accessed via the Azure AD Graph API, the [Azure classical portal's][AZURE-Classic-Portal] application manifest editor, or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [Application entity][AAD-Graph-App-Entity].
+An application's application object can be accessed via the Azure AD Graph API, the [Azure portal's][AZURE-Portal] application manifest editor, or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [Application entity][AAD-Graph-App-Entity].
 
 An application's service principal object can be accessed via the Azure AD Graph API or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [ServicePrincipal entity][AAD-Graph-Sp-Entity].
 
-The [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) is useful for querying both the application and service principal objects.
+The [Azure AD Graph Explorer](graphexplorerchina.azurewebsites.net) is useful for querying both the application and service principal objects.
 
 <!--Image references-->
 
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.cn
+[AZURE-Portal]: https://portal.azure.cn
 
 <!--Update_Description: wording update-->

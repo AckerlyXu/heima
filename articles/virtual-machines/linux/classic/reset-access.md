@@ -3,8 +3,8 @@ title: Reset Linux VM password and SSH key from the CLI | Azure
 description: How to use the VMAccess extension from the Azure Command-Line Interface (CLI) to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2016
-ms.date: 12/20/2016
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension
@@ -42,7 +42,7 @@ With the Azure CLI, you can do the following tasks:
 ## Prerequisites
 You will need to do the following:
 
-* You will need to [install the Azure CLI](../../../cli-install-nodejs.md) and [connect to your subscription](../../../xplat-cli-connect.md) to use Azure resources associated with your account.
+* You will need to [install the Azure CLI](../../../cli-install-nodejs.md) and [connect to your subscription](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest) to use Azure resources associated with your account.
 * Set the correct mode for the classic deployment model by typing the following at the command prompt:
     ``` 
         azure config mode asm
@@ -191,3 +191,4 @@ To repair disks that are not mounting or have mount configuration errors, use th
 * If you want to use Azure PowerShell cmdlets or Azure Resource Manager templates to reset the password or SSH key, fix the SSH configuration, and check disk consistency, see the [VMAccess extension documentation on GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * You can also use the [Azure portal](https://portal.azure.cn) to reset the password or SSH key of a Linux VM deployed in the classic deployment model. You can't currently use the portal do to this for a Linux VM deployed in the Resource Manager deployment model.
 * See [About virtual machine extensions and features](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) for more about using VM extensions for Azure virtual machines.
+<!-- Update_Description: update link -->

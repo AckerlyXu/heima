@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2015
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -52,7 +52,7 @@ You need the following resources and abilities:
   * Corosync and Pacemaker
 
 ### Affinity group
-Create an affinity group for the solution by signing in to the Azure Classic Management Portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
+Create an affinity group for the solution by signing in to the Azure portal, selecting **Settings**, and creating an affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 A new network is created, and a subnet is created inside the network. This example uses a 10.10.10.0/24 network with only one /24 subnet inside.
@@ -61,6 +61,7 @@ A new network is created, and a subnet is created inside the network. This examp
 The first Ubuntu 13.10 VM is created by using an Endorsed Ubuntu Gallery image and is called `hadb01`. A new cloud service is created in the process, called hadb. This name illustrates the shared, load-balanced nature that the service will have when more resources are added. The creation of `hadb01` is uneventful and completed by using the portal. An endpoint for SSH is automatically created, and the new network is selected. Now you can create an availability set for the VMs.
 
 After the first VM is created (technically, when the cloud service is created), create the second VM, `hadb02`. For the second VM, use Ubuntu 13.10 VM from the Gallery by using the portal, but use an existing cloud service, `hadb.chinacloudapp.cn`, instead of creating a new one. The network and availability set should be automatically selected. An SSH endpoint will be created, too.
+<!-- cloudapp.net to chinacloudapp.cn is correct -->
 
 After both VMs have been created, take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure).
 
@@ -340,4 +341,4 @@ The following limitations apply:
 * MySQL tuning is necessary to ensure that writing is done at a manageable pace and caches are flushed to disk as frequently as possible to minimize memory loss.
 * Write performance is dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: wording update, update link -->

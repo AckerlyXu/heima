@@ -78,7 +78,6 @@ In this procedure, you first create an event hub namespace, and then you add an 
     ![Blade for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
 
 7. Click **Create**.
-
 ### Grant access to the event hub and get a connection string
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
@@ -408,6 +407,7 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 <!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.-->
 For more information about Stream Analytics in general, see these articles:
+
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)

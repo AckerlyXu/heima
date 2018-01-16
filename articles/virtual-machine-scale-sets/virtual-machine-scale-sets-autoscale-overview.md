@@ -135,5 +135,3 @@ You can create autoscale rules that use host-based metrics with one of the follo
 
 This overview detailed how to use autoscale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. 
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
-

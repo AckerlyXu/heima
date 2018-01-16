@@ -3,8 +3,8 @@ title: 'First look: Protect Azure VMs with a recovery services vault | Microsoft
 description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 keyword: backups; vm backup
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 09/04/2017
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
@@ -39,7 +39,7 @@ This tutorial takes you through the steps for creating a recovery services vault
 
 For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). For more information on pre and post-script framework for Linux VM backup see [Application consistent Linux VM backup using pre-script and post-script](/backup/backup-azure-linux-app-consistent).
 
-To find out more about what can you backup and what you can't, refer [here](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+To find out more about what can you backup and what you can't, refer [here](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 > [!NOTE]
 > This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
@@ -49,6 +49,74 @@ To find out more about what can you backup and what you can't, refer [here](back
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
 Depending on the number of virtual machines you want to protect, you can begin from different starting points. If you want to back up multiple virtual machines in one operation, go to the Recovery Services vault and [initiate the backup job from the vault dashboard](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). If you want to back up a single virtual machine, you can initiate the backup job from VM management blade.
+
+## Configure the backup job from the VM management blade
+
+Use the following steps to configure the backup job from the virtual machine management blade in the Azure portal. These steps do not apply to the virtual machines in the Classic Management Portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.cn/).
+2. On the Hub menu, click **More Services** and in the Filter dialog, type **Virtual machines**. As you type, the list of resources filters. When you see Virtual machines, select it.
+
+    ![On Hub menu, click More Services to open text dialog, and type Virtual machines](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+
+    The list of virtual machines (VM) in the subscription, appears.
+
+    ![The list of VMs in the subscription appears.](./media/backup-azure-vms-first-look-arm/list-of-vms.png)
+
+3. From the list, select a VM to back up.
+
+    ![The list of VMs in the subscription appears.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
+
+    When you select the VM, the list of virtual machines shifts to the left, and the virtual machine management blade and the virtual machine dashboard, open. </br>
+  ![VM Management blade](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+
+4. On the VM management blade, in the **Settings** section, click **Backup**. </br>
+
+    ![Backup option in VM management blade](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+    The Enable backup blade opens.
+
+    ![Backup option in VM management blade](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. For the Recovery Services vault, click **Select existing** and choose the vault from the drop-down list.
+
+    ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+    If there are no Recovery Services vaults, or you want to use a new vault, click **Create new** and provide the name for the new vault. A new vault is created in the same Resource Group and same location as the virtual machine. If you want to create a Recovery Services vault with different values, see the section on how to [create a recovery services vault](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
+
+6. To view the details of the Backup policy, click **Backup policy**.
+
+    The **Backup policy** blade opens and provides the details of the selected policy. If other policies exist, use the drop-down menu to choose a different backup policy. If you want to create a policy, select **Create New** from the drop-down menu. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). To save the changes to the backup policy and return to the Enable backup blade, click **OK**.
+
+    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
+
+7. On the Enable backup blade, click **Enable Backup** to deploy the policy. Deploying the policy associates it with the vault and the virtual machines.
+
+    ![Enable Backup button](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. You can track the configuration progress through the notifications that appear in the portal. The following example shows that Deployment started.
+
+    ![Enable Backup notification](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. Once the configuration progress has completed, on the VM management blade, click **Backup** to open the Backup Item blade and view the details.
+
+    ![VM Backup Item View](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+    Until the initial backup has completed, **Last backup status** shows as **Warning(Initial backup pending)**. To see when the next scheduled backup job occurs, under **Backup policy** click the name of the policy. The Backup Policy blade opens and shows the time of the scheduled backup.
+
+10. To run a Backup job and create the initial recovery point, on the Backup vault blade click **Backup now**.
+
+    ![click Backup now to run the initial backup](./media/backup-azure-vms-first-look-arm/backup-now.png)
+
+    The Backup Now blade opens.
+
+    ![shows the Backup Now blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+11. On the Backup Now blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
+
+    ![set the last day the Backup Now recovery point is retained](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+    Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page.
 
 ## Configure the backup job from the Recovery Services vault
 To configure the backup job, you complete the following steps.  
@@ -194,56 +262,56 @@ Unless your initial backup is due to begin soon, it is recommended that you run 
 To run the initial backup job:
 
 1. On the vault dashboard, click the number under **Backup Items**, or click the **Backup Items** tile. <br/>
-  ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  The **Backup Items** blade opens.
+     The **Backup Items** blade opens.
 
-  ![Back up items](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
+    ![Back up items](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
 2. On the **Backup Items** blade, select the item.
 
-  ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
+    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-  The **Backup Items** list opens. <br/>
+    The **Backup Items** list opens. <br/>
 
-  ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
+    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
 3. On the **Backup Items** list, click the ellipses **...** to open the Context menu.
 
-  ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu.png)
+    ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-  The Context menu appears.
+    The Context menu appears.
 
-  ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+    ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
 
 4. On the Context menu, click **Backup now**.
 
-  ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+    ![Context menu](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  The Backup Now blade opens.
+    The Backup Now blade opens.
 
-  ![shows the Backup Now blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+    ![shows the Backup Now blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
 5. On the Backup Now blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
 
-  ![set the last day the Backup Now recovery point is retained](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+    ![set the last day the Backup Now recovery point is retained](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-  Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your VM, creating the initial backup may take a while.
+    Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your VM, creating the initial backup may take a while.
 
 6. To view or track the status of the initial backup, on the vault dashboard, on the **Backup Jobs** tile click **In progress**.
 
-  ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  The Backup Jobs blade opens.
+    The Backup Jobs blade opens.
 
-  ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  In the **Backup jobs** blade, you can see the status of all jobs. Check if the backup job for your VM is still in progress, or if it has finished. When a backup job is finished, the status is *Completed*.
+    In the **Backup jobs** blade, you can see the status of all jobs. Check if the backup job for your VM is still in progress, or if it has finished. When a backup job is finished, the status is *Completed*.
 
-  > [!NOTE]
-  > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
-  >
-  >
+    > [!NOTE]
+    > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
+    >
+    >
 
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]

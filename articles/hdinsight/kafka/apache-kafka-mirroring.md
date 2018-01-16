@@ -64,7 +64,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
 
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
     The Azure Resource Manager template is located at **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
@@ -72,9 +72,9 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
     > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following information to populate the entries on the **Custom deployment** blade:
-
-    ![HDInsight custom deployment](./media/hdinsight-apache-kafka-mirroring/parameters.png)
-
+    
+    ![HDInsight custom deployment](./media/apache-kafka-mirroring/parameters.png)
+    
     * **Resource group**: Create a group or select an existing one. This group contains the HDInsight cluster.
 
     * **Location**: Select a location geographically close to you.
@@ -106,7 +106,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
-    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following commands to find the Zookeeper hosts for the source cluster:
 
@@ -155,7 +155,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
-    For information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. A `consumer.properties` file is used to configure communication with the **source** cluster. To create the file, use the following command:
 
@@ -258,7 +258,7 @@ While you can create an Azure virtual network and Kafka clusters manually, it's 
 
 ## Delete the cluster
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 Since the steps in this document create both clusters in the same Azure resource group, you can delete the resource group in the Azure portal. Deleting the resource group removes all resources created by following this document, the Azure Virtual Network, and storage account used by the clusters.
 
@@ -267,7 +267,7 @@ Since the steps in this document create both clusters in the same Azure resource
 In this document, you learned how to use MirrorMaker to create a replica of a Kafka cluster. Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
-* [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
+* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

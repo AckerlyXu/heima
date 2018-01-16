@@ -3,8 +3,8 @@ title: Use DPM to back up workloads to Azure portal| Microsoft Docs
 description: An introduction to backing up DPM servers using the Azure Backup service
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: adigan
+manager: nkolli
 editor: ''
 keywords: System Center Data Protection Manager, data protection manager, dpm backup
 
@@ -15,15 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 11/27/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 ---
 # Preparing to back up workloads to Azure with DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -39,7 +37,7 @@ This article provides an introduction to using Azure Backup to protect your Syst
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) backs up file and application data. More information about supported workloads can be found [here](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix).Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Azure Backup. DPM interacts with Azure Backup as follows:
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) backs up file and application data. More information about supported workloads can be found [here](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Azure Backup. DPM interacts with Azure Backup as follows:
 
 - **DPM deployed as a physical server or on-premises virtual machine** — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to a Recovery Services vault in addition to disk and tape backup.
 - **DPM deployed as an Azure virtual machine** — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine. If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to a Recovery Services vault.
@@ -110,7 +108,7 @@ The vault credential is used only during the registration workflow. It is the us
 The vault credential file is downloaded through a secure channel from the Azure portal. The Azure Backup service is unaware of the private key of the certificate and the private key is not persisted in the portal or the service. Use the following steps to download the vault credential file to a local machine.
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
-2. Open Recovery Services vault to which to which you want to register DPM machine.
+2. Open the Recovery Services vault that you want to register DPM machine.
 3. Settings blade opens up by default. If it is closed, click on **Settings** on vault dashboard to open the settings blade. In Settings blade, click on **Properties**.
 
     ![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -128,7 +126,7 @@ The portal will generate a vault credential using a combination of the vault nam
 ### 3. Install Backup Agent
 After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
 
-1. Open Recovery Services vault to which to which you want to register DPM machine.
+1. Open the Recovery Services vault that you want to register DPM machine.
 2. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade. In Settings blade, click on **Properties**.
 
     ![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -136,7 +134,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
     ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Once the agent is downloaded, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
+   Once the agent is downloaded, run the MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
 4. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
 5. The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
 6. Once the agent is installed, **Close** the window.
@@ -204,4 +202,4 @@ And these are unsupported:
 >
 >
 
-<!--Update_Description: add content about "Key Definitions"-->
+<!--Update_Description: wording update -->

@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/08/2017
-ms.date: 12/06/2017
+origin.date: 12/12/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 ms.custom: na
 
@@ -63,6 +63,8 @@ Replace example values with your resource Uniform Resource Identifiers (URIs).
 You can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.
 
 For a list of supported metrics, see [Azure Monitor autoscaling common metrics](/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
+
+For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
 
 The sample uses the host-level CPU metric and a message count metric.
 
@@ -362,7 +364,13 @@ To learn about extension sequencing in virtual machine scale sets, see [Extensio
  
 ### How do I reset the password for VMs in my virtual machine scale set?
 
-To reset the password for VMs in your virtual machine scale set, use VM access extensions. 
+There are two main ways to change the password for VMs in scale sets.
+
+1. Change the VMSS model directly. Available with Compute API 2017-12-01 and later.
+
+Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs will have the new credentials. Existing VMs will only have the new credentials if they are reimaged. 
+
+2. Reset the password using the VM access extensions.
 
 Use the following PowerShell example:
 

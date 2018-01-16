@@ -1,10 +1,10 @@
 ---
-title: Manage Azure Redis Cache using Azure CLI | Azure
+title: Manage Azure Redis Cache using Azure CLI | Microsoft Docs
 description: Learn how to install the Azure CLI on any platform, how to use it to connect to your Azure account, and how to create and manage a Redis cache from the Azure CLI.
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: alexchen2016
+manager: digimobile
 editor: ''
 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 05/02/2017
-ms.author: v-dazen
+ms.date: 12/29/2017
+ms.author: v-junlch
 
 ---
 # How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)
@@ -269,3 +269,5 @@ For more information about this command, run the `azure rediscache list-keys -h`
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+
+<!--Update_Description: update metedata properties -->

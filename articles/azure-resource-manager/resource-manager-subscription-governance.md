@@ -113,7 +113,7 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 
 * Enforce Department and Owner tags on all resources
 * Restrict resource creation to the North American Region
-* Restrict the ability to create G-Series VMs and HDInsight Clusters
+<!-- Not Available on * Restrict the ability to create G-Series VMs and HDInsight Clusters-->
 
 "Agile" Environment for a business unit creating cloud applications
 
@@ -134,9 +134,11 @@ Azure Resource Manager policies are a powerful tool in the Azure toolkit. They e
 > 
 
 ### Audit - what happened?
-To view how your environment is functioning, you need to audit user activity. Most resource types within Azure create diagnostic logs that you can analyze through a log tool or in Azure Operations Management Suite. You can gather activity logs across multiple subscriptions to provide a departmental or enterprise view. Audit records are both an important diagnostic tool and a crucial mechanism to trigger events in the Azure environment.
+To view how your environment is functioning, you need to audit user activity. Most resource types within Azure create diagnostic logs that you can analyze through a log tool. You can gather activity logs across multiple subscriptions to provide a departmental or enterprise view. Audit records are both an important diagnostic tool and a crucial mechanism to trigger events in the Azure environment.
+<!-- Not Available on Azure Operations Management Suite -->
 
-Activity logs from Resource Manager deployments enable you to determine the **operations** that took place and who performed them. Activity logs can be collected and aggregated using tools like Log Analytics.
+Activity logs from Resource Manager deployments enable you to determine the **operations** that took place and who performed them.
+<!--Not Available on  Activity logs can be collected and aggregated using tools like Log Analytics. -->
 
 ## Resource tags
 As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](resource-group-using-tags.md). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 

@@ -1,6 +1,6 @@
 <!-- F-series, Fs-series* -->
 
-Compute optimized VM sizes have a high CPU-to-memory ratio and are good for medium traffic web servers, network appliances, batch processes, and application servers. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping.
+Compute optimized VM sizes have a high CPU-to-memory ratio and are good for medium traffic web servers, network appliances, batch processes, and application servers. This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping.
 
 F-series is based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, which can achieve clock speeds as high as 3.1 GHz with the Intel Turbo Boost Technology 2.0. This is the same CPU performance as the Dv2-series of VMs.  
 
@@ -42,5 +42,5 @@ ACU: 210 - 250
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
 
 <br>
-<!-- ms.date: 12/11/2017 -->
+<!-- ms.date: 01/08/2018 -->
 <!-- Update_Description: wording update -->

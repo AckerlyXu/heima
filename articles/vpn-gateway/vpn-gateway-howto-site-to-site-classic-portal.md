@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/010/2017
-ms.date: 08/31/2017
+origin.date: 12/05/2017
+ms.date: 12/29/2017
 ms.author: v-junlch
 
 ---
@@ -45,7 +45,7 @@ Verify that you have met the following criteria before beginning configuration:
 - Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 - Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
 - If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-- Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator. 
+- Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator. 
 
 ### <a name="values"></a>Sample configuration values for this exercise
 
@@ -60,8 +60,8 @@ The examples in this article use the following values. You can use these values 
   - BackEnd: 10.12.0.0/24 (optional for this exercise)
 - **GatewaySubnet:** 10.11.255.0/27
 - **Resource Group:** TestRG1
-- **Location:** China East
-- **DNS Server:** 8.8.8.8 (optional for this exercise)
+- **Location:** China North
+- **DNS Server:** 10.11.0.3 (optional for this exercise)
 - **Local site name:** Site2
 - **Client address space:** The address space that is located on your on-premises site.
 
@@ -94,8 +94,6 @@ When you create a virtual network to use for a S2S connection, you need to make 
 9. After clicking 'Create', a tile appears on the dashboard that reflects the progress of your VNet. The tile changes as the VNet is being created.
 
   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creating virtual network")
-
-Once your virtual network is created, you see **Created** listed under **Status** on the networks page in the Azure Classic Management Portal.
 
 ## <a name="additionaladdress"></a>2. Add additional address space
 
@@ -177,17 +175,17 @@ In this step, you set the shared key and create the connection. The key you set 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Add-AzureAccount -Environment AzureChinaCloud
+  Add-AzureRmAccount -Environment AzureChinaCloud
   ```
 2. Check the subscriptions for the account.
 
   ```powershell
-  Get-AzureSubscription
+  Get-AzureRmSubscription
   ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
   ```powershell
-  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+  Select-AzureRmSubscription -SubscriptionId "Replace_with_your_subscription_ID"
   ```
 
 ### Step 2. Set the shared key and create the connection

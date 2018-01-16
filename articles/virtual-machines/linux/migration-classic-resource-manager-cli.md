@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -46,7 +46,7 @@ Here are a few best practices that we recommend as you evaluate migrating IaaS r
 > 
 
 ## Step 2: Set your subscription and register the provider
-For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../../cli-install-nodejs.md) and [select your subscription](../../xplat-cli-connect.md).
+For migration scenarios, you need to set up your environment for both classic and Resource Manager. [Install Azure CLI](../../cli-install-nodejs.md) and [select your subscription](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest).
 
 Sign-in to your account.
 
@@ -82,8 +82,7 @@ For this step you'll need to switch to `arm` mode. Do this with the following co
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager.  
-<!-- Not Available on azure-subscription-service-limits.md -->
+You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -186,4 +185,4 @@ If the prepared configuration looks good, you can move forward and commit the re
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

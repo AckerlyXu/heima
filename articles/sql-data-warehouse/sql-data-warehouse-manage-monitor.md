@@ -14,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
-
 # Monitor your workload using DMVs
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
 
@@ -145,7 +144,9 @@ If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 ```
 
-## <a name="waiting"></a> Monitor waiting queries
+<a name="waiting"></a>
+
+## Monitor waiting queries
 If you discover that your query is not making progress because it is waiting for a resource, here is a query that shows all the resources a query is waiting for.
 
 ```sql
@@ -171,7 +172,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
 ## Monitor tempdb
-High tempdb utilization can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality rowgroups and take the appropriate actions. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node. 
+High tempdb utilization can be the root cause for slow performance and out of memory issues. Consider scaling your data warehouse if you find tempdb reaching its limits during query execution. The following describes how to identify tempdb usage per query on each node. 
 
 Create the following view to associate the appropriate node id for sys.dm_pdw_sql_requests. This will enable you to leverage other pass-through DMVs and join those tables with sys.dm_pdw_sql_requests.
 
@@ -230,7 +231,7 @@ ORDER BY sr.request_id;
 ```
 ## Monitor memory
 
-Memory can be the root cause for slow performance and out of memory issues. Please first check if you have data skew or poor quality rowgroups and take the appropriate actions. Consider scaling your data warehouse if you find SQL Server memory usage reaching its limits during query execution.
+Memory can be the root cause for slow performance and out of memory issues. Consider scaling your data warehouse if you find SQL Server memory usage reaching its limits during query execution.
 
 The following query returns SQL Server memory usage and memory pressure per node:	
 ```sql
@@ -255,7 +256,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## Monitor transaction log size
-The following query returns the transaction log size on each distribution. Please check if you have data skew or poor quality rowgroups and take the appropriate actions. If one of the log files is reaching 160GB, you should consider scaling up your instance or limiting your transaction size. 
+The following query returns the transaction log size on each distribution. If one of the log files is reaching 160GB, you should consider scaling up your instance or limiting your transaction size. 
 ```sql
 -- Transaction log size
 SELECT
@@ -303,4 +304,6 @@ See [SQL Data Warehouse best practices][SQL Data Warehouse best practices] for m
 [sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/zh-cn/library/ms190322.aspx
+[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+
+<!-- Update_Description: update meta properties, wording update -->

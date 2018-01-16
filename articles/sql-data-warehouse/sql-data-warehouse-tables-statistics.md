@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+origin.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
-
 # Managing statistics on tables in SQL Data Warehouse
-
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Data Types][Data Types]
@@ -47,7 +46,7 @@ In addition to creating statistics on single columns, you may find that your que
 ## Updating statistics
 Updating statistics is an important part of your database management routine.  When the distribution of data in the database changes, statistics need to be updated.  Out-of-date statistics will lead to sub-optimal query performance.
 
-One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
+One best practice is to update statistics on date columns each day as new dates are added.  Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out-of-date. Conversely, statistics on a country column in a customer table might never need to be updated, as the distribution of values doesn't generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you definitely need to update statistics on the country column.
 
 One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"
 
@@ -55,9 +54,9 @@ This question is not one that can be answered by the age of the data. An up to d
 
 For reference, **SQL Server** (not SQL Data Warehouse) automatically updates statistics for these situations:
 
-* If you have zero rows in the table, when you add rows, you’ll get an automatic update of statistics
-* When you add more than 500 rows to a table starting with less than 500 rows (e.g. at start you have 499 and then add 500 rows to a total of 999 rows), you’ll get an automatic update 
-* Once you’re over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you’ll see an automatic update on the stats
+* If you have zero rows in the table, when you add rows, you'll get an automatic update of statistics
+* When you add more than 500 rows to a table starting with less than 500 rows (e.g. at start you have 499 and then add 500 rows to a total of 999 rows), you'll get an automatic update 
+* Once you're over 500 rows you will have to add 500 additional rows + 20% of the size of the table before you'll see an automatic update on the stats
 
 Since there is no DMV to determine if data within the table has changed since the last time statistics were updated, knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics where updated on each table.  
 
@@ -479,18 +478,19 @@ For more details, see [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] on MSDN.  To 
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/zh-cn/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/zh-cn/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/zh-cn/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/zh-cn/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/zh-cn/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/zh-cn/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/zh-cn/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/zh-cn/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/zh-cn/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/zh-cn/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/zh-cn/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/zh-cn/library/ms187348.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
+[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
+[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
+[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
+[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
+[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
+[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
+[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
+[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
 <!--Other Web references-->
+<!-- Update_Description: update meta properties, wording update -->

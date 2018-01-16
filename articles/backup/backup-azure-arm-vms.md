@@ -3,8 +3,8 @@ title: Back up Azure VMs | Microsoft Docs
 description: Discover, register, and back up Azure virtual machines to a recovery services vault.
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: ''
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup
 
@@ -15,17 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
 # Back up Azure virtual machines to a Recovery Services vault
-> [!div class="op_single_selector"]
-> * [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
-> * [Back up VMs to Backup vault](backup-azure-vms.md)
->
->
 
 This article details how to back up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. Most of the work for backing up VMs is the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the backup operation to take snapshots of your VM.
 
@@ -104,3 +99,4 @@ Now that you have protected your VM, see the following articles to learn about V
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-arm-restore-vms.md)
 
+<!--Update_Description: wording update -->
