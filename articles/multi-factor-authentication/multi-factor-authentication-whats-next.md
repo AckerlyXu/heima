@@ -3,8 +3,8 @@ title: Configure Azure Multi-Factor Authentication | Microsoft Docs
 description: This article describes how to configure Azure Multi-Factor Authentication settings.
 services: multi-factor-authentication
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2017
-ms.date: 12/22/2017
+origin.date: 01/03/2018
+ms.date: 01/16/2018
 ms.author: v-junlch
 ms.reviewer: richagi
 
@@ -53,4 +53,4 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 
 6. Click **Save**.
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update metedata properties -->
