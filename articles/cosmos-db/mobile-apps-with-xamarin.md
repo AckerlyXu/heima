@@ -22,7 +22,7 @@ ms.author: v-yeche
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Most mobile apps need to store data in the cloud, and Azure Cosmos DB is a cloud database for mobile apps. It has everything a mobile developer needs. It is a fully managed database as a service that scales on demand. It can bring your data to your application transparently, wherever your users are located around the globe. By using the [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), you can enable Xamarin mobile apps to interact directly with Azure Cosmos DB, without a middle tier.
+Most mobile apps need to store data in the cloud, and Azure Cosmos DB is a cloud database for mobile apps. It has everything a mobile developer needs. It is a fully managed database as a service that scales on demand. It can bring your data to your application transparently, wherever your users are located around the multiple-region. By using the [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), you can enable Xamarin mobile apps to interact directly with Azure Cosmos DB, without a middle tier.
 
 This article provides a tutorial for building mobile apps with Xamarin and Azure Cosmos DB. You can find the complete source code for the tutorial at [Xamarin and Azure Cosmos DB on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), including how to manage users and permissions.
 
@@ -34,7 +34,8 @@ Azure Cosmos DB provides the following key capabilities for mobile app developer
 * Rich queries over schemaless data. Azure Cosmos DB stores data as schemaless JSON documents in heterogeneous collections. It offers [rich and fast queries](sql-api-sql-query.md) without the need to worry about schemas or indexes.
 * Fast throughput. It takes only a few milliseconds to read and write documents with Azure Cosmos DB. Developers can specify the throughput they need, and Azure Cosmos DB honors it with 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.
 * Limitless scale. Your Azure Cosmos DB collections [grow as your app grows](partition-data.md). You can start with small data size and throughput of hundreds of requests per second. Your collections can grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
-* Globally distributed. Mobile app users are on the go, often across the world. Azure Cosmos DB is a [globally distributed database](distribute-data-globally.md). Click the map to make your data accessible to your users.
+* multiple-region distributed. Mobile app users are on the go, often across the world. Azure Cosmos DB is a [globally distributed database](distribute-data-globally.md). Click the map to make your data accessible to your users.
+<!-- Notice: 全球 to 多个区域 -->
 * Built-in rich authorization. With Azure Cosmos DB, you can easily implement popular patterns like [per-user data](https://aka.ms/documentdb-xamarin-todouser) or multiuser shared data, without complex custom authorization code.
 * Geospatial queries. Many mobile apps offer geo-contextual experiences today. With first-class support for [geospatial types](geospatial.md), Azure Cosmos DB makes creating these experiences easy to accomplish.
 * Binary attachments. Your app data often includes binary blobs. Native support for attachments makes it easier to use Azure Cosmos DB as a one-stop shop for your app data.
@@ -93,7 +94,10 @@ Azure Cosmos DB is a managed database as a service. As your user base grows, you
 ![Azure Cosmos DB scale throughput on demand](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
 ### Go planet scale
-As your app gains popularity, you might gain users across the globe. Or maybe you want to be prepared for unforeseen events. Go to the Azure portal, and open your Azure Cosmos DB account. Click the map to make your data continuously replicate to any number of regions across the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
+As your app gains popularity, you might gain users across the multiple-region. Or maybe you want to be prepared for unforeseen events. Go to the Azure portal, and open your Azure Cosmos DB account. Click the map to make your data continuously replicate to any number of regions across the world. This capability makes your data available wherever your users are. You can also add failover policies to be prepared for contingencies.
+<!-- Notice: 全球 to 多个区域 -->
+<!-- Notice: 全球各地 to 中国各地 -->
+<!-- Notice: 全球 to 中国 -->
 
 ![Azure Cosmos DB scale across geographic regions](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
 

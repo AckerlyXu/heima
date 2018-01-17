@@ -84,5 +84,6 @@ There's no MongoDB API extension to set throughput. The recommendation is to use
 
 ## Next steps
 
-To learn more about provisioning and going planet-scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
+To learn more about provisioning and going multiple-region scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
+<!-- Notice: 全球 to 多个区域 -->
 <!-- Update_Description: update link , wording update -->

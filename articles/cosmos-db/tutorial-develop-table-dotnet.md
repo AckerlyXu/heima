@@ -20,8 +20,9 @@ ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Table API in .NET
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document and key/value databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document and key/value databases, all of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 <!--Not Available on Graph -->
+<!-- Notice: 全球 to 多个区域 -->
 
 This tutorial covers the following tasks: 
 
