@@ -1,5 +1,5 @@
 ---
-title: Azure AD Windows Store Getting Started | Microsoft Docs
+title: Azure AD Windows Universal Platform (UWP/XAML) getting started | Microsoft Docs
 description: Build Windows Store apps that integrate with Azure AD for sign-in and call Azure AD protected APIs using OAuth.
 services: active-directory
 documentationcenter: windows
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 09/16/2016
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD with Windows Store apps
+# Azure AD Windows Universal Platform (UWP/XAML) getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -50,7 +50,7 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
 4. Click **App registrations**, and then select **New application registration**.
 5. Create a **Native** Application.
     - **Name** describes the app to users.
-    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a placeholder value for now (for example, **http://DirectorySearcher**). You'll replace the value later.
+    - **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a placeholder value for now (for example, **http://DirectorySearcher**). You'll replace the value later.
 6. After you’ve completed the registration, Azure AD assigns the app a unique application ID. Copy the value on the **Application** tab, because you'll need it later.
 7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
 8. For the **Azure Active Directory** app, select **Microsoft Graph** as the API.

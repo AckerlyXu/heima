@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD with an Apache Cordova app
+# Azure AD Cordova getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -90,8 +90,8 @@ Azure AD issues tokens to only known applications. Before you can use Azure AD f
 3. Click **More Services** in the left pane, and then select **Azure Active Directory**.
 4. Click **App registrations**, and then select **New application registration**.
 5. Create a **Native** Application. (Although Cordova apps are HTML based, we're creating a native client application here or the application won't work.)
-  - **Name** describes your application to users.
-  - The **Redirect URI** is the URI used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
+      - **Name** describes your application to users.
+    - **Redirect URI** is the URI that's used to return tokens to your app. Enter **http://MyDirectorySearcherApp**.
 
 After you finish registration, Azure AD assigns a unique application ID to your app. You’ll need this value in the next sections. You can find it on the application tab of the newly created app.
 
@@ -273,16 +273,16 @@ The concrete steps for running the app vary by platform.
    Use `cordova run android --list` to see all available targets and `cordova run android --target=<target_name>` to run the application on a specific device or emulator (for example, `cordova run android --target="Nexus4_emulator"`).
 
 ### iOS
-  To run on a connected device: `cordova run ios --device`
+   To run on a connected device: `cordova run ios --device`
 
-  To run on the default emulator: `cordova emulate ios`
+   To run on the default emulator: `cordova emulate ios`
 
-  > [!NOTE]
-  > Make sure you have the `ios-sim` package installed to run on the emulator. For more information, see the "Prerequisites" section.
+   > [!NOTE]
+   > Make sure you have the `ios-sim` package installed to run on the emulator. For more information, see the "Prerequisites" section.
 
-  Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run the application on specific device or emulator (for example, `cordova run android --target="iPhone-6"`).
+    Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run the application on specific device or emulator (for example, `cordova run android --target="iPhone-6"`).
 
-  Use `cordova run --help` to see additional build and run options.
+    Use `cordova run --help` to see additional build and run options.
 
 ## Next steps
 For reference, the completed sample (without your configuration values) is available in [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).

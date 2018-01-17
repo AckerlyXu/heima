@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/16/2017
-ms.date: 06/27/2017
+ms.date: 01/16/2018
 ms.author: v-junlch
 
 ms.custom: H1Hack27Feb2017
@@ -23,29 +23,9 @@ ms.custom: H1Hack27Feb2017
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General
-**Q: How does Azure Multi-Factor Authentication Server handle user data?**
-
-With Multi-Factor Authentication Server, user data is stored only on the on-premises servers. No persistent user data is stored in the cloud. When the user performs two-step verification, Multi-Factor Authentication Server sends data to the Azure Multi-Factor Authentication cloud service for authentication. Communication between Multi-Factor Authentication Server and the Multi-Factor Authentication cloud service uses Secure Sockets Layer (SSL) or Transport Layer Security (TLS) over port 443 outbound.
-
-When authentication requests are sent to the cloud service, data is collected for authentication and usage reports. Data fields included in two-step verification logs are as follows:
-
-- **Unique ID** (either user name or on-premises Multi-Factor Authentication Server ID)
-- **First and Last Name** (optional)
-- **Email Address** (optional)
-- **Phone Number** (when using a voice call or SMS authentication)
-- **Device Token** (when using mobile app authentication)
-- **Authentication Mode**
-- **Authentication Result**
-- **Multi-Factor Authentication Server Name**
-- **Multi-Factor Authentication Server IP**
-- **Client IP** (if available)
-
-The optional fields can be configured in Multi-Factor Authentication Server.
-
-The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
 
 ## Billing
-Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://www.azure.cn/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
+Most billing questions can be answered by referring to the [Multi-Factor Authentication Pricing page](https://www.azure.cn/pricing/details/multi-factor-authentication/).
 
 **Q: Is my organization charged for sending the phone calls and text messages that are used for authentication?**
 
@@ -74,17 +54,6 @@ Delivery of text messages and receipt of replies in two-way SMS are not guarante
 If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](http://go.microsoft.com/fwlink/?Linkid=825072), [IOS](http://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
-
-**Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
-
-In some cases, yes. You can configure the timeout setting for two-way text messages in Azure MFA Server 7.0 and higher.
-
-Azure MFA Server stores one-time passcodes for 300 seconds (5 minutes) by default. If the user enters their code after the 300 seconds have passed, their authentication is denied. You can adjust the timeout by setting a registry key.
-
-1. Go to HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
-2. Create a DWORD registry key called **pfsvc_pendingSmsTimeoutSeconds** and set the time in seconds that you want the Azure MFA Server to store one-time passcodes.
-
-For one-way text messages, MFA Server stores one-time passcodes for 300 seconds, and cloud-based MFA in Azure AD stores them for 180 seconds. This setting is not configurable.
 
 **Q: Why are my users being prompted to register their security information?**
 

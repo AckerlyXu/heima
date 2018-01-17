@@ -1,5 +1,5 @@
 ---
-title: Azure AD Xamarin Getting Started | Microsoft Docs
+title: Azure AD Xamarin getting started | Microsoft Docs
 description: Build Xamarin applications that integrate with Azure AD for sign-in and call Azure AD-protected APIs using OAuth.
 services: active-directory
 documentationcenter: xamarin
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD with Xamarin apps
+# Azure AD Xamarin getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -52,7 +52,7 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
 4. Click **App registrations**, and then select **New application registration**.
 5. Create a new **Native** Application.
     - **Name** describes the app to users.
-    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a value (for example, http://DirectorySearcher).
+    - **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value (for example, http://DirectorySearcher).
 6. After you’ve completed registration, Azure AD assigns the app a unique application ID. Copy the value from the **Application** tab, because you'll need it later.
 7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
 8. Select **Microsoft Graph** as the API. Under **Delegated Permissions**, add the **Read Directory Data** permission.  

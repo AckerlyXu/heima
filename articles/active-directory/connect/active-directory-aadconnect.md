@@ -4,8 +4,8 @@ description: Azure AD Connect will integrate your on-premises directories with A
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 10/02/2017
-ms.date: 12/25/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 
 ---
@@ -133,7 +133,7 @@ if your ADFS server has not been configured to automatically update certificates
 | --- | --- |
 |All AD FS articles | [Azure AD Connect and federation](active-directory-aadconnectfed-whatis.md)|
 |Configure ADFS with subdomains | [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md)|
-|Manage AD FS farm | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md)|
+|Manage AD FS farm | [AD FS management and customization with Azure AD Connect](active-directory-aadconnect-federation-management.md)|
 |Manually updating federation certificates | [Renewing Federation Certificates for Office 365 and Azure AD](active-directory-aadconnect-o365-certs.md)|
 
 ## More information and references

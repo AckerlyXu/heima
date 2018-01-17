@@ -2,16 +2,16 @@
 title: Run Azure Batch jobs end-to-end without writing code (Preview) | Microsoft Docs
 description: Create template files for the Azure CLI to create Batch pools, jobs, and tasks. 
 services: batch
-author: alexchen2016
-manager: digimobile
+author: mscurrell
+manager: timlt
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-origin.date: 10/17/2017
-ms.date: 12/04/2017
+origin.date: 12/18/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 
 ---
@@ -91,7 +91,7 @@ Once the Azure CLI has been installed, the latest version of the Batch extension
 following CLI command:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 For more information about the Batch extension, see [Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
