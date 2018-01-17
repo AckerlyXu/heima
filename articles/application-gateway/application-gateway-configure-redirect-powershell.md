@@ -3,8 +3,8 @@ title: Configure redirection for Azure Application Gateway - PowerShell | Micros
 description: This page provides scenarios to configure redirection for Application Gateway utilizing PowerShell
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: davidmu1
+manager: timlt
 editor: 
 
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/18/2017
-ms.date: 12/29/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 
 ---
@@ -103,7 +103,9 @@ Add-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2  -Protoc
 # Get the new listener
 $listener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2 -ApplicationGateway $gw
 
-# Add a redirection configuration using a permanent redirect and targeting the existing listener
+# Add a redirection configuration using a permanent redirect targeting the existing listener and get the redirect configuration
+
+Add-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -RedirectType Permanent -TargetListener $httpslistener -IncludePath $true -IncludeQueryString $true -ApplicationGateway $gw
 $redirectconfig = Get-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -ApplicationGateway $gw
 
 # Retrieve the existing backend http settings to be used
