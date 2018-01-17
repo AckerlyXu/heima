@@ -3,7 +3,7 @@ title: Get Started with authentication for Mobile Apps in Xamarin Android
 description: Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD and Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: dhei
+author: conceptdev
 manager: panarasi
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 01/02/2018
+ms.date: 01/29/2018
 ---
 
 # Add authentication to your Xamarin.Android app
@@ -101,6 +101,8 @@ The app is updated to require users to tap the **Sign in** button and authentica
     > If you are using an identity provider other than MicrosoftAccount, change the value passed to **LoginAsync** above to the following: _WindowsAzureActiveDirectory_.
     > 
     > 
+    
+    
 3. In the **OnCreate** method, delete or comment-out the following line of code:
 
     ```

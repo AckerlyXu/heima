@@ -1,12 +1,13 @@
 ---
-title: Offline Data Sync in Azure Mobile Apps | Azure
+title: Offline Data Sync in Azure Mobile Apps 
 description: Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps
-documentationCenter: windows
-authors: adrianhall
-manager: dwrede
+documentationcenter: windows
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
+ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,7 +15,7 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 10/30/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ---
 
 # Offline Data Sync in Azure Mobile Apps
@@ -32,7 +33,7 @@ Offline sync has several benefits:
 
 * Improve app responsiveness by caching server data locally on the device
 * Create robust apps that remain useful when there are network issues
-* Allow end-users to create and modify data even when there is no network access, supporting
+* Allow end users to create and modify data even when there is no network access, supporting
   scenarios with little or no connectivity
 * Sync data across multiple devices and detect conflicts when the same record is modified by two devices
 * Limit network use on high-latency or metered networks

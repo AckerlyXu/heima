@@ -1,10 +1,10 @@
 ---
-title: Add authentication on Apache Cordova with Mobile Apps | Azure App Service
+title: Add authentication on Apache Cordova with Mobile Apps
 description: Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers.
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
@@ -15,7 +15,7 @@ ms.devlang: javascript
 ms.topic: article
 origin.date: 10/30/2016
 ms.author: v-yiso
-ms.date: 07/31/2017
+ms.date: 01/29/2018
 ---
 
 # Add authentication to your Apache Cordova app

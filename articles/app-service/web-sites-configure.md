@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 10/30/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 
 ---
@@ -43,6 +43,8 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 
 <a name="platform"></a>
 **Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard mode. Free and Shared modes always run in a 32-bit environment.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your web app uses [ASP.NET SignalR] or [socket.io](https://socket.io/).
 
@@ -118,7 +120,7 @@ To view the log files, you must create FTP credentials, as follows:
 
 ![Set deployment credentials][configure03]
 
-The full FTP user name is ¡°app\username¡± where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.  
+The full FTP user name is "app\username" where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.
 
 ![FTP deployment credentials][configure02]
 
@@ -156,7 +158,7 @@ For more information, see [How to: Monitor web endpoint status].
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
 [Enable HTTPS for an app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[How to: Monitor web endpoint status]: ./web-sites-monitor.md
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md#webendpointstatus
 [Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale a web app in Azure App Service]: ./web-sites-scale.md

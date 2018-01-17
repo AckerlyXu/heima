@@ -1,20 +1,21 @@
 ---
-title: Working with the App Service Mobile Apps managed client library (Windows | Xamarin) | Azure
+title: Working with the App Service Mobile Apps managed client library (Windows | Xamarin) 
 description: Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps.
 services: app-service\mobile
 documentationcenter: ''
-author: adrianhall
-manager: adrianha
+author: conceptdev
+manager: crdun
 editor: ''
 
+ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/04/2017
-ms.author: adrianha
-ms.date: 07/31/2017
+ms.author: v-yiso
+ms.date: 01/29/2018
 ---
 
 # How to use the managed client for Azure Mobile Apps
@@ -509,7 +510,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -785,7 +786,7 @@ using Azure Active Directory authentication.
 
     * Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The
       format should be https://login.chinacloudapi.cn/contoso.onmicrosoft.com. This value can be copied from the Domain
-      tab in your Azure Active Directory in the [Azure classic management portal].
+      tab in your Azure Active Directory in the [Azure portal].
     * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain the client
       ID from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
     * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
@@ -1187,7 +1188,6 @@ public async Task CallClientWithHandler()
     IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
     var newItem = new TodoItem { Text = "Hello world", Complete = false };
     await todoTable.InsertAsync(newItem);
-```
 }
 
     public class MyHandler : DelegatingHandler
@@ -1198,7 +1198,6 @@ public async Task CallClientWithHandler()
             // Change the request-side here based on the HttpRequestMessage
             request.Headers.Add("x-my-header", "my value");
 
-    ```
         // Do the request
         var response = await base.SendAsync(request, cancellationToken);
 
@@ -1207,8 +1206,9 @@ public async Task CallClientWithHandler()
         // Return the modified response
         return response;
     }
-    ```
-    }
+}
+```
+
 
 <!-- Anchors. -->
 
@@ -1258,7 +1258,6 @@ public async Task CallClientWithHandler()
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/zh-cn/library/azure/dn250579(v=azure.10).aspx
 [Azure portal]: https://portal.azure.cn/
-[Azure Classic Management Portal]: https://manage.windowsazure.cn/
 [EnableQueryAttribute]: https://msdn.microsoft.com/zh-cn/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/zh-cn/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/zh-cn/library/windows/apps/Hh701916.aspx
