@@ -212,6 +212,7 @@ Another available option is to use [Microsoft Cognitive Services](https://www.mi
 
 ## A planet-scale social experience
 There is a last, but not least, important topic I must address: **scalability**. When designing an architecture it's crucial that each component can scale on its own, either because we need to process more data or because we want to have a bigger geographical coverage (or both!). Thankfully, achieving such a complex task is a **turnkey experience** with Cosmos DB.
+<!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box by automatically creating partitions based on a given **partition key** (defined as one of the attributes in your documents). Defining the correct partition key must be done at design time and keeping in mind the [best practices](../cosmos-db/partition-data.md#designing-for-partitioning) available; in the case of a social experience, your partitioning strategy must be aligned with the way you query (reads within the same partition are desirable) and write (avoid "hot spots" by spreading writes on multiple partitions). Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, by user; it all really depends on how you will query the data and show it in your social experience. 
 
@@ -223,13 +224,16 @@ With time, you will eventually grow in traffic and your resource consumption (me
 
 What happens if things keep getting better and users from another region, country or continent, notice your platform and start using it, what a great surprise!
 
-But wait... you soon realize their experience with your platform is not optimal; they are so far away from your operational region that the latency is terrible, and you obviously don't want them to quit. If only there was an easy way of **extending your global reach**... but there is!
+But wait... you soon realize their experience with your platform is not optimal; they are so far away from your operational region that the latency is terrible, and you obviously don't want them to quit. If only there was an easy way of **extending your multiple-region reach**... but there is!
+<!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-sql-api.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-sql-api.md). This also means that you can have [multiple failover regions](regional-failover.md). 
 
-When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
+When you replicate your data multiple-region, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accesing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended multiple-region coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
+<!-- Notice: 全球 to 多个区域 -->
 
-![Adding global coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
+![Adding multiple-region coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
+<!-- Notice: 全球 to 多个区域 -->
 
 ## Conclusion
 This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called "Ladder".

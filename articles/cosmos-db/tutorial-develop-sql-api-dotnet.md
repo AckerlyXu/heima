@@ -24,7 +24,9 @@ ms.custom: mvc
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, and key/value databases, all of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- NOTICE: 全球分布 TO 多个区域分布 -->
+<!-- Not Available on Graph -->
 
 This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a document database and collection with a [partition key](sql-api-partition-data.md#partition-keys) using the [SQL .NET API](sql-api-introduction.md). By defining a partition key when you create a collection, your application is prepared to scale effortlessly as your data grows. 
 

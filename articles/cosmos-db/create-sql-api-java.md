@@ -23,7 +23,9 @@ ms.author: v-yeche
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-Azure Cosmos DB is 21Vianet's globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, and table.
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, and table.
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases-->
 
 This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [SQL Java API](sql-api-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.

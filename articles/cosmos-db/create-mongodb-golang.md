@@ -16,7 +16,9 @@ ms.custom: mvc
 
 # Azure Cosmos DB: Build a MongoDB API console app with Golang and the Azure portal
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, both of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+<!-- Notice: 全球分布 to 多个区域分布 -->
+<!-- Notice: global to multiple-region -->
 <!-- Not Available on Graph -->
 
 This quick-start demonstrates how to use an existing [MongoDB](/cosmos-db/mongodb-introduction) app written in [Golang](https://golang.org/) and connect it to your Azure Cosmos DB database, which supports MongoDB client connections.

@@ -6,10 +6,11 @@
 3. In the **New account** blade, specify the desired configuration for the Azure Cosmos DB account. 
 
     With Azure Cosmos DB, you can choose one of three programming models: MongoDB, SQL, and Table (key-value). 
-<!-- Not Available on Gremlin (graph database) and Cassandra -->
+    <!-- Not Available on Gremlin (graph database) and Cassandra -->
 
-    In this quick start we'll be programming against the MongoDB API so you'll choose **MongoDB** as you fill out the form. But if you have document data from a catalog app, or key/value (table) data, realize that Azure Cosmos DB can provide a highly available, globally-distributed database service platform for all your mission-critical applications.
-<!-- Not Available on Graph data for a social media app-->
+    In this quick start we'll be programming against the MongoDB API so you'll choose **MongoDB** as you fill out the form. But if you have document data from a catalog app, or key/value (table) data, realize that Azure Cosmos DB can provide a highly available, multiple region-distributed database service platform for all your mission-critical applications.
+    <!-- NOTICE: global-distributed TO multiple region-distributed -->
+    <!-- Not Available on Graph data for a social media app-->
 
     Fill out the **New account** blade using the information in the table as a guide.
 
