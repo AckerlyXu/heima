@@ -1,5 +1,5 @@
 ---
-title: Getting started with Azure AD sign-in and sign-out using Node.js | Microsoft Docs
+title: Azure AD Node.js web app getting started | Microsoft Docs
 description: Learn how to build a Node.js Express MVC web app that integrates with Azure AD for sign-in.
 services: active-directory
 documentationcenter: nodejs
@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
+
 ---
-# Node.js web app sign-in and sign-out with Azure AD
+# Azure AD Node.js web app getting started
 Here we use Passport to:
 
 - Sign the user in to the app with Azure Active Directory (Azure AD).
@@ -50,7 +51,7 @@ The completed application is provided at the end of this tutorial as well.
 4. Select **App registrations**, and then select **New application registration**.
 
 5. Create a **Web Application** and/or **WebAPI**.
-    - The **Name** of the application describes your application to users.
+    - The **name** of the application describes your application to users.
 
     - The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
 
@@ -183,7 +184,7 @@ Here, we configure Express to use the OpenID Connect authentication protocol.  P
     ```JavaScript
         // configure Express (section 2)
 
-        var app = express();
+          var app = express();
           app.configure(function() {
           app.set('views', __dirname + '/views');
           app.set('view engine', 'ejs');
@@ -413,3 +414,4 @@ You can now move onto more advanced topics. You might want to try:
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
+<!-- Update_Description: wording update -->

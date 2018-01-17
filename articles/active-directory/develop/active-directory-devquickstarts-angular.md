@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Help secure AngularJS single-page apps by using Azure AD
+# Azure AD AngularJS getting started
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -50,7 +50,7 @@ To enable your app to authenticate users and get tokens, you first need to regis
 4. Click **App registrations**, and then select **New application registration**.
 5. Create a new web application and/or web API:
   - **Name** describes your application to users.
-  - **Sign-on URL** is the URL where user can sign in and use you app. You can change this url later.
+  - **Sign-on URL** is the URL where user can sign in and use you app. You can change this url later. The default location for this sample is `https://localhost:44326/`.
 6. After you finish registration, Azure AD assigns a unique application ID to your app.  You'll need this value in the next sections, so copy it from the application tab.
 7. Adal.js uses the OAuth implicit flow to communicate with Azure AD. You must enable the implicit flow for your application:
   1. Click the application and select **Manifest** to open the inline manifest editor.
