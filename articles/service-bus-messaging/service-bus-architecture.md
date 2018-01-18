@@ -1,9 +1,9 @@
 ---
-title: Service Bus architecture | Azure
-description: Describes the message and relay processing architecture of Azure Service Bus.
+title: Azure Service Bus message processing architecture overview 
+description: Describes the message processing architecture of Azure Service Bus.
 services: service-bus
 documentationCenter: na
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/23/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
+ms.date: 02/05/2018
 ---
 
 # Service Bus architecture
@@ -49,4 +50,4 @@ Now that you've read an overview of Service Bus architecture, visit the followin
 
 - [Service Bus messaging overview](./service-bus-messaging-overview.md)
 - [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)
-- [A queued messaging solution using Service Bus queues](./service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

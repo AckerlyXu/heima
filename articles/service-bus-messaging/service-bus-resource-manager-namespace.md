@@ -1,6 +1,6 @@
 ---
-title: Create Service Bus namespace using an Azure Resource Manager template | Microsoft Docs
-description: Use Azure Resource Manager template to create a Service Bus namespace
+title: Create Service Bus Messaging namespace using Azure Resource Manager template 
+description: Use Azure Resource Manager template to create a Service Bus Messaging namespace
 services: service-bus
 documentationCenter: .net
 author: sethmanheim
@@ -13,9 +13,9 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 08/07/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/05/2018
 ---
 
 # Create a Service Bus namespace using an Azure Resource Manager template

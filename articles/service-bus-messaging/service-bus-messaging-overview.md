@@ -1,5 +1,5 @@
 ---
-title: Service Bus Messaging overview | Azure
+title: Service Bus Messaging overview 
 description: Description of Service Bus messaging and Azure Relay
 services: service-bus
 documentationCenter: .net
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-origin.date: 08/30/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ---
 
 # Service Bus messaging: flexible data delivery in the cloud
