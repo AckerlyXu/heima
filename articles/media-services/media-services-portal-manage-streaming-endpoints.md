@@ -16,18 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2017
-ms.date: 09/25/2017
+ms.date: 1/22/2018
 ms.author: v-johch
 
 ---
+
 # Manage streaming endpoints with the Azure portal
 
-This topic shows  how to use the Azure portal to manage streaming endpoints.
+This article shows  how to use the Azure portal to manage streaming endpoints. 
 
 >[!NOTE]
->Make sure to review the [overview](media-services-streaming-endpoints-overview.md) topic.
+>Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. 
 
-For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
+For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) article.
 
 ## Start managing streaming endpoints 
 
@@ -35,7 +36,7 @@ To start managing streaming endpoints for your account, do the following.
 
 1. In the [Azure portal](https://portal.azure.cn/), select your Azure Media Services account.
 2. In the **Settings** blade, select **Streaming endpoints**.
-
+   
     ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
@@ -48,13 +49,13 @@ To start managing streaming endpoints for your account, do the following.
 
 To add/delete streaming endpoint using the Azure portal, do the following:
 
-1. To add a streaming endpoint, click the **+ Endpoint** at the top of the page.
+1. To add a streaming endpoint, click the **+ Endpoint** at the top of the page. 
 
-    You might want multiple Streaming Endpoints if you plan to have different CDNs or a CDN and direct access.
+	You might want multiple Streaming Endpoints if you plan to have different CDNs or a CDN and direct access.
 
-2. To delete a streaming endpoint, press **Delete** button.
+2. To delete a streaming endpoint, press **Delete** button.      
 3. Click the **Start** button to start the streaming endpoint.
-
+   
     ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 ## <a id="configure_streaming_endpoints"></a>Configuring the Streaming Endpoint

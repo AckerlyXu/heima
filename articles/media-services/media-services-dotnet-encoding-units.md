@@ -36,7 +36,7 @@ ms.author: v-nany
 
 ## Overview
 > [!IMPORTANT]
-> Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+> Make sure to review the [Overview](media-services-scale-media-processing-overview.md) to get more information about scaling media processing.
 > 
 > 
 

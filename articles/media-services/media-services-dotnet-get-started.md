@@ -69,10 +69,10 @@ When working with Azure Media Services one of the most common scenarios is deliv
 To start the streaming endpoint, do the following:
 
 1. Log in at the [Azure portal](https://portal.azure.cn/).
-2. In the Settings window, click Streaming endpoints. 
-3. Click the default streaming endpoint. 
+2. In the Settings window, click Streaming endpoints.
+3. Click the default streaming endpoint.
 
-    The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
 4. Click the Start icon.
 5. Click the Save button to save your changes.
@@ -393,6 +393,6 @@ The following code sample contains the code that you created in this tutorial: [
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portal]: http://manage.windowsazure.cn/
+[Portal]: http://portal.azure.cn/
 
 <!--Update_Description: update code to use AAD token instead of ACS-->
