@@ -53,6 +53,8 @@
 #### [Different deployment models - same subscription](create-peering-different-deployment-models.md)
 #### [Different deployment models - different subscriptions](create-peering-different-deployment-models-subscriptions.md)
 
+<!-- Not Available on ### [Virtual network service endpoints](virtual-network-service-endpoints-configure.md)-->
+<!-- Not Available on ### Public IP address - availability zone -->
 ### Virtual machines
 #### [Virtual machine network throughput](virtual-machine-network-throughput.md)
 #### Create a VM with a static public IP address
@@ -63,7 +65,7 @@
 ##### Classic
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### Create a VM with a static private IP address
+#### Create VM - Static private IP address
 ##### [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -72,7 +74,7 @@
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Create a VM with multiple network interfaces
+#### Create VM - Multiple network interfaces
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)
 ##### [Template](virtual-network-deploy-multinic-arm-template.md)
@@ -81,14 +83,13 @@
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Create a VM with multiple IP addresses
+#### Create VM - Multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
+<!-- Not Available on #### Create VM - Accelerated networking -->
 
-#### [Create a VM with accelerated networking](virtual-network-create-vm-accelerated-networking.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)
@@ -153,6 +154,7 @@
 ### Virtual machines
 #### [Move a VM to a different subnet](virtual-networks-move-vm-role-to-subnet.md)
 ### [Public IP addresses](virtual-network-public-ip-address.md)
+<!--Not Available ### DDoS Protection -->
 
 ## Troubleshoot
 ### Network security groups
@@ -191,4 +193,4 @@
 ## [Network resource provider](resource-groups-networking.md)
 
 <!--Update_Description: update meta properties, update link-->
-<!--ms.date: 01/15/2018-->
+<!--ms.date: 01/22/2018-->
