@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -63,7 +63,7 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 **Feature** | **Details** | **SQL Server** |
 --- | --- | ---
-**Always On availability group** | Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.<br/><br/>Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.<br/><br/>Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover. | SQL Server 2014 & 2012 Enterprise edition
+**Always On availability group** | Multiple standalone instances of SQL Server each run in a failover cluster that has multiple nodes.<br/><br/>Databases can be grouped into failover groups that can be copied (mirrored) on SQL Server instances so that no shared storage is needed.<br/><br/>Provides disaster recovery between a primary site and one or more secondary sites. Two nodes can be set up in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover. | SQL Server 2016, SQL Server 2014 & SQL Server 2012 Enterprise edition
 **Failover clustering (Always On FCI)** | SQL Server leverages Windows failover clustering for high availability of on-premises SQL Server workloads.<br/><br/>Nodes running instances of SQL Server with shared disks are configured in a failover cluster. If an instance is down the cluster fails over to different one.<br/><br/>The cluster doesn't protect against failure or outages in shared storage. The shared disk can be implemented with iSCSI, fiber channel, or shared VHDXs. | SQL Server Enterprise editions<br/><br/>SQL Server Standard edition (limited to two nodes only)
 **Database mirroring (high safety mode)** | Protects a single database to a single secondary copy. Available in both high safety (synchronous) and high performance (asynchronous) replication modes. Doesn't require a failover cluster. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise all editions
 **Standalone SQL Server** | The SQL Server and database are hosted on a single server (physical or virtual). Host clustering is used for high availability if the server is virtual. No guest-level high availability. | Enterprise or Standard edition
@@ -146,12 +146,12 @@ Once you have added the script in the recovery plan and validated the recovery p
 If the SQL Server is using availability groups for high availability (or an FCI), we recommend using availability groups on the recovery site as well. Note that this applies to apps that don't use distributed transactions.
 
 1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
-2. Create a virtual network on the secondary site.
-3. Set up a site-to-site VPN connection between the virtual network, and the primary site.
-4. Create a virtual machine on the recovery site, and install SQL Server on it.
-5. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
-6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
-7. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
+1. Create a virtual network on the secondary site.
+1. Set up a site-to-site VPN connection between the virtual network, and the primary site.
+1. Create a virtual machine on the recovery site, and install SQL Server on it.
+1. Extend the existing Always On availability groups to the new SQL Server VM. Configure this SQL Server instance as an asynchronous replica copy.
+1. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
+1. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
 
 For applications that use distributed transactions, we recommend you deploy Site Recovery with [VMware/physical server site-to-site replication](site-recovery-vmware-to-vmware.md).
 

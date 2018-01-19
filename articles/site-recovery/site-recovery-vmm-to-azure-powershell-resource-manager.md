@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/04/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -22,7 +22,6 @@ ms.author: v-yeche
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-> * [Classic Management Portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
 >
 >
@@ -42,7 +41,7 @@ The article includes prerequisites for the scenario, and shows you
 * Enable protection for those virtual machines.
 * Test the fail-over to make sure everything's working as expected.
 
-<!-- Not Available [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr). -->
+If you run into problems setting up this scenario, post your questions on the [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) .
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model.
@@ -67,13 +66,13 @@ Make sure you have these prerequisites in place:
 * You'll need VMM server running on System Center 2012 R2.
 * Any VMM server containing virtual machines you want to protect must be running the Azure Site Recovery Provider. This is installed during the Azure Site Recovery deployment.
 * You'll need at least one cloud on the VMM server you want to protect. The cloud should contain:
-    * One or more VMM host groups.
-    * One or more Hyper-V host servers or clusters in each host group.
-    * One or more virtual machines on the source Hyper-V server.
+  * One or more VMM host groups.
+  * One or more Hyper-V host servers or clusters in each host group.
+  * One or more virtual machines on the source Hyper-V server.
 * Learn more about setting up VMM clouds:
-    * Read more about private VMM clouds in [What's New in Private Cloud with System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) and in [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
-    * Learn about [Configuring the VMM cloud fabric](site-recovery-support-matrix-to-azure.md#BKMK_Fabric)
-    * After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
+  * Read more about private VMM clouds in [What's New in Private Cloud with System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) and in [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956).
+  * Learn about [Configuring the VMM cloud fabric](site-recovery-support-matrix-to-azure.md#BKMK_Fabric)
+  * After your cloud fabric elements are in place learn about creating private clouds in [Creating a private cloud in VMM](http://go.microsoft.com/fwlink/p/?LinkId=324953) and in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://go.microsoft.com/fwlink/p/?LinkId=324954).
 
 ### Hyper-V prerequisites
 * The host Hyper-V servers must be running at least **Windows Server 2012** with Hyper-V role or **Microsoft Hyper-V Server 2012** and have the latest updates installed.
@@ -128,6 +127,7 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## Step 3: Set the Recovery Services Vault context
+
 Set the vault context by running the below command.
 
         Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
@@ -161,6 +161,7 @@ Set the vault context by running the below command.
         $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
 ## Step 5: Create an Azure storage account
+
 If you don't have an Azure storage account, create a geo-replication enabled account in the same geo as the vault by running the following command:
 
         $StorageAccountName = "teststorageacc1"    #StorageAccountname

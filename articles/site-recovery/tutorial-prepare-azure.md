@@ -2,19 +2,12 @@
 title: Create resources for use with Azure Site Recovery | Azure
 description: Learn how to prepare Azure for replication of on-premises machines using the Azure Site Recovery service.
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.topic: tutorial
+origin.date: 12/31/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 ms.custom: MVC
 
@@ -27,8 +20,7 @@ available during planned and unplanned outages. Site Recovery manages and orches
 recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover,
 and recovery.
 
-This tutorial shows you how to prepare Azure components when you want to replicate on-premises VMs
-and physical servers to Azure. In this tutorial, you learn how to:
+This tutorial shows you how to prepare Azure components when you want to replicate on-premises VMs (Hyper-V or VMware), or Windows/Linux physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Verify your account has replication permissions
@@ -43,13 +35,12 @@ Log in to the Azure portal at http://portal.azure.cn.
 
 ## Verify account permissions
 
-If you have just created your trial Azure account then you are the administrator of your
-subscription. If you are not the subscription administrator, work with the administrator to assign
+If you have just created your trial Azure account, then you are the administrator of your subscription. If you are not the subscription administrator, work with the administrator to assign
 the permissions you need. To enable replication for a new virtual machine, you must have:
 
-- Permission to create a virtual machine in the selected resource group
-- Permission to create a virtual machine in the selected virtual network
-- Permission to write to the selected Storage account
+- Permission to create a VM in the selected resource group
+- Permission to create a VM in the selected virtual network
+- Permission to write to the selected storage account
 
 The 'Virtual Machine Contributor' built-in role has these permissions. You also need permission to
 manage Azure Site Recovery operations. The 'Site Recovery Contributor' role has all permissions
@@ -61,17 +52,16 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 when you fail over from on-premises to Azure.
 
 1. In the [Azure portal](https://portal.azure.cn) menu, click **New** -> **Storage** -> **Storage account**.
-2. Enter a name for your storage account. For these tutorials we will use the name
-   **contosovmsacct1910171607**. The name must be unique within Azure, and be between 3 and 24
-   characters, witn numbers and lowercase letters only.
+2. Enter a name for your storage account. For these tutorials we will use the name **contosovmsacct1910171607**. The name must be unique within Azure, and be between 3 and 24
+   characters, with numbers and lowercase letters only.
 3. Use the **Resource Manager** deployment model.
 4. Select **General purpose** > **Standard**.
 5. Select the default **RA-GRS** for storage redundancy.
 6. Select the subscription in which you want to create the new storage account.
 7. Specify a new resource group. An Azure resource group is a logical container into which Azure
-   resources are deployed and managed. For these tutorials we use the name **ContosoRG**.
+   resources are deployed and managed. For these tutorials, we use the name **ContosoRG**.
 8. Select the geographic location for your storage account. The storage account must be in the same
-   region as the Recovery Services vault. For these tutorials we use the location **China North**.
+   region as the Recovery Services vault. For these tutorials, we use the **China North** region.
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -83,7 +73,7 @@ when you fail over from on-premises to Azure.
    **Backup and Site Recovery**.
 2. In **Name**, specify a friendly name to identify the vault. For this tutorial we use **ContosoVMVault**.
 3. Select the existing resource group named **contosoRG**.
-4. Specify the Azure region **China North**.
+4. Specify the Azure region **China North**, that we're using in this set of tutorials.
 5. To quickly access the vault from the dashboard, click **Pin to dashboard** > **Create**.
 
    ![New vault](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -118,4 +108,4 @@ When Azure VMs are created from storage after failover, they're joined to this n
 > [!div class="nextstepaction"]
 > [Prepare the on-premises VMware infrastructure for disaster recovery to Azure](tutorial-prepare-on-premises-vmware.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

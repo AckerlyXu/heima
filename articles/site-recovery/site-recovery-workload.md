@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 12/15/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -160,4 +160,4 @@ Use Site Recovery to protect your Citrix XenApp and XenDesktop deployments, as f
 ## Next steps
 
 [Get started](azure-to-azure-quickstart.md) with Azure VM replication.
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->
