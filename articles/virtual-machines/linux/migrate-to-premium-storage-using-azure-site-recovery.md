@@ -207,7 +207,8 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
 ## Troubleshooting
 
 * [Monitor and troubleshoot protection for virtual machines and physical servers](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)
+* [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 
+<!-- Replace [Azure Site Recovery forum] with [MSDN Azure 和 CSDN Azure]-->
 
 ## Next steps
 
@@ -216,7 +217,7 @@ For specific scenarios for migrating virtual machines, see the following resourc
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Create and upload a Windows Server VHD to Azure](../windows/classic/createupload-vhd.md)
 * [Creating and uploading a virtual hard disk that contains the Linux operating system](../linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Migrating Virtual Machines from Amazon AWS to Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+<!--Not Available on * [Migrating Virtual Machines from Amazon AWS to Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)-->
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 

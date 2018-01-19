@@ -145,8 +145,7 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
+### prepay-reserved-vm-instances.md is invalid
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
@@ -171,8 +170,7 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
-    - name: Enable nested virtualization
-      href: nested-virtualization.md
+### nested-virtualization.md is invalid
   - name: Use Images
     items:
     - name: Find and use images
@@ -358,12 +356,11 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
-    - name: Use nested virtualization 
-      href: troubleshoot-vm-by-use-nested-virtualization.md
+### troubleshoot-vm-by-use-nested-virtualization.md is invalid
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.azure.cn/cli/azure/vm?view=azure-cli-latest
+    href: https://docs.azure.cn/cli/vm?view=azure-cli-latest
   - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
   - name: .NET

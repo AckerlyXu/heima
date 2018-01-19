@@ -151,8 +151,8 @@ Start your service and observe the Debug output window in Visual Studio. After t
 
 ## Next steps
 
-* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+<!-- Not Available on * * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on * [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 * [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow)
 
 <!--Update_Description: update meta properties, wording update -->

@@ -150,8 +150,7 @@
         href: ../../backup/tutorial-restore-files.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
+### Not Available on prepay-reserved-vm-instances.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
@@ -252,20 +251,7 @@
       href: docker-compose-quickstart.md
   - name: Run applications
     items:
-    - name: OpenShift
-      items:
-      - name: OpenShift overview
-        href: openshift-get-started.md
-      - name: OpenShift prerequisites
-        href: openshift-prerequisites.md
-      - name: OpenShift Origin
-        href: openshift-origin.md
-      - name: OpenShift Container Platform
-        href: openshift-container-platform.md
-      - name: OpenShift post-deployment tasks
-        href: openshift-post-deployment.md
-      - name: Troubleshooting deployments
-        href: openshift-troubleshooting.md
+### Not Available - name: OpenShift which based on Ansible 
     - name: FreeBSD Packet Filter
       href: freebsd-pf-nat.md
     - name: Databases
@@ -276,8 +262,8 @@
         href: install-mongodb.md
       - name: PostgreSQL
         href: postgresql-install.md
-      - name: MS SQL on Linux
-        href: /sql/provision-sql-server-linux-virtual-machine.md
+### Not Availabl on Linux 上的 MS SQL
+
   - name: Manage storage
     items:
     - name: Disks FAQs
