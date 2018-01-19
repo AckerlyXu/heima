@@ -124,7 +124,7 @@ For the web role:
 Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## Deploy your service
-1. Go to the [Azure portal](https://manage.windowsazure.cn).
+1. Go to the [Azure portal](https://portal.azure.cn).
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier.
 3. Click **Dashboard**.
 4. Choose the staging environment, then click **Upload a new staging deployment**.
@@ -150,11 +150,11 @@ If your worker role fails to come online, but your web role succeeds, it is most
     ```
 
 * Ensure that the server name does not begin with **https://**.
-* Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.cn, click "SQL Databases" on the left, click "Servers" at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to "Yes". (See the Prerequisites section at the top of this article).
+* Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://portal.azure.cn, click "SQL Databases" on the left, click "Servers" at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to "Yes". (See the Prerequisites section at the top of this article).
 
 ## Test the service deployment
 ### Connect with a web browser
-Determine the web endpoint of your Split-Merge service. You can find this in the Azure Classic Management Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
+Determine the web endpoint of your Split-Merge service. You can find this in the Azure Portal by going to the **Dashboard** of your cloud service and looking under **Site URL** on the right side. Replace **http://** with **https://** since the default security settings disable the HTTP endpoint. Load the page for this URL into your browser.
 
 ### Test with PowerShell scripts
 The deployment and your environment can be tested by running the included sample PowerShell scripts.

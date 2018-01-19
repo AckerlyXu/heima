@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
-description: What to do when Active Directory menu item doesn't appear in the Azure Management Portal.
+description: What to do when Active Directory menu item doesn't appear in the Azure  Portal.
 services: active-directory
 documentationcenter: na
 author: bryanla
@@ -19,12 +19,12 @@ ms.author: v-junlch
 
 ---
 # Troubleshooting: 'Active Directory' item is missing or not available
-Many of the instructions for using Azure Active Directory features and services begin with "Go to the Azure Management Portal and click **Active Directory**." But what do you do if the Active Directory extension or menu item does not appear or if it is marked **Not Available**? This topic is designed to help. It describes the conditions under which **Active Directory** does not appear or is unavailable and explains how to proceed.
+Many of the instructions for using Azure Active Directory features and services begin with "Go to the Azure Portal and click **Active Directory**." But what do you do if the Active Directory extension or menu item does not appear or if it is marked **Not Available**? This topic is designed to help. It describes the conditions under which **Active Directory** does not appear or is unavailable and explains how to proceed.
 
 ## Active Directory is missing
 Typically, an **Active Directory** item appears in the left navigation menu. The instructions in Azure Active Directory procedures assume that this item is in your view.
 
-![Screen shot: Active Directory in Azure](./media/active-directory-troubleshooting/typical-view.png)
+
 
 The Active Directory item appears in the left navigation menu when any of the following conditions is true. Otherwise, the item does not appear.
 
@@ -48,6 +48,6 @@ When you click **+New** > **App Services**, an **Active Directory** item appears
 
 However, while the page is loading, the item is dimmed and is marked **Not Available**. This is a temporary state. If you wait a few seconds, the item becomes available. If the delay is prolonged, refreshing the web page often resolves the problem.
 
-![Screen shot: Active Directory is not available](./media/active-directory-troubleshooting/not-available.png)
+
 
 

@@ -4,8 +4,8 @@ description: Information about the Multi-factor Authentication client and the di
 keywords: 
 services: multi-factor-authentication
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
 
 ms.assetid: 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/25/2017
-ms.date: 12/22/2017
+ms.date: 01/16/2018
 ms.author: v-junlch
 ---
 # How to get Azure Multi-Factor Authentication
@@ -34,7 +34,7 @@ The following table describes the differences between three versions of multi-fa
 | Version | Description |
 | --- | --- |
 | Multi-Factor Authentication for Office 365 |This version works exclusively with Office 365 applications and is managed from the Office 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 subscription. |
-| Multi-Factor Authentication for Azure Administrators | Global administrators of Azure tenants can enable two-step verification for their global admin accounts at no additional cost.|
+| Multi-Factor Authentication for Azure AD Administrators | Users assigned the Global administrator role in Azure AD tenants can enable two-step verification for their Azure AD global admin accounts at no additional cost.|
 | Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options for a range of cloud applications.|
 
 ## Feature comparison of versions
@@ -44,9 +44,9 @@ The following table provides a list of the features that are available in the va
 > This comparison table discusses the features that are part of each version of Multi-Factor Authentication. If you have the full Azure Multi-Factor Authentication service, some features may not be available depending on whether you use [MFA in the cloud](multi-factor-authentication-get-started-cloud.md).
 
 
-| Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure Administrators | Azure Multi-Factor Authentication |
+| Feature | Multi-Factor Authentication for Office 365 | Multi-Factor Authentication for Azure AD Administrators | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
-| Protect admin accounts with MFA |● |● (Global Administrator accounts only) |● |
+| Protect Azure AD admin accounts with MFA |● |● (Azure AD Global Administrator accounts only) |● |
 | Mobile app as a second factor |● |● |● |
 | Phone call as a second factor |● |● |● |
 | SMS as a second factor |● |● |● |

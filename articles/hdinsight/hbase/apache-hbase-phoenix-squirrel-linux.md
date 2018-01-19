@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 09/22/2017
-ms.date: 12/18/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -46,7 +46,7 @@ When you connect to an HBase cluster, you need to connect to one of the ZooKeepe
 
 **To use SQLLine**
 
-1. Connect to the cluster by using SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Connect to the cluster by using SSH. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. In SSH, use the following commands to run SQLLine:
 

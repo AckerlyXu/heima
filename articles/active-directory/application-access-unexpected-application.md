@@ -62,17 +62,16 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
 
 4.  When you add a new application registration by creating a custom-developed application using the [Application Registry](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
 
-5.  When you add a new application registration by creating a custom-developed application using the [V2.0 Application Registration Portal](./develop/active-directory-v2-app-registration.md#visit-the-microsoft-app-registration-portal).
 
-6.  When you add an application you’re developing using Visual Studio’s [ASP.net Authentication Methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx).
+5.  When you add an application you’re developing using Visual Studio’s [ASP.net Authentication Methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx).
 
-7.  When you create a service principal object using the [Azure AD PowerShell Module](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
+6.  When you create a service principal object using the [Azure AD PowerShell Module](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
 
-8.  When you [consent to an application](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent) as an administrator to use data in your tenant.
+7.  When you [consent to an application](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent) as an administrator to use data in your tenant.
 
-9.  When a [user consents to an application](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent) to use data in your tenant.
+8.  When a [user consents to an application](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent) to use data in your tenant.
 
-10. When you enable certain services that store data in your tenant. One example of this is Password Reset, which is modeled as a service principal to store your password reset policy securely.
+9. When you enable certain services that store data in your tenant. One example of this is Password Reset, which is modeled as a service principal to store your password reset policy securely.
 
 To get more details on how apps are added to your directory, read [How and why applications are added to Azure AD](./develop/active-directory-how-applications-are-added.md).
 

@@ -14,8 +14,8 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/06/2017
-ms.date: 12/25/2017
+origin.date: 12/05/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
@@ -41,11 +41,11 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 Use the following steps to create a Storm on HDInsight cluster:
 
-1. From the [Azure portal](https://portal.azure.cn), select **+ NEW**, **Intelligence + Analytics**, and then select **HDInsight**.
+1. From the [Azure portal](https://portal.azure.cn), select **+ NEW**, **Data + Analytics**, and then select **HDInsight**.
 
     ![Create a HDInsight cluster](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. From the **Basics** blade, enter the following information:
+2. From the **Basics** section, enter the following information:
 
     * **Cluster Name**: The name of the HDInsight cluster.
     * **Subscription**: Select the subscription to use.
@@ -56,7 +56,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
    ![Select subscription](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. Select **Cluster type**, and then set the following values on the **Cluster configuration** blade:
+3. Select **Cluster type**, and then set the following values in the **Cluster configuration** section:
 
     * **Cluster Type**: Storm
 
@@ -72,11 +72,11 @@ Use the following steps to create a Storm on HDInsight cluster:
 
 4. After selecting the cluster type, use the __Select__ button to set the cluster type. Next, use the __Next__ button to finish basic configuration.
 
-5. From the **Storage** blade, select or create a Storage account. For the steps in this document, leave the other fields on this blade at the default values. Use the __Next__ button to save storage configuration.
+5. From the **Storage** section, select or create a Storage account. For the steps in this document, leave the other fields in this section at the default values. Use the __Next__ button to save storage configuration.
 
     ![Set the storage account settings for HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. From the **Summary** blade, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the__Create__ button to create the cluster.
+6. From the **Summary** section, review the configuration for the cluster. Use the __Edit__ links to change any settings that are incorrect. Finally, use the __Create__ button to create the cluster.
 
     ![Cluster configuration summary](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -93,7 +93,7 @@ Use the following steps to create a Storm on HDInsight cluster:
     > Your SSH client may say that the authenticity of the host can't be established. If so, enter `yes` to continue.
 
     > [!NOTE]
-    > If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+    > If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need to use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`.
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -101,10 +101,7 @@ Use the following steps to create a Storm on HDInsight cluster:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > On previous versions of HDInsight, the class name of the topology is `storm.starter.WordCountTopology` instead of `org.apache.storm.starter.WordCountTopology`.
-
-    This command starts the example WordCount topology on the cluster, with a friendly name of 'wordcount'. It randomly generates sentences and count the occurrence of each word in the sentences.
+    This command starts the example WordCount topology on the cluster. This topology generates random sentences and counts how many times words occur. The friendly name of the topology is `wordcount`.
 
     > [!NOTE]
     > When submitting your own topologies to the cluster, you must first copy the jar file containing the cluster before using the `storm` command. Use the `scp` command to copy the file. For example, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:FILENAME.jar`
@@ -197,7 +194,7 @@ If you run into an issue with creating HDInsight cluster, see [access control re
 
 In this Apache Storm tutorial, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Maven](apache-storm-develop-java-topology.md).
 
-If you're already familiar with developing Java-based topologies and want to deploy an existing topology to HDInsight, see [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology-linux.md).
+If you're already familiar with developing Java-based topologies, see the [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology-linux.md) document.
 
 If you are a .NET developer, you can create C# or hybrid C#/Java topologies using Visual Studio. For more information, see [Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 

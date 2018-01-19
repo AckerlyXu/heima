@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/02/2017
-ms.date: 06/12/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 
 ---
@@ -34,8 +34,9 @@ Key Vault certificates support provides for management of your x509 certificates
 
 ## .NET support
 
-- **.NET 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET/C# library
-- **.NET Core** is supported by the 2.0 version of the Azure Key Vault .NET/C# library
+- **.NET 4.0** is not supported by the 2.0 version of the Azure Key Vault .NET library
+- **.NET Framework 4.5.2** is supported by the 2.0 version of the Azure Key Vault .NET library
+- **.NET Standard 1.4** is supported by the 2.0 version of the Azure Key Vault .NET library
 
 ## Namespaces
 
@@ -106,3 +107,4 @@ When a client is processing a  dependency on Key Vault the following were downlo
 - The package is broken up to **Microsoft.Azure.KeyVault.Extensions** and **Microsoft.Azure.KeyVault.Cryptography** for the cryptography operations.
 
 
+<!-- Update_Description: wording update -->
