@@ -1,6 +1,6 @@
 ---
 title: Check connectivity with Azure Network Watcher - Azure portal | Azure
-description: This page explains how to use Connection Monitoring with Network Watcher using the Azure portal
+description: This page explains how to use connection monitoring with Network Watcher using the Azure portal
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -36,13 +36,13 @@ This article assumes you have the following resources:
 * Virtual machines to check connectivity with.
 
 > [!IMPORTANT]
-> Connection Monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## Check connectivity to a virtual machine
 
 This example checks connectivity to a destination virtual machine over port 80.
 
-Navigate to your Network Watcher and click **Connection Monitoring (Preview)**. Select the virtual machine to check connectivity from. In the **Destination** section choose **Select a virtual machine** and choose the correct virtual machine and port to test.
+Navigate to your Network Watcher and click **Connection monitoring (Preview)**. Select the virtual machine to check connectivity from. In the **Destination** section choose **Select a virtual machine** and choose the correct virtual machine and port to test.
 
 Once you click **Check**, the connectivity between the virtual machines on the port specified are checked. In the example, the destination VM is unreachable, a listing of hops are shown.
 
