@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/20/2017
-ms.date: 09/04/2017
+ms.date: 1/22/2017
 ms.author: v-haiqya
 
 ---
@@ -44,13 +44,13 @@ This document contains a list of the most common import and export file formats 
 ### Audio formats in input containers
 Media Encoder Standard supports carrying the following audio formats in input containers:
 
-* MXF, GXF and QuickTime files which have audio tracks with interleaved stereo or 5.1 samples
+* MXF, GXF, and QuickTime files, which have audio tracks with interleaved stereo or 5.1 samples
 
 or
 
-* MXF, GXF and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
+* MXF, GXF, and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
 
-Note that support for explicit/user-supplied channel mapping will be provided in the near future.
+Support for explicit/user-supplied channel mapping will be provided in the near future.
 
 ## Input Video Codecs
 | Input Video Codecs | Supported |
@@ -60,7 +60,7 @@ Note that support for explicit/user-supplied channel mapping will be provided in
 | DVCPro/DVCProHD (in MXF) |Yes |
 | Digital video (DV) (in AVI files) |Yes |
 | JPEG 2000 |Yes |
-| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10) |Up to 422 Profile |
+| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs®, and D10) |Up to 422 Profile |
 | MPEG-1 |Yes |
 | VC-1/WMV9 |Yes |
 | Canopus HQ/HQX |No |

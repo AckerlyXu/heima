@@ -20,7 +20,7 @@ ms.author: v-haiqya
 ---
 # Quotas and Limitations
 
-This topic describes quotas and limitations associated with Azure Media Services.
+This article describes quotas and limitations associated with Microsoft Azure Media Services.
 
 [!INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
