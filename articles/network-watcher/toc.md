@@ -7,7 +7,7 @@
 ## [Security group view](network-watcher-security-group-view-overview.md)
 ## [Next hop](network-watcher-next-hop-overview.md)
 ## [VPN connectivity troubleshooting](network-watcher-troubleshoot-overview.md)
-## [Connectivity check](network-watcher-connectivity-overview.md)
+## [Connection Monitoring](network-watcher-connectivity-overview.md)
 ## [Service limits](../azure-subscription-service-limits.md?toc=%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Get Started
