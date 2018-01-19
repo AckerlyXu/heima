@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -31,16 +31,16 @@ If you need to create, change, or delete a network interface, read the [Manage a
 
 Complete the following tasks before completing any steps in any section of this article:
 
-<!-- Not Available on azure\-subscription\-service\-limits.md -->
+- Review the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article to learn about limits for public and private IP addresses.
 - Log in to the Azure [portal](https://portal.azure.cn), Azure command-line interface (CLI), or Azure PowerShell with an Azure account. If you don't already have an Azure account, sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 - If using PowerShell commands to complete tasks in this article, [install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure PowerShell commandlets installed. To get help for PowerShell commands, with examples, type `get-help <command> -full`.
-- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. azure-cli-latest).
+- If using Azure command-line interface (CLI) commands to complete tasks in this article, [install and configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. 
+
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <a name="create-ip-config"></a>
 ## Add IP addresses
-You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addresses as necessary to a network interface, within limits.
-<!-- Not Available on IPv6 address -->
+You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addresses as necessary to a network interface, within the limits listed in the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
 1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
@@ -67,7 +67,7 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 <a name="change-ip-config"></a>
 ## Change IP address settings
 
-You may need to change the assignment method of an IPv4 address, change the static IPv4 address, or change the public IP address assigned to a network interface. If you're changing the private IPv4 address of a secondary IP configuration associated with a secondary network interface in a virtual machine (learn more about [primary and secondary network interfaces](virtual-network-network-interface-vm.md#about)), place the virtual machine into the stopped (deallocated) state before completing the following steps: 
+You may need to change the assignment method of an IPv4 address, change the static IPv4 address, or change the public IP address assigned to a network interface. If you're changing the private IPv4 address of a secondary IP configuration associated with a secondary network interface in a virtual machine (learn more about [primary and secondary network interfaces](virtual-network-network-interface-vm.md)), place the virtual machine into the stopped (deallocated) state before completing the following steps: 
 
 1. Log in to the [Azure portal](https://portal.azure.cn) with an account that is assigned (at a minimum) permissions for the Network Contributor role for your subscription. Read the [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor) article to learn more about assigning roles and permissions to accounts.
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *network interfaces*. When **network interfaces** appears in the search results, click it.
@@ -122,7 +122,7 @@ Each network interface is assigned one primary IP configuration. A primary IP co
 
 In addition to a primary IP configuration, a network interface may have zero or more secondary IP configurations assigned to it. A secondary IP configuration:
 
-- Must have a private IPv4 address assigned to it. If the address is IPv4, the network interface may have multiple secondary IP configurations assigned to it. 
+- Must have a private IPv4 address assigned to it. If the address is IPv4, the network interface may have multiple secondary IP configurations assigned to it. To learn more about how many private and public IPv4 addresses can be assigned to a network interface, see the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.  
 - May also have a public IPv4 address assigned to it, if the private IP address is IPv4. Assigning multiple IP addresses to a network interface is helpful in scenarios such as:
     - Hosting multiple websites or services with different IP addresses and SSL certificates on a single server.
     - A virtual machine serving as a network virtual appliance, such as a firewall or load balancer.
@@ -137,14 +137,14 @@ You can assign the following types of IP addresses to an [IP configuration](#ip-
 
 Private [IPv4](#ipv4) addresses enable a virtual machine to communicate with other resources in a virtual network or other connected networks.
 
-By default, the Azure DHCP servers assign the private IPv4 address for the [primary IP configuration](#primary) of the network interface to the network interface within the virtual machine operating system. Unless necessary, you should never manually set the IP address of a network interface within the virtual machine's operating system. 
+By default, the Azure DHCP servers assign the private IPv4 address for the [primary IP configuration](#primary) of the Azure network interface to the network interface within the virtual machine operating system. Unless necessary, you should never manually set the IP address of a network interface within the virtual machine's operating system. 
 
 > [!WARNING]
 > If the IPv4 address set as the primary IP address of a network interface within a virtual machine's operating system is ever different than the private IPv4 address assigned to the primary IP configuration of the primary network interface attached to a virtual machine within Azure, you lose connectivity to the virtual machine.
 
-There are scenarios where it's necessary to manually set the IP address of a network interface within the virtual machine's operating system. For example, you must manually set the primary and secondary IP addresses of a Windows operating system when adding multiple IP addresses to an Azure virtual machine. For a Linux virtual machine, you may only need to manually set the secondary IP addresses. See [Add IP addresses to a VM operating system](virtual-network-multiple-ip-addresses-portal.md#os-config) for details. When you manually set the IP address within the operating system, it's recommended that you always assign the addresses to the IP configuration for a network interface using the static (rather than dynamic) assignment method. Assigning the address using the static method ensures that the address does not change within Azure. If you ever need to change the address assigned to an IP configuration, it's recommended that you:
+There are scenarios where it's necessary to manually set the IP address of a network interface within the virtual machine's operating system. For example, you must manually set the primary and secondary IP addresses of a Windows operating system when adding multiple IP addresses to an Azure virtual machine. For a Linux virtual machine, you may only need to manually set the secondary IP addresses. See [Add IP addresses to a VM operating system](virtual-network-multiple-ip-addresses-portal.md#os-config) for details. If you ever need to change the address assigned to an IP configuration, it's recommended that you:
 
-1. To ensure the virtual machine is receiving an address from the Azure DHCP servers, change the assignment of the IP address back to DHCP within the operating system and restart the virtual machine.
+1. Ensure that the virtual machine is receiving an address from the Azure DHCP servers. Once you have, change the assignment of the IP address back to DHCP within the operating system and restart the virtual machine.
 2. Stop (deallocate) the virtual machine.
 3. Change the IP address for the IP configuration within Azure.
 4. Start the virtual machine.
@@ -158,7 +158,7 @@ In addition to enabling a virtual machine to communicate with other resources wi
 
 Public IP addresses assigned through a public IP address resource enable inbound connectivity to a virtual machine from the Internet. Outbound connections to the Internet use a predictable IP address. See [Understanding outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json) for details. You may assign a public IP address to an IP configuration, but aren't required to. If you don't assign a public IP address to a virtual machine by associating a public IP address resource, the virtual machine can still communicate outbound to the Internet. In this case, the private IP address is source network address translated by Azure to an unpredictable public IP address. To learn more about public IP address resources, see [Public IP address resource](virtual-network-public-ip-address.md).
 
-There are limits to the number of private and public IP addresses that you can assign to a network interface. 
+There are limits to the number of private and public IP addresses that you can assign to a network interface. For details, read the [Azure limits](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article.
 
 > [!NOTE]
 > Azure translates a virtual machine's private IP address to a public IP address. As a result, a virtual machine's operating system is unaware of any public IP address assigned to it, so there is no need to ever manually assign a public IP address within the operating system.
@@ -208,4 +208,4 @@ To create a virtual machine with different IP configurations, read the following
 |Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update, update link, wording update -->

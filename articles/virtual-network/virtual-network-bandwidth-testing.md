@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 01/15/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -97,19 +97,16 @@ Use nttcp-for-linux. It is available from <https://github.com/Microsoft/ntttcp-f
 On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare ntttcp-for-linux on your VMs:
 
 CentOS - Install Git:
-
 ``` bash
   yum install gcc -y  
   yum install git -y
 ```
 Ubuntu - Install Git:
-
 ``` bash
  apt-get -y install build-essential  
  apt-get -y install git
 ```
 Make and Install on both:
-
 ``` bash
  git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
@@ -166,6 +163,7 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## Next steps
 * Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
+* Read about how [bandwidth is allocated to virtual machines] (virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)
 
 <!--Update_Description: update meta properties, wording update -->
