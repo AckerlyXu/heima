@@ -15,7 +15,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -24,16 +24,12 @@ In this tutorial, you will learn how to create stream-processing logic to gather
 
 ## Prerequisites
 * [Azure subscription](https://www.azure.cn/pricing/1rmb-trial/)
-* Sample query and data files downloadable from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
+* Sample query and data files downloadable from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
 
 ## Scenario
 Contoso, which is a company in the industrial automation space, has completely automated its manufacturing process. The machinery in this plant has sensors that are capable of emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find interesting patterns from the incoming stream of data.
 
-Here data is being generated from a Texas Instruments sensor tag device.
-
-![Texas Instruments sensor tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-The payload of the data is in JSON format and looks like the following:
+Here data is being generated from a Texas Instruments sensor tag device. The payload of the data is in JSON format and looks like the following:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -66,7 +62,7 @@ For ease of use, this getting started guide provides a sample data file, which w
 
     ![job creation in progress](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### Create an Azure Stream Analytics query
+## Create an Azure Stream Analytics query
 After your job is created it's time to open it and build a query. You can easily access your job by clicking the tile for it.
 
 ![Job tile](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
@@ -76,7 +72,7 @@ In the **Job Topology** pane click the **QUERY** box to go to the Query Editor. 
 ![Query box](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
 ### Query: Archive your raw data
-The simplest form of query is a pass-through query that archives all input data to its designated output. Download the sample data file from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) to a location on your computer. 
+The simplest form of query is a pass-through query that archives all input data to its designated output. Download the sample data file from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted) to a location on your computer. 
 
 1. Paste the query from the PassThrough.txt file. 
 
@@ -117,4 +113,6 @@ Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **
 ## Conclusion
 The purpose of this tutorial is to demonstrate how to write different Stream Analytics Query Language queries and see results in the browser. However, this is just getting started. You can do so much more with Stream Analytics. Stream Analytics supports a variety of inputs and outputs and can even use functions in Azure Machine Learning to make it a robust tool for analyzing data streams. For more information about how to write queries, read the article about [common query patterns](stream-analytics-stream-analytics-query-patterns.md).
 
-<!--Update_Description: wording update-->
+<!--Not Available on https://azure.microsoft.com/en-us/documentation/learning-paths/stream-analytics/ -->
+
+<!--Update_Description: wording update -->
