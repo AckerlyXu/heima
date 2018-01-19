@@ -69,7 +69,7 @@ Although this connection string enables connectivity for clients over the intern
 > 
 
 ### Connect to SQL Server in the same virtual network
-[Virtual Network](../../../virtual-network/virtual-networks-overview.md) enables additional scenarios. You can connect VMs in the same virtual network, even if those VMs exist in different cloud services. And with a [site-to-site VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), you can create a hybrid architecture that connects VMs with on-premises networks and machines.
+[Virtual Network](../../../virtual-network/virtual-networks-overview.md) enables additional scenarios. You can connect VMs in the same virtual network, even if those VMs exist in different cloud services. And with a site-to-site VPN, you can create a hybrid architecture that connects VMs with on-premises networks and machines.
 
 Virtual networks also enable you to join your Azure VMs to a domain. Joining to a domain is the only way to use Windows Authentication with SQL Server. The other connection scenarios require SQL Authentication with user names and passwords.
 

@@ -25,7 +25,7 @@ ms.custom: oldportal;it-pro;
 This article discusses how to install additional domain controllers (DCs) to be used as replica DCs for an on-premises Active Directory domain on Azure virtual machines (VMs) in an Azure virtual network. You can also [install a Windows Server Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md). For how to install Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario diagram
-In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by [ExpressRoute](../expressroute/expressroute-locations-providers.md), or you can use a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown: 
+In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by [ExpressRoute](../expressroute/expressroute-locations-providers.md), or you can use a site-to-site VPN connection, as shown: 
 
 ![Diagram pf replica Active Directory domain controller an Azure vnet][1]
 
