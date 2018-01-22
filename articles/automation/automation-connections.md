@@ -95,7 +95,7 @@ The following sample commands show how to use the Run As account mentioned earli
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
 ```
 
 ### Graphical runbook samples
