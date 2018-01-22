@@ -42,7 +42,8 @@ Follow these steps to create a blank SQL database.
 
    ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-7. Click **Apply**.  
+8. Accept the preview terms to use the **Add-on Storage** option. 
+
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
