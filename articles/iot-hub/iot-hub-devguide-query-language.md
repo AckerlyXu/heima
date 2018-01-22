@@ -1,5 +1,5 @@
 ---
-title: Understand the Azure IoT Hub query language | Azure
+title: Understand the Azure IoT Hub query language 
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device twins and jobs from your IoT hub.
 services: iot-hub
 documentationcenter: .net
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/24/17
+origin.date: 10/24/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
+ms.date: 02/26/2018
 ---
-# Reference - IoT Hub query language for device twins, jobs, and message routing
+# IoT Hub query language for device twins, jobs, and message routing
 
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins][lnk-twins] and [jobs][lnk-jobs], and [message routing][lnk-devguide-messaging-routes]. This article presents:
 
@@ -32,6 +32,17 @@ Assume, for instance, that your IoT hub device twins have the following structur
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "CN",
@@ -136,6 +147,12 @@ This grouping query would return a result similar to the following example. Here
 ]
 ```
 
+Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
 ### C# example
 The query functionality is exposed by the [C# service SDK][lnk-hub-sdks] in the **RegistryManager** class.
 Here is an example of a simple query:
@@ -152,8 +169,8 @@ while (query.HasMoreResults)
 }
 ```
 
-Note how the **query** object is instantiated with a page size (up to 1000), and then multiple pages can be retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
-Note that the query object exposes multiple **Next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
+Note how the **query** object is instantiated with a page size (up to 100), and then multiple pages can be retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
+Note that the query object exposes multiple **Next***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
 
 ### Node.js example
 The query functionality is exposed by the [Azure IoT service SDK for Node.js][lnk-hub-sdks] in the **Registry** object.
@@ -178,8 +195,8 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Note how the **query** object is instantiated with a page size (up to 1000), and then multiple pages can be retrieved by calling the **nextAsTwin** methods multiple times.
-Note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
+Note how the **query** object is instantiated with a page size (up to 100), and then multiple pages can be retrieved by calling the **nextAsTwin** methods multiple times.
+Note that the query object exposes multiple **next***, depending on the deserialization option required by the query, such as device twin or job objects, or plain JSON to be used when using projections.
 
 ### Limitations
 > [!IMPORTANT]
