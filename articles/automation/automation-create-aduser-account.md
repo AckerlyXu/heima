@@ -20,15 +20,23 @@ ms.author: magoedte
 
 ---
 # Authenticate Runbooks with Azure classic deployment and Resource Manager
-This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure classic deployment model or Azure Resource Manager resources.  While this continues to be a supported authentication identity for your Azure Resource Manager based runbooks, the recommended method is using an Azure Run As account.       
+This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure classic deployment model or Azure Resource Manager resources.  While this continues to be a supported authentication identity for your Azure Resource Manager based runbooks, the recommended method is to use an Azure Run As account.       
 
+## Create a new Azure Active Directory user
+1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
+2. Select **Azure Active Directory** > **Users and groups** > **All users** > **New user**.
+3. Enter details for the user, like **Name** and **User name**.  
+4. Note the user’s full name and temporary password.
+5. Select **Directory role**.
+6. Assign role Global or Limited Administrator.
+7. Log out of Azure and then log back in with the account you just created. You are prompted to change the user’s password.
 
 ## Create an Automation account in the Azure portal
 In this section, perform the following steps to create an Azure Automation account in the Azure portal for use with your runbooks managing resources in Azure Resource Manager mode.  
 
 1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Automation Accounts**.
-3. In the Automation Accounts blade, click **Add**.<br><br>![Add Automation Account](./media/automation-create-aduser-account/add-automation-acct-properties.png)
+3. Select **Add**.<br><br>![Add Automation Account](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
 5. If you have more than one subscription, specify the one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 6. Select the value **Yes** for the **Create Azure Run As account** option, and click the **Create** button.  
@@ -53,6 +61,6 @@ You can retrieve the credential in a runbook using the [Get-AutomationPSCredenti
 You should repeat these lines after any [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
 ## Next Steps
-- Review the different runbook types and steps for creating your own runbooks from the following article [Azure Automation runbook types](automation-runbook-types.md)
+* Review the different runbook types and steps for creating your own runbooks from the following article [Azure Automation runbook types](automation-runbook-types.md)
 
 
