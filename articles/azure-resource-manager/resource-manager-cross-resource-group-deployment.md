@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/18/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -120,7 +120,7 @@ The following example deploys two storage accounts - one in the resource group s
 
 If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.
 
-To deploy the example template, use a release of Azure PowerShell or Azure CLI from May 2017 or later.
+To deploy the example template, use Azure PowerShell 4.0.0 or later, or Azure CLI 2.0.0 or later.
 
 ## Use the resourceGroup() function
 
@@ -280,4 +280,4 @@ az group deployment create \
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-powershell-sas-token.md).
 
-<!-- Update_Description: update meta properties, add example templates content-->
+<!-- Update_Description: wording update -->
