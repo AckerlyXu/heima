@@ -14,8 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 08/07/2017
+origin.date: 12/19/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -71,10 +71,10 @@ The values of this string are available in the **Connection String** blade shown
 
 For example, consider the account shown in the **Connection String** blade. A valid connection string is:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.cn:10255/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.cn:10255/mydatabase?ssl=true
 
 ## Next steps
 * Learn how to [use MongoChef](mongodb-mongochef.md) with an Azure Cosmos DB API for MongoDB account.
 * Explore the Azure Cosmos DB API for MongoDB by viewing [samples](mongodb-samples.md).
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

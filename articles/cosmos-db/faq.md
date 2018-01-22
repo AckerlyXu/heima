@@ -14,26 +14,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 12/25/2017
+origin.date: 01/02/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
+<!-- meta.description: GLOBALLY to multiple-region -->
 # Azure Cosmos DB FAQ
 ## Azure Cosmos DB fundamentals
 ### What is Azure Cosmos DB?
+
 Azure Cosmos DB is a multiple-region replicated, multi-model database service that that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development. It's all achieved through a managed platform that's backed by the power and reach of Azure. 
+<!-- GLOBALLY to multiple-region -->
 
 Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. It delivers schema flexibility and rich indexing, and it includes multi-document transactional support with integrated JavaScript. 
 
 For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page]((https://docs.azure.cn/cosmos-db/).
 
 ### What happened to the DocumentDB API?
+
 The Azure Cosmos DB DocumentDB API or SQL (DocumentDB) API is now known as Azure Cosmos DB SQL API. You don't need to change anything to continue running your apps built with DocumentDB API. The functionality remains the same.
 
 If you had a DocumentDB API account before, you now have a SQL API account, with no change to your billing. 
 
 ### What happened to Azure DocumentDB as a service?
+
 The Azure DocumentDB service is now a part of the Azure Cosmos DB service and manifests itself in the form of the SQL API. Applications built against Azure DocumentDB will run without any changes against Azure Cosmos DB SQL API. In addition, Azure Cosmos DB supports the Table API, and MongoDB API, .
 <!--Not Available on  Graph API (Preview), and Cassandra API (Preview) -->
 
@@ -46,7 +51,7 @@ A [request unit](request-units.md) (RU) is the measure of throughput in Azure Co
 You can reserve each Azure Cosmos DB container with provisioned throughput in terms of RUs of throughput per second. For applications of any scale, you can benchmark individual requests to measure their RU values, and provision a container to handle the total of request units across all requests. You can also scale up or scale down your container's throughput as the needs of your application evolve. For more information about request units and for help determining your container needs, see [Estimating throughput needs](request-units.md#estimating-throughput-needs) and try the [throughput calculator](https://www.documentdb.com/capacityplanner). The term *container* here refers to refers to a SQL API collection, MongoDB API collection, and Table API table. 
 <!-- Not Available on  Graph -->
 
-### How does Azure Cosmos DB support various data models such as key/value, columnar and document?
+### How does Azure Cosmos DB support various data models such as key/value, columnar, and document?
 Key/value (table), columnar and document data models are all natively supported because of the ARS (atoms, records and sequences) design that Azure Cosmos DB is built on. Atoms, records, and sequences can be easily mapped and projected to various data models. The APIs for a subset of models are available right now (SQL, MongoDB, and Table APIs) and others specific to additional data models will be available in the future.
 <!-- Not Available on  Graph -->
 
@@ -65,14 +70,14 @@ There is no limit to the total amount of throughput that a container can support
 For details, refer to the [Azure Cosmos DB pricing details](https://www.azure.cn/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, MongoDB API collection, and Table API tables. 
 <!-- Not Avaialbe  Graph API graph -->
 
-### Is a free account available?
+### Is a trial account available?
 <!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 If you are new to Azure, you can sign up for an [Azure trial account](https://www.azure.cn/pricing/1rmb-trial/), which gives you 30 days and and a credit to try all the Azure services. If you have a Visual Studio subscription, you are also eligible for [free Azure credits](https://www.azure.cn/support/legal/offer-rate-plans/) to use on any Azure service. 
 
 You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop and test your application locally for free, without creating an Azure subscription. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 
 ### How can I get additional help with Azure Cosmos DB?
-If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB), or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
+If you need any help, reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) or the [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) , or schedule a one-on-one chat with the Azure Cosmos DB engineering team by sending mail to [Azure Support](https://www.azure.cn/support/contact/). 
 
 <!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
 ## Set up Azure Cosmos DB
@@ -210,7 +215,7 @@ For the .NET SDK in particular, there are some classes and methods that Azure Co
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
 
-If any of these differences are a problem for your project please contact [Azure Support](https://www.azure.cn/support/support-ticket-form) and let us know.
+If any of these differences are a problem for your project please contact [Azure Support](https://www.azure.cn/support/contact/) and let us know.
 
 ### How do I provide feedback about the SDK or bugs?
 You can share your feedback in any of the following ways:
@@ -222,7 +227,7 @@ You can share your feedback in any of the following ways:
 ### What is the connection string that I need to use to connect to the Table API?
 The connection string is:
 ```
-DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.cn
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.documents.azure.cn
 ```
 You can get the connection string from the Connection String page in the Azure portal. 
 
@@ -278,6 +283,7 @@ You can use the Azure Cosmos DB portal's [multiple-region replication settings](
 
 ### How do I change the primary write region for the account in the Table API?
 You can use the Azure Cosmos DB multiple-region replication portal pane to add a region and then fail over to the required region. For instructions, see [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
+<!-- Notice: 全球范围 to 多个区域范围 -->
 
 ### How do I configure my preferred read regions for low latency when I distribute my data? 
 To help read from the local location, use the PreferredLocation key in the app.config file. For existing applications, the Table API throws an error if LocationMode is set. Remove that code, because the Table API picks up this information from the app.config file. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
@@ -382,6 +388,7 @@ By using the throughput specification, you can elastically change it to benefit 
 ### Azure Table storage has been very inexpensive for me, because I pay only to store the data, and I rarely query. The Azure Cosmos DB Table API offering seems to be charging me even though I have not performed a single transaction or stored anything. Can you please explain?
 
 Azure Cosmos DB is designed to be a multiple-region distributed, SLA-based system with guarantees for availability, latency, and throughput. When you reserve throughput in Azure Cosmos DB, it is guaranteed, unlike the throughput of other systems. Azure Cosmos DB provides additional capabilities that customers have requested, such as secondary indexes and global distribution.  
+<!-- Notice: 全球范围 to 多个区域范围 -->
 
 ### I never get a "quota full" notification (indicating that a partition is full) when I ingest data into Azure Table storage. With the Table API, I do get this message. Is this offering limiting me and forcing me to change my existing application?
 
@@ -405,4 +412,4 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 [azure-portal]: https://portal.azure.cn
 [query]: sql-api-sql-query.md
 
-<!--Update_Description: update link, wording update, remove Cassandra FAQ content -->
+<!--Update_Description: update link, wording update -->

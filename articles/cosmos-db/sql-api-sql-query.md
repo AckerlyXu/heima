@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -1455,6 +1455,7 @@ The main difference between Cosmos DB's functions compared to ANSI SQL is that t
 ### Type checking functions
 The type checking functions allow you to check the type of an expression within SQL queries. Type checking functions can be used to determine the type of properties within documents on the fly when it is variable or unknown. Here's a table of supported built-in type checking functions.
 
+<!-- We use sql-api-sql-query-reference.md to avoid the broken link in building process-->
 <table>
 <tr>
   <td><strong>Usage</strong></td>
@@ -2232,6 +2233,7 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 ## <a id="References"></a>References
 1. [Introduction to Azure Cosmos DB][introduction]
 2. [Azure Cosmos DB SQL specification](/cosmos-db/sql-api-sql-query-reference)
+<!-- http://go.microsoft.com/fwlink/p/?LinkID=510612 Redirect to cosmos-db/sql-api-sql-query-reference-->
 3. [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-documentdb-net)
 4. [Azure Cosmos DB Consistency Levels][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
@@ -2247,4 +2249,4 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 [1]: ./media/sql-api-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-<!-- Update_Description: new articles on SQL api query -->
+<!-- Update_Description: update meta properties -->
