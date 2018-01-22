@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/24/2017
-ms.date: 09/07/2017
+ms.date: 01/16/2018
 ms.author: v-junlch
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-junlch
 This article walks through how to get started using Azure Multi-Factor Authentication in the cloud.
 
 > [!NOTE]
-> The following documentation provides information on how to enable users using the **Azure Classic Management Portal**. If you are looking for information on how to set up Azure Multi-Factor Authentication for O365 users, see [Set up multi-factor authentication for Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
+> The following documentation provides information on how to enable users using the Azure Portal. If you are looking for information on how to set up Azure Multi-Factor Authentication for O365 users, see [Set up multi-factor authentication for Office 365.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
 
 ![MFA in the Cloud](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -33,7 +33,7 @@ The following prerequisites are required before you can enable Azure Multi-Facto
 
 ## Turn on two-step verification for users
 
-Use one of the procedures listed in [How to require two-step verification for a user or group](multi-factor-authentication-get-started-user-states.md) to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create conditional access policies to require two-step verification only when it matters to you.
+Use one of the procedures listed in [How to require two-step verification for a user or group](multi-factor-authentication-get-started-user-states.md) to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins.
 
 ## Next Steps
 Now that you have set up Azure Multi-Factor Authentication in the cloud, you can configure and set up your deployment. See [Configuring Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md) for more details.

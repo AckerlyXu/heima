@@ -23,7 +23,10 @@ ms.custom: mvc
 
 This quickstart shows how to use Python and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, and wide-column, all of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
+<!-- Not Available on Graph -->
 
 ## Prerequisites
 

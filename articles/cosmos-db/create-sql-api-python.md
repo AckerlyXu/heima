@@ -23,7 +23,9 @@ ms.author: v-yeche
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-Azure Cosmos DB is 21Vianet's globally distributed multi-model database service. You can quickly create and query document, and key/value, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is 21Vianet's multiple-region distributed multi-model database service. You can quickly create and query document, and key/value, all of which benefit from the multiple-region distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases-->
 
 This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Python API](sql-api-sdk-python.md).

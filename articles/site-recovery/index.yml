@@ -12,7 +12,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 09/23/2017
-  ms.date: 11/20/2017
+  ms.date: 01/22/2018
   ms.author: v-yeche
 abstract:
   description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, and on-premises VMs and physical servers. Learn how to replicate, fail over, and fail back with our quickstarts and tutorials.
@@ -51,6 +51,17 @@ sections:
     - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
     - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
   - type: text
+    html: <h3>Hyper-V</h3> 
+  - type: list    
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-hyper-v">Prepare on-premises Hyper-V</a>
+    - html: <a href="tutorial-hyper-v-to-azure">Set-up disaster recovery for Hyper-V VMs</a>
+    - html: <a href="tutorial-hyper-v-vmm-to-azure">Set-up disaster recovery for Hyper-V VMs managed by System Center VMM</a>
+    - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
+    - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Run a failover and failback</a>
+  - type: text
     html: <h3>Migrate to Azure</h3>  
   - type: list        
     style: ordered
@@ -58,5 +69,4 @@ sections:
     - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
     - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines</a> or <a href="tutorial-migrate-aws-to-azure">AWS Instances to Azure</a>
 ### Invalid Items - title: Reference
-### ms.date: 11/20/2017
- 
+### ms.date: 01/22/2018

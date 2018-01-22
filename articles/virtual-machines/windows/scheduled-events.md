@@ -24,7 +24,7 @@ ms.author: v-yeche
 > [!NOTE] 
 > Previews are made available to you on the condition that you agree to the terms of use. 
 >
-<!-- Not Available on [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/).--》
+<!-- Not Available on [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/). -->
 
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine maintenance. It provides information about upcoming maintenance events (e.g. reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS on both Windows and Linux. 
 

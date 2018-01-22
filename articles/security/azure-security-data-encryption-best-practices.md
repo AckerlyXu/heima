@@ -113,7 +113,7 @@ Protecting data in transit should be essential part of your data protection stra
 
 For data moving between your on-premises infrastructure and Azure, you should consider appropriate safeguards such as HTTPS or VPN.
 
-For organizations that need to secure access from multiple workstations located on-premises to Azure, use [Azure site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+For organizations that need to secure access from multiple workstations located on-premises to Azure, use Azure site-to-site VPN.
 
 For organizations that need to secure access from one workstation located on-premises to Azure, use [Point-to-Site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 

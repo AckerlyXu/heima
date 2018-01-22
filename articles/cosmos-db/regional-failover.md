@@ -20,7 +20,8 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Automatic regional failover for business continuity in Azure Cosmos DB
-Azure Cosmos DB simplifies the global distribution of data by offering fully managed, [multi-region database accounts](distribute-data-globally.md) that provide clear tradeoffs between consistency, availability, and performance, all with corresponding guarantees. Cosmos DB accounts offer high availability, single digit ms latencies, [well-defined consistency levels](consistency-levels.md), transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
+Azure Cosmos DB simplifies the multiple-region distribution of data by offering fully managed, [multi-region database accounts](distribute-data-globally.md) that provide clear tradeoffs between consistency, availability, and performance, all with corresponding guarantees. Cosmos DB accounts offer high availability, single digit ms latencies, [well-defined consistency levels](consistency-levels.md), transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the multiple-region. 
+<!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB supports both explicit and policy driven failovers that allow you to control the end-to-end system behavior in the event of failures. In this article, we look at:
 
@@ -28,9 +29,8 @@ Cosmos DB supports both explicit and policy driven failovers that allow you to c
 * How do automatic failovers work in Cosmos DB and what happens when a data center goes down?
 * How can you use manual failovers in application architectures?
 
-You can also learn about regional failovers in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+<!-- Not Available on >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  -->
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configuring multi-region applications
 Before we dive into failover modes, we look at how you can configure an application to take advantage of multi-region availability and be resilient in the face of regional failovers.
@@ -66,9 +66,10 @@ The application is also deployed in the China North region with the order of pre
 
 The following architecture diagram shows a multi-region application deployment where Cosmos DB and the application are configured to be available in four Azure geographic regions.  
 
-![Globally distributed application deployment with Azure Cosmos DB](./media/regional-failover/app-deployment.png)
+![multiple-region distributed application deployment with Azure Cosmos DB](./media/regional-failover/app-deployment.png)
 
 Now, let's look at how the Cosmos DB service handles regional failures via automatic failovers. 
+<!-- Notice: 全球 to 多个区域 -->
 
 ## <a id="AutomaticFailovers"></a>Automatic Failovers
 In the rare event of an Azure regional outage or data center outage, Cosmos DB automatically triggers failovers of all Cosmos DB accounts with a presence in the affected region. 
@@ -130,14 +131,16 @@ Some of the common scenarios where manual failover can be useful are:
 
 **Follow the clock model**: If your applications have predictable traffic patterns based on the time of the day, you can periodically change the write status to the most active geographic region based on time of the day.
 
-**Service update**: Certain globally distributed application deployment may involve rerouting traffic to different region via traffic manager during their planned service update. Such application deployment now can use manual failover to keep the write status to the region where there is going to be active traffic during the service update window.
+**Service update**: Certain multiple-region distributed application deployment may involve rerouting traffic to different region via traffic manager during their planned service update. Such application deployment now can use manual failover to keep the write status to the region where there is going to be active traffic during the service update window.
+<!-- Notice: 全球 to 多个区域 -->
 
 **Business Continuity and Disaster Recovery (BCDR) and High Availability and Disaster Recovery (HADR) drills**: Most enterprise applications include business continuity tests as part of their development and release process. BCDR and HADR testing is often an important step in compliance certifications and guaranteeing service availability in the case of regional outages. You can test the BCDR readiness of your applications that use Cosmos DB for storage by triggering a manual failover of your Cosmos DB account and/or adding and removing a region dynamically.
 
-In this article, we reviewed how manual and automatic failovers work in Cosmos DB, and how you can configure your Cosmos DB accounts and applications to be globally available. By using Cosmos DB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures. 
+In this article, we reviewed how manual and automatic failovers work in Cosmos DB, and how you can configure your Cosmos DB accounts and applications to be multiple-region available. By using Cosmos DB's multiple-region replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures. 
 
 ## <a id="NextSteps"></a>Next Steps
-* Learn about how Cosmos DB supports [global distribution](distribute-data-globally.md)
+* Learn about how Cosmos DB supports [multiple-region distribution](distribute-data-globally.md)
+<!-- Notice: 全球 to 多个区域 -->
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
 * Develop with multiple regions using Azure Cosmos DB's [SQL API](tutorial-global-distribution-sql-api.md)
 * Learn how to build [Multi-region writer architectures](multi-region-writers.md) with Azure Cosmos DB

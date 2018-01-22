@@ -81,7 +81,7 @@ If you need to contact Azure support for help with your Azure Service Fabric clu
 
 In order to take advantage of these logs, it is highly recommended that during cluster creation, "Diagnostics" is enabled. By turning on diagnostics, when the cluster is deployed, Windows Azure Diagnostics is able to acknowledge the Operational, Reliable Services, and Reliable actors channels, and store the data as explained further in [Aggregate events with Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
 
-As seen above, there is also an optional field to add an Application Insights (AI) instrumentation key. If you choose to use AI for any event analysis (read more about this in [Event Analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)), include the AppInsights resource instrumentationKey (GUID) here.
+<!-- Not Available on [Event Analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)),-->
 
 If you are going to deploy containers to your cluster, enable WAD to pick up docker stats by adding this to your "WadCfg > DiagnosticMonitorConfiguration":
 
@@ -103,7 +103,8 @@ For a list of performance counters to collect when using Service Fabric, see [Pe
 
 Here are two common ways in which you can set up collecting performance data for your cluster:
 
-* Using an agent: this is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change them. Read about [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) articles to learn more about the OMS agent, which is one such monitoring agent that is able to pick up performance data for cluster VMs and deployed containers.
+* Using an agent: this is the preferred way of collecting performance from a machine, since agents usually have a list of possible performance metrics that can be collected, and it is a relatively easy process to choose the metrics you want to collect or change them. 
+<!-- Not Available on  [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) -->
 <!-- Not Available [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agents.md) -->
 * Configuring diagnostics to write performance counters to a table: for clusters on Azure, this means changing the Azure Diagnostics configuration to pick up the appropriate performance counters from the VMs in your cluster, and enabling it to pick up docker stats if you will be deploying any containers. Read about configuring [Performance Counters in WAD](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric to set up performance counter collection.
 

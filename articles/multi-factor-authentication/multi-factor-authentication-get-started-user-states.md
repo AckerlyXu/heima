@@ -1,10 +1,10 @@
 ---
 title: Azure Multi-Factor Authentication User States
-description: Learn about user states in Azure MFA.
+description: Learn about user states in Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: MicrosoftGuyJFlo
+manager: mtillman
 
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
@@ -13,104 +13,88 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 09/07/2017
+ms.date: 01/16/2018
 ms.author: v-junlch
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 
-# User status in Azure Multi-Factor Authentication
+# How to require two-step verification for a user or group
+
+**Enabling Azure Multi-Factor Authentication by changing user states** is the traditional approach for requiring two-step verification. All users that you enable perform two-step verification every time they sign in. Enabling a user overrides any conditional access policies that might affect that user. 
+
+## Enable Azure MFA by changing user status
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-| Status | Description | Non-browser apps affected |
-|:---:|:---:|:---:|
-| Disabled |The default state for a new user not enrolled Azure Multi-Factor Authentication (MFA). |No |
-| Enabled |The user has been enrolled in Azure MFA, but has not registered. They will be prompted to register the next time they sign in. |No.  They continue to work until the registration process is completed. |
-| Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |
+| Status | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
+|:---:|:---:|:---:|:--:|:--:|
+| Disabled |The default state for a new user not enrolled in Azure MFA. |No |No |No |
+| Enabled |The user has been enrolled in Azure MFA, but has not registered. They receive a prompt to register the next time they sign in. |No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure MFA registration is required.| Yes. After the access token expires, Azure MFA registration is required. |
+| Enforced |The user has been enrolled and has completed the registration process for Azure MFA. |Yes.  Apps require app passwords. |Yes. Azure MFA is required at login. | Yes. Azure MFA is required at login. |
 
 A user's state reflects whether an admin has enrolled them in Azure MFA, and whether they completed the registration process.
 
-All users start out *disabled*. When you enroll users in Azure MFA, their state changes *enabled*. When enabled users sign in and complete the registration process, their state changes to *enforced*.  
+All users start out *Disabled*. When you enroll users in Azure MFA, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*.  
 
-## View user status
+### View the status for a user
 
 Use the following steps to access the page where you can view and manage user states:
 
-1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn) as an administrator.
-2. On the left, select **Active Directory**.
-3. Select the directory for the user you wish to view.
-   ![Select directory - screenshot](./media/multi-factor-authentication-get-started-cloud/directory1.png)
-4. Select **Users**.
-5. At the bottom of the page, select **Manage Multi-Factor Auth**. 
-   ![Select Manage multi-factor auth - screenshot](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6. A new tab, which displays the user states, opens.
+1. Sign in to the [Azure portal](https://portal.azure.cn) as an administrator.
+2. Go to **Azure Active Directory** > **Users and groups** > **All users**.
+3. Select **Multi-Factor Authentication**.
+   ![Select Multi-Factor Authentication](./media/multi-factor-authentication-get-started-user-states/selectmfa.png)
+4. A new page that displays the user states opens.
    ![multi-factor authentication user status - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
-## Change the status from disabled to enabled
+### Change the status for a user
 
-1. Use the preceding steps to get to the multi-factor authentication users page. 
-2. Find the user that you want to enable for Azure MFA. You may need to change the view at the top. Ensure that the status is **disabled**.
-
+1. Use the preceding steps to get to the Azure Multi-Factor Authentication **users** page.
+2. Find the user you want to enable for Azure MFA. You might need to change the view at the top. 
    ![Find user - screenshot](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 3. Check the box next to their name.
-4. On the right, under quick steps, click **Enable**.
-
+4. On the right, under **quick steps**, choose **Enable** or **Disable**.
    ![Enable selected user - screenshot](./media/multi-factor-authentication-get-started-cloud/user1.png)
-5. Select **enable multi-factor auth**.
 
-   ![Enable multi-factor auth - screenshot](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-6. Notice the user's state has changed from **disabled** to **enabled**.
-   
-   ![See that user is now enabled - screenshot](./media/multi-factor-authentication-get-started-cloud/user.png)
+   >[!TIP]
+   >*Enabled* users are automatically switched to *Enforced* when they register for Azure MFA. Do not manually change the user state to *Enforced*. 
 
-After you enable users, you should notify them via email. Include the fact that they'll be asked to register the next time they sign in, and that some non-browser apps may not work with two-step verification. You can also include a link to our [Azure MFA end-user guide](../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) to help them get started. 
+5. Confirm your selection in the pop-up window that opens. 
 
-## To change the state from enabled/enforced to disabled
+After you enable users, notify them via email. Tell them that they'll be asked to register the next time they sign in. You can also include a link to the [Azure MFA end-user guide](./end-user/multi-factor-authentication-end-user.md) to help them get started.
 
-1. Use the steps in [View user states](#view-user-states) to get to the multi-factor authentication users page.
-6. Find the user that you want to disable. You may need to change the view at the top. Ensure that the status is either **enabled** or **enforced**.
-7. Check the box next to their name.
-8. On the right, under quick steps, click **Disable**.
-   ![Disable user - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
-9. You are prompted to confirm the action. Click **Yes**.
-10. If the user was successfully disabled, you receive a success message. Click **Close**.
-
-## Use PowerShell to automate turning on two-step verification
-To change the [state](./multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](../powershell-install-configure.md), you can use the following.  You can change `$st.State` to equal one of the following states:
+### Use PowerShell
+To change the user state by using [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview), change `$st.State`. There are three possible states:
 
 - Enabled
 - Enforced
 - Disabled  
 
-> [!IMPORTANT]
-> We discourage against moving users directly from the Disable state to the Enforced state.
+Don't move users directly to the *Enforced* state. If you do, non-browser-based apps stop working because the user has not gone through Azure MFA registration and obtained an app password.
 
-Using PowerShell would be an option for bulk enabling users. Currently there is no bulk enable feature in the Azure portal and you need to select each user individually. This can be quite a task if you have many users. By creating a PowerShell script using the following, you can loop through a list of users and enable them.
+Using PowerShell is a good option when you need to bulk enabling users. Create a PowerShell script that loops through a list of users and enables them:
 
-```
-    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-    $st.RelyingParty = "*"
-    $st.State = "Enabled"
-    $sta = @($st)
-    Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
-```
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = "Enabled"
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Here is an example:
+The following script is an example:
 
-```
-$users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-foreach ($user in $users)
-{
-    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-    $st.RelyingParty = "*"
-    $st.State = "Enabled"
-    $sta = @($st)
-    Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-}
-```
+    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+    foreach ($user in $users)
+    {
+        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+        $st.RelyingParty = "*"
+        $st.State = "Enabled"
+        $sta = @($st)
+        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+    }
 
 ## Next steps
 
-- Manage Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md)
+- Manage Azure Multi-Factor Authentication settings for [your users and their devices](multi-factor-authentication-manage-users-and-devices.md).
 
+<!-- Update_Description: wording update -->

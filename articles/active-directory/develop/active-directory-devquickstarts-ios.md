@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure AD into an iOS app | Microsoft Docs
+title: Azure AD iOS getting started | Microsoft Docs
 description: How to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ios
@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 01/02/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD into an iOS app
+# Azure AD iOS getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
 
 Azure Active Directory (Azure AD) provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to obtain access tokens. To demonstrate how easy it is, in this article we build an Objective C To-Do List application that:
 
@@ -53,7 +52,7 @@ The iOS format for a redirect URI is:
 ```
 
 - **app-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
-- **bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
+- **bundle-id** - This is the Bundle Identifier found under "identity" in your XCode project settings.
 
 An example for this QuickStart code: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -66,7 +65,7 @@ To set up your app to get tokens, you first need to register it in your Azure AD
 4. Click **App registrations**, and then select **New application registration**.
 5. Create a new **Native** Application.
     - The **Name** of the application describes your application to end users.
-    - The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a value specific to your application based on the information above.
+    - The **Redirect Uri** is a scheme and string combination that Azure AD uses to return token responses.  Enter a value that is specific to your application and is based on the previous redirect URI information.
 6. After you've completed the registration, Azure AD assigns your app a unique application ID.  You'll need this value in the next sections, so copy it from the application tab.
 7. From the **Settings** page, select **Required Permissions** and then select **Add**. Select **Microsoft Graph** as the API, and then add the **Read Directory Data** permission under **Delegated Permissions**.  This sets up your application to query the Azure AD Graph API for users.
 
