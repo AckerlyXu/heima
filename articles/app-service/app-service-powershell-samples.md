@@ -11,17 +11,17 @@ tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: app-service
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
 origin.date: 03/08/2017
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: mvc
 ---
 # Azure PowerShell Samples
 
-The following table includes links to bash scripts built using the Azure PowerShell.
+The following table includes links to PowerShell scripts built using the Azure PowerShell.
 
 | | |
 |-|-|

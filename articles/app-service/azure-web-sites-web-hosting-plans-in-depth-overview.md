@@ -1,5 +1,5 @@
 ---
-title: Azure App Service plan overview | Microsoft Docs
+title: Azure App Service plan overview 
 description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 services: app-service
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 01/02/2018
+ms.date: 01/29/2018
 ms.author: v-yiso
 
 ---
@@ -34,6 +34,8 @@ The _pricing tier_ of an App Service plan determines what App Service features y
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, runs an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out.
 - **Dedicated compute**: The **Basic**, **Standard**, **Premium** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances are available to you for scale-out.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Each tier also provides a specific subset of App Service features. These features include custom domains and SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

@@ -1,18 +1,20 @@
 ---
 title: Enable offline syncing with IOS Mobile App
-description: Learn how to use Azure App Service Mobile Apps to cache and sync offline data in iOS application
-documentationCenter: ios
-author: ysxu
-manager: yochayk
+description: Learn how to use Azure App Service mobile apps to cache and sync offline data in iOS applications.
+documentationcenter: ios
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
+ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -275,7 +277,7 @@ When we synchronized the local store with the server, we used the **MSSyncTable.
 <!-- URLs. -->
 
 [Create an iOS App]: ./app-service-mobile-ios-get-started.md
-[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[Offline Data Sync in Mobile Apps]: app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png

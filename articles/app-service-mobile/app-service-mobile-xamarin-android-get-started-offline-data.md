@@ -1,9 +1,9 @@
 ---
 title: Enable offline sync for your Azure Mobile App (Xamarin Android)
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin Android application
-documentationCenter: xamarin
-authors: adrianhall
-manager: dwrede
+documentationcenter: xamarin
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
@@ -12,7 +12,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -97,8 +98,7 @@ In this section, reconnect the app to the mobile app backend. When you first run
 ## Review the client sync code
 
 The Xamarin client project that you downloaded when you completed the tutorial [Create a Xamarin Android app] already contains code
-supporting offline synchronization using a local SQLite database. Here is a brief overview of what is already included in the tutorial c
-ode. For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].
+supporting offline synchronization using a local SQLite database. Here is a brief overview of what is already included in the tutorial code. For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].
 
 * Before any table operations can be performed, the local store must be initialized. The local store database is initialized
    when `ToDoActivity.OnCreate()` executes `ToDoActivity.InitLocalStoreAsync()`. This method creates a local SQLite database using
