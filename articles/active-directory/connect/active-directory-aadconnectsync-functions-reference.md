@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Functions Reference | Microsoft Docs'
 description: Reference of declarative provisioning expressions in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: andkjell
+manager: mtillman
 editor: ''
 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 12/20/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 
 ---
@@ -153,12 +153,6 @@ Returns a DateTime based on the employee’s start time
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Returns a DateTime representing "2013-01-11 12:00 AM"
-
-
-
-
-
-
 
 
 - - -
@@ -544,7 +538,7 @@ The DNComponent function returns the value of a specified DN component going fro
 - ComponentNumber: The component in the DN to return
 
 **Example:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 If dn is "cn=Joe,ou=…," it returns Joe
 
 - - -
@@ -562,8 +556,8 @@ The DNComponentRev function returns the value of a specified DN component going 
 
 **Example:**  
 If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Both return US.
 
 - - -
@@ -1340,4 +1334,4 @@ Would return "has"
 - [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

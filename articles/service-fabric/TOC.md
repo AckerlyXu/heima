@@ -15,11 +15,11 @@
 ### [1- Build a .NET application](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md)
+<!-- Not Available on ### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md) -->
 
 ## Containerize an existing .NET app
 ### [1- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
-### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
+<!-- Not Available on ### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)-->
 
 ## Create a Linux container app
 ### [1- Create container images](service-fabric-tutorial-create-container-images.md)
@@ -145,9 +145,9 @@
 #### Aggregate events with Azure Diagnostics
 ##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 ##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Analyze events
-#### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+<!-- Not Available on ### Analyze events-->
+<!-- Not Available on #### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on #### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 ### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 ## [Integrate with API Management](service-fabric-api-management-overview.md)

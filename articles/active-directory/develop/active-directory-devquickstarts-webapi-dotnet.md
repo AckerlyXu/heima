@@ -1,5 +1,5 @@
 ---
-title: Azure AD .NET web API Getting Started | Microsoft Docs
+title: Azure AD .NET Web API getting started | Microsoft Docs
 description: How to build a .NET MVC web API that integrates with Azure AD for authentication and authorization.
 services: active-directory
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/02/2018
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Help protect a web API by using bearer tokens from Azure AD
+# Azure AD .NET Web API getting started
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 If you’re building an application that provides access to protected resources, you need to know how to prevent unwarranted access to those resources.

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Java web app Getting Started | Microsoft Docs
+title: Azure AD Java web app getting started | Microsoft Docs
 description: Build a Java web app that signs users in with a work or school account.
 services: active-directory
 documentationcenter: java
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-origin.date: 02/01/2017
-ms.date: 01/10/2018
+origin.date: 11/30/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
 
 ---
-# Java web app sign-in and sign-out with Azure AD
+# Azure AD Java web app getting started
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 By providing a single sign-in and sign-out with only a few lines of code, Azure Active Directory (Azure AD) makes it simple for you to outsource web-app identity management. You can sign users in and out of Java web apps by using the Microsoft implementation of the community-driven Azure Active Directory Authentication Library for Java (ADAL4J).
@@ -362,11 +362,11 @@ To write some Java files for this work:
     import org.json.JSONObject;
 
     /**
-     * This class provides the methods to parse JSON Data from a JSON Formatted
+     * This class provides the methods to parse JSON data from a JSON-formatted
      * String.
-     * 
-     * @author Azure Active Directory Contributor
-     * 
+     *
+     * @author Azure Active Directory contributor
+     *
      */
     public class JSONHelper {
 
@@ -583,9 +583,9 @@ To write some Java files for this work:
 
     /**
      * This is Helper class for all RestClient class.
-     * 
+     *
      * @author Azure Active Directory Contributor
-     * 
+     *
      */
     public class HttpClientHelper {
 
@@ -652,7 +652,7 @@ To write some Java files for this work:
 
         /**
          * for bad response, whose responseCode is not 200 level
-         * 
+         *
          * @param responseCode
          * @param errorCode
          * @param errorMsg
@@ -670,7 +670,7 @@ To write some Java files for this work:
 
         /**
          * for bad response, whose responseCode is not 200 level
-         * 
+         *
          * @param responseCode
          * @param errorCode
          * @param errorMsg
@@ -691,7 +691,7 @@ To write some Java files for this work:
 
         /**
          * for good response
-         * 
+         *
          * @param responseCode
          * @param responseMsg
          * @return
@@ -726,6 +726,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
 1. Create a file called DirectoryObject.java, which you use to store basic data about any Directory object. You can use this file later for any other Graph queries you might perform. To create the file, paste the following code:
 
     ```Java
+
     package com.microsoft.aad.adal4jsample;
 
     /**
@@ -739,7 +740,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * 
+         *
          * @return
          */
         public abstract String getObjectId();
@@ -750,30 +751,31 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         public abstract void setObjectId(String objectId);
 
         /**
-         * 
+         *
          * @return
          */
         public abstract String getObjectType();
 
         /**
-         * 
+         *
          * @param objectType
          */
         public abstract void setObjectType(String objectType);
 
         /**
-         * 
+         *
          * @return
          */
         public abstract String getDisplayName();
 
         /**
-         * 
+         *
          * @param displayName
          */
         public abstract void setDisplayName(String displayName);
 
     }
+
     ```
 
 2. Create a file called User.java, which you use to store basic data about any user from the directory. These are basic getter and setter methods for directory data, so you can paste the following code:
@@ -879,7 +881,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The objectType of this User.
+         * @return The objectType of this user.
          */
         public String getObjectType() {
             return objectType;
@@ -893,7 +895,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The userPrincipalName of this User.
+         * @return The userPrincipalName of this user.
          */
         public String getUserPrincipalName() {
             return userPrincipalName;
@@ -907,7 +909,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The usageLocation of this User.
+         * @return The usageLocation of this user.
          */
         public String getUsageLocation() {
             return usageLocation;
@@ -921,7 +923,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The telephoneNumber of this User.
+         * @return The telephoneNumber of this user.
          */
         public String getTelephoneNumber() {
             return telephoneNumber;
@@ -935,35 +937,35 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The surname of this User.
+         * @return The surname of this user.
          */
         public String getSurname() {
             return surname;
         }
 
         /**
-         * @param surname The surname to set to this User Object.
+         * @param surname The surname to set to this User object.
          */
         public void setSurname(String surname) {
             this.surname = surname;
         }
 
         /**
-         * @return The streetAddress of this User.
+         * @return The streetAddress of this user.
          */
         public String getStreetAddress() {
             return streetAddress;
         }
 
         /**
-         * @param streetAddress The streetAddress to set to this User.
+         * @param streetAddress The streetAddress to set to this user.
          */
         public void setStreetAddress(String streetAddress) {
             this.streetAddress = streetAddress;
         }
 
         /**
-         * @return The state of this User.
+         * @return The state of this user.
          */
         public String getState() {
             return state;
@@ -977,49 +979,49 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The preferredLanguage of this User.
+         * @return The preferredLanguage of this user.
          */
         public String getPreferredLanguage() {
             return preferredLanguage;
         }
 
         /**
-         * @param preferredLanguage The preferredLanguage to set to this User.
+         * @param preferredLanguage The preferredLanguage to set to this user.
          */
         public void setPreferredLanguage(String preferredLanguage) {
             this.preferredLanguage = preferredLanguage;
         }
 
         /**
-         * @return The postalCode of this User.
+         * @return The postalCode of this user.
          */
         public String getPostalCode() {
             return postalCode;
         }
 
         /**
-         * @param postalCode The postalCode to set to this User.
+         * @param postalCode The postalCode to set to this user.
          */
         public void setPostalCode(String postalCode) {
             this.postalCode = postalCode;
         }
 
         /**
-         * @return The physicalDeliveryOfficeName of this User.
+         * @return The physicalDeliveryOfficeName of this user.
          */
         public String getPhysicalDeliveryOfficeName() {
             return physicalDeliveryOfficeName;
         }
 
         /**
-         * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User Object.
+         * @param physicalDeliveryOfficeName The physicalDeliveryOfficeName to set to this User object.
          */
         public void setPhysicalDeliveryOfficeName(String physicalDeliveryOfficeName) {
             this.physicalDeliveryOfficeName = physicalDeliveryOfficeName;
         }
 
         /**
-         * @return The passwordPolicies of this User.
+         * @return The passwordPolicies of this user.
          */
         public String getPasswordPolicies() {
             return passwordPolicies;
@@ -1033,7 +1035,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The mobile of this User.
+         * @return The mobile of this user.
          */
         public String getMobile() {
             return mobile;
@@ -1047,7 +1049,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The Password of this User.
+         * @return The password of this user.
          */
         public String getPassword() {
             return password;
@@ -1061,7 +1063,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The mail of this User.
+         * @return The mail of this user.
          */
         public String getMail() {
             return mail;
@@ -1075,7 +1077,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The MailNickname of this User.
+         * @return The MailNickname of this user.
          */
         public String getMailNickname() {
             return mailNickname;
@@ -1089,21 +1091,21 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The jobTitle of this User.
+         * @return The jobTitle of this user.
          */
         public String getJobTitle() {
             return jobTitle;
         }
 
         /**
-         * @param jobTitle The jobTitle to set to this User Object.
+         * @param jobTitle The jobTitle to set to this User object.
          */
         public void setJobTitle(String jobTitle) {
             this.jobTitle = jobTitle;
         }
 
         /**
-         * @return The givenName of this User.
+         * @return The givenName of this user.
          */
         public String getGivenName() {
             return givenName;
@@ -1117,35 +1119,35 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The facsimileTelephoneNumber of this User.
+         * @return The facsimileTelephoneNumber of this user.
          */
         public String getFacsimileTelephoneNumber() {
             return facsimileTelephoneNumber;
         }
 
         /**
-         * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User Object.
+         * @param facsimileTelephoneNumber The facsimileTelephoneNumber to set to this User object.
          */
         public void setFacsimileTelephoneNumber(String facsimileTelephoneNumber) {
             this.facsimileTelephoneNumber = facsimileTelephoneNumber;
         }
 
         /**
-         * @return The displayName of this User.
+         * @return The displayName of this user.
          */
         public String getDisplayName() {
             return displayName;
         }
 
         /**
-         * @param displayName The displayName to set to this User Object.
+         * @param displayName The displayName to set to this User object.
          */
         public void setDisplayName(String displayName) {
             this.displayName = displayName;
         }
 
         /**
-         * @return The dirSyncEnabled of this User.
+         * @return The dirSyncEnabled of this user.
          */
         public String getDirSyncEnabled() {
             return dirSyncEnabled;
@@ -1159,7 +1161,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The department of this User.
+         * @return The department of this user.
          */
         public String getDepartment() {
             return department;
@@ -1173,7 +1175,7 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The lastDirSyncTime of this User.
+         * @return The lastDirSyncTime of this user.
          */
         public String getLastDirSyncTime() {
             return lastDirSyncTime;
@@ -1187,42 +1189,42 @@ As indicated previously, you use the Graph API to get data about the signed-in u
         }
 
         /**
-         * @return The country of this User.
+         * @return The country of this user.
          */
         public String getCountry() {
             return country;
         }
 
         /**
-         * @param country The country to set to this User.
+         * @param country The country to set to this user.
          */
         public void setCountry(String country) {
             this.country = country;
         }
 
         /**
-         * @return The city of this User.
+         * @return The city of this user.
          */
         public String getCity() {
             return city;
         }
 
         /**
-         * @param city The city to set to this User.
+         * @param city The city to set to this user.
          */
         public void setCity(String city) {
             this.city = city;
         }
 
         /**
-         * @return The accountEnabled attribute of this User.
+         * @return The accountEnabled attribute of this user.
          */
         public String getAccountEnabled() {
             return accountEnabled;
         }
 
         /**
-         * @param accountEnabled The accountEnabled to set to this User.
+         * @param accountEnabled The accountEnabled to set to this user.
          */
         public void setAccountEnabled(String accountEnabled) {
             this.accountEnabled = accountEnabled;

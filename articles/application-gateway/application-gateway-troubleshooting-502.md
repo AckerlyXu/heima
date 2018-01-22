@@ -3,8 +3,8 @@ title: Troubleshoot Azure Application Gateway Bad Gateway (502) errors | Microso
 description: Learn how to troubleshoot Application Gateway 502 errors
 services: application-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: amitsriva
+manager: rossort
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.author: v-junlch
 
 ---
@@ -117,8 +117,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 - If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 - Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
 - Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
-- If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself. 
-- Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
+- If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself.
 
 ## Request time-out
 
@@ -131,7 +130,7 @@ When a user request is received, Application Gateway applies the configured rule
 Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time-out configured.
 
 ```powershell
-New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## Empty BackendAddressPool
@@ -191,3 +190,4 @@ Ensure that the instances are healthy and the application is properly configured
 If the preceding steps do not resolve the issue, open a [support ticket](https://www.azure.cn/support/contact/).
 
 
+<!-- Update_Description: wording update -->

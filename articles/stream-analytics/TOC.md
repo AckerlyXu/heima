@@ -16,6 +16,7 @@
 <!-- Not Available ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md) -->
 <!-- Not Available ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)-->
 ### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
+<!-- Not Available ### [Azure Functions with Azure Stream Analytics](stream-analytics-with-azure-functions.md) -->
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
@@ -50,6 +51,7 @@
 ## Manage
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 <!-- Not Available ### [Job reliability during updates](stream-analytics-job-reliability.md) -->
+<!-- Not Available ### [Configure compatibility level](stream-analytics-compatibility-level.md) -->
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
@@ -81,4 +83,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)-->
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
 
-<!--ms.date: 01/015/2018 -->
+<!--ms.date: 01/22/2018 -->

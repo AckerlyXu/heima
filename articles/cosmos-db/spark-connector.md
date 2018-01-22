@@ -1,6 +1,6 @@
 ---
 title: Connecting Apache Spark to Azure Cosmos DB | Azure
-description: Use this tutorial to learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB to perform distributed aggregations and data sciences on the multi-tenant globally distributed database system from Microsoft that's designed for the cloud.
+description: Use this tutorial to learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB to perform distributed aggregations and data sciences on the multi-tenant multiple-region distributed database system from Microsoft that's designed for the cloud.
 keywords: apache spark
 services: cosmos-db
 documentationcenter: ''
@@ -19,11 +19,12 @@ ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
-
+<!-- Notice in meta : 全球 to 多个区域 -->
 # Accelerate real-time big-data analytics with the Spark to Azure Cosmos DB connector
 
-The Spark to Azure Cosmos DB connector enables Azure Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) accelerates your ability to solve fast-moving data science problems where you can use Azure Cosmos DB to quickly persist and query data. The Spark to Azure Cosmos DB connector efficiently utilizes the native Azure Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing globally distributed data, which range from Internet of Things (IoT) to data science and analytics scenarios.
+The Spark to Azure Cosmos DB connector enables Azure Cosmos DB to act as an input source or output sink for Apache Spark jobs. Connecting [Spark](http://spark.apache.org/) to [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) accelerates your ability to solve fast-moving data science problems where you can use Azure Cosmos DB to quickly persist and query data. The Spark to Azure Cosmos DB connector efficiently utilizes the native Azure Cosmos DB managed indexes. The indexes enable updateable columns when you perform analytics and push-down predicate filtering against fast-changing multiple-region distributed data, which range from Internet of Things (IoT) to data science and analytics scenarios.
 <!-- Not Available  [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md) -->
+<!-- Notice: 全球 to 多个区域 -->
 
 ## Download
 
@@ -34,7 +35,8 @@ To get started, download the Spark to Azure Cosmos DB connector from the [azure-
 The connector utilizes the following components:
 
 * [Azure Cosmos DB](http://documentdb.com) enables customers to provision and elastically scale both throughput and storage across any number of geographical regions. The service offers:
-   * Turn key [global distribution](distribute-data-globally.md) and horizontal scale
+   * Turn key [multiple-region distribution](distribute-data-globally.md) and horizontal scale
+<!-- Notice: 全球 to 多个区域 -->
    * Guaranteed single digit latencies at the 99th percentile
    * [Multiple well-defined consistency models](consistency-levels.md)
    * Guaranteed high availability with multi-homing capabilities
@@ -252,6 +254,7 @@ To give you an idea of the query performance difference, see the [Query Test Run
 
 ## Distributed aggregation example
 This section provides some examples of how you can do distributed aggregations and analytics by using Apache Spark and Azure Cosmos DB together. Azure Cosmos DB already supports aggregations, which is discussed in the [Planet scale aggregates with Azure Cosmos DB blog](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/). Here is how you can take it to the next level with Apache Spark.
+<!-- Notice: 全球 to 多个区域 -->
 
 Note that these aggregations are in reference to the [Spark to Azure Cosmos DB Connector notebook](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-CosmosDB_Connector.ipynb).
 

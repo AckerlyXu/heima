@@ -1,3 +1,0 @@
-This Standard Load Balancer Public Preview may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Load Balancer updates](https://www.azure.cn/home/features/event-hubs/) page.
-<!-- Update_Description: wording update -->
-<!-- ms.date: 11/20/2017 -->
