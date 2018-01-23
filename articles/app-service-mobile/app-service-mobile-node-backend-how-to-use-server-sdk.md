@@ -1,5 +1,5 @@
 ---
-title: How to work with the Node.js backend server SDK for Mobile Apps | Microsoft Docs
+title: How to work with the Node.js backend server SDK for Mobile Apps
 description: Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps.
 services: app-service\mobile
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ---
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -127,15 +127,13 @@ an Express 4.x application:
 5. Right-click the **npm** node and select **Install New npm packages...**.
 
 6. You may need to refresh the npm catalog on creating your first Node.js application.  Click **Refresh** if necessary.
-
-7. Enter _azure-mobile-apps_ in the search box.  Click the **azure-mobile-apps 2.0.0** package, then click 
+7. Enter *azure-mobile-apps* in the search box.  Click the **azure-mobile-apps 2.0.0** package, then click
    **Install Package**.
 
     ![Install New npm packages][2]
 
 8. Click **Close**.
-
-9. Open the _app.js_ file to add support for the Azure Mobile Apps SDK.  At line 6 at the bottom of the library 
+9. Open the *app.js* file to add support for the Azure Mobile Apps SDK.  At line 6 at the bottom of the library
    require statements, add the following code:
 
     ```
@@ -166,7 +164,7 @@ tutorial. The tutorial contains a simplified version of these instructions and i
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-Back in the _Get started_ blade, under **Create a table API**, choose **Node.js** as your **Backend language**. 
+Back in the *Get started* blade, under **Create a table API**, choose **Node.js** as your **Backend language**.
 Check the box for "**I acknowledge that this will overwrite all site contents.**", then click 
 **Create TodoItem table**.
 
@@ -239,12 +237,12 @@ The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tabl
 as a WebAPI.  Five operations are provided.
 
 | Operation | Description |
-| --------- | ----------- |
-| GET /tables/_tablename_ | Get all records in the table |
-| GET /tables/_tablename_/:id | Get a specific record in the table |
-| POST /tables/_tablename_ | Create a record in the table |
-| PATCH /tables/_tablename_/:id | Update a record in the table |
-| DELETE /tables/_tablename_/:id | Delete a record in the table |
+| --- | --- |
+| GET /tables/*tablename* |Get all records in the table |
+| GET /tables/*tablename*/:id |Get a specific record in the table |
+| POST /tables/*tablename* |Create a record in the table |
+| PATCH /tables/*tablename*/:id |Update a record in the table |
+| DELETE /tables/*tablename*/:id |Delete a record in the table |
 
 This WebAPI supports [OData] and extends the table schema to support [offline data sync].
 
@@ -338,6 +336,8 @@ Express and SQL Database.  This package requires that you enable TCP connections
 > [!TIP]
 > The memory driver does not provide a complete set of facilities for testing.  If you wish to test 
 > your backend locally, we recommend the use of a SQL Express data store and the mssql driver.
+>
+>
 
 1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express 
    with Tools edition.  Unless you explicitly require 64-bit support, the 32-bit version consumes less memory 
@@ -402,16 +402,15 @@ $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdat
 Access the database through a TCP/IP connection and provide a username and password for the connection.
 
 ### <a name="howto-config-localdev"></a>How to: Configure your project for local development
+Azure Mobile Apps reads a JavaScript file called *azureMobile.js* from the local filesystem.  Do not use this
+file to configure the Azure Mobile Apps SDK in production - use App Settings within the [Azure portal]
+instead.  The *azureMobile.js* file should export a configuration object.  The most common settings are:
 
-Azure Mobile Apps reads a JavaScript file called _azureMobile.js_ from the local filesystem.  Do not use this 
-file to configure the Azure Mobile Apps SDK in production - use App Settings within the [Azure portal] 
-instead.  The _azureMobile.js_ file should export a configuration object.  The most common settings are:
+* Database Settings
+* Diagnostic Logging Settings
+* Alternate CORS Settings
 
-- Database Settings
-- Diagnostic Logging Settings
-- Alternate CORS Settings
-
-An example _azureMobile.js_ file implementing the preceding database settings follows:
+An example *azureMobile.js* file implementing the preceding database settings follows:
 
 ```
 module.exports = {
@@ -431,24 +430,23 @@ module.exports = {
 };
 ```
 
-We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) 
-to prevent passwords from being stored in the cloud.  Always configure production settings in App Settings within 
+We recommend that you add *azureMobile.js* to your *.gitignore* file (or other source code control ignore file)
+to prevent passwords from being stored in the cloud.  Always configure production settings in App Settings within
 the [Azure portal].
 
 ### <a name="howto-appsettings"></a>How: Configure App Settings for your Mobile App
-
-Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure portal].  Use the following 
+Most settings in the *azureMobile.js* file have an equivalent App Setting in the [Azure portal].  Use the following
 list to configure your app in App Settings:
 
-| App Setting                 | _azureMobile.js_ Setting  | Description                               | Valid Values                                |
-| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
-| **MS_MobileAppName**        | name                      | The name of the app                       | string                                      |
-| **MS_MobileLoggingLevel**   | logging.level             | Minimum log level of messages to log      | error, warning, info, verbose, debug, silly |
-| **MS_DebugMode**            | debug                     | Enable or Disable debug mode              | true, false                                 |
-| **MS_TableSchema**          | data.schema               | Default schema name for SQL tables        | string (default: dbo)                       |
-| **MS_DynamicSchema**        | data.dynamicSchema        | Enable or Disable debug mode              | true, false                                 |
-| **MS_DisableVersionHeader** | version (set to undefined)| Disables the X-ZUMO-Server-Version header | true, false                                 |
-| **MS_SkipVersionCheck**     | skipversioncheck          | Disables the client API version check     | true, false                                 |
+| App Setting | *azureMobile.js* Setting | Description | Valid Values |
+|:--- |:--- |:--- |:--- |
+| **MS_MobileAppName** |name |The name of the app |string |
+| **MS_MobileLoggingLevel** |logging.level |Minimum log level of messages to log |error, warning, info, verbose, debug, silly |
+| **MS_DebugMode** |debug |Enable or Disable debug mode |true, false |
+| **MS_TableSchema** |data.schema |Default schema name for SQL tables |string (default: dbo) |
+| **MS_DynamicSchema** |data.dynamicSchema |Enable or Disable debug mode |true, false |
+| **MS_DisableVersionHeader** |version (set to undefined) |Disables the X-ZUMO-Server-Version header |true, false |
+| **MS_SkipVersionCheck** |skipversioncheck |Disables the client API version check |true, false |
 
 To set an App Setting:
 
@@ -901,7 +899,7 @@ app.use(mobile);
 app.listen(process.env.PORT || 3000);
 ```
 
-Let's take an example API that returns the server date using the _Date.now()_ method.  Here is the api/date.js 
+Let's take an example API that returns the server date using the *Date.now()* method.  Here is the api/date.js
 file:
 
 ```
