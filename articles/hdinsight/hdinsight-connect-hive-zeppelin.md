@@ -1,5 +1,5 @@
 ---
-title: Use Zeppelin to run Hive queries in Azure HDInsight  | Microsoft Docs
+title: Use Zeppelin to run Hive queries in Azure HDInsight
 description: Learn how to use Zeppelin to run Hive queries.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP 
 services: hdinsight
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/26/2017
-ms.date: 12/25/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -75,6 +75,7 @@ Before going through this article, you must have the following items:
 In this article, you learned how to visualize data from HDInsight using Power BI.  To learn more, see the following articles:
 
 * [Visualize Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Hadoop by using Power Query](hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md).

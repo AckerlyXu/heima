@@ -1,5 +1,5 @@
 ---
-title: Extend HDInsight with Virtual Network - Azure | Azure
+title: Extend HDInsight with Virtual Network
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/25/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -381,7 +381,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule3" `
         -Description "HDI health and management 168.61.49.99" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -392,7 +392,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule4" `
         -Description "HDI health and management 23.99.5.239" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -403,7 +403,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 303 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule5" `
         -Description "HDI health and management 168.61.48.131" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -414,7 +414,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 304 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule6" `
         -Description "HDI health and management 138.91.141.162" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -424,17 +424,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -478,7 +467,6 @@ Use the following steps to create a virtual network that restricts inbound traff
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. To retrieve the unique identifier for this network security group, use the following command:
