@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 07/28/2017
+ms.date: 1/29/2018
 ms.custom: it-pro
 
 ---
 # What is Azure Active Directory?
-Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.
+Azure Active Directory (Azure AD) is Microsoft’s multi-tenant, cloud based directory and identity management service. Azure AD combines core directory services, advanced identity governance, and application access management. Azure AD also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules. 
 
 For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to thousands of cloud SaaS Applications like Office365, Salesforce.com, DropBox, and Concur.
 

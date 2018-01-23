@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/07/2017
-ms.date: 1/1/2018
+origin.date: 01/08/2018
+ms.date: 1/29/2018
 ms.author: v-nany
 
 ms.reviewer: jeffsta
@@ -22,13 +22,13 @@ ms.custom: it-pro
 
 ---
 # Quickstart: Add new users to Azure Active Directory
-This article explains how to add new users in your organization in the Azure Active Directory (Azure AD) one at a time using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
+This article explains how to delete or add users in your organization into your orgnization's Azure Active Directory (Azure AD) tenant using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 
 ## Add cloud-based users
 1. Sign in to the [Azure portal](https://portal.azure.cn) with an account that's a global admin for the directory.
 2. Select **Azure Active Directory** and then **Users and groups**.
 3. On **Users and groups**, select **All users**, and then select **New user**.
-
+   ![Selecting the Add command](./media/add-users-azure-active-directory/add-user.png)
 4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].partner.onmschina.cn" or a verified, non-federated [custom domain name](add-custom-domain.md) such as "contoso.com."
 5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
 6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles-azure-portal.md).
@@ -43,8 +43,10 @@ This article explains how to add new users in your organization in the Azure Act
 2. Select **Users and groups**.
 3. On the **Users and groups** blade, select the user to delete from the list. 
 4. On the blade for the selected user, select **Overview**, and then in the command bar, select **Delete**.
+   ![Selecting the Add command](./media/add-users-azure-active-directory/delete-user.png)
 
 
 ### Learn more 
 * [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Manage user profiles](active-directory-users-profile-azure-portal.md)
 

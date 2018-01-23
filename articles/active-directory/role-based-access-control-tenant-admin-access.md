@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/30/2017
-ms.date: 11/22/2017
+ms.date: 1/29/2018
 ms.author: v-junlch
 
 ---
@@ -24,7 +24,7 @@ Role-based Access Control helps tenant administrators get temporary elevations i
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps like invoicing and auditing to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
-## How to use elevateAccess to give tenant access
+## Use elevateAccess to give tenant access with the REST API
 
 The basic process works with the following steps:
 
@@ -112,4 +112,4 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 - Learn more about [managing Role-Based Access Control with REST](role-based-access-control-manage-access-rest.md)
 
-<!--Update_Description: wording update -->
+- [Manage access assignments](role-based-access-control-manage-assignments.md) in the Azure portal
