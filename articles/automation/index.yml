@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Automation User Documentation
+metadata:
+  document_id: 
+  title: Azure Automation Documentation - Tutorials, API Reference
+  description: Learn how to use Azure automation
+  services: automation
+  author: yunan2016
+  manager: digimobile
+
+  ms.service: automation
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 12/13/2017
+  ms.date: 01/15/2018
+  ms.author: v-nany
+
+abstract:
+  description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment. Tutorials, API references, and other documentation show you how to automate processes, perform update management, deliver desired state configuration, track changes, and collect inventory.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to automate and configure your Azure and hybrid environment using Automation:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /automation/media/index/automation.svg
+      text: Create an Automation account
+      href: "/automation/automation-quickstart-create-account"
+    - image: 
+        src: /automation/media/index/runbook.svg
+      text: Create a runbook
+      href: "/automation/automation-quickstart-create-runbook"
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.automation">PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/automation">Automation REST API</a></p>

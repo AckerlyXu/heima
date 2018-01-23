@@ -1,70 +1,73 @@
 ---
-title: What is Azure Automation | Azure
-description: Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks.
+title: Azure Automation Overview | Microsoft Docs
+description: Learn how to use Azure Automation to automate the lifecycle of infrastructure and applications.
 services: automation
+author: yunan2016
 documentationcenter: ''
-author: mgoedtel
-manager: jwhit
-editor: ''
-keywords: what is automation, azure automation, azure automation examples
-
+keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical
 ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 05/10/2016
-ms.date: 01/03/2017
-ms.author: v-dazen
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+origin.date: 12/13/2017
+ms.date: 01/17/2018
+ms.author: v-nany
+ms.custom: mvc
 
 ---
-# Azure Automation overview
-Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals. You can automate processes using runbooks or automate configuration management using Desired State Configuration. This article provides brief overview of Azure Automation and answers some common questions. You can refer to other articles in this library for more detailed information on the different topics.
+# An introduction to Azure Automation
 
-## Automating processes with runbooks
-A runbook is a set of tasks that perform some automated process in Azure Automation. It may be a simple process such as starting a virtual machine and creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds and on-premises environments.  
+Azure Automation delivers a cloud-based automation and configuration service that provides consistent management across your Azure and non-Azure environments. It consists of process automation, update management, and configuration features. Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.
+This article provides a brief overview of Azure Automation and answers some common questions. For more information about the different capabilities, visit the links throughout this overview.
 
-For example, you might have an existing manual process for truncating a SQL database if it’s approaching maximum size that includes multiple steps such as connecting to the server, connecting to the database, get the current size of database, check if threshold has exceeded and then truncate it and notify user. Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process. You would start the runbook, provide the required information such as the SQL server name, database name, and recipient e-mail and then sit back while the process completes. 
+## Azure Automation capabilities
 
-## What can runbooks automate?
-Runbooks in Azure Automation are based on Windows PowerShell or Windows PowerShell Workflow, so they do anything that PowerShell can do. If an application or service has an API, then a runbook can work with it. If you have a PowerShell module for the application, then you can load that module into Azure Automation and include those cmdlets in your runbook. Azure Automation runbooks run in the Azure cloud and can access any cloud resources or external resources that can be accessed from the cloud. 
+![Automation overview capabilities](./media/automation-overview/automation-overview.png)
 
-## Getting runbooks from the community
-The [Runbook Gallery](automation-runbook-gallery.md#runbooks-in-runbook-gallery) contains runbooks from Microsoft and the community that you can either use unchanged in your environment or customize them for your own purposes. They are also useful to as references to learn how to create your own runbooks. You can even contribute your own runbooks to the gallery that you think other users may find useful. 
+### Process automation
 
-## Creating Runbooks with Azure Automation
-You can [create your own runbooks](automation-creating-importing-runbook.md) from scratch or modify runbooks from the [Runbook Gallery](http://msdn.microsoft.com/library/azure/dn781422.aspx) for your own requirements. There are four different [runbook types](automation-runbook-types.md) that you can choose from based on your requirements and PowerShell experience. If you prefer to work directly with the PowerShell code, then you can use a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) that you edit offline or with the [textual editor](http://msdn.microsoft.com/library/azure/dn879137.aspx) in the Azure portal. If you prefer to edit a runbook without being exposed to the underlying code, then you can create a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) using the [graphical editor](automation-graphical-authoring-intro.md) in the Azure portal. 
-
-Prefer watching to reading? Have a look at the below video from Microsoft Ignite session in May 2015. Note: While the concepts and features discussed in this video are correct, Azure Automation has progressed a lot since this video was recorded, it now has a more extensive UI in the Azure portal, and supports additional capabilities.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
-> 
-> 
+Azure Automation provides you the ability to automate frequent, time-consuming, and error-prone cloud management tasks. This automation helps you focus on work that adds business value. By reducing errors and boosting efficiency, it also helps to lower your operational costs. You can integrate Azure services and other public systems that are required in deploying, configuring, and managing your end to end processes. The service allows you to [author runbooks](automation-runbook-types.md) graphically, in PowerShell, or Python. By using a hybrid Runbook worker, you can unify management by orchestrating across on-premises environments. [Webhooks](automation-webhooks.md) provide a way to fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
 
 
-## Getting modules and configurations
-You can get [PowerShell modules](automation-runbook-gallery.md#modules-in-powershell-gallery) containing cmdlets that you can use in your runbooks and DSC configurations from the [PowerShell Gallery](http://www.powershellgallery.com/). You can launch this gallery from the Azure portal and import modules directly into Azure Automation, or you can download and import them manually. You cannot install the modules directly from the Azure portal, but you can download them install them as you would any other module. 
+### Shared capabilities
 
-## Example practical applications of Azure Automation
-Following are just a few examples of what are the kinds of automation scenarios with Azure Automation. 
+Azure Automation consists of a set of shared resources that make it easier to automate and configure your environments at scale.
 
-* Create and copy virtual machines in different Azure subscriptions. 
-* Schedule file copies from a local machine to an Azure Blob Storage container. 
-* Automate security functions such as deny requests from a client when a denial of service attack is detected. 
-* Ensure machines continually align with configured security policy.
-* Manage continuous deployment of application code across cloud and on premises infrastructure. 
-* Build an Active Directory forest in Azure for your lab environment. 
-* Truncate a table in a SQL database if DB is approaching maximum size. 
-* Remotely update environment settings for an Azure website. 
+* **[Role-based access control](automation-role-based-access-control.md)** - Control access to the account with an Automation operator role that enables tasks to be run without giving authoring capabilities.
+* **[Variables](automation-variables.md)** - Provide a way to hold content that can be used across runbooks and configurations. You can change values without having to modify any of the runbooks and configurations that reference them.
+* **[Credentials](automation-credentials.md)** - Securely store sensitive information that can be used by runbooks and configurations at runtime.
+* **[Certificates](automation-certificates.md)** - Store and make available at runtime so they can be used for authentication and securing deployed resources.
+* **[Connections](automation-connections.md)** - Store a name / value pairs of information that contains common information when connecting to systems in connection resources. Connections are defined by the module author for use at runtime in runbooks and configurations.
+* **[Schedules](automation-schedules.md)** - Used in the service to trigger automation on predefined times.
+* **[Integration with source control](automation-source-control-integration.md)** - Promotes configuration as code where runbooks or configurations can be checked into a source control system.
+* **[PowerShell modules](automation-integration-modules.md)** -  Modules are used to manage Azure and other systems. Import into the Automation account for Microsoft, third party, community, or custom defined cmdlets and DSC resources.
 
-## Where can I get more information?
-A variety of resources are available for you to learn more about Azure Automation and creating your own runbooks. 
+### Windows and Linux
 
-* **Azure Automation Library** is where you are right now. The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
-* [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automating Azure operations using Windows PowerShell. Runbooks use these cmdlets to work with Azure resources. 
-* [Automation Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation%2Cazureautomation) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community. 
-* [Azure Automation Cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) provides information for automating administration tasks. It contains cmdlets to manage Automation accounts, assets, runbooks.
+Azure Automation is designed to work across your hybrid cloud environment and also for Windows & Linux. It delivers a consistent way to automate and configure workloads deployed and the operating system they are running on.
 
-## Can I provide feedback?
-**Please give us feedback!** If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center.
+### Community gallery
+
+Browse the [Automation gallery](automation-runbook-gallery.md) for runbooks and modules to quickly get started integrating and authoring your processes from PowerShell gallery and Microsoft Script Center.
+
+## Common scenarios for Automation
+
+Azure Automation manages across the lifecycle of your infrastructure and applications. Transfer knowledge into the system on how the organization delivers and maintains workloads. Author in common languages like PowerShell, desired state configuration, Python, and graphical runbooks. Get a complete inventory of deployed resources for targeting, reporting, and compliance. Identify changes that can cause misconfiguration and improve operational compliance.
+
+* **Build / Deploy resources** - Deploy VMs across a hybrid environment using Runbooks and Azure Resource Manager templates. Integrate into development tools like Jenkins and Visual Studio Team services.
+* **Configure VMs** - Assess and configure Windows and Linux machines with the desired configuration for the infrastructure and application.
+* **Monitor** - Identify changes on machines that are causing issues and remediate or escalate to management systems.
+* **Protect** - Quarantine VM if security alert is raised. Set in-guest requirements.
+* **Govern** - Set up role-based access control for teams. Recover unused resources.
+
+## Pricing for Automation
+
+You can review the price for Azure Automation on the [pricing](https://www.azure.cn/pricing/details/automation/) page.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an automation account](automation-quickstart-create-account.md)
+
