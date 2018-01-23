@@ -65,8 +65,7 @@
       - name: Constrained vCPUs
         href: constrained-vcpu.md
       href: sizes-memory.md    
-    - name: Storage optimized
-      href: sizes-storage.md    
+### href: sizes-storage.md due to the L-series is invalid
     - name: Azure compute units (ACU)
       href: acu.md          
   - name: Maintenance and updates

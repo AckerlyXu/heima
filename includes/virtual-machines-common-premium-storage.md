@@ -62,7 +62,7 @@ Here are some of the features of Premium Storage:
 
 ## Supported VMs
 Premium Storage supports DS-series, DSv2-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
-<!-- Not Available on GS Series LS Series-->
+<!-- Not Available on GS Series LS Series and B-series -->
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).
 
@@ -91,7 +91,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, Ls-seri
 
 * **Analytics**
 
-    To analyze VM performance by using disks in Premium Storage, turn on VM diagnostics in the [Azure portal](https://portal.azure.cn). For more information, see [Azure VM monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
+    To analyze VM performance by using disks in Premium Storage, turn on VM diagnostics in the [Azure portal](https://portal.azure.cn). For more information, see [Azure VM monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
 
     To see disk performance, use operating system-based tools like [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and the [iostat](http://linux.die.net/man/1/iostat) command for Linux VMs.
 
@@ -306,5 +306,8 @@ For more information about Premium Storage, see the following articles.
 * [Migrate to Azure Premium Storage](../articles/storage/common/storage-migration-to-premium-storage.md)
 
 ### Blog posts
-* [Azure Premium Storage generally available](https://azure.microsoft.com/blogazure-premium-storage-now-generally-available-2/)
+* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 <!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/) -->
+
+<!--Update_Description: wording update-->
+<!--ms.date: 01/29/2018-->

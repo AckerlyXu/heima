@@ -31,7 +31,6 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
-
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
@@ -161,7 +160,6 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
-
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
@@ -179,4 +177,5 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
 
+<!-- Update_Description: wording update -->
 <!-- ms.date: 01/29/2018 -->

@@ -14,13 +14,11 @@
   ms.devlang: na
   ms.topic: article
   origin.date: 07/19/2017
-  ms.date: 11/27/2017
-  ms.author: v-dazen
+  ms.date: 01/29/2018
+  ms.author: v-yeche
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]
-<!--Not Available the parent file of includes file of virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md-->
-<!--ms.date:11/27/2017-->
-
-<!--Not Available the parent file of includes file of virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md-->
-<!--ms.date:11/27/2017-->
+<!--The parent file of includes file of virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md-->
+<!--ms.date:02/05/2018-->
+<!--Update_Description: update meta properties-->

@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/18/2016
-ms.date: 10/30/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -23,3 +23,6 @@ ms.author: v-yeche
 [!INCLUDE [virtual-machine-common-expand-os-disk](../../../includes/virtual-machines-common-expand-os-disk.md)]
 
 
+<!--The parent file of includes file of virtual-machines-common-expand-os-disk.md-->
+<!--ms.date:01/29/2018-->
+<!-- Update_Description: update meta properties -->
