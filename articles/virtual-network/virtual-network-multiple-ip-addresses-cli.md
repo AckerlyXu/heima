@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 12/11/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -125,8 +125,8 @@ azure network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location estchinaeast` command to get a full list
+# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+# is not supported in the location you select. Run the `azure vm sizes --location chinaeast` command to get a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
@@ -275,6 +275,6 @@ You can add additional private and public IP addresses to an existing NIC by com
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-<!--Not Available the parent file of includes file of virtual-network-multiple-ip-addresses-intro.md-->
-<!--ms.date:12/11/2017-->
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!--The parent file of includes file of virtual-network-multiple-ip-addresses-os-config.md-->
+<!--ms.date:01/29/2018-->
+<!-- Update_Description: update meta properties wording update -->

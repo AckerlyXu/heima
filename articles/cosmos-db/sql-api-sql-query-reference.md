@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na 
 ms.topic: reference
 origin.date: 10/18/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -2793,4 +2793,4 @@ SELECT ST_ISVALIDDETAILED({
 ## Next steps  
  [SQL syntax and SQL query for Azure Cosmos DB](sql-api-sql-query.md)   
  [Azure Cosmos DB documentation](/cosmos-db/)
-<!-- Update_Description: new articles on SQL api query reference -->
+<!-- Update_Description: update meta properties -->

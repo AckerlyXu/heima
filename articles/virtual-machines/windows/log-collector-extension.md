@@ -14,9 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/23/2016
-ms.date: 10/25/2016
-ms.author: v-dazen
+ms.date: 01/29/2018
+ms.author: v-yeche
 
 ---
 # AzureLogCollector Extension
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../../includes/virtual-machines-common-log-collector-extension.md)]
+
+
+<!--The parent file of includes file of virtual-machines-common-log-collector-extension.md-->
+<!--ms.date:01/29/2018-->
