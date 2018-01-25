@@ -140,7 +140,8 @@ In the Azure Resource Manager deployment model, a private IP address is associat
 
 ### IP address version
 
-Private IP addresses are created with an IPv4 or IPv6 address. Private IPv6 addresses can only be assigned with the dynamic allocation method. You cannot communicate between private IPv6 addresses on a virtual network. You can communicate inbound to a private IPv6 address from the Internet, through an Internet-facing load balancer. See [Create an Internet-facing load balancer with IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json) for details.
+Private IP addresses are created with an IPv4 address. 
+<!-- Not Available on IPV6 -->
 
 ### Allocation method
 
