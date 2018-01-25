@@ -32,7 +32,8 @@ ELT loads first and then transforms the data, whereas Extract, Transform, and Lo
 Although there are many variations for implementing ELT for SQL Data Warehouse, these are the basic steps:  
 
 1. Extract the source data into text files.
-2. Land the data into Azure Blob storage or Azure Data Lake Store.
+2. Land the data into Azure Blob storage.
+<!-- Not Available on Azure Data Lake Store-->
 3. Prepare the data for loading.
 2. Load the data into SQL Data Warehouse staging tables by using PolyBase.
 3. Transform the data.
@@ -48,9 +49,10 @@ PolyBase is a technology that accesses data outside of the database via the T-SQ
 
 To load data with PolyBase, you can use any of these loading options.
 
-- [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
+- [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use SSIS. 
+<!-- Not Available on Azure Data Lake Store,Azure Date Factory, Azure Functions-->
 - [PolyBase with SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
-- [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
+<!-- Not Available on [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md)-->
 
 ### PolyBase external file formats
 
@@ -65,13 +67,14 @@ Getting data out of your source system depends on the source.  The goal is to mo
 
 ## Land data to Azure storage
 
-To land the data in Azure storage, you can move it to [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). In either location, the data should be stored into text files. Polybase can load from either location.
+To land the data in Azure storage, you can move it to [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) . In either location, the data should be stored into text files. Polybase can load from either location.
+<!-- Not Available on [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) -->
 
 These are tools and services you can use to move data to Azure Storage.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
 - [AZCopy utility](../storage/common/storage-use-azcopy.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage.
+<!-- Not Available on [Azure Data Factory (ADF)](../data-factory/introduction.md)-->
 
 For more information, see [Moving data to and from Azure Storage](../storage/common/storage-moving-data.md)
 
