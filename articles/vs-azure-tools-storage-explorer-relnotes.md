@@ -1,10 +1,10 @@
 ---
-title: Azure Storage Explorer (Preview) release notes | Microsoft Docs
+title: Azure Storage Explorer (Preview) release notes
 description: Release notes for Azure Storage Explorer (Preview)
 services: storage
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cawa
+manager: paulyuk
 editor: ''
 
 ms.assetid:
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 12/28/2017
+ms.date: 01/25/2018
 ms.author: v-junlch
 
 ---
 # Azure Storage Explorer (Preview) release notes
 
-This article contains the release notes for Azure Storage Explorer 0.9.2 (Preview) release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 0.9.3 (Preview) release, as well as release notes for previous versions.
 
 [Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
