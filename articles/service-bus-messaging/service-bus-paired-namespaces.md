@@ -3,7 +3,7 @@ title: Service Bus paired namespaces | Azure
 description: Paired namespace implementation details and cost
 services: service-bus
 documentationCenter: na
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/30/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ---
 
 # Paired Namespace implementation details and cost implications

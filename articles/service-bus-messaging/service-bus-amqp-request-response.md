@@ -16,7 +16,7 @@ ms.workload: na
 
 origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/05/2018
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
@@ -29,7 +29,7 @@ For a detailed wire-level AMQP 1.0 protocol guide, which explains how Service Bu
 
 ### Entity description  
 
-An entity description refers to either a Service Bus [QueueDescription Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
+An entity description refers to either a Service Bus [QueueDescription Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription), or [SubscriptionDescription Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) object.  
 
 ### Brokered message  
 

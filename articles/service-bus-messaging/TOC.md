@@ -6,7 +6,6 @@
 
 # Get Started
 ## [Create a namespace](service-bus-create-namespace-portal.md)
-### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 ## Use queues
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -34,6 +33,7 @@
 
 ## Develop
 ### Message handling
+#### [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 #### [Messages, payloads, and serialization](service-bus-messages-payloads.md)
 #### [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 #### [Message sequencing and timestamps](message-sequencing.md)
@@ -87,8 +87,10 @@
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Pricing details](service-bus-pricing-billing.md)
 ## [Pricing](https://www.azure.cn/pricing/details/messaging/)
+## [Pricing calculator](https://www.azure.cn/pricing/calculator/)
+## [Pricing details](service-bus-pricing-billing.md)
+
 ## [Samples](service-bus-samples.md)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)

@@ -2,6 +2,18 @@
 layout: LandingPage
 title: Service Bus Messaging Documentation
 description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+origin.date:  03/14/2017
+ms.date: 02/05/2018
+ms.author: v-yiso
 ---
 # Service Bus Messaging Documentation
 The messaging service provides dependable information delivery as a brokered or third-party communication mechanism.
@@ -45,5 +57,4 @@ The messaging service provides dependable information delivery as a brokered or 
     </li>
 </ul>
 
----
-# To be submitted.
+
