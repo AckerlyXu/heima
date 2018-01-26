@@ -10,11 +10,11 @@ tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -55,4 +55,4 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 ## Next steps
 If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or [detailed SSH troubleshooting steps](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: update meta propreties, wording update -->
+<!--Update_Description: update meta propreties -->

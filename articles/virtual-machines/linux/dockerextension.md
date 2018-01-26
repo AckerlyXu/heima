@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 09/26/2017
-ms.date: 10/30/2017
+origin.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -41,32 +41,21 @@ First, create a resource group with [az group create](https://docs.azure.cn/zh-c
 az group create --name myResourceGroup --location chinaeast
 ```
 
-Next, deploy a VM with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own unique values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP* as follows:
+Next, deploy a VM with [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). When prompted, provide your own unique values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
+
+>[!NOTE]
+> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "cloudapp.chinacloudapi.cn"; change some unsupported VM images.
+
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-file /path/to/azuredeploy.json
+# download the azuredeploy.json with https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+az group deployment create --resource-group myResourceGroup `
+  --template-file ./azuredeploy.json `
+  --parameters newStorageAccountName=mystorageaccount adminUsername=azureadmin adminPassword=P@ssw0rd! dnsNameForPublicIP=mypublicdns vmSize=Standard_A1
 ```
+<!--parameters using KEY=VALUE, the json format popup some convert error -->
 
-It takes a few minutes for the deployment to finish. Once the deployment is finished, [move to next step](#deploy-your-first-nginx-container) to SSH to your VM. 
-
-Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you to perform other work in the CLI while the deployment continues for a few minutes. 
-
-You can then view details about the Docker host status with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show). The following example checks the status of the VM named *myDockerVM* (the default name from the template - don't change this name) in the resource group named *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-When this command returns *Succeeded*, the deployment has finished and you can SSH to the VM in the following step.
+It takes a few minutes for the deployment to finish.
 
 ## Deploy your first NGINX container
 To view details of your VM, including the DNS name, use [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show):
@@ -80,7 +69,7 @@ az vm show \
     --output tsv
 ```
 
-SSH to your new Docker host. Provide your own DNS name as follows:
+SSH to your new Docker host. Provide your own username and DNS name from the preceding steps:
 
 ```bash
 ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
@@ -157,4 +146,4 @@ Read more information about the additional Docker deployment options in Azure:
 * [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](docker-compose-quickstart.md).
 <!-- Not Available * [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)-->
 
-<!--Update_Description: update meta properties， update link-->
+<!--Update_Description: update meta properties， update link, update cmdlet -->

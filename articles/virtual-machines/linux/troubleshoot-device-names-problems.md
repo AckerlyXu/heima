@@ -9,12 +9,12 @@ editor: ''
 tags: ''
 
 ms.service: virtual-machines-linux
-ms.topic: troubleshooting
+ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---

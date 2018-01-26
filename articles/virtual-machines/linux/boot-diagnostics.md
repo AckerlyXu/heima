@@ -13,9 +13,9 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 08/21/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 # How to use boot diagnostics to troubleshoot Linux virtual machines in Azure

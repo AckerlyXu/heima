@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 
@@ -301,6 +301,7 @@ subnet/address | Subnet address of the VM | 2017-04-02
 subnet/prefix | Subnet prefix, example 24 | 2017-04-02 
 macAddress | VM mac address | 2017-04-02 
 scheduledevents | Currently in Public Preview See [scheduledevents](scheduled-events.md) | 2017-03-01
+<!--ipv6 not available on Mooncake -->
 
 ## Example scenarios for usage  
 
@@ -376,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Language | Example 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## FAQ
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
@@ -408,4 +412,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
 - Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties， wording update, update link -->

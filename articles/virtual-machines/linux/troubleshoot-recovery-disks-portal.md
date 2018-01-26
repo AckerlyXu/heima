@@ -10,11 +10,11 @@ editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2016
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -169,4 +169,4 @@ If you are having issues connecting to your VM, see [Troubleshoot SSH connection
 
 For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--Update_Description: wording update， update link-->
+<!--Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: Upload a generalize VHD to create multiple VMs in Azure | Azure
 description: Upload a generalized VHD to an Azure storage account to create a Windows VM to use with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -15,9 +15,9 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-
+ms.date: 02/05/2018
+ms.author: v-yeche
+ROBOTS: NOINDEX
 ---
 
 # Upload a generalized VHD to Azure to create a new VM
@@ -280,3 +280,5 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 
 ## Next steps
 To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!-- Update_Description: update meta properties -->

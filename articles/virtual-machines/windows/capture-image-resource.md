@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/09/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -117,9 +117,9 @@ If you only want to create an image of the OS disk, you can also create an image
 
 2. Get the VM.
 
-    ```azurepowershell-interactive
-    $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
-    ```
+   ```azurepowershell-interactive
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   ```
 
 3. Get the ID of the managed disk.
 
@@ -205,4 +205,4 @@ Create a managed image from a generalized OS VHD in a storage account. You need 
 
 ## Next steps
 - Now you can [create a VM from the generalized managed image](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
-<!--Update_Description: wording update -->
+<!--Update_Description: update cmdlet -->
