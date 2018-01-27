@@ -19,7 +19,7 @@ ms.author: v-johch
 
 ---
 # Transfer data with the AzCopy on Windows
-AzCopy is a command-line utility designed for copying data to and from Azure Blob, File, and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts.
+AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
 There are two versions of AzCopy that you can download. AzCopy on Windows is built with .NET Framework, and offers Windows style command-line options. [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework which targets Linux platforms offering POSIX style command-line options. This article covers AzCopy on Windows.
 
@@ -124,7 +124,7 @@ If you want to exclude blobs whose last modified time is the same or older than 
 AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 ```
 
-## Upload blobs to Blob storage
+## <a name="upload-blobs-to-blob-storage"></a>Upload blobs to Blob storage
 
 Let's look at several ways to upload blobs using AzCopy.
 
@@ -461,7 +461,7 @@ You can run the following command to import entities into a table using the mani
 AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:https://myaccount.table.core.chinacloudapi.cn/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
 ```
 
-## Other AzCopy features
+## <a name="other-azcopy-features"></a>Other AzCopy features
 
 Let's take a look at some other AzCopy features.
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/11/2017
-ms.date: 12/25/2017
+ms.date: 1/29/2018
 ms.author: v-nany
 ms.reviewer: asteen
 ms.custom: it-pro
@@ -21,10 +21,9 @@ ms.custom: it-pro
 
 # Hide an application from user's experience in Azure Active Directory
 
-If you have an application that you do not want to show on users’ access panels or Office 365 launchers, there is an option to hide this app tile. This option is only available for third-party applications (apps not published by Microsoft). By hiding the app users still have permissions to the app but will not see them appear on their app launchers. You must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory. 
+If you have an application that you do not want to show on users’ access panels or Office 365 launchers, there are options to hide this app tile.  The following two options are available for hiding applications from user's app launchers.
 
-## Hiding an application from user's end user experiences
-Use the following steps to hide an application from a user's access panel and Office 365 app launchers
+
 
 ### How do I hide a third-party app from user’s access panel and O365 app launchers?
 

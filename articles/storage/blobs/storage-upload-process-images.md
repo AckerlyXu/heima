@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 09/19/2017
-ms.date: 10/23/2017
+ms.date: 1/29/2018
 ms.author: v-johch
 ms.custom: mvc
 ---
@@ -91,7 +91,7 @@ Make a note of your blob storage account name and key. The sample app uses these
 
 An [App Service plan](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) specifies the location, size, and features of the web server farm that hosts your app. 
 
-Create an App Service plan with the [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#create) command. 
+Create an App Service plan with the [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) command. 
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier: 
 
@@ -101,7 +101,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## Create a web app 
 
-The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](https://docs.azure.cn/cli/webapp#create) command.  
+The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/webapp#az_webapp_create) command.  
  
 In the following command, replace `<web_app>` with a unique name (valid characters are `a-z`, `0-9`, and `-`). If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.chinacloudsites.cn`.  
 
@@ -111,7 +111,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## Deploy the sample app from the GitHub repository 
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a public GitHub sample repository: [https://github.com/Azure-Samples/storage-blob-upload-from-webapp](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](https://docs.azure.cn/cli/webapp/deployment/source#config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/webapp/deployment/source#az_webapp_deployment_source_config) command. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app that accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web application uses the [Microsoft.WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), and the [Microsoft.WindowsAzure.Storage.Auth](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) namespaces from the Azure storage Client Library to interact with Azure storage. 
 
@@ -123,7 +123,7 @@ az webapp deployment source config --name <web_app> \
 
 ## Configure web app settings 
 
-The sample web app uses the [Azure Storage Client Library](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](https://docs.azure.cn/cli/webapp/config/appsettings#set) command. 
+The sample web app uses the [Azure Storage Client Library](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) command. 
 
 In the following command, `<blob_storage_account>` is the name of your Blob storage account and `<blob_storage_key>` is the associated key. Replace `<web_app>` with the name of the web app you created in the preceding step.     
 
@@ -183,7 +183,7 @@ The following classes and methods are used in the preceding task:
 
 ## Verify the image is shown in the storage account
 
-Sign in to https://portal.azure.cn. From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Overview**, select the **images** container.
+Sign in to the [Azure portal](https://portal.azure.cn). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Overview**, select the **images** container.
 
 Verify the image is shown in the container.
 
@@ -193,7 +193,7 @@ Verify the image is shown in the container.
 
 To test thumbnail viewing, you'll upload an image to the thumbnail container in order to ensure the application can read the thumbnail container.
 
-Sign in to https://portal.azure.cn. From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers** under **Blob Service** and select the **thumbs** container. Select **Upload** to open the **Upload blob** pane.
+Sign in to the [Azure portal](https://portal.azure.cn). From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers** under **Blob Service** and select the **thumbs** container. Select **Upload** to open the **Upload blob** pane.
 
 Choose a file using the file picker and select **Upload**.
 

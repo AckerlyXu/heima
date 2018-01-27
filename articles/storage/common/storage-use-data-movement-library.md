@@ -25,7 +25,7 @@ The Azure Storage Data Movement Library is a cross-platform open source library 
 
 This library also uses .NET Core, which means you can use it when building .NET apps for Windows, Linux and macOS. To learn more about .NET Core, refer to the [.NET Core documentation](https://dotnet.github.io/). This library also works for traditional .NET Framework apps for Windows. 
 
-This document demonstrates how to create a .NET Core console application that that runs on Windows, Linux, and macOS and performs the following scenarios:
+This document demonstrates how to create a .NET Core console application that runs on Windows, Linux, and macOS and performs the following scenarios:
 
 - Upload files and directories to Blob Storage.
 - Define the number of parallel operations when transferring data.

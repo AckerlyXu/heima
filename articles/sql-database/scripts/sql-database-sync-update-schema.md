@@ -84,7 +84,7 @@ The **UpdateSyncSchema** script uses the following commands. Each command in the
 
 ## Next steps
 
-For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information about Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
 

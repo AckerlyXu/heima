@@ -25,6 +25,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
+          src: media/index/portal.svg
+          text: Portal
+      - image:
           src: media/index/logo_powershell.svg
           text: Powershell
       - image:
@@ -41,14 +44,16 @@ sections:
     rows:
       - title: Create storage account
         values:
-        - href: /storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - href: /storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - href: /storage/common/storage-quickstart-create-account?tabs=portal
+        - href: /storage/common/storage-quickstart-create-account?tabs=powershell
+        - href: /storage/common/storage-quickstart-create-account?tabs=azure-cli
         - href: 
         - href: 
         - href: 
         - href: 
       - title: Blob quickstarts
         values:
+        - href: /storage/blobs/storage-quickstart-blobs-portal
         - href: /storage/blobs/storage-quickstart-blobs-powershell
         - href: /storage/blobs/storage-quickstart-blobs-cli
         - href: /storage/blobs/storage-quickstart-blobs-dotnet
@@ -60,9 +65,16 @@ sections:
   - type: paragraph
     text: Learn how to upload and process image data in the cloud.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/storage/blobs/storage-upload-process-images">Upload and retrieve image data in the cloud</a>
+  - type: paragraph
+    text: Learn how to design your application for high availability in Azure Storage.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/storage/blobs/storage-create-geo-redundant-storage">Make your application data highly available</a>
+    - html: <a href="/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulate a failure in accessing read-access redundant storage</a>
 - title: Samples
   items:
   - type: paragraph
@@ -71,5 +83,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Queues</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Files</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Queues</a>
     - html: <a href="/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>

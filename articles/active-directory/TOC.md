@@ -38,11 +38,10 @@
 
 
 ## Manage passwords
-### [Update your own password](./active-directory-passwords-update-your-own-password.md)
-### [Understand policies and restrictions](./active-directory-passwords-policy.md)
-### Reset passwords
-
-### [Set expiration policies](./active-directory-passwords-set-expiration-policy.md)
+#### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+#### [Password best practices](active-directory-secure-passwords.md)
+### IT Admins: Reset passwords
+#### [Azure portal](active-directory-users-reset-password-azure-portal.md)
 
 
 ## Manage devices
@@ -118,7 +117,8 @@
 ### [PoC Playbook: Building Blocks](active-directory-playbook-building-blocks.md)
 
 # Reference
-## [PowerShell cmdlets](http://docs.microsoft.com/powershell/azure/overview )
+## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Azure PowerShell cmdlets](http://docs.microsoft.com/powershell/azure/overview )
 ## [Java API Reference](/java/api)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
