@@ -64,7 +64,12 @@
     href: sizes.md
     items:
     - name: General purpose
-      href: sizes-general.md  
+      href: sizes-general.md
+###  b-series-burstable.md for GA releasement
+      items:
+      - name: B-series burstable
+        href: b-series-burstable.md
+###  b-series-burstable.md for GA releasement
     - name: Compute optimized
       href: sizes-compute.md    
     - name: Memory optimized

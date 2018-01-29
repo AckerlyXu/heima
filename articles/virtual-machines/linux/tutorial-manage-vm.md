@@ -15,7 +15,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 10/16/2017
+origin.date: 02/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -147,12 +148,14 @@ A virtual machine size determines the amount of compute resources such as CPU, G
 
 The following table categorizes sizes into use cases.  
 
+<!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](sizes-general.md)         |DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [General purpose](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
 | [Compute optimized](sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-<!-- Not Available Dsv3, Ls, G, NV, H series-->
+| [Memory optimized](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+<!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
+<!-- Not Available Ls, G, NV, H series-->
 
 ### Find available VM sizes
 
@@ -319,3 +322,4 @@ Advance to the next tutorial to learn about VM disks.
 > [Create and Manage VM disks](./tutorial-manage-disks.md)
 
 <!--Update_Description: update meta properties, wording update-->
+<!--PENDING FOR Ev3, Dv3 GA ANOUNCEMENT -->
