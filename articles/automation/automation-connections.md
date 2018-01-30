@@ -29,7 +29,7 @@ When you create a connection, you must specify a *connection type*. The connecti
 
 ## Windows PowerShell Cmdlets
 
-The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell. They ship as part of the [Azure PowerShell module](/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
+The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell. They ship as part of the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/overview) which is available for use in Automation runbooks and DSC configurations.
 
 |Cmdlet|Description|
 |:---|:---|
@@ -75,7 +75,7 @@ The function in the following table is used to access connections in a Python2 r
 
 Create a new connection with Windows PowerShell using the [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
 
-If you are familiar with the Automation [Run As account](automation-sec-configure-azure-runas-account.md) to authenticate runbooks using the service principal, the PowerShell script, provided as an alternative to creating the Run As account from the portal, creates a new connection asset using the following sample commands.  
+If you are familiar with the Automation [Run As account](automation-create-runas-account.md) to authenticate runbooks using the service principal, the PowerShell script, provided as an alternative to creating the Run As account from the portal, creates a new connection asset using the following sample commands.  
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
