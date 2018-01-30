@@ -30,7 +30,6 @@ An Azure SQL database can be:
 - A [single database](sql-database-single-database-resources.md) with its own set of resources
 - Part of an [elastic pool](sql-database-elastic-pool.md) that shares a set of resources
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
-- Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
 > [!TIP]
 > For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 

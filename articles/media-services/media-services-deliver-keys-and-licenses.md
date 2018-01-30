@@ -304,7 +304,6 @@ namespace DeliverDRMLicenses
 
 
 ## See also
-[Using PlayReady Dynamic Common Encryption](media-services-protect-with-drm.md)
 
-[Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md)
+* [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md)
 <!--Update_Description:update code to use AAD token instead of ACS-->

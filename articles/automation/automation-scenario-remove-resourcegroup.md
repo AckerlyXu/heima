@@ -51,7 +51,7 @@ The following input parameters are defined for this runbook:
 
 ## Install and configure this scenario
 ### Prerequisites
-This runbook authenticates using the [Azure Run As account](automation-sec-configure-azure-runas-account.md).    
+This runbook authenticates using the Azure Run As account.    
 
 ### Install and publish the runbooks
 After you download the runbook, you can import it by using the procedure in [Importing runbook procedures](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publish the runbook after it has been successfully imported into your Automation account.
