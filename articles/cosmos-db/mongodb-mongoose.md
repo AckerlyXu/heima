@@ -64,6 +64,9 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     ```
 
 1. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file.
+    
+    > [!Note]
+    > Please convert all the illegal unescaped character in the Connection String, for example: convert = to %3D. or you will enconter error such as <Error: Password contains an illegal unescaped characters> when open one connection.
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}

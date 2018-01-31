@@ -300,6 +300,6 @@ armclient delete "https://management.chinacloudapi.cn/subscriptions/${subscripti
 
 For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+<!--Not Available on [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!--Update_Description: new articles on network watcher packet capture manage rest -->

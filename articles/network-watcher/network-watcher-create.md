@@ -83,7 +83,7 @@ Now that you have an instance of Network Watcher, learn about the features avail
 * [NSG flow logging](network-watcher-nsg-flow-logging-overview.md)
 * [Virtual Network Gateway troubleshooting](network-watcher-troubleshoot-overview.md)
 
-Once a Network Watcher instance has been created, package capture can be configured by following the article: [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 [1]: ./media/network-watcher-create/figure1.png
 
