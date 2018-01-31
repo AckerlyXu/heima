@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/18/2017
-ms.date: 01/08/2018
+origin.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 

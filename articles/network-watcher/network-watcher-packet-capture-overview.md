@@ -51,8 +51,7 @@ To reduce the information you capture to only the information you want, the foll
 ### Next steps
 
 Learn how you can manage packet captures through the portal by visiting [Manage packet capture in the Azure portal](network-watcher-packet-capture-manage-portal.md) or with PowerShell by visiting [Manage Packet Capture with PowerShell](network-watcher-packet-capture-manage-powershell.md).
-
-Learn how to create proactive packet captures based on virtual machine alerts by visiting [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+<!--Not Available on [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png

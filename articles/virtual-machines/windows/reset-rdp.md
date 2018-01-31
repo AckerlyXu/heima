@@ -13,9 +13,9 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 12/06/2017
-ms.date: 01/15/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---

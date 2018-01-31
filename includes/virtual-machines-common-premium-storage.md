@@ -61,8 +61,10 @@ Here are some of the features of Premium Storage:
 <!-- Not Available on GS Series -->
 
 ## Supported VMs
-Premium Storage supports DS-series, DSv2-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
-<!-- Not Available on GS Series LS Series and B-series -->
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+Premium Storage supports DS-series, DSv2-series, Fs-series and B-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!-- Not Available on GS Series LS Series -->
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).
 
@@ -310,4 +312,5 @@ For more information about Premium Storage, see the following articles.
 <!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/) -->
 
 <!--Update_Description: wording update-->
-<!--ms.date: 01/29/2018-->
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!--ms.date: 02/05/2018-->

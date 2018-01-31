@@ -3,7 +3,7 @@ title: Create VM from a specialized disk in Azure | Azure
 description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,8 +15,9 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 02/05/2018
+ms.author: v-yeche
+ROBOTS: NOINDEX
 
 ---
 # Create a VM from a specialized VHD in a storage account
@@ -24,8 +25,8 @@ ms.author: v-haiqya
 Create a new VM by attaching a specialized unmanaged disk as the OS disk using Powershell. A specialized disk is a copy of VHD from an existing VM that maintains the user accounts, applications and other state data from your original VM. 
 
 You have two options:
-* [Upload a VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copy the VHD of an existing Azure VM](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## Before you begin
 If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
@@ -311,3 +312,5 @@ $vmList.Name
 
 ## Next steps
 To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.cn), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).
+
+<!-- Update_Description: update meta properties, update link -->

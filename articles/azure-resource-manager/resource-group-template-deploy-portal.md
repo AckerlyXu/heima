@@ -112,7 +112,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 ## Deploy resources from a template saved to your account
 
 The portal enables you to save a template to your Azure account, and redeploy it later.
-<!-- Not Available  [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md).-->
+<!-- Not Available  [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md) -->
 
 1. To find your saved templates, select **More services**.
 

@@ -268,7 +268,7 @@ For information about using these languages with your resources, see:
 
 * [Azure for .NET developers](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet)
 * [Azure for Java developers](https://docs.azure.cn/java/)
-* [Azure for Node.js developers](/nodejs/azure/)
+* [Azure for Node.js developers](https://docs.microsoft.com/javascript/azure/)
 * [Azure for Python developers](https://docs.microsoft.com/python/azure/)
 
 > [!NOTE]

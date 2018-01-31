@@ -11,11 +11,11 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/22/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 09/25/2017
-ms.date: 10/30/2017
+origin.date: 12/15/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -33,13 +33,13 @@ To automate the build and test phase of application development, you can use a c
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest). 
 
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. 
 <!--Not Available /jenkins/ -->
 
-In your current shell, create a file named *cloud-init.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+In your current shell, create a file named *cloud-init-jenkins.txt* and paste the following configuration. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -116,11 +116,10 @@ If the file isn't available yet, wait a couple more minutes for cloud-init to co
 
 Now open a web browser and go to `http://<publicIps>:8080`. Complete the initial Jenkins setup as follows:
 
-- Enter the *initialAdminPassword* obtained from the VM in the previous step.
-- Choose **Select plugins to install**
-- Search for *GitHub* in the text box across the top, select the *GitHub plugin*, then select **Install**
-- To create a Jenkins user account, fill out the form as desired. From a security perspective, you should create this first Jenkins user rather than continuing as the default admin account.
-- When finished, select **Start using Jenkins**
+- Enter the username **admin**, then provide the *initialAdminPassword* obtained from the VM in the previous step.
+- Select **Manage Jenkins**, then **Manage plugins**.
+- Choose **Available**, then search for *GitHub* in the text box across the top. Check the box for *GitHub plugin*, then select **Download now and install after restart**.
+- Check the box for **Restart Jenkins when installation is complete and no jobs are running**, then wait until the plugin install process is finished.
 
 ## Create GitHub webhook
 To configure the integration with GitHub, open the [Node.js Hello World sample app](https://github.com/Azure-Samples/nodejs-docs-hello-world) from the Azure samples repo. To fork the repo to your own GitHub account, select the **Fork** button in the top right-hand corner.
@@ -144,7 +143,7 @@ In your Jenkins website, select **Create new jobs** from the home page:
 - Under the **General** section, select **GitHub** project and enter your forked repo URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in to command window.
+- Under the **Build** section, choose **Add build step**. Select **Execute shell**, then enter `echo "Testing"` in the command window.
 - Select **Save** at the bottom of the jobs window.
 
 ## Test GitHub integration
@@ -158,18 +157,18 @@ response.end("Hello World!");
 
 To commit your changes, select the **Commit changes** button at the bottom.
 
-In Jenkins, a new build starts under the **Build history** section of the bottom left-hand corner of your job page. Choose the build number link and select **Console output** on the left-hand size. You can view the steps Jenkins takes as your code is pulled from GitHub and the build action outputs the message `Testing` to the console. Each time a commit is made in GitHub, the webhook reaches out to Jenkins and trigger a new build in this way.
+In Jenkins, a new build starts under the **Build history** section of the bottom left-hand corner of your job page. Choose the build number link and select **Console output** on the left-hand side. You can view the steps Jenkins takes as your code is pulled from GitHub and the build action outputs the message `Testing` to the console. Each time a commit is made in GitHub, the webhook reaches out to Jenkins and triggers a new build in this way.
 
 ## Define Docker build image
 To see the Node.js app running based on your GitHub commits, lets build a Docker image to run the app. The image is built from a Dockerfile that defines how to configure the container that runs the app. 
 
-From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In our example, that was named *HelloWorld*.
+From the SSH connection to your VM, change to the Jenkins workspace directory named after the job you created in a previous step. In this example, that was named *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Create a file with in this workspace directory with `sudo sensible-editor Dockerfile` and paste the following contents. Make sure that the whole Dockerfile is copied correctly, especially the first line:
+Create a file in this workspace directory with `sudo sensible-editor Dockerfile` and paste the following contents. Make sure that the whole Dockerfile is copied correctly, especially the first line:
 
 ```yaml
 FROM node:alpine

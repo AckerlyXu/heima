@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 
@@ -125,7 +125,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 ```
 
 ## Create virtual network interface card
-A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in an Ansible playbook creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
+A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in a Terraform template creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -461,4 +461,4 @@ ssh azureuser@<publicIps>
 ## Next steps
 You have created basic infrastructure in Azure by using Terraform. For more complex scenarios, including examples that use load balancers and virtual machine scale sets, see numerous [Terraform examples for Azure](https://github.com/hashicorp/terraform/tree/master/examples). For an up-to-date list of supported Azure providers, see the [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

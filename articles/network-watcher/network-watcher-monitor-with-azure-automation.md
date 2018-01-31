@@ -185,7 +185,7 @@ Click Save to save the schedule to the runbook.
 
 ## Next steps
 
-Now that you have an understanding on how to integrate Network Watcher troubleshooting with Azure Automation, learn how to trigger packet captures on VM alerts by visiting [Create an alert triggered packet capture with Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
+<!--Not Available on [Create an alert triggered packet capture with Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!-- images -->
 [scenario]: ./media/network-watcher-monitor-with-azure-automation/scenario.png

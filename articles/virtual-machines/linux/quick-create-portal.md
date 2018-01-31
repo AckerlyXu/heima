@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/15/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -24,17 +24,19 @@ ms.custom: mvc
 
 Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 ## Create SSH key pair
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file to the clipboard.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard. If you use Windows Subsystem for Linux, make sure that you don't copy line break characters from the output. Note the filename of the private key file for later use.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+You can find more detailed information on this process [here](/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Log in to Azure 
 
@@ -98,7 +100,7 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
 3. On the left-hand menu, under settings, click **Inbound security rules**.
 4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
+5. In **Name**, type **http**. Make sure **Source Port range** is set to `*`, **Destination Port range** is set to *80*, and **Action** is set to *Allow*. 
 6. Click **OK**.
 
 ## View the NGINX welcome page
@@ -118,4 +120,4 @@ In this quick start, you've deployed a simple virtual machine, a network securit
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta propreties, wording update-->
+<!--Update_Description: update meta propreties, wording update, update link -->

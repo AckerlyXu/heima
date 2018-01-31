@@ -414,7 +414,7 @@ For information about logging in as the application through different platforms,
 
 * [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
-* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](https://docs.microsoft.com/javascript/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 

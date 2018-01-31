@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -26,6 +26,11 @@ The Custom Script Extension downloads and executes scripts on Azure virtual mach
 This document details how to use the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and details troubleshooting steps on Windows systems.
 
 ## Prerequisites
+
+> [!NOTE]  
+> Do not use Custom Script Extension to run Update-AzureRmVM with the same VM as its parameter, since it will wait on itself.  
+>   
+> 
 
 ### Operating System
 

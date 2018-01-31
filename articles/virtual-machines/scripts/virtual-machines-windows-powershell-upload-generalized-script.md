@@ -3,8 +3,8 @@ title: Upload a generalized VHD to Azure PowerShell Script Sample | Azure
 description: PowerShell sample script to upload a generalized VHD to Azure and create a new VM using the resource manager deployment model and Managed Disks.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/18/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+origin.date: 01/02/2017
+ms.date: 02/05/2018
+ms.author: v-yeche
 ms.custom: mvc
 ---
 
@@ -127,24 +127,24 @@ This script uses the following commands to create the deployment. Each item in t
 | Command                                                                                                             | Notes                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Creates a resource group in which all resources are stored.                                                                                                                          |
-| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount)                         | Creates a storage account.                                                                                                                                                           |
-| [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd)                                               | Uploads a virtual hard disk from an on-premises virtual machine to a blob in a cloud storage account in Azure.                                                                       |
-| [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimageconfig)                               | Creates a configurable image object.                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermimageosdisk)                               | Sets the operating system disk properties on an image object.                                                                                                                        |
-| [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage)                                           | Creates a new image.                                                                                                                                                                 |
-| [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Creates a subnet configuration. This configuration is used with the virtual network creation process.                                                                                |
-| [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork)                         | Creates a virtual network.                                                                                                                                                           |
-| [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)                       | Creates a public IP address.                                                                                                                                                         |
-| [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface)                     | Creates a network interface.                                                                                                                                                         |
-| [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)   | Creates a network security group rule configuration. This configuration is used to create an NSG rule when the NSG is created.                                                       |
-| [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)             | Creates a network security group.                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork)                         | Gets a virtual network in a resource group.                                                                                                                                          |
-| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig)                                     | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
-| [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | Specifies an image for a virtual machine.                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface)                 | Adds a network interface to a virtual machine.                                                                                                                                       |
-| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm)                                                 | Create a virtual machine.                                                                                                                                                            |
+| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Creates a storage account.                                                                                                                                                           |
+| [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.resources/add-azurermvhd)                                               | Uploads a virtual hard disk from an on-premises virtual machine to a blob in a cloud storage account in Azure.                                                                       |
+| [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Creates a configurable image object.                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Sets the operating system disk properties on an image object.                                                                                                                        |
+| [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermimage)                                           | Creates a new image.                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Creates a subnet configuration. This configuration is used with the virtual network creation process.                                                                                |
+| [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Creates a virtual network.                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Creates a public IP address.                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Creates a network interface.                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Creates a network security group rule configuration. This configuration is used to create an NSG rule when the NSG is created.                                                       |
+| [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Creates a network security group.                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Gets a virtual network in a resource group.                                                                                                                                          |
+| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
+| [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Specifies an image for a virtual machine.                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Adds a network interface to a virtual machine.                                                                                                                                       |
+| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvm)                                                 | Create a virtual machine.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Removes a resource group and all resources contained within.                                                                                                                         |
 
 ## Next steps
@@ -152,3 +152,5 @@ This script uses the following commands to create the deployment. Each item in t
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
+
+<!-- Update_Description: update meta properties, update link -->

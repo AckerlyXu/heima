@@ -3,8 +3,8 @@ title: Use PowerShell to resize a Windows VM in Azure | Azure
 description: Resize a Windows virtual machine created in the Resource Manager deployment model, using Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: Drewm3
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2016
-ms.date: 03/06/2017
-ms.author: v-dazen
+ms.date: 02/05/2018
+ms.author: v-yeche
 
 ---
 # Resize a Windows VM
@@ -33,7 +33,7 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 2. If the desired size is listed, run the following commands to resize the VM. If the desired size is not listed, go on to step 3.
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -42,8 +42,8 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
     ```powershell
     $rgname = "<resourceGroupName>"
     $vmname = "<vmName>"
-    Stop-AzureRmVM -ResourceGroupName $rgname -VMName $vmname -Force
-    $vm = Get-AzureRmVM -ResourceGroupName $rgname -VMName $vmname
+    Stop-AzureRmVM -ResourceGroupName $rgname -Name $vmname -Force
+    $vm = Get-AzureRmVM -ResourceGroupName $rgname -Name $vmname
     $vm.HardwareProfile.VmSize = "<newVMSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgname
     Start-AzureRmVM -ResourceGroupName $rgname -Name $vmname
@@ -65,7 +65,7 @@ If the new size for a VM in an availability set is not available on the hardware
 2. If the desired size is listed, run the following commands to resize the VM. If it is not listed, go to step 3.
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -98,3 +98,9 @@ If the new size for a VM in an availability set is not available on the hardware
      Start-AzureRmVM -ResourceGroupName $rg -Name $vmName
    }
    ```
+
+## Next steps
+* For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md).
+
+<!-- Update_Description: update meta properties, update link -->
+<!-- REDIRECT virtual-machine-scale-sets-windows-autoscale.md to virtual-machine-scale-sets-autoscale-powershell.md -->

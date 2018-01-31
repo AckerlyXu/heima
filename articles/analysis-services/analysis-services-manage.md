@@ -54,6 +54,7 @@ To get all the latest features, and the smoothest experience when connecting to 
 
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
+<a name="server-administrators"></a>
 ## Server administrators and database users
 In Azure Analysis Services, there are two types of users, server administrators and database users. Both types of users must be in your Azure Active Directory and must be specified by organizational email address or UPN. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 

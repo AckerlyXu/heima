@@ -117,8 +117,7 @@ The health of a network resource is provided on a periodic basis. Such resources
 After learning about Network Watcher, you can learn to:
 
 Do a packet capture on your VM by visiting [Variable packet capture in the Azure portal](network-watcher-packet-capture-manage-portal.md)
-
-Perform proactive monitoring and diagnostics using [alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
+<!--Not Available on [alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 Detect security vulnerabilities with [Analyzing packet capture with Wireshark](network-watcher-deep-packet-inspection.md), using open source tools.
 

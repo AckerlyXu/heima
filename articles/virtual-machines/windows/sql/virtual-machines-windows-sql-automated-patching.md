@@ -3,8 +3,8 @@ title: Automated Patching for SQL Server VMs (Resource Manager) | Azure
 description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+origin.date: 01/05/2018
+ms.date: 02/05/2018
+ms.author: v-yeche
 
 ---
 # Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
@@ -108,6 +108,9 @@ In the following example, PowerShell is used to configure Automated Patching on 
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
+> [!IMPORTANT]
+> If the extension is not already installed, installing the extension restarts the SQL Server service.
+
 Based on this example, the following table describes the practical effect on the target Azure VM:
 
 | Parameter | Effect |
@@ -126,4 +129,4 @@ For information about other available automation tasks, see [SQL Server IaaS Age
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!--Update_Description: add sql server 2016-->
+<!--Update_Description: update meta properties, update link -->

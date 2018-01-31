@@ -1,20 +1,16 @@
 ---
 title: About unmanaged (page blobs) and managed disks storage for Azure Windows VMs | Azure
 description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Windows virtual machines in Azure.
-services: storage
-documentationcenter: ''
+services: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -48,7 +44,7 @@ A data disk is a VHD that's attached to a virtual machine to store application d
 
 Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.
 
-You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine. You can use a VHD that you've uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file with the VM by placing a 'lease' on the VHD so it can't be deleted from storage while it's still attached.
+You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine. You can use a VHD that you've uploaded or copied to your storage account, or use an empty VHD that Azure creates for you. Attaching a data disk associates the VHD file with the VM by placing a 'lease' on the VHD so it can't be deleted from storage while it's still attached.
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
@@ -77,4 +73,4 @@ fsutil behavior set DisableDeleteNotify 0
 * [Attach a disk](attach-disk-portal.md) to add additional storage for your VM.
 * [Create a snapshot](snapshot-copy-managed-disk.md).
 * [Convert to managed disks](convert-unmanaged-to-managed-disks.md).
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->
