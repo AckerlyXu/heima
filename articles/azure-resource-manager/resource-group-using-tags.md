@@ -144,13 +144,14 @@ You can retrieve information about the usage comma-separated values (CSV) file. 
 <!-- Not Available [EA portal](https://ea.azure.com) -->
 <!-- Not Available [Gain insights into your Azure resource consumption](../billing/billing-usage-rate-card-overview.md) -->
 
-When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column. For more information, see [Understand your bill for Azure](../billing/billing-understand-your-bill.md).
+When you download the usage CSV for services that support tags with billing, the tags appear in the **Tags** column.
+<!-- Not Available on [Understand your bill for Azure](../billing/billing-understand-your-bill.md) -->
 
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
 ## Next steps
 
-<!-- Not Available on [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
+<!-- Not Available on [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) -->
 * For an introduction to using Azure PowerShell when you're deploying resources, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * For an introduction to using the Azure CLI when you're deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  

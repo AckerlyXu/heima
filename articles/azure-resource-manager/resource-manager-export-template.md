@@ -158,7 +158,7 @@ The exported template works fine if you want to create the same web app and SQL 
 9. Provide parameter values, and select a resource group to deploy the resources to.
 
 ## Fix export issues
-Not all resource types support the export template function. To resolve this issue, manually add the missing resources back into your template. The error message includes the resource types that cannot be exported. Find that resource type in [Template reference](/templates/). For example, to manually add a virtual network gateway, see [Microsoft.Network/virtualNetworkGateways template reference](/templates/microsoft.network/virtualnetworkgateways).
+Not all resource types support the export template function. To resolve this issue, manually add the missing resources back into your template. The error message includes the resource types that cannot be exported. Find that resource type in [Template reference](https://docs.microsoft.com/zh-cn/azure/templates/). For example, to manually add a virtual network gateway, see [Microsoft.Network/virtualNetworkGateways template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworkgateways).
 
 > [!NOTE]
 > You only encounter export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that are not defined in a single template.

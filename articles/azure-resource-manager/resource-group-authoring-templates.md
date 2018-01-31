@@ -230,7 +230,7 @@ You are also limited to:
 * 24,576 characters in a template expression
 
 You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](http://docs.microsoft.com/zh-cn/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
-<!-- [Objects as parameters](resource-manager-objects-as-parameters.md) redirect to /azure/architecture/building-blocks/extending-templates/objects-as-parameters -->
+<!-- Not Available on redirect to /azure/architecture/building-blocks/extending-templates/objects-as-parameters for [Objects as parameters](resource-manager-objects-as-parameters.md)  -->
 
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/).

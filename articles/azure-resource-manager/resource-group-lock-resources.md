@@ -215,7 +215,7 @@ In the request, include a JSON object that specifies the properties for the lock
 ## Next steps
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-<!-- Not Available * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
+<!-- Not Available * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) -->
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 
 <!--Update_Description: update meta properties, wording update, update cmdlet-->
