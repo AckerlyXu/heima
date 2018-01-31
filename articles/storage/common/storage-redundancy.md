@@ -60,7 +60,7 @@ Customers who plan to use ZRS should be aware that:
 * ZRS accounts cannot be converted later to LRS or GRS. Similarly, an existing LRS or GRS account cannot be converted to a ZRS account.
 * ZRS accounts do not have metrics or logging capability.
 
-## Geo-redundant storage
+## <a name="geo-redundant-storage"></a>Geo-redundant storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## Read-access geo-redundant storage

@@ -1,21 +1,21 @@
 ---
-title: Get started with Azure Service Bus topics and subscriptions | Microsoft Docs
+title: Get started with Azure Service Bus topics and subscriptions
 description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
-services: service-bus-messaging
+services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 
-ms.service: service-bus-messaging
+ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 12/06/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 
 ---
 # Get started with Service Bus topics
@@ -374,7 +374,7 @@ To receive the messages you just sent, create another .NET Core console applicat
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -413,7 +413,7 @@ To receive the messages you just sent, create another .NET Core console applicat
                 Console.WriteLine($"- Entity Path: {context.EntityPath}");
                 Console.WriteLine($"- Executing Action: {context.Action}");
                 return Task.CompletedTask;
-            }S
+            }
         }
     }
     ```

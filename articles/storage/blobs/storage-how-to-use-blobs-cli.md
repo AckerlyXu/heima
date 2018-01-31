@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/15/2017
-ms.date: 10/16/2017
+ms.date: 1/29/2018
 ms.author: v-johch
 ---
 
@@ -159,6 +159,18 @@ Delete the blob from the container using the [az storage blob delete](https://do
 az storage blob delete \
     --container-name mystoragecontainer \
     --name blobName
+```
+
+## Set the content type
+
+The content type, also known as the MIME type, identifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. The following example sets the content type to `image/png`.
+
+```azurecli-interactive
+# Set the content type
+az storage blob update
+    --container-name mystoragecontainer 
+    --name blobName 
+    --content-type image/png
 ```
 
 ## Display and modify blob properties and metadata

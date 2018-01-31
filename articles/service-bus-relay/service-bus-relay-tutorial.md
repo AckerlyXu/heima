@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus WCF Relay tutorial | Microsoft Docs
+title: Azure Service Bus WCF Relay tutorial 
 description: Build a client and service application using WCF Relay.
 services: service-bus-relay
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
+ms.date: 02/05/2018
 ---
 # Azure WCF Relay tutorial
 
@@ -235,7 +235,7 @@ This step describes how to run an Azure Relay service.
     ```
 
     The SAS key will be used later to access your project. The namespace is passed as a parameter to `CreateServiceUri` to create a service URI.
-2. Using a [TransportClientEndpointBehavior](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) object, declare that you will be using a SAS key as the credential type. Add the following code directly after the code added in the last step.
+2. Using a [TransportClientEndpointBehavior](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) object, declare that you will be using a SAS key as the credential type. Add the following code directly after the code added in the last step.
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();

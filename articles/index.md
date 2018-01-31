@@ -100,7 +100,7 @@ featureFlags:
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Manage Resources</h3>
+                                                <h3>Secure and manage resources</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/backup/">Azure Backup</a></li>
@@ -193,7 +193,7 @@ featureFlags:
                                                 <h3>Command-line tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">
+                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
                                                             Azure CLI
                                                         </a>
@@ -2372,7 +2372,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Application Architecture Guide</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If youâ€™re new to the cloud or new to Azure, start here.</p>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>

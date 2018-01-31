@@ -32,7 +32,6 @@ Azure Automation is a software as a service (SaaS) application that provides a s
 
 Runbooks that you run in Azure are executed on Automation sandboxes, which are hosted in Azure platform as a service (PaaS) virtual machines.  Automation sandboxes provide tenant isolation for all aspects of runbook execution – modules, storage, memory, network communication, job streams, etc. This role is managed by the service and is not accessible from your Azure or Azure Automation account for you to control.         
 
-To automate the deployment and management of resources in your local datacenter or other cloud services, after creating an Automation account, you can designate one or more machines to run the [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md)  role.  Each HRW requires the Microsoft Management Agent with a connection to a Log Analytics workspace and an Automation account.  Log Analytics is used to bootstrap the installation, maintain the Microsoft Management Agent, and monitor the functionality of the HRW.  The delivery of runbooks and the instruction to run them are performed by Azure Automation.
 
 You can deploy multiple HRW to provide high availability for your runbooks, load balance runbook jobs, and in some cases dedicate them for particular workloads or environments.  The Microsoft Monitoring Agent on the HRW initiates communication with the Automation service over TCP port 443 and there are no inbound firewall requirements.  Once you have runbook running on an HRW within the environment, and you want the runbook to perform management tasks against other machines or services within that environment, there may be other ports that the runbook needs access to.  
 
@@ -86,10 +85,6 @@ All the automation tasks you perform against resources using the Azure cmdlets i
 * **Runbooks** - are a set of tasks that perform some automated process in Azure Automation based on Windows PowerShell.    
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. Create Automation accounts in different regions if you have policies that require data and resources to be isolated to a specific region.
-
-> [!NOTE]
-> Automation accounts, and the resources they contain that are created in the Azure portal, cannot be accessed in the Azure classic portal. If you want to manage these accounts or their resources with Windows PowerShell, you must use the Azure Resource Manager modules.
-> 
 
 When you create an Automation account in the Azure portal, you automatically create two authentication entities:
 

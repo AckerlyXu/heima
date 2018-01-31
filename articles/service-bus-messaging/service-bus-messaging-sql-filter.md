@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/05/2018
 ---
 
 # SQLFilter syntax
 
-A *SqlFilter* object is an instance of the [SqlFilter Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
+A *SqlFilter* object is an instance of the [SqlFilter Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
   
  This topic lists details about SqlFilter grammar.  
   
@@ -57,7 +57,7 @@ A *SqlFilter* object is an instance of the [SqlFilter Class](https://doc.microso
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
   
 ## Remarks
 
@@ -206,13 +206,13 @@ The `property(name)` function returns the value of the property referenced by `n
   
 ## Considerations
   
-Consider the following [SqlFilter](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
+Consider the following [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
   
 -   Property names are case-insensitive.  
   
 -   Operators follow C# implicit conversion semantics whenever possible.  
   
--   System properties are public properties exposed in [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) instances.  
+-   System properties are public properties exposed in [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) instances.  
   
 	Consider the following `IS [NOT] NULL` semantics:  
   
@@ -220,7 +220,7 @@ Consider the following [SqlFilter](https://doc.microsoft.com/dotnet/api/microsof
   
 ### Property evaluation semantics  
   
--   An attempt to evaluate a non-existent system property throws a [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
+-   An attempt to evaluate a non-existent system property throws a [FilterException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
 -   A property that does not exist is internally evaluated as **unknown**.  
   

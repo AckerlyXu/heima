@@ -53,7 +53,6 @@ The XML conforms to the PlayReady license template XML schema defined in the "Pl
 
 Media Services also defines a set of .NET classes that can be used to serialize and deserialize to and from the XML. For a description of the main classes, see the [Media Services .NET classes](media-services-playready-license-template-overview.md#classes) that are used to configure license templates.
 
-For an end-to-end example that uses .NET classes to configure the PlayReady license template, see [Use PlayReady dynamic encryption and the license delivery service](media-services-protect-with-playready-widevine.md).
 
 ## <a id="classes"></a>Media Services .NET classes that are used to configure license templates
 The following classes are the main .NET classes that are used to configure Media Services PlayReady license templates. These classes map to the types defined in [PlayReady license template XML schema](media-services-playready-license-template-overview.md#schema).

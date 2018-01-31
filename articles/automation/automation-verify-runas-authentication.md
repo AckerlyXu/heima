@@ -12,7 +12,7 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 origin.date: 08/07/2017
 ms.date: 01/15/2018
 ms.author: v-nany

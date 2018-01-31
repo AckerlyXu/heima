@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 08/25/2017
-ms.date: 10/02/2017
+origin.date: 01/12/2018
+ms.date: 1/22/2018
 ms.author: v-johch
 ---
 # Design an Azure SQL database and connect with C&#x23; and ADO.NET
@@ -43,11 +43,13 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
+
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
+
 
 ## Next steps
 

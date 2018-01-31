@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/14/2017
-ms.date: 10/16/2017
+ms.date: 1/29/2018
 ms.author: v-johch
 ---
 
@@ -150,7 +150,7 @@ You may want to copy a blob to a separate storage account. One example for doing
 Set up a second storage account, retrieve the context, set up a container in that storage account, and perform the copy. This part of the script is almost identical to the script above except for using the second storage account instead of the first.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `

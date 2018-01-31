@@ -13,12 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/11/2017
+origin.date: 1/29/2018
 ms.date: 10/30/2017
 ms.author: v-johch
 
 ---
 # About Azure storage accounts
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -29,6 +30,7 @@ An Azure storage account provides a unique namespace to store and access your Az
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## Storage account billing
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]

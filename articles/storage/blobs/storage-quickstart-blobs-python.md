@@ -10,15 +10,13 @@ editor: tysonn
 ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: quickstart
-origin.date: 10/12/2017
-ms.date: 12/04/2017
+ms.date: 1/29/2018
 ms.author: v-nany
-
 ---
+
 #  Transfer objects to/from Azure Blob storage using Python
 In this quickstart, you learn how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
 

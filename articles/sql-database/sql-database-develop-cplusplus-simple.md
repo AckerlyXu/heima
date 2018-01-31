@@ -135,6 +135,5 @@ You can find the GetStarted solution that contains all the samples in this artic
 * More information on the [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## Additional resources
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore all the [capabilities of SQL Database](https://www.azure.cn/home/features/sql-database/)
 <!--Update_Description: update metadata-->

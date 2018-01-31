@@ -1,5 +1,5 @@
 ---
-title: Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization | Microsoft Docs
+title: Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization 
 description: Migrate applications from Access Control Service to SAS
 services: service-bus-relay
 documentationcenter: ''
@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2017
-ms.author: sethm
-ms.date: 10/16/2017
+origin.date: 12/20/2017
+ms.author: v-yiso
+ms.date: 02/05/2018
 ---
 
 # Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
@@ -51,7 +51,7 @@ If your application has not changed ACS defaults, you can replace all [SharedSec
 
 If the application uses custom service identities with simple rules, the migration is straightforward in the case where an ACS service identity was created to provide access control on a specific relay. This scenario is often the case in SaaS-style solutions where each relay is used as a bridge to a tenant site or branch office, and the service identity is created for that particular site. In this case, the respective service identity can be migrated to a Shared Access Signature rule, directly on the relay. The service identity name can become the SAS rule name and the service identity key can become the SAS rule key. The rights of the SAS rule are then configured equivalent to the respectively applicable ACS rule for the entity.
 
-You can make this new and additional configuration of SAS in-place on any existing namespace that is federated with ACS, and the migration away from ACS is subsequently performed by using [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) instead of [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). The namespace does not need to be unlinked from ACS.
+You can make this new and additional configuration of SAS in-place on any existing namespace that is federated with ACS, and the migration away from ACS is subsequently performed by using [SharedAccessSignatureTokenProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) instead of [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). The namespace does not need to be unlinked from ACS.
 
 ### Complex rules
 

@@ -24,8 +24,8 @@
 
 # Reference
 ## .NET
-### [Microsoft.Azure.Relay](https://doc.microsoft.com/dotnet/api/microsoft.azure.relay)
-### [Microsoft.ServiceBus](https://doc.microsoft.com/dotnet/api/Microsoft.ServiceBus)
+### [Microsoft.Azure.Relay](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](https://docs.microsoft.com/dotnet/api/Microsoft.ServiceBus)
 ## [Exceptions](relay-exceptions.md)
 ## [Port settings](relay-port-settings.md)
 
