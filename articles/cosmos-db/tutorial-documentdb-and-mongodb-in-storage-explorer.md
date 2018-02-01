@@ -68,7 +68,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
     ![Connect to Azure Cosmos DB by connection string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Choose the appropriate **Default Experience** for your account type, **DocumentDB** , paste in your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](/cosmos-db/manage-account#get-the--connection-string).
+2. Choose the appropriate **Default Experience** for your account type, **DocumentDB** , paste in your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](/cosmos-db/manage-account#get-the-connection-string).
 
     ![Connection-string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 

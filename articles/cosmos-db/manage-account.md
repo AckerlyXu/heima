@@ -104,7 +104,7 @@ Learn how to [get started with your Azure Cosmos DB account](http://go.microsoft
 [5]: ./media/manage-account/documentdb_change_consistency-1.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: /best-practices-availability-paired-regions/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
 [consistency]: consistency-levels.md
 [azureregions]: https://www.azure.cn/support/service-dashboard/#services
 [offers]: https://www.azure.cn/pricing/details/cosmos-db/

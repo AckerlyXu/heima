@@ -45,8 +45,8 @@ This quickstart covers:
 * Deleting a document
 * Deleting the C++ Azure Cosmos DB database
 
-Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/stalker314314/sql-apiCpp). See [Get the complete solution](#GetSolution) for quick instructions.
-
+Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/stalker314314/DocumentDBCpp). See [Get the complete solution](#GetSolution) for quick instructions.
+<!-- Should Be https://github.com/stalker314314/DocumentDBCpp for https://github.com/stalker314314/sql-apiCpp-->
 Now let's get started!
 
 ## Prerequisites for the C++ tutorial

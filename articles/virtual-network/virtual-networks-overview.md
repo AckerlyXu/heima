@@ -37,10 +37,12 @@ To learn more about the following Azure Virtual Network capabilities, click the 
 <a name = "isolation"></a>
 ## Network isolation and segmentation
 
-You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region). Each virtual network is isolated from other virtual networks. For each virtual network you can:
+You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json). Each virtual network is isolated from other virtual networks. For each virtual network you can:
 - Specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space you assign.
+<!-- Not Available on #region -->
 - Segment the virtual network into one or more subnets and allocate a portion of the virtual network's address space to each subnet.
 - Use Azure-provided name resolution, or specify your own DNS server, for use by resources in a virtual network. To learn more about name resolution in virtual networks, see [Name resolution for resources in virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
+
 
 <a name = "internet"></a>
 ## Internet communication

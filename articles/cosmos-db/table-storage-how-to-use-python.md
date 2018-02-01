@@ -25,7 +25,7 @@ ms.author: v-yeche
 
 This guide shows you how to perform common Azure Table storage scenarios in Python using the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python). The scenarios covered include creating and deleting a table, and inserting and querying entities.
 
-While working through the scenarios in this tutorial, you may wish to refer to the [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html).
+<!-- Not Available on  [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html) -->
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -105,7 +105,7 @@ table_service.insert_or_replace_entity('tasktable', task)
 
 ## Modify multiple entities
 
-To ensure the atomic processing of a request by the Table service, you can submit multiple operations together in a batch. First, use the [TableBatch][py_TableBatch] class to add multiple operations to a single batch. Next, call [TableService][py_TableService].[commit_batch][py_commit_batch] to submit the operations in an atomic operation. All entities to be modified in batch must be in the same partition.
+To ensure the atomic processing of a request by the Table service, you can submit multiple operations together in a batch. First, use the [TableBatch][py_TableBatch] class to add multiple operations to a single batch. Next, call [TableService][py_TableService].[commit_batch] py_commit_batch to submit the operations in an atomic operation. All entities to be modified in batch must be in the same partition.
 
 This example adds two entities together in a batch:
 
@@ -184,22 +184,22 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [Microsoft Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html)
+<!-- Not Available on * [Microsoft Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html) -->
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 * [Python Developer Center](/develop/python/)
 * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
 
-[py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
-[py_create_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.create_table
-[py_delete_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_entity
-[py_delete_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_table
-[py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
-[py_get_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.get_entity
-[py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity
-[py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity
-[py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity
-[py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
-[py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
-[py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch
+<!-- Not Available on [py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch -->
+<!-- Not Available on [py_create_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.create_table -->
+<!-- Not Available on [py_delete_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_entity -->
+<!-- Not Available on [py_delete_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_table -->
+<!-- Not Available on [py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity -->
+<!-- Not Available on [py_get_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.get_entity -->
+<!-- Not Available on [py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity -->
+<!-- Not Available on [py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity -->
+<!-- Not Available on [py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity -->
+<!-- Not Available on [py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity -->
+<!-- Not Available on [py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html -->
+<!-- Not Available on [py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch -->
 
 <!--Update_Description: wording update, update link-->

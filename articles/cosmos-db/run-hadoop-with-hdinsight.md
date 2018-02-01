@@ -409,7 +409,7 @@ To learn more, see the following articles:
 [azure-portal]: https://portal.azure.cn/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
-[hdinsight-samples]: http://portalcontent.blob.core.chinacloudapi.cn/samples/documentdb-hdinsight-samples.zip
+[hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
 [sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md

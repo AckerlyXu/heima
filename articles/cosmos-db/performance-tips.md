@@ -35,6 +35,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Networking
 <a id="direct-connection"></a>
+<a name="connection-protocol"></a>
 
 1. **Connection policy: Use direct connection mode**
 
