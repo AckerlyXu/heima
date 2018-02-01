@@ -112,7 +112,8 @@ You can learn more about Event Hubs by visiting the following links:
 [2]: media/event-hubs-archive-overview/event-hubs-archive2.png
 [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-archive-overview/event-hubs-archive3.png
-[Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.1/java/avro-tools-1.8.1.jar
+[Avro Tools]: http://www-eu.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
+<!-- Avro Tools is only /avro/avro-1.8.2/ CORRECT->
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

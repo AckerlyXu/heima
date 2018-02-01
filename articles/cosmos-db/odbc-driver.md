@@ -92,6 +92,7 @@ There are two types of sampling methods that you can use: **collection mapping**
 
     If in the future you want to use this schema with a DSN, open the Azure Cosmos DB ODBC Driver DSN Setup window (via the ODBC Data Source Administrator), click Advanced Options, and then in the Schema File box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
 
+<a name="schema-editor"></a>
 ## <a id="table-mapping"></a>Step 4: Create a schema definition using the table-delimiters mapping method
 
 There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. 
