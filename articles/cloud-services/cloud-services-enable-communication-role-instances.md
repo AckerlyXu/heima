@@ -1,18 +1,20 @@
 ---
-title: Communication for Roles in Cloud Services | Azure
+title: Communication for Roles in Cloud Services 
 description: Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances.
 services: cloud-services
-documentationCenter: ''
-authors: Thraka
+documentationcenter: ''
+author: Thraka
 manager: timlt
 editor: ''
 
+ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+origin.date: 12/14/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 ---
 
@@ -68,7 +70,7 @@ You can also use a port range.
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any">
-    <FixedPortRange max="8995" min="8999" />
+    <FixedPortRange max="8999" min="8995" />
   </InternalEndpoint>
 </Endpoints>
 ```
@@ -89,6 +91,8 @@ The Azure Managed Library provides methods for role instances to communicate at 
 
 > [!NOTE]
 > You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint. You cannot obtain data about role instances running in a different service.
+> 
+> 
 
 You can use the [Instances](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property to retrieve instances of a role. First use the [CurrentRoleInstance](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) to return a reference to the current role instance, and then use the [Role](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property to return a reference to the role itself.
 
@@ -101,7 +105,9 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 The **Instances** property returns a collection of **RoleInstance** objects. This collection always contains the current instance. If the role does not define an internal endpoint, the collection includes the current instance but no other instances. The number of role instances in the collection will always be 1 in the case where no internal endpoint is defined for the role. If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection will correspond to the number of instances specified for the role in the service configuration file.
 
 > [!NOTE]
-> The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality. You can use [Azure Diagnostics](./cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.
+> The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality. You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.
+> 
+> 
 
 To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
 
@@ -122,6 +128,8 @@ Here is an example of a worker role that gets the endpoint exposed through the s
 
 > [!WARNING]
 > This code will only work for a deployed service. When running in the Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.
+> 
+> 
 
 ```csharp
 using System;
@@ -245,6 +253,8 @@ The following code example shows role definitions for the roles shown in the pre
 
 > [!NOTE]
 > Restriction of communication between roles can occur with internal endpoints of both fixed and automatically assigned ports.
+> 
+> 
 
 By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a **NetworkTrafficRules** element to the **ServiceDefinition** element in the service definition file.
 

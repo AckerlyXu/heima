@@ -1,8 +1,8 @@
 ---
-title: Stream the Azure Activity Log to Event Hubs | Azure
+title: Stream the Azure Activity Log to Event Hubs
 description: Learn how to stream the Azure Activity Log to Event Hubs.
-authors: johnkemnetz
-manager: rboucher
+author: johnkemnetz
+manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
 documentationCenter: monitoring-and-diagnostics
@@ -13,9 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 6/06/2017
+origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 
 # Stream the Azure Activity Log to Event Hubs
@@ -28,7 +28,7 @@ Here are just a few ways you might use the streaming capability for the Activity
 - **Build a custom telemetry and logging platform** – If you already have a custom-built telemetry platform or are just thinking about building one, the highly scalable publish-subscribe nature of Event Hubs allows you to flexibly ingest the activity log. 
 
 ## Enable streaming of the Activity Log
-You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick a Service Bus Namespace and a shared access policy for that namespace, and an Event Hub is created in that namespace when the first new Activity Log event occurs. If you do not have a Service Bus Namespace, you first need to create one. If you have previously streamed Activity Log events to this Service Bus Namespace, the Event Hub that was previously created will be reused. The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify Service Bus Namespace shared access policies in the classic portal under the “Configure” tab for your Service Bus Namespace. To update the Activity Log log profile to include streaming, the user making the change must have the ListKey permission on that Service Bus Authorization Rule.
+You can enable streaming of the Activity Log either programmatically or via the portal. Either way, you pick a Service Bus Namespace and a shared access policy for that namespace, and an Event Hub is created in that namespace when the first new Activity Log event occurs. If you do not have a Service Bus Namespace, you first need to create one. If you have previously streamed Activity Log events to this Service Bus Namespace, the Event Hub that was previously created will be reused. The shared access policy defines the permissions that the streaming mechanism has. Today, streaming to an Event Hubs requires **Manage**, **Send**, and **Listen** permissions. You can create or modify Service Bus Namespace shared access policies in the Azure portal under the “Configure” tab for your Service Bus Namespace. To update the Activity Log log profile to include streaming, the user making the change must have the ListKey permission on that Service Bus Authorization Rule.
 
 The service bus or event hub namespace does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 

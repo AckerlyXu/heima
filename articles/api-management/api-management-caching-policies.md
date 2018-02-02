@@ -1,9 +1,9 @@
 ---
-title: Azure API Management caching policies | Azure
+title: Azure API Management caching policies
 description: Learn about the caching policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # API Management caching policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -51,7 +51,7 @@ This topic provides a reference for the following API Management policies. For i
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -115,14 +115,13 @@ This topic provides a reference for the following API Management policies. For i
 |allow-private-response-caching|When set to `true`, allows caching of requests that contain an Authorization header.|No|false|  
 |downstream-caching-type|This attribute must be set to one of the following values.<br /><br /> -   none - downstream caching is not allowed.<br />-   private - downstream private caching is allowed.<br />-   public - private and shared downstream caching is allowed.|No|none|  
 |must-revalidate|When downstream caching is enabled this attribute turns on or off  the `must-revalidate` cache control directive in gateway responses.|No|true|  
-|vary-by-developer|Set to `true` to cache responses per developer key.|No|false|  
-|vary-by-developer-groups|Set to `true` to cache responses per user role.|No|false|  
+|vary-by-developer|Set to `true` to cache responses per developer key.|Yes||  
+|vary-by-developer-groups|Set to `true` to cache responses per user role.|Yes||  
   
 ### Usage  
  This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** API, operation, product  
   
 ##  <a name="StoreToCache"></a> Store to cache  
@@ -326,4 +325,10 @@ This topic provides a reference for the following API Management policies. For i
   
 
 ## Next steps
-For more information working with policies, see [Policies in API Management](./api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

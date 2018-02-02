@@ -1,21 +1,20 @@
 ---
-title: Deploy Azure API Management services to multiple Azure regions | Azure
+title: Deploy Azure API Management services to multiple Azure regions
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: 47389ad6-f865-4706-833f-846115e22e4d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # How to deploy an Azure API Management service instance to multiple Azure regions
 API Management supports multi-region deployment which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 
@@ -29,7 +28,7 @@ When an API Management service is created initially, it contains only one [unit]
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 > [!NOTE]
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 > 
 > 
 
@@ -67,8 +66,8 @@ Confirm the deletion and click **Save** to apply the changes.
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
-[Get started with Azure API Management]: ./api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region

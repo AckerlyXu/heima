@@ -1,21 +1,20 @@
 ---
-title: Secure back-end services using client certificate authentication - Azure API Management | Azure
+title: Secure back-end services using client certificate authentication - Azure API Management
 description: Learn how to secure back-end services using client certificate authentication in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
-ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # How to secure back-end services using client certificate authentication in Azure API Management
 API Management provides the capability to secure access to the back-end service of an API using client certificates. This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.
@@ -30,7 +29,7 @@ To get started, click **Publisher portal** in the Azure Portal for your API Mana
 
 ![API Publisher portal][api-management-management-console]
 
-> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+> If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 > 
 > 
 
@@ -60,7 +59,7 @@ Click **Upload** to upload the certificate.
 
 Once the certificate is uploaded, it appears on the **Client certificates** tab. If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a client certificate for gateway authentication][Configure an API to use a client certificate for gateway authentication] section.
 
-> To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](./api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
+> To turn off certificate chain validation when using, for example, a self-signed certificate, follow the steps described in this FAQ [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end).
 > 
 > 
 
@@ -104,6 +103,14 @@ Click **Save** to save the configuration change to the API.
 
 ![Certificate policy][api-management-certificate-policy]
 
+## Self-signed certificates
+
+If you are using self-signed certificates, you will need to disable certificate chain validation in order for API Management to communicate with the backend system, otherwise it will return a 500 error code. To configure this, you can use the [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (for new back end) or [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
@@ -126,14 +133,14 @@ Click **Save** to save the configuration change to the API.
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: ./api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policy-reference.md
 [Caching policies]: ./api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service-web/app-service-web-configure-tls-mutual-auth.md
+[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1

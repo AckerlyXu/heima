@@ -1,24 +1,25 @@
 ---
-title: Azure API Management overview and key concepts | Azure
+title: Azure API Management overview and key concepts
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
-
-ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
+ 
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-origin.date: 01/23/2017
+ms.topic: overview
+origin.date: 11/15/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.date: ''
+ms.custom: mvc
 ---
 # What is API Management?
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+
+API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
 
 
 To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
@@ -28,17 +29,52 @@ This topic provides an overview of API Management key concepts.
 > [!NOTE]
 > For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
 > 
-> * Common API requirements and challenges
-> * Decoupling APIs and presenting facades
-> * Getting developers up and running quickly
-> * Securing access
-> * Analytics and metrics
-> * Gaining control and insight with an API Management platform
-> * Using cloud vs on-premises solutions
-> * Azure API Management
-> 
-> 
 
+This topic provides an overview of common scenarios that involve APIM.  It also gives a brief overview of the APIM system's main components. The topic, then, gives a more detailed overview of each component.
+
+## Overview
+
+To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect. Common scenarios include:
+
+* **Securing mobile infrastructure** by gating access with API keys, preventing DOS attacks by using throttling, or using advanced security policies like JWT token validation.
+* **Enabling ISV partner ecosystems** by offering fast partner onboarding through the developer portal and building an API facade to decouple from internal implementations that are not ripe for partner consumption.
+* **Running an internal API program** by offering a centralized location for the organization to communicate about the availability and latest changes to APIs, gating access based on organizational accounts, all based on a secured channel between the API gateway and the backend.
+
+The system is made up of the following components:
+
+* The **API gateway** is the endpoint that:
+  
+  * Accepts API calls and routes them to your backends.
+  * Verifies API keys, JWT tokens, certificates, and other credentials.
+  * Enforces usage quotas and rate limits.
+  * Transforms your API on the fly without code modifications.
+  * Caches backend responses where set up.
+  * Logs call metadata for analytics purposes.
+* The **publisher portal** is the administrative interface where you set up your API program. Use it to:
+  
+  * Define or import API schema.
+  * Package APIs into products.
+  * Set up policies like quotas or transformations on the APIs.
+  * Get insights from analytics.
+  * Manage users.
+* The **developer portal** serves as the main web presence for developers, where they can:
+  
+  * Read API documentation.
+  * Try out an API via the interactive console.
+  * Create an account and subscribe to get API keys.
+  * Access analytics on their own usage.
+
+For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
+ 
+ * Common API requirements and challenges
+ * Decoupling APIs and presenting facades
+ * Getting developers up and running quickly
+ * Securing access
+ * Analytics and metrics
+ * Gaining control and insight with an API Management platform
+ * Using cloud vs on-premises solutions
+ * Azure API Management
+ 
 ## <a name="apis"> </a>APIs and operations
 APIs are the foundation of an API Management service instance. Each API represents  a set of operations available to developers. Each API contains a reference to the back-end service that implements the API, and its operations map to the operations implemented by the back-end service. Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. Rate limit, quotas, and IP restriction policies can also be implemented at the API or individual operation level.
 
@@ -69,19 +105,26 @@ When developers subscribe to a product they are granted the primary and secondar
 For more information, see [How to create or invite developers][How to create or invite developers] and [How to associate groups with developers][How to associate groups with developers].
 
 ## <a name="policies"> </a> Policies
-Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer, and many other policies are available.
+Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies), [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) and [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 
 
 For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][How create and configure advanced product settings]. 
 
 
 ## <a name="developer-portal"> </a> Developer portal
-The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure Classic Portal for your API Management service instance.
+The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure portal for your API Management service instance.
 
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
 
+
+## Next steps
+
+Complete the following quickstart and start using Azure API Management:
+
+> [!div class="nextstepaction"]
+> [Create an Azure API Management instance](get-started-create-service-instance.md)
 
 [APIs and operations]: #apis
 [Products]: #products
@@ -95,11 +138,11 @@ You can customize the look and feel of your developer portal by adding custom co
 [How to create and publish a product]: ./api-management-howto-add-products.md
 [How to create and use groups]: ./api-management-howto-create-groups.md
 [How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: ./api-management-howto-product-with-rules.md
+[How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: ./api-management-howto-create-or-invite-developers.md
 [Policy reference]: ./api-management-policy-reference.md
 [API Management policies]: ./api-management-howto-policies.md
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 
 
