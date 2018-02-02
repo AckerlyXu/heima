@@ -94,9 +94,11 @@ Metrics are performance measurements and counters collected over a period of tim
 
 ### Diagnostic logs
 
-Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics. To learn how to view diagnostic logs, visit [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+Periodic and spontaneous events are created by network resources and logged in storage accounts, sent to an Event Hub, or Log Analytics. These logs provide insights into the health of a resource. These logs can be viewed in tools such as Power BI and Log Analytics.
+<!-- Not Available on [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) -->
 
-Diagnostic logs are available for [Load Balancer](../load-balancer/load-balancer-monitor-log.md), [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md), Routes, and [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
+Diagnostic logs are available for [Load Balancer](../load-balancer/load-balancer-monitor-log.md), Routes, and [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
+<!-- Not Available on [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 Network Watcher provides a diagnostic logs view. This view contains all networking resources that support diagnostic logging. From this view, you can enable and disable networking resources conveniently and quickly.
 
@@ -104,13 +106,14 @@ Network Watcher provides a diagnostic logs view. This view contains all networki
 
 ### Troubleshooting
 
-The troubleshooting blade, an experience in the portal, is provided on network resources today to diagnose common problems associated with an individual resource. This experience is available for the following network resources - ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer, and Traffic Manager. To learn more about resource level troubleshooting, visit [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blogazure-troubleshoot-diagonse-resolve-issues/)
+The troubleshooting blade, an experience in the portal, is provided on network resources today to diagnose common problems associated with an individual resource. This experience is available for the following network resources - ExpressRoute, VPN Gateway, Application Gateway, Network Security Logs, Routes, DNS, Load Balancer, and Traffic Manager. To learn more about resource level troubleshooting, visit [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
 
 ![troubleshooting info][TS]
 
 ### Resource health
 
-The health of a network resource is provided on a periodic basis. Such resources include VPN Gateway and VPN tunnel. Resource health is accessible on the Azure portal. To learn more about resource health, visit [Resource Health Overview](../resource-health/resource-health-overview.md)
+The health of a network resource is provided on a periodic basis. Such resources include VPN Gateway and VPN tunnel. Resource health is accessible on the Azure portal. To learn more about resource health, visit [Resource Health Overview](../service-health/resource-health-overview.md)
+<!-- Redirect (../resource-health/resource-health-overview.md) To (../service-health/resource-health-overview.md) -->
 
 ## Next steps
 
@@ -121,7 +124,7 @@ Do a packet capture on your VM by visiting [Variable packet capture in the Azure
 
 Detect security vulnerabilities with [Analyzing packet capture with Wireshark](network-watcher-deep-packet-inspection.md), using open source tools.
 
-Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+<!-- Not Available on[networking capabilities](../networking/networking-overview.md) -->
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

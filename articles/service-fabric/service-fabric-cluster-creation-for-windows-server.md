@@ -134,7 +134,8 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 ## Add and remove nodes
 You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
 
-<a id="removecluster" name="removecluster_anchor"></a>
+<a name="removecluster"></a>
+<a name="removecluster_anchor"></a>
 ## Remove a cluster
 To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. You can optionally specify a location for the log of the deletion.
 
@@ -181,7 +182,8 @@ As a default, the product collects telemetry on the Service Fabric usage to impr
 
 To disable telemetry, add the following to *properties* in your cluster config: *enableTelemetry: false*.
 
-<a id="previewfeatures" name="previewfeatures_anchor"></a>
+<a name="previewfeatures"></a>
+<a name="previewfeatures_anchor"></a>
 
 ## Preview features included in this package
 None.

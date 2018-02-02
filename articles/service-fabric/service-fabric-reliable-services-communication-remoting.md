@@ -85,7 +85,8 @@ ServiceProxy creation is a lightweight operation, so users can create as many as
 
 ### ServiceProxyFactory Lifetime
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) is a factory that creates proxy instances for different remoting interfaces. If you use the api `ServiceProxy.Create` for creating proxy, then the framework creates a singleton ServiceProxy.
-It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) properties.
+It is useful to create one manually when you need to override [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) properties.
+<!-- Should Be v1(v2).client.iserviceremotingclientfactory -->
 Factory creation is an expensive operation. ServiceProxyFactory maintains an internal cache of communication client.
 Best practice is to cache ServiceProxyFactory for as long as possible.
 

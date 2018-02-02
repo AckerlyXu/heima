@@ -263,7 +263,7 @@
 
 ### Set up continuous integration
 #### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Deploy your Linux applications using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+<!-- Not Available on #### [Deploy your Linux applications using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 
 ## Create and manage clusters
 ### Clusters on Azure
@@ -317,7 +317,8 @@
 ### [sfctl rpm](service-fabric-sfctl-rpm.md)
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
-## [Java API](https://docs.azure.cn/java/api/overview/azure/servicefabric)
+## [Java API](https://docs.azure.cn/java/api/overview/servicefabric)
+<!-- URL is correct on java/api/overview/  without azure/ -->
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](https://docs.microsoft.com/rest/api/servicefabric)
 ## [Service model XML schema](service-fabric-service-model-schema.md)

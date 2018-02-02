@@ -91,7 +91,8 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## Deploy Azure Container Registry
 
-First run the [az login](https://docs.azure.cn/zh-cn/cli/login?view=azure-cli-latest) command to log in to your Azure account. 
+First run the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) command to log in to your Azure account. 
+<!-- URL is correct https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login -->
 
 Next, use the [az account](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#set) command to choose your subscription to create the Azure Container registry. 
 
