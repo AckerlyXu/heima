@@ -101,8 +101,7 @@ The following is an example of a Flow log. As you can see there are multiple rec
 ## Next steps
 
 Learn how to enable Flow logs by visiting [Enabling Flow logging](network-watcher-nsg-flow-logging-portal.md).
-
-Learn about NSG logging by visiting [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md).
+<!-- Not Available on [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 Find out if traffic is allowed or denied on a VM by visiting [Verify traffic with IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
