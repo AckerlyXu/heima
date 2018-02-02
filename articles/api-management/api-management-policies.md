@@ -1,21 +1,20 @@
 ---
-title: Azure API Management policies | Azure
+title: Azure API Management policies
 description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
-
-ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
+ 
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # API Management policies
 This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-howto-policies.md).  
@@ -117,4 +116,9 @@ This section provides a reference for the following API Management policies. For
     -   [Transform XML using an XSLT](./api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.  
   
 ## Next steps
-For more information working with policies, see [Policies in API Management](./api-management-howto-policies.md).  
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

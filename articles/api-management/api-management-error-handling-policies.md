@@ -3,7 +3,7 @@ title: Error handling in Azure API Management policies | Azure
 description: Learn how to respond to error conditions that may occur during the processing of requests in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # Error handling in API Management policies
 Azure API Management allows publishers to respond to error conditions that may occur during the processing of requests to the proxy by providing a `ProxyError` object. The `ProxyError` object is accessed through the [context.LastError](./api-management-policy-expressions.md#ContextVariables) property and can be used by policies in the `on-error` policy section. This topic provides a reference for the error handling capabilities in Azure API Management.  
@@ -125,4 +125,10 @@ Azure API Management allows publishers to respond to error conditions that may o
 |validate-jwt|Other validation failures|JwtInvalid|<message from jwt library\>|
 
 ## Next steps
-For more information working with policies, see [Policies in API Management](./api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	
