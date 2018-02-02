@@ -1,5 +1,5 @@
 ---
-title: Azure Monitoring REST API Walkthrough | Azure
+title: Azure Monitoring REST API Walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
 author: mcollier
 manager:
@@ -12,10 +12,14 @@ ms.service: monitoring-and-diagnostics
 ms.workload:
 ms.tgt_pltfrm:
 ms.devlang:
+ms.search.region:
+ms.search.scope:
+ms.search.validFrom:
+ms.dyn365.ops.version:
 ms.topic: article
 origin.date: 09/18/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ---
 # Azure Monitoring REST API Walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -32,7 +36,6 @@ All the tasks executed against the Azure Monitor API use the Azure Resource Mana
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
-$location = "chinaeast"
 
 # Authenticate to a specific Azure subscription.
 Login-AzureRmAccount -SubscriptionId $subscriptionId
@@ -87,7 +90,7 @@ After authenticating, queries can then be executed against the Azure Monitor RES
 
 ## Retrieve Metric Definitions (Multi-Dimensional API)
 
-Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
+Use the [Azure Monitor Metric definitions REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) to access the list of metrics that are available for a service.
 
 **Method**: GET
 

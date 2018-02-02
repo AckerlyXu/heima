@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostic Logs Supported Services and Schemas | Microsoft Docs
+title: Azure Diagnostic Logs Supported Services and Schemas
 description: Understand the supported services and event schema for Azure Diagnostic Logs.
 author: johnkemnetz
 manager: orenr
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/04/2017
-ms.date: 01/08/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -27,15 +27,20 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
+| Analysis Services | Schema not available. |
 | API Management | [API Management Diagnostic Logs](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
+| Customer Insights | Schema not available. |
+| Content Delivery Network | Schema not available. |
 | CosmosDB | [Azure Cosmos DB Logging](../cosmos-db/logging.md) |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT Hub | [IoT Hub Operations](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
+| DDOS Protection | Schema not available. |
+| Recovery Services | [Data Model for Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Server Management | Schema not available. |
 | Service Bus |[Azure Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md) |

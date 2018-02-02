@@ -1,5 +1,5 @@
 ---
-title: Overview of the Azure Activity Log | Azure
+title: Overview of the Azure Activity Log
 description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
 author: johnkemnetz
 manager: orenr
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ---
 # Monitor Subscription Activity with the Azure Activity Log
 The **Azure Activity Log** is a subscription log that provides insight into subscription-level events that have occurred in Azure. This includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since the Administrative category reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic/"RDFE" model.
@@ -24,7 +24,7 @@ The **Azure Activity Log** is a subscription log that provides insight into subs
 
 Figure 1: Activity Logs vs other types of logs
 
-Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource(the "data plane").
+The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md). Activity Logs provide data about the operations on a resource from the outside (the "control plane"). Diagnostics Logs are emitted by a resource and provide information about the operation of that resource (the "data plane").
 
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
@@ -51,8 +51,9 @@ Here are some of the things you can do with the Activity Log:
 ![Azure Activity log](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 * Query and view it in the **Azure portal**.
-* [Stream it to an **Event Hub**](./monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Create an alert on an Activity Log event.](monitoring-activity-log-alerts.md)
+* [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 

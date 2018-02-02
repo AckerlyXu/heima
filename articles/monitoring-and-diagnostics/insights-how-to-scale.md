@@ -1,5 +1,5 @@
 ---
-title: Scale instance count manually or with autoscale with Azure Portal | Azure
+title: Scale instance count manually or with autoscale with Azure Portal
 description: Learn how to scale your services Azure.
 author: anirudhcavale
 manager: orenr
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ---
 
 # Scale instance count manually or automatically
@@ -141,4 +141,5 @@ However, you may want to have more agressive scaling during the day, or the week
 ## Next steps
 * [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
+* [Receive alert notifications](insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
 * [View events and activity log](./insights-debugging-with-events.md) to learn everything that has happened in your service.

@@ -1,5 +1,5 @@
 ---
-title: Overview of metrics in Microsoft Azure | Microsoft Docs
+title: Overview of metrics in Microsoft Azure
 description: Overview of metrics and their use in Microsoft Azure
 author: johnkemnetz
 manager: orenr
@@ -113,6 +113,8 @@ You can configure alert rules on metrics. These alert rules can check if a metri
 Metric alerts: They can then notify you via email or fire a webhook that can be used to run any custom script. You can also use the webhook to configure third-party product integrations.
 
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+Near real time alerts (preview): These have the ability to monitor multiple metrics, and thresholds, for a resource and then notify you via an [Action Group](/monitoring-action-groups.md). Leran more about [near real time metric alerts here](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### Autoscale your Azure resources

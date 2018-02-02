@@ -37,6 +37,8 @@
       href: monitoring-overview-autoscale.md
     - name: Activity log
       href: monitoring-overview-activity-logs.md
+    - name: Action groups
+      href: monitoring-action-groups.md
     - name: Diagnostic logs
       href: monitoring-overview-of-diagnostic-logs.md
     - name: Azure Diagnostics Extension
@@ -82,6 +84,8 @@
       href: monitoring-enable-alerts-using-template.md
   - name: Use autoscale
     items:
+    - name: Understand Autoscale settings
+      href: monitoring-understanding-autoscale-settings.md
     - name: Best practices
       href: insights-autoscale-best-practices.md
     - name: Common metrics
@@ -150,6 +154,10 @@
       href: azure-diagnostics-troubleshooting.md
   - name: Create Metrics Charts in Metrics Explorer
     href: monitoring-metric-charts.md
+  - name: Send metrics to Grafana
+    href: monitor-send-to-grafana.md
+  - name: Send monitoring data to an event hub
+    href: monitor-stream-monitoring-data-event-hubs.md
 - name: Reference
   items:
   - name: Azure CLI
