@@ -234,7 +234,7 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to it
 
 [link-debug-container]: https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-container-quickstart]: /virtualization/windowscontainers/quick-start/quick-start-windows-10
+[link-container-quickstart]: https://docs.microsoft.com/zh-cn//virtualization/windowscontainers/quick-start/quick-start-windows-10
 [link-visualstudio-container-tools]: https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md

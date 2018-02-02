@@ -140,7 +140,7 @@ Read more about [guest executables](service-fabric-deploy-existing-app.md).
 
 [new-project]: ./media/quickstart-guest-app/new-project.png
 [new-service]: ./media/quickstart-guest-app/template.png
-[solution-exp]: ./media/quickstart-guest-app/solution-explorer.png
+<!-- Not Available [solution-exp]: ./media/quickstart-guest-app/solution-explorer.png -->
 [publish]: ./media/quickstart-guest-app/publish.png
 [overview]: ./media/quickstart-guest-app/overview.png
 [custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.png

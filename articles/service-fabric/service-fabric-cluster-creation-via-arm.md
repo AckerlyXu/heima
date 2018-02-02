@@ -684,7 +684,8 @@ At this point, you have a secure cluster with Azure Active Directory providing m
 [active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
-[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.chinacloudapi.cn/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
+[sf-aad-ps-script-download]:https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
+<!-- The URL is correct https://servicefabricsdkstorage.blob.core.windows.net -->
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
