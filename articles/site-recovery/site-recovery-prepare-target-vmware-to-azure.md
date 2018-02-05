@@ -28,7 +28,7 @@ This article describes how to prepare your Azure environment to start replicatin
 ## Prerequisites
 
 The article assumes:
-- You have created a Recovery Services Vault to protect your VMware virtual machines. You can create a Recovery Services Vault from the [Azure portal](http://portal.azure.cn "Azure portal").
+- You have created a Recovery Services Vault to protect your VMware virtual machines. You can create a Recovery Services Vault from the [Azure portal](http://portal.azure.cn).
 - You have [setup your on-premises environment](./site-recovery-set-up-vmware-to-azure.md) to replicate VMware virtual machines to Azure.
 
 ## Prepare target

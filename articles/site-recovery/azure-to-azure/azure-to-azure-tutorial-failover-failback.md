@@ -33,6 +33,7 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 expected.
 - Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](../site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
+<a name="run-a-failover"></a>
 ## Run a failover to the secondary region
 
 1. In **Replicated items**, select the VM that you want to fail over > **Failover**

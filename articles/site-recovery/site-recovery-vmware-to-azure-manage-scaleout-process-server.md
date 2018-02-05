@@ -22,6 +22,7 @@ ms.author: v-yeche
 
 Scale-out Process Server acts as a coordinator for data transfer between the Site Recovery services and your on-premises infrastructure. This article describes how you can set up, configure, and manage a Scale-out Process Server.
 
+<a name="size-recommendations-for-the-process-server"></a>
 ## Prerequisites
 The following are the recommended hardware, software, and network configuration required to set up a Scale-out Process Server.
 
@@ -135,6 +136,7 @@ It can take up-to 15 minutes for the Process Server deletion to reflect in the A
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+<a name="sizing-requirements-for-a-configuration-server"></a>
 ## Sizing requirements for a Scale-out Process Server
 
 | **Additional process server** | **Cache disk size** | **Data change rate** | **Protected machines** |

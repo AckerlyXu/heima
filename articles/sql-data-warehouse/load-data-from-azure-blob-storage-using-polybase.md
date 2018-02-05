@@ -24,7 +24,8 @@ ms.reviewer: barbkess
 
 # Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
 
-PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.cn) and [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.cn) and [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+<!-- Not Available on http://XX.XX.filename.md -->
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -40,7 +41,8 @@ If you don't have an Azure subscription, [create a trial account](https://www.az
 
 ## Before you begin
 
-Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+<!-- Not Available on http://XX.XX.filename.md -->
 
 ## Log in to the Azure portal
 
@@ -144,7 +146,8 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 ## Connect to the server as server admin
 
-This section uses [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to establish a connection to your Azure SQL server.
+This section uses [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to establish a connection to your Azure SQL server.
+<!-- Not Cantains .md postfix of https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md-->
 
 1. Open SQL Server Management Studio.
 

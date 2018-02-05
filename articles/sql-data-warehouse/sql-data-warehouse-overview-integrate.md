@@ -43,11 +43,11 @@ See [Integrate with Azure Stream Analytics](sql-data-warehouse-integrate-azure-s
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop/
 
-[Azure Data Factory]: sql-data-warehouse-integrate-azure-data-factory.md
-[Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
+<!-- Not Available on [Azure Data Factory]: sql-data-warehouse-integrate-azure-data-factory.md -->
+<!-- Not Available on [Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md -->
 [Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
-[Power BI]: sql-data-warehouse-integrate-power-bi.md
-[Partners]: sql-data-warehouse-partner-business-intelligence.md
+<!-- Not Available on [Power BI]: sql-data-warehouse-integrate-power-bi.md -->
+<!-- Not Available on [Partners]: sql-data-warehouse-partner-business-intelligence.md -->
 
 <!--MSDN references-->
 

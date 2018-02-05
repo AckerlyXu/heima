@@ -128,8 +128,7 @@ The INSERT INTO ... SELECT statement moves the data from the staging table to th
 
 As you design an ETL process, try running the process on a small test sample. Try extracting 1000 rows from the table to a file, move it to Azure, and then try loading it into a staging table. 
 
-## Partner loading solutions
-Many of our partners have loading solutions. To find out more, see a list of our [solution partners](sql-data-warehouse-partner-business-intelligence.md). 
+<!-- Not Avaialble on ## Partner loading solutions -->
 
 ## Next steps
 For loading guidance, see [Guidance for load data](guidance-for-loading-data.md).

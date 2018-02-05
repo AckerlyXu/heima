@@ -28,7 +28,7 @@ This article describes how to set up your on-premises environment to start repli
 ## Prerequisites
 
 The article assumes that you have already created:
-- A Recovery Services Vault in the [Azure portal](http://portal.azure.cn "Azure portal").
+- A Recovery Services Vault in the [Azure portal](http://portal.azure.cn).
 - A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md).
 - A virtual machine on which to install the configuration server.
 

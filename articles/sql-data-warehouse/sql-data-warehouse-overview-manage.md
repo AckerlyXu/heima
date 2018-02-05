@@ -91,9 +91,9 @@ Using good database design principles will make it easier to manage your databas
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md -->
 [Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell.md
-[connection]: sql-data-warehouse-develop-connections.md
+<!-- Not Available on [connection]: sql-data-warehouse-develop-connections.md -->
 [Query Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
