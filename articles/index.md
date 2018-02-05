@@ -2118,7 +2118,7 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/dotnet/">Get the Azure libraries for .NET</a>
+                                                    <a href="/dotnet/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/dotnet/">Get started</a>
