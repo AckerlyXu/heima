@@ -151,24 +151,9 @@ To manually add VMs:
 
 **ASR license cost**: Azure Site Recovery license cost.
 
-## Supported target regions
-The Azure Site Recovery deployment planner provides cost estimation for the following Azure regions. If your region is not listed below, you can use any of the following regions whose pricing is nearest to your region.
+<!-- Not Available on ## Supported target regions -->
 
-chinaeast, chinaeast2, chinanorth, chinaeast, chinaeast, chinaeast, northeurope, chinanorth, chinaeast, chinaeast, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, chinanorth2, chinaeast, uksouth, ukwest, koreacentral, koreasouth 
-
-## Supported currencies
-The Azure Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
-
-|Currency|Name||Currency|Name||Currency|Name|
-|---|---|---|---|---|---|---|---|
-|ARS|Argentine Peso ($)||AUD|Australian Dollar ($)||BRL|Brazilian Real (R$)|
-|CAD|Canadian Dollar ($)||CHF|Swiss Franc. (chf)||DKK|Danish Krone (kr)|
-|EUR|Euro (€)||GBP|British Pound (£)||HKD|Hong Kong Dollar (HK$)|
-|IDR|Indonesia rupiah (Rp)||INR|Indian Rupee (₹)||JPY|Japanese Yen (¥)|
-|KRW|Korean Won (₩)||MXN|Mexican Peso (MX$)||MYR|Malaysian Ringgit (RM$)|
-|NOK|Norwegian Krone (kr)||NZD|New Zealand Dollar ($)||RUB|Russian Ruble (руб)|
-|SAR|Saudi Riyal (SR)||SEK|Swedish Krona (kr)||TWD|Taiwanese Dollar (NT$)|
-|TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
+<!-- Not Available on ## Supported currencies -->
 
 ## Next steps
 Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](/site-recovery/tutorial-vmware-to-azure).

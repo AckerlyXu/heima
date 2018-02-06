@@ -153,8 +153,9 @@ If you encounter any issues with your data warehouse, [create a support ticket][
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-<!-- Not Available [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md -->
-[main documentation site]: services/sql-data-warehouse.md
+[create a support ticket]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn
+
+<!-- Not Available on [main documentation site]: services/sql-data-warehouse.md -->
 [Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration

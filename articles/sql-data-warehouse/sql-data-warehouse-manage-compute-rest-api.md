@@ -54,7 +54,8 @@ Content-Type: application/json; charset=UTF-8
 ## Pause compute
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-To pause a database, use the [Pause Database][Pause Database] REST API. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
+To pause a database, use the Pause Database REST API. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
+<!-- Not Available on [暂停数据库][Pause Database] -->
 
 ```
 POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -89,7 +90,7 @@ For other management tasks, see [Management overview][Management overview].
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-[Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
+<!-- Not Available on [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx -->
 [Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
 [Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 

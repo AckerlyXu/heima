@@ -281,8 +281,8 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
-
-## <a name=monitor></a> Monitor Activity
+<a name="monitor"></a>
+## Monitor Activity
 Use the following commands to monitor the activity. Note that you have to wait in between jobs for the processing to finish.
 
     Do

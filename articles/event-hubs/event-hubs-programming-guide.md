@@ -133,7 +133,7 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 Event Hubs has two primary models for event consumption: direct receivers and higher-level abstractions, such as [EventProcessorHost][]. Direct receivers are responsible for their own coordination of access to partitions within a *consumer group*. A consumer group is a view (state, position, or offset) into a partitioned event hub.
 
 ### Direct consumer
-The most direct way to read from a partition is to use the [EventHubReceiver](https://docs.microsoft.com/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) class. To create an instance of this class, you must use an instance of the [EventHubConsumerGroup](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) class. In the following example, the partition ID must be specified when creating the receiver for the consumer group:
+The most direct way to read from a partition is to use the [EventHubReceiver](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver) class. To create an instance of this class, you must use an instance of the [EventHubConsumerGroup](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) class. In the following example, the partition ID must be specified when creating the receiver for the consumer group:
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();

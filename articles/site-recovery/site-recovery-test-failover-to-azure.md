@@ -75,6 +75,7 @@ In the following scenarios, failover  requires an extra intermediate step that u
 
 In all the other cases, no intermediate step is not required, and failover takes significantly less time.
 
+<a name="creating-a-network-for-test-failover"></a>
 ## Create a network for test failover
 
 We recommended that for test failover, you choose a network that's isolated from the production recovery site network specific in the  **Compute and Network** settings for each VM. By default, when you create an Azure virtual network, it is isolated from other networks. The test network should mimic your production network:

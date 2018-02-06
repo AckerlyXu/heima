@@ -65,8 +65,8 @@ To shard data into a hash-distributed table, SQL Data Warehouse uses a hash func
 
 The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table. 
 
-![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
-
+![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png)
+ 
 * Each row belongs to one distribution.  
 * A deterministic hash algorithm assigns each row to one distribution.  
 * The number of table rows per distribution varies as shown by the different sizes of tables.
@@ -85,10 +85,10 @@ A table that is replicated caches a full copy of the table on each compute node.
 
 The following diagram shows a replicated table. For SQL Data Warehouse, the replicated table is cached on the first distribution on each compute node.  
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png) 
 
 ## Next steps
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
+Now that you know a bit about SQL Data Warehouse, learn how to quickly create a SQL Data Warehouse and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
 
 <!-- Not Available * [Customer success stories] -->
 <!-- Not Available * [Blogs]-->
@@ -106,7 +106,8 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--Article references-->
 <!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+<!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
+<!-- Not contains Sample choice in selectbox so that we can not following the process -->
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
