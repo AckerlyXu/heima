@@ -404,6 +404,7 @@
     href: https://docs.azure.cn/zh-cn/java/api/overview/
   - name: Node.js
     href: https://www.azure.cn/develop/nodejs/#azure-sdk
+### URL is correct for https://www.azure.cn/develop/nodejs/#azure-sdk
   - name: Python
     href: https://www.azure.cn/develop/python/
   - name: REST

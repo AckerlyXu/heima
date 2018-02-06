@@ -250,6 +250,7 @@
               href: table-storage-how-to-use-dotnet.md
             - name: F#
               href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+### URL is correct for https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
             - name: Node.js 
               href: table-storage-cloud-service-nodejs.md
             - name: Java

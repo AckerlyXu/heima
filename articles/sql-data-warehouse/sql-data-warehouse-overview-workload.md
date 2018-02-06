@@ -64,13 +64,14 @@ One way to make data available for reports and analysis is to send data from the
 * For analytics, you can either build an analysis cube on the data warehouse and run analysis against the data warehouse, or pre-process data and export it to the analysis server for further analytics.
 
 ## Next steps
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data].
+Now that you know a bit about SQL Data Warehouse, learn how to quickly create a SQL Data Warehouse and [load sample data][load sample data].
+<!-- Not Available on [create a SQL Data Warehouse][create a SQL Data Warehouse] -->
 
 <!--Image references-->
 
 <!--Article references-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
 
 <!--MSDN references-->
 
