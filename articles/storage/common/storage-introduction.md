@@ -199,7 +199,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage data services
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
-* [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+* [Storage Client Library for .NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [Storage Client Library for Java/Android](/develop/java/)
 * [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
@@ -223,7 +223,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage data services
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
-* [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+* [Storage Client Library for .NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [Storage Client Library for Java/Android](/develop/java/)
 * [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
@@ -234,7 +234,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage management services
 * [Storage Resource Provider REST API Reference](https://docs.microsoft.com/rest/api/storagerp/)
-* [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.storage)
+* [Storage Resource Provider Client Library for .NET](https://docs.azure.cn/dotnet/api/microsoft.azure.management.storage)
 * [Storage Resource Provider Cmdlets for PowerShell 1.0](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 

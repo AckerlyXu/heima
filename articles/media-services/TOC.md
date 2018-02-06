@@ -191,7 +191,7 @@
 # Reference
 ## [Azure PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [.NET](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
 
 # Resources
