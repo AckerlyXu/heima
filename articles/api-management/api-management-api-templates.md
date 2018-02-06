@@ -1,10 +1,10 @@
 ---
-title: API templates in Azure API Management | Azure
+title: API templates in Azure API Management
 description: Learn how to customize the content of the API pages in the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 
 ---
 # API templates in Azure API Management

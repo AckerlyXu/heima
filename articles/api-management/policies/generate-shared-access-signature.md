@@ -1,0 +1,126 @@
+---
+title: Azure API managment policy sample - Generate Shared Access Signature
+description: Azure API managment policy sample - Demonstrates how to generate Shared Access Signature using expressions and forward the request to Azure storage with rewrite-uri policy..
+services: api-management
+documentationcenter: ''
+author: juliako
+manager: cfowler
+editor: ''
+
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 10/13/2017
+ms.date: 02/26/2018
+ms.author: v-yiso
+---
+
+# Generate Shared Access Signature
+
+This article shows an Azure API management policy sample that demonstrates how to generate [Shared Access Signature](/storage/common/storage-dotnet-shared-access-signature-part-1) using expressions and forward the request to Azure storage with rewrite-uri policy. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
+
+## Policy
+
+Paste the code into the **inbound** block.
+
+```xml
+<!-- The policy defined in this file shows how to generate Shared Access Signature (https://docs.azure.cn/en-us/storage/common/storage-dotnet-shared-access-signature-part-1) using expressions. -->
+<!-- The snippet forwards the request to Azure storage with rewrite-uri policy. -->
+
+<!-- Copy the following snippet into the inbound section. -->
+
+<policies>
+    <inbound>
+        <base />
+        <!-- Initialize context variables with property values. -->
+        <set-variable name="accessKey" value="{{storageAccountAccessKey}}" />
+        <set-variable name="storageAccount" value="{{storageAccountName}}" />
+        <set-variable name="Content-Type" value="application/json" />
+        <set-variable name="resourcePath" value="TableName()" />
+        <set-variable name="x-ms-date" value="@(DateTime.UtcNow.ToString("R"))" />
+
+        <!-- Set required headers. -->
+        <set-header name="Content-Type" exists-action="override">
+            <value>@((string)context.Variables["Content-Type"])</value>
+        </set-header>
+        <set-header name="Accept" exists-action="override">
+            <value>application/json;odata=nometadata</value>
+        </set-header>
+            <set-header name="Accept-Charset" exists-action="override">
+        <value>UTF-8</value>
+        </set-header>
+            <set-header name="x-ms-date" exists-action="override">
+        <value>@((string)context.Variables["x-ms-date"])</value>
+            </set-header>
+        <set-header name="x-ms-version" exists-action="override">
+            <value>2015-04-05</value>
+        </set-header>
+
+        <!-- Beginning with version 2009-09-19, the Table service requires that all REST calls include the DataServiceVersion and MaxDataServiceVersion headers. -->
+        <!-- See https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/setting-the-odata-data-service-version-headers for more information. -->
+        <set-header name="MaxDataServiceVersion" exists-action="override">
+            <value>3.0</value>
+        </set-header>
+        <set-header name="DataServiceVersion" exists-action="override">
+            <value>1.0;NetFx</value>
+        </set-header>
+
+        <set-variable name="CanonicalizedResource" value="@{
+            // /{storageAccount}/{resourcePath}
+            return string.Format("/{0}/{1}",(string)context.Variables["storageAccount"],(string)context.Variables["resourcePath"]);
+            }" />
+
+        <!-- SharedKeyLite is legacy and SharedKey should be used. -->
+        <!--set-variable name="SharedKeyLite" value="@{
+                // SharedKeyLite is there for backwards compatibility. SharedKey is preferred for new work.
+                // System.Security.Cryptography.HMACSHA256 hasher = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String((string)context.Variables["accessKey"]));
+                // return Convert.ToBase64String(hasher.ComputeHash(System.Text.Encoding.UTF8.GetBytes(string.Format("{0}\n{1}",(string)context.Variables["x-ms-date"],(string)context.Variables["CanonicalizedResource"]))));
+            }" /-->
+
+        <set-variable name="StringToSign" value="@{
+                // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/authentication-for-the-azure-storage-services
+                // {VERB}\n{Content-MD5}\n{Content-Type}\n{Date}\n{CanonicalizedResource} e.g. "GET\n\n{0}\n{1}\n{2}",
+                return string.Format(
+                "GET\n\n{0}\n{1}\n{2}",
+                (string)context.Variables["Content-Type"],
+                (string)context.Variables["x-ms-date"],
+                (string)context.Variables["CanonicalizedResource"]);
+            }" />
+
+        <set-variable name="SharedKey" value="@{
+                // https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/authentication-for-the-azure-storage-services
+                // Hash-based Message Authentication Code (HMAC) using SHA256 hash
+                System.Security.Cryptography.HMACSHA256 hasher = new System.Security.Cryptography.HMACSHA256(Convert.FromBase64String((string)context.Variables["accessKey"]));
+                return Convert.ToBase64String(hasher.ComputeHash(System.Text.Encoding.UTF8.GetBytes((string)context.Variables["StringToSign"])));
+            }" />
+
+        <set-header name="Authorization" exists-action="override">
+            <value>@(string.Format("SharedKey {0}:{1}", (string)context.Variables["storageAccount"], (string)context.Variables["SharedKey"]))</value>
+            <!-- SharedKeyLite is legaacy and SharedKey preferred, but here it is if needed (2 of 2) -->
+            <!--value>@(string.Format("SharedKeyLite {0}:{1}", (string)context.Variables["storageAccount"], (string)context.Variables["SharedKeyLite"]))</value-->
+        </set-header>
+
+        <!-- Add $filter here: -->
+        <rewrite-uri template="/TableName()" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
+```
+
+## Next steps
+
+Learn more about APIM policies:
+
++ [Transformation policies](../api-management-transformation-policies.md)
++ [Policy samples](../policy-samples.md)
+

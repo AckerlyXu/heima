@@ -120,7 +120,7 @@ featureFlags:
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
 													<li>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
+														<a class="barLink" href="/dotnet/">
 															<img src="media/index/logo_NET.svg" alt="">
 															.NET</a>
 													</li>
@@ -2118,13 +2118,13 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
+                                                    <a href="/dotnet/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure">Get started</a>
+                                                    <a href="/dotnet/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
+                                                    <a href="/dotnet/api/overview/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2372,7 +2372,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Application Architecture Guide</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If youï¿½re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>

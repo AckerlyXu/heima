@@ -3,8 +3,8 @@ title: Manage Virtual Machine Scale Sets with Azure PowerShell | Microsoft Docs
 description: Common Azure PowerShell cmdlets to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 12/29/2017
+ms.date: 01/30/2018
 ms.author: v-junlch
 
 ---
 # Manage a virtual machine scale set with Azure PowerShell
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure PowerShell cmdlets that let you perform these tasks.
 
-To complete these management tasks, you need the latest Azure PowerShell module. For information on how to install and use the latest version, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps). If you need to create a virtual machine scale set, you can [create a scale set in the Azure portal](virtual-machine-scale-sets-portal-create.md).
+To complete these management tasks, you need the latest Azure PowerShell module. For information on how to install and use the latest version, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps). If you need to create a virtual machine scale set, you can [create a scale set in the Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## View information about a scale set
@@ -109,4 +109,4 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ## Next steps
 Other common tasks for scale sets include how to [deploy an application](virtual-machine-scale-sets-deploy-app.md), and [upgrade VM instances](virtual-machine-scale-sets-upgrade-scale-set.md). You can also use Azure PowerShell to [configure auto-scale rules](virtual-machine-scale-sets-autoscale-overview.md).
 
-<!--Update_Description: code update -->
+<!--Update_Description: wording update -->

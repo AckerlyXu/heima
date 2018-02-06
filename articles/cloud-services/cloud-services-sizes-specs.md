@@ -13,21 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 01/12/2017
+origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
+ms.date: 02/26/2018
 ---
 
 # Sizes for Cloud Services
 
 This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](./cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://www.azure.cn/pricing/details/cloud-services/) page.
 
+> [!NOTE]
+> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+>
+>
+
 ## Sizes for web and worker role instances
 There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
 
 * D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 * Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
-* G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 * The A-series VMs can be deployed on various hardware types and processors. The size is throttled, based on the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 * The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
@@ -54,13 +58,10 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [ExtraSmall](#a-series) |50 |
 | [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
-| [H](#h-series) |290 - 300* |
+| [A v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
@@ -147,10 +148,12 @@ As the nature of your workload changes or new VM sizes become available, you may
 >
 
 ## Get a list of sizes
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes currently available for your Cloud Service.
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes avaialble for Cloud Services. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
-<!--Update_Description: update wording-->
+## Next steps
+* Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* Learn more [about high performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
