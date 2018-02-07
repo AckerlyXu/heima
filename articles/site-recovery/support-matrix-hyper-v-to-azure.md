@@ -112,6 +112,7 @@ Premium storage | Yes | Yes
 Import/export service | No | No
 VNET service endpoints (Azure storage firewalls and VNETs), on target to cache storage account used for replication data | No | No
 
+<a name="failed-over-azure-vm-requirements"></a>
 ## Azure compute features
 
 **Feature** | **Hyper-V with VMM** | **Hyper-V without VMM**

@@ -36,8 +36,8 @@ where you can store and access data. You can use the storage
 services from the APIs included in the Azure SDK for Node.js or
 via REST APIs. For more information, see [Storing and Accessing Data in Azure].
 
-This tutorial assumes that you have completed the [Node.js Web
-Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.
+This tutorial assumes that you have completed the Node.js Web Application and [Node.js with Express][Node.js Web Application using Express] tutorials.
+<!-- URL is NOT correct on [Node.js Web Application] -->
 
 It contains the following information:
 
@@ -443,6 +443,6 @@ The following steps show you how to stop and delete your application.
 [Node.js Web Application using Express]: https://docs.azure.cn/cloud-services/cloud-services-nodejs-develop-deploy-express-app
 <!-- Direct http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/ TO /cloud-services/cloud-services-nodejs-develop-deploy-express-app -->
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Node.js Web Application]: http://azure.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
+<!-- URL is NOT correct [Node.js Web Application]: http://azure.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app -->
 
 <!--Update_Description: update meta properties, update link-->

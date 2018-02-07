@@ -191,7 +191,7 @@ In this quickstart, you learned how to:
 > * Perform failover of your service with no hit to availablility
 
 * Learn more about [building Java microservices using Service Fabric Programming Models](service-fabric-quickstart-java-reliable-services.md)
-* Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+<!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 * Checkout other [Java Samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!-- Update_Description: new articles on creating service fabric quickstart app with java spring boot -->
