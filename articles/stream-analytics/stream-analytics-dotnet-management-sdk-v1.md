@@ -329,9 +329,9 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
+<!-- Not Available on [5]: ./media/markdown-template-for-new-articles/octocats.png -->
+<!-- Not Available on [6]: ./media/markdown-template-for-new-articles/pretty49.png -->
+<!-- Not Available on [7]: ./media/markdown-template-for-new-articles/channel-9.png -->
 
 <!--Link references-->
 [azure.blob.storage]: /storage/
@@ -345,7 +345,7 @@ You've learned the basics of using a .NET SDK to create and run analytics jobs. 
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
+<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md -->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

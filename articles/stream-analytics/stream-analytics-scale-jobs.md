@@ -25,6 +25,7 @@ As a prerequisite, you may need to read the following articles:
 -	[Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
 -	[Create parallelizable jobs](stream-analytics-parallelization.md)
 
+<a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>
 ## Case 1 - Your query is inherently fully parallelizable across input partitions
 If your query is inherently fully parallelizable across input partitions, you can follow the following steps:
 1.	Author your query to be embarrassingly parallel by using **PARTITION BY** keyword. See more details in the Embarrassingly parallel jobs section [on this page](stream-analytics-parallelization.md).

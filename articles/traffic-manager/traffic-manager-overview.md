@@ -112,7 +112,7 @@ Learn more about Traffic Manager [endpoint monitoring and automatic failover](tr
 
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
-<!-- Not Available [networking capabilities](../networking/networking-overview.md) of Azure.-->
+<!-- Not Available [networking capabilities](../networking/networking-overview.md) -->
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
