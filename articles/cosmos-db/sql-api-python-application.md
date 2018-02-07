@@ -404,6 +404,7 @@ Azure Cosmos DB locally, we're going to create a web.config file, update the fil
 10. In the **Choose extension** page, scroll down to the most recent Python 2.7 installation and select the x86 or x64 bit option, then click **OK** to accept the legal terms.  
 
 11. Use the Kudu console, which you can browse to at `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole`, to install the packages listed in your app's `requirements.txt` file. To do this, in the Kudu Diagnostic Console, navigate to your Python folder `D:\home\Python27` then run the following command as described in the [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) section:
+<!-- URL is correct on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt

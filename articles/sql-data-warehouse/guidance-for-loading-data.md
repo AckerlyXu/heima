@@ -92,7 +92,8 @@ To fix this, ensure that your external table and external file format definition
 These are recommendations for inserting rows into the production tables.
 
 ### Batch INSERT statements
-A one-time load to a small table with an [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql.md) or even a periodic reload of a look-up might perform just fine for your needs with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Single ton inserts are not as efficient as performing a bulk load. 
+A one-time load to a small table with an [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) or even a periodic reload of a look-up might perform just fine for your needs with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Single ton inserts are not as efficient as performing a bulk load. 
+<!-- URL is not Correct on remove .md postfox on [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -->
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 

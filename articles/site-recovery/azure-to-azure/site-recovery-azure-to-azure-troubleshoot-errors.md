@@ -30,7 +30,8 @@ Your subscription should be enabled to create Azure VMs in the target region tha
 150097<br></br>**Message**: Replication couldn't be enabled for the virtual machine VmName. | - Your subscription ID might not be enabled to create any VMs in the target region location.</br></br>- Your subscription ID might not be enabled or doesn't have sufficient quota to create specific VM sizes in the target region location.</br></br>- A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.| Contact [Azure billing support](https://support.windowsazure.cn/support/support-azure) to enable VM creation for the required VM sizes in the target location for your subscription. After it's enabled, retry the failed operation.
 
 ### Fix the problem
-You can contact [Azure billing support](/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of required sizes in the target location.
+You can contact [Azure billing support](https://support.windowsazure.cn/support/support-azure) to enable your subscription to create VMs of required sizes in the target location.
+<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request -->
 
 If the target location has a capacity constraint, disable replication and enable it to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 

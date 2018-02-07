@@ -109,7 +109,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly create a 
 <!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
 <!-- Not contains Sample choice in selectbox so that we can not following the process -->
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+<!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

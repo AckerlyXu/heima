@@ -132,7 +132,7 @@ Use Site Recovery to protect your SAP deployment, as follows:
 * Simplify cloud migration, by using Site Recovery to migrate your SAP deployment to Azure.
 * Simplify SAP project upgrades, testing, and prototyping, by creating a production clone on-demand for testing SAP applications.
 
-[Learn more](site-recovery-sap.md) about protecting SAP.
+<!-- Not Avaiable on [Learn more](site-recovery-sap.md) --> 
 
 ## Protect IIS
 Use Site Recovery to protect your IIS deployment, as follows:
