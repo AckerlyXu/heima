@@ -189,7 +189,7 @@ You've been introduced to Stream Analytics, a managed service for streaming anal
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+<!-- URL is not Correct on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md -->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

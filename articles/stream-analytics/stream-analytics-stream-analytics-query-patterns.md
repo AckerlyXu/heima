@@ -509,7 +509,7 @@ For example, generate an event every 5 seconds that reports the most recently se
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 **Explanation**:
-This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping window--Azure Stream Analytics") duration determines how far back the query looks to find the latest event (300 seconds in this example).
+This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](https://msdn.microsoft.com/library/dn835041.aspx) duration determines how far back the query looks to find the latest event (300 seconds in this example).
 
 ## Get help
 For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
