@@ -59,6 +59,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 > 
 > 
 
+<a name="upload-the-vm-vhd-to-your-storage-account"></a>
 ## Upload the VHD
 
 Upload the VHD to an Azure storage account.

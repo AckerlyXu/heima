@@ -237,5 +237,5 @@ Also, see the following resources to learn more about Azure Storage and Azure Vi
 [11]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-11.PNG
 [12]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-12.PNG
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
-[14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
+<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png -->
 [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png

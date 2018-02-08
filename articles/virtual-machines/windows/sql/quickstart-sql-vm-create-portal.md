@@ -65,7 +65,7 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** win
 
 1. Click **View all** to see all available machine sizes.
 
-1. For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://www\.azure\.cn/pricing/details/virtual-machines/).
+1. For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://www.azure.cn/pricing/details/virtual-machines/).
 
    > [!TIP]
    > The **D2S_V3** machine size saves money while testing. But for production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).

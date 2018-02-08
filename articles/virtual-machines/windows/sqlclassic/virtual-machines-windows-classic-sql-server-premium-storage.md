@@ -537,6 +537,7 @@ This scenario assumes that you have documented your install and know how the sto
 * Test failovers.
 * Switch the AFP back to SQL1 and SQL2
 
+<a name="appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage"><a/>
 ## Appendix: Migrating a Multisite Always On Cluster to Premium Storage
 The remainder of this topic provides a detailed example of converting a multi-site Always On cluster to Premium storage. It also converts the Listener from using an external load balancer (ELB) to an internal load balancer (ILB).
 
@@ -636,7 +637,8 @@ The code below will dump out the VNN settings and set it for you, please note, f
 
 In a later migration step you will need to update the Always On listener with an updated IP address that will reference a load balancer, this will involve an IP Address resource removal and addition. After the IP update, you need to ensure the new IP address has been updated in DNS Zone and that the clients are updating their local DNS cache.
 
-If your clients reside in a different network segment and reference a different DNS server, you need to consider what happens about DNS Zone Transfer during the migration, as the application reconnect time will be constrained by at least the Zone Transfer Time of any new IP addresses for the listener. If you are under time constraint here, you should discuss and test forcing an incremental zone transfer with your Windows teams, and also put the DNS host record to a lower Time To Live (TTL), so the clients update. For more information, see [Incremental Zone Transfers](https://technet.microsoft.com/library/cc958973.aspx) and [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+If your clients reside in a different network segment and reference a different DNS server, you need to consider what happens about DNS Zone Transfer during the migration, as the application reconnect time will be constrained by at least the Zone Transfer Time of any new IP addresses for the listener. If you are under time constraint here, you should discuss and test forcing an incremental zone transfer with your Windows teams, and also put the DNS host record to a lower Time To Live (TTL), so the clients update. For more information, see [Incremental Zone Transfers](https://technet.microsoft.com/library/cc958973.aspx) and [Start-DnsServerZoneTransfer](https://docs.microsoft.com/zh-cn/powershell/module/dnsserver/Start-DnsServerZoneTransfer).
+<!-- URL is CORRECT ON [Start-DnsServerZoneTransfer](https://docs.microsoft.com/zh-cn/powershell/module/dnsserver/Start-DnsServerZoneTransfer) -->
 
 By default the TTL for DNS Record that is associated with the Listener in Always On in Azure is 1200 seconds. You may wish to reduce this if you are under time constraint during your migration to ensure the clients update their DNS with the updated IP address for the listener. You can see and modify the configuration by dumping out the configuration of the VNN:
 

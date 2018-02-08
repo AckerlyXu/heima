@@ -156,6 +156,7 @@ ms.custom: H1Hack27Feb2017
 [getting-started-deployment]:sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
 [getting-started-planning]:sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
 
+<!-- Not available on the following URL for virtual-machines-windows-classic-sap-get-started.md -->
 [getting-started-windows-classic]:../virtual-machines-windows-classic-sap-get-started.md
 [getting-started-windows-classic-dbms]:../virtual-machines-windows-classic-sap-get-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
 [getting-started-windows-classic-deployment]:../virtual-machines-windows-classic-sap-get-started.md#f84ea6ce-bbb4-41f7-9965-34d31b0098ea

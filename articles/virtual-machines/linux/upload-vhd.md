@@ -55,7 +55,8 @@ To complete the following steps, you need:
 > 
 > 
 
-* Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+* Make sure that you have the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) installed and logged in to an Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
+<!-- URL is CORRECT ON https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest -->
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *mydisks*.
 
@@ -80,6 +81,7 @@ Also see the [Linux Installation Notes](create-upload-generic.md#general-linux-i
 > 
 > 
 
+<a name="option-1-upload-a-specialized-vhd"></a>
 ## Option 1: Upload a VHD
 
 You can upload a customized VHD that you have running on a local machine or that you exported from another cloud. To use the VHD to create a new Azure VM, you need to upload the VHD to a storage account and create a managed disk from the VHD. 
@@ -171,6 +173,8 @@ az disk create \
 	--name myManagedDisk \
   --source https://mystorageaccount.blob.core.chinacloudapi.cn/mydisks/myDisk.vhd
 ```
+
+<a name="option-2-copy-an-existing-azure-vm"></a>
 ## Option 2: Copy an existing VM
 
 You can also create the customized VM in Azure and then copy the OS disk and attach it to a new VM to create another copy. This is fine for testing, but if you want to use an existing Azure VM as the model for multiple new VMs, you really should create an **image** instead. For more information about creating an image from an existing Azure VM, see [Create a custom image of an Azure VM using the CLI](tutorial-custom-images.md)
