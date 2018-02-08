@@ -79,6 +79,7 @@ If you need to create a storage account, follow these steps:
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
 
+<a name="upload-the-vm-vhd-to-your-storage-account"></a>
 ### Upload the VHD to your storage account
 Use the [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 

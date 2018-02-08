@@ -29,7 +29,7 @@ You can redeploy a VM using one of the following options. You only need to choos
 - [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
 - [Azure portal](#using-azure-portal)
-
+<a name="azure-cli-20"></a>
 ## Use the Azure CLI 2.0
 Install the latest [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) and log in to your Azure account using [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login).
 
@@ -41,6 +41,7 @@ Redeploy your VM with [az vm redeploy](https://docs.azure.cn/zh-cn/cli/vm?view=a
 az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
+<a name="azure-cli-10"></a>
 ## Use the Azure CLI 1.0
 Install the [latest Azure CLI 1.0](../../cli-install-nodejs.md) and log in to your Azure account. Make sure that you are in Resource Manager mode (`azure config mode arm`).
 
@@ -50,6 +51,7 @@ The following example redeploys the VM named *myVM* in the resource group named 
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
+<a name="using-azure-portal"></a>
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## Next steps

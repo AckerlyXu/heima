@@ -110,7 +110,8 @@ $vmList.Name
 ```
 
 <!-- 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-iis/create-windows-vm-iis.ps1 "Create VM IIS")] -->
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-iis/create-windows-vm-iis.ps1 "Create VM IIS")] 
+-->
 
 ## Clean up deployment 
 

@@ -53,7 +53,7 @@ You can troubleshoot VMs created using the Resource Manager deployment model by 
 You can also find steps on troubleshooting VMs created using the [Classic deployment model](#troubleshoot-vms-created-using-the-classic-deployment-model).
 
 <a id="fix-common-remote-desktop-errors"></a>
-
+<a name="using-the-azure-portal"></a>
 ## Troubleshoot using the Azure portal
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
@@ -91,6 +91,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
 If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json).
 
+<a name="using-azure-powershell"></a>
 ## Troubleshoot using Azure PowerShell
 If you haven't already, [install and configure the latest Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 

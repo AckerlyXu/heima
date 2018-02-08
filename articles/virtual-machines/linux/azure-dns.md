@@ -36,6 +36,7 @@ The following table illustrates scenarios and corresponding name resolution solu
 | Resolution of Azure hostnames from on-premises computers |Forward queries to a customer-managed DNS proxy server in the corresponding virtual network. The proxy server forwards queries to Azure for resolution. See [Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server). |FQDN only |
 | Reverse DNS for internal IPs |[Name resolution using your own DNS server](#name-resolution-using-your-own-dns-server) |n/a |
 
+<a name="azure-provided-name-resolution"></a>
 ## Name resolution that Azure provides
 Along with resolution of public DNS names, Azure provides internal name resolution for virtual machines and role instances that are in the same virtual network. In virtual networks that are based on Azure Resource Manager, the DNS suffix is consistent across the virtual network; the FQDN is not needed. DNS names can be assigned to both network interface cards (NICs) and virtual machines. Although the name resolution that Azure provides does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the preceding table.
 

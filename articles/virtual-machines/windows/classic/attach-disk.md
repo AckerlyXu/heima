@@ -49,6 +49,7 @@ You can also [attach a data disk using Powershell](../../virtual-machines-window
 
 Continue by following instructions for attaching either a [new disk](#option-1-attach-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
 
+<a name="option-1-attach-a-new-disk"></a>
 ## Option 1: Attach and initialize a new disk
 
 1. On the **Disks** blade, click **Attach new**.
