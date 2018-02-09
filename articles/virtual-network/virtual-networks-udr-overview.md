@@ -86,8 +86,9 @@ You can specify the following next hop types when creating a user-defined route:
     > [!NOTE]
     > Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance are deployed in. Deploying the virtual appliance to the same subnet, then applying a route table to the subnet that routes traffic through the virtual appliance, can result in routing loops, where traffic never leaves the subnet.
 
-    - The private IP address of an Azure [internal load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fvirtual-network%2ftoc.json). A load balancer is often used as part of a [high availability strategy for network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fvirtual-network%2ftoc.json).
+    - The private IP address of an Azure [internal load balancer](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fvirtual-network%2ftoc.json). 
 
+<!-- Not Available on [high availability strategy for network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fvirtual-network%2ftoc.json) -->
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance, enabling the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a user-defined route that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
 - **Virtual network gateway**: Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type **VPN**. You cannot specify a virtual network gateway created as type **ExpressRoute** in a user-defined route because with ExpressRoute, you must use [BGP](#border-gateway-protocol-routes) for custom routes. You can define a route that directs traffic destined for the 0.0.0.0/0 address prefix to a [route-based](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fvirtual-network%2ftoc.json#vpntype) virtual network gateway. On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a user-defined route for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a user-defined route for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP, if you've [enabled BGP for a VPN virtual network gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fvirtual-network%2ftoc.json).
@@ -111,6 +112,7 @@ The name displayed and referenced for next hop types is different between the Az
 |Virtual network peering         |VNet peering                                    |Not applicable|
 |Virtual network service endpoint|VirtualNetworkServiceEndpoint                   |Not applicable|
 
+<a name="border-gateway-protocol-routes"></a>
 ### Border gateway protocol
 
 An on-premises network gateway can exchange routes with an Azure virtual network gateway using the border gateway protocol (BGP). Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway. If the type you selected was:
@@ -157,7 +159,8 @@ When you override the 0.0.0.0/0 address prefix, in addition to outbound traffic 
         - Be able to network address translate and forward, or proxy the traffic to the destination resource in the subnet, and return the traffic back to the Internet. 
     - **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an Internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute's [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fvirtual-network%2ftoc.json#azure-private-peering). 
 
-  See [DMZ between Azure and your on-premises datacenter](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
+  See [DMZ between Azure and your on-premises datacenter](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
+<!-- URL is Correct on https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json -->
 
 ## Routing example
 
