@@ -42,6 +42,7 @@ Complete the following tasks before completing steps in any section of this arti
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <a name="create"></a>
+<a name="create-peering"></a>
 ## <a name="create-a-peering"></a>Create a peering
 
 >[!NOTE]

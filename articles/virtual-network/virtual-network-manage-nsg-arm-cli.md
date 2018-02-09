@@ -78,6 +78,7 @@ Expected output:
 > You can also use [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#list) to list only the custom rules from an NSG.
 >
 
+<a name="view-nsgs-associations"></a>
 ## View NSG associations
 
 To view what resources the **NSG-FrontEnd** NSG is associate with, run the `az network nsg show` command: 
@@ -332,15 +333,15 @@ In the output, the `networkSecurityGroup` key has something similar for the valu
 ## Delete an NSG
 You can only delete an NSG if it's not associated to any resource. To delete an NSG, complete the following steps:
 
-1. To check the resources associated to an NSG, run the `azure network nsg show` as shown in [View NSGs associations](#View-NSGs-associations).
-2. If the NSG is associated to any NICs, run the `azure network nic set` as shown in [Dissociate an NSG from a NIC](#Dissociate-an-NSG-from-a-NIC) for each NIC. 
-3. If the NSG is associated to any subnet, run the `azure network vnet subnet set` as shown in [Dissociate an NSG from a subnet](#Dissociate-an-NSG-from-a-subnet) for each subnet.
+1. To check the resources associated to an NSG, run the `azure network nsg show` as shown in [View NSGs associations](#view-nsgs-associations).
+2. If the NSG is associated to any NICs, run the `azure network nic set` as shown in [Dissociate an NSG from a NIC](#dissociate-an-nsg-from-a-nic) for each NIC. 
+3. If the NSG is associated to any subnet, run the `azure network vnet subnet set` as shown in [Dissociate an NSG from a subnet](#dissociate-an-nsg-from-a-subnet) for each subnet.
 4. To delete the NSG, run the following command:
 
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
 <!--Not Available ## Next steps-->
-<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->
 
 <!-- Update_Description: update meta properties, update link, wording update -->
