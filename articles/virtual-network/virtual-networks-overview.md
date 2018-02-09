@@ -34,7 +34,7 @@ To learn more about the following Azure Virtual Network capabilities, click the 
 - **[Traffic filtering:](#filtering)** You can filter network traffic to and from resources in a virtual network by source IP address and port, destination IP address and port, and protocol.
 - **[Routing:](#routing)** You can optionally override Azure's default routing by configuring your own routes, or by propagating BGP routes through a network gateway.
 
-<a name = "isolation"></a>
+<a name="isolation"></a>
 ## Network isolation and segmentation
 
 You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json). Each virtual network is isolated from other virtual networks. For each virtual network you can:
@@ -44,7 +44,7 @@ You can implement multiple virtual networks within each Azure [subscription](../
 - Use Azure-provided name resolution, or specify your own DNS server, for use by resources in a virtual network. To learn more about name resolution in virtual networks, see [Name resolution for resources in virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md) article.
 
 
-<a name = "internet"></a>
+<a name="internet"></a>
 ## Internet communication
 All resources in a virtual network can communicate outbound to the Internet. By default, the private IP address of the resource is source network address translated (SNAT) to a public IP address selected by the Azure infrastructure. To learn more about outbound Internet connectivity, read the [Understanding outbound connections in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address) article. To prevent outbound Internet connectivity, you can implement custom routes or traffic filtering.
 
@@ -59,8 +59,8 @@ You can also deploy several other types of Azure resources to a virtual network,
 
 Some resources can't be deployed into a virtual network, but enable you to limit communication to resources within a virtual network only. To learn more about how to limit access to resources, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md). 
 
-<a name="connect-vnets">
-## </a>Connect virtual networks
+<a name="connect-vnets"></a>
+## Connect virtual networks
 
 You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other using virtual network peering. The bandwidth and latency of communication between resources in different virtual networks is the same as if the resources were in the same virtual network. To learn more about peering, read the [Virtual network peering](virtual-network-peering-overview.md) article.
 
