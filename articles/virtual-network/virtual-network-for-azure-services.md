@@ -55,8 +55,8 @@ Each service directly deployed into virtual network has specific requirements fo
 - [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)
 - [Application Gateway (internal)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fvirtual-network%2ftoc.json)
-<!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json): The Azure Container Service creates a default virtual network. You can create a custom virtual network to use with the [Azure Container Service Engine](https://github.com/Azure/acs-engine/tree/master/examples/vnet).-->
-<!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json): Virtual network (classic) only-->
+<!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json) -->
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json): Virtual network (classic) only
 - [Cloud services](https://msdn.microsoft.com/library/azure/jj156091): Virtual network (classic) only
 
@@ -66,9 +66,9 @@ You can deploy an [internal Azure load balancer](../load-balancer/load-balancer-
 
 Some Azure services can't be deployed in virtual networks. You can restrict access to some of the service resources to only specific virtual network subnets, if you choose, by enabling a virtual network service endpoint. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md).
 
-Currently, service endpoints are supported for the following services: 
-- **Azure Storage**: [Securing Azure Storage accounts to Virtual Networks](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)
-- **Azure SQL Database**: [Securing Azure SQL Database to Virtual networks](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
+<!-- Not Available on Currently, service endpoints are supported for the following services: -->
+<!-- Not Available on - **Azure Storage**: [Securing Azure Storage accounts to Virtual Networks](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!-- Not Available on - **Azure SQL Database**: [Securing Azure SQL Database to Virtual networks](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 ## Virtual network integration across multiple Azure services
 
