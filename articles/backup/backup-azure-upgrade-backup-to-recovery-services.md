@@ -1,5 +1,5 @@
 ---
-title: Upgrade a Backup vault to a Recovery Services vault (Preview) | Microsoft Docs
+title: Upgrade a Backup vault to a Recovery Services vault | Microsoft Docs
 description: Instructions and support information to upgrade your Azure Backup vault to a Recovery Services vault.
 services: backup
 documentationcenter: dev-center-name
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/09/2017
-ms.date: 01/05/2018
+origin.date: 01/04/2018
+ms.date: 02/07/2018
 ms.author: v-junlch
 
 ---
@@ -112,7 +112,7 @@ When the enhanced security is turned on, data is retained up to 14 days after th
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **If I don’t plan on upgrading soon, what happens to my vaults?**</br>
-Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the Classic Management Portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. After November 30,2017, you can no longer create Backup vaults using PowerShell. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
+Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. After November 30,2017, you can no longer create Backup vaults using PowerShell. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
 
 **What does this upgrade mean for my existing tooling?**</br>
 Update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 
@@ -125,9 +125,6 @@ No. Rollback is not supported after the resources have been successfully upgrade
 
 **Can I validate my subscription or resources to see if they're capable of upgrade?**</br>
 Yes. The first step in upgrade validates that the resources are capable of upgrade. In case the validation of pre-requisites fails, you receive messages for all the reasons the upgrade cannot be completed.
-
-**What permissions should I have to trigger vault upgrade?**</br>
-To perform the vault upgrade, you must be added as co-administrator for the subscription in the Azure Classic Management Portal. This is required even if you are already listed as owner in the Azure portal. Try to add a co-administrator for the subscription in Azure Classic Management Portal to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator, contact a service administrator or co-administrator for the subscription, who can add you as a co-administrator.
 
 **Can I upgrade my CSP-based Backup vault?**</br>
 No. Currently, you cannot upgrade CSP-based backup vaults. We will add support for upgrading CSP-based Backup vaults in the next releases.

@@ -14,18 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 09/04/2017
-ms.date: 01/05/2018
+origin.date: 01/05/2018
+ms.date: 02/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 
 ---
 # Back up Azure virtual machines to Recovery Services vaults
-> [!div class="op_single_selector"]
-> * [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
-> * [Protect VMs with a backup vault](backup-azure-vms-first-look.md)
->
->
 
 This tutorial takes you through the steps for creating a recovery services vault and backing up an Azure virtual machine (VM). Recovery services vaults protect:
 
@@ -46,13 +41,11 @@ To find out more about what can you backup and what you can't, refer [here](back
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Depending on the number of virtual machines you want to protect, you can begin from different starting points. If you want to back up multiple virtual machines in one operation, go to the Recovery Services vault and [initiate the backup job from the vault dashboard](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). If you want to back up a single virtual machine, you can initiate the backup job from VM management blade.
 
 ## Configure the backup job from the VM management blade
 
-Use the following steps to configure the backup job from the virtual machine management blade in the Azure portal. These steps do not apply to the virtual machines in the Classic Management Portal.
+Use the following steps to configure the backup job from the virtual machine management blade in the Azure portal. The following steps apply only to virtual machines in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/).
 2. On the Hub menu, click **More Services** and in the Filter dialog, type **Virtual machines**. As you type, the list of resources filters. When you see Virtual machines, select it.

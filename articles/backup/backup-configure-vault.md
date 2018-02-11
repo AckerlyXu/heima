@@ -14,15 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 01/08/2018
+origin.date: 01/05/2018
+ms.date: 02/08/2018
 ms.author: v-junlch
 
 ---
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
-
-[!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -260,4 +258,4 @@ For additional information about backing up VMs or other workloads, see:
 - Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
 - If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
 
-<!--Update_Description: wording update -->
+<!--Update_Description: remove include file: backup-deployment-models.md -->

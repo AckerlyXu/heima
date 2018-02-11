@@ -5,8 +5,8 @@ description: Use Azure Backup Server to protect or back up workloads to the Azur
 
 services: backup
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: PVRK
+manager: shivamg
 editor: ''
 keywords: azure backup server; protect workloads; back up workloads
 
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/20/2017
-ms.date: 09/04/2017
+ms.date: 02/07/2018
 ms.author: v-junlch
 
 ---
@@ -57,6 +57,7 @@ If you do not want to run the base server in Azure, you can run the server on a 
 
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials (MABS v2 onwards) |
 | Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 and latest SPs |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
