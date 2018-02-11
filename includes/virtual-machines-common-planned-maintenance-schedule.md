@@ -54,5 +54,5 @@ Adding a VM to an availability set also can be achieved using Azure PowerShell:
 <!--Anchors-->
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
-[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+<!-- Not Available on [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md -->
+<!-- Not Available on [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/  -->
