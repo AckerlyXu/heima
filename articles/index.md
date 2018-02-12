@@ -722,7 +722,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Linux Virtual Machines</h3>
-                                                    <p>Provision virtual machines of Ubuntu, Red Hat, and more</p>
+                                                    <p>Provision virtual machines of Ubuntu, CentOS, and more</p>
                                                 </div>
                                             </div>
                                         </div>
