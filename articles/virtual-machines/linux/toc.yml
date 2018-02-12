@@ -170,10 +170,10 @@
       href: extensions-customscript.md
     - name: Use Remote Desktop
       href: use-remote-desktop.md
-    - name: Updates and patches
-      items:
-      - name: Red Hat Update Infrastructure
-        href: update-infrastructure-redhat.md
+### - name: Updates and patches
+###   items:
+###   - name: Red Hat Update Infrastructure
+###     href: update-infrastructure-redhat.md
     - name: Azure VM agent
       items:
       - name: Overview
@@ -200,8 +200,8 @@
         href: create-upload-ubuntu.md
       - name: CentOS
         href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
+###- name: Red Hat
+### href: redhat-create-upload-vhd.md
       - name: Debian
         href: debian-create-upload-vhd.md
       - name: SUSE

@@ -32,7 +32,8 @@ This article requires an existing Linux VM in Azure. If you need to create a VM,
 ## Install a desktop environment on your Linux VM
 Most Linux VMs in Azure do not have a desktop environment installed by default. Linux VMs are commonly managed using SSH connections rather than a desktop environment. There are various desktop environments in Linux that you can choose. Depending on your choice of desktop environment, it may consume one to 2 GB of disk space, and take 5 to 10 minutes to install and configure all the required packages.
 
-The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
+The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on CentOS and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
+<!-- Change Red Hat to CentOS -->
 
 First, SSH to your VM. The following example connects to the VM named *myvm.chinanorth.cloudapp.chinacloudapi.cn* with the username of *azureuser*:
 
@@ -122,7 +123,8 @@ Review logs in */var/log* on your Ubuntu VM for indications as to why the servic
 tail -f /var/log/syslog
 ```
 
-Other Linux distributions such as Red Hat Enterprise Linux and SUSE may have different ways to restart services and alternate log file locations to review.
+Other Linux distributions such as CentOS and SUSE may have different ways to restart services and alternate log file locations to review.
+<!-- Change Red Hat to CentOS -->
 
 If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](../windows/troubleshoot-app-connection.md).
 
