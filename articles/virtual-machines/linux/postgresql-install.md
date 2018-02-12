@@ -42,7 +42,8 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
         # sudo su -
 2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
 
-   * Red Hat base Linux:
+   * CentOS base Linux:
+<!-- Change Red Hat to CentOS -->
 
            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
    * Debian base Linux:

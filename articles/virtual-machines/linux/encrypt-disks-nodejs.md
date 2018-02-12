@@ -149,7 +149,8 @@ Disk encryption relies on the following additional components:
 ## Requirements and limitations
 Supported scenarios and requirements for disk encryption:
 
-* The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
+* The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES).
+<!-- Not Avaiable on  and Red Hat Enterprise Linux -->
 * All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
 * Standard A, D, and DS series VMs.
 

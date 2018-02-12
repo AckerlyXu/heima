@@ -79,7 +79,8 @@ Restart the SSHD service. On Debian-based distros:
 sudo service ssh restart
 ```
 
-On Red Hat-based distros:
+On CentOS-based distros:
+<!-- Not Avaiable on Red Hat, change to CentOS -->
 
 ```bash
 sudo service sshd restart

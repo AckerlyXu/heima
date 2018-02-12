@@ -265,7 +265,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-configure-raid]:../linux/configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md
+<!-- Not Avaiable on [virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md -->
 [virtual-machines-linux-how-to-attach-disk]:../linux/add-disk.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../linux/quick-create-cli.md
@@ -307,23 +307,24 @@ With Azure virtual machine services, and SAP HANA on Azure large instances, Micr
 ## SAP HANA Certifications on Azure
 | SAP Product | Supported OS | Azure Offerings |
 | --- | --- | --- |
-| SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) |Red Hat Enterprise Linux, SUSE Linux Enterprise |A7, A8 |
-| MHANA One |Red Hat Enterprise Linux, SUSE Linux Enterprise |DS14_v2 (upon general availability) |
-| SAP S/4HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |Controlled Availability for GS5, SAP HANA on Azure (Large instances) |
-| Suite on HANA, OLTP |Red Hat Enterprise Linux, SUSE Linux Enterprise |SAP HANA on Azure (Large instances) |
-| HANA Enterprise for BW, OLAP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
-| SAP BW/4HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
+| SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) |SUSE Linux Enterprise |A7, A8 |
+| MHANA One | SUSE Linux Enterprise |DS14_v2 (upon general availability) |
+| SAP S/4HANA | SUSE Linux Enterprise |Controlled Availability for GS5, SAP HANA on Azure (Large instances) |
+| Suite on HANA, OLTP | SUSE Linux Enterprise |SAP HANA on Azure (Large instances) |
+| HANA Enterprise for BW, OLAP | SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
+| SAP BW/4HANA | SUSE Linux Enterprise |GS5 for single node deployments, SAP HANA on Azure (Large instances) |
+<!-- Remove the invalid version of Red Hat Enterprise Linux -->
 
 ## SAP NetWeaver Certifications
 Azure is certified for the following SAP products, with full support from Microsoft and SAP.
 
 | SAP Product | Guest OS | RDBMS | Virtual Machine Types |
 | --- | --- | --- | --- |
-| SAP Business Suite Software |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
+| SAP Business Suite Software |Windows, SUSE Linux Enterprise|SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise |SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
 | SAP BusinessObjects BI |Windows |N/A |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
-
+| SAP NetWeaver |Windows, SUSE Linux Enterprise |SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
+<!-- Remove the invalid version of Red Hat Enterprise Linux -->
 ## Getting Started with SAP HANA on Azure
 Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 

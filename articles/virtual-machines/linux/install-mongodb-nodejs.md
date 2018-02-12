@@ -32,7 +32,8 @@ You can complete the task using one of the following CLI versions:
 - [Azure CLI 2.0](create-cli-complete-nodejs.md) - our next generation CLI for the resource management deployment model
 
 ## Manually install and configure MongoDB on a VM
-MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a *CentOS* VM using an SSH key stored at *~/.ssh/id_rsa.pub*. Answer the prompts for storage account name, DNS name, and admin credentials:
+MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including CentOS, SUSE, Ubuntu, and Debian. The following example creates a *CentOS* VM using an SSH key stored at *~/.ssh/id_rsa.pub*. Answer the prompts for storage account name, DNS name, and admin credentials:
+<!-- Not Avaiable on Red Hat -->
 
 ```azurecli
 azure vm quick-create \
