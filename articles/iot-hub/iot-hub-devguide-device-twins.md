@@ -1,5 +1,5 @@
 ---
-title: Understand Azure IoT Hub device twins | Azure
+title: Understand Azure IoT Hub device twins 
 description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
 services: iot-hub
 documentationcenter: .net
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/19/2017
-ms.date: 12/18/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 ---
 
@@ -48,52 +48,55 @@ A device twin is a JSON document that includes:
 * **Tags**. A section of the JSON document that the solution back end can read from and write to. Tags are not visible to device apps.
 * **Desired properties**. Used along with reported properties to synchronize device configuration or conditions. The solution back end can set desired properties, and the device app can read them. The device app can also receive notifications of changes in the desired properties.
 * **Reported properties**. Used along with desired properties to synchronize device configuration or conditions. The device app can set reported properties, and the solution back end can read and query them.
-
-Additionally, the root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry][lnk-identity].
+* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry][lnk-identity].
 
 ![][img-twin]
 
 The following example shows a device twin JSON document:
 
-```
-    {
-        "deviceId": "devA",
-        "generationId": "123",
-        "status": "enabled",
-        "statusReason": "provisioned",
-        "connectionState": "connected",
-        "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
-        "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
-        "tags": {
-            "$etag": "123",
-            "deploymentLocation": {
-                "building": "43",
-                "floor": "1"
-            }
-        },
-        "properties": {
-            "desired": {
-                "telemetryConfig": {
-                    "sendFrequency": "5m"
-                },
-                "$metadata" : {...},
-                "$version": 1
-            },
-            "reported": {
-                "telemetryConfig": {
-                    "sendFrequency": "5m",
-                    "status": "success"
+        {
+            "deviceId": "devA",
+            "etag": "AAAAAAAAAAc=", 
+            "status": "enabled",
+            "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
+            "connectionState": "connected",
+            "lastActivityTime": "2015-02-30T16:24:48.789Z",
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
+            "tags": {
+                "$etag": "123",
+                "deploymentLocation": {
+                    "building": "43",
+                    "floor": "1"
                 }
-                "batteryLevel": 55,
-                "$metadata" : {...},
-                "$version": 4
+            },
+            "properties": {
+                "desired": {
+                    "telemetryConfig": {
+                        "sendFrequency": "5m"
+                    },
+                    "$metadata" : {...},
+                    "$version": 1
+                },
+                "reported": {
+                    "telemetryConfig": {
+                        "sendFrequency": "5m",
+                        "status": "success"
+                    }
+                    "batteryLevel": 55,
+                    "$metadata" : {...},
+                    "$version": 4
+                }
             }
         }
-    }
-```
 
-In the root object, are the system properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata`, `$etag`, and `$version`) described in the [Device twin metadata][lnk-twin-metadata] and [Optimistic concurrency][lnk-concurrency] sections.
+In the root object are the device identity properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata`, `$etag`, and `$version`) described in the [Device twin metadata][lnk-twin-metadata] and [Optimistic concurrency][lnk-concurrency] sections.
 
 ### Reported property example
 In the previous example, the device twin contains a `batteryLevel` property that is reported by the device app. This property makes it possible to query and operate on devices based on the last reported battery level. Other examples include the device app reporting device capabilities or connectivity options.
@@ -247,7 +250,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 * All string values can be at most 4 KB in length.
 
 ## Device twin size
-IoT Hub enforces an 8KB size limitation on the total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
+IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
 The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
 IoT Hub rejects with an error all operations that would increase the size of those documents above the limit.
 

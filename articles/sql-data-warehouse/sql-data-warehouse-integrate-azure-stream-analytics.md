@@ -15,11 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 origin.date: 10/31/2016
-ms.date: 07/24/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
-
 # Use Azure Stream Analytics with SQL Data Warehouse
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics][Introduction to Azure Stream Analytics]. You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics][Get started using Azure Stream Analytics] tutorial.
 
@@ -52,7 +51,7 @@ Enter the following values on the next page:
   * If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.
   * If your database is in a different subscription, select Use SQL Database from Another Subscription.
 * *Database*: Specify the name of a destination database.
-* *Server Name*: Specify the server name for the database you just specified. You can use the Azure Classic Management Portal to find this.
+* *Server Name*: Specify the server name for the database you just specified. You can use the Azure portal to find this.
 
 ![][server-name]
 
@@ -93,4 +92,4 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: /stream-analytics/
 
-<!--Update_Description: update link-->
+<!-- Update_Description: update meta properties, wording update -->

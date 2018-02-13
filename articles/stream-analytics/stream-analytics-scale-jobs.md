@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 06/22/2017
-ms.date: 11/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -25,10 +25,12 @@ As a prerequisite, you may need to read the following articles:
 -	[Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md)
 -	[Create parallelizable jobs](stream-analytics-parallelization.md)
 
+<a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>
 ## Case 1 - Your query is inherently fully parallelizable across input partitions
 If your query is inherently fully parallelizable across input partitions, you can follow the following steps:
 1.	Author your query to be embarrassingly parallel by using **PARTITION BY** keyword. See more details in the Embarrassingly parallel jobs section [on this page](stream-analytics-parallelization.md).
 2.	Depending on output types used in your query, some output may either be not parallelizable, or need further configuration to be embarrassingly parallel. For example, SQL, SQL DW outputs are not parallelizable. Outputs are always merged before sending to the output sink. Blobs, Tables, ADLS, and Service Bus are automatically parallelized. Event Hub needs to has the PartitionKey configuration set to match with the **PARTITION BY** field (usually PartitionId). For Event Hub, also pay extra attention to match the number of partitions for all inputs and all outputs to avoid cross-over between partitions. 
+<!-- Not Available on PowerBI, Azure Funtion, Cosmos DB-->
 3.	Run your query with **6 SU** (which is the full capacity of a single computing node) to measure maximum achievable throughput, and if you are using **GROUP BY**, measure how many groups (cardinality) the job can handle. General symptoms of the job hitting system resource limits are the following.
     - SU % utilization metric is over 80%. This indicates memory usage is high. The factors contributing to the increase of this metric are described [here](stream-analytics-streaming-unit-consumption.md). 
     -	Output timestamp is falling behind with respect to wall clock time. Depending on your query logic, the output timestamp may have a logic offset from the wall clock time. However, they should progress at roughly the same rate. If the output timestamp is falling further and further behind, it's an indicator that the system is overworking. It can be a result of downstream output sink throttling, or high CPU utilization. We don't provide CPU utilization metric at this time, so it can be difficult to differentiate the two.
@@ -147,7 +149,7 @@ And the following graph shows a visualization of the relationship between SUs an
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -166,7 +168,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.cn
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

@@ -23,10 +23,11 @@ ms.author: v-johch
 
 # Controlling and granting database access
 
-When firewall rules have been configured, people can connect to a SQL Database as one of the administrator accounts, as the database owner, or as a database user in the database.  
+After firewall rules have been configured, people can connect to a SQL Database as one of the administrator accounts, as the database owner, or as a database user in the database.  
 
 >  [!NOTE]  
 >  This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
+>
 
 > [!TIP]
 > For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).

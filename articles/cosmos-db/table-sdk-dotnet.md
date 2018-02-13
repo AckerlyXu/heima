@@ -38,7 +38,7 @@ ms.author: v-yeche
 >
 
 <!-- Not Avaialble ## Release notes -->
-<!-- Not Avaialble ## Release and Retirement dates --》
+<!-- Not Avaialble ## Release and Retirement dates -->
 
 ## <a name="troubleshooting"></a> Troubleshooting
 ## Troubleshooting

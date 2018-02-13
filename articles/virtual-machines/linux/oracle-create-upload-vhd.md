@@ -27,7 +27,8 @@ This article assumes that you have already installed an Oracle Linux operating s
 
 ### Oracle Linux installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
-* Oracle's Red Hat compatible kernel and their UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure. For best results, please be sure to update to the latest kernel while preparing your Oracle Linux VHD.
+* Oracle's  compatible kernel and their UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure. For best results, please be sure to update to the latest kernel while preparing your Oracle Linux VHD.
+<!-- Not Avaiable on Red Hat -->
 * Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
@@ -73,8 +74,9 @@ You must complete specific configuration steps in the operating system for the v
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.
-
+   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in Oracle's compatible kernel.
+   <!-- Not Availabl on Red Hat -->
+   
    In addition to the above, it is recommended to *remove* the following parameters:
 
         rhgb quiet crashkernel=auto
@@ -110,7 +112,8 @@ You must complete specific configuration steps in the operating system for the v
 
 Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle Linux 6, however there are several important differences worth noting:
 
-* Both the Red Hat compatible kernel and Oracle's UEK3 are supported in Azure.  The UEK3 kernel is recommended.
+* Oracle's UEK3 are supported in Azure.  The UEK3 kernel is recommended.
+<!-- Not Avaiable on  Red Hat 兼容内核 -->
 * The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that it is not removed.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
 * XFS is now the default file system. The ext4 file system can still be used if desired.

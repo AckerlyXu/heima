@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ---
 
 # Common prerequisites for deploying OpenShift in Azure
@@ -45,7 +45,7 @@ This guide describes how to create the artifacts associated with the prerequisit
 > * Create a key vault to manage SSH keys for the OpenShift cluster.
 > * Create a service principal for use by the Azure Cloud Solution Provider.
 
-If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial) before you begin.
 
 ## Sign in to Azure 
 Sign in to your Azure subscription with the [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) command and follow the on-screen directions, or click **Try it** to use Cloud Shell.
@@ -134,3 +134,4 @@ Next, deploy an OpenShift cluster:
 
 - [Deploy OpenShift Origin](./openshift-origin.md)
 - [Deploy OpenShift Container Platform](./openshift-container-platform.md)
+<!--Update_Description: update meta properties, update link -->

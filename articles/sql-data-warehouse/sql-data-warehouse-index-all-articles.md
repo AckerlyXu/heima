@@ -46,9 +46,9 @@ This section lists articles which were updated recently, where the update was bi
 | 8 |[Query Azure SQL Data Warehouse (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) |Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility. |
 | 9 |[Create a SQL Data Warehouse database by using Transact-SQL (TSQL)](sql-data-warehouse-get-started-create-database-tsql.md) |Learn how to create an Azure SQL Data Warehouse with TSQL |
 | 10 |[Load data with PolyBase in SQL Data Warehouse](sql-data-warehouse-get-started-load-with-polybase.md) |Learn what PolyBase is and how to use it for data warehousing scenarios. |
-| 11 |[Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) |Learn how to create an Azure SQL Data Warehouse in the Azure portal |
-| 12 |[Create SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md) |Create SQL Data Warehouse by using PowerShell |
-| 13 |[Query Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Query SQL Data Warehouse with Visual Studio. |
+<!-- Line: 53  Not Available on | 11 |[Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) |Learn how to create an Azure SQL Data Warehouse in the Azure portal |-->
+| 11 |[Create SQL Data Warehouse using PowerShell](sql-data-warehouse-get-started-provision-powershell.md) |Create SQL Data Warehouse by using PowerShell |
+| 12 |[Query Azure SQL Data Warehouse (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |Query SQL Data Warehouse with Visual Studio. |
 
 ## Develop
 | &nbsp; | Title | Description |

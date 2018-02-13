@@ -63,9 +63,9 @@ The [Scale out event processing](https://code.msdn.microsoft.com/Service-Bus-Eve
 
 The [Pulling SQL data](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) sample shows how to pull data from a SQL table and push it to an event hub, to use as an input in downstream analytical applications.
 
-### Pull web data into an event hub 
-
-The [Import data from the web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) sample shows how to pull data from public feeds (such as the Department of Transportation's traffic information feed) and push it to an event hub.
+<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a>### Pull web data into an event hub  -->
+<!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
+<!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
 
 ## Next steps
 

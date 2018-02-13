@@ -1,10 +1,10 @@
 ---
-title: Create a Cordova app on Azure App Service Mobile Apps | Azure
+title: Create a Cordova app on Azure App Service Mobile Apps
 description: Follow this tutorial to get started with using Azure mobile app backends for Apache Cordova development
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: erikre
+author: conceptdev
+manager: crdun
 editor: ''
 tags: ''
 keywords: cordova,javascript,mobile,client
@@ -15,8 +15,8 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-origin.date: 10/30/2016
-ms.date: 01/23/2017
+origin.date: 07/07/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -34,7 +34,7 @@ Apps feature in Azure App Service.
 ## Prerequisites
 To complete this tutorial, you need the following prerequisites:
 
-* A PC with [Visual Studio Community 2015] or newer.
+* A PC with [Visual Studio Community 2017] or newer.
 * [Visual Studio Tools for Apache Cordova].
 * An [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
@@ -75,7 +75,7 @@ Learn how to use the SDKs.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.cn/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/features/cordova-vs.aspx
 [Offline Data]: ./app-service-mobile-offline-data-sync.md
 [Authentication]: ./app-service-mobile-auth.md

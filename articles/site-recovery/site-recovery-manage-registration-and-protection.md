@@ -162,6 +162,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
         $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
         $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
+<a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario"></a>
 ## Disable protection for a Hyper-V virtual machine replicating to Azure using the System Center VMM to Azure scenario
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.

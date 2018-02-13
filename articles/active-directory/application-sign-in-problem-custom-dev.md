@@ -37,6 +37,6 @@ There are several errors that could be causing you to not be able to sign into a
 
 [Consent and Integrating Apps to Azure AD](./develop/active-directory-integrating-applications.md)<br>
 
-[Consent and Permissioning for Azure AD v2.0 converged Apps](./develop/active-directory-v2-scopes.md)<br>
+
 
 

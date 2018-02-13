@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 07/05/2017
-ms.date: 12/11/2017
+origin.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -35,9 +35,9 @@ To learn how to create reference data inputs, see [Use Reference Data](stream-an
 
 ## Compression
 
-Azure Stream Analytics supports compression across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Supported types are currently None, GZip, and Deflate compression. 
+Azure Stream Analytics supports compression across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Currently supported reference types are-  None, GZip, and Deflate compression. Support for compression is not available for reference data.
 
-Compression is not supported in tandem with Avro serialization, and is not applicable to reference data. 
+You don't need to specify compression type with Avro serialization. If the input Avro data is compressed, it is handled transparently. 
 
 ## Create data stream input from Event Hubs
 
@@ -78,7 +78,7 @@ SELECT
     EventEnqueuedUtcTime,
     PartitionId
 FROM Input
-````
+```
 
 > [!NOTE]
 > When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/library/azure/mt793845.aspx).
@@ -173,7 +173,9 @@ SELECT
 FROM Input
 ```
 
-<!-- Not Available ## Get help-->
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/).
+
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:
 
@@ -183,11 +185,11 @@ You've learned about data connection options in Azure for your Stream Analytics 
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+<!-- Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md -->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

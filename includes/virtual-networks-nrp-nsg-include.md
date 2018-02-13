@@ -4,7 +4,7 @@ An NSG resource enables the creation of security boundary for workloads, by impl
 | Property | Description | Sample values |
 | --- | --- | --- |
 | **subnets** |List of subnet ids the NSG is applied to. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| **securityRules** |List of security rules that make up the NSG |See [Security rule](#Security-rule) below |
+| **securityRules** |List of security rules that make up the NSG |See [Security rule](#security-rule) below |
 | **defaultSecurityRules** |List of default security rules present in every NSG |See [Default security rules](#Default-security-rules) below |
 
 * **Security rule** - An NSG can have multiple security rules defined. Each rule can allow or deny different types of traffic.

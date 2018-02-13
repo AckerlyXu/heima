@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/10/2017
-ms.date: 01/01/2018
+ms.date: 01/29/2018
 ms.author: v-nany
 ---
 
@@ -33,9 +33,7 @@ In this article, you learn about the following:
 * transferring data into or out of storage
 * the many storage client libraries available.
 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md)
+To get up and running with Azure Storage, see [Create a storage account](storage-quickstart-create-account.md).
 
 ## Introducing the Azure Storage services
 
@@ -194,7 +192,7 @@ The Azure Import/Export service can be used to import or export large amounts of
 
 ## Pricing
 
-For detailed information about pricing for Azure Storage, see the [Pricing page](https://www.azure.cn/pricing/details/storage/blobs/).
+For detailed information about pricing for Azure Storage, see the [Pricing page](https://www.azure.cn/pricing/details/storage/).
 
 ## Storage APIs, libraries, and tools
 Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
@@ -217,9 +215,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Learn more about File storage](../storage-files-introduction.md)
 * [Learn more about Queue storage](../queues/storage-queues-introduction.md)
 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md)
+To get up and running with Azure Storage, see [Create a storage account](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

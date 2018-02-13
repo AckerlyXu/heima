@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -23,7 +23,7 @@ ms.author: v-yeche
 Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
 
 Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) and [Azure Blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
-<!-- Not Available [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/) even in global ACOM -->
+<!-- Not Available on [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/)  -->
 
 ## Data input: Streaming data and reference data
 There are two distinct types of inputs in Stream Analytics: data streams and reference data.
@@ -37,7 +37,7 @@ To add an input to your Stream Analytics job:
 
 1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
 
-    ![Azure Classic Management Portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
 
     In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
 
@@ -72,7 +72,7 @@ To add an input to your Stream Analytics job:
     ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

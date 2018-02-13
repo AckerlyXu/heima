@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 07/17/2017
-ms.date: 10/16/2017
+origin.date: 12/14/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -32,7 +32,7 @@ To secure web servers, a Secure Sockets Later (SSL) certificate can be used to e
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).  
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.22 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest).  
 
 ## Overview
 Azure Key Vault safeguards cryptographic keys and secrets, such certificates or passwords. Key Vault helps streamline the certificate management process and enables you to maintain control of keys that access those certificates. You can create a self-signed certificate inside Key Vault, or upload an existing, trusted certificate that you already own.
@@ -42,7 +42,7 @@ Rather than using a custom VM image that includes certificates baked-in, you inj
 ## Create an Azure Key Vault
 Before you can create a Key Vault and certificates, create a resource group with [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create). The following example creates a resource group named *myResourceGroupSecureWeb* in the *chinanorth* location:
 
-```
+```azurecli 
 az group create --name myResourceGroupSecureWeb --location chinanorth
 ```
 
@@ -57,7 +57,7 @@ az keyvault create \
 ```
 
 ## Generate a certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/certificate?view=azure-cli-latest#create) that uses the default certificate policy:
+For production use, you should import a valid certificate signed by trusted provider with [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_import). For this tutorial, the following example shows how you can generate a self-signed certificate with [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_create) that uses the default certificate policy:
 
 ```azurecli 
 az keyvault certificate create \
@@ -67,7 +67,7 @@ az keyvault certificate create \
 ```
 
 ### Prepare a certificate for use with a VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions). Convert the certificate with [az vm format-secret]((https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions). Convert the certificate with [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -80,7 +80,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### Create a cloud-init config to secure NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.
 
-When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring the web server, use cloud-init. In this example, we install and configure the NGINX web server. You can use the same process to install and configure Apache. 
+When you create a VM, certificates and keys are stored in the protected */var/lib/waagent/* directory. To automate adding the certificate to the VM and configuring the web server, use cloud-init. In this example, you install and configure the NGINX web server. You can use the same process to install and configure Apache. 
 
 Create a file named *cloud-init-web-server.txt* and paste the following configuration:
 

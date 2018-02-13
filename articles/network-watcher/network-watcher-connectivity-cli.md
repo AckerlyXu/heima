@@ -1,6 +1,6 @@
 ---
 title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Azure
-description: This page explains how to use connectivity check with Network Watcher using Azure CLI 2.0
+description: This page explains how to use Connection monitoring with Network Watcher using Azure CLI 2.0
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
@@ -37,11 +37,11 @@ This article assumes you have the following resources:
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection monitoring requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit Azure Network Watcher Agent virtual machine extension for Windows and for Linux VM visit Azure Network Watcher Agent virtual machine extension for Linux .
 
 ## Register the preview capability 
 
-Connectivity check is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
+Connection monitoring is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -302,7 +302,7 @@ The following json is the example response from running the previous cmdlet. As 
 
 ## Next steps
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+<!-- Not Available on  [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 

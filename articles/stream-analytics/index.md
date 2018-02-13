@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 05/23/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 ---
 
@@ -27,11 +27,12 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/stream-analytics.svg" alt="" />
+                            <img src="media/index/stream-analytics.svg" alt="Learn about Azure Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Learn about Azure Stream Analytics</h3>
+<!-- Not Available on VIDEO -->
                     </div>
                 </div>
             </div>
@@ -45,7 +46,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="Get started with Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -63,7 +64,7 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="Get Started with an IoT solution using Stream Analytics" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -77,3 +78,5 @@ Learn how to run Internet of Things (IoT) analytics in the cloud with Stream Ana
     <!-- Not Available /Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends-->
     <!-- Not Available /Stream-Analytics/stream-analytics-machine-learning-integration-tutorial-->
 </ul>
+<!-- Not Available on Reference -->
+<!-- ms.date: 01/15/2018 -->

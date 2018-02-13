@@ -265,7 +265,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-configure-raid]:../linux/configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md
+<!-- Not Avaiable on [virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md -->
 [virtual-machines-linux-how-to-attach-disk]:../linux/add-disk.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../linux/quick-create-cli.md
@@ -359,7 +359,7 @@ When you are setting up your SAP software deployment, you need the following SAP
 * SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692] has information about SAP licensing on Linux in Azure.
 * SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-* SAP Note [2002167] has general information about Red Hat Enterprise Linux 7.x.
+<!-- Not Available on * SAP Note [2002167] has general information about Red Hat Enterprise Linux 7.x. -->
 * SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * SAP-specific PowerShell cmdlets that are part of [Azure PowerShell][azure-ps].
@@ -388,7 +388,8 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 The easiest way to create a new virtual machine with an image from the Azure Marketplace is by using the Azure portal.
 
 1.  Go to <https://portal.azure.cn/#create>.  Or, in the Azure portal menu, select **+ New**.
-2.  Select **Compute**, and then select the type of operating system you want to deploy. For example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), or Red Hat Enterprise Linux 7.2 (RHEL 7.2). The default list view does not show all supported operating systems. Select **see all** for a full list. For more information about supported operating systems for SAP software deployment, see SAP Note [1928533].
+2.  Select **Compute**, and then select the type of operating system you want to deploy. For example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12). The default list view does not show all supported operating systems. Select **see all** for a full list. For more information about supported operating systems for SAP software deployment, see SAP Note [1928533].
+<!-- Not Avaiable on Red Hat Enterprise Linux 7.2 (RHEL 7.2) -->
 3.  On the next page, review terms and conditions.
 4.  In the **Select a deployment model** box, select **Resource Manager**.
 5.  Select **Create**.
@@ -438,7 +439,8 @@ In the Azure portal, enter the following parameters for the template:
 
 2. **Settings**:
   * **SAP System ID**: The SAP System ID (SID).
-  * **OS type**: The operating system you want to deploy, for example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12), or Red Hat Enterprise Linux 7.2 (RHEL 7.2).
+  * **OS type**: The operating system you want to deploy, for example, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12).
+<!-- Not Avaiable on Red Hat Enterprise Linux 7.2 (RHEL 7.2) --> 
 
     The default list view does not show all supported operating systems. Select **see all** for a full list. For more information about supported operating systems for SAP software deployment, see SAP Note [1928533].
   * **SAP system size**: The size of the SAP system.
@@ -746,11 +748,13 @@ Use the following commands to install the VM Agent for Linux:
   sudo zypper install WALinuxAgent
   ```
 
+<!-- Not Available on 
 * **Red Hat Enterprise Linux (RHEL)**
 
   ```
   sudo yum install WALinuxAgent
   ```
+-->
 
 If the agent is already installed, to update the Azure Linux Agent, do the steps described in [Update the Azure Linux Agent on a VM to the latest version from GitHub][virtual-machines-linux-update-agent].
 

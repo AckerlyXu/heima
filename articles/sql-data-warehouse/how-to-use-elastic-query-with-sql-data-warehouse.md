@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 origin.date: 09/18/2017
-ms.date: 11/20/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 ---
 
@@ -70,7 +70,7 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 
 ### Elastic Querying
 
-- The external table and interally cached table exist as different objects with the SQL database instance. Consider creating a view over the top of the cached portion of the table and the external table which unions both tables and applies filters on the boundary point of each table.
+- In many cases, one might want to manage a type of stretched table, where a portion of your table is within the SQL Database as cached data for performance with the rest of the data stored in SQL Data Warehouse. You will need to have two objects in SQL Database: an external table within SQL Database that references the base table in SQL Data Warehouse, and the "cached" portion of the table within the SQL Database. Consider creating a view over the top of the cached portion of the table and the external table which unions both tables and applies filters that separate data materialized within SQL Database and SQL Data Warehouse data exposed through external tables.
 
   Imagine we would like to keep the most recent year of data in a SQL database instance. We have two tables **ext.Orders**, which references the data warehouse orders tables, and **dbo.Orders** which represents the most recent years worth of data within the SQL database instance. Instead of asking users to decide whether to query one table or another, we create a view over the top of both tables on the partition point of the most recent year.
 
@@ -124,13 +124,17 @@ For more information on Elastic Query with SQL database, see the [Azure SQL Data
 
 ## FAQ
 
-Q: Can I use databases within an Elastic Database pool with elastic query?
+Q: Can I use databases within an Elastic Pool with Elastic Query?
 
-A: Yes. SQL Databases within an elastic pool can use elastic query. 
+A: Yes. SQL Databases within an Elastic Pool can use Elastic Query. 
 
-Q: Is there a cap for how many databases I can use for elastic query?
+Q: Is there a cap for how many databases I can use for Elastic Query?
 
-A: Logical servers have DTU limits in place to prevent customers from accidental overspending. If you are enabling several databases for elastic query alongside a SQL Data Warehouse instance, you may hit the cap unexpectedly. If this occurs, submit a request to increase DTU limit on your logical server. You can increase your quota by [creating a support ticket](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and selecting *Quota* as the request type
+A: There is no hard cap on how many databases can be used for Elastic Query. However, each Elastic Query (queries that hit SQL Data Warehouse) will count toward normal concurrency limits.
+
+Q: Are there DTU limits involved with Elastic Query?
+
+A: DTU limits are not imposed any differently with Elastic Query. The standard policy is such that logical servers have DTU limits in place to prevent customers from accidental overspending. If you are enabling several databases for elastic query alongside a SQL Data Warehouse instance, you may hit the cap unexpectedly. If this occurs, submit a request to increase DTU limit on your logical server. You can increase your quota by [creating a support ticket](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and selecting *Quota* as the request type
 
 Q: Can I use row level security/Dynamic Data Masking with Elastic Query?
 
@@ -150,7 +154,7 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+<!-- Not Available on [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/ -->
 [Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
@@ -159,4 +163,4 @@ A: You can store spatial types in SQL Data Warehouse as varbinary(max) values. W
 
 <!--Other Web references-->
 
-<!-- Update_Description: new articles on how to use elastic query with SQL Data Warehouse -->
+<!-- Update_Description: update meta properties, wording update -->

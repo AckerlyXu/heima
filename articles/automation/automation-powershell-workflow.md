@@ -3,8 +3,8 @@ title: Learning PowerShell Workflow for Azure Automation | Azure
 description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow and concepts applicable to Automation runbooks.
 services: automation
 documentationcenter: ''
-author: mgoedtel
-manager: carmonm
+author: yunan2016
+manager: digimobile
 editor: tysonn
 
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,19 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/21/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 01/15/2018
+ms.author: v-nany
 
 ---
 # Learning key Windows PowerShell Workflow concepts for Automation runbooks 
-Runbooks in Azure Automation are implemented as Windows PowerShell Workflows.  A Windows PowerShell Workflow is similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user.  This article is intended for users already familiar with PowerShell and briefly explains concepts that you require if you are converting a PowerShell script to a PowerShell Workflow for use in a runbook.  
+Runbooks in Azure Automation are implemented as Windows PowerShell Workflows.  A Windows PowerShell Workflow is similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user.  While this article is intended to help you write runbooks using PowerShell workflow, we recommend you write runbooks using PowerShell unless you need checkpoints.  There are several syntax differences when authoring PowerShell Workflow runbooks and these differences require a bit more work to write effective workflows.  
 
 A workflow is a sequence of programmed, connected steps that perform long-running tasks or require the coordination of multiple steps across multiple devices or managed nodes. The benefits of a workflow over a normal script include the ability to simultaneously perform an action against multiple devices and the ability to automatically recover from failures. A Windows PowerShell Workflow is a Windows PowerShell script that uses Windows Workflow Foundation. While the workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation.
 
 For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
-
-## Types of runbook
-Azure China currently only supports textual PowerShell Workflow Runbook.
 
 ## Basic structure of a workflow
 The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the **Workflow** keyword.  A workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax:
@@ -88,6 +85,7 @@ Another option is to use another cmdlet that performs the same functionality as 
         Stop-Service -Name $Service.Name
     }
 
+
 ## InlineScript
 The **InlineScript** activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell.
 
@@ -111,6 +109,7 @@ You can return output from an InlineScript by assigning the output to a variable
         $Output.Name
     }
 
+
 You can pass values into an InlineScript block, but you must use **$Using** scope modifier.  The following example is identical to the previous example except that the service name is provided by a variable.
 
     Workflow Stop-MyService
@@ -125,6 +124,7 @@ You can pass values into an InlineScript block, but you must use **$Using** scop
 
         $Output.Name
     }
+
 
 While InlineScript activities may be critical in certain workflows, they do not support workflow constructs and should only be used when necessary for the following reasons:
 
@@ -146,6 +146,7 @@ You can use the **Parallel** keyword to create a script block with multiple comm
     }
     <Activity3>
 
+
 For example, consider the following PowerShell commands that copy multiple files to a network destination.  These commands are run sequentially so that one file must finish copying before the next is started.     
 
     Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
@@ -165,6 +166,7 @@ The following workflow runs these same commands in parallel so that they all sta
 
         Write-Output "Files copied."
     }
+
 
 You can use the **ForEach -Parallel** construct to process commands for each item in a collection concurrently. The items in the collection are processed in parallel while the commands in the script block run sequentially. This uses the following syntax shown below. In this case, Activity1 starts at the same time for all items in the collection. For each item, Activity2 starts after Activity1 is complete. Activity3 starts only after both Activity1 and Activity2 have completed for all items.
 
@@ -195,7 +197,7 @@ The following example is similar to the previous example copying files in parall
 >
 
 ## Checkpoints
-A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the worfklow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
+A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
 
 In the following sample code, an exception occurs after Activity2 causing the workflow to end. When the workflow is run again, it starts by running Activity2 since this was just after the last checkpoint set.
 
@@ -205,7 +207,7 @@ In the following sample code, an exception occurs after Activity2 causing the wo
     <Exception>
     <Activity3>
 
-You should set checkpoints in a workflow after activities that may be prone to exception and should not be repeated if the workflow is resumed. For example, your workflow may create a virtual machine. You could set a checkpoint both before and after the commands to create the virtual machine. If the creation fails, then the commands would be repeated if the workflow is started again. If the worfklow fails after the creation succeeds, then the virtual machine will not be created again when the workflow is resumed.
+You should set checkpoints in a workflow after activities that may be prone to exception and should not be repeated if the workflow is resumed. For example, your workflow may create a virtual machine. You could set a checkpoint both before and after the commands to create the virtual machine. If the creation fails, then the commands would be repeated if the workflow is started again. If the workflow fails after the creation succeeds, then the virtual machine will not be created again when the workflow is resumed.
 
 The following example copies multiple files to a network location and sets a checkpoint after each file.  If the network location is lost, then the workflow ends in error.  When it is started again, it will resume at the last checkpoint meaning that only the files that have already been copied are skipped.
 
@@ -229,7 +231,7 @@ The following same code demonstrates how to handle this in your PowerShell Workf
 
     workflow CreateTestVms
     {
-       $Cred = Get-AutomationPSCredential -Name "MyCredential"
+       $Cred = Get-AzureAutomationCredential -Name "MyCredential"
        $null = Add-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
 
        $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
@@ -248,6 +250,7 @@ The following same code demonstrates how to handle this in your PowerShell Workf
           $null = Add-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
          }
      }
+
 
 This is not required if you are authenticating using a Run As account configured with a service principal.  
 

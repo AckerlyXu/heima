@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 08/03/2017
-ms.date: 10/30/2017
+origin.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -29,7 +29,7 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 > * Verify installation and configuration
 > * Install WordPress on the LAMP server
 
-For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
+This setup is for quick tests or proof of concept. For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -39,7 +39,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Install Apache, MySQL, and PHP
 
-Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command.
+Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command, which is part of the `lamp-server^` package name. 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
@@ -70,15 +70,15 @@ Check the version of MySQL with the following command (note the capital `V` para
 mysql -V
 ```
 
-We recommend running the following script to help secure the installation of MySQL:
+To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip this step.
 
 ```bash
 mysql_secure_installation
 ```
 
-Enter your MySQL root password, and configure the security settings for your environment.
+Enter a root password for MySQL, and configure the security settings for your environment.
 
-If you want to create a MySQL database, add users, or change configuration settings, login to MySQL:
+If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial.
 
 ```bash
 mysql -u root -p
@@ -126,4 +126,8 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
 
+<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-stack-intro.md-->
+<!--ms.date:01/08/2018-->
+<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-wordpress.md-->
+<!--ms.date:01/08/2018-->
 <!--Update_Description: update meta properties, wording update-->

@@ -1,6 +1,6 @@
 ---
-title: Distribute data globally with Azure Cosmos DB | Azure
-description: Learn about planet-scale geo-replication, failover, and data recovery using global databases from Azure Cosmos DB, a globally-distributed, mutli-model database service.
+title: Distribute data multiple-region with Azure Cosmos DB | Azure
+description: Learn about planet-scale geo-replication, failover, and data recovery using multiple-region databases from Azure Cosmos DB, a multiple-region distributed, mutli-model database service.
 services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
@@ -18,24 +18,33 @@ ms.date: 12/25/2017
 ms.author: v-yeche
 
 ---
-# How to distribute data globally with Azure Cosmos DB
-Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. 
+<!-- Notice in meta: 全球分布 to 多个区域分布 -->
+<!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is 21Vianet's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey global distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
+# How to distribute data multiple-region with Azure Cosmos DB
+Azure is ubiquitous - it has a multiple-region footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage multiple-region distributed applications easily. 
+<!-- Notice: 全球 to 多个区域分布 -->
+
+[Azure Cosmos DB](../cosmos-db/introduction.md) is 21Vianet's multiple-region distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey multiple-region distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://www.azure.cn/support/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and multiple-region distribution from the ground up.
 <!-- Not Available on Graph -->
+<!-- Notice: 全球分布 to 多个区域分布 -->
 
 **A single Azure Cosmos DB collection partitioned and distributed across multiple Azure regions**
 
 ![Azure Cosmos DB collection partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
 
-As we have learned while building Azure Cosmos DB, adding global distribution cannot be an afterthought - it cannot be "bolted-on" atop a "single site" database system. The capabilities offered by a globally distributed database span beyond that of traditional geographical disaster recovery (Geo-DR) offered by "single-site" databases. Single site databases offering Geo-DR capability are a strict subset of globally distributed databases. 
+As we have learned while building Azure Cosmos DB, adding multiple-region distribution cannot be an afterthought - it cannot be "bolted-on" atop a "single site" database system. The capabilities offered by a multiple-region distributed database span beyond that of traditional geographical disaster recovery (Geo-DR) offered by "single-site" databases. Single site databases offering Geo-DR capability are a strict subset of multiple-region distributed databases. 
+<!-- Notice: 全球分布 to 多个区域分布 --> 
+<!-- Notice: 全球各地 to 各个区域 --> 
 
-With Azure Cosmos DB's turnkey global distribution, developers do not have to build their own replication scaffolding by employing either the Lambda pattern (for example, [AWS DynamoDB replication](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)) over the database log or by doing "double writes" across multiple regions. We do not recommend these approaches since it is impossible to ensure correctness of such approaches and provide sound SLAs. 
+With Azure Cosmos DB's turnkey multiple-region distribution, developers do not have to build their own replication scaffolding by employing either the Lambda pattern (for example, [AWS DynamoDB replication](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)) over the database log or by doing "double writes" across multiple regions. We do not recommend these approaches since it is impossible to ensure correctness of such approaches and provide sound SLAs. 
 
-In this article, we provide an overview of Azure Cosmos DB's global distribution capabilities. We also describe Azure Cosmos DB's unique approach to providing comprehensive SLAs. 
+In this article, we provide an overview of Azure Cosmos DB's multiple-region distribution capabilities. We also describe Azure Cosmos DB's unique approach to providing comprehensive SLAs. 
+<!-- Notice: 全球分布 to 多个区域分布 -->
 
-## <a id="EnableGlobalDistribution"></a>Enabling turnkey global distribution
+## <a id="EnableGlobalDistribution"></a>Enabling turnkey multiple-region distribution
 Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) as well as the Azure portal.
+<!-- Notice: 全球分布 to 多个区域分布 -->
 
 ### <a id="RegionalPresence"></a>Ubiquitous regional presence 
 Azure is constantly growing its geographical presence by bringing [new regions](https://www.azure.cn/support/service-dashboard/) online. Azure Cosmos DB is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.
@@ -48,10 +57,11 @@ Azure Cosmos DB allows you to associate any number of Azure regions with your Az
 ![Azure Cosmos DB database account spanning 25 Azure regions](./media/distribute-data-globally/spanning-regions.png)
 
 ### <a id="PolicyBasedGeoFencing"></a>Policy-based geo-fencing
-Azure Cosmos DB is designed to have policy-based geo-fencing capabilities. Geo-fencing is an important component to ensure data governance and compliance restrictions and may prevent associating a specific region with your account. Examples of geo-fencing include (but are not restricted to), scoping global distribution to the regions within a sovereign cloud (for example, China and Germany), or within a government taxation boundary (for example, Australia). The policies are controlled using the metadata of your Azure subscription.
+Azure Cosmos DB is designed to have policy-based geo-fencing capabilities. Geo-fencing is an important component to ensure data governance and compliance restrictions and may prevent associating a specific region with your account. Examples of geo-fencing include (but are not restricted to), scoping multiple-region distribution to the regions within a sovereign cloud (for example, China and Germany), or within a government taxation boundary (for example, Australia). The policies are controlled using the metadata of your Azure subscription.
 
 ### <a id="DynamicallyAddRegions"></a>Dynamically add and remove regions
 Azure Cosmos DB allows you to add (associate) or remove (dissociate) regions to your database account at any point in time (see [preceding figure](#UnlimitedRegionsPerAccount)). By virtue of replicating data across partitions in parallel, Azure Cosmos DB ensures that when a new region comes online, Azure Cosmos DB is available within 30 minutes anywhere in the world for up to 100 TBs. 
+<!-- Notice: 全球任何位置 to 多个区域任何位置 -->
 
 ### <a id="FailoverPriorities"></a>Failover priorities
 To control exact sequence of regional failovers when there is a multi-regional outage, Azure Cosmos DB enables you to associate the priority to various regions associated with the database account (see the following figure). Azure Cosmos DB ensures that the automatic failover sequence occurs in the priority order you specified. For more information about regional failovers, see [Automatic regional failovers for business continuity in Azure Cosmos DB](regional-failover.md).
@@ -60,10 +70,10 @@ To control exact sequence of regional failovers when there is a multi-regional o
 
 ![Configuring failover priorities with Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
 
-### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for globally replicated databases
+### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for multiple-region replicated databases
 Azure Cosmos DB exposes [multiple well-defined consistency levels](consistency-levels.md) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios. 
 
-### <a id="TunableConsistency"></a>Tunable consistency for globally replicated databases
+### <a id="TunableConsistency"></a>Tunable consistency for multiple-region replicated databases
 Azure Cosmos DB allows you to programmatically override and relax the default consistency choice on a per request basis, at runtime. 
 
 ### <a id="DynamicallyConfigurableReadWriteRegions"></a>Dynamically configurable read and write regions
@@ -73,7 +83,9 @@ Azure Cosmos DB enables you to configure the regions (associated with the databa
 You can elastically scale an Azure Cosmos DB collection by provisioning throughput programmatically. The throughput is applied to all the regions the collection is distributed in.
 
 ### <a id="GeoLocalReadsAndWrites"></a>Geo-local reads and writes
-The key benefit of a globally distributed database is to offer low latency access to the data anywhere in the world. Azure Cosmos DB offers low latency guarantees at P99 for various database operations. It ensures that all reads are routed to the closest local read region. To serve a read request, the quorum local to the region in which the read is issued is used; the same applies to the writes. A write is acknowledged only after a majority of replicas has durably committed the write locally but without being gated on remote replicas to acknowledge the writes. Put differently, the replication protocol of Azure Cosmos DB operates under the assumption that the read and write quorums are always local to the read and write regions, respectively, in which the request is issued.
+The key benefit of a multiple-region distributed database is to offer low latency access to the data anywhere in the world. Azure Cosmos DB offers low latency guarantees at P99 for various database operations. It ensures that all reads are routed to the closest local read region. To serve a read request, the quorum local to the region in which the read is issued is used; the same applies to the writes. A write is acknowledged only after a majority of replicas has durably committed the write locally but without being gated on remote replicas to acknowledge the writes. Put differently, the replication protocol of Azure Cosmos DB operates under the assumption that the read and write quorums are always local to the read and write regions, respectively, in which the request is issued.
+<!-- Notice: 全球分布 to 多个区域分布 -->
+<!-- Notice: 世界各地 to 中国各地 -->
 
 ### <a id="ManualFailover"></a>Manually initiate regional failover
 Azure Cosmos DB allows you to trigger the failover of the database account to validate the *end to end* availability properties of the entire application (beyond the database). Since both the safety and liveness properties of the failure detection and leader election are guaranteed, Azure Cosmos DB guarantees *zero-data-loss* for a tenant-initiated manual failover operation.
@@ -91,16 +103,19 @@ You can find information on how to configure read preferences for the [SQL API](
 <!-- Not Available [Graph API](../cosmos-db/tutorial-global-distribution-graph.md)-->
 
 ### <a id="TransparentSchemaMigration"></a>Transparent and consistent database schema and index migration 
-Azure Cosmos DB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your globally distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. Azure Cosmos DB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
+Azure Cosmos DB is fully [schema agnostic](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). The unique design of its database engine allows it to automatically and synchronously index all of the data it ingests without requiring any schema or secondary indices from you. This enables you to iterate your multiple-region distributed application rapidly without worrying about database schema and index migration or coordinating multi-phase application rollouts of schema changes. Azure Cosmos DB guarantees that any changes to indexing policies explicitly made by you does not result into degradation of either performance or availability.  
 
 ### <a id="ComprehensiveSLAs"></a>Comprehensive SLAs (beyond just high availability)
-As a globally distributed database service, Azure Cosmos DB offers well-defined SLA for **data-loss**, **availability**, **latency at P99**, **throughput** and **consistency** for the database as a whole, regardless of the number of regions associated with the database.  
+As a multiple-region distributed database service, Azure Cosmos DB offers well-defined SLA for **data-loss**, **availability**, **latency at P99**, **throughput** and **consistency** for the database as a whole, regardless of the number of regions associated with the database.  
 
 ## <a id="LatencyGuarantees"></a>Latency guarantees
-The key benefit of a globally distributed database service like Azure Cosmos DB is to offer low latency access to your data anywhere in the world. Azure Cosmos DB offers guaranteed low latency at P99 for various database operations. The replication protocol that Azure Cosmos DB employs ensures that the database operations (ideally, both reads and writes) are always performed in the region local to that of the client. The latency SLA of Azure Cosmos DB includes P99 for both reads, (synchronously) indexed writes and queries for various request and response sizes. The latency guarantees for writes include durable majority quorum commits within the local datacenter.
+The key benefit of a multiple-region distributed database service like Azure Cosmos DB is to offer low latency access to your data anywhere in the world. Azure Cosmos DB offers guaranteed low latency at P99 for various database operations. The replication protocol that Azure Cosmos DB employs ensures that the database operations (ideally, both reads and writes) are always performed in the region local to that of the client. The latency SLA of Azure Cosmos DB includes P99 for both reads, (synchronously) indexed writes and queries for various request and response sizes. The latency guarantees for writes include durable majority quorum commits within the local datacenter.
+<!-- Notice: 全球分布 to 多个区域分布 -->
+<!-- Notice: 世界各地 to 中国各地 -->
+
 
 ### <a id="LatencyAndConsistency"></a>Latency's relationship with consistency 
-For a globally distributed service to offer strong consistency in a globally distributed setup, it needs to synchronously replicate the writes or synchronous perform cross-region reads - the speed of light and the wide area network reliability dictate that strong consistency results in higher latencies and reduced availability of database operations. Hence, in order to offer guaranteed low latencies at P99 and 99.99% availability for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts, the service must employ asynchronous replication. This in-turn requires that the service must also offer [well-defined, relaxed consistency choice(s)](consistency-levels.md) - weaker than strong (to offer low latency and availability guarantees) and ideally stronger than "eventual" consistency (to offer an intuitive programming model).
+For a multiple-region distributed service to offer strong consistency in a multiple-region distributed setup, it needs to synchronously replicate the writes or synchronous perform cross-region reads - the speed of light and the wide area network reliability dictate that strong consistency results in higher latencies and reduced availability of database operations. Hence, in order to offer guaranteed low latencies at P99 and 99.99% availability for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts, the service must employ asynchronous replication. This in-turn requires that the service must also offer [well-defined, relaxed consistency choice(s)](consistency-levels.md) - weaker than strong (to offer low latency and availability guarantees) and ideally stronger than "eventual" consistency (to offer an intuitive programming model).
 
 Azure Cosmos DB ensures that a read operation is not required to contact replicas across multiple regions to deliver the specific consistency level guarantee. Likewise, it ensures that a write operation does not get blocked while the data is being replicated across all the regions (i.e. writes are asynchronously replicated across regions). For multi-region database accounts multiple relaxed consistency levels are available. 
 

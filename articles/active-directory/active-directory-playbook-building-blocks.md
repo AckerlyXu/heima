@@ -43,7 +43,7 @@ Following are some pre-requisites needed for any POC with Azure AD Premium.
 | Azure AD Global Admin credentials | Assigning administrator roles in Azure Active Directory |
 | Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
-## Directory Synchronization - Password Hash Sync (PHS) - New Installation
+## <a name="directory-synchronization--password-hash-sync-phs--new-installation"></a>Directory Synchronization - Password Hash Sync (PHS) - New Installation
 
 Approximate time to Complete: one hour for less than 1,000 PoC users
 
@@ -63,7 +63,7 @@ Approximate time to Complete: one hour for less than 1,000 PoC users
 | Download the latest version of Azure AD Connect | [Download Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
 | Install Azure AD Connect with the simplest path: Express <br/>1. Filter to the target OU to minimize the Sync Cycle time<br/>2. Choose target set of users in the on-premises group.<br/>3. Deploy the features needed by the other POC Themes | [Azure AD Connect: Custom installation: Domain and OU filtering](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Custom installation: Group based filtering](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integrating your on-premises identities with Azure Active Directory: Configure Sync Features](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Open the Azure AD Connect UI and see the running profiles completed (Import, sync, and export) | [Azure AD Connect sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
-| Open the Azure AD management portal, go to the "All Users" blade, add "Source of authority" column and see that the users appear, marked properly as coming from "Windows Server AD" | [Azure AD management portal](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
+| Open the Azure AD  portal, go to the "All Users" blade, add "Source of authority" column and see that the users appear, marked properly as coming from "Windows Server AD" | [Azure AD  portal](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### Considerations
 
@@ -125,7 +125,7 @@ Approximate time to Complete: 10 minutes
 
 | Step | Resources |
 | --- | --- |
-| Navigate to "Users and groups" blade in Azure AD Management Portal | [Azure AD Management Portal: Users and groups](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
+| Navigate to "Users and groups" blade in Azure AD  Portal | [Azure AD Portal: Users and groups](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Choose "All users" blade |  |
 | In the top bar choose "Multi-Factor Authentication" button | Direct URL for Azure MFA portal: https://aka.ms/mfaportal |
 | In the "User" settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |

@@ -94,7 +94,7 @@ There is no paid support option for these preview releases. Use one of the optio
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: ../service-fabric/index.yml
+<!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml -->
 [sample-repos]: http://aka.ms/servicefabricsamples
 
 <!--Update_Description: update meta properties, wording update-->

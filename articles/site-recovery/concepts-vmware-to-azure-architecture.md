@@ -1,5 +1,5 @@
 ---
-title: Review the architecture for VMware replication to Azure | Azure
+title: VMware to Azure replication architecture in Azure Site Recovery | Azure
 description: This article provides an overview of components and architecture used when replicating on-premises VMware VMs to Azure with the Azure Site Recovery service
 services: site-recovery
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/19/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 ---
 
@@ -49,7 +49,7 @@ The following table and graphic provide a high-level view of the components used
     - The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
-4. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+4. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 <!-- Sync late on azure-public-peering-->
 
 **VMware to Azure replication process**
@@ -81,8 +81,5 @@ When your primary on-premises site is available again, you can fail back.
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable VMware to Azure replication.
-Run a failover and failback.
-
-<!-- Update_Description: new articles on site recovery concepts vmware to azure architecture -->
+Follow [this tutorial](tutorial-vmware-to-azure.md) to enable VMware to Azure replication.
+<!-- Update_Description: update meta properties -->

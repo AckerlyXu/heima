@@ -340,7 +340,7 @@ The following information can be helpful when you work with resources:
 
      For more information about connecting to virtual machines, see:
 
-   * [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md)
+<!-- Not Available on [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md) -->
    * [Set up WinRM access for VMs in Azure Resource Manager](../virtual-machines/windows/winrm.md)
    * [Allow external access to your VM by using the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Allow external access to your VM by using PowerShell](../virtual-machines/windows/nsg-quickstart-powershell.md)
@@ -391,6 +391,6 @@ The following information can be helpful when you work with resources:
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
-* For information about resource name restrictions, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
+<!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
 <!-- Update_Description: new articles on resource manager templates resources -->

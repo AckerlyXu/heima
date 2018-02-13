@@ -13,12 +13,12 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 08/10/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 # How to use boot diagnostics to troubleshoot Windows virtual machines in Azure
 
 [!INCLUDE [virtual-machines-common-boot-diagnostics](../../../includes/virtual-machines-common-boot-diagnostics.md)]
-<!--Update_Description: update from Linux to Windows-->
+<!--Update_Description: update meta properties -->

@@ -114,12 +114,10 @@ The external user shows in the Azure Active Directory tenant from now on as exte
 
 
 
-![users blade azure active-directory Azure Classic Management Portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
 
 In the **Users** view in both portals the external users can be recognized by:
 
 - The different icon type in the Azure portal
-- The different sourcing point in the Classic Management Portal
 
 However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type** which has two common parameters, **Member** and **Guest** can be identified. A member is a user which is registered in the directory while a guest is a user invited to the directory from an external source.
 
@@ -145,8 +143,6 @@ Assigning the built-in RBAC role of **Virtual Machine Contributor** at a subscri
 * Can't view any other resource types in the subscription
 * Can't operate any changes from a billing perspective
 
-> [!NOTE]
-> RBAC being an Azure portal only feature, it doesn't grant access to the Classic Management Portal.
 
 ## Assign a built-in RBAC role to an external user
 For a different scenario in this test, the external user "alflanigan@gmail.com" is added as a **Virtual Machine Contributor**.

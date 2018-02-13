@@ -25,6 +25,8 @@
       href: sql-database-connect-query-dotnet-visual-studio.md
     - name: .NET core
       href: sql-database-connect-query-dotnet-core.md
+    - name: Go
+      href: sql-database-connect-query-go.md
     - name: Java
       href: sql-database-connect-query-java.md
     - name: Node.js
@@ -179,12 +181,6 @@
       href: sql-database-elastic-scale-working-with-dapper.md
     - name: Elastic tools FAQ
       href: sql-database-elastic-scale-faq.md
-  - name: Multi-tenant SaaS
-    items:
-    - name: SaaS design patterns
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: SaaS app security
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases
     items:
     - name: JSON data
@@ -244,8 +240,6 @@
     items:
     - name: Load data with BCP
       href: sql-database-load-from-csv-with-bcp.md
-    - name: Load data with ADF
-      href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
     - name: Sync data
       href: sql-database-get-started-sql-data-sync.md
   - name: Monitor & tune

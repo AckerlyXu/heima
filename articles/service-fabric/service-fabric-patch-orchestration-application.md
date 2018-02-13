@@ -121,7 +121,7 @@ To enable the repair manager service:
     ],
     ```
 
-3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
+3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](/service-fabric/service-fabric-cluster-upgrade-windows-server#upgrade-the-cluster-configuration). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
 ### Disable automatic Windows Update on all nodes
 
@@ -248,6 +248,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
 In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider ID's to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+<!-- URL is correct for https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1 -->
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9

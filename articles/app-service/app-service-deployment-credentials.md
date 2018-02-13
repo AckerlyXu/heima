@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/05/2016
-ms.date: 01/02/2018
+origin.date: 01/05/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 
 ---
@@ -58,7 +58,7 @@ Once you have set your deployment credentials, you can find the *Git* deployment
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-and and *FTP* deployment username in your app's **Properties**.
+and *FTP* deployment username in your app's **Properties**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 

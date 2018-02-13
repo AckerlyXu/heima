@@ -14,8 +14,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 09/08/2017
-ms.date: 01/05/2018
+origin.date: 01/09/2018
+ms.date: 02/07/2018
 ms.author: v-junlch
 ---
 
@@ -26,7 +26,14 @@ This article provides troubleshooting steps to help you resolve Backup failures 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## VM Agent unable to communicate with Azure Backup
+
+> [!NOTE]
+> If your Azure Linux VM backups started failing with this error on or after January 4th, 2018, run the following command in the affected VMs and retry the backups
+>
+> `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
+
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. Follow below troubleshooting steps in the given order and retry your operation.
+
 ##### Cause 1: [The VM has no Internet access](#the-vm-has-no-internet-access)
 ##### Cause 2: [The agent is installed in the VM but is unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -64,6 +71,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 ##### Cause 3: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### Cause 4: [The snapshot status cannot be retrieved or a snapshot cannot be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)
+##### Cause 6: [Backup service does not have permission to delete the old restore points due to Resource Group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## The specified Disk configuration is not supported
 
@@ -98,7 +106,7 @@ To resolve the issue, try one of the methods listed here.
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#network-connectivity).
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 In case you are using Managed Disks, you may need an additional port (8443) opening up on the firewalls.
 
@@ -128,10 +136,10 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 2. Make sure that the Azure agent is running on the VM by running the following command: `ps -e`
 
-    If the process is not running, restart it by using the following commands:
+   If the process is not running, restart it by using the following commands:
 
-    - For Ubuntu: `service walinuxagent start`
-    - For other distributions: `service waagent start`
+   - For Ubuntu: `service walinuxagent start`
+   - For other distributions: `service waagent start`
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, please collect the following logs from the customer’s VM:
@@ -185,5 +193,50 @@ To uninstall the extension, do the following:
 
 This procedure causes the extension to be reinstalled during the next backup.
 
+### Azure Classic VMs may require additional step to complete registration
+The agent in Azure classic VMs should be registered to establish connection to the backup service and start the backup
 
-<!--Update_Description: wording update -->
+#### Solution
+
+After installing VM guest agent, launch Azure PowerShell <br>
+1. Login in to Azure Account using <br>
+       `Login-AzureAsAccount -EnvironmentName AzureChinaCloud`<br>
+2. Verify if VM’s ProvisionGuestAgent property is set to True, by the following commands <br>
+        `$vm = Get-AzureVM -ServiceName <cloud service name> -Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. If the property is set to FALSE, follow below commands to set it to TRUE<br>
+        `$vm = Get-AzureVM -ServiceName <cloud service name> -Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Then run the following command to update the VM <br>
+        `Update-AzureVM -Name <VM name> -VM $vm.VM -ServiceName <cloud service name>` <br>
+5. Try initiating the backup. <br>
+
+### Backup service does not have permission to delete the old restore points due to Resource Group lock
+This issue is specific to managed VMs where user locks the Resource Group and Backup service is not able to delete the older restore points. Due to this new backups start failing as there is a limit of maximum 18 restore points imposed from the backend.
+
+#### Solution
+
+To resolve the issue, please use the following steps to remove the restore point collection: <br>
+ 
+1. Remove the Resource Group lock in which the VM resides 
+	 
+2. Install ARMClient using Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
+	 
+3. Login to ARMClient <br>
+    `.\armclient.exe login`
+		 
+4. Get Restore Point collection corresponding to the VM <br>
+    `.\armclient.exe get https://management.chinacloudapi.cn/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Example: `.\armclient.exe get https://management.chinacloudapi.cn/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+			 
+5. Delete the Restore Point Collection <br>
+    `.\armclient.exe delete https://management.chinacloudapi.cn/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Next scheduled backup will automatically create restore point collection and new restore points 
+ 
+7. The problem will re-appear if you lock the Resource Group again as there is only a limit of 18 restore points after which the backups start failing 
+
+
+<!-- Update_Description: wording update -->

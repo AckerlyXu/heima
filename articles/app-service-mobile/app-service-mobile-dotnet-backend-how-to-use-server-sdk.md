@@ -1,11 +1,11 @@
 ---
-title: How to work with the .NET backend server SDK for Mobile Apps | Microsoft Docs
+title: How to work with the .NET backend server SDK for Mobile Apps
 description: Learn how to work with the .NET backend server SDK for Azure App Service Mobile Apps.
 keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
@@ -16,7 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ---
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -49,7 +49,7 @@ To create an App Service mobile backend, either follow the [Quickstart tutorial]
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the 
+Back in the *Get started* blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the
 compressed project files to your local computer, and open the solution in Visual Studio.
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
@@ -64,7 +64,7 @@ have installed the SDK, create an ASP.NET application using the following steps:
 3. Select **ASP.NET Web Application**.
 
 4. Fill in the project name. Then click **OK**.
-5. Under _ASP.NET 4.5.2 Templates_, select **Azure Mobile App**. Check **Host in the cloud** to create a mobile backend in the cloud to which you can publish this project.
+5. Under *ASP.NET 4.5.2 Templates*, select **Azure Mobile App**. Check **Host in the cloud** to create a mobile backend in the cloud to which you can publish this project.
 6. Click **OK**.
 
 ## <a name="install-sdk"></a>How to: Download and initialize the SDK
@@ -334,6 +334,11 @@ To learn about how to authenticate clients to your Mobile Apps backend, see [Add
 
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
 
+> [!IMPORTANT]
+> In order to enable custom authentication, you must first enable App Service Authentication without selecting a provider for your App Service in the Azure portal. This will enable the WEBSITE_AUTH_SIGNING_KEY environment variable when hosted.
+> 
+> 
+
 If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install 
 the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  Provide your own code for validating
 user credentials. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` 
@@ -381,10 +386,10 @@ responses to be returned as JSON objects of the form:
     }
 ```
 
-The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these parameters are set to the URL 
-of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. Do not
-distribute the signing key in a client as it can be used to mint keys and impersonate users. You can obtain the signing key while hosted in App 
-Service by referencing the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
+The `AppServiceLoginHandler.CreateToken()` method includes an *audience* and an *issuer* parameter. Both of these parameters are set to the URL
+of your application root, using the HTTPS scheme. Similarly you should set *secretKey* to be the value of your application's signing key. Do not
+distribute the signing key in a client as it can be used to mint keys and impersonate users. You can obtain the signing key while hosted in App
+Service by referencing the *WEBSITE\_AUTH\_SIGNING\_KEY* environment variable. If needed in a local debugging context, follow the instructions in
 the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 The issued token may also include other claims and an expiry date.  Minimally, the issued token must include a subject (**sub**) claim.
@@ -609,16 +614,16 @@ add the following, after `MobileAppConfiguration` has been applied to your `Http
     });
 ```
 
-In the preceding example, you should configure the _authAudience_ and _authIssuer_ application settings within your Web.config file to each be the 
-URL of your application root, using the HTTPS scheme. Similarly you should set _authSigningKey_ to be the value of your application's signing key. 
+In the preceding example, you should configure the *authAudience* and *authIssuer* application settings within your Web.config file to each be the
+URL of your application root, using the HTTPS scheme. Similarly you should set *authSigningKey* to be the value of your application's signing key.
 To obtain the signing key:
 
 1. Navigate to your app within the [Azure portal] 
 2. Click **Tools**, **Kudu**, **Go**.
 3. In the Kudu Management site, click **Environment**.
-4. Find the value for _WEBSITE\_AUTH\_SIGNING\_KEY_. 
+4. Find the value for *WEBSITE\_AUTH\_SIGNING\_KEY*.
 
-Use the signing key for the _authSigningKey_ parameter in your local application config.  Your mobile backend is now equipped to validate 
+Use the signing key for the *authSigningKey* parameter in your local application config.  Your mobile backend is now equipped to validate
 tokens when running locally, which the client obtains the token from the cloud-based endpoint.
 
 [1]: https://msdn.microsoft.com/zh-cn/library/azure/dn961176.aspx

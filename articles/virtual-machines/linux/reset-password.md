@@ -13,9 +13,9 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 
 ---
@@ -90,7 +90,7 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     cp /etc/passwd_orig /etc/passwd
     cp /etc/shadow_orig /etc/shadow
     ~~~~
-    
+
 10.	Go back to the root and unmount the disk.
 
     ~~~~
@@ -108,4 +108,4 @@ You can't log in to the VM, and you receive a message that indicates that the pa
 
 * [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

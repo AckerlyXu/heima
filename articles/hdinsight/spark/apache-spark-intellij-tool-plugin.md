@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/25/2017
-ms.date: 12/25/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 
 ---
@@ -257,9 +257,6 @@ If you have any suggestions or feedback, or if you encounter any problems when y
 ## <a name="seealso"></a>Next steps
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
-### Demo
-* Create Scala project (video): [Create Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Remote debug (video): [Use Azure Toolkit for IntelliJ to debug Spark applications remotely on HDInsight Cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### Scenarios
 * [Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)

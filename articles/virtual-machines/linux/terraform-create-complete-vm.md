@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 
@@ -27,7 +27,7 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
 
-The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). If you create environment variables for the values, you don't include this section.
+The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). 
 
 ```tf
 provider "azurerm" {
@@ -125,7 +125,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 ```
 
 ## Create virtual network interface card
-A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in an Ansible playbook creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
+A virtual network interface card (NIC) connects your VM to a given virtual network, public IP address, and network security group. The following section in a Terraform template creates a virtual NIC named *myNIC* connected to the virtual networking resources you have created:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -345,9 +345,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "China East"
-    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
     account_tier = "Standard"           # account_tier = "Standard" is Correct
-
+    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
 
     tags {
         environment = "Terraform Demo"
@@ -462,4 +461,4 @@ ssh azureuser@<publicIps>
 ## Next steps
 You have created basic infrastructure in Azure by using Terraform. For more complex scenarios, including examples that use load balancers and virtual machine scale sets, see numerous [Terraform examples for Azure](https://github.com/hashicorp/terraform/tree/master/examples). For an up-to-date list of supported Azure providers, see the [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

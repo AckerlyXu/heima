@@ -72,10 +72,7 @@ These errors all occur when the application a user is trying to consent to is re
 
     -   Adding the application from the Azure AD Application Gallery
 
-## Next steps 
 
-[Apps, permissions, and consent in Azure Active Directory (v1 endpoint)](active-directory-apps-permissions-consent.md)<br>
 
-[Scopes, permissions, and consent in the Azure Active Directory (v2.0 endpoint)](./develop/active-directory-v2-scopes.md)
 
 

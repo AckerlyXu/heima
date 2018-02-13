@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: overview-samples
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017

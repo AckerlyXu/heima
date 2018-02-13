@@ -3,8 +3,8 @@ title: Using the Docker VM Extension for Linux on Azure
 description: Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
-author: squillace
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/29/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
+ms.date: 01/08/2018
+ms.author: v-yeche
 
 ---
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
@@ -43,7 +43,7 @@ To install and configure the Azure CLI, see [How to install the Azure Command-Li
 > 
 
 ### Connect the Azure CLI to to your Azure Account
-Before you can use the Azure CLI you must associate your Azure account credentials with the Azure CLI on your platform. The section [How to connect to your Azure subscription](../../../xplat-cli-connect.md) explains how to either download and import your **.publishsettings** file or associate your Azure CLI with an organizational id.
+Before you can use the Azure CLI you must associate your Azure account credentials with the Azure CLI on your platform. The section [How to connect to your Azure subscription](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest) explains how to either download and import your **.publishsettings** file or associate your Azure CLI with an organizational id.
 
 > [!NOTE]
 > There are some differences in behavior when using one or the other methods of authentication, so do be sure to read the document above to understand the different functionality.
@@ -92,6 +92,7 @@ If the command was successful, you should see something like the following, depe
 To test the Docker VM you have created in Azure, type
 
 `docker --tls -H tcp://<vm-name-you-used>.chinacloudapp.cn:2376 info`
+<!-- cloudapp.net to chinacloudapp.cn is correct -->
 
 where *&lt;vm-name-you-used&gt;* is the name of the virtual machine that you used in your call to `azure vm docker create`. You should see something similar to the following, which indicates that your Docker Host VM is up and running in Azure and waiting for your commands. 
 
@@ -138,7 +139,7 @@ Just to be certain that it's all working, you can examine the VM for the Docker 
     info: vm extension get command OK
 
 ### Docker Host VM Authentication
-In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates, and the certificates are stored on both the client and host machines, as appropriate. On subsequent attempts, the existing certificates are reused and shared with the new host.
+In addition to creating the Docker VM, the `azure vm docker create` command also automatically creates the necessary certificates to allow your Docker client computer to connect to the Azure container host using HTTPS, and the certificates are stored on both the client and host machines, as appropriate. On subsequent attempts, the existing certificates are reused and shared with the new host.
 
 By default, certificates are placed in `~/.docker`, and Docker will be configured to run on port **2376**. If you would like to use a different port or directory, then you may use one of the following `azure vm docker create` command line options to configure your Docker container host VM to use a different port or different certificates for connecting clients:
 
@@ -159,21 +160,23 @@ The Docker daemon on the host is configured to listen for and authenticate clien
 * The Azure Docker VM extension also supports Docker Compose, which uses a declarative YAML file to take a developer-modeled application across any environment and generate a consistent deployment. See [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine].  
 
 <!--Anchors-->
-[Subheading 1]:#subheading-1
-[Subheading 2]:#subheading-2
-[Subheading 3]:#subheading-3
+<!-- Not Availble on [Subheading 1]:#subheading-1 -->
+<!-- Not Availble on [Subheading 2]:#subheading-2 -->
+<!-- Not Availble on [Subheading 3]:#subheading-3 -->
 [Next steps]:#next-steps
 
-[How to use the Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure
-[Virtual Machine Extensions for Linux and Windows]:#Virtual-Machine-Extensions-For-Linux-and-Windows
-[Container and Container Management Resources for Azure]:#Container-and-Container-Management-Resources-for-Azure
+<!-- Not Availble on [How to use the Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure -->
+<!-- Not Availble on [Virtual Machine Extensions for Linux and Windows]:#Virtual-Machine-Extensions-For-Linux-and-Windows -->
+<!-- Not Availble on [Container and Container Management Resources for Azure]:#Container-and-Container-Management-Resources-for-Azure -->
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
+<!-- Not Availble on [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md -->
 [How to use the Docker VM Extension with the Portal]:https://www.azure.cn/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker User Guide]:https://docs.docker.com/userguide/
 
 [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine]:../docker-compose-quickstart.md
+
+<!-- Update_Description: wording update, update link -->

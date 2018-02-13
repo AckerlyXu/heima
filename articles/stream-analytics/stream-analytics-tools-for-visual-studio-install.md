@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 09/19/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -57,4 +57,4 @@ Double-click the Visual Studio installer, and select **Modify**. Clear the **Azu
 ### Visual Studio 2013, 2015
 Go to Control Panel, and uninstall **Azure Data Lake and Stream Analytics tools for Visual Studio**.
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

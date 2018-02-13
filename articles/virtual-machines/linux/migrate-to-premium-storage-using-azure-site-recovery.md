@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 11/27/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -44,7 +44,7 @@ These Site Recovery components are relevant to this migration scenario:
   2. Optimizes the data with caching, compression, and encryption.
   3. Sends the data to a storage account. 
 
-  It also handles push installation of the mobility service to source VMs and performs automatic discovery of source VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment. Read about [best practices for process server deployment](https://azure.microsoft.com/blogbest-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) and [deploying additional process servers](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). You set up the process server only once, and you can use it for all migrations to the same region.
+  It also handles push installation of the mobility service to source VMs and performs automatic discovery of source VMs. The default process server is installed on the configuration server. You can deploy additional standalone process servers to scale your deployment. Read about [best practices for process server deployment](https://azure.microsoft.com/blog/best-practices-for-process-server-deployment-when-protecting-vmware-and-physical-workloads-with-azure-site-recovery/) and [deploying additional process servers](../../site-recovery/site-recovery-plan-capacity-vmware.md#deploy-additional-process-servers). You set up the process server only once, and you can use it for all migrations to the same region.
 
 * **Mobility service** is a component that is deployed on every standard VM that you want to replicate. It captures data writes on the standard VM and forwards them to the process server. Read about [replicated machine prerequisites](../../site-recovery/vmware-walkthrough-overview.md).
 
@@ -192,7 +192,7 @@ After the test failover is completed, run a failover to migrate your disks to Pr
 
 Be sure to select **Shut down VMs and synchronize the latest data**. This option specifies that Site Recovery should try to shut down the protected VMs and synchronize the data so that the latest version of the data will be failed over. If you don't select this option or the attempt doesn't succeed, the failover will be from the latest available recovery point for the VM. 
 
-Site Recovery will create a VM instance whose type is the same as or similar to a Premium Storage-capable VM. You can check the performance and price of various VM instances by going to [Windows Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/windows/) or [Linux Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/linux/).
+Site Recovery will create a VM instance whose type is the same as or similar to a Premium Storage-capable VM. You can check the performance and price of various VM instances by going to [Windows Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/) or [Linux Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/).
 
 ## Post-migration steps
 
@@ -200,23 +200,24 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
    * For a VM created through the classic deployment model: Add the VM to the availability set in the Azure portal. For detailed steps, go to [Add an existing virtual machine to an availability set](../linux/classic/configure-availability.md#addmachine).
    * For a VM created through the Resource Manager deployment model: Save your configuration of the VM and then delete and re-create the VMs in the availability set. To do so, use the script at [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Before you run this script, check its limitations and plan your downtime.
 
-2. **Delete old VMs and disks**. Make sure that the Premium disks are consistent with source disks and that the new VMs perform the same function as the source VMs. In the Resource Manager deployment model, delete the VM and delete the disks from your source storage accounts in the Azure portal. In the classic deployment model, you can delete the VM and disks in the Classic Management Portal or the Azure portal. If there's a problem in which the disk is not deleted even though you deleted the VM, see [Troubleshoot errors when you delete VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Delete old VMs and disks**. Make sure that the Premium disks are consistent with source disks and that the new VMs perform the same function as the source VMs. Delete the VM and delete the disks from your source storage accounts in the Azure portal. If there's a problem in which the disk is not deleted even though you deleted the VM, see [Troubleshoot errors when you delete VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Clean the Azure Site Recovery infrastructure**. If Site Recovery is no longer needed, you can clean its infrastructure. Delete replicated items, the configuration server, and the recovery policy, and then delete the Azure Site Recovery vault.
 
 ## Troubleshooting
 
 * [Monitor and troubleshoot protection for virtual machines and physical servers](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)
+* [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 
+<!-- Replace [Azure Site Recovery forum] with [MSDN Azure 和 CSDN Azure]-->
 
 ## Next steps
 
 For specific scenarios for migrating virtual machines, see the following resources:
 
-* [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Create and upload a Windows Server VHD to Azure](../windows/classic/createupload-vhd.md)
 * [Creating and uploading a virtual hard disk that contains the Linux operating system](../linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Migrating Virtual Machines from Amazon AWS to Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+<!--Not Available on * [Migrating Virtual Machines from Amazon AWS to Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)-->
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
@@ -237,5 +238,6 @@ Also, see the following resources to learn more about Azure Storage and Azure Vi
 [11]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-11.PNG
 [12]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-12.PNG
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
-[14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
+<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png -->
 [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
+<!--Update_Description: wording update, update meta properties -->

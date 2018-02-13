@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 01/08/2018
+ms.date: 02/08/2018
 ms.author: v-junlch
 
 ---
@@ -129,7 +129,7 @@ How to check for the VM Agent version on Windows VMs:
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage, or delays in a snapshot task execution can cause the backup job to fail. The following can cause snapshot task failure.
 
 1. Network access to Storage is blocked using NSG<br>
-    Learn more on how to [enable network access](backup-azure-arm-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
+    Learn more on how to [enable network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
 2. VMs with Sql Server backup configured can cause snapshot task delay <br>
    By default VM backup issues VSS Full backup on Windows VMs. On VMs that are running Sql Servers and if Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
 
@@ -159,7 +159,7 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    - Unblock the IPs using the New-NetRoute cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    - Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
-   - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-arm-vms-prepare.md#network-connectivity).
+   - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 > [!NOTE]

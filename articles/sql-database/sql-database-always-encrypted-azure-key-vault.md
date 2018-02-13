@@ -48,7 +48,7 @@ For this tutorial, you'll need:
 ## Enable your client application to access the SQL Database service
 You must enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the following code.
 
-1. Open the [Azure classic management portal](http://manage.windowsazure.cn).
+1. Open the [Azure portal](https://portal.azure.cn).
 2. Select **Active Directory** and click the Active Directory instance that your application will use.
 3. Click **Applications**, and then click **ADD**.
 4. Type a name for your application (for example: *myClientApp*), select **WEB APPLICATION**, and click the arrow to continue.

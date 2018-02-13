@@ -1,5 +1,5 @@
 ---
-title: Review the architecture for Hyper-V replication to a secondary site with Azure Site Recovery | Azure
+title: Hyper-V replication to secondary site architecture in Azure Site Recovery | Azure
 description: This article provides an overview of the architecture for replicating on-premises Hyper-V VMs to a secondary System Center VMM site with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2017
-ms.date: 11/20/2017
+origin.date: 12/19/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
-
 ---
+
 # Hyper-V replication to a secondary site
 
 This article describes the components and processes involved when replicating on-premises Hyper-V virtual machines (VMs) in System Center Virtual Machine Manager (VMM) clouds, to a secondary VMM site using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.
@@ -48,21 +48,16 @@ The following table and graphic provide a high-level view of the components used
 
 ## Failover and failback process
 
-1. You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
-2. You can run a planned or unplanned failover between on-premises sites. If you run a planned failover, then source VMs are shut down to ensure no data loss.
+- You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
+- You can run a planned or unplanned failover between on-premises sites. If you run a planned failover, then source VMs are shut down to ensure no data loss.
     - If you perform an unplanned failover to a secondary site, after the failover machines in the secondary location aren't protected.
     - If you ran a planned failover, after the failover, machines in the secondary location are protected.
-3. After the initial failover runs, you commit it, to start accessing the workload from the replica VM.
-
-When the primary location is available again, you can fail back.
-
-1. You initiate reverse replication, to start replicating from the secondary site to the primary. Reverse replication brings the virtual machines into a protected state, but the secondary datacenter is still the active location.
-2. To make the primary site into the active location again, you initiate a planned failover from secondary to primary, followed by another reverse replication.
+- After the initial failover runs, you commit it, to start accessing the workload from the replica VM.
+- When the primary location is available again, you can fail back.
+    - You initiate reverse replication, to start replicating from the secondary site to the primary. Reverse replication brings the virtual machines into a protected state, but the secondary datacenter is still the active location.
+    - To make the primary site into the active location again, you initiate a planned failover from secondary to primary, followed by another reverse replication.
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable Hyper-V replication between VMM clouds.
-Run a failover and failback.
-
-<!-- Update_Description: new articles on site recovery concepts hyper-v to secondary architecture -->
+Follow [this tutorial](tutorial-vmm-to-vmm.md) to enable Hyper-V replication between VMM clouds.
+<!-- Update_Description: update meta properties -->

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -24,10 +24,12 @@ Now available: Azure Cosmos DB [request unit calculator](https://www.documentdb.
 ![Throughput calculator][5]
 
 ## Introduction
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is Microsoft's globally distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by Microsoft top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), and [Table API](table-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) is 21Vianet's multiple-region distributed multi-model database. With Azure Cosmos DB, you don't have to rent virtual machines, deploy software, or monitor databases. Azure Cosmos DB is operated and continuously monitored by our top engineers to deliver world class availability, performance, and data protection. You can access your data using APIs of your choice, such as the [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), and [Table API](table-introduction.md) - are all natively supported. The currency of Azure Cosmos DB is the Request Unit (RU). With RUs, you do not need to reserve read/write capacities or provision CPU, memory, and IOPS.
 <!-- Not Available on Graph -->
+<!-- Notice: 全球 to 多个区域 -->
 
 Azure Cosmos DB supports a number of APIs with different operations ranging from simple reads and writes to complex graph queries. Since not all requests are equal, they are assigned a normalized quantity of **request units** based on the amount of computation required to serve the request. The number of request units for an operation is deterministic, and you can track the number of request units consumed by any operation in Azure Cosmos DB via a response header. 
+<!-- Notice: 全球 to 多个区域 -->
 
 To provide predictable performance, you need to reserve throughput in units of 100 RU/second. 
 
@@ -51,7 +53,7 @@ With Azure Cosmos DB, reserved throughput is specified in terms of request units
 When starting a new collection or table, you specify the number of request units per second (RU per second) you want reserved. Based on the provisioned throughput, Azure Cosmos DB allocates physical partitions to host your collection and splits/rebalances data across partitions as it grows.
 <!-- Not Available on Graph -->
 
-Azure Cosmos DB requires a partition key to be specified when a collection is provisioned with 2,500 request units or higher. A partition key is also required to scale your collection's throughput beyond 2,500 request units in the future. Therefore, it is highly recommended to configure a [partition key](partition-data.md) when creating a container regardless of your initial throughput. Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your collection/table and requests can be scaled uniformly by Azure Cosmos DB. 
+Azure Cosmos DB containers can be created as fixed or unlimited. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your collection/table and requests can be scaled uniformly by Azure Cosmos DB. 
 <!-- Not Available on Graph -->
 
 > [!NOTE]
@@ -208,7 +210,7 @@ For example:
 5. Record the request unit charge of any custom scripts (stored procedures, triggers, user-defined functions) leveraged by the application
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
-### <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
+## <a id="GetLastRequestStatistics"></a>Use API for MongoDB's GetLastRequestStatistics command
 API for MongoDB supports a custom command, *getLastRequestStatistics*, for retrieving the request charge for specified operations.
 
 For example, in the Mongo Shell, execute the operation you want to verify the request charge for.

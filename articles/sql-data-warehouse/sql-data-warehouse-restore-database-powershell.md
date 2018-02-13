@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 10/31/2016
-ms.date: 10/02/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
 # Restore an Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
@@ -30,7 +31,8 @@ ms.author: v-yeche
 In this article you will learn how to restore an Azure SQL Data Warehouse using PowerShell.
 
 ## Before you begin
-**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.chinacloudapi.cn) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
+**Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.chinacloudapi.cn) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. 
+<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 
 ### Install PowerShell
 In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.  The latest version can be installed from  [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
@@ -174,4 +176,4 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Azure Portal]: https://portal.azure.cn/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -101,6 +101,6 @@ Read the following to also learn about planning cluster capacity, upgrading a cl
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
-[ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
+<!-- Not Exist File [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png -->
 
 <!--Update_Description: new articles on service fabric cluster manually scale -->

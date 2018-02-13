@@ -16,10 +16,11 @@
 <!-- Not Available ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md) -->
 <!-- Not Available ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)-->
 ### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
+<!-- Not Available ### [Azure Functions with Azure Stream Analytics](stream-analytics-with-azure-functions.md) -->
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
-### [Sample input data](stream-analytics-sample-data-input.md)
+### [Test queries and sample input data](stream-analytics-sample-data-input.md)
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ### [Window functions](stream-analytics-window-functions.md)
 
@@ -46,17 +47,18 @@
 ### [Leverage query parallelization](stream-analytics-parallelization.md)
 ### [Scale to increase throughput](stream-analytics-scale-jobs.md)
 <!-- Not Available ### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md) -->
-<!-- ms.date: 12/11/2017 -->
+
 ## Manage
 ### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
 <!-- Not Available ### [Job reliability during updates](stream-analytics-job-reliability.md) -->
+<!-- Not Available ### [Configure compatibility level](stream-analytics-compatibility-level.md) -->
 
 ## Troubleshoot
 ### [Troubleshooting guide](stream-analytics-troubleshooting-guide.md)
 <!-- Not Available ### [Resource health blade](stream-analytics-resource-health.md) -->
 ### [Job diagram and metrics](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO debugging](stream-analytics-select-into.md)
-### [Event order handling](stream-analytics-out-of-order-and-late-events.md)
+### [Event ordering considerations](stream-analytics-out-of-order-and-late-events.md)
 ### [Event hub reader limits](stream-analytics-event-hub-consumer-groups.md)
 <!-- Not Available ### [Diagnostics logs](stream-analytics-job-diagnostic-logs.md) -->
 
@@ -72,7 +74,6 @@
 
 # Resources
 <!-- Not Available ## [Azure Roadmap](https://azure.microsoft.com/roadmap/) -->
-<!-- Not Available ## [Blog](http://blogs.msdn.com/b/streamanalytics/) -->
 <!-- Not Available ## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics) -->
 <!-- Not Available ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) -->
 ## [Pricing](https://www.azure.cn/pricing/details/stream-analytics/)
@@ -82,4 +83,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)-->
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics) -->
 
-<!--Update_Description: update link-->
+<!--ms.date: 01/22/2018 -->

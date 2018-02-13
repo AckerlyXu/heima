@@ -53,8 +53,10 @@ This article only addresses the different roles that exist today. When you assig
 | [Data Factory Contributor](#data-factory-contributor) |Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) |Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DNS Zone Contributor](#dns-zone-contributor) |Can manage DNS zones and records |
-| [Azure Cosmos DB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
+| [DocumentDB Account Contributor](#documentdb-account-contributor) |Can manage Azure Cosmos DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) |Can manage Intelligent Systems accounts |
+| Logic App Contributor | Can manage all aspects of a Logic App, but not create a new one. |
+| Logic App Operator |Can start and stop workflows defined within a Logic App. |
 | [Monitoring Reader](#monitoring-reader) |Can read all monitoring data |
 | [Monitoring Contributor](#monitoring-contributor) |Can read monitoring data and edit monitoring settings |
 | [Network Contributor](#network-contributor) |Can manage all network resources |
@@ -699,7 +701,7 @@ Can manage SQL servers and databases but not their security-related policies
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Read authorization |
+| Microsoft.Authorization/*/read |Read roles and role assignments |
 | Microsoft.Insights/alertRules/* |Create and manage Insights alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Read health of the resources |
 | Microsoft.Resources/deployments/* |Create and manage resource group deployments |

@@ -37,7 +37,7 @@ In this tutorial series you learn how to:
 > * Build a .NET Service Fabric application
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
+<!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md) -->
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -454,8 +454,8 @@ Service Fabric provides complete flexibility in how you communicate with reliabl
 
 In this tutorial, we are using [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md).
 
-<a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
-
+<a name="updatevotecontroller"></a>
+<a name="updatevotecontroller_anchor"></a>
 ### Update the VotesController.cs file
 In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes.
 
@@ -525,8 +525,8 @@ In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  R
         }
     }
 ```
-<a id="walkthrough" name="walkthrough_anchor"></a>
-
+<a name="walkthrough"></a>
+<a name="walkthrough_anchor"></a>
 ## Walk through the voting sample application
 The voting application consists of two services:
 - Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.

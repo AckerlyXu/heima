@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/13/2016
-ms.date: 10/30/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 
 ---
@@ -87,6 +87,7 @@ This feature is currently in preview, we are working to add new capabilities ove
 * Kudu Extension are not cloned
 * TiP rules are not cloned
 * Database content are not cloned
+* Outbound IP Addresses will change if cloning to a different scale unit
 
 ### References
 * [Web App Cloning](app-service-web-app-cloning.md)

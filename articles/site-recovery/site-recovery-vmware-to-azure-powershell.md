@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 14/12/2017
-ms.date: 01/01/2018
+origin.date: 01/02/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -476,5 +476,4 @@ Once failed over successfully, you can commit the failover operation and setup r
 
 ## Next steps
 View the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.
-<!-- Update_Description: new articles on site recovery vmware to azure powershell -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta properties -->

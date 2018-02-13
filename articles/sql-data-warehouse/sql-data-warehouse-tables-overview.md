@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-origin.date: 06/29/2016
-ms.date: 07/24/2017
+origin.date: 12/14/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
-
 # Overview of tables in SQL Data Warehouse
-
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Data Types][Data Types]
@@ -61,6 +59,7 @@ Temporary tables are tables which only exist for the duration of your logon and 
 
 ## External tables
 External tables, also known as Polybase tables, are tables which can be queried from SQL Data Warehouse, but point to data external from SQL Data Warehouse.  For example, you can create an external table which points to files on Azure Blob Storage.  For more details on how to create and query an external table, see [Load data with Polybase][Load data with Polybase].  
+<!-- Not Available on Azure Data Lake Store -->
 
 ## Unsupported table features
 While SQL Data Warehouse contains many of the same table features offered by other databases, there are some features which are not yet supported.  Below is a list of some of the table features which are not yet supported.

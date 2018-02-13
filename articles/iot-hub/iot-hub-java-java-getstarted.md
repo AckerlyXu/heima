@@ -16,7 +16,7 @@ ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 11/20/2017
+ms.date: 01/15/2018
 ---
 # Connect your device to your IoT hub using Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -202,7 +202,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
                   Iterable<EventData> receivedEvents = receiver.receive(100).get();
                   int batchSize = 0;
                   if (receivedEvents != null) {
-                    System.out.println("Got some evenst");
+                    System.out.println("Got some events");
                     for (EventData receivedEvent : receivedEvents) {
                       System.out.println(String.format("Offset: %s, SeqNo: %s, EnqueueTime: %s",
                         receivedEvent.getSystemProperties().getOffset(),
@@ -233,6 +233,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
    > This method uses a filter when it creates the receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This technique is useful in a test environment so you can see the current set of messages. In a production environment, your code should make sure that it processes all the messages - for more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
    > 
    > 
+   
 9. Modify the signature of the **main** method to include the exception as follows:
 
     ```java
@@ -259,6 +260,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     > This code assumes you created your IoT hub in the F1 (free) tier. A free IoT hub has two partitions named "0" and "1".
     > 
     > 
+    
 11. Save and close the App.java file.
 12. To build the **read-d2c-messages** app using Maven, execute the following command at the command prompt in the read-d2c-messages folder:
 

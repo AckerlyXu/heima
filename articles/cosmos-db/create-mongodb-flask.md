@@ -21,8 +21,10 @@ ms.author: v-yeche
 ---
 # Azure Cosmos DB: Build a Flask app with the MongoDB API
 
-Azure Cosmos DB is Azure's globally distributed multi-model database service. You can quickly create and query document, key/value, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
-<!--Not Available on Graph databases -->
+Azure Cosmos DB is Azure's multiple-region distributed multi-model database service. You can quickly create and query document, key/value, all of which benefit from the multiple region distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
+<!-- NOTICE: 全球分布 TO 多区域分布 -->
+<!-- NOTICE: globally TO multiple-region  -->
+
 
 This quick start guide, uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](/local-emulator.md) instead of MongoDB.
 
@@ -36,7 +38,8 @@ This quick start guide, uses the following [Flask example](https://github.com/Az
     1. Select an extension.
     2. Install the extension by typing `ext install` into the Command Palette `Ctrl+Shift+P`.
 
-    The examples in this document use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
+    The examples in this document use Don Jayamanne's popular and full featured Python Extension.
+<!-- Not Available on [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) -->
 
 ## Clone the sample application
 
@@ -125,8 +128,8 @@ When deploying to Azure, you should remove your application keys and make sure t
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](/app-service-web/web-sites-configure#application-settings) to learn more about Application Settings in Azure Web Apps.
-
+You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](/app-service/web-sites-configure#application-settings) to learn more about Application Settings in Azure Web Apps.
+<!-- Redirect /app-service-web/web-sites-configure TO /app-service/web-sites-configure -->
 <!-- Not Available on <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank"> -->
 
 > [!NOTE]

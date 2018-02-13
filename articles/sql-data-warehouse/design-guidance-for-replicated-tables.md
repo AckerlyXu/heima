@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 origin.date: 10/23/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,7 @@ A replicated table has a full copy of the table accessible on each Compute node.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
 
-![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
+![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png)  
 
 Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
 
@@ -199,4 +199,4 @@ To create a replicated table, use one of these statements:
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

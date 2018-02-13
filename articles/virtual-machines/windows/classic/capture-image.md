@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -40,7 +40,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 >
 >
 
-Prior to capturing an image of an Azure virtual machine, it is recommended the target virtual machine be backed up. Azure virtual machines can be backed up using Azure Backup. For details, see [Back up Azure virtual machines](../../../backup/backup-azure-vms.md). Other solutions are available from certified partners. To find out what's currently available, search the Azure Marketplace.
+Prior to capturing an image of an Azure virtual machine, it is recommended the target virtual machine be backed up. Azure virtual machines can be backed up using Azure Backup. For details, see [Back up Azure virtual machines](../../../backup/backup-azure-arm-vms.md). Other solutions are available from certified partners. To find out what's currently available, search the Azure Marketplace.
 
 ## Capture the virtual machine
 1. In the [Azure portal](http://portal.azure.cn), **Connect** to the virtual machine. For instructions, see [How to sign in to a virtual machine running Windows Server][How to sign in to a virtual machine running Windows Server].
@@ -75,7 +75,7 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
-[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+<!-- Not Available on [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png -->
 [Enter Sysprep.exe options]: ./media/capture-image/SysprepGeneral.png
 [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
 [Capture an image of the virtual machine]: ./media/capture-image/CaptureVM.png
@@ -83,4 +83,4 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!-- Update_Description: update meta properties, add classic portal migration notice. -->
+<!-- Update_Description: update meta properties, update link -->

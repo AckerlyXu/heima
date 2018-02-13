@@ -35,8 +35,8 @@ Here are some of the features of Premium Storage:
 
 * **Premium storage disks**
 
-    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, GS-series, Ls-series, and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
-
+    Premium Storage supports VM disks that can be attached to specific size-series VMs. Premium Storage supports DS-series, DSv2-series, and Fs-series VMs. You have a choice of seven disk sizes:  P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 and P6 disk sizes are yet only supported for Managed Disks. Each disk size has its own performance specifications. Depending on your application requirements, you can attach one or more disks to your VM. We describe the specifications in more detail in [Premium Storage scalability and performance targets](#scalability-and-performance-targets).
+<!-- Not Available on GS Series LS Series-->
 * **Premium page blobs**
 
     Premium Storage supports page blobs. Use page blobs to store persistent, unmanaged disks for VMs in Premium Storage. Unlike standard Azure Storage, Premium Storage does not support block blobs, append blobs, files, tables, or queues. Premium page blobs supports six sizes from P10 to P50, and P60 (8191GiB). P60 Premium page blob is not supported to be attached as VM disks. 
@@ -49,7 +49,8 @@ Here are some of the features of Premium Storage:
     * [Storage REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (version 2014-02-14 or a later version)
     * [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (version 2014-10-01 or a later version; for Azure classic deployments)
     * [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments)
-    * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs.md) (version 0.8.10 or a later version)
+    * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) (version 0.8.10 or a later version)
+<!-- URL is not contains the .md postfix in https://docs.microsoft.com/powershell/azureps-cmdlets-docs-->
 
     To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
@@ -57,10 +58,14 @@ Here are some of the features of Premium Storage:
 
     A premium storage account supports only locally redundant storage as the replication option. Locally redundant storage keeps three copies of the data within a single region. For regional disaster recovery, you must back up your VM disks in a different region by using [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md). You also must use a geo-redundant storage (GRS) account as the backup vault. 
 
-    Azure uses your storage account as a container for your unmanaged disks. When you create an Azure DS-series, DSv2-series, GS-series, or Fs-series VM with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
-
+    Azure uses your storage account as a container for your unmanaged disks. When you create an Azure DS-series, DSv2-series, or Fs-series VM with unmanaged disks, and you select a premium storage account, your operating system and data disks are stored in that storage account.
+<!-- Not Available on GS Series -->
+<a name="premium-storage-supported-vms"></a>
 ## Supported VMs
-Premium Storage supports DS-series, DSv2-series, GS-series, Ls-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+Premium Storage supports DS-series, DSv2-series, Fs-series and B-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!-- Not Available on GS Series LS Series -->
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).
 
@@ -89,7 +94,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, Ls-seri
 
 * **Analytics**
 
-    To analyze VM performance by using disks in Premium Storage, turn on VM diagnostics in the [Azure portal](https://portal.azure.cn). For more information, see [Azure VM monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
+    To analyze VM performance by using disks in Premium Storage, turn on VM diagnostics in the [Azure portal](https://portal.azure.cn). For more information, see [Azure VM monitoring with Azure Diagnostics Extension](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/). 
 
     To see disk performance, use operating system-based tools like [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) for Windows VMs and the [iostat](http://linux.die.net/man/1/iostat) command for Linux VMs.
 
@@ -99,7 +104,8 @@ These are some of the features of the DS-series, DSv2-series, GS-series, Ls-seri
 
     For example, a STANDARD_DS1 VM has a dedicated bandwidth of 32 MB/s for premium storage disk traffic. A P10 premium storage disk can provide a bandwidth of 100 MB/s. If a P10 premium storage disk is attached to this VM, it can only go up to 32 MB/s. It cannot use the maximum 100 MB/s that the P10 disk can provide.
 
-    Currently, the largest VM in the DS-series is the Standard_DS15_v2. The Standard_DS15_v2 can provide up to 960 MB/s across all disks. The largest VM in the GS-series is the Standard_GS5. The Standard_GS5 can provide up to 2,000 MB/s across all disks.
+    Currently, the largest VM in the DS-series is the Standard_DS15_v2. The Standard_DS15_v2 can provide up to 960 MB/s across all disks.
+    <!-- Not Available on  The largest VM in the GS-series is the Standard_GS5. The Standard_GS5 can provide up to 2,000 MB/s across all disks.-->
 
     Note that these limits are for disk traffic only. These limits don't include cache hits and network traffic. A separate bandwidth is available for VM network traffic. Bandwidth for network traffic is different from the dedicated bandwidth used by premium storage disks.
 
@@ -107,6 +113,7 @@ These are some of the features of the DS-series, DSv2-series, GS-series, Ls-seri
 
     For more information about premium storage disks and their IOPS and throughput limits, see the table in the next section.
 
+<a name="premium-storage-scalability-and-performance-targets"></a>
 ## Scalability and performance targets
 In this section, we describe the scalability and performance targets to consider when you use Premium Storage.
 
@@ -244,10 +251,10 @@ The following Linux distributions have been validated for Azure Premium Storage.
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
 | CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 required](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
 | CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommended](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+<!-- Not Available on | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; | -->
+<!-- Not Available on | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK | -->
+<!-- Not Available on | Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) | -->
+<!-- Not Available on | Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) | -->
 
 ### LIS drivers for OpenLogic CentOS
 
@@ -284,7 +291,7 @@ For detailed information about pricing for Premium Storage, Premium Storage-supp
 
 * [Azure Storage pricing](https://www.azure.cn/pricing/details/storage/)
 * [Virtual Machines pricing](https://www.azure.cn/pricing/details/virtual-machines/)
-* [Managed disks pricing](https://www.azure.cn/pricing/details/managed-disks/)
+<!-- Not Available on * [Managed disks pricing](https://www.azure.cn/pricing/details/managed-disks/) -->
 
 ## Azure Backup support 
 
@@ -303,5 +310,9 @@ For more information about Premium Storage, see the following articles.
 * [Migrate to Azure Premium Storage](../articles/storage/common/storage-migration-to-premium-storage.md)
 
 ### Blog posts
-* [Azure Premium Storage generally available](https://azure.microsoft.com/blogazure-premium-storage-now-generally-available-2/)
-* [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/)
+* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+<!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/) -->
+
+<!--Update_Description: wording update-->
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!--ms.date: 02/05/2018-->

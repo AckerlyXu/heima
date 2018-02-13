@@ -25,11 +25,11 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 ## How to prepare
 It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
-* [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications.md)
-* [Azure resiliency technical guidance](https://docs.microsoft.com/azure/architecture/resiliency.md)
+* [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-high-availability-azure-applications)
+* [Azure resiliency technical guidance](https://docs.microsoft.com/azure/architecture/resiliency)
 * [Azure Site Recovery service](https://www.azure.cn/home/features/site-recovery/)
 * [Azure Storage replication](storage-redundancy.md)
-* [Azure Backup service](https://www.azure.cn/home/features/backup/)
+* [Azure Backup service](https://www.azure.cn/home/features/back-up/)
 
 ## How to detect 
 
@@ -67,7 +67,7 @@ A couple of points regarding the storage geo-failover experience:
 
 There are some recommended approaches to back up your storage data on a regular basis.
 
-* VM Disks - Use the [Azure Backup service](https://www.azure.cn/home/features/backup/) to back up the VM disks used by your Azure virtual machines.
+* VM Disks - Use the [Azure Backup service](https://www.azure.cn/home/features/back-up/) to back up the VM disks used by your Azure virtual machines.
 * Block blobs -Create a [snapshot](https://msdn.microsoft.com/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 * Tables - use [AzCopy](storage-use-azcopy.md) to export the table data into another storage account in another region.
 * Files - use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in another region.

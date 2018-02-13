@@ -1,5 +1,5 @@
 ---
-title: Azure API Management advanced policies | Azure
+title: Azure API Management advanced policies
 description: Learn about the advanced policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -7,15 +7,14 @@ author: vladvino
 manager: erikre
 editor: ''
 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # API Management advanced policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -252,7 +251,7 @@ This topic provides a reference for the following API Management policies. For i
   
 |Attribute|Description|Required|Default|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|The timeout interval in seconds before the call to the backend service fails.|No|No timeout|  
+|timeout="integer"|The timeout interval in seconds before the call to the backend service fails.|No|300 seconds|  
 |follow-redirects="true &#124; false"|Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.|No|false|  
   
 ### Usage  
@@ -263,26 +262,26 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes  
   
 ##  <a name="LimitConcurrency"></a> Limit concurrency  
- The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding the threshold, new requests are added to a queue, until the maximum queue length is achieved. Upon queue exhaustion, new requests will fail immediately.
+ The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
   
 ###  <a name="LimitConcurrencyStatement"></a> Policy statement  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### Examples  
   
-####  <a name="ChooseExample"></a> Example  
+#### Example  
  The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -302,10 +301,8 @@ This topic provides a reference for the following API Management policies. For i
 |---------------|-----------------|--------------|--------------|  
 |key|A string. Expression allowed. Specifies the concurrency scope. Can be shared by multiple policies.|Yes|N/A|  
 |max-count|An integer. Specifies a maximum number of requests that are allowed to enter the policy.|Yes|N/A|  
-|timeout|An integer. Expression allowed. Specifies the number of seconds a request should wait to enter a scope before failing with "429 Too Many Requests"|No|Infinity|  
-|max-queue-length|An integer. Expression allowed. Specifies the maximum queue length. Incoming requests trying to enter this policy will be terminated with “429 Too Many Requests” immediately when the queue is exhausted.|No|Infinity|  
   
-###  <a name="ChooseUsage"></a> Usage  
+### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend, on-error  
@@ -425,7 +422,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### Example  
- In the following example request forewarding is retried up to ten times using exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to the exponsntial retry algorithm.  
+ In the following example, request forwarding is retried up to ten times using an exponential retry algorithm. Since `first-fast-retry` is set to false, all retry attempts are subject to the exponential retry algorithm.  
   
 ```xml  
   
@@ -1009,5 +1006,7 @@ Note the use of [properties](./api-management-howto-properties.md) as values of 
   
 ## Next steps
 For more information working with policies, see:
--	[Policies in API Management](./api-management-howto-policies.md) 
--	[Policy expressions](./api-management-policy-expressions.md)
++ [Policies in API Management](api-management-howto-policies.md) 
++ [Policy expressions](api-management-policy-expressions.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	

@@ -24,7 +24,8 @@ Your Azure Service Fabric application has been created. This article describes s
 ## Get started with tutorials, walk-throughs, and samples
 Ready to get started?  
 
-Work through the .NET application tutorial. Learn how to [build an app](service-fabric-tutorial-create-dotnet-app.md) with an ASP.NET Core front-end and a stateful back-end, [deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md) to a cluster, [configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), and [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md).
+Work through the .NET application tutorial. Learn how to [build an app](service-fabric-tutorial-create-dotnet-app.md) with an ASP.NET Core front-end and a stateful back-end, [deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md) to a cluster, and [configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+<!-- Not Available on [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md) -->
 
 Or, try out one of the following walk-throughs and create your first...
 - [C# Reliable Services service on Windows](service-fabric-reliable-services-quick-start.md) 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 09/11/2017
+ms.date: 01/15/2018
 ms.author: v-yiso
 ---
 
@@ -442,9 +442,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-To learn more about how to capture a Linux Virtual Machine, see [How to Capture a Linux Virtual Machine.](../virtual-machines/virtual-machines-linux-classic-capture-image.md)
+To learn more about how to capture a Linux Virtual Machine, see [How to Capture a Linux Virtual Machine.](../virtual-machines/linux/classic/capture-image.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-To learn more about how to capture a Windows Virtual Machine, see [How to Capture a Windows Virtual Machine.](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
+To learn more about how to capture a Windows Virtual Machine, see [How to Capture a Windows Virtual Machine.](../virtual-machines/windows/classic/capture-image.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="What's Next"> </a>Next Steps
 
@@ -470,7 +470,7 @@ For more information, see the [Python Developer Center](https://www.azure.cn/dev
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.cn/
+[management-portal]: https://portal.azure.cn/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/zh-cn/library/windowsazure/ee460799.aspx
 
 [cloud service]: /cloud-services/

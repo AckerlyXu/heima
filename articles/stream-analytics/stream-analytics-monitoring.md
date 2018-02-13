@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 03/28/2017
-ms.date: 10/02/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -38,7 +38,7 @@ The window will appear as shown:
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
-| Runtime Errors         | The total number of errors that happen during execution of a Stream Analytics job. |
+| Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputing results) |
 | Late Input Events      | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
 | Function Requests      | Number of calls to the Azure Machine Learning function (if present). |
 | Failed Function Requests | Number of failed Azure Machine Learning function calls (if present). |
@@ -55,7 +55,7 @@ Another interesting data point to monitor your job is the time of the last outpu
 This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://www.azure.cn/support/forums/)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
@@ -64,4 +64,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

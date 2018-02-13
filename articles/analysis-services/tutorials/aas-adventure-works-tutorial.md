@@ -47,7 +47,8 @@ If you're new to Analysis Services and tabular modeling, completing this tutoria
 ## Prerequisites  
 To complete this tutorial, you need:  
 
--   An Azure Analysis Services or SQL Server 2017 Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://www.azure.cn/home/features/analysis-services/) and [create a server](../analysis-services-create-server.md). Or, sign up and download [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   An Azure Analysis Services or SQL Server 2017 Analysis Services instance to deploy your model to. Sign up for a free [Azure Analysis Services trial](https://www.azure.cn/home/features/analysis-services/) and [create a server](../analysis-services-create-server.md). 
+<!-- Not Available on [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp) -->
 
 -   A SQL Server Data Warehouse or Azure SQL Data Warehouse with the [AdventureWorksDW2014 sample database](http://go.microsoft.com/fwlink/?LinkID=335807). This sample database includes the data necessary to complete this tutorial. Download [SQL Server free editions](https://www.microsoft.com/sql-server/sql-server-downloads). Or, sign up for a free [Azure SQL Database trial](https://www.azure.cn/home/features/sql-database/). 
 

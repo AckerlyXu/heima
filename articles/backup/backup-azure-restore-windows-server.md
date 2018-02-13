@@ -13,8 +13,8 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2017
-ms.date: 01/05/2018
+origin.date: 01/04/2018
+ms.date: 02/07/2018
 ms.author: v-junlch
 
 ---
@@ -31,7 +31,7 @@ In January 2017, Microsoft released a Preview update to the MARS agent. Along wi
 > The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) for the latest list of locales that support Instant Restore. Instant Restore is **not** currently available in all locales.
 >
 
-Instant Restore is available for use in Recovery Services vaults in the Azure portal. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
+Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they have been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2016
-ms.date: 12/04/2017
+origin.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 
 ---
 # How to: Monitor Apps in Azure App Service
 [App Service](app-service-web-overview.md) provides
 built in monitoring functionality in the [Azure Portal](https://portal.azure.cn).
-This includes the ability to review **quotas** and **metrics** for an app as
+The Azure portal includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
 
@@ -32,6 +32,8 @@ automatically based on these metrics.
 Applications hosted in App Service are subject to certain *limits* on the
 resources they can use. The limits are defined by the **App Service plan**
 associated with the app.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 If the application is hosted in a **Free** or **Shared** plan, then the limits
 on the resources the app can use are defined by **Quotas**.
@@ -44,23 +46,27 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 
 * **CPU(Short)**
   * Amount of CPU allowed for this application in a 5-minute interval. This
-    quota re-sets every 5 minutes.
+    quota resets every five minutes.
 * **CPU(Day)**
   * Total amount of CPU allowed for this application in a day. This quota
-    re-sets every 24 hours at midnight UTC.
+    resets every 24 hours at midnight UTC.
 * **Memory**
   * Total amount of memory allowed for this application.
 * **Bandwidth**
   * Total amount of outgoing bandwidth allowed for this application in a day.
-    This quota re-sets every 24 hours at midnight UTC.
+    This quota resets every 24 hours at midnight UTC.
 * **Filesystem**
   * Total amount of storage allowed.
 
-The only quota applicable to apps hosted on **Basic**, **Standard** and
+The only quota applicable to apps hosted on **Basic**, **Standard**, and
 **Premium** plans is **Filesystem**.
 
+More information about the specific quotas, limits, and features available to
+the different App Service SKUs can be found here:
+[Azure Subscription Service Limits](../azure-subscription-service-limits.md#app-service-limits)
+
 #### Quota Enforcement
-If an application in its usage exceeds the **CPU (short)**, **CPU (Day)**, or
+If an application exceeds the **CPU (short)**, **CPU (Day)**, or
 **bandwidth** quota then the application is stopped until the quota
 resets. During this time, all incoming requests result in an **HTTP 403**.
 ![][http403]
@@ -143,17 +149,17 @@ There are two metrics that reflect CPU usage. **CPU time** and **CPU percentage*
 one of their quotas is defined in CPU minutes used by the app.
 
 **CPU percentage** is useful for apps hosted in
-**basic**, **standard** and **premium** plans since they can be
-scaled out and this metric is a good indication of the overall usage across
+**basic**, **standard**, and **premium** plans since they can be
+scaled out. CPU percentage is a good indication of the overall usage across
 all instances.
 
 ## Metrics Granularity and Retention Policy
 Metrics for an application and app service plan are logged and aggregated by
 the service with the following granularities and retention policies:
 
-* **Minute** granularity metrics are retained for **48 hours**
+* **Minute** granularity metrics are retained for **30 hours**
 * **Hour** granularity metrics are retained for **30 days**
-* **Day** granularity metrics are retained for **90 days**
+* **Day** granularity metrics are retained for **30 days**
 
 ## Monitoring Quotas and Metrics in the Azure Portal.
 You can review the status of the different **quotas** and **metrics**
@@ -177,17 +183,15 @@ Metrics for an App or App Service plan can be hooked up to alerts. To learn
 more about it, see [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 App Service apps hosted in basic, standard, or premium App Service plans
-support **autoscale**. This allows you to configure rules that monitor the
-App Service plan metrics and can increase or decrease the instance count
-providing additional resources as needed, or saving money when the application
-is over-provision. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md).
+support **autoscale**. Autoscale allows you to configure rules that monitor the
+App Service plan metrics. Rules can increase or decrease the instance count
+providing additional resources as needed. Rules can also help you save money when the application
+is over-provisioned. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
-
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/app-service-web/app-service-changes-existing-services)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:/cloud-services/cloud-services-sizes-specs
+
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

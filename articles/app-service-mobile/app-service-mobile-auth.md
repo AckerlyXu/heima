@@ -1,10 +1,10 @@
 ---
-title: Authentication and Authorization in Azure Mobile Apps | Microsoft Docs
+title: Authentication and Authorization in Azure Mobile Apps 
 description: Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ''
 author: mattchenderson
-manager: syntaxc4
+manager: cfowler
 editor: ''
 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -56,6 +56,8 @@ Once everything is configured on the backend, you can modify your client to log 
 
 >[!TIP]
 > Most applications should use a provider SDK to get a more native-feeling login experience and to leverage refresh support and other provider-specific benefits.
+> 
+> 
 
 ### How authentication without a provider SDK works
 
@@ -73,7 +75,7 @@ Once a provider token is obtained, it needs to be sent to App Service for valida
 
 App Service Authentication / Authorization exposes several choices for **Action to take when request is not authenticated**. Before your code receives a given request, you can have App Service check to see if the request is authenticated and if not, reject it and attempt to have the user log in before trying again.
 
-One option is to have unauthenticated requests redirect to one of the identity providers. In a web browser, this would actually take the user to a new page. However, your mobile client cannot be redirected in this way, and unauthenticated responses will receive an HTTP _401 Unauthorized_ response. Given this, the first request your client makes should always be to the login endpoint, and then you can make calls to any other APIs. If you attempt to call another API before logging in, your client will receive an error.
+One option is to have unauthenticated requests redirect to one of the identity providers. In a web browser, this would actually take the user to a new page. However, your mobile client cannot be redirected in this way, and unauthenticated responses will receive an HTTP *401 Unauthorized* response. Given this, the first request your client makes should always be to the login endpoint, and then you can make calls to any other APIs. If you attempt to call another API before logging in, your client will receive an error.
 
 If you wish to have more granular control over which endpoints require authentication, you can also pick "No action (allow request)" for unauthenticated requests. In this case, all authentication decisions are deferred to your application code. This also allows you to allow access to specific users based on custom authorization rules.
 

@@ -1,17 +1,19 @@
 ---
 title: Enable offline sync for your Azure Mobile App (Android)
 description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application
-documentationCenter: android
-authors: yuaxu
-manager: erikre
+documentationcenter: android
+author: conceptdev
+manager: crdun
 services: app-service\mobile
 
+ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+origin.date: 10/01/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
 ---
 
@@ -31,7 +33,7 @@ To learn more about the offline sync feature, see the topic [Offline Data Sync i
 
 With offline sync you read to and write from a *sync table* (using the *IMobileServiceSyncTable* interface), which is part of a **SQLite** database on your device.
 
-To push and pull changes between the device and Azure Mobile Services, you use a *synchronization context* (*MobileServiceClient.SyncContext*), which you initialize with the local database that you use to store data locally.
+To push and pull changes between the device and Azure Mobile Services, you use a *synchronization context* (*MobileServiceClient.SyncContext*), which you initialize with the local database to store data locally.
 
 1. In `TodoActivity.java`, comment out the existing definition of `mToDoTable` and uncomment the sync table version:
 
@@ -100,7 +102,7 @@ When you press that button, a new background task starts. It first pushes all ch
 
 2. Add some *ToDo* items, or mark some items as complete. Quit the device or simulator (or forcibly close the app) and restart. Verify that your changes have been persisted on the device because they are held in the local SQLite store.
 
-3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have _not_ been synced to the server
+3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have *not* been synced to the server
 
        + For a Node.js backend, go to the [Azure portal](https://portal.azure.cn/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
        + For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.

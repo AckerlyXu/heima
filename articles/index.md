@@ -100,7 +100,7 @@ featureFlags:
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Manage Resources</h3>
+                                                <h3>Secure and manage resources</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/backup/">Azure Backup</a></li>
@@ -120,7 +120,7 @@ featureFlags:
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
 													<li>
-														<a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
+														<a class="barLink" href="/dotnet/">
 															<img src="media/index/logo_NET.svg" alt="">
 															.NET</a>
 													</li>
@@ -164,6 +164,7 @@ featureFlags:
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/sql-database/">SQL database as a service</a></li>
+                                                    <li><a class="barLink" href="/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL database as a service</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
@@ -192,7 +193,7 @@ featureFlags:
                                                 <h3>Command-line tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">
+                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
                                                             Azure CLI
                                                         </a>
@@ -391,6 +392,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/dns/">
+                                                <img src="media/index/DNS.svg" alt="" />
+                                                <p>Azure DNS</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
                                                 <p>Content Delivery Network</p>
@@ -419,19 +426,19 @@ featureFlags:
                                     <ul>
                                         <li>
                                             <a href="/cognitive-services/computer-vision/">
-                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
+                                                <img src="media/index/API_Computer_Vision.svg" alt="" />
                                                 <p>Computer Vision</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/cognitive-services/emotion/home">
-                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
+                                                <img src="media/index/API_Emotion.svg" alt="" />
                                                 <p>Emotion API</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/cognitive-services/face/">
-                                                <img src="media/index/API_Vis_Face.svg" alt="" />
+                                                <img src="media/index/API_Face.svg" alt="" />
                                                 <p>Face API</p>
                                             </a>
                                         </li>
@@ -685,6 +692,11 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/billing/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>Billing</p>
+                                            </a>
+                                        </li>
                                             <a href="/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
@@ -710,7 +722,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Linux Virtual Machines</h3>
-                                                    <p>Provision virtual machines of Ubuntu, Red Hat, and more</p>
+                                                    <p>Provision virtual machines of Ubuntu, CentOS, and more</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -928,6 +940,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>VPN Gateway</h3>
                                                     <p>Establish secure, cross-premises connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/dns/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DNS.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DNS</h3>
+                                                    <p>Host your DNS domain in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1583,13 +1614,13 @@ featureFlags:
                                                         <h3>Vision</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Vis_ComputerVision.svg" alt="" />Computer Vision</a>
+                                                                <a class="barLink" href="/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Vis_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                                <a class="barLink" href="/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Vis_Face.svg" alt="" />Face API</a>
+                                                                <a class="barLink" href="/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -2024,6 +2055,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/billing/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/billing.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Billing</h3>
+                                                    <p>Learn how to read/understand the usage and bill for your Azure subscription</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2068,13 +2118,13 @@ featureFlags:
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
+                                                    <a href="/dotnet/dotnet-sdk-azure-install">Get the Azure libraries for .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure">Get started</a>
+                                                    <a href="/dotnet/">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api/overview/azure/?view=azure-dotnet">API reference</a>
+                                                    <a href="/dotnet/api/overview/">API reference</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2322,7 +2372,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Application Architecture Guide</h3>
-                                                    <p>Fundamental knowledge to be successful in the cloud. If you’re new to the cloud or new to Azure, start here.</p>
+                                                    <p>Fundamental knowledge to be successful in the cloud. If you�re new to the cloud or new to Azure, start here.</p>
                                                 </div>
                                             </div>
                                         </div>

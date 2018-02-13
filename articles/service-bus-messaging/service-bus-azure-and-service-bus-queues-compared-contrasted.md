@@ -5,7 +5,7 @@ services: service-bus
 documentationCenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: ''
 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 11/08/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/05/2018
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -33,7 +33,7 @@ While both queuing technologies exist concurrently, Storage queues were introduc
 ## Technology selection considerations
 Both Storage queues and Service Bus queues are implementations of the message queuing service currently offered by Azure. Each has a slightly different feature set, which means you can choose one or the other, or use both, depending on the needs of your particular solution or business/technical problem you are solving.
 
-When determining which queuing technology fits the purpose for a given solution, solution architects and developers should consider the recommendations below. For more details, see the next section.
+When determining which queuing technology fits the purpose for a given solution, solution architects and developers should consider these recommendations. For more details, see the next section.
 
 As a solution architect/developer, **you should consider using Storage queues** when:
 
@@ -53,7 +53,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 
 - Your solution must be able to support automatic duplicate detection.
 
-* You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
+* You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azure-dotnet) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 
 - Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
 
@@ -74,7 +74,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 - You would like to be able to publish and consume batches of messages.
 
 ## Comparing Storage queues and Service Bus queues
-The tables in the following sections provide a logical grouping of queue features and let you compare, at a glance, the capabilities available in both Storage queues and Service Bus queues.
+The tables in the following sections provide a logical grouping of queue features and let you compare, at a glance, the capabilities available in both Azure Storage queues and Service Bus queues.
 
 ## Foundational capabilities
 This section compares some of the fundamental queuing capabilities provided by Storage queues and Service Bus queues.
@@ -89,7 +89,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 |Receive mode|**Peek & Lease**|**Peek & Lock**<br/><br/>**Receive & Delete**|
 |Exclusive access mode|**Lease-based**|**Lock-based**|
 | Lease/Lock duration |**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.) |**60 seconds (default)**<br/><br/>You can renew a message lock using the [RenewLock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
-| Lease/Lock precision |**Message level**<br/><br/>(each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API) |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but you can renew the lock using the [RenewLock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
+| Lease/Lock precision |**Message level**<br/><br/>(each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage?view=azure-dotnet) API) |**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but you can renew the lock using the [RenewLock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
 |Batched receive|**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages)|**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly through the use of transactions)|
 |Batched send|**No**|**Yes**<br/><br/>(through the use of transactions or client-side batching)|
 
@@ -132,7 +132,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 ### Additional information
 * Both queuing technologies enable a message to be scheduled for delivery at a later time.
 * Queue auto-forwarding enables thousands of queues to auto-forward their messages to a single queue, from which the receiving application consumes the message. You can use this mechanism to achieve security, control flow, and isolate storage between each message publisher.
-* Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. Sessions enable you to save and retrieve the application processing state (by using [SetState](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) and [GetState](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
+* Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. Sessions enable you to save and retrieve the application processing state (by using [SetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) and [GetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
 * [Dead lettering](./service-bus-dead-letter-queues.md), which is only supported by Service Bus queues, can be useful for isolating messages that cannot be processed successfully by the receiving application or when messages cannot reach their destination due to an expired time-to-live (TTL) property. The TTL value specifies how long a message remains in the queue. With Service Bus, the message will be moved to a special queue called $DeadLetterQueue when the TTL period expires.
 * To find "poison" messages in Storage queues, when dequeuing a message the application examines the **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)** property of the message. If **DequeueCount** is greater than a given threshold, the application moves the message to an application-defined "dead letter" queue.
 * Storage queues enable you to obtain a detailed log of all of the transactions executed against the queue, as well as aggregated metrics. Both of these options are useful for debugging and understanding how your application uses Storage queues. They are also useful for performance-tuning your application and reducing the costs of using queues.
@@ -147,14 +147,14 @@ This section compares Storage Queues and Service Bus queues from the perspective
 | Maximum queue size |**500 TB**<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
 | Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item. |**256 KB** <br/><br/>(including both header and body, maximum header size: 64 KB). |
 | Maximum message TTL |**7 days** |**`TimeSpan.Max`** |
-| Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace, can be increased) |
+| Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace) |
 | Maximum number of concurrent clients |**Unlimited** |**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication) |
 
 ### Additional information
 
 - Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](./service-bus-quotas.md).
 
-- You can create Service Bus queues in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled (which is the default), Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that is 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure classic portal][].
+- You can create Service Bus queues in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled (which is the default), Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that is 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][].
 
 - With Storage queues, if the content of the message is not XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 

@@ -1,10 +1,10 @@
 ---
-title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
+title: How to use the Azure Mobile Apps SDK for Android 
 description: How to use the Azure Mobile Apps SDK for Android
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
+ms.date: 01/29/2018
 ---
 # How to use the Azure Mobile Apps SDK for Android
 
@@ -821,7 +821,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 For an online table, you use `.getTable()`.  For an offline table, use `.getSyncTable()`:
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 All the methods that are available for online tables (including filtering, sorting, paging, inserting data, updating data, and deleting data) work equally well on online and offline tables.

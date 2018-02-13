@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 11/03/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ---
 
 # Troubleshoot Cloud Service roles that fail to start
@@ -69,13 +69,8 @@ Once the service is redeployed, you will see an error message with the name of t
 You can use Remote Desktop to access the role and view more complete error information remotely. Use the following steps to view the errors by using Remote Desktop:
 
 1. Ensure that Azure SDK 1.3 or later is installed.
-
-2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
-
-3. In the Azure classic portal, once the instance shows a status of **Ready**, click one of the role instances.
-
-4. Click the **Connect** icon in the **Remote Access** area of the ribbon.
-
+2. During the deployment of the solution by using Visual Studio, choose to "Configure Remote Desktop connections". For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
+3. In the Azure portal, once the instance shows a status of **Ready**, remote into the instance. For more information on using the remote desktop with Cloud Services, see [Remote into role instances](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Sign in to the virtual machine by using the credentials that were specified during the Remote Desktop configuration.
 
 6. Open a command window.

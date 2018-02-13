@@ -57,15 +57,22 @@
     href: sizes.md
     items:
     - name: General purpose
-      href: sizes-general.md  
+      href: sizes-general.md
+### PENDING ON B-series-burstable.md
+      items:
+      - name: B-series burstable
+        href: b-series-burstable.md
+### PENDING ON B-series-burstable.md
     - name: Compute optimized
       href: sizes-compute.md    
     - name: Memory optimized
+      items:
+      - name: Constrained vCPUs
+        href: constrained-vcpu.md
       href: sizes-memory.md    
-    - name: Storage optimized
-      href: sizes-storage.md    
+### href: sizes-storage.md due to the L-series is invalid
     - name: Azure compute units (ACU)
-      href: sizes-general.md          
+      href: acu.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -87,6 +94,8 @@
     href: network-overview.md
   - name: Infrastructure automation
     href: infrastructure-automation.md
+  - name: Security and policy
+    href: security-policy.md
   - name: Monitoring
     href: monitor.md
   - name: Backup and recovery
@@ -95,6 +104,8 @@
     items:
     - name: Infrastructure guidelines
       href: infrastructure-example.md
+    - name: vCPU quotas
+      href: quotas.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -138,8 +149,7 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
-      href: prepay-reserved-vm-instances.md
+### prepay-reserved-vm-instances.md is invalid
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
@@ -164,8 +174,7 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
-    - name: Enable nested virtualization
-      href: nested-virtualization.md
+### nested-virtualization.md is invalid
   - name: Use Images
     items:
     - name: Find and use images
@@ -178,6 +187,8 @@
       href: create-vm-generalized-managed.md
     - name: Build image with Packer
       href: build-image-with-packer.md
+    - name: Use Windows client images
+      href: client-images.md
     - name: Download existing disk
       href: download-vhd.md
   - name: Availability and scale
@@ -190,6 +201,8 @@
     items:
     - name: Chef
       href: chef-automation.md
+    - name: Publish Web App from Visual Studio
+      href: publish-web-app-from-visual-studio.md
   - name: Run applications
     items:
     - name: SQL Server
@@ -347,12 +360,11 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
-    - name: Use nested virtualization 
-      href: troubleshoot-vm-by-use-nested-virtualization.md
+### troubleshoot-vm-by-use-nested-virtualization.md is invalid
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/vm
+    href: https://docs.azure.cn/cli/vm?view=azure-cli-latest
   - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
   - name: .NET
@@ -361,6 +373,7 @@
     href: https://docs.azure.cn/zh-cn/java/api/overview/
   - name: Node.js
     href: https://www.azure.cn/develop/nodejs/#azure-sdk
+### URL is correct for https://www.azure.cn/develop/nodejs/#azure-sdk
   - name: Python
     href: https://www.azure.cn/develop/python/
   - name: Compute REST
@@ -372,8 +385,8 @@
   - name: Author templates
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Pricing
-    href: https://www.azure.cn/pricing/details/virtual-machines
+    href: https://www.azure.cn/pricing/details/virtual-machines/
   - name: FAQ
     href: faq.md
-### ms.date: 12/15/2017
+### ms.date: 02/05/2018
 

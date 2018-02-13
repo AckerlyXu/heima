@@ -1,6 +1,6 @@
 ---
 title: Set up endpoints on a classic Windows VM | Azure
-description: Learn to set up endpoints for a Windows VM in the Azure Classic Management Portal to allow communication with a Windows virtual machine in Azure.
+description: Learn to set up endpoints for a classic Windows VM in the Azure portal to allow communication with a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -36,4 +36,4 @@ When you create a Windows virtual machine in the Azure portal, common endpoints 
 * To use an Azure PowerShell cmdlet to set up a VM endpoint, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 * To use an Azure PowerShell cmdlet to manage an ACL on an endpoint, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
 * If you created a virtual machine in the Resource Manager deployment model, you can use Azure PowerShell to [create network security groups](../../../virtual-network/virtual-networks-create-nsg-arm-ps.md) to control traffic to the VM.
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: update meta properties -->

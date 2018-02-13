@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/12/2016
-ms.date: 12/11/2017
+ms.date: 01/08/2018
 ms.author: v-nany
 ---
 # Building scalable cloud databases
 Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases.
 
 To download:
-* the .NET version of the library, see [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
-* the Java version of the library, see [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* The Java version of the library, see [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* The .NET version of the library, see [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## Documentation
 1. [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md)
@@ -33,7 +33,6 @@ To download:
 5. [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Multi-shard queries](sql-database-elastic-scale-multishard-querying.md)
 7. [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md)
-8. [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 9. [Upgrade client library apps](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [Elastic queries overview](sql-database-elastic-query-overview.md)
 11. [Elastic database tools glossary](sql-database-elastic-scale-glossary.md)
@@ -53,13 +52,15 @@ Scaling out applications using *sharding* presents challenges for both the devel
 
 In general, customers using elastic database tools can expect to get full T-SQL functionality when submitting shard-local operations as opposed to cross-shard operations that have their own semantics.
 
+
+
 ## Next steps
 
-- Elastic Database Client Library ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - to **download** the library.
+- Elastic Database Client Library ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - to **download** the library.
 
 - [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - to make contributions to the code.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)) - to make contributions to the code.
 - [Azure SQL Database elastic query overview](sql-database-elastic-query-overview.md) - to use elastic queries.
 
 - [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md) - for instructions on using the **split-merge tool**.
@@ -70,6 +71,9 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
+

@@ -3,7 +3,7 @@ title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
 documentationcenter: ''
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: ''
+ms.date: 02/26/2018
 ---
 # Using external services from the Azure API Management service
 The policies available in Azure API Management service can do a wide range of useful work based purely on the incoming request, the outgoing response and basic configuration information. However, being able to interact with external services from API Management policies opens up many more opportunities.
@@ -64,7 +64,7 @@ There are certain tradeoffs when using a fire-and-forget style of request. If fo
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.
 
 ### Authorizing reference tokens
-A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](http://jwt.io/) as part of its OAuth2 flow, as Azure Active Directory does, then you can use the `validate-jwt` policy to verify the validity of the token. However, some authorization servers create what are called [reference tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a call back to the authorization server.
+A major function of API Management is protecting backend resources. If the authorization server used by your API creates [JWT tokens](http://jwt.io/) as part of its OAuth2 flow, as [Azure Active Directory](../active-directory/active-directory-aadconnect.md) does, then you can use the `validate-jwt` policy to verify the validity of the token. However, some authorization servers create what are called [reference tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) that cannot be verified without making a call back to the authorization server.
 
 ### Standardized introspection
 In the past there has been no standardized way of verifying a reference token with an authorization server. However a recently proposed standard [RFC 7662](https://tools.ietf.org/html/rfc7662) was published by the IETF that defines how a resource server can verify the validity of a token.

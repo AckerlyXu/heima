@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 12/08/2016
-ms.date: 10/30/2017
+ms.date: 1/29/2018
 ms.author: v-johch
 
 ---
@@ -45,27 +45,26 @@ communicate with the storage REST services.
 ### Use Node Package Manager (NPM) to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
+ 
+	```
+	azure-storage@0.5.0 node_modules\azure-storage
+	+-- extend@1.2.1
+	+-- xmlbuilder@0.4.3
+	+-- mime@1.2.11
+	+-- node-uuid@1.4.3
+	+-- validator@3.22.2
+	+-- underscore@1.4.4
+	+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+	+-- xml2js@0.2.7 (sax@0.5.2)
+	+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+	```
 
-    ```
-    azure-storage@0.5.0 node_modules\azure-storage
-    +-- extend@1.2.1
-    +-- xmlbuilder@0.4.3
-    +-- mime@1.2.11
-    +-- node-uuid@1.4.3
-    +-- validator@3.22.2
-    +-- underscore@1.4.4
-    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-    +-- xml2js@0.2.7 (sax@0.5.2)
-    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-    ```
-
-3.  You can manually run the **ls** command to verify that a
-    **node_modules** folder was created. Inside that folder you will
-    find the **azure-storage** package, which contains the libraries you need to
-    access storage.
+3. You can manually run the **ls** command to verify that a
+   **node\_modules** folder was created. Inside that folder you will
+   find the **azure-storage** package, which contains the libraries you need to
+   access storage.
 
 ### Import the package
-
 Using Notepad or another text editor, add the following to the top the
 **server.js** file of the application where you intend to use storage:
 
@@ -74,13 +73,11 @@ var azure = require('azure-storage');
 ```
 
 ## Setup an Azure Storage Connection
-
-The azure module will read the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
 For an example of setting the environment variables in the [Azure Portal](https://portal.azure.cn) for an Azure Website, see [Node.js web app using the Azure Table Service].
 
 ## How To: Create a Queue
-
 The following code creates a **QueueService** object, which enables you
 to work with queues.
 
@@ -103,7 +100,6 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
 If the queue is created, `result.created` is true. If the queue exists, `result.created` is false.
 
 ### Filters
-
 Optional filtering operations can be applied to operations performed using **QueueService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
 ```
@@ -126,7 +122,6 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
 ## How To: Insert a Message into a Queue
-
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
@@ -139,7 +134,6 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, result, respon
 ```
 
 ## How To: Peek at the Next Message
-
 You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
@@ -156,13 +150,13 @@ The `result` contains the message.
 
 > [!NOTE]
 > Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
+> 
+> 
 
 ## How To: Dequeue the Next Message
-
 Processing a message is a two-stage process:
 
 1. Dequeue the message.
-
 2. Delete the message.
 
 To dequeue a message, use **getMessages**. This makes the messages invisible in the queue, so no other clients can process them. Once your application has processed a message, call **deleteMessage** to delete it from the queue. The following example gets a message, then deletes it:
@@ -183,12 +177,13 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 
 > [!NOTE]
 > By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
-
+> 
 > [!NOTE]
 > Using **getMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
+> 
+> 
 
 ## How To: Change the Contents of a Queued Message
-
 You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
 
 ```
@@ -206,7 +201,6 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ```
 
 ## How To: Additional Options for Dequeuing Messages
-
 There are two ways you can customize message retrieval from a queue:
 
 * `options.numOfMessages` - Retrieve a batch of messages (up to 32.)
@@ -218,7 +212,7 @@ each message using a for loop. It also sets the invisibility timeout to five min
 ```
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
   if(!error){
-    // Messages retreived
+    // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
       var message = result[index];
@@ -233,7 +227,6 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 ```
 
 ## How To: Get the Queue Length
-
 The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
 ```
@@ -245,7 +238,6 @@ queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 ```
 
 ## How To: List Queues
-
 To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list filtered by a specific prefix, use **listQueuesSegmentedWithPrefix**.
 
 ```
@@ -259,7 +251,6 @@ queueSvc.listQueuesSegmented(null, function(error, result, response){
 If all queues cannot be returned, `result.continuationToken` can be used as the first parameter of **listQueuesSegmented** or the second parameter of **listQueuesSegmentedWithPrefix** to retrieve more results.
 
 ## How To: Delete a Queue
-
 To delete a queue and all the messages contained in it, call the
 **deleteQueue** method on the queue object.
 
@@ -274,7 +265,6 @@ queueSvc.deleteQueue(queueName, function(error, response){
 To clear all messages from a queue without deleting it, use **clearMessages**.
 
 ## How to: Work with Shared Access Signatures
-
 Shared Access Signatures (SAS) are a secure way to provide granular access to queues without providing your storage account name or keys. SAS are often used to provide limited access to your queues, such as allowing a mobile app to submit messages.
 
 A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **QueueService**, and provides it to an untrusted or semi-trusted application. For example, a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
@@ -315,7 +305,6 @@ sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(er
 Since the SAS was generated with add access, if an attempt were made to read, update or delete messages, an error would be returned.
 
 ### Access control lists
-
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access the queue, but provide different access policies for each client.
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
@@ -358,20 +347,24 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
 ## Next Steps
-
 Now that you've learned the basics of queue storage, follow these links
 to learn about more complex storage tasks.
 
 * Visit the [Azure Storage Team Blog][Azure Storage Team Blog].
 * Visit the [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub.
 
+
+
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+
 [Azure Portal]: https://portal.azure.cn
+
 [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
 
-
 [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
+
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
-<!--Update_Description:update next step links-->

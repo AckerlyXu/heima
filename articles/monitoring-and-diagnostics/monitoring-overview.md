@@ -1,6 +1,6 @@
 ---
-title: Monitoring in Microsoft Azure | Azure
-description:  Choices when you want to monitor anything in Microsoft Azure.
+title: Monitoring in Microsoft Azure
+description:  Choices when you want to monitor anything in Azure.
 author: rboucher
 manager: carmonm
 editor: ''
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/04/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ---
 
 # Overview of Monitoring in Microsoft Azure
@@ -24,22 +24,22 @@ This article provides an overview of the tools and services involved in holistic
 - Using Azure services to monitor hybrid and non-Azure infrastructure and applications
 - Using non-Azure services to monitor Azure infrastructure and applications
 
-It discusses the various products and services available and how they work together. It can assist you to determine which tools are most appropriate for you in what cases.  
+This article discusses the various products and services available and how they work together. It can assist you to determine which tools are most appropriate for you in what cases.  
 
 ## Why use Azure's monitoring services?
 
-Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems. Furthermore, problems in your application often result from the underlying infrastructure on which those applications run, so having a holistic view of your application and infrastructure is key to monitoring your Azure environment. Microsoft Azure has a range of tools for identifying and resolving such problems.
+Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems. Furthermore, problems in your application can result from the underlying infrastructure on which those applications run, so having a holistic view of your application and infrastructure is key to monitoring your Azure environment. Microsoft Azure has a range of tools for identifying and resolving such problems.
 
 ## How do I monitor my Azure environment?
 
-You can use the following tool for monitoring your Azure environment:
+There are a range of tools for monitoring your Azure environment, from the application code running on Azure to the services and infrastructure hosting your application. These tools work together to offer comprehensive cloud monitoring and include:
 
 -	**Azure Monitor** - the Azure service that operates as a consolidated pipeline for all monitoring data from Azure services. It gives you access to performance metrics and events that describe the operation of the Azure infrastructure and any Azure services you are using. Azure Monitor is a monitoring data pipeline for your Azure environment, and offers that data directly into Log Analytics as well as 3rd party tools where you can gain insight into that data and combine it with data from on premises or other cloud resources.
 
 ## Accessing monitoring in the Azure portal
 All Azure monitoring services are now available in a single UI pane. For more information on how to access this area, see [Get started with Azure Monitor](monitoring-get-started.md). 
 
-You can also access monitoring functions for specific resources by highlighting those resources and drilling down into their monitoring options. 
+You can also access monitoring functions for specific Azure resources by highlighting those resources and drilling down into their monitoring options. 
 
 
 ## Next steps

@@ -295,7 +295,8 @@ This article provides steps to create a user-defined route through the Resource 
 
 ## Create a virtual network
 
-This tutorial requires an existing virtual network with two subnets. Click the **Try it** button in the box that follows, to quickly create a virtual network. Clicking the **Try it** button opens the [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fvirtual-network%2ftoc.json). Though the Cloud Shell runs PowerShell or a Bash shell, in this section, the Bash shell is used to create the virtual network. The Bash shell has the Azure command-line interface installed. If prompted by the Cloud Shell, log in to Azure using your [Azure account](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account). If you don't have an Azure account, you can sign up for a [trial](https://www.azure.cn/pricing/1rmb-trial-full). To create the virtual network used in this tutorial, click the **Copy** button in the following box, then paste the script into the Azure Cloud Shell:
+This tutorial requires an existing virtual network with two subnets. 
+<!-- Not Avaiable on Cloud Shell option -->
 
 ```azurecli
 #!/bin/bash

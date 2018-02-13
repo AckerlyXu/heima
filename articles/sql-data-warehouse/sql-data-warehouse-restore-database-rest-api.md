@@ -4,7 +4,7 @@ description: REST API tasks for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: fca922c6-b675-49c7-907e-5dcf26d451dd
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 10/31/2016
-ms.date: 12/19/2016
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
-
 # Restore an Azure SQL Data Warehouse (REST API)
-
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Portal][Portal]
@@ -32,12 +31,10 @@ ms.author: v-yeche
 In this article you will learn how to restore an Azure SQL Data Warehouse using the REST API.
 
 ## Before you begin
-
-<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 **Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.chinacloudapi.cn) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored.
+<!-- Not Available [Request a DTU quota change][Request a DTU quota change] -->
 
 ## Restore an active or paused database
-
 To restore a database:
 
 1. Get the list of database restore points using the Get Database Restore Points operation.
@@ -50,7 +47,6 @@ To restore a database:
 > 
 
 ## Restore a deleted database
-
 To restore a deleted database:
 
 1. List all of your restorable deleted databases by using the [List restorable dropped databases][List restorable dropped databases] operation.
@@ -88,3 +84,4 @@ To learn about the business continuity features of Azure SQL Database editions, 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.cn/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+<!-- Update_Description: update meta properties -->

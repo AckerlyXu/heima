@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2017
-ms.date: 12/25/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -1416,29 +1416,29 @@ The mathematical functions each perform a calculation, based on input values tha
 
 | Usage | Description |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [[ABS (num_expr)](#bk_abs) | Returns the absolute (positive) value of the specified numeric expression. |
-| [CEILING (num_expr)](#bk_ceiling) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
-| [FLOOR (num_expr)](#bk_floor) | Returns the largest integer less than or equal to the specified numeric expression. |
-| [EXP (num_expr)](#bk_exp) | Returns the exponent of the specified numeric expression. |
-| [LOG (num_expr [,base])](#bk_log) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
-| [LOG10 (num_expr)](#bk_log10) | Returns the base-10 logarithmic value of the specified numeric expression. |
-| [ROUND (num_expr)](#bk_round) | Returns a numeric value, rounded to the closest integer value. |
-| [TRUNC (num_expr)](#bk_trunc) | Returns a numeric value, truncated to the closest integer value. |
-| [SQRT (num_expr)](#bk_sqrt) | Returns the square root of the specified numeric expression. |
-| [SQUARE (num_expr)](#bk_square) | Returns the square of the specified numeric expression. |
-| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
-| [SIGN (num_expr)](#bk_sign) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
-| [ACOS (num_expr)](#bk_acos) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
-| [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine. |
-| [ATAN (num_expr)](#bk_atan) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
-| [ATN2 (num_expr)](#bk_atn2) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
-| [COS (num_expr)](#bk_cos) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
-| [COT (num_expr)](#bk_cot) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
-| [DEGREES (num_expr)](#bk_degrees) | Returns the corresponding angle in degrees for an angle specified in radians. |
-| [PI ()](#bk_pi) | Returns the constant value of PI. |
-| [RADIANS (num_expr)](#bk_radians) | Returns radians when a numeric expression, in degrees, is entered. |
-| [SIN (num_expr)](#bk_sin) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
-| [TAN (num_expr)](#bk_tan) | Returns the tangent of the input expression, in the specified expression. |
+| ABS (num_expr) | Returns the absolute (positive) value of the specified numeric expression. |
+| CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
+| FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
+| EXP (num_expr) | Returns the exponent of the specified numeric expression. |
+| LOG (num_expr [,base]) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
+| LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
+| ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
+| TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
+| SQRT (num_expr) | Returns the square root of the specified numeric expression. |
+| SQUARE (num_expr) | Returns the square of the specified numeric expression. |
+| POWER (num_expr, num_expr) | Returns the power of the specified numeric expression to the value specified. |
+| SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
+| ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
+| ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine. |
+| ATAN (num_expr) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
+| ATN2 (num_expr) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
+| COS (num_expr) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
+| COT (num_expr) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
+| DEGREES (num_expr) | Returns the corresponding angle in degrees for an angle specified in radians. |
+| PI () | Returns the constant value of PI. |
+| RADIANS (num_expr) | Returns radians when a numeric expression, in degrees, is entered. |
+| SIN (num_expr) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
+| TAN (num_expr) | Returns the tangent of the input expression, in the specified expression. |
 
 For example, you can now run queries like the following:
 
@@ -1455,41 +1455,42 @@ The main difference between Cosmos DB's functions compared to ANSI SQL is that t
 ### Type checking functions
 The type checking functions allow you to check the type of an expression within SQL queries. Type checking functions can be used to determine the type of properties within documents on the fly when it is variable or unknown. Here's a table of supported built-in type checking functions.
 
+<!-- We use sql-api-sql-query-reference.md to avoid the broken link in building process-->
 <table>
 <tr>
   <td><strong>Usage</strong></td>
   <td><strong>Description</strong></td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_array">IS_ARRAY (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is an array.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_bool">IS_BOOL (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a Boolean.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_null">IS_NULL (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_null">IS_NULL (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is null.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_number">IS_NUMBER (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a number.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_object">IS_OBJECT (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a JSON object.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_string">IS_STRING (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_string">IS_STRING (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a string.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_defined">IS_DEFINED (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_defined">IS_DEFINED (expr)</a></td>
   <td>Returns a Boolean indicating if the property has been assigned a value.</td>
 </tr>
 <tr>
-  <td><a href="../cosmos-db/documentdb-sql-query-reference.md#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
+  <td><a href="../cosmos-db/sql-api-sql-query-reference.md#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a string, number, Boolean or null.</td>
 </tr>
 
@@ -1510,22 +1511,22 @@ The following scalar functions perform an operation on a string input value and 
 
 | Usage | Description |
 | --- | --- |
-| [LENGTH (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_length) |Returns the number of characters of the specified string expression |
-| [CONCAT (str_expr, str_expr [, str_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_concat) |Returns a string that is the result of concatenating two or more string values. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_substring) |Returns part of a string expression. |
-| [STARTSWITH (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_startswith) |Returns a Boolean indicating whether the first string expression ends with the second |
-| [ENDSWITH (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_endswith) |Returns a Boolean indicating whether the first string expression ends with the second |
-| [CONTAINS (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_contains) |Returns a Boolean indicating whether the first string expression contains the second. |
-| [INDEX_OF (str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_index_of) |Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |
-| [LEFT (str_expr, num_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_left) |Returns the left part of a string with the specified number of characters. |
-| [RIGHT (str_expr, num_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_right) |Returns the right part of a string with the specified number of characters. |
-| [LTRIM (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_ltrim) |Returns a string expression after it removes leading blanks. |
-| [RTRIM (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_rtrim) |Returns a string expression after truncating all trailing blanks. |
-| [LOWER (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_lower) |Returns a string expression after converting uppercase character data to lowercase. |
-| [UPPER (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_upper) |Returns a string expression after converting lowercase character data to uppercase. |
-| [REPLACE (str_expr, str_expr, str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_replace) |Replaces all occurrences of a specified string value with another string value. |
+| [LENGTH (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_length) |Returns the number of characters of the specified string expression |
+| [CONCAT (str_expr, str_expr [, str_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_concat) |Returns a string that is the result of concatenating two or more string values. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_substring) |Returns part of a string expression. |
+| [STARTSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_startswith) |Returns a Boolean indicating whether the first string expression ends with the second |
+| [ENDSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_endswith) |Returns a Boolean indicating whether the first string expression ends with the second |
+| [CONTAINS (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_contains) |Returns a Boolean indicating whether the first string expression contains the second. |
+| [INDEX_OF (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_index_of) |Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |
+| [LEFT (str_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_left) |Returns the left part of a string with the specified number of characters. |
+| [RIGHT (str_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_right) |Returns the right part of a string with the specified number of characters. |
+| [LTRIM (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_ltrim) |Returns a string expression after it removes leading blanks. |
+| [RTRIM (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_rtrim) |Returns a string expression after truncating all trailing blanks. |
+| [LOWER (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_lower) |Returns a string expression after converting uppercase character data to lowercase. |
+| [UPPER (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_upper) |Returns a string expression after converting lowercase character data to uppercase. |
+| [REPLACE (str_expr, str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_replace) |Replaces all occurrences of a specified string value with another string value. |
 | [REPLICATE (str_expr, num_expr)](/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Repeats a string value a specified number of times. |
-| [REVERSE (str_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_reverse) |Returns the reverse order of a string value. |
+| [REVERSE (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_reverse) |Returns the reverse order of a string value. |
 
 Using these functions, you can now run queries like the following. For example, you can return the family name in uppercase as follows:
 
@@ -1579,10 +1580,10 @@ The following scalar functions perform an operation on an array input value and 
 
 | Usage | Description |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](../cosmos-db/documentdb-sql-query-reference.md#bk_array_length) |Returns the number of elements of the specified array expression. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_array_concat) |Returns an array that is the result of concatenating two or more array values. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](../cosmos-db/documentdb-sql-query-reference.md#bk_array_slice) |Returns part of an array expression. |
+| [ARRAY_LENGTH (arr_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_array_length) |Returns the number of elements of the specified array expression. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_concat) |Returns an array that is the result of concatenating two or more array values. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_array_slice) |Returns part of an array expression. |
 
 Array functions can be used to manipulate arrays within JSON. For example, here's a query that returns all documents where one of the parents is "Robin Wakefield". 
 
@@ -2232,6 +2233,7 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 ## <a id="References"></a>References
 1. [Introduction to Azure Cosmos DB][introduction]
 2. [Azure Cosmos DB SQL specification](/cosmos-db/sql-api-sql-query-reference)
+<!-- http://go.microsoft.com/fwlink/p/?LinkID=510612 Redirect to cosmos-db/sql-api-sql-query-reference-->
 3. [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-documentdb-net)
 4. [Azure Cosmos DB Consistency Levels][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
@@ -2247,4 +2249,4 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 [1]: ./media/sql-api-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-<!-- Update_Description: new articles on SQL api query -->
+<!-- Update_Description: update meta properties -->

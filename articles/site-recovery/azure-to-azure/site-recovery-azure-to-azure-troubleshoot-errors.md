@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 11/21/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -27,10 +27,11 @@ Your subscription should be enabled to create Azure VMs in the target region tha
 
 **Error code** | **Possible causes** | **Recommendation**
 --- | --- | ---
-150097<br></br>**Message**: Replication couldn't be enabled for the virtual machine VmName. | - Your subscription ID might not be enabled to create any VMs in the target region location.</br></br>- Your subscription ID might not be enabled or doesn't have sufficient quota to create specific VM sizes in the target region location.</br></br>- A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.| Contact [Azure billing support](/azure-supportability/resource-manager-core-quotas-request) to enable VM creation for the required VM sizes in the target location for your subscription. After it's enabled, retry the failed operation.
+150097<br></br>**Message**: Replication couldn't be enabled for the virtual machine VmName. | - Your subscription ID might not be enabled to create any VMs in the target region location.</br></br>- Your subscription ID might not be enabled or doesn't have sufficient quota to create specific VM sizes in the target region location.</br></br>- A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.| Contact [Azure billing support](https://support.windowsazure.cn/support/support-azure) to enable VM creation for the required VM sizes in the target location for your subscription. After it's enabled, retry the failed operation.
 
 ### Fix the problem
-You can contact [Azure billing support](/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of required sizes in the target location.
+You can contact [Azure billing support](https://support.windowsazure.cn/support/support-azure) to enable your subscription to create VMs of required sizes in the target location.
+<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request -->
 
 If the target location has a capacity constraint, disable replication and enable it to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -127,6 +128,21 @@ If you don't see your Azure VM for selection when you enable replication, this m
 
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should see the VM when you enable replication, after removing the stale configuration.
 
+## VM's provisioning state is not valid (error code 150019)
+
+To enable replication on the VM, the provisioning state should be **Succeeded**. You can check the VM state by following the steps below.
+
+1.	Select the **Resource Explorer** from **All Services** in Azure portal.
+2.	Expand the **Subscriptions** list and select your subscription.
+3.	Expand the **ResourceGroups** list and select the resource group of the VM.
+4.	Expand the **Resources** list and select your virtual machine
+5.	Check the **provisioningState** field in Instance view on right hand side.
+
+### Fix the problem
+
+- If **provisioningState** is **Failed**, contact support with details to troubleshoot.
+- If **provisioningState** is **Updating**, another extension could be getting deployed. Check if there are any ongoing operations on the VM, wait for them to complete and retry the failed Site Recovery **Enable replication** job.
+
 ## Next steps
 [Replicate Azure virtual machines](azure-to-azure-quickstart.md)
-<!-- Update_Description: new article on site recovery azure to azure troubleshoot errors -->
+<!-- Update_Description: add VM's provisioning state is not valid content(error code 150019) -->

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 
@@ -33,7 +33,7 @@ The endpoint is available at a well-known non-routable IP address (`169.254.169.
 The service is available in all generally available all Azure regions. Not all API version may be available in all Azure Regions.
 
 Regions                                        | Availability?                                 | Supported Versions
------------------------------------------------|-----------------------------------------------
+-----------------------------------------------|-----------------------------------------------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01 
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02 
 [Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02
@@ -301,6 +301,7 @@ subnet/address | Subnet address of the VM | 2017-04-02
 subnet/prefix | Subnet prefix, example 24 | 2017-04-02 
 macAddress | VM mac address | 2017-04-02 
 scheduledevents | Currently in Public Preview See [scheduledevents](scheduled-events.md) | 2017-03-01
+<!--ipv6 not available on Mooncake -->
 
 ## Example scenarios for usage  
 
@@ -376,20 +377,23 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Language | Example 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## FAQ
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service. 
 2. Why am I not getting compute information for my VM?
    * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, we may add support for Cloud Service VMs.
-3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
+3. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not seeing compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
 4. I am not seeing all data populated for new version of 2017-08-01
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/resource-group-using-tags.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM to refresh metadata.
@@ -400,7 +404,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 7. Would this work for Virtual Machine Scale Set Instance?
    * Yes Metadata service is available for Scale Set Instances. 
 8. How do I get support for the service?
-   * To get support for the service, create a support issue in Azure portal for the VM where you are not able to get metadata response after long retries 
+   * To get support for the service, create a support request in Azure portal for the VM where you are not able to get metadata response after long retries 
 
    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
@@ -408,4 +412,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
 - Learn more about the [Scheduled Events](scheduled-events.md) API **in public preview** provided by the Instance Metadata service.
 
-<!--Update_Description: update meta properties， update link， add the 2017.8.1 verion for all regions-->
+<!--Update_Description: update meta properties， wording update, update link -->

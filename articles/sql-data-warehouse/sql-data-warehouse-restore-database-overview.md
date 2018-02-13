@@ -4,7 +4,7 @@ description: Overview of the database restore options for recovering a database 
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
-manager: jhubbard
+manager: digimobile
 editor: ''
 
 ms.assetid: 3e01c65c-6708-4fd7-82f5-4e1b5f61d304
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 10/31/2016
-ms.date: 03/20/2017
+origin.date: 12/06/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
-
 # SQL Data Warehouse restore
-
 > [!div class="op_single_selector"]
 > * [Overview][Overview]
 > * [Portal][Portal]
@@ -48,13 +47,15 @@ SQL Data Warehouse always restores the backup to a new data warehouse. You can e
 
 <!-- Not Available [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). -->
 
-<!-- Not Available on ### Can I restore a deleted data warehouse?
-### Can I restore a deleted data warehouse?
+<!-- Not Available on ### Can I restore a deleted data warehouse?-->
 
-Yes, you can restore the last available restore point.
+## Geo-redundant restore
+You can restore your data warehouse to any region supporting Azure SQL Data Warehouse at your chosen performance level. Please note that 9000 and 18000 DWU are not supported in all regions during the preview.
 
-Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
-
+> [!NOTE]
+> To perform a geo-redundant restore you must not have opted out of this feature.
+> 
+> 
 
 ## Restore timeline
 You can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
@@ -79,9 +80,9 @@ You can also use data warehouse restore to retain a backup for longer than seven
 
 To perform a data warehouse restore, restore using:
 
-* Azure portal, see [Restore a data warehouse using the Azure portal](./sql-data-warehouse-restore-database-portal.md)
-* PowerShell cmdlets, see [Restore a data warehouse using PowerShell cmdlets](./sql-data-warehouse-restore-database-powershell.md)
-* REST APIs, see [Restore a data warehouse using the REST APIs](./sql-data-warehouse-restore-database-rest-api.md)
+* Azure portal, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md)
+* PowerShell cmdlets, see [Restore a data warehouse using PowerShell cmdlets](sql-data-warehouse-restore-database-powershell.md)
+* REST APIs, see [Restore a data warehouse using the REST APIs](sql-data-warehouse-restore-database-rest-api.md)
 
 <!-- ### Tutorials -->
 
@@ -97,3 +98,4 @@ To perform a data warehouse restore, restore using:
 <!--MSDN references-->
 
 <!--Other Web references-->
+<!-- Update_Description: update meta properties, wording update -->

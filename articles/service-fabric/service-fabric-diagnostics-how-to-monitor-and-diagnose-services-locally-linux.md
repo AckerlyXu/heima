@@ -63,7 +63,7 @@ For more information, see the [code examples in github](http://github.com/Azure-
 
 ## Debugging Service Fabric C# applications
 
-Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [GitHub: logging](http:/github.com/aspnet/logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
+Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [GitHub: logging](https:/github.com/aspnet/logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
 
 The first step is to include System.Diagnostics.Tracing so that you can write your logs to memory, output streams, or console files.  For logging using EventSource, add the following project to your project.json:
 

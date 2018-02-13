@@ -84,7 +84,7 @@ If the preceding query step is an input processor, use the input metrics to help
 *   **InputEventsSourcesBackloggedTotal** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs.
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

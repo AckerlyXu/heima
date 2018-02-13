@@ -142,9 +142,8 @@ You should see the following output, indicating that grub.cfg has been rebuilt s
     Found memtest86+ image: /memtest86+.bin
     done
 
-For the Red Hat distribution family, you need only the following command:
-
-    echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
+<!-- Not Available For the Red Hat distribution family, you need only the following command: -->
+<!-- echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local -->
 
 ## Configure system file operations settings
 One best practice is to disable the *atime* logging feature on the file system. Atime is the last file access time. Whenever a file is accessed, the file system records the timestamp in the log. However, this information is rarely used. You can disable it if you don't need it, which will reduce overall disk access time.  

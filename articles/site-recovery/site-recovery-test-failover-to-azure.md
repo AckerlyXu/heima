@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/16/2017
-ms.date: 12/04/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -22,7 +22,7 @@ ms.author: v-yeche
 
 This article describes how to run a disaster recovery drill to Azure, using a Site Recovery test failover.  
 
-You run a test failover to validate your replication and disaster reecovery strategy without any data loss or downtime. A test failover doesn't impact ongoing replication, or your production environment. You can run a test failover on a specific virtual machine (VM), or on a [recovery plan](site-recovery-create-recovery-plans.md) containing multiple VMs. 
+You run a test failover to validate your replication and disaster recovery strategy without any data loss or downtime. A test failover doesn't impact ongoing replication, or your production environment. You can run a test failover on a specific virtual machine (VM), or on a [recovery plan](site-recovery-create-recovery-plans.md) containing multiple VMs. 
 
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. 
@@ -75,6 +75,7 @@ In the following scenarios, failover  requires an extra intermediate step that u
 
 In all the other cases, no intermediate step is not required, and failover takes significantly less time.
 
+<a name="creating-a-network-for-test-failover"></a>
 ## Create a network for test failover
 
 We recommended that for test failover, you choose a network that's isolated from the production recovery site network specific in the  **Compute and Network** settings for each VM. By default, when you create an Azure virtual network, it is isolated from other networks. The test network should mimic your production network:
@@ -108,4 +109,4 @@ If you want to connect to Azure VMs using RDP after failover, follow the require
 
 ## Next steps
 After you've completed a disaster recovery drill, learn more about other types of [failover](site-recovery-failover.md).
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: wording update -->

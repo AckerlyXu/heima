@@ -32,7 +32,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | [Create a MongoDB API account](scripts/create-mongodb-database-account-cli.md) | Creates a single Azure Cosmos DB MongoDB API account, database, and collection. |
 |**Scale Azure Cosmos DB**||
 | [Scale container throughput](scripts/scale-collection-throughput-cli.md) | Changes the provisioned througput on a container.|
-|[Replicate Azure Cosmos DB database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md)|Globally replicates account data into multiple regions with a specified failover priority.|
+|[Replicate Azure Cosmos DB database account in multiple regions and configure failover priorities](scripts/scale-multiregion-cli.md)|Multiple data-center replicates account data into multiple regions with a specified failover priority.|
 |**Secure Azure Cosmos DB**||
 | [Get account keys](scripts/secure-get-account-key-cli.md) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
 | [Get MongoDB connection string](scripts/secure-mongo-connection-string-cli.md) | Gets the connection string to connect your MongoDB app to your Azure Cosmos DB account.|
@@ -43,6 +43,8 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 |**Connect Azure Cosmos DB to resources**||
 |[Connect a web app to Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|Create and connect an Azure Cosmos DB database and an Azure web app.|
 |||
+<!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
+<!--NOTICE: Line 35 Globally TO Multiple data-center-->
 
 <!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
 <!--ms.date:12/25/2017-->

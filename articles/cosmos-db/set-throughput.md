@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 12/25/2017
+origin.date: 01/02/2018
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -72,6 +72,28 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+<a id="set-throughput-java"></a>
+
+## To set the throughput by using the SQL API for Java
+
+This snippet is taken from the OfferCrudSamples.java file in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) repo. 
+
+```Java
+// find offer associated with this collection
+Iterator < Offer > it = client.queryOffers(
+    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
+assertThat(it.hasNext(), equalTo(true));
+
+Offer offer = it.next();
+assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
+assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
+
+// update the offer
+int newThroughput = 10300;
+offer.getContent().put("offerThroughput", newThroughput);
+client.replaceOffer(offer);
+```
+
 ## Throughput FAQ
 
 **Can I set my throughput to less than 400 RU/s?**
@@ -84,5 +106,6 @@ There's no MongoDB API extension to set throughput. The recommendation is to use
 
 ## Next steps
 
-To learn more about provisioning and going planet-scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
-<!-- Update_Description: update link , wording update -->
+To learn more about provisioning and going multiple-region scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
+<!-- Notice: 全球 to 多个区域 -->
+<!-- Update_Description: udpate meta properties, wording update, add the content of Set the throughtput by using SQL API for java  -->

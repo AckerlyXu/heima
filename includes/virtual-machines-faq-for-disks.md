@@ -10,15 +10,15 @@ Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by
 
 **If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?**
 
-A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage).
+A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage/).
 
 **Are there any transaction costs for standard managed disks?**
 
-Yes. You're charged for each transaction. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage).
+Yes. You're charged for each transaction. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage/).
 
 **For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?**
 
-You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage).
+You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage/).
 
 **How is pricing of premium managed disks different from unmanaged disks?**
 
@@ -54,7 +54,7 @@ No. The VMs in an availability set must use either all managed disks or all unma
 
 **Is Managed Disks the default option in the Azure portal?**
 
-Not currently, but it will become the default in the future.
+Yes. 
 
 **Can I create an empty managed disk?**
 
@@ -88,7 +88,6 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes. We support unmanaged and managed disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
-
 **If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
 
 Yes.
@@ -101,10 +100,51 @@ Azure Managed Disks currently supports only locally redundant storage managed di
 
 No. This feature is not supported currently. 
 
+**Can I break a lease on my disk?**
+
+No. This is not supported currently as a lease is present to prevent accidental deletion when the disk is being used.
+
 **Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
+**Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* https://github.com/chagarw/MDPP
+
+## Migrate to Managed Disks 
+
+**What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
+
+No changes are required. 
+
+**Will my VM backups created via Azure Backup service before the migration continue to work?**
+
+Yes, backups work seamlessly.
+
+**What changes are required in a pre-existing Azure Disks Encryption configuration prior/after migration to Managed Disks?**
+
+No changes are required. 
+
+**Is automated migration of an existing VM Scale Sets (VMSS) from unmanaged disks to Managed Disks supported?**
+
+No. You can create a new VMSS with Managed Disks using the image from your old VMSS with unmanaged disks. 
+
+**Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?**
+
+No. You can export a page blob snapshot as a page blob and then create a Managed Disk from the exported page blob. 
+
+**Can I fail over my on-premises machines protected by Azure Site Recovery to a VM with Managed Disks?**
+
+Yes, you can choose to failover to a VM with Managed Disks.
+
+**Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
+
+Yes. ASR Azure to Azure protection is not supported for VMs with Managed Disks. It is going to be supported by the end of Q1 CY2018. 
+
+**Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
+
+Yes
 
 ## Managed Disks and Storage Service Encryption 
 
@@ -154,6 +194,7 @@ No. But if you export a VHD to an encrypted storage account from an encrypted ma
 Yes.
 
 **Can I attach both premium and standard data disks to a size series that doesn't support Premium Storage, such as D, Dv2, or F series?**
+<!-- Not Available on G-series-->
 
 No. You can attach only standard data disks to VMs that don't use a size series that supports Premium Storage.
 
@@ -163,11 +204,12 @@ A premium data disk created from an 80-GB VHD is treated as the next-available p
 
 **Are there transaction costs to use Premium Storage?**
 
-There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage).
+There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://www.azure.cn/pricing/details/storage/).
 
 **What are the limits for IOPS and throughput that I can get from the disk cache?**
 
 The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MB per second per core. 
+<!-- Not Available on G-series-->
 
 **Is the local SSD supported for a Managed Disks VM?**
 
@@ -211,4 +253,11 @@ Existing small premium disks less than 64 GB continue to be billed according to 
 
 You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
 
+## What if my question isn't answered here?
 
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
+
+<!--Not Available on [Azure feedback forum](https://feedback.azure.com/forums/217298-storage).-->
+
+<!--Update_Description: add question and answer content of Migrate to Managed Disks -->
+<!--ms.date: 01/29/2018-->

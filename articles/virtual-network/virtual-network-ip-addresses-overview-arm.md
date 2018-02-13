@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/16/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
@@ -46,6 +46,8 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 ### IP address version
 
 Public IP addresses are created with an IPv4 address.
+<!-- Not Available on IPv6 -->
+
 ### SKU
 
 Public IP addresses are created with one of the following SKUs:
@@ -57,15 +59,17 @@ All public IP addresses created before the introduction of SKUs are Basic SKU pu
 - Assigned with the static or dynamic allocation method.
 - Assigned to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN Gateways, Application Gateways, and Internet-facing load balancers.
 - Can be assigned to a specific zone.
-- Not zone redundant. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json).
+- Not zone redundant.
+<!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 #### Standard
 
 Standard SKU public IP addresses are:
 
 - Assigned with the static allocation method only.
-- Assigned to network interfaces or Standard Internet-facing load balancers. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json).
-<!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json). -->
+- Assigned to network interfaces or Standard Internet-facing load balancers.
+<!--Not Available - [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 > [!NOTE]
 > When you assign a standard SKU public IP address to a virtual machine's network interface, you must explicitly allow the intended traffic with a [network security group](security-overview.md#network-security-groups).  Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.
@@ -107,7 +111,7 @@ You can associate a public IP address with a [Windows](../virtual-machines/windo
 
 ### Internet-facing load balancers
 
-You can associate a public IP address created with either [SKU](#SKU) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front end, which enables [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fvirtual-network%2ftoc.json) scenarios like a multi-tenant environment with SSL-based websites. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json).
+You can associate a public IP address created with either [SKU](#SKU) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front-end. You can also assign multiple public IP addresses to a load balancer front-end, which enables [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fvirtual-network%2ftoc.json) scenarios like a multi-tenant environment with SSL-based websites. For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json).
 
 ### VPN gateways
 
@@ -138,7 +142,8 @@ In the Azure Resource Manager deployment model, a private IP address is associat
 
 ### IP address version
 
-Private IP addresses are created with an IPv4 or IPv6 address. Private IPv6 addresses can only be assigned with the dynamic allocation method. You cannot communicate between private IPv6 addresses on a virtual network. You can communicate inbound to a private IPv6 address from the Internet, through an Internet-facing load balancer. See [Create an Internet-facing load balancer with IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json) for details.
+Private IP addresses are created with an IPv4 address. 
+<!-- Not Available on IPV6 -->
 
 ### Allocation method
 
@@ -147,7 +152,7 @@ A private IP address is allocated from the address range of the virtual network 
 There are two methods in which a private IP address is allocated:
 
 - **Dynamic**: Azure assigns the next available unassigned or unreserved IP address in the subnet's address range. For example, Azure assigns 10.0.0.10 to a new resource, if addresses 10.0.0.4-10.0.0.9 are already assigned to other resources. Dynamic is the default allocation method. Once assigned, dynamic IP addresses are only released if a network interface is deleted, assigned to a different subnet within the same virtual network, or the allocation method is changed to static, and a different IP address is specified. By default, Azure assigns the previous dynamically assigned address as the static address when you change the allocation method from dynamic to static.
-- **Static**: You select and assign any unassigned or unreserved IP address in the subnet's address range. For example, if a subnet's address range is 10.0.0.0/16 and addresses 10.0.0.4-10.0.0.9 are already assigned to other resources, you can assign any address between 10.0.0.10 - 10.0.255.254. Static addresses are only released if a network interface is deleted. If you change the allocation method to static, Azure dynamically assigns the previously assigned static IP address as the dynamic address, even if the address isn't the next available address in the subnet's address range. The address also changes if the network interface is assigned to a different subnet within the same virtual network, but to assign the network interface to a different subnet, you must first change the allocation method from static to dynamic. Once you've assigned the network interface to a different subnet, you can change the allocation method back to static, and assign an IP address from the new subnet's address range.
+- **Static**: You select and assign any unassigned or unreserved IP address in the subnet's address range. For example, if a subnet's address range is 10.0.0.0/16 and addresses 10.0.0.4-10.0.0.9 are already assigned to other resources, you can assign any address between 10.0.0.10 - 10.0.255.254. Static addresses are only released if a network interface is deleted. If you change the allocation method to dynamic, Azure dynamically assigns the previously assigned static IP address as the dynamic address, even if the address isn't the next available address in the subnet's address range. The address also changes if the network interface is assigned to a different subnet within the same virtual network, but to assign the network interface to a different subnet, you must first change the allocation method from static to dynamic. Once you've assigned the network interface to a different subnet, you can change the allocation method back to static, and assign an IP address from the new subnet's address range.
 
 ### Virtual machines
 
@@ -175,7 +180,7 @@ The following table shows the specific property through which a private IP addre
 | Application gateway |Front-end configuration |Yes |Yes |
 
 ## Limits
-Limits are per region and per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
+The limits imposed on IP addressing are indicated in the full set of  in Azure. The limits are per region and per subscription. You can [contact support](https://www.azure.cn/support/support-azure/) to increase the default limits up to the maximum limits based on your business needs.
 
 ## Pricing
 Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page.
@@ -185,4 +190,4 @@ Public IP addresses may have a nominal charge. To learn more about IP address pr
 * [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
 * [Deploy a VM with a static private IP address using the Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!--Update_Description: update reference link, wording update-->
+<!--Update_Description: wording update -->

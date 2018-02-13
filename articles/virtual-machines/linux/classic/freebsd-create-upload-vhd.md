@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/08/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ## Prerequisites
 This article assumes that you have the following items:
 
-* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. See [Azure credit for Visual Studio subscribers](https://www.azure.cn/support/legal/offer-rate-plans/). Learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
+* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://www.azure.cn/support/legal/offer-rate-plans/). Otherwise, learn how to [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
 * **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](https://www.azure.cn/downloads/). A tutorial that describes how to install and configure the module is available here. Use the [Azure Downloads](https://www.azure.cn/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -129,7 +129,7 @@ When you upload the .vhd file, you can place it anywhere within your Blob storag
 
 * **BlobStorageURL** is the URL for the storage account that you created in Step 2.
 * **YourImagesFolder** is the container within Blob storage where you want to store your images.
-* **VHDName** is the label that appears in the Azure Classic Management Portal to identify the virtual hard disk.
+* **VHDName** is the label that appears in the Azure portal to identify the virtual hard disk.
 * **PathToVHDFile** is the full path and name of the .vhd file.
 
 From the Azure PowerShell window you used in the previous step, type:

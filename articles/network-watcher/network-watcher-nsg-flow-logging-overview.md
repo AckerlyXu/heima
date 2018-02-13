@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 While flow logs target Network Security Groups, they are not displayed the same as the other logs. Flow logs are stored only within a storage account and following the logging path as shown in the following example:
 
 ```
-https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 The same retention policies as seen on other logs apply to flow logs. Logs have a retention policy that can be set from 1 day to 365 days. If a retention policy is not set, the logs are maintained forever.
@@ -101,12 +101,11 @@ The following is an example of a Flow log. As you can see there are multiple rec
 ## Next steps
 
 Learn how to enable Flow logs by visiting [Enabling Flow logging](network-watcher-nsg-flow-logging-portal.md).
-
-Learn about NSG logging by visiting [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md).
+<!-- Not Available on [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 Find out if traffic is allowed or denied on a VM by visiting [Verify traffic with IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
 
-<!--Update_Description: new articles on network watcher nsg flow logging overview -->
+<!--Update_Description: cmdlet update -->

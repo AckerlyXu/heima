@@ -23,6 +23,9 @@ ms.tgt_pltfrm: NA
 
 SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources ([elastic Database Transaction Units](sql-database-what-is-a-dtu.md) (eDTUs)) at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. 
 
+> [!NOTE]
+> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview. GA of elastic pools in this region will occur as soon as possible.
+>
 
 ## What are SQL elastic pools? 
 
@@ -31,7 +34,6 @@ SaaS developers build applications on top of large scale data-tiers consisting o
 - Over-provision resources based on peak usage and over pay, or
 - Under-provision to save cost, at the expense of performance and customer satisfaction during peaks. 
 
-Elastic pools solve this problem by ensuring that databases get the performance resources they need when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
@@ -131,7 +133,7 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 - **Active geo-replication**: For applications that have more aggressive recovery requirements than geo-restore can offer, configure [active geo-replication](sql-database-geo-replication-overview.md).
 
-## Manage elastic pools and databases using the Azure portal
+## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Manage elastic pools and databases using the Azure portal
 
 ### Creating a new SQL Database elastic pool using the Azure portal
 
@@ -363,6 +365,5 @@ To create and manage SQL Database elastic pools use these REST API requests.
 ## Next steps
 
 * For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-* To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 <!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

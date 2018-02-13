@@ -1,0 +1,108 @@
+- name: Azure Automation User Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Automation?
+    href: automation-intro.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Automation account
+    href: automation-quickstart-create-account.md
+  - name: Create a runbook
+    href: automation-quickstart-create-runbook.md
+- name: How to
+  items:
+    - name: Authentication and security
+      items:
+      - name: Create standalone Automation account
+        href: automation-create-standalone-account.md
+      - name: Create Azure AD user account
+        href: automation-create-aduser-account.md
+      - name: Create Automation Run As account
+        href: automation-create-runas-account.md
+      - name: Validate Automation account config
+        href: automation-verify-runas-authentication.md
+      - name: Manage role-based access control
+        href: automation-role-based-access-control.md
+      - name: Manage Automation account
+        href: automation-manage-account.md
+    - name: Create runbooks
+      items:
+        - name: Runbook types
+          href: automation-runbook-types.md
+        - name: Create and import runbooks
+          href: automation-creating-importing-runbook.md
+        - name: Edit textual runbooks
+          href: automation-edit-textual-runbook.md
+        - name: Edit graphical runbooks
+          href: automation-graphical-authoring-intro.md
+        - name: Test a runbook
+          href: automation-testing-runbook.md
+        - name: Learning PowerShell Workflow
+          href: automation-powershell-workflow.md
+        - name: Child runbooks
+          href: automation-child-runbooks.md
+        - name: Runbook output
+          href: automation-runbook-output-and-messages.md
+    - name: Automate
+      items:
+        - name: Start a runbook
+          href: automation-starting-a-runbook.md
+        - name: Start a runbook from a webhook
+          href: automation-webhooks.md
+        - name: Configure runbook input parameters
+          href: automation-runbook-input-parameters.md
+        - name: Error handling in graphical runbooks
+          href: automation-runbook-graphical-error-handling.md
+        - name: Track a runbook job
+          href: automation-runbook-execution.md
+        - name: Change runbook settings
+          href: automation-runbook-settings.md
+        - name: Manage Azure Automation data
+          href: automation-managing-data.md
+        - name: Pass a JSON object to an Azure Automation runbook
+          href: automation-pass-json-string.md
+    - name: Manage assets
+      items:
+        - name: Certificates
+          href: automation-certificates.md
+        - name: Connections
+          href: automation-connections.md
+        - name: Credentials
+          href: automation-credentials.md
+        - name: Integration modules
+          href: automation-integration-modules.md
+        - name: Schedules
+          href: automation-schedules.md
+        - name: Variables
+          href: automation-variables.md
+    - name: Scenarios
+      items:
+        - name: Runbook gallery
+          href: automation-runbook-gallery.md
+        - name: Remove resource group
+          href: automation-scenario-remove-resourcegroup.md
+        - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
+          href: automation-deploy-template-runbook.md
+    - name: Migrate
+      items:
+        - name: Move Automation account
+          href: automation-migrate-account-subscription.md
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot common errors
+          href: automation-troubleshooting-automation-errors.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/azurerm.automation
+  - name: Azure PowerShell (Classic)
+    href: https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0
+  - name: .NET
+    href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/automation
+  - name: REST (Classic)
+    href: https://msdn.microsoft.com/library/azure/mt163781
+

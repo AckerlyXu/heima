@@ -3,7 +3,7 @@ title: Azure SQL Database Resource Limits | Azure
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
 documentationcenter: na
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 10/11/2017
-ms.date: 11/06/2017
-ms.author: v-johch
+origin.date: 12/14/2017
+ms.date: 01/08/2018
+ms.author: v-nany
 
 ---
 # Azure SQL Database resource limits
@@ -30,20 +30,19 @@ For single databases, the following tables show the resources available for a si
 ## Single database: change storage size
 
 - The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and performance levels](#single-database-storage-sizes-and-performance-levels).
-- Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/sql/db#az_sql_db_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Extra storage for a single database can be provisioned by increasing its max size using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/).
 
 ## Single database: change DTUs
 
-After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/sql/db#az_sql_db_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). 
+After initially picking a service tier, performance level, and storage amount, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). 
 
 Changing the service tier and/or performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process but during the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. The length of time for the switch-over varies, but is generally under 4 seconds is less than 30 seconds 99% of the time. If there are large numbers of transactions in flight at the moment connections are disabled, the length of time for the switch-over may be longer. 
 
 The duration of the entire scale-up process depends on both the size and service tier of the database before and after the change. For example, a 250-GB database that is changing to, from, or within a Standard service tier, should complete within six hours. For a database the same size that is changing performance levels within the Premium service tier, the scale-up should complete within three hours.
 
 > [!TIP]
-> To check on the status of an ongoing SQL database scaling operation, you can use the following query: ```select * from sys.dm_operation_status```.
->
+> To monitor in-progess operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/Operations/List), [Manage operations using CLI](https://docs.microsoft.com/cli/azure/sql/db/op), [Monitor operations using T-SQL](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) and [Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * If you are upgrading to a higher service tier or performance level, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 * To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and performance level. 
@@ -126,4 +125,4 @@ When encountering high session or worker utilization, mitigation options include
 - For information about single databases, see [Single database resources](sql-database-resource-limits.md).
 - For information about elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
-<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->
+- For information about tempdb size limits, see https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

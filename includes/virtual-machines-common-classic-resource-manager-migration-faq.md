@@ -36,7 +36,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 <a name="vault">Classic</a> VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
-1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+1. In the Backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
 2. Delete the backup/snapshot extension from the VM.
 3. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
 4. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. For detailed information on backing up a VM to a Recovery Services vault, see the article, [Protect Azure VMs with a Recovery Services vault](../articles/backup/backup-azure-vms-first-look-arm.md).
@@ -51,7 +51,7 @@ We recommend that you abort your migration and then log a support request to inc
 
 ## How do I report an issue? 
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 
@@ -64,5 +64,5 @@ ExpressRoute circuits which use cross-subscription authorization links cannot be
 ## I got the message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."*
 
 This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes.
-<!--Update_Description: wording update-->
-<!--ms.date: 10/30/2017-->
+<!--Update_Description: update link -->
+<!--ms.date: 01/08/2018-->

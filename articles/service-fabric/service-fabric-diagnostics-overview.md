@@ -68,7 +68,10 @@ One thing to note is that these two options are not mutually exclusive and while
 
 ## Event analysis
 
-There are several great platforms that exist in the market when it comes to the analysis and visualization of monitoring and diagnostics data. The two that we recommend are [OMS](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) due to their better integration with Service Fabric, but you should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), or any other platform of your preference.
+There are several great platforms that exist in the market when it comes to the analysis and visualization of monitoring and diagnostics data.
+<!-- Not Available on  [OMS](service-fabric-diagnostics-event-analysis-oms.md)-->
+<!-- Not Available on  [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+ you should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Splunk](https://www.splunk.com/), or any other platform of your preference.
 
 The key points for any platform you choose should include how comfortable you are with the user interface and querying options, the ability to visualize data and create easily readable dashboards, and the additional tools they provide to enhance your monitoring, such as automated alerting.
 

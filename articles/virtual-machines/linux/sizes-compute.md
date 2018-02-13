@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 12/18/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -29,7 +29,13 @@ ms.author: v-yeche
 ## Other sizes
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
+<!--Not Available - [Storage optimized](sizes-storage.md)-->
+<!--Not Available - [GPU](sizes-gpu.md)-->
+<!--Not Available - [High performance compute](sizes-hpc.md)-->
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
-<!-- Update_Description: update meta properties, update link -->
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+<!--The parent file of includes file of virtual-machines-common-sizes-compute.md-->
+<!--ms.date:01/29/2018-->
+<!-- Update_Description: update meta properties -->

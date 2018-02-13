@@ -26,7 +26,7 @@ Azure Internal Load Balancer (ILB) only directs traffic to resources that are in
 
 ## Why you might need an internal load balancer
 
-Internal Load Balancer provides load balancing between virtual machines (VMs) that reside inside a cloud service or a virtual network with a regional scope. For information about virtual networks with a regional scope, see [Regional virtual networks](https://azure.microsoft.com/blog2014/05/14/regional-virtual-networks/) in the Azure blog. Existing virtual networks that are configured for an affinity group cannot use ILB.
+Internal Load Balancer provides load balancing between virtual machines (VMs) that reside inside a cloud service or a virtual network with a regional scope. For information about virtual networks with a regional scope, see [Regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/) in the Azure blog. Existing virtual networks that are configured for an affinity group cannot use ILB.
 
 ILB enables the following types of load balancing:
 

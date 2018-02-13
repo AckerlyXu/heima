@@ -14,9 +14,10 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 10/30/2017
+ms.date: 01/29/2048
 ms.author: v-yeche
 
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
-
+<!--The parent file of includes file of virtual-machines-managed-disks-overview.md-->
+<!--ms.date:01/29/2018-->

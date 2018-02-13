@@ -4,7 +4,7 @@ description: Create a SQL Database logical server, server-level firewall rule, a
 keywords: sql database tutorial, create a sql database
 services: sql-database
 documentationcenter: ''
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -15,9 +15,9 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 08/25/2017
-ms.date: 11/06/2017
-ms.author: v-johch
+origin.date: 01/10/2018
+ms.date: 1/22/2018
+ms.author: v-nany
 
 ---
 # Create an Azure SQL database in the Azure portal
@@ -44,12 +44,12 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
 
-   | Setting       | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). | 
+   | Setting       | Suggested value | Description |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.cn/Subscriptions). |
    | **Resource group**  | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Source source** | Sample (AdventureWorksLT) | Loads the AdventureWorksLT schema and data into your new database |
+   | **Select source** | Sample (AdventureWorksLT) | Loads the AdventureWorksLT schema and data into your new database |
 
    > [!IMPORTANT]
    > You must select the sample database on this form because it is used in the remainder of this quick start.
@@ -57,23 +57,24 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 4. Under **Server**, click **Configure required settings** and fill out the SQL server (logical server) form with the following information, as shown on the following image:   
 
-   | Setting       | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). |
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and and non-alphanumeric characters. |
+   | Setting       | Suggested value | Description |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.cn/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Location** | Any valid location | China East and China North |
 
    > [!IMPORTANT]
-   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use. 
+   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
    >  
 
    ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
+
 5. When you have completed the form, click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier.
 
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/). 
@@ -83,7 +84,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-8. Accept the preview terms to use the **Add-on Storage** option. 
+8. Accept the preview terms to use the **Add-on Storage** option.
 
    > [!IMPORTANT]
    > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/). 
@@ -91,13 +92,13 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
 
 9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
 
-10. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
+10. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes.
 
 11. On the toolbar, click **Notifications** to monitor the deployment process.
-    
+
      ![notification](./media/sql-database-get-started-portal/notification.png)
 
-## Create a server-level firewall rule
+## <a name="create-a-server-level-firewall-rule"></a>Create a server-level firewall rule
 
 The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
 
@@ -107,13 +108,13 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.chinacloudapi.cn**) and provides options for further configuration.
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts.
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png) 
+   ![server name](./media/sql-database-get-started-portal/server-name.png)
 
-3. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens. 
+3. Click **Set server firewall** on the toolbar as shown in the previous image. The **Firewall settings** page for the SQL Database server opens.
 
-   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -125,24 +126,23 @@ You can now connect to the SQL Database server and its databases using SQL Serve
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+>
 
 ## Query the SQL database
 
-Now that you have created a sample database in Azure, let’s use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data. 
+Now that you have created a sample database in Azure, let’s use the built-in query tool within the Azure portal to confirm that you can connect to the database and query the data.
 
-1. On the SQL Database page for your database, click **Tools** on the toolbar and then click **Query editor (preview)**.
+1. On the SQL Database page for your database, find and click **Data explorer (preview)** in the left-hand menu
 
-   ![tools menu](./media/sql-database-get-started-portal/tools-menu.png) 
+   ![find query editor](./media/sql-database-get-started-portal/find-query-editor.PNG)
 
-2. Click , click the **Preview terms** checkbox, and then click **OK**. The Query editor page opens.
+2. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
 
-3. Click **Login**, review the login information, and then click **OK** to log in using SQL server authentication with the server admin login and password that you created earlier.
+   ![login](./media/sql-database-get-started-portal/login-menu.png)
 
-   ![login](./media/sql-database-get-started-portal/login.png) 
+3. Click **OK** to log in.
 
-4. Click **OK** to log in.
-
-5. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
+4. After you are authenticated as **ServerAdmin**, type the following query in the query editor pane.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -151,18 +151,18 @@ Now that you have created a sample database in Azure, let’s use the built-in q
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-6. Click **Run** and then review the query results in the **Results** pane.
+5. Click **Run** and then review the query results in the **Results** pane.
 
    ![query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
-7. Close the **Query editor** page, click **OK** to discard your unsaved edits, and then close the **Tools** page.
+6. Close the **Data explorer** page, click **OK** to discard your unsaved edits.
 
 ## Clean up resources
 
-Save these resources if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. If, however, you wish to delete the resources that you created in this quick start, use the following steps. 
+Save these resources if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. If, however, you wish to delete the resources that you created in this quick start, use the following steps.
 
 
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**. 
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
 
 ## Next steps

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 12/02/2017
-ms.date: 01/01/2018
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -26,7 +26,7 @@ Before you begin protecting any Hyper-V virtual machines (VMs) using Site Recove
 
 You also need to create the right type and number of target Azure storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics, for example, read/write I/O operations per second (IOPS), or data churn, and Azure Site Recovery limits. 
 
-The Azure Site Recovery deployment planner (version 2) is a command-line tool available for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your Hyper-V VMs present on multiple Hyper-V hosts using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover / failover. You can run the tool without installing any Azure Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that has the same hardware configuration as that of one of the Hyper-V servers that you will use to enable disaster recovery protection to Azure. 
+The Azure Site Recovery deployment planner is a command-line tool for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your Hyper-V VMs present on multiple Hyper-V hosts using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover / failover. You can run the tool without installing any Azure Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that has the same hardware configuration as that of one of the Hyper-V servers that you will use to enable disaster recovery protection to Azure. 
 
 The tool provides the following details:
 
@@ -87,13 +87,12 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 |---|---|
 |Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Azure Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers' VMs to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more to add servers into TrustedHosts list](#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
 | Report generation | A Windows PC or Windows Server with Microsoft Excel 2013 or later |
-| User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials i.e. user name and password
- |
+| User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials i.e. user name and password|
 
 ## Steps to add servers into TrustedHosts List
 1.	The VM from where the tool is to be deployed should have all the hosts to be profiled in its TrustedHosts list. To add the client into Trustedhosts list run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2 or Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+        set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
 
 2.	Each Hyper-V Host that needs to be profiled should have:
 
@@ -116,9 +115,9 @@ The recommended configuration of the VM: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 3.	Extract the .zip folder.
 The folder contains multiple files and subfolders. The executable file is ASRDeploymentPlanner.exe in the parent folder.
 
-Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.0.zip
+Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
@@ -131,7 +130,10 @@ If you have previous version of the deployment planner, do either of the followi
   >
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
+## Version history
+The latest ASR Deployment Planner tool version is 2.1.
+Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+
 ## Next steps
 * [Run the deployment planner](site-recovery-hyper-v-deployment-planner-run.md).
-<!-- Update_Description: new articles on site recovery hyper v deplyment planner -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: add version history content -->

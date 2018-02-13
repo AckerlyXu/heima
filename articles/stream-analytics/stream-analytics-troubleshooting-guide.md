@@ -87,7 +87,7 @@ For best results in troubleshooting your Stream Analytics job, use the following
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
 
 ## Next steps
 

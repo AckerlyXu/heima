@@ -19,8 +19,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
       | Start now | The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM | 
       | Scheduled | The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Auto-Scheduled window in this view or by clicking on the VM | 
       | Completed | You have successfully initiated and completed maintenance on your VM. | 
-      | Skipped| You have selected to initiate maintenance with no success. | 
-      | Retry later| You have selected to initiate maintenance and Azure was not able to fulfill your request. In this case, you can try again in a later time. | 
+      | Skipped| You have selected to initiate maintenance with no success. You will not be able to use the  self-service maintenance option. Your VM will have to be rebooted by Azure during the scheduled maintenance phase. | 
 
     **Maintenance Pro-Active** - shows the time window when you can self-start maintenance on your VMs.
 
@@ -52,5 +51,5 @@ Once you start maintenance, your virtual machine will be rebooted and the mainte
 
 If you missed the window where you can start maintenance, you will still be able to see the window when your VM will be rebooted by Azure.
 
-<!--Update_Description: new articles on common maintenance notifications-->
-<!--ms.date: 10/23/2017 -->
+<!--Update_Description: remove the Retry Later status in Line 23-->
+<!--ms.date: 01/29/2018 -->

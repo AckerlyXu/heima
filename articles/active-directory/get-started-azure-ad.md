@@ -9,7 +9,7 @@ manager: digimobile
 ms.author: v-nany
 ms.reviewer: jsnow
 origin.date: 11/14/2017
-ms.date: 1/1/2018
+ms.date: 1/29/2018
 ms.topic: article
 ms.prod:
 ms.service: active-directory
@@ -59,4 +59,5 @@ After creating or synchronizing new users, make sure they are visible in Azure A
 
 
 ## Next steps
-[Azure Active Directory Product Page](https://www.azure.cn/home/features/identity/)
+[Azure Active Directory service page](https://www.azure.cn/home/features/identity/)
+[Azure Active Directory pricing information page](https://www.azure.cn/pricing/details/identity/)

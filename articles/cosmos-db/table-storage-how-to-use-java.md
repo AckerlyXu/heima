@@ -23,7 +23,7 @@ ms.author: v-yeche
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Microsoft Azure Storage SDK for Java][Microsoft Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#Next-Steps) section.
+This guide will show you how to perform common scenarios using the Azure Table storage service. The samples are written in Java and use the [Microsoft Azure Storage SDK for Java][Microsoft Azure Storage SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Microsoft Azure Storage SDK for Android][Microsoft Azure Storage SDK for Android].
@@ -578,7 +578,7 @@ catch (Exception e)
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage Team Blog][Azure Storage Team Blog]
 
-For more information, visit [Azure for Java developers](https://docs.azure.cn/java/azure).
+For more information, visit [Azure for Java developers](https://docs.azure.cn/java).
 
 [Azure SDK for Java]: /develop/java/
 [Microsoft Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

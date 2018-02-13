@@ -15,11 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
 
 ---
-
 # Manage databases in Azure SQL Data Warehouse
 SQL Data Warehouse automates many aspects of managing your databases. For example, to scale performance you only need to adjust and pay for the right level of compute resources, and then let SQL Data Warehouse do all the work of scaling out and scaling back.
 
@@ -46,7 +45,7 @@ To get started with the Azure portal, see [Create a SQL Data Warehouse (Azure po
 ### SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) in Visual Studio allows you to connect to, manage, and develop your databases. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio.
 
-SSDT includes the SQL Server Object Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure Classic Management Portal.  
+SSDT includes the SQL Server Object Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure portal.  
 
 To get started with SSDT in Visual Studio, see [Query Azure SQL Data Warehouse with Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
@@ -92,9 +91,9 @@ Using good database design principles will make it easier to manage your databas
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md -->
 [Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell.md
-[connection]: sql-data-warehouse-develop-connections.md
+<!-- Not Available on [connection]: sql-data-warehouse-develop-connections.md -->
 [Query Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
@@ -108,7 +107,8 @@ Using good database design principles will make it easier to manage your databas
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure portal]: http://portal.azure.cn/
+<!-- Update_Description: update meta properties, wording update -->

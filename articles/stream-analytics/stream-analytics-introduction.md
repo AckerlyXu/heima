@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 10/17/2017
-ms.date: 12/11/2017
+ms.date: 01/22/2018
 ms.author: v-yeche
 
 ---
@@ -41,7 +41,7 @@ This diagram illustrates the Stream Analytics pipeline, showing how data is inge
 
 Stream Analytics starts with a source of streaming data. The data can be ingested into Azure from a device using an Azure event hub or IoT hub. The data can also be pulled from a data store like Azure Blob Storage. 
 
-To examine the stream, you create a Stream Analytics *job* that specifies from where the data comes. The job also specifies a *transformation*;how to look for data, patterns, or relationships. For this task, Stream Analytics supports a SQL-like query language to  filter, sort, aggregate, and join streaming data over a time period.
+To examine the stream, you create a Stream Analytics *job* that specifies from where the data comes. The job also specifies a *transformation*; how to look for data, patterns, or relationships. For this task, Stream Analytics supports a SQL-like query language to  filter, sort, aggregate, and join streaming data over a time period.
 
 Finally, the job specifies an output for that transformed data. You control what to do in response to the information you've analyzed. For example, in response to analysis, you might:
 
@@ -89,6 +89,6 @@ As a managed service, Stream Analytics helps prevent data loss and provides busi
 
 * Get started by [experimenting with inputs and queries from IoT devices](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
 * Build an [end-to-end Stream Analytics solution](stream-analytics-real-time-fraud-detection.md) that examines telephone metadata to look for fraudulent calls.
-* Find answers to your Stream Analytics questions in the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+* Find answers to your Stream Analytics questions in the [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/).
 
 <!--Update_Description: update meta properties, wording update -->

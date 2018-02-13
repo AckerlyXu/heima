@@ -21,7 +21,7 @@ There are two common scenarios for configuring two or more regions:
 
 For delivering low-latency to end-users, it is recommended to deploy both the application and add Azure Cosmos DB in the regions thats correspond to where the application's users are located.
 
-For BCDR, it is recommended to add regions based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr] article.
+<!-- Not Available on [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr] -->
 
 <!--
 
@@ -37,6 +37,7 @@ While all regions associated with your Cosmos DB database account can serve read
     ![Change the write region by selecting a new region in list under Azure Cosmos DB Account > Replicate data globally > Manual Failover][3]
 
 --->
+<!-- Not Available on ## Select the write region -->
 
 <!--Image references-->
 [1]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-add-region.png
@@ -44,9 +45,9 @@ While all regions associated with your Cosmos DB database account can serve read
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: /best-practices-availability-paired-regions/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
 [consistency]: ../articles/cosmos-db/consistency-levels.md
-[azureregions]: https://www.azure.cn/support/service-dashboard/#services
+[azureregions]: https://www.azure.cn/support/service-dashboard/
 [offers]: https://www.azure.cn/pricing/details/cosmos-db/
 
 <!--Update_Description: wording update-->

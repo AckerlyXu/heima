@@ -30,7 +30,6 @@ An Azure SQL database can be:
 - A [single database](sql-database-single-database-resources.md) with its own set of resources
 - Part of an [elastic pool](sql-database-elastic-pool.md) that shares a set of resources
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
-- Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
 > [!TIP]
 > For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 
@@ -214,7 +213,7 @@ To create and manage Azure SQL server, databases, and firewalls use these REST A
 |[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Recommended Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](https://docs.microsoft.com/api/sql/databases/update)|Updates an existing database.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Updates an existing database.|
 |[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
 |[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
 |[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Gets a firewall rule.|

@@ -4,7 +4,7 @@ description: Learn about the options for monitoring your database with Azure too
 keywords: database monitoring, cloud database performance
 services: sql-database
 documentationcenter: ''
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: ''
 
@@ -14,10 +14,11 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-origin.date: 09/20/2017
-ms.date: 11/06/2017
-ms.author: v-johch
+ms.workload: "On Demand"
+ms.date: 09/20/2017
+ms.author: v-nany
+author: yunan2016
+
 
 ---
 # Monitoring database performance in Azure SQL Database
@@ -31,9 +32,9 @@ In the [Azure portal](https://portal.azure.cn), you can monitor a single databas
 * Data IO percentage
 * Database size percentage
 
-Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more details on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
+Once you’ve added these metrics, you can continue to view them in the **Monitoring** chart with more details on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [service tiers](sql-database-service-tiers.md) article for details about DTUs.
 
-![Service tier monitoring of database performance.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+![Service tier monitoring of database performance.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
 You can also configure alerts on the performance metrics. Click the **Add alert** button in the **Metric** window. Follow the wizard to configure your alert. You have the option to alert if the metrics exceed a certain threshold or if the metric falls below a certain threshold.
 

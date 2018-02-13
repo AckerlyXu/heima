@@ -27,6 +27,9 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+> [!IMPORTANT]
+> This CLI script provides an estimated size for the container and should not be used for billing calculations.
+
 ## Sample script
 
 ```azurecli

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/29/2017
-ms.date: 12/25/2017
+origin.date: 12/20/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 
 ---
@@ -28,7 +28,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | Error code | Mitigation | More information |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Follow naming restrictions for storage accounts. | [Resolve storage account name](resource-manager-storage-account-name-errors.md) |
-| AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/templates/microsoft.storage/storageaccounts) |
+| AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | The cluster or region does not have resources available or cannot support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) and [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal does not have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope. | [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) |
@@ -36,7 +36,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | Conflict | You are requesting an operation that is not permitted in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
 | DnsRecordInUse | The DNS record name must be unique. Either provide a different name, or modify the existing record. | |
-| ImageNotFound | Check VM image settings. | [Troubleshoot Linux images](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) and [Troubleshoot Windows images](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Check VM image settings. |  |
 | InUseSubnetCannotBeDeleted | You may encounter this error when attempting to update a resource, but the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
 | InvalidContentLink | You have most likely attempted to link to a nested template that is not available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. | [Linked templates](resource-group-linked-templates.md) |
@@ -59,7 +59,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [IP addresses](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [IP addresses](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Some properties cannot be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you are trying to perform during deployment. Find the policy that blocks the action. If possible, modify your deployment to meet the limitations from the policy. | [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you are trying to perform during deployment. Find the policy that blocks the action. If possible, modify your deployment to meet the limitations from the policy. |  |
 | ReservedResourceName | Provide a resource name that does not include a reserved name. | [Reserved resource names](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
 | ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_set) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext) |
@@ -70,7 +70,7 @@ This article describes some common Azure deployment errors you may encounter, an
 | StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Resolve storage account name](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Check the subscription, resource group, and name of the storage account you are attempting to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying multiple NICs, make sure they belong to the same virtual network. | [Multiple NICs](../virtual-machines/windows/multiple-nics.md) |
-
+<!-- Not Available on RequestDisallowedByPolicy [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
 ## Find error code
 
 When you encounter an error during deployment, Resource Manager returns an error code. You can see the error message through the portal, PowerShell, or Azure CLI. The outer error message may be too general for troubleshooting. Look for the inner message that contains detailed information about the error. For more information, see [Determine error code](resource-manager-troubleshoot-tips.md#determine-error-code).

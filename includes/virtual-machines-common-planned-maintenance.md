@@ -37,6 +37,7 @@ If you decide to wait until the planned maintenance window, there are a few thin
 ### Paired Regions
 
 Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in China North, Azure will not update any Virtual Machines in China East at the same time. However, other regions such as China North can be under maintenance at the same time as China East. Understanding how region pairs work can help you better distribute your VMs across regions.
+<!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
 
 ### Availability sets and scale sets
 
@@ -46,7 +47,7 @@ Within an availability set, individual VMs are spread across up to 20 update dom
 
 Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for [Windows](../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
 <!--Update_Description: wording update-->
-<!--ms.date: 10/23/2017-->
+<!--ms.date: 01/08/2018,  NO Changes TO OVERWRITE ON ZH-CN REPOSITORY -->

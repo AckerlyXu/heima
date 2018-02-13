@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/19/2017
+origin.date: 1/22/2018
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ---
@@ -24,10 +24,12 @@ An encoding job is associated with an input asset (or assets) on which you want 
 
 If you want to examine the metadata file, you can create a **SAS** locator and download the file to your local computer.  
 
-This topic discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](media-services-input-metadata-schema.md).  
+This article discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
->You can find the complete schema code and XML example at the end of this topic.  
+> You can find the complete schema code and XML example at the end of this article.  
+>
+>
 
 ## <a name="AssetFiles "></a> AssetFiles root element
 Collection of AssetFile entries for the encoding job.  
@@ -51,7 +53,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | Name | Description |
 | --- | --- |
 | **Sources** |Collection of input/source media files, that was processed in order to produce this AssetFile. For more information, see [Source element](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. For more information, see [VideoTracks element](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see [AudioTracks element](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Sources element
@@ -62,7 +64,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Child elements
 | Name | Description |
 | --- | --- |
-| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information see [Source element](media-services-output-metadata-schema.md). |
+| **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information, see [Source element](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a> Source element
 An input/source file used when generating this asset.  
@@ -75,7 +77,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **Name**<br/><br/> Required |**xs:string** |Input source file name. |
 
 ## <a name="VideoTracks "></a> VideoTracks element
-Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks.  
+Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. The **VideoTracks** element represents a collection of all the video tracks.  
 
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
@@ -92,7 +94,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 ### Attributes
 | Name | Type | Description |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Zero-based index of this video track. **Note:**  This is not necessarily the TrackID as used in an MP4 file. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Zero-based index of this video track. **Note:**  This **Id** is not necessarily the TrackID as used in an MP4 file. |
 | **FourCC**<br/><br/> Required |**xs:string** |Video codec FourCC code. |
 | **Profile** |**xs:string** |H264 profile (only applicable to H264 codec). |
 | **Level** |**xs:string** |H264 level (only applicable to H264 codec). |
@@ -107,7 +109,7 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Max GOP average bitrate for this video track, in kilobits per second. |
 
 ## <a name="AudioTracks "></a> AudioTracks element
-Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks.  
+Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. The **AudioTracks** element represents a collection of all those audio tracks.  
 
 You can find an XML example [XML example](media-services-output-metadata-schema.md#xml).  
 
@@ -157,356 +159,357 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
 | **TruePeakUnit**<br/><br/> fixed="dBTP"<br/><br/> Required |**xs:anySimpleType** |True peak unit. |
 
 ## Schema Code
-```
-<?xml version="1.0" encoding="utf-8"?>  
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
-           xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
-           targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
-           elementFormDefault="qualified">  
-  <xs:element name="AssetFiles">  
-    <xs:annotation>  
-      <xs:documentation>Collection of AssetFile entries for the encoding job</xs:documentation>  
-    </xs:annotation>  
-    <xs:complexType>  
-      <xs:sequence>  
-        <xs:element name="AssetFile" minOccurs="1" maxOccurs="unbounded">  
-          <xs:annotation>  
-            <xs:documentation>asset file</xs:documentation>  
-          </xs:annotation>  
-          <xs:complexType>  
-            <xs:sequence>  
-              <xs:element name="Sources">  
-                <xs:annotation>  
-                  <xs:documentation>Collection of input/source media files, that was processed in order to produce this AssetFile</xs:documentation>  
-                </xs:annotation>  
-                <xs:complexType>  
-                  <xs:sequence>  
-                    <xs:element name="Source" minOccurs="1" maxOccurs="unbounded">  
-                      <xs:annotation>  
-                        <xs:documentation>An input/source file used when generating this asset</xs:documentation>  
-                      </xs:annotation>  
-                      <xs:complexType>  
-                        <xs:attribute name="Name" type="xs:string" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>input source file name</xs:documentation>  
-                          </xs:annotation>  
-                        </xs:attribute>  
-                      </xs:complexType>  
-                    </xs:element>  
-                  </xs:sequence>  
-                </xs:complexType>  
-              </xs:element>  
-              <xs:element name="VideoTracks" minOccurs="0">  
-                <xs:annotation>  
-                  <xs:documentation>Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks</xs:documentation>  
-                </xs:annotation>  
-                <xs:complexType>  
-                  <xs:sequence>  
-                    <xs:element name="VideoTrack" maxOccurs="unbounded">  
-                      <xs:annotation>  
-                        <xs:documentation>A specific video track in the parent AssetFile</xs:documentation>  
-                      </xs:annotation>  
-                      <xs:complexType>  
-                        <xs:attribute name="Id" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>zero-based index of this video track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="FourCC" type="xs:string" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>video codec FourCC code</xs:documentation>  
-                          </xs:annotation>  
-                        </xs:attribute>  
-                        <xs:attribute name="Profile" type="xs:string">  
-                          <xs:annotation>  
-                            <xs:documentation>H264 profile (only appliable for H264 codec)</xs:documentation>  
-                          </xs:annotation>  
-                        </xs:attribute>  
-                        <xs:attribute name="Level" type="xs:string">  
-                          <xs:annotation>  
-                            <xs:documentation>H264 level (only appliable for H264 codec)</xs:documentation>  
-                          </xs:annotation>  
-                        </xs:attribute>  
-                        <xs:attribute name="Width" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>encoded video width in pixels</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="Height" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>encoded video height in pixels</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="DisplayAspectRatioNumerator" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>video display aspect ratio numerator</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:double">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="DisplayAspectRatioDenominator" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>video display aspect ratio denominator</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:double">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="Framerate" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>measured video frame rate in .3f format</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:decimal">  
-                              <xs:minInclusive value="0"/>  
-                              <xs:fractionDigits value="3"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="TargetFramerate" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>preset target video frame rate in .3f format</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:decimal">  
-                              <xs:minInclusive value="0"/>  
-                              <xs:fractionDigits value="3"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="Bitrate" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="TargetBitrate" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>target average bitrate for this video track, as requested via the encoding preset, in kilobits per second</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="MaxGOPBitrate">  
-                          <xs:annotation>  
-                            <xs:documentation>Max GOP average bitrate for this video track, in kilobits per second</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                      </xs:complexType>  
-                    </xs:element>  
-                  </xs:sequence>  
-                </xs:complexType>  
-              </xs:element>  
-              <xs:element name="AudioTracks" minOccurs="0">  
-                <xs:annotation>  
-                  <xs:documentation>each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks</xs:documentation>  
-                </xs:annotation>  
-                <xs:complexType>  
-                  <xs:sequence>  
-                    <xs:element name="AudioTrack" maxOccurs="unbounded">  
-                      <xs:annotation>  
-                        <xs:documentation>a specific audio track in the parent AssetFile</xs:documentation>  
-                      </xs:annotation>  
-                      <xs:complexType>  
-                        <xs:sequence>  
-                          <xs:element name="LoudnessMeteringResultParameters" minOccurs="0" maxOccurs="1">  
-                            <xs:annotation>  
-                              <xs:documentation>Loudness Metering Result Parameters</xs:documentation>  
-                            </xs:annotation>  
-                            <xs:complexType>  
-                              <xs:attribute name="DPLMVersionInformation" type="xs:string">  
-                                <xs:annotation>  
-                                  <xs:documentation>Dolby Professional Loudness Metering Development Kit Version</xs:documentation>  
-                                </xs:annotation>  
-                              </xs:attribute>  
-                              <xs:attribute name="DialogNormalization" use="required">  
-                                <xs:annotation>  
-                                  <xs:documentation> DialogNormalization generated through DPLM, required when LoudnessMetering is set</xs:documentation>  
-                                </xs:annotation>  
-                                <xs:simpleType>  
-                                  <xs:restriction base="xs:int">  
-                                    <xs:minInclusive value="-31"/>  
-                                    <xs:maxInclusive value="-1"/>  
-                                  </xs:restriction>  
-                                </xs:simpleType>  
-                              </xs:attribute>  
-                              <xs:attribute name="IntegratedLoudness" use="required">  
-                                <xs:annotation>  
-                                  <xs:documentation>Integrated loudness</xs:documentation>  
-                                </xs:annotation>  
-                                <xs:simpleType>  
-                                  <xs:restriction base="xs:float">  
-                                    <xs:minInclusive value="-70"/>  
-                                    <xs:maxInclusive value="10"/>  
-                                  </xs:restriction>  
-                                </xs:simpleType>  
-                              </xs:attribute>  
-                              <xs:attribute name="IntegratedLoudnessUnit" use="required" type="xs:string">  
-                              </xs:attribute>  
-                              <xs:attribute name="IntegratedLoudnessGatingMethod" use="required" type="xs:string">  
-                                <xs:annotation>  
-                                  <xs:documentation>Gating identifier</xs:documentation>  
-                                </xs:annotation>  
-                              </xs:attribute>  
-                              <xs:attribute name="IntegratedLoudnessSpeechPercentage">  
-                                <xs:annotation>  
-                                  <xs:documentation>Speech content over the program, as a percentage.</xs:documentation>  
-                                </xs:annotation>  
-                                <xs:simpleType>  
-                                  <xs:restriction base="xs:float">  
-                                    <xs:minInclusive value="0"/>  
-                                    <xs:maxInclusive value="100"/>  
-                                  </xs:restriction>  
-                                </xs:simpleType>  
-                              </xs:attribute>  
-                              <xs:attribute name="SamplePeak" use="required" type="xs:float">  
-                                <xs:annotation>  
-                                  <xs:documentation>Peak absolute sample value, since reset or since it was last cleared, per channel.  Units are dBFS.</xs:documentation>  
-                                </xs:annotation>  
-                              </xs:attribute>  
-                              <xs:attribute name="SamplePeakUnit" use="required" fixed="dBFS">  
-                              </xs:attribute>  
-                              <xs:attribute name="TruePeak" use="required" type="xs:float">  
-                                <xs:annotation>  
-                                  <xs:documentation>Maximum True Peak value, as per ITU-R BS.1770-2, since reset or since it was last cleared, per channel.  Units are dBTP.</xs:documentation>  
-                                </xs:annotation>  
-                              </xs:attribute>  
-                              <xs:attribute name="TruePeakUnit" use="required" fixed="dBTP">  
-                              </xs:attribute>  
-                            </xs:complexType>  
-                          </xs:element>  
-                        </xs:sequence>  
-                        <xs:attribute name="Id" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>zero-based index of this audio track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="Codec" type="xs:string">  
-                          <xs:annotation>  
-                            <xs:documentation>audio track codec string</xs:documentation>  
-                          </xs:annotation>  
-                        </xs:attribute>  
-                        <xs:attribute name="EncoderVersion" type="xs:string">  
-                          <xs:annotation>  
-                            <xs:documentation>optional encoder version string, required for EAC3</xs:documentation>  
-                          </xs:annotation>  
-                        </xs:attribute>  
-                        <xs:attribute name="Channels" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>number of audio channels</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="SamplingRate" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>audio sampling rate in samples/sec or Hz</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="Bitrate" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                        <xs:attribute name="BitsPerSample" use="required">  
-                          <xs:annotation>  
-                            <xs:documentation>Bits per sample for the wFormatTag format type</xs:documentation>  
-                          </xs:annotation>  
-                          <xs:simpleType>  
-                            <xs:restriction base="xs:int">  
-                              <xs:minInclusive value="0"/>  
-                            </xs:restriction>  
-                          </xs:simpleType>  
-                        </xs:attribute>  
-                      </xs:complexType>  
-                    </xs:element>  
-                  </xs:sequence>  
-                </xs:complexType>  
-              </xs:element>  
-            </xs:sequence>  
-            <xs:attribute name="Name" type="xs:string" use="required">  
+    <?xml version="1.0" encoding="utf-8"?>  
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.2"  
+               xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
+               targetNamespace="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata"  
+               elementFormDefault="qualified">  
+      <xs:element name="AssetFiles">  
+        <xs:annotation>  
+          <xs:documentation>Collection of AssetFile entries for the encoding job</xs:documentation>  
+        </xs:annotation>  
+        <xs:complexType>  
+          <xs:sequence>  
+            <xs:element name="AssetFile" minOccurs="1" maxOccurs="unbounded">  
               <xs:annotation>  
-                <xs:documentation>the media asset file name</xs:documentation>  
+                <xs:documentation>asset file</xs:documentation>  
               </xs:annotation>  
-            </xs:attribute>  
-            <xs:attribute name="Size" use="required">  
-              <xs:annotation>  
-                <xs:documentation>size of file in bytes</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:long">  
-                  <xs:minInclusive value="0"/>  
-                </xs:restriction>  
-              </xs:simpleType>  
-            </xs:attribute>  
-            <xs:attribute name="Duration" use="required">  
-              <xs:annotation>  
-                <xs:documentation>content play back duration</xs:documentation>  
-              </xs:annotation>  
-              <xs:simpleType>  
-                <xs:restriction base="xs:duration"/>  
-              </xs:simpleType>  
-            </xs:attribute>  
-          </xs:complexType>  
-        </xs:element>  
-      </xs:sequence>  
-    </xs:complexType>  
-  </xs:element>  
-</xs:schema>  
-```
+              <xs:complexType>  
+                <xs:sequence>  
+                  <xs:element name="Sources">  
+                    <xs:annotation>  
+                      <xs:documentation>Collection of input/source media files, that was processed in order to produce this AssetFile</xs:documentation>  
+                    </xs:annotation>  
+                    <xs:complexType>  
+                      <xs:sequence>  
+                        <xs:element name="Source" minOccurs="1" maxOccurs="unbounded">  
+                          <xs:annotation>  
+                            <xs:documentation>An input/source file used when generating this asset</xs:documentation>  
+                          </xs:annotation>  
+                          <xs:complexType>  
+                            <xs:attribute name="Name" type="xs:string" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>input source file name</xs:documentation>  
+                              </xs:annotation>  
+                            </xs:attribute>  
+                          </xs:complexType>  
+                        </xs:element>  
+                      </xs:sequence>  
+                    </xs:complexType>  
+                  </xs:element>  
+                  <xs:element name="VideoTracks" minOccurs="0">  
+                    <xs:annotation>  
+                      <xs:documentation>Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks</xs:documentation>  
+                    </xs:annotation>  
+                    <xs:complexType>  
+                      <xs:sequence>  
+                        <xs:element name="VideoTrack" maxOccurs="unbounded">  
+                          <xs:annotation>  
+                            <xs:documentation>A specific video track in the parent AssetFile</xs:documentation>  
+                          </xs:annotation>  
+                          <xs:complexType>  
+                            <xs:attribute name="Id" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>zero-based index of this video track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="FourCC" type="xs:string" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>video codec FourCC code</xs:documentation>  
+                              </xs:annotation>  
+                            </xs:attribute>  
+                            <xs:attribute name="Profile" type="xs:string">  
+                              <xs:annotation>  
+                                <xs:documentation>H264 profile (only appliable for H264 codec)</xs:documentation>  
+                              </xs:annotation>  
+                            </xs:attribute>  
+                            <xs:attribute name="Level" type="xs:string">  
+                              <xs:annotation>  
+                                <xs:documentation>H264 level (only appliable for H264 codec)</xs:documentation>  
+                              </xs:annotation>  
+                            </xs:attribute>  
+                            <xs:attribute name="Width" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>encoded video width in pixels</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="Height" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>encoded video height in pixels</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="DisplayAspectRatioNumerator" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>video display aspect ratio numerator</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:double">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="DisplayAspectRatioDenominator" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>video display aspect ratio denominator</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:double">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="Framerate" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>measured video frame rate in .3f format</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:decimal">  
+                                  <xs:minInclusive value="0"/>  
+                                  <xs:fractionDigits value="3"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="TargetFramerate" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>preset target video frame rate in .3f format</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:decimal">  
+                                  <xs:minInclusive value="0"/>  
+                                  <xs:fractionDigits value="3"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="Bitrate" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="TargetBitrate" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>target average bitrate for this video track, as requested via the encoding preset, in kilobits per second</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="MaxGOPBitrate">  
+                              <xs:annotation>  
+                                <xs:documentation>Max GOP average bitrate for this video track, in kilobits per second</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                          </xs:complexType>  
+                        </xs:element>  
+                      </xs:sequence>  
+                    </xs:complexType>  
+                  </xs:element>  
+                  <xs:element name="AudioTracks" minOccurs="0">  
+                    <xs:annotation>  
+                      <xs:documentation>each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks</xs:documentation>  
+                    </xs:annotation>  
+                    <xs:complexType>  
+                      <xs:sequence>  
+                        <xs:element name="AudioTrack" maxOccurs="unbounded">  
+                          <xs:annotation>  
+                            <xs:documentation>a specific audio track in the parent AssetFile</xs:documentation>  
+                          </xs:annotation>  
+                          <xs:complexType>  
+                            <xs:sequence>  
+                              <xs:element name="LoudnessMeteringResultParameters" minOccurs="0" maxOccurs="1">  
+                                <xs:annotation>  
+                                  <xs:documentation>Loudness Metering Result Parameters</xs:documentation>  
+                                </xs:annotation>  
+                                <xs:complexType>  
+                                  <xs:attribute name="DPLMVersionInformation" type="xs:string">  
+                                    <xs:annotation>  
+                                      <xs:documentation>Dolby Professional Loudness Metering Development Kit Version</xs:documentation>  
+                                    </xs:annotation>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="DialogNormalization" use="required">  
+                                    <xs:annotation>  
+                                      <xs:documentation> DialogNormalization generated through DPLM, required when LoudnessMetering is set</xs:documentation>  
+                                    </xs:annotation>  
+                                    <xs:simpleType>  
+                                      <xs:restriction base="xs:int">  
+                                        <xs:minInclusive value="-31"/>  
+                                        <xs:maxInclusive value="-1"/>  
+                                      </xs:restriction>  
+                                    </xs:simpleType>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="IntegratedLoudness" use="required">  
+                                    <xs:annotation>  
+                                      <xs:documentation>Integrated loudness</xs:documentation>  
+                                    </xs:annotation>  
+                                    <xs:simpleType>  
+                                      <xs:restriction base="xs:float">  
+                                        <xs:minInclusive value="-70"/>  
+                                        <xs:maxInclusive value="10"/>  
+                                      </xs:restriction>  
+                                    </xs:simpleType>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="IntegratedLoudnessUnit" use="required" type="xs:string">  
+                                  </xs:attribute>  
+                                  <xs:attribute name="IntegratedLoudnessGatingMethod" use="required" type="xs:string">  
+                                    <xs:annotation>  
+                                      <xs:documentation>Gating identifier</xs:documentation>  
+                                    </xs:annotation>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="IntegratedLoudnessSpeechPercentage">  
+                                    <xs:annotation>  
+                                      <xs:documentation>Speech content over the program, as a percentage.</xs:documentation>  
+                                    </xs:annotation>  
+                                    <xs:simpleType>  
+                                      <xs:restriction base="xs:float">  
+                                        <xs:minInclusive value="0"/>  
+                                        <xs:maxInclusive value="100"/>  
+                                      </xs:restriction>  
+                                    </xs:simpleType>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="SamplePeak" use="required" type="xs:float">  
+                                    <xs:annotation>  
+                                      <xs:documentation>Peak absolute sample value, since reset or since it was last cleared, per channel.  Units are dBFS.</xs:documentation>  
+                                    </xs:annotation>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="SamplePeakUnit" use="required" fixed="dBFS">  
+                                  </xs:attribute>  
+                                  <xs:attribute name="TruePeak" use="required" type="xs:float">  
+                                    <xs:annotation>  
+                                      <xs:documentation>Maximum True Peak value, as per ITU-R BS.1770-2, since reset or since it was last cleared, per channel.  Units are dBTP.</xs:documentation>  
+                                    </xs:annotation>  
+                                  </xs:attribute>  
+                                  <xs:attribute name="TruePeakUnit" use="required" fixed="dBTP">  
+                                  </xs:attribute>  
+                                </xs:complexType>  
+                              </xs:element>  
+                            </xs:sequence>  
+                            <xs:attribute name="Id" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>zero-based index of this audio track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="Codec" type="xs:string">  
+                              <xs:annotation>  
+                                <xs:documentation>audio track codec string</xs:documentation>  
+                              </xs:annotation>  
+                            </xs:attribute>  
+                            <xs:attribute name="EncoderVersion" type="xs:string">  
+                              <xs:annotation>  
+                                <xs:documentation>optional encoder version string, required for EAC3</xs:documentation>  
+                              </xs:annotation>  
+                            </xs:attribute>  
+                            <xs:attribute name="Channels" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>number of audio channels</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="SamplingRate" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>audio sampling rate in samples/sec or Hz</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="Bitrate" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                            <xs:attribute name="BitsPerSample" use="required">  
+                              <xs:annotation>  
+                                <xs:documentation>Bits per sample for the wFormatTag format type</xs:documentation>  
+                              </xs:annotation>  
+                              <xs:simpleType>  
+                                <xs:restriction base="xs:int">  
+                                  <xs:minInclusive value="0"/>  
+                                </xs:restriction>  
+                              </xs:simpleType>  
+                            </xs:attribute>  
+                          </xs:complexType>  
+                        </xs:element>  
+                      </xs:sequence>  
+                    </xs:complexType>  
+                  </xs:element>  
+                </xs:sequence>  
+                <xs:attribute name="Name" type="xs:string" use="required">  
+                  <xs:annotation>  
+                    <xs:documentation>the media asset file name</xs:documentation>  
+                  </xs:annotation>  
+                </xs:attribute>  
+                <xs:attribute name="Size" use="required">  
+                  <xs:annotation>  
+                    <xs:documentation>size of file in bytes</xs:documentation>  
+                  </xs:annotation>  
+                  <xs:simpleType>  
+                    <xs:restriction base="xs:long">  
+                      <xs:minInclusive value="0"/>  
+                    </xs:restriction>  
+                  </xs:simpleType>  
+                </xs:attribute>  
+                <xs:attribute name="Duration" use="required">  
+                  <xs:annotation>  
+                    <xs:documentation>content play back duration</xs:documentation>  
+                  </xs:annotation>  
+                  <xs:simpleType>  
+                    <xs:restriction base="xs:duration"/>  
+                  </xs:simpleType>  
+                </xs:attribute>  
+              </xs:complexType>  
+            </xs:element>  
+          </xs:sequence>  
+        </xs:complexType>  
+      </xs:element>  
+    </xs:schema>  
+
+
 
 ## <a name="xml"></a> XML example
- The following is an example of the Output metadata file.  
+
+The following XML is an example of the Output metadata file.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
@@ -592,4 +595,5 @@ You can find an XML example [XML example](media-services-output-metadata-schema.
           <AudioTrack Id="0" Codec="AacLc" Channels="2" SamplingRate="44100" Bitrate="53" BitsPerSample="16"/>  
         </AudioTracks>  
       </AssetFile>  
-    </AssetFiles>
+    </AssetFiles>  
+

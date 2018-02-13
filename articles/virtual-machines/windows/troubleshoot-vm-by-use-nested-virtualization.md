@@ -12,9 +12,10 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/06/2017
-ms.date: 11/27/2017
+origin.date: 02/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 ---
 # Troubleshoot a problem Azure VM by using nested virtualization in Azure
@@ -37,7 +38,7 @@ To mount the problem VM, the Recovery VM must meet the following prerequisite:
 
     -  Operating system: Windows Server 2016 Datacenter
 
-    -  Size: Any V3 series with at least two cores that support nested virtualization. For more information, see [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blogintroducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Size: Any V3 series with at least two cores that support nested virtualization. For more information, see [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  Same location, Storage Account, and Resource Group as the problem VM.
 
@@ -136,3 +137,6 @@ You can also use Azure PowerShell to create the VM from the disk. For more infor
 ## Next steps
 
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
+
+<!-- Update_Description: new article on troubleshoot VM by user nested vitualization -->
+<!--ms.date: 02/05/2018-->

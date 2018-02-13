@@ -23,7 +23,7 @@ ms.author: v-yeche
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+<!-- Not Available on > * [Azure Portal](sql-data-warehouse-get-started-provision.md) -->
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
@@ -66,14 +66,14 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-[how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md -->
 [Query Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
 [migrate]: sql-data-warehouse-overview-migrate.md
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-overview-load.md
 [load sample data]: sql-data-warehouse-load-sample-databases.md
 [Create an Azure SQL database with the Azure Portal]: ../sql-database/sql-database-get-started.md
-[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
+<!-- Not Available on [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell -->
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 [Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md

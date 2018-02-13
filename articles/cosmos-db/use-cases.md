@@ -30,13 +30,16 @@ After reading this article, you'll be able to answer the following questions:
 * What are the benefits of using Azure Cosmos DB for web and mobile applications?
 
 ## Introduction
-[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://www.azure.cn/support/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency. 
+[Azure Cosmos DB](../cosmos-db/introduction.md) is 21Vianet's multiple-region distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first multiple-region distributed database service in the market today to offer comprehensive [service level agreements](https://www.azure.cn/support/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency. 
+<!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It supports multiple data models (key-value, documents and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
+Azure Cosmos DB is a multiple-region distributed, multi-model database that is used in a wide range of applications and use cases. It supports multiple data models (key-value, documents and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
+<!-- Notice: 全球 to 多个区域 -->
 <!--Not Available on [serverless](http://azure.com/serverless) -->
 
-The following are some attributes of Azure Cosmos DB that make it well-suited for high-performance applications with global ambition.
+The following are some attributes of Azure Cosmos DB that make it well-suited for high-performance applications with multiple-region ambition.
+<!-- Notice: 全球 to 多个区域 -->
 
 * Azure Cosmos DB natively partitions your data for high availability and scalability. Azure Cosmos DB offers 99.99% guarantees for availability, throughput, low latency, and consistency on all single-region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.
 * Azure Cosmos DB has SSD backed storage with low-latency order-of-millisecond response times.
@@ -56,7 +59,7 @@ Bursts of data can be ingested by Azure Event Hubs as it offers high throughput 
 
 For a sample IoT solution using Azure Cosmos DB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
+<!-- URL is NOT correct on  [Create the Internet of Your Things](http://www.microsoft.com/zh-cn/server-cloud/internet-of-things.aspx) -->
 
 ## Retail and marketing
 Azure Cosmos DB is used extensively in Microsoft's own e-commerce platforms, that run the Windows Store and XBox Live. It is also used in the retail industry for storing catalog data and for event sourcing in order processing pipelines.
@@ -103,6 +106,7 @@ Many of the social applications run at global scale and can exhibit unpredictabl
 Nowadays, modern applications come with complex views and experiences. These are typically dynamic, catering to user preferences or moods and branding needs. Hence, applications need to be able to retrieve personalized settings effectively to render UI elements and experiences quickly. 
 
 JSON, a format supported by Cosmos DB, is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript. Cosmos DB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in Cosmos DB is an effective means to get this data across the wire.
+<!-- Notice: 全球 to 多个区域 -->
 
 ![Azure Cosmos DB web app reference architecture](./media/use-cases/personalization.png)
 

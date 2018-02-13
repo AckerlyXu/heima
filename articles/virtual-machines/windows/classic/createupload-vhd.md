@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 12/18/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 
 ---
@@ -29,7 +29,7 @@ This article shows you how to upload your own generalized VM image as a virtual 
 ## Prerequisites
 This article assumes you have:
 
-* **An Azure subscription** - If you don't have one, you can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
+* **An Azure subscription** - If you don't have one, you can [open an Azure account](https://www.azure.cn/pricing/1rmb-trial).
 * **[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)** - You have the Azure PowerShell module installed and configured to use your subscription.
 * **A .VHD file** - supported Windows operating system stored in a .vhd file and attached to a virtual machine. Check to see if the server roles running on the VHD are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -103,4 +103,4 @@ Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountN
 
 ## Next steps
 You can now [create a custom VM](createportal.md) using the image you uploaded.
-<!-- Update_Description: update meta properties, add classic portal migration notice. -->
+<!-- Update_Description: update meta properties, update link  -->

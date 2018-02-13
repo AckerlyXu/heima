@@ -22,7 +22,7 @@ ms.author: v-yeche
 # Create SQL Data Warehouse using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+<!-- Not Available on > * [Azure Portal](sql-data-warehouse-get-started-provision.md) -->
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
@@ -95,7 +95,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [How to install and configure Azure PowerShell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
-[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md -->
 [Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group

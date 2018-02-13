@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/21/2017
-ms.date: 10/16/2017
+origin.date: 12/13/2017
+ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: mvc
 ---
@@ -70,13 +70,13 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate). 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
+Finally, set the state of the VM as generalized with [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
 
 ```azurecli 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -84,7 +84,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### Create the image
 
-Now you can create an image of the VM by using [az image create](https://docs.azure.cn/zh-cn/cli//azure/image?view=azure-cli-latest#create). The following example creates an image named *myImage* from a VM named *myVM*.
+Now you can create an image of the VM by using [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#create). The following example creates an image named *myImage* from a VM named *myVM*.
 
 ```azurecli 
 az image create \
@@ -114,7 +114,7 @@ List all images by name in a table format.
 
 ```azurecli 
 az image list \
-  --resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.

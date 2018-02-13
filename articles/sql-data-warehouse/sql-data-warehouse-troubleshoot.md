@@ -15,10 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 origin.date: 03/30/2017
-ms.date: 07/17/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
----
 
+---
 # Troubleshooting Azure SQL Data Warehouse
 This topic lists some of the more common troubleshooting questions we hear from our customers.
 
@@ -30,6 +30,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | CTAIP error |This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create create a login and user on master and then how to create a user in the SQL Data Warehouse database. |
 | Blocked by Firewall |Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][Configure server firewall access for your client IP] in the [Provisioning instructions][Provisioning instructions]. |
 | Cannot connect with tool or driver |SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more details on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
+<!-- Not Available due to have not Sample DB in Portal on  [Provisioning instructions] [Configure server firewall access for your client IP] -->
 
 ## Tools
 | Issue | Resolution |
@@ -53,7 +54,7 @@ This topic lists some of the more common troubleshooting questions we hear from 
 | Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. |Either reduce the [DWU][DWU] of the database you are trying to create or [request a quota increase][request a quota increase]. |
 | Investigating space utilization |See [Table sizes][Table sizes] to understand the space utilization of your system. |
 | Help with managing tables |See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary]. |
-|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
+|Transparent data encryption (TDE) progress bar is not updating in the Azure Portal|You can view the state of TDE via [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## Polybase
 | Issue | Resolution |
@@ -76,24 +77,23 @@ If you are were unable to find a solution to your issue above, here are some oth
 
 * [Blogs]
 * [Feature requests]
-* [CAT team blogs]
 * [MSDN forum]
 
 <!--Image references-->
 
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
-[SSMS]: https://msdn.microsoft.com/zh-cn/library/mt238290.aspx
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 [SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
+[Create support ticket]: https://support.windowsazure.cn/support/support-azure
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-<!-- Not Available [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
+[request a quota increase]: https://support.windowsazure.cn/support/support-azure
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -117,15 +117,12 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[sys.database_principals]: https://msdn.microsoft.com/zh-cn/library/ms187328.aspx
-[CREATE FUNCTION]: https://msdn.microsoft.com/zh-cn/library/mt203952.aspx
+[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
+[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Blogs]: https://www.azure.cn/blog/tags/SQL%20数据库
+[Feature requests]: https://www.azure.cn/support/support-ticket-form/
+[MSDN forum]: https://www.azure.cn/support/forums/
+<!-- Update_Description: update meta properties, wording update, update link -->

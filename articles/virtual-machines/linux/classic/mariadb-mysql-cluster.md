@@ -337,7 +337,7 @@ The database you created returns the following table:
     2 rows in set (0.00 sec)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
+## <a name="next-steps"></a>Next steps
 In this article, you created a three-node MariaDB + Galera highly available cluster on Azure virtual machines running CentOS 7. The VMs are load balanced with Azure Load Balancer.
 
 You might want to look at [another way to cluster MySQL on Linux](mysql-cluster.md) and ways to [optimize and test MySQL performance on Azure Linux VMs](optimize-mysql.md).

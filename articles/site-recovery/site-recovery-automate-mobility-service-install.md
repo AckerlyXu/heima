@@ -56,8 +56,9 @@ This article provides an example of how you can use Azure Automation Desired Sta
 * Windows Management Framework (WMF) 5.0 installed on the machines that you want to enable for protection (a requirement for Automation DSC)
 
     > [!NOTE]
-    > If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](## Use DSC in disconnected environments).
+    > If you want to use DSC for Windows machines that have WMF 4.0 installed, see the section [Use DSC in disconnected environments](#use-dsc-in-disconnected-environments).
 
+<!-- Archor is Correct on [Use DSC in disconnected environments](#use-dsc-in-disconnected-environments) -->
 The Mobility service can be installed through the command line and accepts several arguments. That's why you need to have the binaries (after extracting them from your setup) and store them in a place where you can retrieve them by using a DSC configuration.
 
 ## Step 1: Extract binaries
@@ -345,7 +346,6 @@ That's it. You have now successfully deployed and registered the Mobility servic
 
 After the management server detects the successful deployment, you can configure protection and enable replication on the machine by using Site Recovery.
 
-<a name="Use DSC in disconnected environments"></a>
 ## Use DSC in disconnected environments
 If your machines aren't connected to the Internet, you can still rely on DSC to deploy and configure the Mobility service on the workloads that you want to protect.
 

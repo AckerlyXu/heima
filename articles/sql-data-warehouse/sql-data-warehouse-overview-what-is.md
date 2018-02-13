@@ -15,8 +15,9 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 origin.date: 10/23/2017
-ms.date: 12/11/2017
+ms.date: 01/15/2018
 ms.author: v-yeche
+
 ---
 # What is Azure SQL Data Warehouse?
 
@@ -31,7 +32,7 @@ In a cloud data solution, data is ingested into big data stores from a variety o
 
 SQL Data Warehouse stores data into relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored in SQL Data Warehouse, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days. 
 
-The analysis results can go to worldwide reporting databases or applications. Busineses analysts can then gain insights to make well-informed business decisions.
+The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
 ## Optimization choices
 
@@ -42,16 +43,17 @@ SQL Data Warehouse offers [performance tiers](performance-tiers.md) designed for
 - The **Optimized for Compute performance tier** uses the latest Azure hardware to introduce a new NVMe Solid State Disk cache that keeps the most frequently accessed data close to the CPUs, which is exactly where you want it. By automatically tiering the storage, this performance tier excels with complex queries since all IO is kept local to the compute layer. Furthermore, the columnstore is enhanced to store an unlimited amount of data in your SQL Data Warehouse. The Optimized for Compute performance tier provides the greatest level of scalability, enabling you to scale up to 30,000 compute Data Warehouse Units (cDWU). Choose this tier for workloads that requires continuous, blazing fast, performance.
 
 ## Next steps
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
+Now that you know a bit about SQL Data Warehouse, learn how to quickly create a SQL Data Warehouse and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
+<!-- Not Available on [create a SQL Data Warehouse][create a SQL Data Warehouse] -->
 
-* [Customer success stories]
+<!-- Not Available * [Customer success stories]-->
 * [Blogs]
 * [Feature requests]
 <!-- Not Available * [Videos] -->
-* [Customer Advisory Team blogs]
+<!-- Not Available * [Customer Advisory Team blogs]-->
 <!-- Not Available * [Create support ticket]-->
 * [MSDN forum]
-* [Stack Overflow forum]
+<!-- Not Available * [Stack Overflow forum]-->
 <!-- Not Available * [Twitter] -->
 
 <!--Image references-->
@@ -60,9 +62,9 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--Article references-->
 <!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-<!-- Not Available [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md-->
+<!-- Not Available [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md
@@ -70,16 +72,16 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+<!--Not Available [Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse -->
+[Blogs]: https://www.azure.cn/blog/tags/SQL%20数据库
+<!--Not Available [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/ -->
+[Feature requests]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn
 [MSDN forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+<!--Not Available [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw-->
 <!--Not Available on [Twitter]: https://twitter.com/hashtag/SQLDW -->
 <!--Not Available on [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse -->
 [SLA for SQL Data Warehouse]: https://www.azure.cn/support/sla/sql-data-warehouse/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://www.azure.cn/support/legal/sla/
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->
