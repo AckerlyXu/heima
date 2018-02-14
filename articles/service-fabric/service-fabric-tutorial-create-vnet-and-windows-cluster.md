@@ -98,7 +98,8 @@ Use the following PowerShell command to deploy the Resource Manager template and
 New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
 ```
 
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+<a name="createvaultandcert"></a>
+<a name="createvaultandcert_anchor"></a>
 ## Deploy the Service Fabric cluster
 Once the network resources have finished deploying, the next step is to deploy a Service Fabric cluster to the VNET in the subnet and NSG designated for the Service Fabric cluster. Deploying a cluster to an existing VNET and subnet (deployed previously in this article) requires a Resource Manager template.  For this tutorial series, the template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in a previous step.  
 
