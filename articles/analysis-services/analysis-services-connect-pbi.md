@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/10/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -32,28 +32,26 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 1. In Power BI Desktop, click **Get Data** > **Azure** > **Azure Analysis Services database**.
 
-2. In **Server**, enter the server name. 
+2. In **Server**, enter the server name. Be sure to include the full URL; for example, asazure://chinanorth.asazure.chinacloudapi.cn/advworks.
+<!-- Not Available on China East -->
 
-    Be sure to include the full URL. For example, asazure://chinanorth.asazure.chinacloudapi.cn/advworks.
-    <!--Not Available on China East-->
-    
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank and select a database or perspective later.
 
-4. Leave the default **Connect live** option, then press **Connect**. 
+4. Leave the default **Connect live** option, then press **Connect**. Import connections are not currently supported.
 
 5. If prompted, enter your login credentials. 
 
-6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, then click **Connect**. Click  a model or perspective to show all the objects for that view.
+6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, and then click **Connect**. Click a model or perspective to show all objects for that view.
 
     The model opens in Power BI Desktop with a blank report in Report view. The Fields list displays all non-hidden model objects. Connection status is displayed in the lower-right corner.
 
 ## Connect in Power BI (service)
 
 1. Create a Power BI Desktop file that has a live connection to your model on your server.
-2. In [Power BI](https://powerbi.microsoft.com), click **Get Data** > **Files**. Locate and select your file.
+2. In [Power BI](https://powerbi.microsoft.com), click **Get Data** > **Files**, then locate and select your .pbix file.
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
 [Client libraries](analysis-services-data-providers.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

@@ -14,13 +14,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ---
-# Lesson 5: Create calculated columns
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# Create calculated columns
 
 In this lesson, you create data in your model by adding calculated columns. You can create calculated columns (as custom columns) when using Get Data, by using the Query Editor, or later in the model designer like you do here. To learn more, see [Calculated columns](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
 
@@ -131,4 +129,4 @@ The ProductCategoryName calculated column is used to create a hierarchy in the D
 ## What's next?
 [Lesson 6: Create measures](../tutorials/aas-lesson-6-create-measures.md).
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->
