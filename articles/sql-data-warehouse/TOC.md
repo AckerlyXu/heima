@@ -1,7 +1,7 @@
 # Overview
 
 ## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
-
+## [Cheat sheet](cheat-sheet.md)
 <!-- Not Available # Quickstarts-->
 
 <!-- Not Available ## [Create and connect - portal](create-data-warehouse-portal.md)-->
@@ -31,7 +31,7 @@
 
 ## Load & move data
 ### [Overview](design-elt-data-loading.md)
-### [Guidance](guidance-for-loading-data.md)
+### [Best practices](guidance-for-loading-data.md)
 
 ## Integrate
 ### [Overview](sql-data-warehouse-overview-integrate.md)
@@ -85,12 +85,11 @@
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
 ## Load & move data
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso public data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 <!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
-### [PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -131,4 +130,4 @@
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->
-<!-- ms.date: 01/15/2018 -->
+<!-- ms.date: 02/26/2018 -->
