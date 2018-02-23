@@ -118,7 +118,7 @@ Learn how to manage your DNS records using Azure Domain Name System, a hosting s
             <div class="card">
                 <div class="cardText">
                     <h3>Languages</h3>
-                    <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
+                    <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
                     <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.dns">Java</a></p>
                     <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
                     <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>

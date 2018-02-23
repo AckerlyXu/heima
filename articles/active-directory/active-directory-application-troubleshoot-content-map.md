@@ -31,6 +31,6 @@ The following links will bring you to a content map which will help you to resol
 ## Problems with Application Management
 The following links will bring you to a content map which will help you to resolve some of the most common issues faced when managing **Enterprise Applications** in Azure Active Directory.
 
-* [Problems with Application Configuration](active-directory-application-config-content-map.md)
+
 * [Problems with Sign-in](active-directory-application-sign-in-content-map.md)
 * [Problems Managing Access](active-directory-application-access-content-map.md)
