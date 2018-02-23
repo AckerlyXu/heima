@@ -1,5 +1,5 @@
 ---
-title: What is Azure Analysis Services | Azure
+title: Azure Analysis Services overview| Azure
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 12/08/2017
-ms.date: 12/25/2017
+origin.date: 01/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
-# What is Azure Analysis Services?
+# Azure Analysis Services overview
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
@@ -60,6 +60,7 @@ Azure Analysis Services servers can be created in the following [Azure regions](
 |--------------|
 | China North |
 <!-- Not Available on China East for Azure Analysis Services -->
+
 New regions are being added all the time, so this list might be incomplete. You choose a location when you create your server in Azure portal or by using Azure Resource Manager templates. To get the best performance, choose a location nearest your largest user base. Assure [high availability](analysis-services-bcdr.md) by deploying your models on redundant servers in multiple regions.
 
 ## Migrate your existing tabular models
@@ -119,7 +120,7 @@ Azure Analysis Services is simple to set up and to manage. You can find all the 
 
 <!-- Not Available ### Videos -->
 #### Blogs
-Things are changing rapidly. You can always get the latest information on the [Analysis Services team blog](https://www.azure.cn/blog/tags/Azure%20分析服务).
+Things are changing rapidly. You can always get the latest information on the [Azure blog](https://www.azure.cn/blog/tags/Azure%20分析服务).
 
 <!-- Not Available #### Community -->
 <!-- Not Available ## Feedback -->
@@ -127,4 +128,4 @@ Things are changing rapidly. You can always get the latest information on the [A
 ## Next steps
 Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure. When your server is ready, step through the [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md) to learn how to create a fully functional tabular model and deploy it to your server.
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

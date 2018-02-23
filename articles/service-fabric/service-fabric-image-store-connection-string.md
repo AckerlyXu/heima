@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/02/2017
-ms.date: 12/04/2017
+origin.date: 01/10/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -33,6 +33,7 @@ There are currently three possible kinds of Image Store providers and their corr
 2. File System: "file:[file system path]"
 
 3. Azure Storage: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.cloudapp.chinacloudapi.cn"
+<!-- Add the EndpointSuffix in configuration of EndpointSuffix=core.cloudapp.chinacloudapi.cn -->
 
 The provider type used in production is the Image Store Service, which is a stateful persisted system service that you can see from Service Fabric Explorer. 
 

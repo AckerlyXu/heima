@@ -91,8 +91,9 @@ A master key is a security token to access all resources for an account. Individ
 ### What are the regions that PreferredLocations can be set to? 
 The PreferredLocations value can be set to any of the Azure regions in which Cosmos DB is available. For a list of available regions, see [Azure regions](https://www.azure.cn/support/service-dashboard/).
 
-### Is there anything I should be aware of when distributing data across the world via the Azure datacenters? 
+### Is there anything I should be aware of when distributing data across the multiple-region via the Azure datacenters? 
 Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://www.azure.cn/support/service-dashboard/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
+<!-- Notice: WORLD to multiple-region(多个区域分配) -->
 
 When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a sovereign region, you cannot replicate out of that sovereign region. Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 

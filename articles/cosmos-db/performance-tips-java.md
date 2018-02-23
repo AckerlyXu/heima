@@ -37,9 +37,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There is one key configuration setting available for configuring the client [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) - the [ConnectionMode](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode).  The two available ConnectionModes are:
 
-   1. [Gateway (default)](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode.gateway)
-   2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode.directhttps)
-
+    1. [Gateway (default)](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)
+    2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)
+    <!-- URL is valid on ._connection_mode without gateay and directhttps -->
+    
     Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
 
     The Java SDK uses HTTPS as a transport protocol. HTTPS uses SSL for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
@@ -78,7 +79,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="max-connection"></a>
 3. **Increase MaxPoolSize per host when using Gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) to change the value.
+    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) is 100. Use [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) to change the value.
+<!-- URL is valid on ._connection_mode without gsetmaxpoolsize -->
 
 4. **Tuning parallel queries for partitioned collections**
 

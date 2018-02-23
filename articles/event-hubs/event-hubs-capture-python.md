@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 11/20/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 
 ---
@@ -115,7 +115,8 @@ This sample uses the [Azure Python SDK](/develop/python/) to demonstrate the Cap
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
@@ -172,4 +173,4 @@ You can learn more about Event Hubs by visiting the following links:
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

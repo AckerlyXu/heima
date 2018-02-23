@@ -14,13 +14,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ---
 # Supplemental lesson - Dynamic security
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In this supplemental lesson, you create an additional role that implements dynamic security. Dynamic security provides row-level security based on the user name or login id of the user currently logged on. 
 
@@ -187,4 +185,4 @@ In this task, you use the Analyze in Excel feature in SSDT to test the efficacy 
 [LOOKUPVALUE Function (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA Function (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->
