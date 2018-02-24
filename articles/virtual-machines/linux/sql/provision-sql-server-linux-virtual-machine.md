@@ -161,18 +161,25 @@ If you need to remotely connect to SQL Server on the Azure VM, you must configur
 
 1. Click **OK** to save the rule for your VM.
 
-### Open the firewall on RHEL
+### Open the firewall on Ubuntu
+<!-- Replace RHEL to Ubuntu -->
 
-This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If you want to connect remotely to RHEL VMs, you also have to open up port 1433 on the Linux firewall.
+This tutorial directed you to create a Ubuntu VM. If you want to connect remotely to Ubuntu VMs, you also have to open up port 1433 on the Linux firewall.
+<!-- Replace RHEL to Ubuntu -->
 
-1. [Connect](#connect) to your RHEL VM.
+1. [Connect](#connect) to your Ubuntu VM.
+<!-- Replace RHEL to Ubuntu -->
 
 1. In the BASH shell, run the following commands:
 
-   ```bash
-   sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd --reload
-   ```
+    ```bash
+    sudo ufw enable
+    sudo ufw allow 1433
+    sudo ufw reload
+    sudo ufw status
+    ```
+<!-- Replace the RHEL to Ubuntu -->
+
 
 ## Next steps
 
