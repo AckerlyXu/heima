@@ -21,10 +21,13 @@
 ### [1- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
 <!-- Not Available on ### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)-->
 
+<!--Not Available 
 ## Create a Linux container app
-<!--Not Available ### [1- Create container images](service-fabric-tutorial-create-container-images.md) -->
+### [1- Create container images](service-fabric-tutorial-create-container-images.md)
 ### [2- Package and deploy containers](service-fabric-tutorial-package-containers.md)
 ### [3- Fail over and scale](service-fabric-tutorial-containers-failover.md)
+The az acr is not support in MC
+-->
 
 ## Create and manage a cluster
 ### 1- Create a cluster on Azure
