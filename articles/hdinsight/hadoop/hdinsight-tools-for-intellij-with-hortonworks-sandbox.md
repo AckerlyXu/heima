@@ -1,5 +1,5 @@
 ---
-title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox | Azure
+title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ with Hortonworks Sandbox.
 keywords: hadoop tools,hive query,intellij,hortonworks sandbox,azure toolkit for intellij
 services: HDInsight
@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---

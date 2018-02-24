@@ -1,5 +1,5 @@
 ---
-title: Run Sqoop jobs by using .NET and HDInsight - Azure | Microsoft Docs
+title: Run Sqoop jobs by using .NET and HDInsight
 description: Learn how to use the HDInsight .NET SDK to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
 keywords: sqoop job
 editor: cgronlun
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
 
 ---
@@ -28,7 +28,6 @@ Learn how to use the Azure HDInsight .NET SDK to run Sqoop jobs in HDInsight to 
 
 > [!NOTE]
 > Although you can use the procedures in this article with either a Windows-based or Linux-based HDInsight cluster, they work only from a Windows client. To choose other methods, use the tab selector at the top of this article.
-> 
 > 
 
 ## Prerequisites
