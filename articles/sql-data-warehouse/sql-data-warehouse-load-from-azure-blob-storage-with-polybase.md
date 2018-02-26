@@ -37,7 +37,8 @@ In this tutorial you will:
 3. Perform optimizations after the load is finished.
 
 ## Before you begin
-To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
+To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. 
+<!-- Not Avaiable on If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
 
 ## 1. Configure the data source
 PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data itself is stored externally.
@@ -356,7 +357,8 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+<!-- Not Avaiable on [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md -->
+<!-- Need to append when sample SQL Server has been implement in Mooncake-->
 [Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
