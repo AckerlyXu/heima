@@ -20,6 +20,7 @@ ms.date: 1/22/2018
 ms.author: v-nany
 
 ---
+<a name="create-an-azure-sql-database-logical-server"></a>
 # Create an Azure SQL database in the Azure portal
 
 This quick start tutorial walks through how to create a SQL database in Azure. Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quick start shows you how to get started by creating a SQL database using the Azure portal.
